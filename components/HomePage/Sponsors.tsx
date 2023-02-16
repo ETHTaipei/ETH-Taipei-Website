@@ -13,49 +13,49 @@ const Sponsors = () => {
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
           <SponsorContainer>
             <FontAwesomeIcon
               icon={faImage}
-              color={Colors.gray1}
+              color={Colors.seaSalt}
               fontSize={32}
             />
           </SponsorContainer>
@@ -70,6 +70,9 @@ export default Sponsors;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -84,7 +87,7 @@ const MainContent = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.gray1};
+  color: ${Colors.pennBlue};
   margin-bottom: 20px;
 `;
 
@@ -102,6 +105,6 @@ const SponsorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${Colors.gray6};
+  background-color: ${Colors.yInMnBlue};
   padding: 20px;
 `;

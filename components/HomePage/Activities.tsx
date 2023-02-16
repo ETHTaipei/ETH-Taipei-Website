@@ -10,23 +10,27 @@ const Activities = () => {
           <ActivityTitle>Hackathon</ActivityTitle>
           <ActivityDate>Apr 21 (Fri) → Apr 23 (Sun)</ActivityDate>
           <ActivityDescription>
-            Other than food, Taiwan is also known as one of the best sources for
-            talented developers, and it is no exception when it comes to
-            Ethereum builders. If you’re looking forward to connecting with
-            local talents, stay tuned on our sponsor program to get top exposure
-            during the hackathon. And for hackers, come hack with others while
-            enjoying free food, free drinks, and win the prize! Application
-            coming soon 👀
+            {`The ETHTaipei hackathon is a three-day event where developers can
+            compete for prizes sponsored by our sponsors. Participants will work
+            together in teams to develop new blockchain applications using
+            Ethereum technologies. The hackathon is free to attend and includes
+            workshops and talks from industry experts. It's the perfect
+            opportunity to gain hands-on experience and connect with other
+            blockchain builders from around the world.`}
           </ActivityDescription>
         </ActivityContainer>
         <ActivityContainer>
           <ActivityTitle>Conference</ActivityTitle>
           <ActivityDate>Apr 24 (Mon), Apr 25 (Tue)</ActivityDate>
           <ActivityDescription>
-            The conference is going to focus on three topics: DeFi, zk, and
-            building in the Ethereum ecosystem. If you have a great topic in
-            mind, we’re currently looking for speakers to join the party. See
-            more detail and apply to speak here!
+            {`The ETHTaipei conference is a two-day event featuring two tracks:
+            DeFi and Ethereum Technology. The DeFi track focuses on
+            decentralized finance, while the Ethereum Technology track covers a
+            range of topics including Zero-Knowledge Proofs, Layer 2, Security,
+            and more. This event brings together industry experts and innovators
+            to explore the latest developments in blockchain technology. Tickets
+            are required to attend and provide access to both tracks and
+            networking opportunities.`}
           </ActivityDescription>
         </ActivityContainer>
       </MainContent>
@@ -38,7 +42,10 @@ export default Activities;
 
 const Container = styled.div`
   width: 100%;
-  padding: 120px 0;
+  padding: 120px 40px;
+  @media (max-width: 768px) {
+    padding: 40px 24px 60px 24px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -47,12 +54,15 @@ const MainContent = styled.div`
   margin: auto;
   display: flex;
   gap: 32px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ActivityContainer = styled.div`
   flex: 1;
   padding: 32px;
-  background-color: ${Colors.gray6};
+  background-color: ${Colors.yInMnBlue};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -65,22 +75,22 @@ const ActivityTitle = styled.h2`
   font-size: 24px;
   font-weight: bold;
   line-height: 32px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   display: block;
 `;
 
 const ActivityDate = styled.h2`
   font-size: 16px;
   line-height: 24px;
-  color: ${Colors.gray1};
-  padding: 4px 16px;
+  color: ${Colors.pennBlue};
+  padding: 4px 24px;
   display: inline-block;
-  background-color: ${Colors.gray5};
-  border-radius: 8px;
+  border-radius: 100px;
+  background-color: ${Colors.seaSalt};
 `;
 
 const ActivityDescription = styled.span`
   font-size: 16px;
   line-height: 24px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
 `;
