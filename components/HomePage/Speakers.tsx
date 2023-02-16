@@ -14,7 +14,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -25,7 +25,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -36,7 +36,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -47,7 +47,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -58,7 +58,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -69,7 +69,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -80,7 +80,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -91,7 +91,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -102,7 +102,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -113,7 +113,7 @@ const Speakers = () => {
             <SpeakerIcon>
               <FontAwesomeIcon
                 icon={faUser}
-                color={Colors.gray1}
+                color={Colors.seaSalt}
                 fontSize={20}
               />
             </SpeakerIcon>
@@ -131,7 +131,10 @@ export default Speakers;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.gray6};
+  background-color: ${Colors.yInMnBlue};
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -146,7 +149,7 @@ const MainContent = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   margin-bottom: 20px;
 `;
 
@@ -155,6 +158,12 @@ const SpeakersContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 50px 100px;
   margin-top: 40px;
+  @media (max-width: 992px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-gap: 40px 40px;
+  }
 `;
 
 const SpeakerContainer = styled.div`
@@ -178,11 +187,11 @@ const SpeakerIcon = styled.div`
 const SpeakerName = styled.span`
   font-size: 18px;
   line-height: 24px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
 `;
 
 const SpeakerCompany = styled.span`
   font-size: 14px;
   line-height: 24px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
 `;
