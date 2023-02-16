@@ -3,7 +3,16 @@ import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTwitter,
+  faTelegram,
+  faDiscord,
+} from "@fortawesome/free-brands-svg-icons";
+import { openNewTab } from "@/public/utils/ common";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import logo from "@/public/images/horizontal-transparent.png";
+import { discordUrl, telegramUrl, twitterUrl } from "@/public/constant/urls";
 
 const navItems = [
   {
@@ -32,37 +41,25 @@ function Header() {
     router.push(url);
   };
 
-  const _renderNavItem = (nav: {
-    label: string;
-    value?: string;
-    disabled?: boolean;
-  }) => (
-    <NavContainer onClick={() => handleClick(nav.value || "")}>
-      <Nav>{nav.label}</Nav>
-    </NavContainer>
-  );
-
   return (
     <Container>
       <MainContent>
-        <LogoContainer>
-          <Logo>
-            <NavList>
-              <NavContainer onClick={() => handleClick("/")}>
-                <Nav>ETH Taipei</Nav>
-              </NavContainer>
-            </NavList>
-          </Logo>
+        <LogoContainer onClick={() => router.push("/")}>
+          <Image src={logo} alt="logo" fill />
         </LogoContainer>
         <MenuBtn onClick={() => setNavIsOpen(!navIsOpen)}>
-          <FontAwesomeIcon icon={faBars} fontSize={20} color={Colors.gray1} />
+          <FontAwesomeIcon
+            icon={faBars}
+            fontSize={20}
+            color={Colors.pennBlue}
+          />
         </MenuBtn>
         <NavsContainer open={navIsOpen}>
           <CloseBtn isShow={navIsOpen} onClick={() => setNavIsOpen(!navIsOpen)}>
             <FontAwesomeIcon
               icon={faXmark}
               fontSize={20}
-              color={Colors.gray1}
+              color={Colors.pennBlue}
             />
           </CloseBtn>
           <Navs>
@@ -77,6 +74,17 @@ function Header() {
               ))}
             </NavList>
           </Navs>
+          <SocialMediaContainer>
+            <IconButton onClick={() => openNewTab(twitterUrl)}>
+              <Icon icon={faTwitter} />
+            </IconButton>
+            <IconButton onClick={() => openNewTab(telegramUrl)}>
+              <Icon icon={faTelegram} />
+            </IconButton>
+            <IconButton onClick={() => openNewTab(discordUrl)}>
+              <Icon icon={faDiscord} />
+            </IconButton>
+          </SocialMediaContainer>
         </NavsContainer>
       </MainContent>
     </Container>
@@ -91,12 +99,14 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
+  background-color: ${Colors.seaSalt};
+  box-shadow: inset 0px -1px 0px #dddddd;
 `;
 
 const MainContent = styled.header`
   width: 100%;
   max-width: 1280px;
-  height: 90px;
+  height: 70px;
   margin: auto;
   padding: 0 20px;
   display: flex;
@@ -106,14 +116,19 @@ const MainContent = styled.header`
   transition: transform 300ms ease-in-out;
   transform: ${(props) => (props.hidden ? "translateY(-100%)" : null)};
   @media (max-width: 992px) {
-    height: 70px;
+    height: 60px;
   }
 `;
 
 const LogoContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  position: relative;
+  width: 200px;
+  height: 100%;
+  cursor: pointer;
+  > img {
+    object-fit: contain;
+    object-position: left;
+  }
 `;
 
 const NavsContainer = styled.div<{ open: boolean }>`
@@ -133,7 +148,7 @@ const NavsContainer = styled.div<{ open: boolean }>`
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: ${Colors.gray7};
+    background-color: ${Colors.yInMnBlue};
     transition: all 350ms ease-in-out;
   }
 `;
@@ -177,13 +192,14 @@ const NavContainer = styled.div`
 const Nav = styled.li`
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 24px;
-  color: ${Colors.gray1};
+  font-size: 16px;
+  line-height: 20px;
+  color: ${Colors.pennBlue};
   cursor: pointer;
   @media (max-width: 992px) {
     width: 100%;
     text-align: center;
+    color: ${Colors.seaSalt};
   }
 `;
 
@@ -209,17 +225,30 @@ const CloseBtn = styled.button<{ isShow: boolean }>`
   }
 `;
 
-const Logo = styled.div`
-  position: relative;
-  cursor: pointer;
+const SocialMediaContainer = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  width: 188px;
-  height: 44px;
+  gap: 12px;
   @media (max-width: 992px) {
-    width: 157px;
-    height: 36px;
+    margin-top: 20px;
   }
+`;
+
+const IconButton = styled.button`
+  padding: 4px;
+  cursor: pointer;
+  color: ${Colors.pennBlue};
+  :hover {
+    color: ${Colors.aero};
+  }
+  :active {
+    transform: scale(0.9);
+  }
+  @media (max-width: 992px) {
+    color: ${Colors.seaSalt};
+  }
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 24px;
 `;

@@ -1,11 +1,16 @@
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
+
+import banner from "@/public/images/vertical-transparent.png";
 
 const Banner = () => {
   return (
     <Container>
-      <Title>ETH Taipei</Title>
+      <ImageContainer>
+        <Image src={banner} alt="logo" fill />
+      </ImageContainer>
       <ActivitiesContainer>
         <ActivityContainer>
           <ActivityTitle>Hackathon</ActivityTitle>
@@ -34,11 +39,18 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  font-size: 40px;
-  line-height: 54px;
-  color: ${Colors.gray1};
-  display: block;
+const ImageContainer = styled.div`
+  position: relative;
+  width: 400px;
+  height: 400px;
+  > image {
+    object-fit: contain;
+    object-position: center;
+  }
+  @media (max-width: 768px) {
+    width: 240px;
+    height: 240px;
+  }
 `;
 
 const ActivitiesContainer = styled.div`
@@ -47,13 +59,19 @@ const ActivitiesContainer = styled.div`
   justify-content: center;
   gap: 16px;
   width: 400px;
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 `;
 
 const ActivityContainer = styled.div`
   flex: 1;
   padding: 20px;
   border-radius: 8px;
-  background-color: ${Colors.gray6};
+  background-color: ${Colors.yInMnBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,13 +82,13 @@ const ActivityTitle = styled.h2`
   font-size: 20px;
   line-height: 28px;
   font-weight: bold;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   display: block;
 `;
 
 const ActivityDate = styled.h3`
   font-size: 16px;
   line-height: 24px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   display: block;
 `;

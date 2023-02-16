@@ -17,7 +17,10 @@ export default Organizers;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.gray6};
+  background-color: ${Colors.yInMnBlue};
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
 `;
 const MainContent = styled.div`
   width: 100%;
@@ -31,6 +34,6 @@ const MainContent = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   margin-bottom: 20px;
 `;

@@ -1,20 +1,14 @@
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
+import Agendas from "@/components/AgendaPage/Agendas";
 
 const Agenda = () => {
   return (
     <div>
-      <Title>Agenda</Title>
+      <Agendas />
     </div>
   );
 };
 
 export default Agenda;
-
-const Title = styled.h2`
-  font-size: 24px;
-  line-height: 32px;
-  color: ${Colors.gray1};
-  margin-bottom: 20px;
-`;
