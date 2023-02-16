@@ -24,8 +24,11 @@ export default Introduction;
 
 const Container = styled.div`
   width: 100%;
-  padding: 120px 0px 200px 0px;
-  background-color: ${Colors.gray6};
+  padding: 120px 40px 200px 40px;
+  background-color: ${Colors.yInMnBlue};
+  @media (max-width: 768px) {
+    padding: 60px 24px 120px 24px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -42,12 +45,12 @@ const TextContainer = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
   margin-bottom: 20px;
 `;
 
 const Description = styled.span`
   font-size: 16px;
   line-height: 28px;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
 `;

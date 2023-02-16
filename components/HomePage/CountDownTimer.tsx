@@ -74,8 +74,13 @@ const Container = styled.div`
   margin: auto;
   padding: 20px 40px;
   transform: translate(0, -50%);
-  background-color: ${Colors.gray5};
+  background-color: ${Colors.pennBlue};
   border-radius: 8px;
+  @media (max-width: 576px) {
+    width: 100%;
+    border-radius: 0px;
+    padding: 20px 0px;
+  }
 `;
 
 const TimerContainer = styled.div`
@@ -95,11 +100,19 @@ const Value = styled.span`
   font-size: 24px;
   line-height: 32px;
   font-weight: bold;
-  color: ${Colors.gray1};
+  color: ${Colors.seaSalt};
+  @media (max-width: 576px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const Unit = styled.span`
   font-size: 18px;
   line-height: 24px;
-  color: ${Colors.gray3};
+  color: ${Colors.seaSalt};
+  @media (max-width: 576px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
 `;

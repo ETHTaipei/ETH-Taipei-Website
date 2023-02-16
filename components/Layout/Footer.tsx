@@ -16,7 +16,8 @@ export default Footer;
 
 const Container = styled.div`
   width: 100%;
-  padding: 40px 0;
+  padding: 20px 0;
+  box-shadow: inset 0px 1px 0px #dddddd;
 `;
 
 const MainFooter = styled.div`
@@ -30,7 +31,7 @@ const MainFooter = styled.div`
 `;
 
 const EventName = styled.h4`
-  color: ${Colors.gray1};
+  color: ${Colors.pennBlue};
   @media (max-width: 992px) {
     font-size: 12px;
     line-height: 18px;
