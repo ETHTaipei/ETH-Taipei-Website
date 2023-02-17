@@ -149,7 +149,7 @@ const MainContent = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
   margin-bottom: 20px;
 `;
 
@@ -187,11 +187,11 @@ const SpeakerIcon = styled.div`
 const SpeakerName = styled.span`
   font-size: 18px;
   line-height: 24px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
 `;
 
 const SpeakerCompany = styled.span`
   font-size: 14px;
   line-height: 24px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
 `;

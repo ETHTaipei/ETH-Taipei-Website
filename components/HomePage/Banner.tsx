@@ -83,13 +83,13 @@ const ActivityTitle = styled.h2`
   font-size: 20px;
   line-height: 28px;
   font-weight: bold;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
   display: block;
 `;
 
 const ActivityDate = styled.h3`
   font-size: 16px;
   line-height: 24px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
   display: block;
 `;
