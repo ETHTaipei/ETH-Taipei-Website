@@ -58,7 +58,8 @@ const ActivitiesContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 16px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   @media (max-width: 768px) {
     padding: 0 24px;
   }
