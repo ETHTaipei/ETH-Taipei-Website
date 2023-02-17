@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,8 +37,14 @@ function Header() {
 
   const router = useRouter();
 
-  const handleClick = (url: string) => {
+  const handleNavClick = (url: string) => {
     router.push(url);
+    setNavIsOpen(false);
+  };
+
+  const handleSocialMediaOnClick = (url: string) => {
+    openNewTab(url);
+    setNavIsOpen(false);
   };
 
   return (
@@ -47,7 +53,7 @@ function Header() {
         <LogoContainer onClick={() => router.push("/")}>
           <Image src={logo} alt="logo" fill />
         </LogoContainer>
-        <MenuBtn onClick={() => setNavIsOpen(!navIsOpen)}>
+        <MenuBtn onClick={() => setNavIsOpen(true)}>
           <FontAwesomeIcon
             icon={faBars}
             fontSize={20}
@@ -67,7 +73,7 @@ function Header() {
               {navItems.map((nav) => (
                 <NavContainer
                   key={nav.label}
-                  onClick={() => handleClick(nav.value || "")}
+                  onClick={() => handleNavClick(nav.value || "")}
                 >
                   <Nav>{nav.label}</Nav>
                 </NavContainer>
@@ -75,13 +81,13 @@ function Header() {
             </NavList>
           </Navs>
           <SocialMediaContainer>
-            <IconButton onClick={() => openNewTab(twitterUrl)}>
+            <IconButton onClick={() => handleSocialMediaOnClick(twitterUrl)}>
               <Icon icon={faTwitter} />
             </IconButton>
-            <IconButton onClick={() => openNewTab(telegramUrl)}>
+            <IconButton onClick={() => handleSocialMediaOnClick(telegramUrl)}>
               <Icon icon={faTelegram} />
             </IconButton>
-            <IconButton onClick={() => openNewTab(discordUrl)}>
+            <IconButton onClick={() => handleSocialMediaOnClick(discordUrl)}>
               <Icon icon={faDiscord} />
             </IconButton>
           </SocialMediaContainer>
