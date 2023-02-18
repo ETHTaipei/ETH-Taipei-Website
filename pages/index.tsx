@@ -6,8 +6,7 @@ import Activities from "@/components/HomePage/Activities";
 import ApplicationForm from "@/components/HomePage/ApplicationForm";
 import Venue from "@/components/HomePage/Venue";
 import Speakers from "@/components/HomePage/Speakers";
-import Sponsors from "@/components/HomePage/Sponsors";
-import Organizers from "@/components/HomePage/Organizers";
+import SponsorsAndOrganizers from "@/components/HomePage/SponsorsAndOrganizers";
 
 const Home = () => {
   return (
@@ -19,8 +18,7 @@ const Home = () => {
       <ApplicationForm />
       <Venue />
       <Speakers />
-      <Sponsors />
-      <Organizers />
+      <SponsorsAndOrganizers />
     </div>
   );
 };
