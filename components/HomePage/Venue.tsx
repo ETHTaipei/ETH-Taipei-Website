@@ -1,3 +1,4 @@
+import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -7,15 +8,13 @@ const Venue = () => {
     <Container>
       <MainContent>
         <TextContainer>
-          <Title>The Venue</Title>
-          <Description>POPOP Taipei</Description>
-          <Description>
-            No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115
-          </Description>
+          <Title>{t.homepage.venue}</Title>
+          <Description>{t.homepage.venueName}</Description>
+          <Description>{t.homepage.venueAddress}</Description>
         </TextContainer>
         <ImageContainer>
           <Image
-            src={`https://maps.googleapis.com/maps/api/staticmap?center=No.+13,+Section+2,+Nangang+Rd,+Nangang+District,+Taipei+City&zoom=14&size=600x400&key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}`}
+            src={`https://maps.googleapis.com/maps/api/staticmap?center=${t.homepage.venueAddress}&zoom=14&size=600x400&key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}`}
             alt="map"
           />
         </ImageContainer>

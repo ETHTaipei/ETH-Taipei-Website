@@ -1,125 +1,30 @@
+import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
+import speakers from "@/public/constant/speakers";
 
 const Speakers = () => {
   return (
     <Container>
       <MainContent>
-        <Title>Speaker</Title>
+        <Title>{t.homepage.speakers}</Title>
         <SpeakersContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
-          <SpeakerContainer>
-            <SpeakerIcon>
-              <FontAwesomeIcon
-                icon={faUser}
-                color={Colors.seaSalt}
-                fontSize={20}
-              />
-            </SpeakerIcon>
-            <SpeakerName>Name Name</SpeakerName>
-            <SpeakerCompany>Company</SpeakerCompany>
-          </SpeakerContainer>
+          {speakers.map((speaker, i) => (
+            <SpeakerContainer key={i}>
+              <SpeakerIcon>
+                <FontAwesomeIcon
+                  icon={faUser}
+                  color={Colors.seaSalt}
+                  fontSize={20}
+                />
+              </SpeakerIcon>
+              <SpeakerName>{speaker.name}</SpeakerName>
+              <SpeakerCompany>{speaker.company}</SpeakerCompany>
+            </SpeakerContainer>
+          ))}
         </SpeakersContainer>
       </MainContent>
     </Container>

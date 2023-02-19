@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import banner from "@/public/images/vertical-transparent.png";
 import mountain from "@/public/images/mountain.jpg";
+import t from "@/public/constant/content";
 
 const Banner = () => {
   return (
@@ -15,12 +16,12 @@ const Banner = () => {
       </ImageContainer>
       <ActivitiesContainer>
         <ActivityContainer>
-          <ActivityTitle>Hackathon</ActivityTitle>
-          <ActivityDate>21 - 23 Apr</ActivityDate>
+          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
+          <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
         </ActivityContainer>
         <ActivityContainer>
-          <ActivityTitle>Conference</ActivityTitle>{" "}
-          <ActivityDate>24 - 25 Apr</ActivityDate>
+          <ActivityTitle>{t.homepage.conference}</ActivityTitle>
+          <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
         </ActivityContainer>
       </ActivitiesContainer>
     </Container>
