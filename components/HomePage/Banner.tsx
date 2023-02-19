@@ -4,10 +4,12 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import banner from "@/public/images/vertical-transparent.png";
+import mountain from "@/public/images/mountain.jpg";
 
 const Banner = () => {
   return (
     <Container>
+      <Image src={mountain} fill quality={100} alt="mountain" />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
@@ -28,14 +30,21 @@ const Banner = () => {
 export default Banner;
 
 const Container = styled.div`
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 70px);
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media (max-width: 992px) {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 60px);
+  }
+  position: relative;
+  > img {
+    object-fit: cover;
+    object-position: top;
+    z-index: -1;
+    filter: grayscale(0.5) brightness(1.2);
   }
 `;
 
