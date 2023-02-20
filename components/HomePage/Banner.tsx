@@ -9,7 +9,7 @@ import mountain from "@/public/images/mountain.jpg";
 const Banner = () => {
   return (
     <Container>
-      <Image src={mountain} fill quality={100} alt="mountain" />
+      <Image src={mountain} fill quality={60} alt="mountain" priority={true} />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>

@@ -1,6 +1,7 @@
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 const Venue = () => {
   return (
@@ -17,6 +18,7 @@ const Venue = () => {
           <Image
             src={`https://maps.googleapis.com/maps/api/staticmap?center=No.+13,+Section+2,+Nangang+Rd,+Nangang+District,+Taipei+City&zoom=14&size=600x400&key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}`}
             alt="map"
+            fill
           />
         </ImageContainer>
       </MainContent>
@@ -67,14 +69,12 @@ const Description = styled.span`
   color: ${Colors.pennBlue};
 `;
 
-const Image = styled.img`
+const ImageContainer = styled.div`
+  position: relative;
   width: 100%;
   min-height: 400px;
   border-radius: 8px;
-  overflow: hidden;
-  object-fit: contain;
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
+  > img {
+    object-fit: contain;
+  }
 `;
