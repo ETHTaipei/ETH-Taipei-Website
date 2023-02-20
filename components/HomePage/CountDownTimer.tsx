@@ -1,3 +1,4 @@
+import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -43,23 +44,23 @@ const CountdownTimer = () => {
       <TimerContainer>
         <Timer>
           <Value>{countdownTime.week}</Value>
-          <Unit>WEEKS</Unit>
+          <Unit>{t.homepage.weeks}</Unit>
         </Timer>
         <Timer>
           <Value>{countdownTime.day}</Value>
-          <Unit>DAYS</Unit>
+          <Unit>{t.homepage.days}</Unit>
         </Timer>
         <Timer>
           <Value>{countdownTime.hour}</Value>
-          <Unit>HOURS</Unit>
+          <Unit>{t.homepage.hours}</Unit>
         </Timer>
         <Timer>
           <Value>{countdownTime.minute}</Value>
-          <Unit>MINUTES</Unit>
+          <Unit>{t.homepage.minutes}</Unit>
         </Timer>
         <Timer>
           <Value>{countdownTime.second}</Value>
-          <Unit>SECONDS</Unit>
+          <Unit>{t.homepage.seconds}</Unit>
         </Timer>
       </TimerContainer>
     </Container>

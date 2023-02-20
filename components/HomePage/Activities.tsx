@@ -1,3 +1,4 @@
+import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -7,30 +8,15 @@ const Activities = () => {
     <Container>
       <MainContent>
         <ActivityContainer>
-          <ActivityTitle>Hackathon</ActivityTitle>
-          <ActivityDate>Apr 21 (Fri) → Apr 23 (Sun)</ActivityDate>
-          <ActivityDescription>
-            {`The ETHTaipei hackathon is a three-day event where developers can
-            compete for prizes sponsored by our sponsors. Participants will work
-            together in teams to develop new blockchain applications using
-            Ethereum technologies. The hackathon is free to attend and includes
-            workshops and talks from industry experts. It's the perfect
-            opportunity to gain hands-on experience and connect with other
-            blockchain builders from around the world.`}
-          </ActivityDescription>
+          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
+          <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
+          <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
         </ActivityContainer>
         <ActivityContainer>
-          <ActivityTitle>Conference</ActivityTitle>
-          <ActivityDate>Apr 24 (Mon), Apr 25 (Tue)</ActivityDate>
+          <ActivityTitle>{t.homepage.conference}</ActivityTitle>
+          <ActivityDate>{t.homepage.conferenceDateWithDays}</ActivityDate>
           <ActivityDescription>
-            {`The ETHTaipei conference is a two-day event featuring two tracks:
-            DeFi and Ethereum Technology. The DeFi track focuses on
-            decentralized finance, while the Ethereum Technology track covers a
-            range of topics including Zero-Knowledge Proofs, Layer 2, Security,
-            and more. This event brings together industry experts and innovators
-            to explore the latest developments in blockchain technology. Tickets
-            are required to attend and provide access to both tracks and
-            networking opportunities.`}
+            {t.homepage.conferenceIntro}
           </ActivityDescription>
         </ActivityContainer>
       </MainContent>

@@ -13,22 +13,23 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/images/horizontal-transparent.png";
 import { discordUrl, telegramUrl, twitterUrl } from "@/public/constant/urls";
+import t from "@/public/constant/content";
 
 const navItems = [
   {
-    label: "Home",
+    label: t.navs.home,
     value: "/",
     disabled: false,
   },
   {
-    label: "Agenda",
+    label: t.navs.agenda,
     value: "/agenda",
-    disabled: false,
+    disabled: true,
   },
   {
-    label: "Ticket Sale",
+    label: t.navs.ticket,
     value: "/ticketSale",
-    disabled: false,
+    disabled: true,
   },
 ];
 
@@ -37,9 +38,11 @@ function Header() {
 
   const router = useRouter();
 
-  const handleNavClick = (url: string) => {
-    router.push(url);
-    setNavIsOpen(false);
+  const handleNavClick = (url: string, disabled: boolean) => {
+    if (!disabled) {
+      router.push(url);
+      setNavIsOpen(false);
+    }
   };
 
   const handleSocialMediaOnClick = (url: string) => {
@@ -73,9 +76,9 @@ function Header() {
               {navItems.map((nav) => (
                 <NavContainer
                   key={nav.label}
-                  onClick={() => handleNavClick(nav.value || "")}
+                  onClick={() => handleNavClick(nav.value || "", nav.disabled)}
                 >
-                  <Nav>{nav.label}</Nav>
+                  <Nav disabled={nav.disabled}>{nav.label}</Nav>
                 </NavContainer>
               ))}
             </NavList>
@@ -195,13 +198,14 @@ const NavContainer = styled.div`
   }
 `;
 
-const Nav = styled.li`
+const Nav = styled.li<{ disabled: boolean }>`
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
   color: ${Colors.pennBlue};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "inherit" : "pointer")};
+  opacity: ${(props) => (props.disabled ? "0.3" : "1")};
   @media (max-width: 992px) {
     width: 100%;
     text-align: center;

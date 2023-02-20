@@ -7,24 +7,25 @@ import {
   sponsorApplyUrl,
   volunteerApplyUrl,
 } from "@/public/constant/urls";
+import t from "@/public/constant/content";
 
 const ApplicationForm = () => {
   return (
     <Container>
       <MainContent>
-        <Title>Applications</Title>
+        <Title>{t.homepage.applications}</Title>
         <Applications>
           <Application onClick={() => openNewTab(sponsorApplyUrl)}>
-            <Text>Apply for</Text>
-            <Subtitle>Sponsors</Subtitle>
+            <Text>{t.homepage.applyFor}</Text>
+            <Subtitle>{t.homepage.sponsors}</Subtitle>
           </Application>
           <Application onClick={() => openNewTab(speakerApplyUrl)}>
-            <Text>Apply for</Text>
-            <Subtitle>Speakers</Subtitle>
+            <Text>{t.homepage.applyFor}</Text>
+            <Subtitle>{t.homepage.speakers}</Subtitle>
           </Application>
           <Application onClick={() => openNewTab(volunteerApplyUrl)}>
-            <Text>Apply for</Text>
-            <Subtitle>Volunteers</Subtitle>
+            <Text>{t.homepage.applyFor}</Text>
+            <Subtitle>{t.homepage.volunteers}</Subtitle>
           </Application>
         </Applications>
       </MainContent>
