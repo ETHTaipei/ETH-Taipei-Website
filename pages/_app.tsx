@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
 import Layout from "@/components/Layout";
+import t from "@/public/constant/content";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ResetStyle />
       <GlobalStyle />
       <Head>
-        <title>ETH Taipei</title>
+        <title>{t.common.ethTaipei}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"

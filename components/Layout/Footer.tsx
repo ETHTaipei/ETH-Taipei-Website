@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
+import t from "@/public/constant/content";
 
 function Footer() {
   return (
     <Container>
       <MainFooter>
-        <EventName>ETH Taipei</EventName>
+        <EventName>{t.common.ethTaipei}</EventName>
       </MainFooter>
     </Container>
   );
@@ -32,9 +33,9 @@ const MainFooter = styled.div`
 
 const EventName = styled.h4`
   color: ${Colors.pennBlue};
+  text-align: center;
   @media (max-width: 992px) {
     font-size: 12px;
     line-height: 18px;
-    text-align: center;
   }
 `;

@@ -69,7 +69,7 @@ const ActivitiesContainer = styled.div`
   justify-content: center;
   gap: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   @media (max-width: 768px) {
     padding: 0 24px;
   }
@@ -98,7 +98,7 @@ const ActivityTitle = styled.h2`
 `;
 
 const ActivityDate = styled.h3`
-  font-size: 16px;
+  font-size: 20px;
   line-height: 24px;
   color: ${Colors.pennBlue};
   display: block;
