@@ -6,6 +6,7 @@ import {
   lyraUrl,
   perpetualUrl,
   quantstampUrl,
+  tpeUrl,
 } from "./urls";
 
 import diamond from "@/public/images/diamond.png";
@@ -15,6 +16,7 @@ import imToken from "@/public/images/imToken.png";
 import lyra from "@/public/images/lyra.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
+import tpe from "@/public/images/tpe-logo.png";
 
 import { StaticImageData } from "next/image";
 
@@ -32,6 +34,7 @@ const organizers: OrganizerProps[] = [
   { name: "lyra", url: lyraUrl, logo: lyra },
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
+  { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
 ];
 
 export default organizers;

@@ -46,6 +46,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-size: 24px;
+  font-weight: bold;
   line-height: 32px;
   color: ${Colors.pennBlue};
   margin-bottom: 60px;
@@ -83,7 +84,7 @@ const Application = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${Colors.pennBlue};
+  background-color: ${Colors.btnBlue};
   border: 1px solid ${Colors.seaSalt};
   border-radius: 8px;
   padding: 20px 40px;

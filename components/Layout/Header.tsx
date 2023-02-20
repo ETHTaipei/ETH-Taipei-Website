@@ -31,6 +31,11 @@ const navItems = [
     value: "/ticketSale",
     disabled: true,
   },
+  {
+    label: t.navs.hackathon,
+    value: "/hackathon",
+    disabled: true,
+  },
 ];
 
 function Header() {

@@ -10,6 +10,7 @@ const Colors = {
   aero: "#59B2D6",
   yInMnBlue: "#f0f5ff",
   columbiaBlue: "#C2E2EE",
+  btnBlue: "#44a4e3",
   seaSalt: "#FAFBFA",
 };
 

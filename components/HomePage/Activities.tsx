@@ -1,4 +1,6 @@
 import t from "@/public/constant/content";
+import { openNewTab } from "@/public/utils/ common";
+import { ticketSaleUrl, hackathonUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -11,6 +13,9 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
+          <Btn onClick={() => openNewTab(hackathonUrl)}>
+            <BtnText>{t.homepage.hackathonBtnText}</BtnText>
+          </Btn>
         </ActivityContainer>
         <ActivityContainer>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
@@ -18,6 +23,9 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
+          <Btn onClick={() => openNewTab(ticketSaleUrl)}>
+            <BtnText>{t.homepage.conferenceBtnText}</BtnText>
+          </Btn>
         </ActivityContainer>
       </MainContent>
     </Container>
@@ -79,4 +87,27 @@ const ActivityDescription = styled.span`
   font-size: 16px;
   line-height: 24px;
   color: ${Colors.pennBlue};
+`;
+
+const Btn = styled.button`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Colors.btnBlue};
+  border: 1px solid ${Colors.seaSalt};
+  border-radius: 8px;
+  padding: 20px 40px;
+  cursor: pointer;
+  :active {
+    transform: scale(0.99);
+  }
+`;
+
+const BtnText = styled.h2`
+  font-size: 18px;
+  line-height: 24px;
+  color: ${Colors.seaSalt};
+  margin-bottom: 4px;
 `;
