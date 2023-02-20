@@ -4,13 +4,13 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import banner from "@/public/images/vertical-transparent.png";
-import mountain from "@/public/images/mountain.jpg";
 import t from "@/public/constant/content";
+import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 
 const Banner = () => {
   return (
     <Container>
-      <Image src={mountain} fill quality={100} alt="mountain" />
+      <Image src={bgImage} fill quality={100} alt="bgImage" />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
