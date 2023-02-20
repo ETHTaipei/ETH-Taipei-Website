@@ -45,12 +45,12 @@ const TextContainer = styled.div`
 const Title = styled.h2`
   font-size: 24px;
   line-height: 32px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
   margin-bottom: 20px;
 `;
 
 const Description = styled.span`
   font-size: 16px;
   line-height: 28px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
 `;

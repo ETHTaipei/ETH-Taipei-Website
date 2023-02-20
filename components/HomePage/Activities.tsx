@@ -75,7 +75,7 @@ const ActivityTitle = styled.h2`
   font-size: 24px;
   font-weight: bold;
   line-height: 32px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
   display: block;
 `;
 
@@ -92,5 +92,5 @@ const ActivityDate = styled.h2`
 const ActivityDescription = styled.span`
   font-size: 16px;
   line-height: 24px;
-  color: ${Colors.seaSalt};
+  color: ${Colors.pennBlue};
 `;

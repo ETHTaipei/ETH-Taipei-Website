@@ -6,9 +6,9 @@ const Colors = {
   gray5: "#666666",
   gray6: "#333333",
   gray7: "#000000",
-  pennBlue: "#011341",
+  pennBlue: "#0A1E4E",
   aero: "#59B2D6",
-  yInMnBlue: "#47546D",
+  yInMnBlue: "#f0f5ff",
   columbiaBlue: "#C2E2EE",
   seaSalt: "#FAFBFA",
 };
