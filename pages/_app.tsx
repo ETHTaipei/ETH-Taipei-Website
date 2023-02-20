@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="ETHTaipei is about bringing builders of the Ethereum ecosystem together. Depth first & developer focused, it aims to provide a place to facilitate discussion on technical subjects so that we all learn and make progress in the space to build a better future."
+          content={t.common.ethTaipeiIntro}
         />
         <meta name="google-site-verification" content="" />
 
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:title" content="ETH Taipei" />
         <meta
           property="og:description"
-          content="ETHTaipei is about bringing builders of the Ethereum ecosystem together. Depth first & developer focused, it aims to provide a place to facilitate discussion on technical subjects so that we all learn and make progress in the space to build a better future."
+          content={t.common.ethTaipeiIntro}
         />
         <meta property="og:image" content="" />
 
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="twitter:title" content="ETH Taipei" />
         <meta
           property="twitter:description"
-          content="ETHTaipei is about bringing builders of the Ethereum ecosystem together. Depth first & developer focused, it aims to provide a place to facilitate discussion on technical subjects so that we all learn and make progress in the space to build a better future."
+          content={t.common.ethTaipeiIntro}
         />
         <meta property="twitter:image" content="" />
       </Head>
