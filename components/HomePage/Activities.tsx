@@ -13,7 +13,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={() => openNewTab(hackathonUrl)}>
+          <Btn onClick={() => openNewTab(hackathonUrl)} disabled>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -23,7 +23,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn onClick={() => openNewTab(ticketSaleUrl)}>
+          <Btn onClick={() => openNewTab(ticketSaleUrl)} disabled>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
