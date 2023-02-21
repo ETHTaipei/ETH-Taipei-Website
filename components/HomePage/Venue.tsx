@@ -9,7 +9,7 @@ const Venue = () => {
       <MainContent>
         <TextContainer>
           <Title>{t.homepage.venue}</Title>
-          <Description>{t.homepage.venueName}</Description>
+          <SubTitle>{t.homepage.venueName}</SubTitle>
           <Description>{t.homepage.venueAddress}</Description>
         </TextContainer>
         <ImageContainer>
@@ -44,7 +44,7 @@ const MainContent = styled.div`
 `;
 
 const TextContainer = styled.div`
-  flex: 0 1 600px;
+  flex: 0 1 700px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -59,6 +59,11 @@ const Title = styled.h1`
   line-height: 32px;
   color: ${Colors.pennBlue};
   margin-bottom: 20px;
+`;
+
+const SubTitle = styled.h2`
+  font-size: 20px;
+  line-height: 32px;
 `;
 
 const Description = styled.span`
