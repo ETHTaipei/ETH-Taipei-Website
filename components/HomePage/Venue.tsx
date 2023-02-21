@@ -53,8 +53,9 @@ const TextContainer = styled.div`
   }
 `;
 
-const Title = styled.h2`
-  font-size: 24px;
+const Title = styled.h1`
+  font-size: 35px;
+  font-weight: bold;
   line-height: 32px;
   color: ${Colors.pennBlue};
   margin-bottom: 20px;

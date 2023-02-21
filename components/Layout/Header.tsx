@@ -170,7 +170,7 @@ const NavsContainer = styled.div<{ open: boolean }>`
 const Navs = styled.nav`
   flex: 1 0 260px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   @media (max-width: 992px) {
     width: 100%;
