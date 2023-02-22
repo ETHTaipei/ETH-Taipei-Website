@@ -12,7 +12,12 @@ import { openNewTab } from "@/public/utils/ common";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/images/horizontal-transparent.png";
-import { discordUrl, telegramUrl, twitterUrl } from "@/public/constant/urls";
+import {
+  discordUrl,
+  hackathonUrl,
+  telegramUrl,
+  twitterUrl,
+} from "@/public/constant/urls";
 import t from "@/public/constant/content";
 
 const navItems = [
@@ -20,21 +25,25 @@ const navItems = [
     label: t.navs.home,
     value: "/",
     disabled: false,
+    isNewTab: false,
   },
   {
     label: t.navs.agenda,
     value: "/agenda",
     disabled: true,
+    isNewTab: false,
   },
   {
     label: t.navs.ticket,
     value: "/ticketSale",
     disabled: true,
+    isNewTab: false,
   },
   {
     label: t.navs.hackathon,
-    value: "/hackathon",
-    disabled: true,
+    value: hackathonUrl,
+    disabled: false,
+    isNewTab: true,
   },
 ];
 
@@ -43,8 +52,18 @@ function Header() {
 
   const router = useRouter();
 
-  const handleNavClick = (url: string, disabled: boolean) => {
-    if (!disabled) {
+  const handleNavClick = (
+    url: string,
+    disabled: boolean,
+    isNewTab: boolean
+  ) => {
+    if (disabled) {
+      return;
+    }
+
+    if (isNewTab) {
+      window.open(url, "_blank");
+    } else {
       router.push(url);
       setNavIsOpen(false);
     }
@@ -81,7 +100,9 @@ function Header() {
               {navItems.map((nav) => (
                 <NavContainer
                   key={nav.label}
-                  onClick={() => handleNavClick(nav.value || "", nav.disabled)}
+                  onClick={() =>
+                    handleNavClick(nav.value || "", nav.disabled, nav.isNewTab)
+                  }
                 >
                   <Nav disabled={nav.disabled}>{nav.label}</Nav>
                 </NavContainer>

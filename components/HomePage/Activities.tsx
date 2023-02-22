@@ -13,7 +13,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={() => openNewTab(hackathonUrl)} disabled>
+          <Btn onClick={() => openNewTab(hackathonUrl)}>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -105,6 +105,7 @@ const Btn = styled.button`
 
 const BtnText = styled.h2`
   font-size: 18px;
+  font-weight: bold;
   line-height: 24px;
   color: ${Colors.seaSalt};
   margin-bottom: 4px;

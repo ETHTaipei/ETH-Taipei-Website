@@ -1,7 +1,8 @@
 const common = {
   ethTaipei: "ETHTaipei 2023",
-  ethTaipeiIntro: "Welcome to the first-ever ETHTaipei event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
-}
+  ethTaipeiIntro:
+    "Welcome to the first-ever ETHTaipei event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
+};
 
 const homepage = {
   hackathon: "Hackathon",
@@ -22,9 +23,10 @@ const homepage = {
   hackathonDateWithDays: "Apr 21 (Fri) → Apr 23 (Sun)",
   conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
   hackathonBtnText: "Join Hackathon",
-  conferenceBtnText: "Ticket Sale",
+  conferenceBtnText: "Coming Soon",
   applications: "Welcome to Participate!",
-  applicationsIntro: "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
+  applicationsIntro:
+    "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
   applyFor: "Apply for",
   sponsors: "Sponsors",
   speakers: "Speakers",

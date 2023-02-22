@@ -96,6 +96,7 @@ const Application = styled.button`
 
 const Subtitle = styled.h2`
   font-size: 24px;
+  font-weight: bold;
   line-height: 32px;
   color: ${Colors.seaSalt};
 `;
