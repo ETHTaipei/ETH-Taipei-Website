@@ -5,9 +5,9 @@ const common = {
 
 const homepage = {
   hackathon: "Hackathon",
-  hackathonDate: "2023, 21 - 23 Apr",
+  hackathonDate: "21 - 23 Apr, 2023",
   conference: "Conference",
-  conferenceDate: "2023, 24 - 25 Apr",
+  conferenceDate: "24 - 25 Apr, 2023",
   ethTaipeiIntroTitle: "What is ETHTaipei?",
   ethTaipeiIntro1: `Welcome to the first ETHTaipei held in Taiwan. With a very active Ethereum community and developer community in Taiwan, ETHTaipei has brought together Ethereum-related teams from around the world to gain a deeper understanding of Taiwan as an important hub for blockchain technology. At the same time, this event provides Taiwanese teams with the opportunity to connect with the world and gain more exposure.`,
   ethTaipeiIntro2: `At ETHTaipei, you will have the opportunity to listen to well-known experts, scholars, and industry leaders from around the world share the latest trends and application cases of Ethereum. You can also participate in hackathons, various workshops, and other activities to exchange ideas with developers from around the world and create more valuable blockchain applications together.`,
@@ -23,7 +23,7 @@ const homepage = {
   conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
   hackathonBtnText: "Join Hackathon",
   conferenceBtnText: "Ticket Sale",
-  applications: "Apply to Participate in ETHTaipei!",
+  applications: "Welcome to Participate!",
   applicationsIntro: "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
   applyFor: "Apply for",
   sponsors: "Sponsors",

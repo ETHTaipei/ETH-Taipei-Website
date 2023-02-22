@@ -13,7 +13,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={() => openNewTab(hackathonUrl)}>
+          <Btn onClick={() => openNewTab(hackathonUrl)} disabled>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -23,7 +23,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn onClick={() => openNewTab(ticketSaleUrl)}>
+          <Btn onClick={() => openNewTab(ticketSaleUrl)} disabled>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -66,7 +66,7 @@ const ActivityContainer = styled.div`
 `;
 
 const ActivityTitle = styled.h2`
-  font-size: 24px;
+  font-size: 35px;
   font-weight: bold;
   line-height: 32px;
   color: ${Colors.pennBlue};
@@ -74,13 +74,11 @@ const ActivityTitle = styled.h2`
 `;
 
 const ActivityDate = styled.h2`
-  font-size: 16px;
+  font-size: 20px;
   line-height: 24px;
   color: ${Colors.pennBlue};
   padding: 4px 24px;
   display: inline-block;
-  border-radius: 100px;
-  background-color: ${Colors.seaSalt};
 `;
 
 const ActivityDescription = styled.span`

@@ -64,7 +64,7 @@ const ImageContainer = styled.div`
 `;
 
 const ActivitiesContainer = styled.div`
-  margin-top: 32px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -82,7 +82,7 @@ const ActivityContainer = styled.div`
   flex: 1;
   padding: 20px;
   border-radius: 8px;
-  background-color: ${Colors.yInMnBlue};
+  background-color: ${Colors.seaSalt};
   display: flex;
   flex-direction: column;
   align-items: center;
