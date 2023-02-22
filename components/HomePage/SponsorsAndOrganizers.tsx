@@ -5,6 +5,7 @@ import Image from "next/image";
 import { openNewTab } from "@/public/utils/ common";
 import t from "@/public/constant/content";
 import organizers from "@/public/constant/organizers";
+import partners from "@/public/constant/partners";
 
 const SponsorsAndOrganizers = () => {
   return (
@@ -12,12 +13,23 @@ const SponsorsAndOrganizers = () => {
       <MainContent>
         <Title>{t.homepage.sponsorsAndOrganizers}</Title>
         <SponsorsContainer>
-          {organizers.map((organizer, i) => (
+          {organizers.map((organizer) => (
             <SponsorBtn
               key={organizer.name}
               onClick={() => openNewTab(organizer.url)}
             >
               <Image src={organizer.logo} fill alt={organizer.name} />
+            </SponsorBtn>
+          ))}
+        </SponsorsContainer>
+        <PartnersTitle>{t.homepage.partners}</PartnersTitle>
+        <SponsorsContainer>
+          {partners.map((partner) => (
+            <SponsorBtn
+              key={partner.name}
+              onClick={() => openNewTab(partner.url)}
+            >
+              <Image src={partner.logo} fill alt={partner.name} />
             </SponsorBtn>
           ))}
         </SponsorsContainer>
@@ -66,7 +78,7 @@ const SponsorsContainer = styled.div`
 `;
 
 const SponsorBtn = styled.button`
-  flex: 1 0 240px;
+  flex: 0 1 280px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -85,4 +97,8 @@ const SponsorBtn = styled.button`
   @media (max-width: 768px) {
     min-height: 80px;
   }
+`;
+
+const PartnersTitle = styled(Title)`
+  margin-top: 60px;
 `;
