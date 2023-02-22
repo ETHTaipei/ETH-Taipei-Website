@@ -6,7 +6,7 @@ export const sponsorApplyUrl = "https://docsend.com/view/hugehwzudhd5693a";
 export const speakerApplyUrl = "https://tally.so/r/wkb6V1";
 export const volunteerApplyUrl = "https://tally.so/r/nPpDAP";
 export const ticketSaleUrl = "";
-export const hackathonUrl = "";
+export const hackathonUrl = "https://taikai.network/ethtaipei/hackathons/hackathon";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
