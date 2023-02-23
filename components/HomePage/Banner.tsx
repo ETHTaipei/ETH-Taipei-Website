@@ -6,8 +6,13 @@ import Image from "next/image";
 import banner from "@/public/images/vertical-transparent.png";
 import t from "@/public/constant/content";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
+import { hackathonUrl } from "@/public/constant/urls";
 
 const Banner = () => {
+  const handleOnClick = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -15,14 +20,14 @@ const Banner = () => {
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
       <ActivitiesContainer>
-        <ActivityContainer>
+        <ActivityBtn onClick={() => handleOnClick(hackathonUrl)}>
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
-        </ActivityContainer>
-        <ActivityContainer>
+        </ActivityBtn>
+        <ActivityBtn>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
-        </ActivityContainer>
+        </ActivityBtn>
       </ActivitiesContainer>
     </Container>
   );
@@ -67,7 +72,7 @@ const ActivitiesContainer = styled.div`
   margin-top: 16px;
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   max-width: 450px;
   @media (max-width: 768px) {
@@ -78,7 +83,7 @@ const ActivitiesContainer = styled.div`
   }
 `;
 
-const ActivityContainer = styled.div`
+const ActivityBtn = styled.button`
   flex: 1;
   padding: 20px;
   border-radius: 8px;
@@ -87,6 +92,12 @@ const ActivityContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(84, 151, 198, 0.1),
+    0 6px 6px 0 rgba(83, 108, 148, 0.09);
+  :active {
+    transform: scale(0.99);
+  }
 `;
 
 const ActivityTitle = styled.h2`
