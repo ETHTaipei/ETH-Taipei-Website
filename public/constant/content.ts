@@ -36,7 +36,7 @@ const homepage = {
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   sponsorsAndOrganizers: "Sponsors & Organizers",
-  comingSoon: "Comming Soon",
+  comingSoon: "Coming Soon",
   partners: "Partners",
 };
 
