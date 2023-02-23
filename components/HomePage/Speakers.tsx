@@ -11,7 +11,7 @@ const Speakers = () => {
     <Container>
       <MainContent>
         <Title>{t.homepage.speakers}</Title>
-        {(speakers.length > 0) ? (
+        {speakers.length > 0 ? (
           <SpeakersContainer>
             {speakers.map((speaker, i) => (
               <SpeakerContainer key={i}>
@@ -68,6 +68,7 @@ const Description = styled.span`
   line-height: 28px;
   color: ${Colors.pennBlue};
   display: block;
+  margin-top: 20px;
 `;
 
 const SpeakersContainer = styled.div`
