@@ -9,10 +9,11 @@ type PartnerProps = {
   name: string;
   url: string;
   logo: StaticImageData;
+  height?: number;
 };
 
 const partners: PartnerProps[] = [
-  { name: "Taikai", url: taikaiUrl, logo: taikai },
+  { name: "Taikai", url: taikaiUrl, logo: taikai, height: 40 },
   { name: "Unlock", url: unlockUrl, logo: unlock },
 ];
 

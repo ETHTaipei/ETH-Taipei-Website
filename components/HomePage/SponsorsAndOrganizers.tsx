@@ -29,7 +29,7 @@ const SponsorsAndOrganizers = () => {
               key={partner.name}
               onClick={() => openNewTab(partner.url)}
             >
-              <Image src={partner.logo} fill alt={partner.name} />
+              <Image src={partner.logo} fill alt={partner.name} style={{ maxHeight: partner.height, margin: 'auto' }} />
             </SponsorBtn>
           ))}
         </SponsorsContainer>
