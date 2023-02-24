@@ -85,10 +85,11 @@ const Application = styled.button`
   justify-content: center;
   align-items: center;
   background-color: ${Colors.btnBlue};
-  border: 1px solid ${Colors.seaSalt};
   border-radius: 8px;
   padding: 20px 40px;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(36, 62, 81, 0.2),
+    0 6px 12px 0 rgba(63, 83, 114, 0.19);
   :active {
     transform: scale(0.99);
   }
