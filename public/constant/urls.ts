@@ -1,12 +1,13 @@
 export const twitterUrl = "https://twitter.com/EthTaipei";
-export const discordUrl = "https://discord.gg/VqSyHjQYew";
+export const discordUrl = "https://discord.gg/TMQvT7V5pZ";
 export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
 export const speakerApplyUrl = "https://tally.so/r/wkb6V1";
 export const volunteerApplyUrl = "https://tally.so/r/nPpDAP";
 export const ticketSaleUrl = "";
-export const hackathonUrl = "https://taikai.network/ethtaipei/hackathons/hackathon";
+export const hackathonUrl =
+  "https://taikai.network/ethtaipei/hackathons/hackathon";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
