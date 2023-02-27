@@ -1,5 +1,5 @@
 export const twitterUrl = "https://twitter.com/EthTaipei";
-export const discordUrl = "https://discord.gg/TMQvT7V5pZ";
+export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
