@@ -12,31 +12,31 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>{t.common.ethTaipei}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta
-          name="description"
-          content={t.common.ethTaipeiIntro}
-        />
+        <meta name="description" content={t.common.ethTaipeiIntro} />
         <meta name="google-site-verification" content="" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="" />
+        <meta property="og:url" content="https://ethtaipei.org" />
         <meta property="og:title" content="ETH Taipei" />
+        <meta property="og:description" content={t.common.ethTaipeiIntro} />
         <meta
-          property="og:description"
-          content={t.common.ethTaipeiIntro}
+          property="og:image"
+          content="https://ethtaipei.org/images/meta_image.png"
         />
-        <meta property="og:image" content="" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="" />
+        <meta property="twitter:url" content="https://ethtaipei.org" />
         <meta property="twitter:title" content="ETH Taipei" />
         <meta
           property="twitter:description"
           content={t.common.ethTaipeiIntro}
         />
-        <meta property="twitter:image" content="" />
+        <meta
+          property="twitter:image"
+          content="https://ethtaipei.org/images/meta_image.png"
+        />
       </Head>
       <Layout>
         <Component {...pageProps} />
