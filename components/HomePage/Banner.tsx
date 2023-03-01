@@ -13,6 +13,10 @@ const Banner = () => {
     window.open(url, "_blank");
   };
 
+  const handleOpenUnlock = () => {
+    window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+  };
+
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -24,7 +28,7 @@ const Banner = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
         </ActivityBtn>
-        <ActivityBtn>
+        <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
         </ActivityBtn>

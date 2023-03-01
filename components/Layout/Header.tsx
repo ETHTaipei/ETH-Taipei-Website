@@ -26,24 +26,28 @@ const navItems = [
     value: "/",
     disabled: false,
     isNewTab: false,
+    isPlugin: false,
   },
   {
     label: t.navs.agenda,
     value: "/agenda",
     disabled: true,
     isNewTab: false,
+    isPlugin: false,
   },
   {
     label: t.navs.ticket,
     value: "/ticketSale",
-    disabled: true,
+    disabled: false,
     isNewTab: false,
+    isPlugin: true,
   },
   {
     label: t.navs.hackathon,
     value: hackathonUrl,
     disabled: false,
     isNewTab: true,
+    isPlugin: false,
   },
 ];
 
@@ -55,7 +59,8 @@ function Header() {
   const handleNavClick = (
     url: string,
     disabled: boolean,
-    isNewTab: boolean
+    isNewTab: boolean,
+    isPlugin: boolean
   ) => {
     if (disabled) {
       return;
@@ -63,6 +68,8 @@ function Header() {
 
     if (isNewTab) {
       window.open(url, "_blank");
+    } else if (isPlugin) {
+      handleOpenUnlock();
     } else {
       router.push(url);
       setNavIsOpen(false);
@@ -71,6 +78,11 @@ function Header() {
 
   const handleSocialMediaOnClick = (url: string) => {
     openNewTab(url);
+    setNavIsOpen(false);
+  };
+
+  const handleOpenUnlock = () => {
+    window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
     setNavIsOpen(false);
   };
 
@@ -101,7 +113,12 @@ function Header() {
                 <NavContainer
                   key={nav.label}
                   onClick={() =>
-                    handleNavClick(nav.value || "", nav.disabled, nav.isNewTab)
+                    handleNavClick(
+                      nav.value || "",
+                      nav.disabled,
+                      nav.isNewTab,
+                      nav.isPlugin
+                    )
                   }
                 >
                   <Nav disabled={nav.disabled}>{nav.label}</Nav>
