@@ -235,7 +235,6 @@ const Nav = styled.li<{ disabled: boolean }>`
   @media (max-width: 992px) {
     width: 100%;
     text-align: center;
-    color: ${Colors.seaSalt};
   }
 `;
 
@@ -279,9 +278,6 @@ const IconButton = styled.button`
   }
   :active {
     transform: scale(0.9);
-  }
-  @media (max-width: 992px) {
-    color: ${Colors.seaSalt};
   }
 `;
 
