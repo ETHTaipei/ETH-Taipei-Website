@@ -6,6 +6,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Activities = () => {
+  const handleOpenUnlock = () => {
+    window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+  };
+
   return (
     <Container>
       <MainContent>
@@ -23,7 +27,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn onClick={() => openNewTab(ticketSaleUrl)} disabled>
+          <Btn onClick={handleOpenUnlock}>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>

@@ -8,6 +8,12 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
+declare global {
+  interface Window {
+    unlockProtocol: any;
+  }
+}
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -55,6 +61,32 @@ export default class MyDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function(d, s) {
+                var js = d.createElement(s),
+                  sc = d.getElementsByTagName(s)[0];
+                js.src = "https://paywall.unlock-protocol.com/static/unlock.latest.min.js";
+                sc.parentNode.insertBefore(js, sc);
+              }(document, "script"));`,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              var unlockProtocolConfig = {
+                "network": 10, 
+                "locks": {
+                  "0x53FaF6285C426920b7d103c5f4a40F7788E1F1FD": {
+                    "name": "ETHTaipei 2023"
+                  }
+                },    
+                "title": "ETHTaipei Early Bird",
+                "icon": "https://ethtaipei.org/images/logo-transparent.png"           
+              }`,
             }}
           />
         </Head>

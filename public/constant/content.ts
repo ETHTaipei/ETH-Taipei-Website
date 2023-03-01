@@ -23,7 +23,7 @@ const homepage = {
   hackathonDateWithDays: "Apr 21 (Fri) → Apr 23 (Sun)",
   conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
   hackathonBtnText: "Join Hackathon",
-  conferenceBtnText: "Coming Soon",
+  conferenceBtnText: "Buy Ticket",
   applications: "Welcome to Participate!",
   applicationsIntro:
     "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
