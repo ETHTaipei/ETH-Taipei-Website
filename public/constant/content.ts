@@ -45,12 +45,27 @@ const navs = {
   agenda: "Agenda",
   ticket: "Ticket Sale",
   hackathon: "Hackathon",
+  visa: "Visa",
+};
+
+const visa = {
+  visaQuestion1: "Do I need a visa to come to Taiwan?",
+  visaAnswer1Part1:
+    "Taiwan has a visa exemption for visitors from 65 countries for visitors of 14-90 days depending on the country. Please check the Bureau of ",
+  BureauOfConsularAffairs: "Bureau of Consular Affairs website",
+  visaAnswer1Part2: " for more details.",
+  visaQuestion2: "What if I need a visa?",
+  visaAnswer2Part1:
+    "ETHTaipei can deliver invitation letters for business visas. Please contact us on ",
+  telegram: "telegram",
+  visaAnswer2Part2: ".",
 };
 
 const t = {
   common,
   homepage,
   navs,
+  visa,
 };
 
 export default t;

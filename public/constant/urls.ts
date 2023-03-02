@@ -20,3 +20,5 @@ export const tpeUrl = "https://twitter.com/eth_taipei";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
+
+export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";

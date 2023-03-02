@@ -49,6 +49,13 @@ const navItems = [
     isNewTab: true,
     isPlugin: false,
   },
+  {
+    label: t.navs.visa,
+    value: "/visa",
+    disabled: false,
+    isNewTab: false,
+    isPlugin: false,
+  },
 ];
 
 function Header() {
