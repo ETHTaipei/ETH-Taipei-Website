@@ -45,7 +45,7 @@ const navs = {
   agenda: "Agenda",
   ticket: "Ticket Sale",
   hackathon: "Hackathon",
-  visa: "Visa",
+  visa: "FAQ",
 };
 
 const visa = {
