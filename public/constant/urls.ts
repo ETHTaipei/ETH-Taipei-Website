@@ -8,6 +8,7 @@ export const volunteerApplyUrl = "https://tally.so/r/nPpDAP";
 export const ticketSaleUrl = "";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
+export const sideEvnetUrl = " https://tally.so/r/wgboMN";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
