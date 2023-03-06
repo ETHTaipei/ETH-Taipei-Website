@@ -2,12 +2,12 @@ import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { visaUrl, telegramUrl } from "@/public/constant/urls";
+import { visaUrl, telegramUrl, sideEvnetUrl } from "@/public/constant/urls";
 
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import t from "@/public/constant/content";
 
-const Visa = () => {
+const FAQ = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -32,12 +32,21 @@ const Visa = () => {
             {t.visa.visaAnswer2Part2}
           </Description>
         </Row>
+        <Row>
+          <Title>{t.visa.question3}</Title>
+          <Description>
+            {t.visa.question3Answer}
+            <Link href={sideEvnetUrl} target="_blank">
+              {t.visa.link}
+            </Link>
+          </Description>
+        </Row>
       </MainContent>
     </Container>
   );
 };
 
-export default Visa;
+export default FAQ;
 
 const Container = styled.div`
   min-height: calc(100vh - 70px);
@@ -78,7 +87,7 @@ const Row = styled.div`
 
 const Title = styled.h2`
   flex: 1;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 40px;
   color: ${Colors.pennBlue};
