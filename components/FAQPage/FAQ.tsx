@@ -7,7 +7,7 @@ import { visaUrl, telegramUrl, sideEvnetUrl } from "@/public/constant/urls";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import t from "@/public/constant/content";
 
-const Visa = () => {
+const FAQ = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -46,7 +46,7 @@ const Visa = () => {
   );
 };
 
-export default Visa;
+export default FAQ;
 
 const Container = styled.div`
   min-height: calc(100vh - 70px);

@@ -50,8 +50,8 @@ const navItems = [
     isPlugin: false,
   },
   {
-    label: t.navs.visa,
-    value: "/visa",
+    label: t.navs.faq,
+    value: "/faq",
     disabled: false,
     isNewTab: false,
     isPlugin: false,

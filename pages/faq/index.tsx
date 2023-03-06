@@ -1,17 +1,17 @@
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
-import Visa from "@/components/VisaPage/Visa";
+import FAQ from "@/components/FAQPage/FAQ";
 
-const VisaPage = () => {
+const FAQPage = () => {
   return (
     <Container>
-      <Visa />
+      <FAQ />
     </Container>
   );
 };
 
-export default VisaPage;
+export default FAQPage;
 
 const Container = styled.div`
   width: 100%;
