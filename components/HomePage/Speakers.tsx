@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import speakers from "@/public/constant/speakers";
+import Image from "next/image";
 
 const Speakers = () => {
   return (
@@ -16,11 +17,7 @@ const Speakers = () => {
             {speakers.map((speaker, i) => (
               <SpeakerContainer key={i}>
                 <SpeakerIcon>
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    color={Colors.seaSalt}
-                    fontSize={20}
-                  />
+                  <Image src={speaker.src} fill alt={speaker.name} />
                 </SpeakerIcon>
                 <SpeakerName>{speaker.name}</SpeakerName>
                 <SpeakerCompany>{speaker.company}</SpeakerCompany>
@@ -73,7 +70,7 @@ const Description = styled.span`
 
 const SpeakersContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px 100px;
   margin-top: 40px;
   @media (max-width: 992px) {
@@ -92,14 +89,14 @@ const SpeakerContainer = styled.div`
 `;
 
 const SpeakerIcon = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 100px;
-  background-color: ${Colors.gray5};
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
 `;
 
 const SpeakerName = styled.span`
