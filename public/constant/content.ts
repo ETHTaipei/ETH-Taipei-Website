@@ -38,6 +38,7 @@ const homepage = {
   sponsorsAndOrganizers: "Sponsors & Organizers",
   comingSoon: "Coming Soon",
   partners: "Partners",
+  moreToBeReleased: "More To Be Released ...",
 };
 
 const navs = {

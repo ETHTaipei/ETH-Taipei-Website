@@ -1,35 +1,27 @@
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import speakers from "@/public/constant/speakers";
+import Image from "next/image";
 
 const Speakers = () => {
   return (
     <Container>
       <MainContent>
         <Title>{t.homepage.speakers}</Title>
-        {speakers.length > 0 ? (
-          <SpeakersContainer>
-            {speakers.map((speaker, i) => (
-              <SpeakerContainer key={i}>
-                <SpeakerIcon>
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    color={Colors.seaSalt}
-                    fontSize={20}
-                  />
-                </SpeakerIcon>
-                <SpeakerName>{speaker.name}</SpeakerName>
-                <SpeakerCompany>{speaker.company}</SpeakerCompany>
-              </SpeakerContainer>
-            ))}
-          </SpeakersContainer>
-        ) : (
-          <Description>{t.homepage.comingSoon}</Description>
-        )}
+        <SpeakersContainer>
+          {speakers.map((speaker, i) => (
+            <SpeakerContainer key={i}>
+              <SpeakerIcon>
+                <Image src={speaker.src} fill alt={speaker.name} />
+              </SpeakerIcon>
+              <SpeakerName>{speaker.name}</SpeakerName>
+              <SpeakerCompany>{speaker.company}</SpeakerCompany>
+            </SpeakerContainer>
+          ))}
+        </SpeakersContainer>
+        <Description>{t.homepage.moreToBeReleased}</Description>
       </MainContent>
     </Container>
   );
@@ -64,27 +56,25 @@ const Title = styled.h2`
 `;
 
 const Description = styled.span`
-  font-size: 16px;
+  font-size: 18px;
   line-height: 28px;
+  font-weight: bold;
   color: ${Colors.pennBlue};
   display: block;
-  margin-top: 20px;
+  margin-top: 80px;
 `;
 
 const SpeakersContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 50px 100px;
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 40px 40px;
   margin-top: 40px;
-  @media (max-width: 992px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    grid-gap: 40px 40px;
-  }
 `;
 
 const SpeakerContainer = styled.div`
+  flex: 0 1 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,14 +82,14 @@ const SpeakerContainer = styled.div`
 `;
 
 const SpeakerIcon = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 100px;
-  background-color: ${Colors.gray5};
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
 `;
 
 const SpeakerName = styled.span`
