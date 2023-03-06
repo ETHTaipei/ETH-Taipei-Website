@@ -1,7 +1,5 @@
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import speakers from "@/public/constant/speakers";
@@ -67,19 +65,16 @@ const Description = styled.span`
 `;
 
 const SpeakersContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px 100px;
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 40px 40px;
   margin-top: 40px;
-  @media (max-width: 992px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    grid-gap: 40px 40px;
-  }
 `;
 
 const SpeakerContainer = styled.div`
+  flex: 0 1 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
