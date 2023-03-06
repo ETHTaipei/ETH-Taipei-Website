@@ -9,6 +9,7 @@ import anderson from "@/public/images/anderson.png";
 import danieleUgolini from "@/public/images/danieleUgolini.png";
 import cathie from "@/public/images/cathie.png";
 import guiltygyoza from "@/public/images/guiltygyoza.png";
+import savio from "@/public/images/savio.png";
 
 type SpeakerProps = {
   name: string;
@@ -24,6 +25,7 @@ const speakers: SpeakerProps[] = [
   { name: "Daniele Ugolini", company: "Rysk Finance", src: danieleUgolini },
   { name: "guiltygyoza", company: "Topology", src: guiltygyoza },
   { name: "Hsiao-Wei Wang", company: "Ethereum Foundation", src: hsiaoWeiWang },
+  { name: "Savio", company: "Noir / Aztec", src: savio },
   { name: "Vivian", company: "Ethereum Foundation", src: vivian },
   { name: "Wanseob", company: "Ethereum Foundation", src: wanseob },
 ];
