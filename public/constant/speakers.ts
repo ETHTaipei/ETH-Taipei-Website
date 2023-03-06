@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 import hsiaoWeiWang from "@/public/images/Hsiao-WeiWang.png";
 import vivian from "@/public/images/vivian.png";
 import wanseob from "@/public/images/wanseob.png";
-import balaKhan from "@/public/images/balaKhan.png";
+import balalKhan from "@/public/images/balalKhan.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import anderson from "@/public/images/anderson.png";
 import danieleUgolini from "@/public/images/danieleUgolini.png";
@@ -17,14 +17,15 @@ type SpeakerProps = {
 };
 
 const speakers: SpeakerProps[] = [
-  { name: "Hsiao-Wei Wang", company: "Ethereum Foundation", src: hsiaoWeiWang },
+  { name: "Anderson Chen", company: "Diamond Protocol", src: anderson },
+  { name: "Balal Khan", company: "ZKEX.com", src: balalKhan },
   { name: "Cathie", company: "Ethereum Foundation", src: cathie },
+  { name: "Chris Tam", company: "BTQ", src: chrisTam },
+  { name: "Daniele Ugolini", company: "Rysk Finance", src: danieleUgolini },
+  { name: "guiltygyoza", company: "Topology", src: guiltygyoza },
+  { name: "Hsiao-Wei Wang", company: "Ethereum Foundation", src: hsiaoWeiWang },
   { name: "Vivian", company: "Ethereum Foundation", src: vivian },
   { name: "Wanseob", company: "Ethereum Foundation", src: wanseob },
-  { name: "guiltygyoza", company: "Topology", src: guiltygyoza },
-  { name: "Daniele Ugolini", company: "Rysk Finance", src: danieleUgolini },
-  { name: "Anderson Chen", company: "Diamond Protocol", src: anderson },
-  { name: "Chris Tam", company: "BTQ", src: chrisTam },
 ];
 
 export default speakers;
