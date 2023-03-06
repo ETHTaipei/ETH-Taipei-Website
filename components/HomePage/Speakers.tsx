@@ -12,21 +12,18 @@ const Speakers = () => {
     <Container>
       <MainContent>
         <Title>{t.homepage.speakers}</Title>
-        {speakers.length > 0 ? (
-          <SpeakersContainer>
-            {speakers.map((speaker, i) => (
-              <SpeakerContainer key={i}>
-                <SpeakerIcon>
-                  <Image src={speaker.src} fill alt={speaker.name} />
-                </SpeakerIcon>
-                <SpeakerName>{speaker.name}</SpeakerName>
-                <SpeakerCompany>{speaker.company}</SpeakerCompany>
-              </SpeakerContainer>
-            ))}
-          </SpeakersContainer>
-        ) : (
-          <Description>{t.homepage.comingSoon}</Description>
-        )}
+        <SpeakersContainer>
+          {speakers.map((speaker, i) => (
+            <SpeakerContainer key={i}>
+              <SpeakerIcon>
+                <Image src={speaker.src} fill alt={speaker.name} />
+              </SpeakerIcon>
+              <SpeakerName>{speaker.name}</SpeakerName>
+              <SpeakerCompany>{speaker.company}</SpeakerCompany>
+            </SpeakerContainer>
+          ))}
+        </SpeakersContainer>
+        <Description>{t.homepage.moreToBeReleased}</Description>
       </MainContent>
     </Container>
   );
@@ -61,11 +58,12 @@ const Title = styled.h2`
 `;
 
 const Description = styled.span`
-  font-size: 16px;
+  font-size: 18px;
   line-height: 28px;
+  font-weight: bold;
   color: ${Colors.pennBlue};
   display: block;
-  margin-top: 20px;
+  margin-top: 80px;
 `;
 
 const SpeakersContainer = styled.div`
