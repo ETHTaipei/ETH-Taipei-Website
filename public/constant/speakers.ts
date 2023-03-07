@@ -20,8 +20,8 @@ type SpeakerProps = {
 
 const speakers: SpeakerProps[] = [
   { name: "Anderson Chen", company: "Diamond Protocol", src: anderson },
-  { name: "Balal Khan", company: "ZKEX.com", src: balalKhan },
-  { name: "Cathie", company: "", src: cathie },
+  { name: "Balal Khan", company: "ZKEX", src: balalKhan },
+  { name: "Cathie", company: "zkMachineLearning", src: cathie },
   { name: "Chris Tam", company: "BTQ", src: chrisTam },
   { name: "Daniele Ugolini", company: "Rysk Finance", src: danieleUgolini },
   { name: "guiltygyoza", company: "Topology", src: guiltygyoza },
