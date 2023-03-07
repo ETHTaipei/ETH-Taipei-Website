@@ -74,7 +74,7 @@ const SpeakersContainer = styled.div`
 `;
 
 const SpeakerContainer = styled.div`
-  flex: 0 1 160px;
+  flex: 0 1 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,6 +96,7 @@ const SpeakerName = styled.span`
   font-size: 18px;
   line-height: 24px;
   color: ${Colors.pennBlue};
+  text-align: center;
 `;
 
 const SpeakerCompany = styled.span`
