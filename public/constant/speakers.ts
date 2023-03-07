@@ -17,29 +17,89 @@ type SpeakerProps = {
   name: string;
   company: string;
   src: StaticImageData;
-  twitter?: string,
-  companyLink?: string,
+  twitter?: string;
+  companyLink?: string;
 };
 
 const speakers: SpeakerProps[] = [
-  { name: "Anderson Chen", company: "Diamond Protocol", src: anderson, twitter: 'https://twitter.com/MrAndersonChen', companyLink: 'https://dmo.finance/' },
-  { name: "Balal Khan", company: "ZKEX", src: balalKhan, twitter: 'https://twitter.com/iambillsta', companyLink: 'https://zkex.com/' },
+  {
+    name: "Anderson Chen",
+    company: "Diamond Protocol",
+    src: anderson,
+    twitter: "https://twitter.com/MrAndersonChen",
+    companyLink: "https://dmo.finance/",
+  },
+  {
+    name: "Balal Khan",
+    company: "ZKEX",
+    src: balalKhan,
+    twitter: "https://twitter.com/iambillsta",
+    companyLink: "https://zkex.com/",
+  },
   { name: "Cathie", company: "zkMachineLearning", src: cathie },
-  { name: "Chris Tam", company: "BTQ", src: chrisTam, twitter: 'https://twitter.com/christam96_', companyLink: 'https://www.btq.com/' },
-  { name: "Daniele Ugolini", company: "Rysk Finance", src: danieleUgolini, twitter: 'https://twitter.com/DanDeFiEd', companyLink: 'https://www.rysk.finance/' },
-  { name: "dapplion", company: "ChainSafe", src: dapplion, twitter: 'https://twitter.com/dapplion', companyLink: 'https://chainsafe.io/' },
-  { name: "guiltygyoza", company: "Topology", src: guiltygyoza, twitter: 'https://twitter.com/guiltygyoza', companyLink: 'https://www.topology.gg/' },
-  { name: "Hsiao-Wei Wang", company: "Ethereum Foundation", src: hsiaoWeiWang, twitter: 'https://twitter.com/icebearhww', companyLink: 'https://ethereum.org/en/' },
-  { name: "Savio", company: "Noir / Aztec", src: savio, twitter: 'https://twitter.com/globallager', companyLink: 'https://aztec.network/noir/' },
+  {
+    name: "Chris Tam",
+    company: "BTQ",
+    src: chrisTam,
+    twitter: "https://twitter.com/christam96_",
+    companyLink: "https://www.btq.com/",
+  },
+  {
+    name: "Daniele Ugolini",
+    company: "Rysk Finance",
+    src: danieleUgolini,
+    twitter: "https://twitter.com/DanDeFiEd",
+    companyLink: "https://www.rysk.finance/",
+  },
+  {
+    name: "dapplion",
+    company: "ChainSafe",
+    src: dapplion,
+    twitter: "https://twitter.com/dapplion",
+    companyLink: "https://chainsafe.io/",
+  },
+  {
+    name: "guiltygyoza",
+    company: "Topology",
+    src: guiltygyoza,
+    twitter: "https://twitter.com/guiltygyoza",
+    companyLink: "https://www.topology.gg/",
+  },
+  {
+    name: "Hsiao-Wei Wang",
+    company: "Ethereum Foundation",
+    src: hsiaoWeiWang,
+    twitter: "https://twitter.com/icebearhww",
+    companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: "Savio",
+    company: "Noir / Aztec",
+    src: savio,
+    twitter: "https://twitter.com/globallager",
+    companyLink: "https://aztec.network/noir/",
+  },
   {
     name: `Shotaro Granzier-Nakajima`,
     company: "Kleros",
     src: shotaroGranzierNakajima,
-    twitter: 'https://twitter.com/shotaronowhere',
-    companyLink: 'https://kleros.io/',
+    twitter: "https://twitter.com/shotaronowhere",
+    companyLink: "https://kleros.io/",
   },
-  { name: "Vivian", company: "Ethereum Foundation", src: vivian, twitter: 'https://twitter.com/vivi4322', companyLink: 'https://ethereum.org/en/' },
-  { name: "Wanseob", company: "Ethereum Foundation", src: wanseob, twitter: 'https://twitter.com/wanseoblim', companyLink: 'https://ethereum.org/en/' },
+  {
+    name: "Vivian",
+    company: "Ethereum Foundation",
+    src: vivian,
+    twitter: "https://twitter.com/vivi4322",
+    companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: "Wanseob",
+    company: "Ethereum Foundation",
+    src: wanseob,
+    twitter: "https://twitter.com/wanseoblim",
+    companyLink: "https://ethereum.org/en/",
+  },
 ];
 
 export default speakers;

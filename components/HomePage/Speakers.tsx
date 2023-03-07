@@ -13,18 +13,30 @@ const Speakers = () => {
         <SpeakersContainer>
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
-              <SpeakerIcon>
-                <a href={speaker.twitter} target="_blank" rel="noopener noreferrer">
+              <SpeakerIcon canHover={!!speaker.twitter}>
+                <a
+                  href={speaker.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image src={speaker.src} fill alt={speaker.name} />
                 </a>
               </SpeakerIcon>
-              <SpeakerName>
-                <a href={speaker.twitter} target="_blank" rel="noopener noreferrer">
+              <SpeakerName canHover={!!speaker.twitter}>
+                <a
+                  href={speaker.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {speaker.name}
                 </a>
               </SpeakerName>
-              <SpeakerCompany>
-                <a href={speaker.companyLink} target="_blank" rel="noopener noreferrer">
+              <SpeakerCompany canHover={!!speaker.companyLink}>
+                <a
+                  href={speaker.companyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {speaker.company}
                 </a>
               </SpeakerCompany>
@@ -89,15 +101,9 @@ const SpeakerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
-const SpeakerIcon = styled.div`
+const SpeakerIcon = styled.div<{ canHover: boolean }>`
   width: 100px;
   height: 100px;
   border-radius: 100px;
@@ -106,17 +112,26 @@ const SpeakerIcon = styled.div`
   align-items: center;
   margin-bottom: 12px;
   position: relative;
+  box-shadow: 0 6px 6px 0 rgba(88, 103, 113, 0.2);
+  transition: transform 300ms ease-in-out;
+  :hover {
+    transform: scale(${(props) => (props.canHover ? "1.1" : "1")});
+    cursor: ${(props) => (props.canHover ? "pointer" : "inherit")};
+  }
 `;
 
-const SpeakerName = styled.span`
+const SpeakerName = styled.span<{ canHover: boolean }>`
   font-size: 18px;
   line-height: 24px;
   color: ${Colors.pennBlue};
   text-align: center;
+  a:hover {
+    color: ${(props) => (props.canHover ? Colors.btnBlue : Colors.pennBlue)};
+    cursor: ${(props) => (props.canHover ? "pointer" : "inherit")};
+  }
 `;
 
-const SpeakerCompany = styled.span`
+const SpeakerCompany = styled(SpeakerName)`
   font-size: 14px;
   line-height: 24px;
-  color: ${Colors.pennBlue};
 `;
