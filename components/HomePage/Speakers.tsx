@@ -14,10 +14,20 @@ const Speakers = () => {
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
               <SpeakerIcon>
-                <Image src={speaker.src} fill alt={speaker.name} />
+                <a href={speaker.twitter} target="_blank" rel="noopener noreferrer">
+                  <Image src={speaker.src} fill alt={speaker.name} />
+                </a>
               </SpeakerIcon>
-              <SpeakerName>{speaker.name}</SpeakerName>
-              <SpeakerCompany>{speaker.company}</SpeakerCompany>
+              <SpeakerName>
+                <a href={speaker.twitter} target="_blank" rel="noopener noreferrer">
+                  {speaker.name}
+                </a>
+              </SpeakerName>
+              <SpeakerCompany>
+                <a href={speaker.companyLink} target="_blank" rel="noopener noreferrer">
+                  {speaker.company}
+                </a>
+              </SpeakerCompany>
             </SpeakerContainer>
           ))}
         </SpeakersContainer>
@@ -79,6 +89,12 @@ const SpeakerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const SpeakerIcon = styled.div`
