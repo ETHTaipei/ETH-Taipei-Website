@@ -83,7 +83,7 @@ export default class MyDocument extends Document {
                     "name": "ETHTaipei 2023",
                     "network": 10,
                   },
-                  "0x93869d407dde839a98af379d7cafec5c8bc67ab7": {
+                  "0x8fB09430C4D31130Eb3a906c9244dD20f14C1F67": {
                     "name": "ETHTaipei 2023",
                     "network": 137,
                   },
