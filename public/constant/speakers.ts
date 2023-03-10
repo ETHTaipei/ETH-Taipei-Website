@@ -9,7 +9,7 @@ import anderson from "@/public/images/anderson.png";
 import danieleUgolini from "@/public/images/danieleUgolini.png";
 import cathie from "@/public/images/cathie.png";
 import guiltygyoza from "@/public/images/guiltygyoza.png";
-import savio from "@/public/images/savio.png";
+import savio from "@/public/images/savioNoir.png";
 import shotaroGranzierNakajima from "@/public/images/shotaroGranzier-Nakajima.png";
 import dapplion from "@/public/images/dapplion.png";
 
