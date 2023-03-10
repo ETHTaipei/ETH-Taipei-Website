@@ -7,6 +7,7 @@ import {
   perpetualUrl,
   quantstampUrl,
   tpeUrl,
+  appWorksUrl,
 } from "./urls";
 
 import diamond from "@/public/images/diamond.png";
@@ -17,6 +18,7 @@ import lyra from "@/public/images/lyra.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
 import tpe from "@/public/images/tpe-logo.png";
+import appWorks from "@/public/images/appWorks.png";
 
 import { StaticImageData } from "next/image";
 
@@ -27,6 +29,7 @@ type OrganizerProps = {
 };
 
 const organizers: OrganizerProps[] = [
+  { name: "AppWorks", url: appWorksUrl, logo: appWorks },
   { name: "code4Rena", url: code4renaUrl, logo: code4Rena },
   { name: "diamond protocol", url: diamondUrl, logo: diamond },
   { name: "furucombo", url: furucomboUrl, logo: furucombo },
