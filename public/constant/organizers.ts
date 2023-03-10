@@ -8,6 +8,7 @@ import {
   quantstampUrl,
   tpeUrl,
   appWorksUrl,
+  tenderlyUrl,
 } from "./urls";
 
 import diamond from "@/public/images/diamond.png";
@@ -17,8 +18,9 @@ import imToken from "@/public/images/imToken.png";
 import lyra from "@/public/images/lyra.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
-import tpe from "@/public/images/tpe-logo.png";
+import tpe from "@/public/images/taipei-ethereum.png";
 import appWorks from "@/public/images/appWorks.png";
+import tenderly from "@/public/images/tenderly.png";
 
 import { StaticImageData } from "next/image";
 
@@ -38,6 +40,7 @@ const organizers: OrganizerProps[] = [
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
   { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
+  { name: "Tenderly", url: tenderlyUrl, logo: tenderly },
 ];
 
 export default organizers;
