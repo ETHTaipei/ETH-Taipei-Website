@@ -39,20 +39,30 @@ const Agendas = () => {
           >{`Apr ${num}`}</DateSelector>
         ))}
       </DatesContainer>
-      <SchedulesContainer>
-        {agendas[date].length > 0 ? (
-          agendas[date].map((agenda) => (
-            <ScheduleContainer key={agenda.time}>
-              <TimeContainer>{agenda.time}</TimeContainer>
-              <EventContainer>{agenda.event}</EventContainer>
-            </ScheduleContainer>
-          ))
-        ) : (
-          <NoEventContainer>
-            <NoEventText>Coming Soon!</NoEventText>
-          </NoEventContainer>
-        )}
-      </SchedulesContainer>
+      {date < dates.conference[0] ? (
+        <HackSchedulesContainer>
+          {agendas[date].length > 0 &&
+            agendas[date].map((agenda, i) => (
+              <ScheduleContainer key={i}>
+                <TimeText>{agenda.time}</TimeText>
+                <DurationText>{agenda.duration}</DurationText>
+                <ScheduleText>{agenda.event}</ScheduleText>
+              </ScheduleContainer>
+            ))}
+        </HackSchedulesContainer>
+      ) : (
+        <TracksContainer>
+          {agendas[date].length > 0 &&
+            agendas[date].map((agenda, i) => (
+              <TrackContainer key={i}>
+                <TrackTitleContainer>
+                  <TrackTitle>{agenda.time}</TrackTitle>
+                </TrackTitleContainer>
+                <TopicText>{agenda.event}</TopicText>
+              </TrackContainer>
+            ))}
+        </TracksContainer>
+      )}
     </Container>
   );
 };
@@ -110,6 +120,9 @@ const EventText = styled.span`
   line-height: 22px;
   color: ${Colors.pennBlue};
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const DatesContainer = styled.div`
@@ -119,6 +132,9 @@ const DatesContainer = styled.div`
   display: flex;
   gap: 12px;
   padding: 0 12px;
+  @media (max-width: 768px) {
+    padding: 0 6px;
+  }
 `;
 
 const DateSelector = styled.button<{ isSelect: boolean }>`
@@ -132,9 +148,12 @@ const DateSelector = styled.button<{ isSelect: boolean }>`
   :active {
     transform: scale(0.98);
   }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
-const SchedulesContainer = styled.div`
+const HackSchedulesContainer = styled.div`
   width: 100%;
   max-width: 960px;
   margin: 28px auto auto auto;
@@ -151,31 +170,89 @@ const SchedulesContainer = styled.div`
 
 const ScheduleContainer = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 100px 100px 1fr;
+  align-items: center;
   padding: 20px 10px;
-`;
-
-const TimeContainer = styled.div`
-  width: 300px;
-  @media (max-width: 768px) {
-    width: 120px;
+  gap: 20px;
+  @media (max-width: 576px) {
+    grid-template-columns: 60px 60px 1fr;
   }
 `;
 
-const EventContainer = styled.div`
-  flex: 1;
-`;
-
-const NoEventContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 0;
-`;
-
-const NoEventText = styled.span`
-  font-size: 20px;
-  line-height: 24px;
+const TimeText = styled.span`
+  font-size: 16px;
+  line-height: 22px;
   color: ${Colors.pennBlue};
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const DurationText = styled(TimeText)`
+  color: ${Colors.gray5};
+`;
+
+const ScheduleText = styled(TimeText)`
+  font-weight: 500;
+`;
+
+const TracksContainer = styled.div`
+  width: 100%;
+  max-width: 960px;
+  margin: 32px auto auto auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+`;
+
+const TrackContainer = styled.div`
+  width: 100%;
+  padding: 10px 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+`;
+
+const TrackTitleContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: ${Colors.columbiaBlue};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+`;
+
+const TrackTitle = styled.h3`
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  color: ${Colors.pennBlue};
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const TopicText = styled.span`
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: ${Colors.pennBlue};
+  padding: 40px 10px 50px 10px;
+  margin-top: 50px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 20px 10px 30px 10px;
+  }
 `;
