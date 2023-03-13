@@ -19,6 +19,7 @@ export const perpetualUrl = "https://perp.com/";
 export const quantstampUrl = "https://quantstamp.com/";
 export const tpeUrl = "https://twitter.com/eth_taipei";
 export const appWorksUrl = "https://appworks.tw/";
+export const tenderlyUrl = "https://tenderly.co/";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
