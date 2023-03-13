@@ -31,7 +31,7 @@ const navItems = [
   {
     label: t.navs.agenda,
     value: "/agenda",
-    disabled: true,
+    disabled: false,
     isNewTab: false,
     isPlugin: false,
   },
