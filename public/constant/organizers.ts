@@ -11,6 +11,7 @@ import {
   tenderlyUrl,
   autopassUrl,
   termStructureUrl,
+  seleneUrl,
 } from "./urls";
 
 import diamond from "@/public/images/diamond.png";
@@ -25,6 +26,7 @@ import appWorks from "@/public/images/appWorks.png";
 import tenderly from "@/public/images/tenderly.png";
 import autopass from "@/public/images/autopass.png";
 import termStructure from "@/public/images/termStructure.png";
+import selene from "@/public/images/selene.png";
 
 import { StaticImageData } from "next/image";
 
@@ -44,6 +46,7 @@ const organizers: OrganizerProps[] = [
   { name: "lyra", url: lyraUrl, logo: lyra },
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
+  { name: "Selene", url: seleneUrl, logo: selene },
   { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
   { name: "Tenderly", url: tenderlyUrl, logo: tenderly },
   { name: "Term Structure", url: termStructureUrl, logo: termStructure },
