@@ -36,7 +36,13 @@ const speakers: SpeakerProps[] = [
     twitter: "https://twitter.com/iambillsta",
     companyLink: "https://zkex.com/",
   },
-  { name: "Cathie", company: "zkMachineLearning", src: cathie },
+  {
+    name: "Cathie",
+    company: "Ethereum Foundation",
+    src: cathie,
+    twitter: "https://twitter.com/drCathieSo_eth",
+    companyLink: "https://ethereum.org/en/",
+  },
   {
     name: "Chris Tam",
     company: "BTQ",
