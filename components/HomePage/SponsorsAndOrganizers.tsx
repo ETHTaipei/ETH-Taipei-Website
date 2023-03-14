@@ -67,6 +67,7 @@ const Title = styled.h2`
 
 const SponsorsContainer = styled.div`
   width: 100%;
+  max-width: 1080px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -78,7 +79,7 @@ const SponsorsContainer = styled.div`
 `;
 
 const SponsorBtn = styled.button`
-  flex: 0 1 280px;
+  flex: 0 1 240px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -100,5 +101,5 @@ const SponsorBtn = styled.button`
 `;
 
 const PartnersTitle = styled(Title)`
-  margin-top: 60px;
+  margin-top: 100px;
 `;
