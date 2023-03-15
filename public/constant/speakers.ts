@@ -12,6 +12,7 @@ import guiltygyoza from "@/public/images/guiltygyoza.png";
 import savio from "@/public/images/savioNoir.png";
 import shotaroGranzierNakajima from "@/public/images/shotaroGranzier-Nakajima.png";
 import dapplion from "@/public/images/dapplion.png";
+import deyeonKim from "@/public/images/deyeonKim.png";
 
 type SpeakerProps = {
   name: string;
@@ -63,6 +64,13 @@ const speakers: SpeakerProps[] = [
     src: dapplion,
     twitter: "https://twitter.com/dapplion",
     companyLink: "https://chainsafe.io/",
+  },
+  {
+    name: "Deyeon Kim",
+    company: "Pods Finance",
+    src: deyeonKim,
+    twitter: "https://twitter.com/DeyeonK",
+    companyLink: "https://www.pods.finance/",
   },
   {
     name: "guiltygyoza",

@@ -87,11 +87,11 @@ const Description = styled.span`
 `;
 
 const SpeakersContainer = styled.div`
-  max-width: 960px;
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-gap: 40px 40px;
+  grid-gap: 40px 20px;
   margin-top: 40px;
 `;
 
