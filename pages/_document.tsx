@@ -51,6 +51,9 @@ export default class MyDocument extends Document {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Inter:wght@300&display=swap" rel="stylesheet"/>
           <script
             dangerouslySetInnerHTML={{
               __html: `
