@@ -52,6 +52,7 @@ const SubTitle = styled.h2`
 `;
 
 const Description = styled.span`
+  display: flex;
   font-size: 16px;
   line-height: 28px;
   color: ${Colors.pennBlue};
@@ -138,10 +139,10 @@ const Venue = () => {
     <Title>{t.homepage.venue}</Title>
     <SubTitle>{t.homepage.venueName}</SubTitle>
     <Description>{t.homepage.venueDescription}</Description>
-    <Description>Capacity: 700 people</Description>
-    <Description>Address: {t.homepage.venueAddress}</Description>
-    <br />
-    <a href={"https://goo.gl/maps/CCXUtykxqYjyp9wVA"} target="_blank" rel="noreferrer">View on Google Maps</a>
+    <Description> <p style={{fontWeight: 'bold', minWidth: 80}}>Capacity:</p> 700 people</Description>
+    <Description> <p style={{fontWeight: 'bold', minWidth: 80}}>Address:</p> {t.homepage.venueAddress}</Description>
+    
+    <a style={{paddingBottom: 6, opacity: 0.8}} href={"https://goo.gl/maps/CCXUtykxqYjyp9wVA"} target="_blank" rel="noreferrer">View on Google Maps</a>
     </TextContainer>
     <ImageContainer>
     <Slideshow index={currentImage}>
