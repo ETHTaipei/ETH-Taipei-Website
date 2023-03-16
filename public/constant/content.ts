@@ -19,7 +19,7 @@ const homepage = {
   minutes: "MINUTES",
   seconds: "SECONDS",
   hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
-  conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including Zero-Knowledge Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in blockchain technology. Tickets grant access to both tracks.`,
+  conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.`,
   hackathonDateWithDays: "Apr 21 (Fri) → Apr 23 (Sun)",
   conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
   hackathonBtnText: "Join Hackathon",
