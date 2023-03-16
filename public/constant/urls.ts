@@ -23,6 +23,7 @@ export const tenderlyUrl = "https://tenderly.co/";
 export const autopassUrl = "https://autopass.xyz/";
 export const termStructureUrl = "https://termstructure.com/";
 export const seleneUrl = "https://www.selene-web3aggregator.io/";
+export const ethereumOrgUrl = "https://ethereum.org/en/";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";

@@ -4,25 +4,14 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/ common";
 import t from "@/public/constant/content";
-import organizers from "@/public/constant/organizers";
+import sponsors from "@/public/constant/sponsors";
 import partners from "@/public/constant/partners";
 
-const SponsorsAndOrganizers = () => {
+const Partners = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.sponsorsAndOrganizers}</Title>
-        <SponsorsContainer>
-          {organizers.map((organizer) => (
-            <SponsorBtn
-              key={organizer.name}
-              onClick={() => openNewTab(organizer.url)}
-            >
-              <Image src={organizer.logo} fill alt={organizer.name} />
-            </SponsorBtn>
-          ))}
-        </SponsorsContainer>
-        <PartnersTitle>{t.homepage.partners}</PartnersTitle>
+        <Title>{t.homepage.partners}</Title>
         <SponsorsContainer>
           {partners.map((partner) => (
             <SponsorBtn
@@ -38,11 +27,12 @@ const SponsorsAndOrganizers = () => {
   );
 };
 
-export default SponsorsAndOrganizers;
+export default Partners;
 
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
+  background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
