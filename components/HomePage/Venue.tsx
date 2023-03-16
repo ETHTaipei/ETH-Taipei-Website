@@ -111,8 +111,9 @@ const Venue = () => {
     "https://i.imgur.com/UHjIcGj.png",
     "https://i.imgur.com/nfrbgCy.png",
     "https://i.imgur.com/xoUN62U.png",
-    "https://i.imgur.com/yQDDjfrF.png",
-    "https://i.imgur.com/touZtUt.png"
+    "https://i.imgur.com/yQDjfrF.png",
+    "https://i.imgur.com/touZtUt.png",
+    "https://i.imgur.com/ug5ZI5k.png",
     ];
     
     useEffect(() => {
