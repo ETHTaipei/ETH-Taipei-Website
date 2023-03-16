@@ -107,9 +107,9 @@ const Venue = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
+    "https://i.imgur.com/nfrbgCy.png",
     "https://i.imgur.com/RjQkZr9.jpg",
     "https://i.imgur.com/UHjIcGj.png",
-    "https://i.imgur.com/nfrbgCy.png",
     "https://i.imgur.com/xoUN62U.png",
     "https://i.imgur.com/yQDjfrF.png",
     "https://i.imgur.com/touZtUt.png",
