@@ -35,10 +35,10 @@ const homepage = {
   venueName: "POPOP Taipei",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
-  sponsorsAndOrganizers: "Sponsors & Organizers",
   comingSoon: "Coming Soon",
   partners: "Partners",
   moreToBeReleased: "More To Be Released ...",
+  organizers: "Organizers",
 };
 
 const navs = {
