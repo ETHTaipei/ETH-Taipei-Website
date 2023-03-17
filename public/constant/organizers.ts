@@ -12,44 +12,103 @@ import {
   autopassUrl,
   termStructureUrl,
   seleneUrl,
+  ethereumOrgUrl,
 } from "./urls";
 
-import diamond from "@/public/images/diamond.png";
-import code4Rena from "@/public/images/code4Rena.png";
-import furucombo from "@/public/images/furucombo.png";
-import imToken from "@/public/images/imToken.png";
-import lyra from "@/public/images/lyra.png";
-import perpetual from "@/public/images/perpetual.png";
-import quantstamp from "@/public/images/quantstamp.png";
-import tpe from "@/public/images/taipei-ethereum.png";
-import appWorks from "@/public/images/appWorks.png";
-import tenderly from "@/public/images/tenderly.png";
-import autopass from "@/public/images/autopass.png";
-import termStructure from "@/public/images/termStructure.png";
-import selene from "@/public/images/selene.png";
+import yenWen from "@/public/images/YenWen.png";
+import hsiaoWei from "@/public/images/Hsiao-Wei.png";
+import martinet from "@/public/images/Martinet.png";
+import anderson from "@/public/images/anderson.png";
+import kimi from "@/public/images/Kimi.png";
+import anton from "@/public/images/Anton.png";
+import changWu from "@/public/images/ChangWu.png";
+import hsuanTing from "@/public/images/HsuanTing.png";
+import hana from "@/public/images/Hana.png";
 
 import { StaticImageData } from "next/image";
 
 type OrganizerProps = {
   name: string;
-  url: string;
-  logo: StaticImageData;
+  title: string;
+  organization: string;
+  src: StaticImageData;
+  twitter?: string;
+  companyLink?: string;
 };
 
 const organizers: OrganizerProps[] = [
-  { name: "AppWorks", url: appWorksUrl, logo: appWorks },
-  { name: "Autopass", url: autopassUrl, logo: autopass },
-  { name: "code4Rena", url: code4renaUrl, logo: code4Rena },
-  { name: "diamond protocol", url: diamondUrl, logo: diamond },
-  { name: "furucombo", url: furucomboUrl, logo: furucombo },
-  { name: "imToken", url: imTokenUrl, logo: imToken },
-  { name: "lyra", url: lyraUrl, logo: lyra },
-  { name: "perpetual", url: perpetualUrl, logo: perpetual },
-  { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
-  { name: "Selene", url: seleneUrl, logo: selene },
-  { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
-  { name: "Tenderly", url: tenderlyUrl, logo: tenderly },
-  { name: "Term Structure", url: termStructureUrl, logo: termStructure },
+  {
+    name: "Yen Wen",
+    title: "Founder",
+    organization: "Perpetual Protocol",
+    src: yenWen,
+    twitter: "",
+    companyLink: perpetualUrl,
+  },
+  {
+    name: "Hsiao-Wei Wang",
+    title: "Researcher",
+    organization: "Ethereum Foundation",
+    src: hsiaoWei,
+    twitter: "",
+    companyLink: ethereumOrgUrl,
+  },
+  {
+    name: "Martinet",
+    title: "Head of DevRel",
+    organization: "Quantstamp",
+    src: martinet,
+    twitter: "",
+    companyLink: quantstampUrl,
+  },
+  {
+    name: "Anderson Chen",
+    title: "Co-founder",
+    organization: "Diamond Protocol",
+    src: anderson,
+    twitter: "",
+    companyLink: diamondUrl,
+  },
+  {
+    name: "Kimi",
+    title: "Researcher",
+    organization: "Ethereum Foundation",
+    src: kimi,
+    twitter: "",
+    companyLink: ethereumOrgUrl,
+  },
+  {
+    name: "Anton",
+    title: "Developer",
+    organization: "Lyra",
+    src: anton,
+    twitter: "anton",
+    companyLink: lyraUrl,
+  },
+  {
+    name: "Chang Wu",
+    title: "Chief Scientist",
+    organization: "ImToken",
+    src: changWu,
+    twitter: "",
+    companyLink: imTokenUrl,
+  },
+  {
+    name: "Hsuan Ting",
+    title: "Founder",
+    organization: "Furucombo",
+    src: hsuanTing,
+    twitter: "",
+    companyLink: furucomboUrl,
+  },
+  {
+    name: "Hana",
+    title: "Marketing",
+    organization: "Perpetual Protocol",
+    src: hana,
+    twitter: "",
+    companyLink: perpetualUrl,
+  },
 ];
 
 export default organizers;
