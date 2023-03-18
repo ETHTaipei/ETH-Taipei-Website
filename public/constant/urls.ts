@@ -31,5 +31,5 @@ export const unlockUrl = "https://unlock-protocol.com/";
 export const grenadeUrl = 'https://www.grenade.tw/'
 export const abmediaUrl = 'https://abmedia.io/'
 export const blocktempoUrl = 'https://www.blocktempo.com/'
-
+export const blockBoosterUrl = 'https://twitter.com/0xBlockBooster'
 export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";
