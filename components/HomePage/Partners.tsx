@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/ common";
 import t from "@/public/constant/content";
-import sponsors from "@/public/constant/sponsors";
 import partners from "@/public/constant/partners";
 
 const Partners = () => {
@@ -18,7 +17,7 @@ const Partners = () => {
               key={partner.name}
               onClick={() => openNewTab(partner.url)}
             >
-              <Image src={partner.logo} fill alt={partner.name} />
+              <Image src={partner.logo} fill={!partner.maxHeight} alt={partner.name} style={{ maxHeight: partner.maxHeight }} />
             </SponsorBtn>
           ))}
         </SponsorsContainer>
