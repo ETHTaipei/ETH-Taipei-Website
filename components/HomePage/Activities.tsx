@@ -94,6 +94,8 @@ const ActivityDescription = styled.span`
 const Btn = styled.button`
   flex: 1;
   display: flex;
+  max-height: 64px;
+  margin-top: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
