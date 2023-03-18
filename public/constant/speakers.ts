@@ -13,6 +13,8 @@ import savio from "@/public/images/savioNoir.png";
 import shotaroGranzierNakajima from "@/public/images/shotaroGranzier-Nakajima.png";
 import dapplion from "@/public/images/dapplion.png";
 import deyeonKim from "@/public/images/deyeonKim.png";
+import gautham from "@/public/images/gautham.png";
+import ibeibe from "@/public/images/ibeibe.png";
 
 type SpeakerProps = {
   name: string;
@@ -73,6 +75,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.pods.finance/",
   },
   {
+    name: "gautham",
+    company: "Polynomial",
+    src: gautham,
+    twitter: "https://twitter.com/gauthamzzz",
+    companyLink: "https://www.polynomial.fi/",
+  },
+  {
     name: "guiltygyoza",
     company: "Topology",
     src: guiltygyoza,
@@ -85,6 +94,13 @@ const speakers: SpeakerProps[] = [
     src: hsiaoWeiWang,
     twitter: "https://twitter.com/icebearhww",
     companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: "ibeibe__",
+    company: "Predy Finance",
+    src: ibeibe,
+    twitter: "https://twitter.com/ibeibe__",
+    companyLink: "https://www.predy.finance/",
   },
   {
     name: "Savio",

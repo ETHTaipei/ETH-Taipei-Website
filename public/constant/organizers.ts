@@ -1,22 +1,15 @@
 import {
-  code4renaUrl,
   diamondUrl,
   furucomboUrl,
   imTokenUrl,
   lyraUrl,
   perpetualUrl,
   quantstampUrl,
-  tpeUrl,
-  appWorksUrl,
-  tenderlyUrl,
-  autopassUrl,
-  termStructureUrl,
-  seleneUrl,
   ethereumOrgUrl,
 } from "./urls";
 
 import yenWen from "@/public/images/YenWen.png";
-import hsiaoWei from "@/public/images/Hsiao-Wei.png";
+import hsiaoWei from "@/public/images/Hsiao-WeiWang.png";
 import martinet from "@/public/images/Martinet.png";
 import anderson from "@/public/images/anderson.png";
 import kimi from "@/public/images/Kimi.png";
@@ -42,7 +35,7 @@ const organizers: OrganizerProps[] = [
     title: "Founder",
     organization: "Perpetual Protocol",
     src: yenWen,
-    twitter: "",
+    twitter: "https://twitter.com/tempofeng",
     companyLink: perpetualUrl,
   },
   {
@@ -50,7 +43,7 @@ const organizers: OrganizerProps[] = [
     title: "Researcher",
     organization: "Ethereum Foundation",
     src: hsiaoWei,
-    twitter: "",
+    twitter: "https://twitter.com/icebearhww",
     companyLink: ethereumOrgUrl,
   },
   {
@@ -58,7 +51,7 @@ const organizers: OrganizerProps[] = [
     title: "Head of DevRel",
     organization: "Quantstamp",
     src: martinet,
-    twitter: "",
+    twitter: "https://twitter.com/martinetlee",
     companyLink: quantstampUrl,
   },
   {
@@ -66,7 +59,7 @@ const organizers: OrganizerProps[] = [
     title: "Co-founder",
     organization: "Diamond Protocol",
     src: anderson,
-    twitter: "",
+    twitter: "https://twitter.com/MrAndersonChen",
     companyLink: diamondUrl,
   },
   {
@@ -74,15 +67,15 @@ const organizers: OrganizerProps[] = [
     title: "Researcher",
     organization: "Ethereum Foundation",
     src: kimi,
-    twitter: "",
+    twitter: "https://twitter.com/KimiWu15",
     companyLink: ethereumOrgUrl,
   },
   {
     name: "Anton",
-    title: "Developer",
+    title: "Solidity Developer",
     organization: "Lyra",
     src: anton,
-    twitter: "anton",
+    twitter: "https://twitter.com/antonttc",
     companyLink: lyraUrl,
   },
   {
@@ -90,7 +83,7 @@ const organizers: OrganizerProps[] = [
     title: "Chief Scientist",
     organization: "ImToken",
     src: changWu,
-    twitter: "",
+    twitter: "https://twitter.com/changwu_tw",
     companyLink: imTokenUrl,
   },
   {
@@ -98,7 +91,7 @@ const organizers: OrganizerProps[] = [
     title: "Founder",
     organization: "Furucombo",
     src: hsuanTing,
-    twitter: "",
+    twitter: "https://twitter.com/hsuantingchu",
     companyLink: furucomboUrl,
   },
   {
@@ -106,7 +99,7 @@ const organizers: OrganizerProps[] = [
     title: "Marketing",
     organization: "Perpetual Protocol",
     src: hana,
-    twitter: "",
+    twitter: "https://twitter.com/hanamizuki",
     companyLink: perpetualUrl,
   },
 ];
