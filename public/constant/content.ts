@@ -33,6 +33,7 @@ const homepage = {
   volunteers: "Volunteers",
   venue: "The Venue",
   venueName: "POPOP Taipei",
+  venueDescription: "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   comingSoon: "Coming Soon",
