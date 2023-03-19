@@ -8,9 +8,7 @@ import {
   perpetualUrl,
   quantstampUrl,
   tpeUrl,
-  blocktempoUrl,
   grenadeUrl,
-  abmediaUrl,
   blockBoosterUrl
 } from "./urls";
 
@@ -24,8 +22,6 @@ import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
 import tpe from "@/public/images/taipei-ethereum.png";
 import grenade from "@/public/images/grenade.webp";
-import abmdeia from "@/public/images/abmedia.png";
-import blocktempo from "@/public/images/blocktempo.webp";
 import blockBooster from "@/public/images/BlockBooster.png";
 
 import { StaticImageData } from "next/image";
@@ -49,8 +45,6 @@ const partners: PartnerProps[] = [
   { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
   { name: "Unlock", url: unlockUrl, logo: unlock },
   { name: 'Block Booster', url: blockBoosterUrl, logo: blockBooster },
-  { name: "abmedia", url: abmediaUrl, logo: abmdeia, maxHeight: 80 },
-  { name: "blocktempo", url: blocktempoUrl, logo: blocktempo },
 ];
 
 export default partners;
