@@ -2,7 +2,7 @@ import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { visaUrl, telegramUrl, sideEvnetUrl } from "@/public/constant/urls";
+import { visaUrl, telegramUrl } from "@/public/constant/urls";
 
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import t from "@/public/constant/content";
@@ -30,15 +30,6 @@ const FAQ = () => {
               {t.visa.telegram}
             </Link>
             {t.visa.visaAnswer2Part2}
-          </Description>
-        </Row>
-        <Row>
-          <Title>{t.visa.question3}</Title>
-          <Description>
-            {t.visa.question3Answer}
-            <Link href={sideEvnetUrl} target="_blank">
-              {t.visa.link}
-            </Link>
           </Description>
         </Row>
       </MainContent>
