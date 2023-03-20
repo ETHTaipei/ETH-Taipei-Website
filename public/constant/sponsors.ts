@@ -26,17 +26,67 @@ type OrganizerProps = {
   name: string;
   url: string;
   logo: StaticImageData;
+  width: number;
+  height: number;
 };
 
-const organizers: OrganizerProps[] = [
-  { name: "AppWorks", url: appWorksUrl, logo: appWorks },
-  { name: "Autopass", url: autopassUrl, logo: autopass },
-  { name: "code4Rena", url: code4renaUrl, logo: code4Rena },
-  { name: "perpetual", url: perpetualUrl, logo: perpetual },
-  { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
-  { name: "Selene", url: seleneUrl, logo: selene },
-  { name: "Tenderly", url: tenderlyUrl, logo: tenderly },
-  { name: "Term Structure", url: termStructureUrl, logo: termStructure },
+const goldSponsors: OrganizerProps[] = [
+  {
+    name: "Autopass",
+    url: autopassUrl,
+    logo: autopass,
+    width: 363,
+    height: 150,
+  },
+  {
+    name: "Tenderly",
+    url: tenderlyUrl,
+    logo: tenderly,
+    width: 400,
+    height: 150,
+  },
+  {
+    name: "Term Structure",
+    url: termStructureUrl,
+    logo: termStructure,
+    width: 418,
+    height: 150,
+  },
 ];
 
-export default organizers;
+const silverSponsors: OrganizerProps[] = [
+  {
+    name: "quantstamp",
+    url: quantstampUrl,
+    logo: quantstamp,
+    width: 359,
+    height: 120,
+  },
+  { name: "Selene", url: seleneUrl, logo: selene, width: 291, height: 120 },
+];
+
+const bronzeSponsors: OrganizerProps[] = [
+  {
+    name: "AppWorks",
+    url: appWorksUrl,
+    logo: appWorks,
+    width: 203,
+    height: 80,
+  },
+  {
+    name: "code4Rena",
+    url: code4renaUrl,
+    logo: code4Rena,
+    width: 236,
+    height: 80,
+  },
+  {
+    name: "perpetual",
+    url: perpetualUrl,
+    logo: perpetual,
+    width: 342,
+    height: 80,
+  },
+];
+
+export { goldSponsors, silverSponsors, bronzeSponsors };
