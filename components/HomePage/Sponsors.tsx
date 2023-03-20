@@ -4,7 +4,11 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/ common";
 import t from "@/public/constant/content";
-import sponsors from "@/public/constant/sponsors";
+import {
+  goldSponsors,
+  silverSponsors,
+  bronzeSponsors,
+} from "@/public/constant/sponsors";
 
 const Sponsors = () => {
   return (
@@ -12,10 +16,37 @@ const Sponsors = () => {
       <MainContent>
         <Title>{t.homepage.sponsors}</Title>
         <SponsorsContainer>
-          {sponsors.map((s) => (
-            <SponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
-              <Image src={s.logo} fill alt={s.name} />
-            </SponsorBtn>
+          {goldSponsors.map((s) => (
+            <GoldSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
+              <Image
+                src={s.logo}
+                alt={s.name}
+                width={s.width}
+                height={s.height}
+              />
+            </GoldSponsorBtn>
+          ))}
+
+          {silverSponsors.map((s) => (
+            <SilverSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
+              <Image
+                src={s.logo}
+                alt={s.name}
+                width={s.width}
+                height={s.height}
+              />
+            </SilverSponsorBtn>
+          ))}
+
+          {bronzeSponsors.map((s) => (
+            <BronzeSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
+              <Image
+                src={s.logo}
+                alt={s.name}
+                width={s.width}
+                height={s.height}
+              />
+            </BronzeSponsorBtn>
           ))}
         </SponsorsContainer>
       </MainContent>
@@ -52,23 +83,20 @@ const Title = styled.h2`
 
 const SponsorsContainer = styled.div`
   width: 100%;
-  max-width: 1080px;
+  max-width: 1280px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-  @media (max-width: 768px) {
-    gap: 32px;
-  }
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
 `;
 
-const SponsorBtn = styled.button`
-  flex: 0 1 240px;
-  min-height: 100px;
+const GoldSponsorBtn = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -85,6 +113,12 @@ const SponsorBtn = styled.button`
   }
 `;
 
-const PartnersTitle = styled(Title)`
-  margin-top: 100px;
+const SilverSponsorBtn = styled(GoldSponsorBtn)`
+  /* width: 300px;
+  height: 120px; */
+`;
+
+const BronzeSponsorBtn = styled(GoldSponsorBtn)`
+  /* width: 240px;
+  height: 100px; */
 `;
