@@ -4,11 +4,10 @@ export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
 export const speakerApplyUrl = "https://tally.so/r/wkb6V1";
-export const volunteerApplyUrl = "https://tally.so/r/nPpDAP";
 export const ticketSaleUrl = "";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
-export const sideEvnetUrl = " https://tally.so/r/wgboMN";
+export const sideEventUrl = " https://tally.so/r/wgboMN";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
@@ -28,8 +27,8 @@ export const ethereumOrgUrl = "https://ethereum.org/en/";
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
 
-export const grenadeUrl = 'https://www.grenade.tw/'
-export const abmediaUrl = 'https://abmedia.io/'
-export const blocktempoUrl = 'https://www.blocktempo.com/'
-export const blockBoosterUrl = 'https://twitter.com/0xBlockBooster'
+export const grenadeUrl = "https://www.grenade.tw/";
+export const abmediaUrl = "https://abmedia.io/";
+export const blocktempoUrl = "https://www.blocktempo.com/";
+export const blockBoosterUrl = "https://twitter.com/0xBlockBooster";
 export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";
