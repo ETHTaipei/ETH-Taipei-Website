@@ -3,9 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import { openNewTab } from "@/public/utils/ common";
 import {
+  sideEventUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
-  volunteerApplyUrl,
 } from "@/public/constant/urls";
 import t from "@/public/constant/content";
 
@@ -23,9 +23,9 @@ const ApplicationForm = () => {
             <Text>{t.homepage.applyFor}</Text>
             <Subtitle>{t.homepage.speakers}</Subtitle>
           </Application>
-          <Application onClick={() => openNewTab(volunteerApplyUrl)}>
-            <Text>{t.homepage.applyFor}</Text>
-            <Subtitle>{t.homepage.volunteers}</Subtitle>
+          <Application onClick={() => openNewTab(sideEventUrl)}>
+            <Text>{t.homepage.addYour}</Text>
+            <Subtitle>{t.homepage.sideEvents}</Subtitle>
           </Application>
         </Applications>
       </MainContent>

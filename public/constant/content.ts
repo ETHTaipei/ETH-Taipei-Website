@@ -30,10 +30,12 @@ const homepage = {
   applyFor: "Apply for",
   sponsors: "Sponsors",
   speakers: "Speakers",
-  volunteers: "Volunteers",
+  addYour: "Add Your",
+  sideEvents: "Side Events",
   venue: "The Venue",
   venueName: "POPOP Taipei",
-  venueDescription: "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
+  venueDescription:
+    "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   comingSoon: "Coming Soon",
@@ -61,9 +63,6 @@ const visa = {
     "ETHTaipei can deliver invitation letters for business visas. Please contact us on ",
   telegram: "telegram",
   visaAnswer2Part2: ".",
-  question3: "Can I add my side event to the agenda?",
-  question3Answer: "Yes, you can add your side event using this ",
-  link: "link",
 };
 
 const t = {
