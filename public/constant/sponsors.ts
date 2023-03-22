@@ -9,6 +9,7 @@ import {
   autopassUrl,
   termStructureUrl,
   seleneUrl,
+  zommaUrl,
 } from "./urls";
 
 import code4Rena from "@/public/images/code4Rena.png";
@@ -19,6 +20,7 @@ import termStructure from "@/public/images/termStructure.png";
 import selene from "@/public/images/selene.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
+import zomma from "@/public/images/zomma.png";
 
 import { StaticImageData } from "next/image";
 
@@ -84,6 +86,13 @@ const bronzeSponsors: OrganizerProps[] = [
     name: "perpetual",
     url: perpetualUrl,
     logo: perpetual,
+    width: 342,
+    height: 80,
+  },
+  {
+    name: "zomma",
+    url: zommaUrl,
+    logo: zomma,
     width: 342,
     height: 80,
   },

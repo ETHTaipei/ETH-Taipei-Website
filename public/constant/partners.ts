@@ -9,7 +9,10 @@ import {
   quantstampUrl,
   tpeUrl,
   grenadeUrl,
-  blockBoosterUrl
+  blockBoosterUrl,
+  blocktempoUrl,
+  abmediaUrl,
+  gen3Url
 } from "./urls";
 
 import taikai from "@/public/images/taikai.png";
@@ -22,7 +25,10 @@ import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
 import tpe from "@/public/images/taipei-ethereum.png";
 import grenade from "@/public/images/grenade.webp";
+import abmedia from "@/public/images/abmedia.png";
+import blocktempo from "@/public/images/blocktempo.webp";
 import blockBooster from "@/public/images/BlockBooster.png";
+import gen3 from "@/public/images/gen3.png";
 
 import { StaticImageData } from "next/image";
 
@@ -45,6 +51,9 @@ const partners: PartnerProps[] = [
   { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
   { name: "Unlock", url: unlockUrl, logo: unlock },
   { name: 'Block Booster', url: blockBoosterUrl, logo: blockBooster },
+  { name: '鏈新聞', url: abmediaUrl, logo: abmedia, maxHeight: 80 },
+  { name: '動區', url: blocktempoUrl, logo: blocktempo },  
+  { name: 'Gen3', url: gen3Url, logo: gen3, maxHeight: 55 },  
 ];
 
 export default partners;
