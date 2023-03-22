@@ -17,7 +17,7 @@ const Partners = () => {
               key={partner.name}
               onClick={() => openNewTab(partner.url)}
             >
-              <Image src={partner.logo} fill={!partner.maxHeight} alt={partner.name} style={{ maxHeight: partner.maxHeight }} />
+              <Image src={partner.logo} fill alt={partner.name} />
             </SponsorBtn>
           ))}
         </SponsorsContainer>
