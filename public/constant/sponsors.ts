@@ -93,7 +93,7 @@ const bronzeSponsors: OrganizerProps[] = [
     name: "zomma",
     url: zommaUrl,
     logo: zomma,
-    width: 162,
+    width: 300,
     height: 80,
   },
 ];
