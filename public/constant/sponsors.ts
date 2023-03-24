@@ -8,7 +8,6 @@ import {
   termStructureUrl,
   seleneUrl,
   zommaUrl,
-  ethPlanetUrl,
 } from "./urls";
 
 import code4Rena from "@/public/images/code4Rena.png";
@@ -20,7 +19,6 @@ import selene from "@/public/images/selene.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
 import zomma from "@/public/images/zomma.png";
-import ethPlanet from "@/public/images/ethPlanet.png";
 
 import { StaticImageData } from "next/image";
 
@@ -94,13 +92,6 @@ const bronzeSponsors: OrganizerProps[] = [
     url: zommaUrl,
     logo: zomma,
     width: 300,
-    height: 80,
-  },
-  {
-    name: "ETHPlanet",
-    url: ethPlanetUrl,
-    logo: ethPlanet,
-    width: 287,
     height: 80,
   },
 ];
