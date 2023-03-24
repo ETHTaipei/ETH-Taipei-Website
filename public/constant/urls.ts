@@ -34,3 +34,4 @@ export const gen3Url = "https://www.gen3.network/";
 export const blockBoosterUrl = "https://twitter.com/0xBlockBooster";
 export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";
 export const zommaUrl = 'https://zomma.pro/'
+export const bloctoUrl = 'https://twitter.com/BloctoApp'
