@@ -2,7 +2,7 @@ import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { openNewTab } from "@/public/utils/ common";
+import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
 import {
   goldSponsors,

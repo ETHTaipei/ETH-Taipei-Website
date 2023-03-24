@@ -1,7 +1,7 @@
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
-import { openNewTab } from "@/public/utils/ common";
+import { openNewTab } from "@/public/utils/common";
 import {
   sideEventUrl,
   speakerApplyUrl,

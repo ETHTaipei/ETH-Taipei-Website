@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Colors from "@/styles/colors";
 import t from "@/public/constant/content";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { openNewTab } from "@/public/utils/ common";
+import { openNewTab } from "@/public/utils/common";
 import { discordUrl, telegramUrl, twitterUrl } from "@/public/constant/urls";
 import {
   faTwitter,

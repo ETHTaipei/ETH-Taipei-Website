@@ -8,7 +8,7 @@ import {
   faTelegram,
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
-import { openNewTab } from "@/public/utils/ common";
+import { openNewTab } from "@/public/utils/common";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/images/horizontal-transparent.png";
@@ -19,6 +19,7 @@ import {
   twitterUrl,
 } from "@/public/constant/urls";
 import t from "@/public/constant/content";
+import gtagReportConversion from "@/public/utils/gtag";
 
 const navItems = [
   {
@@ -75,6 +76,9 @@ function Header() {
 
     if (isNewTab) {
       window.open(url, "_blank");
+      if (url === hackathonUrl) {
+        gtagReportConversion();
+      }
     } else if (isPlugin) {
       handleOpenUnlock();
     } else {
@@ -90,6 +94,7 @@ function Header() {
 
   const handleOpenUnlock = () => {
     window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+    gtagReportConversion();
     setNavIsOpen(false);
   };
 
