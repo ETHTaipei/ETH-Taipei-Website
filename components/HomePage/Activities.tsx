@@ -1,13 +1,20 @@
 import t from "@/public/constant/content";
-import { openNewTab } from "@/public/utils/ common";
+import { openNewTab } from "@/public/utils/common";
 import { ticketSaleUrl, hackathonUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
+import gtagReportConversion from "@/public/utils/gtag";
 
 const Activities = () => {
   const handleOpenUnlock = () => {
     window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+    gtagReportConversion();
+  };
+
+  const handleHackathonOnClick = () => {
+    openNewTab(hackathonUrl);
+    gtagReportConversion();
   };
 
   return (
@@ -17,7 +24,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={() => openNewTab(hackathonUrl)}>
+          <Btn onClick={handleHackathonOnClick}>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>

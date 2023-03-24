@@ -7,6 +7,8 @@ import banner from "@/public/images/vertical-transparent.png";
 import t from "@/public/constant/content";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import { hackathonUrl } from "@/public/constant/urls";
+import gtagReportConversion from "@/public/utils/gtag";
+import { openNewTab } from "@/public/utils/common";
 
 const Banner = () => {
   const handleOnClick = (url: string) => {
@@ -15,6 +17,12 @@ const Banner = () => {
 
   const handleOpenUnlock = () => {
     window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+    gtagReportConversion();
+  };
+
+  const handleHackathonOnClick = () => {
+    openNewTab(hackathonUrl);
+    gtagReportConversion();
   };
 
   return (
@@ -24,7 +32,7 @@ const Banner = () => {
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
       <ActivitiesContainer>
-        <ActivityBtn onClick={() => handleOnClick(hackathonUrl)}>
+        <ActivityBtn onClick={handleHackathonOnClick}>
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
         </ActivityBtn>
