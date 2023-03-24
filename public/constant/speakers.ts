@@ -15,6 +15,8 @@ import dapplion from "@/public/images/dapplion.png";
 import deyeonKim from "@/public/images/deyeonKim.png";
 import gautham from "@/public/images/gautham.png";
 import ibeibe from "@/public/images/ibeibe.png";
+import guru from "@/public/images/guru.png";
+import jobin from "@/public/images/jobin.png";
 
 type SpeakerProps = {
   name: string;
@@ -89,6 +91,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.topology.gg/",
   },
   {
+    name: "Guru",
+    company: "Status.im",
+    src: guru,
+    twitter: "https://twitter.com/hackyguru",
+    companyLink: "https://status.im/",
+  },
+  {
     name: "Hsiao-Wei Wang",
     company: "Ethereum Foundation",
     src: hsiaoWeiWang,
@@ -101,6 +110,13 @@ const speakers: SpeakerProps[] = [
     src: ibeibe,
     twitter: "https://twitter.com/ibeibe__",
     companyLink: "https://www.predy.finance/",
+  },
+  {
+    name: "Jobin Babu Ayathil",
+    company: "Obscuro",
+    src: jobin,
+    twitter: "https://twitter.com/0xJba",
+    companyLink: "https://obscu.ro/",
   },
   {
     name: "Savio",
