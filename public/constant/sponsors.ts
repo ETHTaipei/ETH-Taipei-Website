@@ -1,9 +1,7 @@
 import {
   code4renaUrl,
-  lyraUrl,
   perpetualUrl,
   quantstampUrl,
-  tpeUrl,
   appWorksUrl,
   tenderlyUrl,
   autopassUrl,
