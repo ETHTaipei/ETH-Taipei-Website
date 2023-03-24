@@ -7,7 +7,6 @@ import {
   lyraUrl,
   perpetualUrl,
   quantstampUrl,
-  tpeUrl,
   grenadeUrl,
   blockBoosterUrl,
   blocktempoUrl,
@@ -23,7 +22,6 @@ import imToken from "@/public/images/imToken.png";
 import lyra from "@/public/images/lyra.png";
 import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
-import tpe from "@/public/images/taipei-ethereum.png";
 import grenade from "@/public/images/grenade.png";
 import abmedia from "@/public/images/abmedia.png";
 import blocktempo from "@/public/images/blockTempo.png";
@@ -48,7 +46,6 @@ const partners: PartnerProps[] = [
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
   { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
-  { name: "Taipei Ethereum Meetup", url: tpeUrl, logo: tpe },
   { name: "Unlock", url: unlockUrl, logo: unlock },
   { name: "Block Booster", url: blockBoosterUrl, logo: blockBooster },
   { name: "鏈新聞", url: abmediaUrl, logo: abmedia, maxHeight: 80 },

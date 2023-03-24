@@ -42,6 +42,7 @@ const homepage = {
   partners: "Partners",
   moreToBeReleased: "More To Be Released ...",
   organizers: "Organizers",
+  communitySupport: "Community Supports",
 };
 
 const navs = {
