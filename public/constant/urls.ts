@@ -36,3 +36,5 @@ export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";
 export const zommaUrl = "https://zomma.pro/";
 export const ethPlanetUrl = "https://www.ethplanet.org/";
 export const ethereumFoundationUrl = "https://ethereum.foundation/";
+
+export const bloctoUrl = 'https://twitter.com/BloctoApp'
