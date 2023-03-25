@@ -30,13 +30,13 @@ type SpeakerProps = {
 };
 
 const speakers: SpeakerProps[] = [
-  // {
-  //   name: "Agrim Nagrani",
-  //   company: "The Graph",
-  //   src: agrim,
-  //   twitter: "https://twitter.com/agrimnagrani",
-  //   companyLink: "https://thegraph.com/",
-  // },
+  {
+    name: "Agrim Nagrani",
+    company: "Graph Advocate",
+    src: agrim,
+    twitter: "https://twitter.com/agrimnagrani",
+    companyLink: "https://thegraph.com/",
+  },
   {
     name: "Anderson Chen",
     company: "Diamond Protocol",
