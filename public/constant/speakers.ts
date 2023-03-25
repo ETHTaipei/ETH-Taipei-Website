@@ -17,6 +17,9 @@ import gautham from "@/public/images/gautham.png";
 import ibeibe from "@/public/images/ibeibe.png";
 import guru from "@/public/images/guru.png";
 import jobin from "@/public/images/jobin.png";
+import youngHwi from "@/public/images/YoungHwi.png";
+import nuno from "@/public/images/Nuno.png";
+import agrim from "@/public/images/agrim.png";
 
 type SpeakerProps = {
   name: string;
@@ -27,6 +30,13 @@ type SpeakerProps = {
 };
 
 const speakers: SpeakerProps[] = [
+  {
+    name: "Agrim Nagrani",
+    company: "The Graph",
+    src: agrim,
+    twitter: "https://twitter.com/agrimnagrani",
+    companyLink: "https://thegraph.com/",
+  },
   {
     name: "Anderson Chen",
     company: "Diamond Protocol",
@@ -119,6 +129,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://obscu.ro/",
   },
   {
+    name: 'Nuno Loureiro',
+    company: "Ethereum Foundation",
+    src: nuno,
+    twitter: "https://twitter.com/nloureiro",
+    companyLink: "https://ethereum.org/en/",
+  },
+  {
     name: "Savio",
     company: "Noir / Aztec",
     src: savio,
@@ -145,6 +162,13 @@ const speakers: SpeakerProps[] = [
     src: wanseob,
     twitter: "https://twitter.com/wanseoblim",
     companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: 'YoungHwi Cho',
+    company: 'Hunt Town',
+    src: youngHwi,
+    twitter: 'https://twitter.com/heyproject7',
+    companyLink: 'https://hunt.town/'
   },
 ];
 
