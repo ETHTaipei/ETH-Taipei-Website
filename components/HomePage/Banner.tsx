@@ -1,5 +1,5 @@
 import Colors from "@/styles/colors";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -9,10 +9,22 @@ import { hackathonUrl } from "@/public/constant/urls";
 import gtagReportConversion from "@/public/utils/gtag";
 import { openNewTab } from "@/public/utils/common";
 
+// import video2 from "@/public/videos/taipei-video-2.mp4";
+
+
 const Banner = () => {
-  const handleOnClick = (url: string) => {
-    window.open(url, "_blank");
-  };
+
+  const [videoPaths] = useState([
+    "/videos/video-1.mp4",
+    "/videos/video-2.mp4",
+    "/videos/video-3.mp4",
+    "/videos/video-4.mp4",
+    "/videos/video-5.mp4",
+    "/videos/video-6.mp4",
+    "/videos/video-7.mp4",
+  ]);
+
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const handleOpenUnlock = () => {
     window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
@@ -24,14 +36,44 @@ const Banner = () => {
     gtagReportConversion();
   };
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const handleVideoEnd = () => {
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoPaths.length);
+      };
+  
+      (videoRef.current as any).addEventListener("ended", handleVideoEnd);
+  
+      return () => {
+        if (!videoRef.current) return
+        (videoRef.current as any).removeEventListener("ended", handleVideoEnd);
+      };
+    }
+  }, [videoPaths, currentVideoIndex]);
+  
+
+  console.log('dd', videoPaths.length);
+
+  console.log('videoPaths[currentVideoIndex]', videoPaths[currentVideoIndex])
+
+
   return (
     <Container>
       <VideoWrapper>
-        <iframe
-          src="https://www.youtube.com/embed/1aem3HuYIzM?autoplay=1&mute=1&loop=1&playlist=1aem3HuYIzM&controls=0&showinfo=0&autohide=1&modestbranding=1&rel=0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen={true}
-        />
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+        width={"100%"}
+        src={videoPaths[currentVideoIndex]}
+        // type="video/mp4"
+      >
+      {/* <source src={videoPaths} type="video/mp4" /> */}
+        Your browser does not support the video tag.
+      </video>
       </VideoWrapper>
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
