@@ -57,10 +57,10 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Cathie",
-    company: "Ethereum Foundation",
+    company: "",
     src: cathie,
     twitter: "https://twitter.com/drCathieSo_eth",
-    companyLink: "https://ethereum.org/en/",
+    companyLink: "",
   },
   {
     name: "Chris Tam",
@@ -77,7 +77,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.rysk.finance/",
   },
   {
-    name: "dapplion",
+    name: "Dapplion",
     company: "ChainSafe",
     src: dapplion,
     twitter: "https://twitter.com/dapplion",
@@ -91,7 +91,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.pods.finance/",
   },
   {
-    name: "gautham",
+    name: "Gautham",
     company: "Polynomial",
     src: gautham,
     twitter: "https://twitter.com/gauthamzzz",
@@ -133,7 +133,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.amis.com/",
   },
   {
-    name: "ibeibe__",
+    name: "Ibeibe__",
     company: "Predy Finance",
     src: ibeibe,
     twitter: "https://twitter.com/ibeibe__",
