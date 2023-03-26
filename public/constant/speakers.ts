@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { furucomboUrl } from "./urls";
 
 import hsiaoWeiWang from "@/public/images/Hsiao-WeiWang.png";
 import vivian from "@/public/images/vivian.png";
@@ -20,6 +21,9 @@ import jobin from "@/public/images/jobin.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
 import agrim from "@/public/images/agrim.png";
+import ZacL from "@/public/images/ZacL.png";
+import HDZu from "@/public/images/HDZu.png";
+import IHungHsu from "@/public/images/IHungHsu.png";
 
 type SpeakerProps = {
   name: string;
@@ -108,11 +112,25 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://status.im/",
   },
   {
+    name: "HD Zu",
+    company: "Furucombo",
+    src: HDZu,
+    twitter: "",
+    companyLink: furucomboUrl,
+  },
+  {
     name: "Hsiao-Wei Wang",
     company: "Ethereum Foundation",
     src: hsiaoWeiWang,
     twitter: "https://twitter.com/icebearhww",
     companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: "I-Hung Hsu",
+    company: "AMIS",
+    src: IHungHsu,
+    twitter: "https://twitter.com/GlenHsuAmis",
+    companyLink: "https://www.amis.com/",
   },
   {
     name: "ibeibe__",
@@ -129,7 +147,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://obscu.ro/",
   },
   {
-    name: 'Nuno Loureiro',
+    name: "Nuno Loureiro",
     company: "Ethereum Foundation",
     src: nuno,
     twitter: "https://twitter.com/nloureiro",
@@ -164,11 +182,18 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://ethereum.org/en/",
   },
   {
-    name: 'YoungHwi Cho',
-    company: 'Hunt Town',
+    name: "YoungHwi Cho",
+    company: "Hunt Town",
     src: youngHwi,
-    twitter: 'https://twitter.com/heyproject7',
-    companyLink: 'https://hunt.town/'
+    twitter: "https://twitter.com/heyproject7",
+    companyLink: "https://hunt.town/",
+  },
+  {
+    name: "Zac L",
+    company: "Suberra",
+    src: ZacL,
+    twitter: "https://twitter.com/Zlace0x",
+    companyLink: "https://suberra.com/",
   },
 ];
 
