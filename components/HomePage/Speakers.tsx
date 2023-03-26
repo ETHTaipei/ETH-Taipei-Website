@@ -14,31 +14,34 @@ const Speakers = () => {
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
               <SpeakerIcon canHover={!!speaker.twitter}>
-                <a
+                <A
                   href={speaker.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
+                  disabled={!speaker.twitter}
                 >
                   <Image src={speaker.src} fill alt={speaker.name} />
-                </a>
+                </A>
               </SpeakerIcon>
               <SpeakerName canHover={!!speaker.twitter}>
-                <a
+                <A
                   href={speaker.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
+                  disabled={!speaker.twitter}
                 >
                   {speaker.name}
-                </a>
+                </A>
               </SpeakerName>
               <SpeakerCompany canHover={!!speaker.companyLink}>
-                <a
+                <A
                   href={speaker.companyLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  disabled={!speaker.companyLink}
                 >
                   {speaker.company}
-                </a>
+                </A>
               </SpeakerCompany>
             </SpeakerContainer>
           ))}
@@ -134,4 +137,9 @@ const SpeakerName = styled.span<{ canHover: boolean }>`
 const SpeakerCompany = styled(SpeakerName)`
   font-size: 14px;
   line-height: 24px;
+`;
+
+const A = styled.a<{ disabled: boolean }>`
+  pointer-events: ${(props) => props.disabled && "none"};
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
 `;
