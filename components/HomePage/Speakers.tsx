@@ -2,18 +2,56 @@ import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
-import speakers from "@/public/constant/speakers";
+import { speakers, keynoteSpeakers } from "@/public/constant/speakers";
 import Image from "next/image";
 
 const Speakers = () => {
   return (
     <Container>
       <MainContent>
+        <Title>{t.homepage.keyNoteSpeakers}</Title>
+        <SpeakersContainer>
+          {keynoteSpeakers.map((speaker, i) => (
+            <SpeakerContainer key={i}>
+              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={true}>
+                <A
+                  href={speaker.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  disabled={!speaker.twitter}
+                >
+                  <Image src={speaker.src} fill alt={speaker.name} />
+                </A>
+              </SpeakerIcon>
+              <SpeakerName canHover={!!speaker.twitter}>
+                <A
+                  href={speaker.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  disabled={!speaker.twitter}
+                >
+                  {speaker.name}
+                </A>
+              </SpeakerName>
+              <SpeakerCompany canHover={!!speaker.companyLink}>
+                <A
+                  href={speaker.companyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  disabled={!speaker.companyLink}
+                >
+                  {speaker.company}
+                </A>
+              </SpeakerCompany>
+            </SpeakerContainer>
+          ))}
+        </SpeakersContainer>
+
         <Title>{t.homepage.speakers}</Title>
         <SpeakersContainer>
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
-              <SpeakerIcon canHover={!!speaker.twitter}>
+              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={false}>
                 <A
                   href={speaker.twitter}
                   target="_blank"
@@ -86,7 +124,7 @@ const Description = styled.span`
   font-weight: bold;
   color: ${Colors.pennBlue};
   display: block;
-  margin-top: 80px;
+  margin-top: 40px;
 `;
 
 const SpeakersContainer = styled.div`
@@ -96,6 +134,7 @@ const SpeakersContainer = styled.div`
   justify-content: center;
   grid-gap: 40px 20px;
   margin-top: 40px;
+  margin-bottom: 50px;
 `;
 
 const SpeakerContainer = styled.div`
@@ -106,9 +145,9 @@ const SpeakerContainer = styled.div`
   gap: 8px;
 `;
 
-const SpeakerIcon = styled.div<{ canHover: boolean }>`
-  width: 100px;
-  height: 100px;
+const SpeakerIcon = styled.div<{ canHover: boolean, isKeynote: boolean }>`
+  width: ${(props) => (props.isKeynote ? "120px" : "100px")};
+  height: ${(props) => (props.isKeynote ? "120px" : "100px")};
   border-radius: 100px;
   display: flex;
   justify-content: center;
