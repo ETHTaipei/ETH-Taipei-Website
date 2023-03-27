@@ -45,7 +45,7 @@ export const conferenceAgendas: {
 } = {
   24: [
     {
-      track: "defi/L2 Track",
+      track: "DeFi / Layer 2 Track",
       speakers: [
         { name: "Vitalik", company: "Ethereum Foundation" },
         { name: "Tom soong", company: "Zomma" },
@@ -59,7 +59,7 @@ export const conferenceAgendas: {
       ],
     },
     {
-      track: "zk/client/security Track",
+      track: "ZK / Client / Security Track",
       speakers: [
         { name: "Vitalik", company: "Ethereum Foundation" },
         { name: "Hsiao-Wei Wang", company: "Ethereum Foundation" },
@@ -78,7 +78,7 @@ export const conferenceAgendas: {
   ],
   25: [
     {
-      track: "defi/L2 Track",
+      track: "DeFi / Layer 2 Track",
       speakers: [
         { name: "ZD Hu", company: "Furucombo" },
         { name: "Anderson Chen", company: "Diamond Protocol" },
@@ -88,7 +88,7 @@ export const conferenceAgendas: {
       ],
     },
     {
-      track: "zk/client/security Track",
+      track: "ZK / Client / Security Track",
       speakers: [
         { name: "Wanseob Lim", company: "Ethereum Foundation" },
         { name: "Savio", company: "Aztec" },
