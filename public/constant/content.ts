@@ -45,6 +45,10 @@ const homepage = {
   communitySupport: "Community Supports",
 };
 
+const agendaPage = {
+  agenda: "Agenda",
+};
+
 const navs = {
   home: "Home",
   agenda: "Agenda",
@@ -69,6 +73,7 @@ const visa = {
 const t = {
   common,
   homepage,
+  agendaPage,
   navs,
   visa,
 };

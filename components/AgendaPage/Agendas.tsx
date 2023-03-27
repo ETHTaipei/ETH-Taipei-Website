@@ -1,3 +1,4 @@
+import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -18,7 +19,7 @@ const Agendas = () => {
 
   return (
     <Container>
-      <Title>Agenda</Title>
+      <Title>{t.agendaPage.agenda}</Title>
       <EventSwitcherContainer>
         <EventSwitchers>
           <EventSwitcher
