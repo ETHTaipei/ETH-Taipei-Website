@@ -96,7 +96,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 24px;
+  font-size: 35px;
   line-height: 32px;
   font-weight: bold;
   color: ${Colors.pennBlue};
