@@ -26,6 +26,7 @@ import HDZu from "@/public/images/HDZu.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
 import ShantanuGupta from "@/public/images/ShantanuGupta.png";
+import v from "@/public/images/v.png";
 
 type SpeakerProps = {
   name: string;
@@ -34,6 +35,16 @@ type SpeakerProps = {
   twitter?: string;
   companyLink?: string;
 };
+
+const keynoteSpeakers: SpeakerProps[] = [
+  {
+    name: "Vitalik Buterin",
+    company: "Ethereum Foundation",
+    src: v,
+    twitter: "https://twitter.com/VitalikButerin",
+    companyLink: "https://ethereum.org/en/",
+  }
+];
 
 const speakers: SpeakerProps[] = [
   {
@@ -213,4 +224,4 @@ const speakers: SpeakerProps[] = [
   },
 ];
 
-export default speakers;
+export { speakers, keynoteSpeakers};

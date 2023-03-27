@@ -30,6 +30,7 @@ const homepage = {
   applyFor: "Apply for",
   sponsors: "Sponsors",
   speakers: "Speakers",
+  keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",
   venue: "The Venue",
