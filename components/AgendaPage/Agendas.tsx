@@ -1,7 +1,12 @@
 import Colors from "@/styles/colors";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EventType, dates, agendas } from "@/public/constant/agendas";
+import {
+  EventType,
+  dates,
+  hackathonAgendas,
+  conferenceAgendas,
+} from "@/public/constant/agendas";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -41,8 +46,8 @@ const Agendas = () => {
       </DatesContainer>
       {date < dates.conference[0] ? (
         <HackSchedulesContainer>
-          {agendas[date].length > 0 &&
-            agendas[date].map((agenda, i) => (
+          {hackathonAgendas[date].length > 0 &&
+            hackathonAgendas[date].map((agenda, i) => (
               <ScheduleContainer key={i}>
                 <TimeText>{agenda.time}</TimeText>
                 <DurationText>{agenda.duration}</DurationText>
@@ -52,15 +57,23 @@ const Agendas = () => {
         </HackSchedulesContainer>
       ) : (
         <TracksContainer>
-          {agendas[date].length > 0 &&
-            agendas[date].map((agenda, i) => (
-              <TrackContainer key={i}>
-                <TrackTitleContainer>
-                  <TrackTitle>{agenda.time}</TrackTitle>
-                </TrackTitleContainer>
-                <TopicText>{agenda.event}</TopicText>
-              </TrackContainer>
-            ))}
+          {conferenceAgendas[date].map((agenda, i) => (
+            <TrackContainer key={i}>
+              <TrackTitleContainer>
+                <TrackTitle>{agenda.track}</TrackTitle>
+              </TrackTitleContainer>
+              <SpeakersContainer>
+                {agenda.speakers.map((s) => (
+                  <SpeakerContainer key={s.name}>
+                    <SpeakerName>{s.name}</SpeakerName>
+                    {s.company && (
+                      <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
+                    )}
+                  </SpeakerContainer>
+                ))}
+              </SpeakersContainer>
+            </TrackContainer>
+          ))}
         </TracksContainer>
       )}
     </Container>
@@ -206,12 +219,13 @@ const TracksContainer = styled.div`
   gap: 20px;
   @media (max-width: 768px) {
     gap: 12px;
+    grid-template-columns: none;
   }
 `;
 
 const TrackContainer = styled.div`
   width: 100%;
-  padding: 10px 24px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   background-color: #eeeeee;
@@ -242,17 +256,32 @@ const TrackTitle = styled.h3`
   }
 `;
 
-const TopicText = styled.span`
-  display: block;
-  text-align: center;
+const SpeakersContainer = styled.div`
+  padding: 60px 20px 20px 20px;
+  @media (max-width: 768px) {
+    padding: 60px 12px 20px 12px;
+  }
+
+  > div:not(:first-child) {
+    border-top: 1px solid ${Colors.gray3};
+  }
+`;
+
+const SpeakerContainer = styled.div`
+  padding: 12px 0;
+`;
+
+const SpeakerName = styled.span`
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
   color: ${Colors.pennBlue};
-  padding: 40px 10px 50px 10px;
-  margin-top: 50px;
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 20px 10px 30px 10px;
   }
+`;
+
+const SpeakerCompany = styled(SpeakerName)`
+  font-weight: normal;
+  color: ${Colors.gray5};
 `;
