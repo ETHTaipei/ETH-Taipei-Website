@@ -64,6 +64,10 @@ const visa = {
     "ETHTaipei can deliver invitation letters for business visas. Please contact us on ",
   telegram: "telegram",
   visaAnswer2Part2: ".",
+  visaQuestion3: "Is there any side event?",
+  visaAnswer3Part1: "Yes! We have many side events organized by companies or communities. Please take a look at this ",
+  sideEventForm: "form",
+  visaAnswer3Part2: " compiled by our community members.",
 };
 
 const t = {

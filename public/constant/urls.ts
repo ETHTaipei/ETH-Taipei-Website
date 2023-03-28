@@ -8,6 +8,7 @@ export const ticketSaleUrl = "";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
+export const sideEventFormUrl = "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
