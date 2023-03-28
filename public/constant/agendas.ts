@@ -47,7 +47,6 @@ export const conferenceAgendas: {
     {
       track: "DeFi / Layer 2 Track",
       speakers: [
-        { name: "Vitalik", company: "Ethereum Foundation" },
         { name: "Tom soong", company: "Zomma" },
         { name: "Ibe", company: "Predy Finance" },
         { name: "Gauthem", company: "Polynomial" },
@@ -61,7 +60,6 @@ export const conferenceAgendas: {
     {
       track: "ZK / Client / Security Track",
       speakers: [
-        { name: "Vitalik", company: "Ethereum Foundation" },
         { name: "Hsiao-Wei Wang", company: "Ethereum Foundation" },
         { name: "Dapplion", company: "ChainSafe" },
         { name: "Marry Lui", company: "Celestia" },
