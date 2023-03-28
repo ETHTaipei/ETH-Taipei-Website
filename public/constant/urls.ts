@@ -34,3 +34,7 @@ export const gen3Url = "https://www.gen3.network/";
 export const blockBoosterUrl = "https://twitter.com/0xBlockBooster";
 export const visaUrl = "https://www.boca.gov.tw/cp-149-4486-7785a-2.html";
 export const zommaUrl = 'https://zomma.pro/'
+
+export const web3plusUrl = "https://web3plus.bnext.com.tw/";
+export const cryptocityUrl = 'https://www.cryptocity.tw/'
+export const tbaUrl = 'https://www.facebook.com/TaiwanBlockchainAcademia/'

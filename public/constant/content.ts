@@ -40,6 +40,7 @@ const homepage = {
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   comingSoon: "Coming Soon",
   partners: "Partners",
+  mediapartners: "Media Partners",
   moreToBeReleased: "More To Be Released ...",
   organizers: "Organizers",
 };

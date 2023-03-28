@@ -9,6 +9,7 @@ import Speakers from "@/components/HomePage/Speakers";
 import Sponsors from "@/components/HomePage/Sponsors";
 import Partners from "@/components/HomePage/Partners";
 import Organizers from "@/components/HomePage/Organizers";
+import MediaPartners from "@/components/HomePage/MediaPartners";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <Sponsors />
       <Partners />
       <Organizers />
+      <MediaPartners />
     </div>
   );
 };
