@@ -43,6 +43,7 @@ const homepage = {
   moreToBeReleased: "More To Be Released ...",
   organizers: "Organizers",
   communitySupport: "Community Supports",
+  keynote: "Keynote Speaker",
 };
 
 const agendaPage = {

@@ -1,4 +1,3 @@
-import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -8,6 +7,7 @@ import {
   hackathonAgendas,
   conferenceAgendas,
 } from "@/public/constant/agendas";
+import t from "@/public/constant/content";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -57,25 +57,42 @@ const Agendas = () => {
             ))}
         </HackSchedulesContainer>
       ) : (
-        <TracksContainer>
-          {conferenceAgendas[date].map((agenda, i) => (
-            <TrackContainer key={i}>
-              <TrackTitleContainer>
-                <TrackTitle>{agenda.track}</TrackTitle>
-              </TrackTitleContainer>
-              <SpeakersContainer>
-                {agenda.speakers.map((s) => (
-                  <SpeakerContainer key={s.name}>
-                    <SpeakerName>{s.name}</SpeakerName>
-                    {s.company && (
-                      <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
-                    )}
+        <>
+          {date === 24 && (
+            <KeynoteContainer>
+              <TrackContainer>
+                <TrackTitleContainer>
+                  <TrackTitle>{t.homepage.keynote}</TrackTitle>
+                </TrackTitleContainer>
+                <SpeakersContainer>
+                  <SpeakerContainer>
+                    <SpeakerName>{"Vitalik"}</SpeakerName>
+                    <SpeakerCompany>{`, ETH Foundation`}</SpeakerCompany>
                   </SpeakerContainer>
-                ))}
-              </SpeakersContainer>
-            </TrackContainer>
-          ))}
-        </TracksContainer>
+                </SpeakersContainer>
+              </TrackContainer>
+            </KeynoteContainer>
+          )}
+          <TracksContainer>
+            {conferenceAgendas[date].map((agenda, i) => (
+              <TrackContainer key={i}>
+                <TrackTitleContainer>
+                  <TrackTitle>{agenda.track}</TrackTitle>
+                </TrackTitleContainer>
+                <SpeakersContainer>
+                  {agenda.speakers.map((s) => (
+                    <SpeakerContainer key={s.name}>
+                      <SpeakerName>{s.name}</SpeakerName>
+                      {s.company && (
+                        <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
+                      )}
+                    </SpeakerContainer>
+                  ))}
+                </SpeakersContainer>
+              </TrackContainer>
+            ))}
+          </TracksContainer>
+        </>
       )}
     </Container>
   );
@@ -91,7 +108,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
-    padding: 60px 24px 120px 24px;
+    padding: 60px 24px 60px 24px;
   }
 `;
 
@@ -219,8 +236,8 @@ const TracksContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   @media (max-width: 768px) {
-    gap: 12px;
     grid-template-columns: none;
+    margin: 20px auto auto auto;
   }
 `;
 
@@ -285,4 +302,13 @@ const SpeakerName = styled.span`
 const SpeakerCompany = styled(SpeakerName)`
   font-weight: normal;
   color: ${Colors.gray5};
+`;
+
+const KeynoteContainer = styled.div`
+  width: 100%;
+  max-width: 960px;
+  margin: 32px auto auto auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 `;
