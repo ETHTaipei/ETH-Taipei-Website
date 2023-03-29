@@ -43,6 +43,11 @@ const homepage = {
   moreToBeReleased: "More To Be Released ...",
   organizers: "Organizers",
   communitySupport: "Community Supports",
+  keynote: "Keynote Speaker",
+};
+
+const agendaPage = {
+  agenda: "Agenda",
 };
 
 const navs = {
@@ -69,6 +74,7 @@ const visa = {
 const t = {
   common,
   homepage,
+  agendaPage,
   navs,
   visa,
 };

@@ -1,7 +1,13 @@
 import Colors from "@/styles/colors";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EventType, dates, agendas } from "@/public/constant/agendas";
+import {
+  EventType,
+  dates,
+  hackathonAgendas,
+  conferenceAgendas,
+} from "@/public/constant/agendas";
+import t from "@/public/constant/content";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -13,7 +19,7 @@ const Agendas = () => {
 
   return (
     <Container>
-      <Title>Agenda</Title>
+      <Title>{t.agendaPage.agenda}</Title>
       <EventSwitcherContainer>
         <EventSwitchers>
           <EventSwitcher
@@ -41,8 +47,8 @@ const Agendas = () => {
       </DatesContainer>
       {date < dates.conference[0] ? (
         <HackSchedulesContainer>
-          {agendas[date].length > 0 &&
-            agendas[date].map((agenda, i) => (
+          {hackathonAgendas[date].length > 0 &&
+            hackathonAgendas[date].map((agenda, i) => (
               <ScheduleContainer key={i}>
                 <TimeText>{agenda.time}</TimeText>
                 <DurationText>{agenda.duration}</DurationText>
@@ -51,17 +57,42 @@ const Agendas = () => {
             ))}
         </HackSchedulesContainer>
       ) : (
-        <TracksContainer>
-          {agendas[date].length > 0 &&
-            agendas[date].map((agenda, i) => (
+        <>
+          {date === 24 && (
+            <KeynoteContainer>
+              <TrackContainer>
+                <TrackTitleContainer>
+                  <TrackTitle>{t.homepage.keynote}</TrackTitle>
+                </TrackTitleContainer>
+                <SpeakersContainer>
+                  <SpeakerContainer>
+                    <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
+                    <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
+                  </SpeakerContainer>
+                </SpeakersContainer>
+              </TrackContainer>
+            </KeynoteContainer>
+          )}
+          <TracksContainer>
+            {conferenceAgendas[date].map((agenda, i) => (
               <TrackContainer key={i}>
                 <TrackTitleContainer>
-                  <TrackTitle>{agenda.time}</TrackTitle>
+                  <TrackTitle>{agenda.track}</TrackTitle>
                 </TrackTitleContainer>
-                <TopicText>{agenda.event}</TopicText>
+                <SpeakersContainer>
+                  {agenda.speakers.map((s) => (
+                    <SpeakerContainer key={s.name}>
+                      <SpeakerName>{s.name}</SpeakerName>
+                      {s.company && (
+                        <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
+                      )}
+                    </SpeakerContainer>
+                  ))}
+                </SpeakersContainer>
               </TrackContainer>
             ))}
-        </TracksContainer>
+          </TracksContainer>
+        </>
       )}
     </Container>
   );
@@ -77,12 +108,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
-    padding: 60px 24px 120px 24px;
+    padding: 60px 24px 60px 24px;
   }
 `;
 
 const Title = styled.h2`
-  font-size: 24px;
+  font-size: 35px;
   line-height: 32px;
   font-weight: bold;
   color: ${Colors.pennBlue};
@@ -205,13 +236,14 @@ const TracksContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   @media (max-width: 768px) {
-    gap: 12px;
+    grid-template-columns: none;
+    margin: 20px auto auto auto;
   }
 `;
 
 const TrackContainer = styled.div`
   width: 100%;
-  padding: 10px 24px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   background-color: #eeeeee;
@@ -242,17 +274,44 @@ const TrackTitle = styled.h3`
   }
 `;
 
-const TopicText = styled.span`
-  display: block;
-  text-align: center;
+const SpeakersContainer = styled.div`
+  padding: 60px 20px 20px 20px;
+  @media (max-width: 768px) {
+    padding: 60px 12px 20px 12px;
+  }
+
+  > div:not(:first-child) {
+    border-top: 1px solid ${Colors.gray3};
+  }
+`;
+
+const SpeakerContainer = styled.div`
+  padding: 12px 0;
+`;
+
+const SpeakerName = styled.span`
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
   color: ${Colors.pennBlue};
-  padding: 40px 10px 50px 10px;
-  margin-top: 50px;
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 20px 10px 30px 10px;
+  }
+`;
+
+const SpeakerCompany = styled(SpeakerName)`
+  font-weight: normal;
+  color: ${Colors.gray5};
+`;
+
+const KeynoteContainer = styled.div`
+  width: 100%;
+  max-width: 960px;
+  margin: 32px auto auto auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  @media (max-width: 768px) {
+    text-align: left;
   }
 `;
