@@ -16,37 +16,15 @@ const Sponsors = () => {
       <MainContent>
         <Title>{t.homepage.sponsors}</Title>
         <SponsorsContainer>
-          {goldSponsors.map((s) => (
-            <GoldSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
-              <Image
+          {[...goldSponsors, ...silverSponsors, ...bronzeSponsors].map((s) => (
+            <SponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
+              <StyledImage
                 src={s.logo}
                 alt={s.name}
                 width={s.width}
                 height={s.height}
               />
-            </GoldSponsorBtn>
-          ))}
-
-          {silverSponsors.map((s) => (
-            <SilverSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
-              <Image
-                src={s.logo}
-                alt={s.name}
-                width={s.width}
-                height={s.height}
-              />
-            </SilverSponsorBtn>
-          ))}
-
-          {bronzeSponsors.map((s) => (
-            <BronzeSponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
-              <Image
-                src={s.logo}
-                alt={s.name}
-                width={s.width}
-                height={s.height}
-              />
-            </BronzeSponsorBtn>
+            </SponsorBtn>
           ))}
         </SponsorsContainer>
       </MainContent>
@@ -92,7 +70,7 @@ const SponsorsContainer = styled.div`
   margin-top: 20px;
 `;
 
-const GoldSponsorBtn = styled.button`
+const SponsorBtn = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,12 +91,11 @@ const GoldSponsorBtn = styled.button`
   }
 `;
 
-const SilverSponsorBtn = styled(GoldSponsorBtn)`
-  /* width: 300px;
-  height: 120px; */
-`;
-
-const BronzeSponsorBtn = styled(GoldSponsorBtn)`
-  /* width: 240px;
-  height: 100px; */
+const StyledImage = styled(Image)<{ width: number; height: number }>`
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+  }
 `;
