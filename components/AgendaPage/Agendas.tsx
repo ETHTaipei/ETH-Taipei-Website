@@ -66,8 +66,8 @@ const Agendas = () => {
                 </TrackTitleContainer>
                 <SpeakersContainer>
                   <SpeakerContainer>
-                    <SpeakerName>{"Vitalik"}</SpeakerName>
-                    <SpeakerCompany>{`, ETH Foundation`}</SpeakerCompany>
+                    <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
+                    <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
                   </SpeakerContainer>
                 </SpeakersContainer>
               </TrackContainer>
