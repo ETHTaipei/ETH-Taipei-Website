@@ -24,6 +24,8 @@ import agrim from "@/public/images/agrim.png";
 import ZacL from "@/public/images/ZacL.png";
 import HDZu from "@/public/images/HDZu.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
+import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
+import ShantanuGupta from "@/public/images/ShantanuGupta.png";
 
 type SpeakerProps = {
   name: string;
@@ -57,7 +59,7 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Cathie",
-    company: "",
+    company: "Individual Researcher",
     src: cathie,
     twitter: "https://twitter.com/drCathieSo_eth",
     companyLink: "",
@@ -159,6 +161,20 @@ const speakers: SpeakerProps[] = [
     src: savio,
     twitter: "https://twitter.com/globallager",
     companyLink: "https://aztec.network/noir/",
+  },
+  {
+    name: "Seiya Kobayashi",
+    company: "Individual Researcher",
+    src: SeiyaKobayashi,
+    twitter: "https://www.facebook.com/seiya.kb",
+    companyLink: "",
+  },
+  {
+    name: `Shantanu Gupta`,
+    company: "Biconomy",
+    src: ShantanuGupta,
+    twitter: "https://twitter.com/DoubleSc00p",
+    companyLink: "https://www.biconomy.io/",
   },
   {
     name: `Shotaro Granzier-Nakajima`,
