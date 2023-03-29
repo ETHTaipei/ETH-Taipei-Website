@@ -11,7 +11,7 @@ export const dates = {
   conference: [24, 25],
 };
 
-export const agendas: { [key: number]: AgendaType[] } = {
+export const hackathonAgendas: { [key: number]: AgendaType[] } = {
   21: [
     { time: "03:00pm", duration: "4 hrs", event: "Pre-workshop" },
     {
@@ -35,12 +35,68 @@ export const agendas: { [key: number]: AgendaType[] } = {
     },
     { time: "05:00pm", duration: "1 hr", event: "Hackathon Closing Party" },
   ],
+};
+
+export const conferenceAgendas: {
+  [key: number]: {
+    track: string;
+    speakers: { name: string; company: string }[];
+  }[];
+} = {
   24: [
-    { time: "Ethereum Track", duration: "", event: "ZK + Ethereum Core" },
-    { time: "Application Track", duration: "", event: "Defi + Layer2" },
+    {
+      track: "DeFi / Layer 2 Track",
+      speakers: [
+        { name: "Tom soong", company: "Zomma" },
+        { name: "Ibe", company: "Predy Finance" },
+        { name: "Gauthem", company: "Polynomial" },
+        { name: "Daniele Ugolini", company: "Rysk Finance" },
+        { name: "Deyeon Kim", company: "Pods Finance" },
+        { name: "Jake", company: "Gauntlet" },
+        { name: "Zac L", company: "Suberra" },
+        { name: "Yenwen", company: "Perpetual Protocol" },
+      ],
+    },
+    {
+      track: "ZK / Client / Security Track",
+      speakers: [
+        { name: "Hsiao-Wei Wang", company: "Ethereum Foundation" },
+        { name: "Dapplion", company: "ChainSafe" },
+        { name: "Marry Lui", company: "Celestia" },
+        { name: "Vivian", company: "Ethereum Foundation" },
+        { name: "Cathie", company: "" },
+        { name: "Balal Khan", company: "ZKEX" },
+        { name: "Chris Tam", company: "BTQ" },
+        { name: "Nuno Loureiro", company: "Ethereum Foundation" },
+        { name: "Guru", company: "Status" },
+        { name: "Akanshu Jain", company: "brahma" },
+        { name: "YoungHwi Cho", company: "Hunt Town" },
+      ],
+    },
   ],
   25: [
-    { time: "Ethereum Track", duration: "", event: "ZK + Security" },
-    { time: "Application Track", duration: "", event: "Defi - Derivatives" },
+    {
+      track: "DeFi / Layer 2 Track",
+      speakers: [
+        { name: "ZD Hu", company: "Furucombo" },
+        { name: "Anderson Chen", company: "Diamond Protocol" },
+        { name: "Agrim Nagrani", company: "Graph Advocate" },
+        { name: "Sophie Liu", company: "EigenPhi" },
+        { name: "Guiltygyoza", company: "Topology" },
+      ],
+    },
+    {
+      track: "ZK / Client / Security Track",
+      speakers: [
+        { name: "Wanseob Lim", company: "Ethereum Foundation" },
+        { name: "Savio", company: "Aztec" },
+        { name: "Shotaro Granzier-Nakajima", company: "Kleros" },
+        { name: "Alfred", company: "imToken" },
+        { name: "I-Hung Hsu", company: "AMIS" },
+        { name: "Nic", company: "imToken" },
+        { name: "Martinet", company: "Quantstamp" },
+        { name: "Jobin Babu Ayathil", company: "Obscuro" },
+      ],
+    },
   ],
 };
