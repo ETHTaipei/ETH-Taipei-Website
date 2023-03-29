@@ -59,7 +59,7 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Cathie",
-    company: "",
+    company: "Individual Researcher",
     src: cathie,
     twitter: "https://twitter.com/drCathieSo_eth",
     companyLink: "",
@@ -164,9 +164,9 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Seiya Kobayashi",
-    company: "",
+    company: "Individual Researcher",
     src: SeiyaKobayashi,
-    twitter: "",
+    twitter: "https://www.facebook.com/seiya.kb",
     companyLink: "",
   },
   {
