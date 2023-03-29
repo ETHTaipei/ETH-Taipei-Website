@@ -311,4 +311,7 @@ const KeynoteContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;
