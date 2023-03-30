@@ -28,6 +28,12 @@ export const dedaubUrl = "https://dedaub.com/";
 export const thunderCoreUrl = "https://www.thundercore.com/";
 export const teaHouseUrl = "https://teahouse.finance/";
 export const zkSyncUrl = "https://zksync.io/";
+export const taibeiUrl = "https://www.chain.tw/";
+export const mattersLabUrl = "https://matters-lab.io/";
+export const proticoUrl = "https://protico.io/";
+export const zombitUrl = "https://zombit.info/";
+export const brainCryptoUrl =
+  "https://www.youtube.com/channel/UC1EG67JfgUKaZ4Z_l4euycw";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
