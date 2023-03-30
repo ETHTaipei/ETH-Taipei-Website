@@ -62,7 +62,7 @@ export const conferenceAgendas: {
       speakers: [
         { name: "Hsiao-Wei Wang", company: "Ethereum Foundation" },
         { name: "Dapplion", company: "ChainSafe" },
-        { name: "Marry Lui", company: "Celestia" },
+        { name: "Mary Liu", company: "Celestia" },
         { name: "Vivian", company: "Ethereum Foundation" },
         { name: "Cathie", company: "" },
         { name: "Balal Khan", company: "ZKEX" },
