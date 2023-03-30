@@ -12,6 +12,11 @@ import {
   blocktempoUrl,
   abmediaUrl,
   gen3Url,
+  taibeiUrl,
+  mattersLabUrl,
+  proticoUrl,
+  zombitUrl,
+  brainCryptoUrl,
 } from "./urls";
 
 import taikai from "@/public/images/taikai.png";
@@ -27,6 +32,11 @@ import abmedia from "@/public/images/abmedia.png";
 import blocktempo from "@/public/images/blockTempo.png";
 import blockBooster from "@/public/images/BlockBooster.png";
 import gen3 from "@/public/images/gen3.png";
+import taibei from "@/public/images/taibei.png";
+import mattersLab from "@/public/images/mattersLab.png";
+import protico from "@/public/images/protico.png";
+import zombit from "@/public/images/zombit.png";
+import brainCrypto from "@/public/images/brainCrypto.png";
 
 import { StaticImageData } from "next/image";
 
@@ -45,12 +55,17 @@ const partners: PartnerProps[] = [
   { name: "lyra", url: lyraUrl, logo: lyra },
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
+  { name: "TABEI", url: taibeiUrl, logo: taibei },
   { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
   { name: "Unlock", url: unlockUrl, logo: unlock },
   { name: "Block Booster", url: blockBoosterUrl, logo: blockBooster },
-  { name: "鏈新聞", url: abmediaUrl, logo: abmedia, maxHeight: 80 },
-  { name: "動區", url: blocktempoUrl, logo: blocktempo },
   { name: "Gen3", url: gen3Url, logo: gen3, maxHeight: 55 },
+  { name: "Matters Lab", url: mattersLabUrl, logo: mattersLab },
+  { name: "Protico", url: proticoUrl, logo: protico },
+  { name: "Zombit", url: zombitUrl, logo: zombit },
+  { name: "動區", url: blocktempoUrl, logo: blocktempo },
+  { name: "腦哥", url: brainCryptoUrl, logo: brainCrypto },
+  { name: "鏈新聞", url: abmediaUrl, logo: abmedia, maxHeight: 80 },
 ];
 
 export default partners;
