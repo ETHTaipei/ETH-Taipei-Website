@@ -125,7 +125,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://status.im/",
   },
   {
-    name: "Zu HD",
+    name: "ZD Hu",
     company: "Furucombo",
     src: HDZu,
     twitter: "",
