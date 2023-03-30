@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { furucomboUrl } from "./urls";
+import { ethereumFoundationUrl, furucomboUrl } from "./urls";
 
 import hsiaoWeiWang from "@/public/images/Hsiao-WeiWang.png";
 import vivian from "@/public/images/vivian.png";
@@ -43,7 +43,7 @@ const keynoteSpeakers: SpeakerProps[] = [
     src: v,
     twitter: "https://twitter.com/VitalikButerin",
     companyLink: "https://ethereum.org/en/",
-  }
+  },
 ];
 
 const speakers: SpeakerProps[] = [
@@ -70,10 +70,10 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Cathie",
-    company: "Individual Researcher",
+    company: "Ethereum Foundation",
     src: cathie,
     twitter: "https://twitter.com/drCathieSo_eth",
-    companyLink: "",
+    companyLink: ethereumFoundationUrl,
   },
   {
     name: "Chris Tam",
@@ -125,7 +125,7 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://status.im/",
   },
   {
-    name: "HD Zu",
+    name: "Zu HD",
     company: "Furucombo",
     src: HDZu,
     twitter: "",
@@ -224,4 +224,4 @@ const speakers: SpeakerProps[] = [
   },
 ];
 
-export { speakers, keynoteSpeakers};
+export { speakers, keynoteSpeakers };
