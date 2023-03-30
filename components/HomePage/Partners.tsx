@@ -5,6 +5,7 @@ import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
 import partners from "@/public/constant/partners";
+import mediaPartners from "@/public/constant/mediaPartners";
 
 const Partners = () => {
   return (
@@ -19,6 +20,17 @@ const Partners = () => {
             >
               <Image src={partner.logo} fill alt={partner.name} />
             </SponsorBtn>
+          ))}
+        </SponsorsContainer>
+        <MDPartnerTitle>{t.homepage.mediaPartners}</MDPartnerTitle>
+        <SponsorsContainer>
+          {mediaPartners.map((mediaPartner) => (
+            <MDPartnerBtn
+              key={mediaPartner.name}
+              onClick={() => openNewTab(mediaPartner.url)}
+            >
+              <Image src={mediaPartner.logo} fill alt={mediaPartner.name} />
+            </MDPartnerBtn>
           ))}
         </SponsorsContainer>
       </MainContent>
@@ -91,4 +103,17 @@ const SponsorBtn = styled.button`
 
 const PartnersTitle = styled(Title)`
   margin-top: 100px;
+`;
+
+const MDPartnerTitle = styled.h2`
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 32px;
+  color: ${Colors.pennBlue};
+  margin-top: 100px;
+  margin-bottom: 20px;
+`;
+
+const MDPartnerBtn = styled(SponsorBtn)`
+  flex: 0 1 200px;
 `;

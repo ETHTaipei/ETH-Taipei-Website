@@ -49,3 +49,7 @@ export const ethPlanetUrl = "https://www.ethplanet.org/";
 export const ethereumFoundationUrl = "https://ethereum.foundation/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
+
+export const web3plusUrl = "https://web3plus.bnext.com.tw/";
+export const cryptoCityUrl = "https://www.cryptocity.tw/";
+export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
