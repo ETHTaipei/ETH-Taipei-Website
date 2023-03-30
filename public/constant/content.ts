@@ -45,6 +45,7 @@ const homepage = {
   organizers: "Organizers",
   communitySupport: "Community Supports",
   keynote: "Keynote Speaker",
+  mediaPartners: "Media Partners",
 };
 
 const agendaPage = {
