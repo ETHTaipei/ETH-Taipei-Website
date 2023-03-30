@@ -64,7 +64,7 @@ export const conferenceAgendas: {
         { name: "Dapplion", company: "ChainSafe" },
         { name: "Mary Liu", company: "Celestia" },
         { name: "Vivian", company: "Ethereum Foundation" },
-        { name: "Cathie", company: "" },
+        { name: "Cathie", company: "Ethereum Foundation" },
         { name: "Balal Khan", company: "ZKEX" },
         { name: "Chris Tam", company: "BTQ" },
         { name: "Nuno Loureiro", company: "Ethereum Foundation" },
