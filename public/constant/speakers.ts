@@ -27,6 +27,8 @@ import IHungHsu from "@/public/images/IHungHsu.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
 import ShantanuGupta from "@/public/images/ShantanuGupta.png";
 import v from "@/public/images/v.png";
+import Kakusan from '@/public/images/Kakusan.png';
+import Josh from '@/public/images/Josh.png';
 
 type SpeakerProps = {
   name: string;
@@ -158,6 +160,20 @@ const speakers: SpeakerProps[] = [
     src: jobin,
     twitter: "https://twitter.com/0xJba",
     companyLink: "https://obscu.ro/",
+  },
+  {
+    name: "Josh Guha",
+    company: "Gyroscope",
+    src: Josh,
+    twitter: "https://twitter.com/joshyasdf",
+    companyLink: "https://gyro.finance/",
+  },
+  {
+    name: "Kakusan",
+    company: "Brahma",
+    src: Kakusan,
+    twitter: "https://twitter.com/jainargh",
+    companyLink: "https://www.brahma.fi/",
   },
   {
     name: "Nuno Loureiro",

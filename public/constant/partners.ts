@@ -17,6 +17,7 @@ import {
   proticoUrl,
   zombitUrl,
   brainCryptoUrl,
+  bzdUrl
 } from "./urls";
 
 import taikai from "@/public/images/taikai.png";
@@ -37,6 +38,7 @@ import mattersLab from "@/public/images/mattersLab.png";
 import protico from "@/public/images/protico.png";
 import zombit from "@/public/images/zombit.png";
 import brainCrypto from "@/public/images/brainCrypto.png";
+import BuZhiDAO from '@/public/images/BuZhiDAO.png';
 
 import { StaticImageData } from "next/image";
 
@@ -59,6 +61,7 @@ const partners: PartnerProps[] = [
   { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
   { name: "Unlock", url: unlockUrl, logo: unlock },
   { name: "Block Booster", url: blockBoosterUrl, logo: blockBooster },
+  { name: "BuZhiDAO", url: bzdUrl, logo: BuZhiDAO },
   { name: "Gen3", url: gen3Url, logo: gen3, maxHeight: 55 },
   { name: "Matters Lab", url: mattersLabUrl, logo: mattersLab },
   { name: "Protico", url: proticoUrl, logo: protico },
