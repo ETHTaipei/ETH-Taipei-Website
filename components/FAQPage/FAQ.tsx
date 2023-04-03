@@ -2,7 +2,7 @@ import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { visaUrl, telegramUrl } from "@/public/constant/urls";
+import { visaUrl, telegramUrl, sideEventFormUrl } from "@/public/constant/urls";
 
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import t from "@/public/constant/content";
@@ -12,6 +12,16 @@ const FAQ = () => {
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
+        <Row>
+          <Title>{t.visa.visaQuestion3}</Title>
+          <Description>
+            {t.visa.visaAnswer3Part1}
+            <Link href={sideEventFormUrl} target="_blank">
+              {t.visa.sideEventForm}
+            </Link>
+            {t.visa.visaAnswer3Part2}
+          </Description>
+        </Row>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>
           <Description>
