@@ -8,6 +8,8 @@ import {
   conferenceAgendas,
 } from "@/public/constant/agendas";
 import t from "@/public/constant/content";
+import Image from "next/image";
+import v from "@/public/images/v.png";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -65,7 +67,10 @@ const Agendas = () => {
                   <TrackTitle>{t.homepage.keynote}</TrackTitle>
                 </TrackTitleContainer>
                 <SpeakersContainer>
-                  <SpeakerContainer>
+                  <SpeakerContainer style={{ justifyContent: "center" }}>
+                    <SpeakerIcon>
+                      <Image fill src={v} alt={"vitalik"} />
+                    </SpeakerIcon>
                     <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
                     <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
                   </SpeakerContainer>
@@ -80,13 +85,23 @@ const Agendas = () => {
                   <TrackTitle>{agenda.track}</TrackTitle>
                 </TrackTitleContainer>
                 <SpeakersContainer>
-                  {agenda.speakers.map((s) => (
-                    <SpeakerContainer key={s.name}>
-                      <SpeakerName>{s.name}</SpeakerName>
-                      {s.company && (
-                        <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
+                  {agenda.speakers.map((s, index) => (
+                    <TopicContainer key={index}>
+                      <TopicText>{s.topic}</TopicText>
+                      {s.name && (
+                        <SpeakerContainer>
+                          {s.src && (
+                            <SpeakerIcon>
+                              <Image fill src={s.src} alt={s.name} />
+                            </SpeakerIcon>
+                          )}
+                          <SpeakerName>{s.name}</SpeakerName>
+                          {s.company && (
+                            <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
+                          )}
+                        </SpeakerContainer>
                       )}
-                    </SpeakerContainer>
+                    </TopicContainer>
                   ))}
                 </SpeakersContainer>
               </TrackContainer>
@@ -286,10 +301,12 @@ const SpeakersContainer = styled.div`
 `;
 
 const SpeakerContainer = styled.div`
-  padding: 12px 0;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
 `;
 
-const SpeakerName = styled.span`
+const TopicText = styled.span`
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
@@ -297,6 +314,25 @@ const SpeakerName = styled.span`
   @media (max-width: 768px) {
     font-size: 14px;
   }
+`;
+
+const SpeakerName = styled.span`
+  font-size: 16px;
+  line-height: 22px;
+  /* font-weight: 500; */
+  /* color: ${Colors.pennBlue}; */
+  color: ${Colors.gray5};
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const SpeakerIcon = styled.div`
+  width: 28px;
+  height: 28px;
+  border-radius: 100px;
+  position: relative;
+  margin-right: 8px;
 `;
 
 const SpeakerCompany = styled(SpeakerName)`
@@ -314,4 +350,8 @@ const KeynoteContainer = styled.div`
   @media (max-width: 768px) {
     text-align: left;
   }
+`;
+
+const TopicContainer = styled.div`
+  padding: 16px 0;
 `;
