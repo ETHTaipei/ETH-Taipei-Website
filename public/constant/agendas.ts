@@ -327,8 +327,7 @@ export const conferenceAgendas: {
         {
           name: "Palina Tolmach",
           company: "MakerDAO",
-          topic: 'TBD',
-          // topic: "Everything You Wanted to Know About Symbolic Execution for Ethereum Smart Contracts",
+          topic: ' Practical Symbolic Execution for EVM',
           src: PalinaTolmach,
           time: "10:30am",
           duration: "30 mins",
