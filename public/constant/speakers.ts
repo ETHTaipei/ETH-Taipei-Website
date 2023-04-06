@@ -31,8 +31,8 @@ import palina from "@/public/images/PalinaTolmach.png";
 import vasily from "@/public/images/VasilySidorov.png";
 import mary from "@/public/images/MaryLiu.png";
 import tsk from "@/public/images/tsk.png";
-import Kakusan from '@/public/images/Kakusan.png';
 import Josh from '@/public/images/Josh.png';
+import richardMa from "@/public/images/RichardMa.png";
 
 type SpeakerProps = {
   name: string;
@@ -166,13 +166,6 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://gyro.finance/",
   },
   {
-    name: "Kakusan",
-    company: "Brahma",
-    src: Kakusan,
-    twitter: "https://twitter.com/jainargh",
-    companyLink: "https://www.brahma.fi/",
-  },
-  {
     name: "Mary Liu",
     company: 'Celestia',
     twitter: 'https://twitter.com/howdymerry',
@@ -192,6 +185,12 @@ const speakers: SpeakerProps[] = [
     companyLink: 'https://makerdao.com/en/',
     twitter: 'https://twitter.com/palinatolmach',
     src: palina,
+  },
+  {
+    name: "Richard Ma",
+    company: "Quantstamp",
+    src: richardMa,
+    companyLink: "https://quantstamp.com/",
   },
   {
     name: "Savio",

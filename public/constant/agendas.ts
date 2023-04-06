@@ -89,7 +89,7 @@ export const conferenceAgendas: {
 } = {
   24: [
     {
-      track: "DeFi / Layer 2 Track",
+      track: "DeFi Track",
       speakers: [
         {
           name: "Tom soong",
@@ -184,7 +184,7 @@ export const conferenceAgendas: {
         {
           name: "Jerry",
           company: "Term Structure",
-          topic: "TBD",
+          topic: "The Evolution of DeFi: Fixed-Income Protocols",
           src: logo,
           time: "04:30pm",
           duration: "30 mins",
@@ -233,7 +233,7 @@ export const conferenceAgendas: {
           topic: "Launch Break",
           src: null,
           time: "12:00pm",
-          duration: "1 hr",
+          duration: "1.5 hr",
         },
         {
           name: "Cathie",
@@ -313,7 +313,7 @@ export const conferenceAgendas: {
   ],
   25: [
     {
-      track: "DeFi / Layer 2 Track",
+      track: "DeFi Track",
       speakers: [
         {
           name: "",
