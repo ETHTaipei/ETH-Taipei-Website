@@ -27,6 +27,10 @@ import IHungHsu from "@/public/images/IHungHsu.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
 import ShantanuGupta from "@/public/images/ShantanuGupta.png";
 import v from "@/public/images/v.png";
+import palina from "@/public/images/PalinaTolmach.png";
+import vasily from "@/public/images/VasilySidorov.png";
+import mary from "@/public/images/MaryLiu.png";
+import tsk from "@/public/images/tsk.png";
 import Kakusan from '@/public/images/Kakusan.png';
 import Josh from '@/public/images/Josh.png';
 
@@ -127,13 +131,6 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://status.im/",
   },
   {
-    name: "ZD Hu",
-    company: "Furucombo",
-    src: HDZu,
-    twitter: "",
-    companyLink: furucomboUrl,
-  },
-  {
     name: "Hsiao-Wei Wang",
     company: "Ethereum Foundation",
     src: hsiaoWeiWang,
@@ -176,11 +173,25 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.brahma.fi/",
   },
   {
+    name: "Mary Liu",
+    company: 'Celestia',
+    twitter: 'https://twitter.com/howdymerry',
+    companyLink: 'https://celestia.org/',
+    src: mary
+  },
+  {
     name: "Nuno Loureiro",
     company: "Ethereum Foundation",
     src: nuno,
     twitter: "https://twitter.com/nloureiro",
     companyLink: "https://ethereum.org/en/",
+  },
+  {
+    name: "Palina Tolmach",
+    company: 'MakerDAO',
+    companyLink: 'https://makerdao.com/en/',
+    twitter: 'https://twitter.com/palinatolmach',
+    src: palina,
   },
   {
     name: "Savio",
@@ -211,6 +222,20 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://kleros.io/",
   },
   {
+    name: "TSK",
+    company: "Perpetual Protocol",
+    src: tsk,
+    twitter: "https://twitter.com/tienshaoku",
+    companyLink: "https://perp.com/",
+  },
+  {
+    name: 'Vasily Sidorov',
+    company: 'Anoma',
+    src: vasily,
+    companyLink: 'https://anoma.net/',
+    twitter: 'https://twitter.com/bazzilic'
+  },
+  {
     name: "Vivian",
     company: "Ethereum Foundation",
     src: vivian,
@@ -237,6 +262,13 @@ const speakers: SpeakerProps[] = [
     src: ZacL,
     twitter: "https://twitter.com/Zlace0x",
     companyLink: "https://suberra.com/",
+  },
+  {
+    name: "ZD Hu",
+    company: "Furucombo",
+    src: HDZu,
+    twitter: "",
+    companyLink: furucomboUrl,
   },
 ];
 
