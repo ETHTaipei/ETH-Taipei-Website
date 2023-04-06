@@ -20,9 +20,10 @@ import agrim from "@/public/images/agrim.png";
 import vivian from "@/public/images/vivian.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import savio from "@/public/images/savioNoir.png";
+import gautham from '@/public/images/gautham.png';
 import shotaroGranzierNakajima from "@/public/images/shotaroGranzier-Nakajima.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
-import martinet from "@/public/images/Martinet.png";
+import tsk from "@/public/images/tsk.png";
 import nuno from "@/public/images/Nuno.png";
 import guru from "@/public/images/guru.png";
 import youngHwi from "@/public/images/YoungHwi.png";
@@ -126,7 +127,7 @@ export const conferenceAgendas: {
           name: "Yaron Velner ",
           company: "B.Protocol",
           topic:
-            "Don't panic, the most you can lose is EVERYTHING. Economic risk management in DeFi",
+            "Don't panic, the most you can lose is EVERYTHING.",
           src: YaronVelner,
           time: "01:00pm",
           duration: "30 mins",
@@ -135,7 +136,7 @@ export const conferenceAgendas: {
           name: "TSK",
           company: "Perpetual Protocol",
           topic: "TBD",
-          src: logo,
+          src: tsk,
           time: "01:30pm",
           duration: "30 mins",
         },
@@ -157,10 +158,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "Gauthem",
+          name: "Gautham",
           company: "Polynomial",
           topic: "How to improve PowerPerp AMM",
-          src: logo,
+          src: gautham,
           time: "03:00pm",
           duration: "30 mins",
         },
@@ -191,7 +192,7 @@ export const conferenceAgendas: {
         {
           name: "",
           company: "",
-          topic: "Panel: Lending || derivatives",
+          topic: "Panel: Derivatives",
           src: null,
           time: "05:00pm",
           duration: "1 hr",
@@ -220,7 +221,8 @@ export const conferenceAgendas: {
         {
           name: "Mary Liu",
           company: "Celestia",
-          topic: "Scentered around Ethereum L2s that can use Celestia for DA.",
+          topic: "TBD",
+          // topic: "Scentered around Ethereum L2s that can use Celestia for DA.",
           src: MaryLiu,
           time: "11:30am",
           duration: "30 mins",
@@ -324,8 +326,8 @@ export const conferenceAgendas: {
         {
           name: "Palina Tolmach",
           company: "MakerDAO",
-          topic:
-            "Everything You Wanted to Know About Symbolic Execution for Ethereum Smart Contracts",
+          topic: 'TBD',
+          // topic: "Everything You Wanted to Know About Symbolic Execution for Ethereum Smart Contracts",
           src: PalinaTolmach,
           time: "10:30am",
           duration: "30 mins",

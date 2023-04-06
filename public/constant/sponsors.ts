@@ -16,6 +16,7 @@ import {
   furucomboUrl,
   teaHouseUrl,
   zkSyncUrl,
+  dataverseUrl
 } from "./urls";
 
 import code4Rena from "@/public/images/code4Rena.png";
@@ -35,6 +36,7 @@ import thunderCore from "@/public/images/thunderCore.png";
 import furcombo from "@/public/images/furcombo.png";
 import teaHouse from "@/public/images/teaHouse.png";
 import zkSync from "@/public/images/zkSync.png";
+import dataverse from "@/public/images/dataverse.png";
 
 import { StaticImageData } from "next/image";
 
@@ -130,6 +132,13 @@ const bronzeSponsors: OrganizerProps[] = [
     logo: code4Rena,
     width: 236,
     height: 80,
+  },
+  {
+    name: "Dataverse",
+    url: dataverseUrl,
+    logo: dataverse,
+    width: 300,
+    height: 75,
   },
   {
     name: "Furucombo",
