@@ -27,6 +27,8 @@ import IHungHsu from "@/public/images/IHungHsu.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
 import ShantanuGupta from "@/public/images/ShantanuGupta.png";
 import v from "@/public/images/v.png";
+import palina from "@/public/images/palina.png";
+import vasily from "@/public/images/vasily.png";
 import Kakusan from '@/public/images/Kakusan.png';
 import Josh from '@/public/images/Josh.png';
 
@@ -183,6 +185,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://ethereum.org/en/",
   },
   {
+    name: "Palina Tolmach",
+    company: 'MakerDAO',
+    companyLink: 'https://makerdao.com/en/',
+    twitter: 'https://twitter.com/palinatolmach',
+    src: palina,
+  },
+  {
     name: "Savio",
     company: "Noir / Aztec",
     src: savio,
@@ -209,6 +218,13 @@ const speakers: SpeakerProps[] = [
     src: shotaroGranzierNakajima,
     twitter: "https://twitter.com/shotaronowhere",
     companyLink: "https://kleros.io/",
+  },
+  {
+    name: 'Vasily Sidorov',
+    company: 'Anoma',
+    src: vasily,
+    companyLink: 'https://anoma.net/',
+    twitter: 'https://twitter.com/bazzilic'
   },
   {
     name: "Vivian",

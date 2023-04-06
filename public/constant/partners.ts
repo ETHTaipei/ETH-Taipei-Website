@@ -54,7 +54,6 @@ const partners: PartnerProps[] = [
   { name: "furucombo", url: furucomboUrl, logo: furucombo },
   { name: "grenade", url: grenadeUrl, logo: grenade },
   { name: "imToken", url: imTokenUrl, logo: imToken },
-  { name: "lyra", url: lyraUrl, logo: lyra },
   { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
   { name: "TABEI", url: taibeiUrl, logo: taibei },
