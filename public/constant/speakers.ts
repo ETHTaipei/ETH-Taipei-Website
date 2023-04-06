@@ -18,6 +18,7 @@ import gautham from "@/public/images/gautham.png";
 import ibeibe from "@/public/images/ibeibe.png";
 import guru from "@/public/images/guru.png";
 import jobin from "@/public/images/jobin.png";
+import jerry from "@/public/images/Jerry-Li.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
 import agrim from "@/public/images/agrim.png";
@@ -150,6 +151,13 @@ const speakers: SpeakerProps[] = [
     src: ibeibe,
     twitter: "https://twitter.com/ibeibe__",
     companyLink: "https://www.predy.finance/",
+  },
+  {
+    name: "Jerry",
+    company: "Term structure",
+    companyLink:'https://termstructure.com/',
+    src: jerry,
+    twitter: 'https://twitter.com/TermStructLabs', 
   },
   {
     name: "Jobin Babu Ayathil",

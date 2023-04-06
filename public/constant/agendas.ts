@@ -17,6 +17,7 @@ import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
+import jerry from "@/public/images/Jerry-Li.png";
 import vivian from "@/public/images/vivian.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import savio from "@/public/images/savioNoir.png";
@@ -185,7 +186,7 @@ export const conferenceAgendas: {
           name: "Jerry",
           company: "Term Structure",
           topic: "The Evolution of DeFi: Fixed-Income Protocols",
-          src: logo,
+          src: jerry,
           time: "04:30pm",
           duration: "30 mins",
         },
