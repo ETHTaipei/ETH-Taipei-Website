@@ -26,6 +26,13 @@ import martinet from "@/public/images/Martinet.png";
 import nuno from "@/public/images/Nuno.png";
 import guru from "@/public/images/guru.png";
 import youngHwi from "@/public/images/YoungHwi.png";
+import logo from "@/public/images/logo-transparent.png";
+import YaronVelner from "@/public/images/YaronVelner.png";
+import MaryLiu from "@/public/images/MaryLiu.png";
+import VasilySidorov from "@/public/images/VasilySidorov.png";
+import PalinaTolmach from "@/public/images/PalinaTolmach.png";
+import RichardMa from "@/public/images/RichardMa.png";
+import TomoTagami from "@/public/images/TomoTagami.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -81,12 +88,12 @@ export const conferenceAgendas: {
     {
       track: "DeFi / Layer 2 Track",
       speakers: [
-        { name: "Tom soong", company: "Zomma", topic: "", src: null },
+        { name: "Tom soong", company: "Zomma", topic: "", src: logo },
         {
           name: "Jake",
           company: "Gauntlet",
           topic: "Inefficient Emissions and Incentive Optimization",
-          src: null,
+          src: logo,
         },
         {
           name: "Zac L",
@@ -95,12 +102,13 @@ export const conferenceAgendas: {
           src: ZacL,
         },
         {
-          name: "",
-          company: "",
-          topic: "- Launch Break -",
-          src: null,
+          name: "Yaron Velner ",
+          company: "B.Protocol",
+          topic:
+            "Don't panic, the most you can lose is EVERYTHING. Economic risk management in DeFi",
+          src: YaronVelner,
         },
-        { name: "Yenwen", company: "Perpetual Protocol", topic: "" },
+        { name: "TSK", company: "Perpetual Protocol", topic: "", src: logo },
         {
           name: "Daniele Ugolini",
           company: "Rysk Finance",
@@ -118,13 +126,7 @@ export const conferenceAgendas: {
           name: "Gauthem",
           company: "Polynomial",
           topic: "How to improve PowerPerp AMM",
-          src: null,
-        },
-        {
-          name: "",
-          company: "",
-          topic: "- Break -",
-          src: null,
+          src: logo,
         },
         {
           name: "Ibe",
@@ -136,7 +138,7 @@ export const conferenceAgendas: {
           name: "Jerry",
           company: "Term Structure",
           topic: "",
-          src: null,
+          src: logo,
         },
         {
           name: "",
@@ -165,13 +167,7 @@ export const conferenceAgendas: {
           name: "Mary Liu",
           company: "Celestia",
           topic: "Scentered around Ethereum L2s that can use Celestia for DA.",
-          src: null,
-        },
-        {
-          name: "",
-          company: "",
-          topic: "- Launch Break -",
-          src: null,
+          src: MaryLiu,
         },
         {
           name: "Cathie",
@@ -192,10 +188,10 @@ export const conferenceAgendas: {
           src: wanseob,
         },
         {
-          name: "",
-          company: "",
-          topic: "- Break -",
-          src: null,
+          name: "Vasily Sidorov",
+          company: "Anoma",
+          topic: "A Typhon That Hides in the Taiga",
+          src: VasilySidorov,
         },
         {
           name: "Jobin Babu Ayathil",
@@ -220,7 +216,7 @@ export const conferenceAgendas: {
           name: "Alfred",
           company: "imToken",
           topic: "StarkNet AA wallet",
-          src: null,
+          src: logo,
         },
       ],
     },
@@ -229,15 +225,14 @@ export const conferenceAgendas: {
     {
       track: "DeFi / Layer 2 Track",
       speakers: [
-        { name: "Gnosis", company: "", topic: "", src: null },
+        { name: "", company: "", topic: "Gnosis", src: null },
         {
           name: "Palina Tolmach",
           company: "MakerDAO",
           topic:
             "Everything You Wanted to Know About Symbolic Execution for Ethereum Smart Contracts",
-          src: null,
+          src: PalinaTolmach,
         },
-        { name: "Tenderly", company: "", topic: "", src: null },
         {
           name: "Shantanu Gupta",
           company: "Independent Researcher",
@@ -246,12 +241,12 @@ export const conferenceAgendas: {
           src: ShantanuGupta,
         },
         {
-          name: "",
-          company: "",
-          topic: "- Launch Break -",
-          src: null,
+          name: "Nenad Vitorovic",
+          company: "Tenderly",
+          topic: "Shortcuts to Better Dapp Development",
+          src: logo,
         },
-        { name: "AutoPass", company: "", topic: "", src: null },
+        { name: "", company: "", topic: "AutoPass", src: null },
         {
           name: "ZD Hu",
           company: "Furucombo",
@@ -269,13 +264,7 @@ export const conferenceAgendas: {
           name: "Ping Chen",
           company: "Hakka Finance",
           topic: "",
-          src: null,
-        },
-        {
-          name: "",
-          company: "",
-          topic: "- Break -",
-          src: null,
+          src: logo,
         },
         {
           name: "Josh Guha",
@@ -327,12 +316,6 @@ export const conferenceAgendas: {
           src: shotaroGranzierNakajima,
         },
         {
-          name: "",
-          company: "",
-          topic: "- Launch Break -",
-          src: null,
-        },
-        {
           name: "I-Hung Hsu",
           company: "AMIS",
           topic: "A hierarchical deterministic wallets without seeds",
@@ -342,21 +325,21 @@ export const conferenceAgendas: {
           name: "Nic Lin",
           company: "imToken",
           topic: "Stealth address",
-          src: null,
+          src: logo,
         },
-        { name: "Martinet", company: "Quantstamp", topic: "", src: martinet },
-        { name: "Dedaub", company: "", topic: "", src: null },
         {
-          name: "",
-          company: "",
-          topic: "- Break -",
-          src: null,
+          name: "Richard Ma",
+          company: "Quantstamp",
+          topic: "",
+          src: RichardMa,
         },
+        { name: "", company: "", topic: "Dedaub", src: null },
+
         {
           name: "Tomo Tagami",
           company: "Pheasant Network",
           topic: "Layer 2 Interoperability",
-          src: null,
+          src: TomoTagami,
         },
         {
           name: "Nuno Loureiro",

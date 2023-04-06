@@ -319,8 +319,6 @@ const TopicText = styled.span`
 const SpeakerName = styled.span`
   font-size: 16px;
   line-height: 22px;
-  /* font-weight: 500; */
-  /* color: ${Colors.pennBlue}; */
   color: ${Colors.gray5};
   @media (max-width: 768px) {
     font-size: 14px;
@@ -328,11 +326,13 @@ const SpeakerName = styled.span`
 `;
 
 const SpeakerIcon = styled.div`
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 100px;
   position: relative;
   margin-right: 8px;
+  background-color: ${Colors.gray1};
+
 `;
 
 const SpeakerCompany = styled(SpeakerName)`
