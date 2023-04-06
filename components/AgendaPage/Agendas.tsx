@@ -52,8 +52,10 @@ const Agendas = () => {
           {hackathonAgendas[date].length > 0 &&
             hackathonAgendas[date].map((agenda, i) => (
               <ScheduleContainer key={i}>
-                <TimeText>{agenda.time}</TimeText>
-                <DurationText>{agenda.duration}</DurationText>
+                <TimeContainer>
+                  <TimeText>{agenda.time}</TimeText>
+                  <DurationText>{agenda.duration}</DurationText>
+                </TimeContainer>
                 <ScheduleText>{agenda.event}</ScheduleText>
               </ScheduleContainer>
             ))}
@@ -86,22 +88,28 @@ const Agendas = () => {
                 </TrackTitleContainer>
                 <SpeakersContainer>
                   {agenda.speakers.map((s, index) => (
-                    <TopicContainer key={index}>
-                      <TopicText>{s.topic}</TopicText>
-                      {s.name && (
-                        <SpeakerContainer>
-                          {s.src && (
-                            <SpeakerIcon>
-                              <Image fill src={s.src} alt={s.name} />
-                            </SpeakerIcon>
-                          )}
-                          <SpeakerName>{s.name}</SpeakerName>
-                          {s.company && (
-                            <SpeakerCompany>{`, ${s.company}`}</SpeakerCompany>
-                          )}
-                        </SpeakerContainer>
-                      )}
-                    </TopicContainer>
+                    <ScheduleContainer key={index}>
+                      <TimeContainer>
+                        <TimeText>{s.time}</TimeText>
+                        <DurationText>{s.duration}</DurationText>
+                      </TimeContainer>
+                      <div>
+                        <ScheduleText>{s.topic}</ScheduleText>
+                        {s.name && (
+                          <SpeakerContainer>
+                            {s.src && (
+                              <SpeakerIcon>
+                                <Image fill src={s.src} alt={s.name} />
+                              </SpeakerIcon>
+                            )}
+                            <SpeakerName>
+                              {(s.name && `${s.name}`) +
+                                (s.company && `, ${s.company}`)}
+                            </SpeakerName>
+                          </SpeakerContainer>
+                        )}
+                      </div>
+                    </ScheduleContainer>
                   ))}
                 </SpeakersContainer>
               </TrackContainer>
@@ -142,7 +150,7 @@ const EventSwitcherContainer = styled.div`
 
 const EventSwitchers = styled.div`
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: auto;
   display: flex;
   gap: 12px;
@@ -173,7 +181,7 @@ const EventText = styled.span`
 
 const DatesContainer = styled.div`
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 28px auto auto auto;
   display: flex;
   gap: 12px;
@@ -201,7 +209,7 @@ const DateSelector = styled.button<{ isSelect: boolean }>`
 
 const HackSchedulesContainer = styled.div`
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 28px auto auto auto;
   padding: 10px 24px;
   display: flex;
@@ -217,16 +225,17 @@ const HackSchedulesContainer = styled.div`
 const ScheduleContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 100px 100px 1fr;
-  align-items: center;
+  grid-template-columns: 200px 1fr;
+  align-items: flex-start;
   padding: 20px 10px;
-  gap: 20px;
+  gap: 12px;
   @media (max-width: 576px) {
-    grid-template-columns: 60px 60px 1fr;
+    grid-template-columns: none;
   }
 `;
 
 const TimeText = styled.span`
+  flex: 1;
   font-size: 16px;
   line-height: 22px;
   color: ${Colors.pennBlue};
@@ -237,6 +246,10 @@ const TimeText = styled.span`
 
 const DurationText = styled(TimeText)`
   color: ${Colors.gray5};
+
+  @media (max-width: 576px) {
+    text-align: right;
+  }
 `;
 
 const ScheduleText = styled(TimeText)`
@@ -245,7 +258,7 @@ const ScheduleText = styled(TimeText)`
 
 const TracksContainer = styled.div`
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 32px auto auto auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -290,9 +303,9 @@ const TrackTitle = styled.h3`
 `;
 
 const SpeakersContainer = styled.div`
-  padding: 60px 20px 20px 20px;
+  padding: 60px 0px 20px 0px;
   @media (max-width: 768px) {
-    padding: 60px 12px 20px 12px;
+    padding: 50px 0px 20px 0px;
   }
 
   > div:not(:first-child) {
@@ -303,17 +316,8 @@ const SpeakersContainer = styled.div`
 const SpeakerContainer = styled.div`
   margin-top: 8px;
   display: flex;
-  align-items: center;
-`;
-
-const TopicText = styled.span`
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 500;
-  color: ${Colors.pennBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
+  align-items: flex-start;
+  justify-content: flex-start;
 `;
 
 const SpeakerName = styled.span`
@@ -326,13 +330,13 @@ const SpeakerName = styled.span`
 `;
 
 const SpeakerIcon = styled.div`
+  flex: 0 0 24px;
   width: 24px;
   height: 24px;
   border-radius: 100px;
   position: relative;
   margin-right: 8px;
   background-color: ${Colors.gray1};
-
 `;
 
 const SpeakerCompany = styled(SpeakerName)`
@@ -342,7 +346,7 @@ const SpeakerCompany = styled(SpeakerName)`
 
 const KeynoteContainer = styled.div`
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 32px auto auto auto;
   display: flex;
   justify-content: center;
@@ -352,6 +356,10 @@ const KeynoteContainer = styled.div`
   }
 `;
 
-const TopicContainer = styled.div`
-  padding: 16px 0;
+const TimeContainer = styled.div`
+  display: flex;
+
+  @media (max-width: 576px) {
+    justify-content: space-between;
+  }
 `;
