@@ -18,6 +18,7 @@ import gautham from "@/public/images/gautham.png";
 import ibeibe from "@/public/images/ibeibe.png";
 import guru from "@/public/images/guru.png";
 import jobin from "@/public/images/jobin.png";
+import jerry from "@/public/images/Jerry-Li.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
 import agrim from "@/public/images/agrim.png";
@@ -31,8 +32,8 @@ import palina from "@/public/images/PalinaTolmach.png";
 import vasily from "@/public/images/VasilySidorov.png";
 import mary from "@/public/images/MaryLiu.png";
 import tsk from "@/public/images/tsk.png";
-import Kakusan from '@/public/images/Kakusan.png';
 import Josh from '@/public/images/Josh.png';
+import richardMa from "@/public/images/RichardMa.png";
 
 type SpeakerProps = {
   name: string;
@@ -152,6 +153,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.predy.finance/",
   },
   {
+    name: "Jerry",
+    company: "Term structure",
+    companyLink:'https://termstructure.com/',
+    src: jerry,
+    twitter: 'https://twitter.com/TermStructLabs', 
+  },
+  {
     name: "Jobin Babu Ayathil",
     company: "Obscuro",
     src: jobin,
@@ -164,13 +172,6 @@ const speakers: SpeakerProps[] = [
     src: Josh,
     twitter: "https://twitter.com/joshyasdf",
     companyLink: "https://gyro.finance/",
-  },
-  {
-    name: "Kakusan",
-    company: "Brahma",
-    src: Kakusan,
-    twitter: "https://twitter.com/jainargh",
-    companyLink: "https://www.brahma.fi/",
   },
   {
     name: "Mary Liu",
@@ -192,6 +193,12 @@ const speakers: SpeakerProps[] = [
     companyLink: 'https://makerdao.com/en/',
     twitter: 'https://twitter.com/palinatolmach',
     src: palina,
+  },
+  {
+    name: "Richard Ma",
+    company: "Quantstamp",
+    src: richardMa,
+    companyLink: "https://quantstamp.com/",
   },
   {
     name: "Savio",

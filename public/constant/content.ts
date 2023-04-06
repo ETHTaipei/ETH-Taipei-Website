@@ -61,21 +61,29 @@ const navs = {
 };
 
 const visa = {
-  visaQuestion1: "Do I need a visa to come to Taiwan?",
+  visaQuestion1: "Do I need a visa to enter Taiwan?",
   visaAnswer1Part1:
-    "Taiwan has a visa exemption for visitors from 65 countries for visitors of 14-90 days depending on the country. Please check the Bureau of ",
+    "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days, depending on the country. Please visit the website of the ",
   BureauOfConsularAffairs: "Bureau of Consular Affairs website",
   visaAnswer1Part2: " for more details.",
   visaQuestion2: "What if I need a visa?",
   visaAnswer2Part1:
-    "ETHTaipei can deliver invitation letters for business visas. Please contact us on ",
+    "ETHTaipei can provide invitation letters for business visas. Please contact us via ",
   telegram: "telegram",
   visaAnswer2Part2: ".",
-  visaQuestion3: "Is there any side event?",
-  visaAnswer3Part1: "Yes! We have many side events organized by companies or communities. Please take a look at this ",
+  visaQuestion3: "Are there any side events?",
+  visaAnswer3Part1: "Yes! We have several side events organized by companies or communities. Please take a look at the ",
   sideEventForm: "form",
   visaAnswer3Part2: " compiled by our community members.",
 };
+
+const ticket = {
+  ticketQuestion1: "What should I do with my NFT tickets?",
+  ticketAnswer1: "Please refer to the ",
+  ticketUrl: 'https://eth-taipei.notion.site/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5',
+  ticketLinkText: 'Unlock ticket FAQ ',
+  ticketAnswer2: "for more details on how to generate a QR code from the NFT ticket.",
+}
 
 const t = {
   common,
@@ -83,6 +91,7 @@ const t = {
   agendaPage,
   navs,
   visa,
+  ticket
 };
 
 export default t;

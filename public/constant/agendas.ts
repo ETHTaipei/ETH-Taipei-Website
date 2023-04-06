@@ -17,6 +17,7 @@ import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
+import jerry from "@/public/images/Jerry-Li.png";
 import vivian from "@/public/images/vivian.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import savio from "@/public/images/savioNoir.png";
@@ -89,7 +90,7 @@ export const conferenceAgendas: {
 } = {
   24: [
     {
-      track: "DeFi / Layer 2 Track",
+      track: "DeFi Track",
       speakers: [
         {
           name: "Tom soong",
@@ -184,8 +185,8 @@ export const conferenceAgendas: {
         {
           name: "Jerry",
           company: "Term Structure",
-          topic: "TBD",
-          src: logo,
+          topic: "The Evolution of DeFi: Fixed-Income Protocols",
+          src: jerry,
           time: "04:30pm",
           duration: "30 mins",
         },
@@ -233,7 +234,7 @@ export const conferenceAgendas: {
           topic: "Launch Break",
           src: null,
           time: "12:00pm",
-          duration: "1 hr",
+          duration: "1.5 hr",
         },
         {
           name: "Cathie",
@@ -313,7 +314,7 @@ export const conferenceAgendas: {
   ],
   25: [
     {
-      track: "DeFi / Layer 2 Track",
+      track: "DeFi Track",
       speakers: [
         {
           name: "",
@@ -326,8 +327,7 @@ export const conferenceAgendas: {
         {
           name: "Palina Tolmach",
           company: "MakerDAO",
-          topic: 'TBD',
-          // topic: "Everything You Wanted to Know About Symbolic Execution for Ethereum Smart Contracts",
+          topic: ' Practical Symbolic Execution for EVM',
           src: PalinaTolmach,
           time: "10:30am",
           duration: "30 mins",
