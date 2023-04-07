@@ -21,7 +21,7 @@ import jerry from "@/public/images/Jerry-Li.png";
 import vivian from "@/public/images/vivian.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import savio from "@/public/images/savioNoir.png";
-import gautham from '@/public/images/gautham.png';
+import gautham from "@/public/images/gautham.png";
 import shotaroGranzierNakajima from "@/public/images/shotaroGranzier-Nakajima.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
 import tsk from "@/public/images/tsk.png";
@@ -127,8 +127,7 @@ export const conferenceAgendas: {
         {
           name: "Yaron Velner ",
           company: "B.Protocol",
-          topic:
-            "Don't panic, the most you can lose is EVERYTHING.",
+          topic: "Don't panic, the most you can lose is EVERYTHING.",
           src: YaronVelner,
           time: "01:00pm",
           duration: "30 mins",
@@ -294,11 +293,12 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "Guiltygyoza",
-          company: "Topology",
-          topic: "Starknet, gaming application on layer 2",
-          src: guiltygyoza,
-          time: "05:00pm",
+          name: "YoungHwi Cho",
+          company: "Hunt Town",
+          topic:
+            "Improving Ethereum DApp UX: Insights from a Seasoned Web3 Designer",
+          src: youngHwi,
+          time: "05:00 pm",
           duration: "30 mins",
         },
         {
@@ -327,7 +327,7 @@ export const conferenceAgendas: {
         {
           name: "Palina Tolmach",
           company: "MakerDAO",
-          topic: ' Practical Symbolic Execution for EVM',
+          topic: " Practical Symbolic Execution for EVM",
           src: PalinaTolmach,
           time: "10:30am",
           duration: "30 mins",
@@ -534,12 +534,11 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "YoungHwi Cho",
-          company: "Hunt Town",
-          topic:
-            "Improving Ethereum DApp UX: Insights from a Seasoned Web3 Designer",
-          src: youngHwi,
-          time: "05:30 pm",
+          name: "Guiltygyoza",
+          company: "Topology",
+          topic: "Starknet, gaming application on layer 2",
+          src: guiltygyoza,
+          time: "05:30pm",
           duration: "30 mins",
         },
       ],
