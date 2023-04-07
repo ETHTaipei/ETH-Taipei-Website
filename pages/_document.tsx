@@ -79,6 +79,10 @@ export default class MyDocument extends Document {
               __html: `
               var unlockProtocolConfig = {
                 "locks": {
+                  "0x8e4f319702f857585a6d5888f43edfece92f83a6": {
+                    "name": "ETHTaipei 2023",
+                    "network": 100,
+                  },
                   "0x53FaF6285C426920b7d103c5f4a40F7788E1F1FD": {
                     "name": "ETHTaipei 2023",
                     "network": 10,
