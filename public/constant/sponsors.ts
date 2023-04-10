@@ -16,7 +16,12 @@ import {
   furucomboUrl,
   teaHouseUrl,
   zkSyncUrl,
-  dataverseUrl
+  dataverseUrl,
+  hashKeyUrl,
+  pseUrl,
+  taiwanMobileUrl,
+  consensysUrl,
+  klickKlackUrl,
 } from "./urls";
 
 import code4Rena from "@/public/images/code4Rena.png";
@@ -37,6 +42,11 @@ import furcombo from "@/public/images/furcombo.png";
 import teaHouse from "@/public/images/teaHouse.png";
 import zkSync from "@/public/images/zkSync.png";
 import dataverse from "@/public/images/dataverse.png";
+import HashKey from "@/public/images/HashKey.png";
+import pse from "@/public/images/PSE.png";
+import taiwanMobile from "@/public/images/TaiwanMobile.png";
+import Consensys from "@/public/images/Consensys.png";
+import klickKlack from "@/public/images/KlickKlack.png";
 
 import { StaticImageData } from "next/image";
 
@@ -95,6 +105,20 @@ const silverSponsors: OrganizerProps[] = [
     height: 90,
   },
   {
+    name: "HashKey",
+    url: hashKeyUrl,
+    logo: HashKey,
+    width: 215,
+    height: 110,
+  },
+  {
+    name: "PSE",
+    url: pseUrl,
+    logo: pse,
+    width: 93,
+    height: 90,
+  },
+  {
     name: "quantstamp",
     url: quantstampUrl,
     logo: quantstamp,
@@ -107,6 +131,13 @@ const silverSponsors: OrganizerProps[] = [
     url: thunderCoreUrl,
     logo: thunderCore,
     width: 366,
+    height: 100,
+  },
+  {
+    name: "台灣大哥大",
+    url: taiwanMobileUrl,
+    logo: taiwanMobile,
+    width: 212,
     height: 100,
   },
 ];
@@ -134,6 +165,13 @@ const bronzeSponsors: OrganizerProps[] = [
     height: 80,
   },
   {
+    name: "Consensys",
+    url: consensysUrl,
+    logo: Consensys,
+    width: 136,
+    height: 100,
+  },
+  {
     name: "Dataverse",
     url: dataverseUrl,
     logo: dataverse,
@@ -145,6 +183,13 @@ const bronzeSponsors: OrganizerProps[] = [
     url: furucomboUrl,
     logo: furcombo,
     width: 256,
+    height: 80,
+  },
+  {
+    name: "可立可",
+    url: klickKlackUrl,
+    logo: klickKlack,
+    width: 188,
     height: 80,
   },
   {

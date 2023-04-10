@@ -35,6 +35,8 @@ import VasilySidorov from "@/public/images/VasilySidorov.png";
 import PalinaTolmach from "@/public/images/PalinaTolmach.png";
 import RichardMa from "@/public/images/RichardMa.png";
 import TomoTagami from "@/public/images/TomoTagami.png";
+import alfred from "@/public/images/Alfred.png";
+import nic from "@/public/images/Nic.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -305,7 +307,7 @@ export const conferenceAgendas: {
           name: "Alfred",
           company: "imToken",
           topic: "StarkNet AA wallet",
-          src: logo,
+          src: alfred,
           time: "05:30pm",
           duration: "30 mins",
         },
@@ -481,7 +483,7 @@ export const conferenceAgendas: {
           name: "Nic Lin",
           company: "imToken",
           topic: "Stealth address",
-          src: logo,
+          src: nic,
           time: "02:00 pm",
           duration: "30 mins",
         },

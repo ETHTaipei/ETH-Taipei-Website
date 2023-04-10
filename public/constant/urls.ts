@@ -8,7 +8,8 @@ export const ticketSaleUrl = "";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
-export const sideEventFormUrl = "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
+export const sideEventFormUrl =
+  "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
@@ -35,6 +36,11 @@ export const proticoUrl = "https://protico.io/";
 export const zombitUrl = "https://zombit.info/";
 export const brainCryptoUrl =
   "https://www.youtube.com/channel/UC1EG67JfgUKaZ4Z_l4euycw";
+export const hashKeyUrl = "https://www.hashkey.com/";
+export const pseUrl = "https://appliedzkp.org/";
+export const taiwanMobileUrl = "https://www.taiwanmobile.com/";
+export const consensysUrl = "https://consensys.net/";
+export const klickKlackUrl = "https://www.kkco.com.tw/";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
@@ -59,4 +65,4 @@ export const cryptoCityUrl = "https://www.cryptocity.tw/";
 export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
 export const bzdUrl = "https://buzhidao.tw/";
 export const panewsUrl = "https://www.panewslab.com/";
-export const dataverseUrl = "https://dataverse-os.com/"
+export const dataverseUrl = "https://dataverse-os.com/";
