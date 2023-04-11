@@ -34,6 +34,9 @@ import mary from "@/public/images/MaryLiu.png";
 import tsk from "@/public/images/tsk.png";
 import Josh from '@/public/images/Josh.png';
 import richardMa from "@/public/images/RichardMa.png";
+import alfred from "@/public/images/Alfred.png";
+import nic from "@/public/images/Nic.png";
+import TomSoong from "@/public/images/TomSoong.png";
 
 type SpeakerProps = {
   name: string;
@@ -60,6 +63,12 @@ const speakers: SpeakerProps[] = [
     src: agrim,
     twitter: "https://twitter.com/agrimnagrani",
     companyLink: "https://thegraph.com/",
+  },
+  {
+    name: "Alfred",
+    company: "imToken",
+    src: alfred,
+    companyLink: "https://token.im/",
   },
   {
     name: "Anderson Chen",
@@ -181,6 +190,13 @@ const speakers: SpeakerProps[] = [
     src: mary
   },
   {
+    name: "Nic Lin",
+    company: "imToken",
+    src: nic,
+    twitter: "https://twitter.com/NICLin619",
+    companyLink: "https://token.im/",
+  },
+  {
     name: "Nuno Loureiro",
     company: "Ethereum Foundation",
     src: nuno,
@@ -214,19 +230,26 @@ const speakers: SpeakerProps[] = [
     twitter: "https://www.facebook.com/seiya.kb",
     companyLink: "",
   },
-  {
-    name: `Shantanu Gupta`,
-    company: "Biconomy",
-    src: ShantanuGupta,
-    twitter: "https://twitter.com/DoubleSc00p",
-    companyLink: "https://www.biconomy.io/",
-  },
+  // {
+  //   name: `Shantanu Gupta`,
+  //   company: "Biconomy",
+  //   src: ShantanuGupta,
+  //   twitter: "https://twitter.com/DoubleSc00p",
+  //   companyLink: "https://www.biconomy.io/",
+  // },
   {
     name: `Shotaro Granzier-Nakajima`,
     company: "Kleros",
     src: shotaroGranzierNakajima,
     twitter: "https://twitter.com/shotaronowhere",
     companyLink: "https://kleros.io/",
+  },
+  {
+    name: "Tom Soong",
+    company: "zomma",
+    src: TomSoong,
+    twitter: "https://twitter.com/RealTomSoong",
+    companyLink: "https://zomma.pro/",
   },
   {
     name: "TSK",
