@@ -123,7 +123,7 @@ export const conferenceAgendas: {
         {
           name: "",
           company: "",
-          topic: "Launch Break",
+          topic: "Lunch Break",
           src: ZacL,
           time: "12:00pm",
           duration: "1 hr",
@@ -234,7 +234,7 @@ export const conferenceAgendas: {
         {
           name: "",
           company: "",
-          topic: "Launch Break",
+          topic: "Lunch Break",
           src: null,
           time: "12:00pm",
           duration: "1.5 hr",
@@ -356,7 +356,7 @@ export const conferenceAgendas: {
         {
           name: "",
           company: "",
-          topic: "Launch Break",
+          topic: "Lunch Break",
           src: null,
           time: "12:00pm",
           duration: "1.5 hrs",
@@ -468,7 +468,7 @@ export const conferenceAgendas: {
         {
           name: "",
           company: "",
-          topic: "Launch Break",
+          topic: "Lunch Break",
           src: null,
           time: "12:00pm",
           duration: "1.5 hrs",
