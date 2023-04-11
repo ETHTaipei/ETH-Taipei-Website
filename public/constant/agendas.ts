@@ -37,6 +37,7 @@ import RichardMa from "@/public/images/RichardMa.png";
 import TomoTagami from "@/public/images/TomoTagami.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
+import TomSoong from "@/public/images/TomSoong.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -97,8 +98,9 @@ export const conferenceAgendas: {
         {
           name: "Tom soong",
           company: "Zomma",
-          topic: "TBD",
-          src: logo,
+          topic:
+            "Revolutionizing Options Tradings on zkSync - DeFi Options with the Highest Capital Efficiency",
+          src: TomSoong,
           time: "10:30am",
           duration: "30 mins",
         },
@@ -256,7 +258,7 @@ export const conferenceAgendas: {
         {
           name: "Wanseob Lim",
           company: "Ethereum Foundation",
-          topic: "Schnorr Based Transaction Ordering",
+          topic: "Schnorr Sequencer",
           src: wanseob,
           time: "02:30pm",
           duration: "30 mins",
@@ -432,7 +434,7 @@ export const conferenceAgendas: {
         {
           name: "Vivian",
           company: "Ethereum Foundation",
-          topic: "Unirep",
+          topic: "Introduction to Unirep: ZK attestation system",
           src: vivian,
           time: "10:00 am",
           duration: "30 mins",
