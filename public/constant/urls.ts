@@ -42,6 +42,7 @@ export const taiwanMobileUrl = "https://www.taiwanmobile.com/";
 export const consensysUrl = "https://consensys.net/";
 export const klickKlackUrl = "https://www.kkco.com.tw/";
 export const coinspeakerUrl = "https://www.coinspeaker.com/";
+export const dlnewsUrl = "https://www.dlnews.com/";
 
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";

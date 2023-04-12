@@ -7,6 +7,7 @@ import {
   coinnewshkUrl,
   panewsUrl,
   coinspeakerUrl,
+  dlnewsUrl,
 } from "./urls";
 
 import web3Plus from "@/public/images/web3Plus.png";
@@ -17,6 +18,7 @@ import blockbeats from "@/public/images/blockbeats.png";
 import nineup from "@/public/images/nineup.png";
 import pan from "@/public/images/panews.png";
 import coinspeaker from "@/public/images/Coinspeaker.png";
+import dlnews from "@/public/images/DLNews.png";
 
 import { StaticImageData } from "next/image";
 
@@ -29,6 +31,7 @@ type MediaPartnerProps = {
 
 const mediaPartners: MediaPartnerProps[] = [
   { name: "9up.io", url: nineupUrl, logo: nineup },
+  { name: "DLNews", url: dlnewsUrl, logo: dlnews },
   { name: "Coin Speaker", url: coinspeakerUrl, logo: coinspeaker },
   { name: "PANews", url: panewsUrl, logo: pan },
 
