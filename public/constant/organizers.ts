@@ -79,9 +79,9 @@ const organizers: OrganizerProps[] = [
     companyLink: lyraUrl,
   },
   {
-    name: "Chang Wu",
+    name: "Changwu",
     title: "Chief Scientist",
-    organization: "ImToken",
+    organization: "imToken",
     src: changWu,
     twitter: "https://twitter.com/changwu_tw",
     companyLink: imTokenUrl,
