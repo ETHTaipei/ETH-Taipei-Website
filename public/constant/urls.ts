@@ -58,6 +58,9 @@ export const ethereumFoundationUrl = "https://ethereum.foundation/";
 export const nineupUrl = "https://9up.io/";
 export const coinnewshkUrl = "https://coinnewshk.com/";
 export const blockbeatsUrl = "https://www.theblockbeats.info/";
+export const blockbarUrl = "https://blockbar.io/";
+export const decryptUrl = "https://decrypt.co/";
+export const twBlockchainAssociationUrl = "https://t-blockchain-a.org/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
