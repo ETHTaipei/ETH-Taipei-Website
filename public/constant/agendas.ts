@@ -12,7 +12,6 @@ import wanseob from "@/public/images/wanseob.png";
 import jobin from "@/public/images/jobin.png";
 import balalKhan from "@/public/images/balalKhan.png";
 import guiltygyoza from "@/public/images/guiltygyoza.png";
-import ShantanuGupta from "@/public/images/ShantanuGupta.png";
 import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import Josh from "@/public/images/Josh.png";
@@ -337,11 +336,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "Shantanu Gupta",
-          company: "Independent Researcher",
-          topic:
-            "Recent DeFi trends, Evolution of new and seasoned DeFi protocols",
-          src: ShantanuGupta,
+          name: "",
+          company: "",
+          topic: "TBD",
+          src: null,
           time: "11:00am",
           duration: "30 mins",
         },
