@@ -36,7 +36,9 @@ import RichardMa from "@/public/images/RichardMa.png";
 import TomoTagami from "@/public/images/TomoTagami.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
+import fully from "@/public/images/fully.png";
 import TomSoong from "@/public/images/TomSoong.png";
+import neville from "@/public/images/neville.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -241,7 +243,7 @@ export const conferenceAgendas: {
         {
           name: "Cathie",
           company: "Ethereum Foundation",
-          topic: "zkMachine Learning",
+          topic: "Unraveling ZKML: Present Realities and Future Horizons in Privacy-Preserving AI",
           src: cathie,
           time: "01:30pm",
           duration: "30 mins",
@@ -336,10 +338,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
-          company: "",
-          topic: "TBD",
-          src: null,
+          name: "Fully",
+          company: "OlympusDAO",
+          topic: "Default: A Design Pattern for Better Protocol Development",
+          src: fully,
           time: "11:00am",
           duration: "30 mins",
         },
@@ -496,10 +498,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
-          company: "",
-          topic: "Dedaub",
-          src: null,
+          name: "Neville Grech",
+          company: "DEDAUB",
+          topic: "Sec it up: What's brewing in the security tooling space?",
+          src: neville,
           time: "03:00 pm",
           duration: "30 mins",
         },
