@@ -29,7 +29,6 @@ export const gnosisChainUrl = "https://www.gnosis.io/";
 export const dedaubUrl = "https://dedaub.com/";
 export const thunderCoreUrl = "https://www.thundercore.com/";
 export const teaHouseUrl = "https://teahouse.finance/";
-export const zkSyncUrl = "https://zksync.io/";
 export const taibeiUrl = "https://www.chain.tw/";
 export const mattersLabUrl = "https://matters-lab.io/";
 export const proticoUrl = "https://protico.io/";
