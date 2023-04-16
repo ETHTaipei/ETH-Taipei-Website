@@ -37,6 +37,7 @@ import richardMa from "@/public/images/RichardMa.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
 import TomSoong from "@/public/images/TomSoong.png";
+import fully from "@/public/images/fully.png";
 
 type SpeakerProps = {
   name: string;
@@ -118,6 +119,13 @@ const speakers: SpeakerProps[] = [
     src: deyeonKim,
     twitter: "https://twitter.com/DeyeonK",
     companyLink: "https://www.pods.finance/",
+  },
+  {
+    name: "Fully",
+    company: "OlympusDAO",
+    src: fully,
+    twitter: "https://twitter.com/fullyallocated",
+    companyLink: "https://olympusdao.finance/",
   },
   {
     name: "Gautham",
