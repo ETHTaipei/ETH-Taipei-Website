@@ -36,6 +36,7 @@ import RichardMa from "@/public/images/RichardMa.png";
 import TomoTagami from "@/public/images/TomoTagami.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
+import fully from "@/public/images/fully.png";
 import TomSoong from "@/public/images/TomSoong.png";
 
 export type EventType = "hackathon" | "conference";
@@ -336,10 +337,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
-          company: "",
-          topic: "TBD",
-          src: null,
+          name: "Fully",
+          company: "OlympusDAO",
+          topic: "Default: A Design Pattern for Better Protocol Development",
+          src: fully,
           time: "11:00am",
           duration: "30 mins",
         },
