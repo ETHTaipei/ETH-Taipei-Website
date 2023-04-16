@@ -38,6 +38,7 @@ import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
 import TomSoong from "@/public/images/TomSoong.png";
 import fully from "@/public/images/fully.png";
+import neville from "@/public/images/neville.png";
 
 type SpeakerProps = {
   name: string;
@@ -196,6 +197,13 @@ const speakers: SpeakerProps[] = [
     twitter: 'https://twitter.com/howdymerry',
     companyLink: 'https://celestia.org/',
     src: mary
+  },
+  {
+    name: "Neville Grech",
+    company: "DEDAUB",
+    companyLink: "https://dedaub.com/",
+    src: neville,
+    twitter: 'https://twitter.com/neville_grech'
   },
   {
     name: "Nic Lin",
