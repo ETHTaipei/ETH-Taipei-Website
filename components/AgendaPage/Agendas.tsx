@@ -175,6 +175,13 @@ const Agendas = () => {
                             </SpeakerName>
                           </SpeakerContainer>
                         )}
+                        {s.panelOrganizations && (
+                          <OrganizerContainer>
+                            {s.panelOrganizations.map((o) => (
+                              <SpeakerName key={o}>{`・${o}`}</SpeakerName>
+                            ))}
+                          </OrganizerContainer>
+                        )}
                       </div>
                     </ScheduleContainer>
                   ))}
@@ -429,4 +436,10 @@ const TimeContainer = styled.div`
   @media (max-width: 576px) {
     justify-content: space-between;
   }
+`;
+
+const OrganizerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
 `;

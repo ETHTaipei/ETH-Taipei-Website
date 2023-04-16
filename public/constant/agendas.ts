@@ -89,6 +89,7 @@ export const conferenceAgendas: {
       src?: StaticImageData | null;
       time: string;
       duration: string;
+      panelOrganizations?: string[];
     }[];
   }[];
 } = {
@@ -243,7 +244,8 @@ export const conferenceAgendas: {
         {
           name: "Cathie",
           company: "Ethereum Foundation",
-          topic: "Unraveling ZKML: Present Realities and Future Horizons in Privacy-Preserving AI",
+          topic:
+            "Unraveling ZKML: Present Realities and Future Horizons in Privacy-Preserving AI",
           src: cathie,
           time: "01:30pm",
           duration: "30 mins",
@@ -425,6 +427,12 @@ export const conferenceAgendas: {
           src: null,
           time: "05:00pm",
           duration: "1 hr",
+          panelOrganizations: [
+            "Code4rena",
+            "Trail of Bits",
+            "Quantstamp",
+            "Dedaub",
+          ],
         },
       ],
     },
