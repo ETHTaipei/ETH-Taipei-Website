@@ -11,6 +11,8 @@ import {
   decryptUrl,
   twBlockchainAssociationUrl,
   dlnewsUrl,
+  lydianLabsUrl,
+  todayInDefiUrl,
 } from "./urls";
 
 import web3Plus from "@/public/images/web3Plus.png";
@@ -25,6 +27,8 @@ import blockbar from "@/public/images/blockbar.png";
 import decrypt from "@/public/images/decrypt.png";
 import twBlockchainAssociation from "@/public/images/taiwanBlockchainAssociation.png";
 import dlNews from "@/public/images/dlNews.png";
+import lydianLabs from "@/public/images/lydianLabs.png";
+import todayInDefi from "@/public/images/todayInDefi.png";
 
 import { StaticImageData } from "next/image";
 
@@ -41,7 +45,9 @@ const mediaPartners: MediaPartnerProps[] = [
   { name: "Coin Speaker", url: coinspeakerUrl, logo: coinspeaker },
   { name: "decrypt", url: decryptUrl, logo: decrypt },
   { name: "DLNews", url: dlnewsUrl, logo: dlNews },
+  { name: "Lyain Labs", url: lydianLabsUrl, logo: lydianLabs },
   { name: "PANews", url: panewsUrl, logo: pan },
+  { name: "Today in defi", url: todayInDefiUrl, logo: todayInDefi },
   { name: "Web3+", url: web3plusUrl, logo: web3Plus },
   { name: "Crypto City", url: cryptoCityUrl, logo: cryptoCity },
   {
