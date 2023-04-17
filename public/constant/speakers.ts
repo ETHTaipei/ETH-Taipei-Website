@@ -21,7 +21,7 @@ import jobin from "@/public/images/jobin.png";
 import jerry from "@/public/images/Jerry-Li.png";
 import sophie from "@/public/images/sophie.png";
 import ronald from "@/public/images/ronald.png";
-import igor from "@/public/images/igor.png";
+import igor from "@/public/images/Igor.png";
 import stefan from "@/public/images/stefan.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
