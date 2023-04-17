@@ -384,7 +384,7 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "Ronald",
+          name: "Ronald Yu",
           company: "AutoPass",
           topic: "Empower Real World Transaction into Blockchain",
           src: ronald,
