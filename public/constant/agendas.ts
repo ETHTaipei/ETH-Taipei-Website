@@ -14,6 +14,10 @@ import balalKhan from "@/public/images/balalKhan.png";
 import guiltygyoza from "@/public/images/guiltygyoza.png";
 import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
+import sophie from "@/public/images/sophie.png";
+import ronald from "@/public/images/ronald.png";
+import igor from "@/public/images/Igor.png"
+import stefan from "@/public/images/stefan.png"
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
 import jerry from "@/public/images/Jerry-Li.png";
@@ -239,7 +243,15 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hr",
+          duration: "1 hr",
+        },
+        {
+          name: "Dapplion",
+          company: "Gnosis Chain",
+          topic: "A Technical Deep Dive into the Evolution and Future of Gnosis Chain",
+          src: dapplion,
+          time: "13:00am",
+          duration: "30 mins",
         },
         {
           name: "Cathie",
@@ -324,10 +336,10 @@ export const conferenceAgendas: {
       track: "DeFi Track",
       speakers: [
         {
-          name: "",
-          company: "",
-          topic: "Gnosis",
-          src: null,
+          name: "Stefan Piech",
+          company: "Gnosis Chain",
+          topic: "Building the next generation of DeFi on Gnosis Chain",
+          src: stefan,
           time: "10:00am",
           duration: "30 mins",
         },
@@ -361,13 +373,21 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hrs",
+          duration: "1 hrs",
         },
         {
-          name: "",
-          company: "",
-          topic: "AutoPass",
-          src: null,
+          name: "Sophie Liu",
+          company: "EigenPhi",
+          topic: "Insight into the Dark Forest: Exploring MEV Impact and Risks of Liquidity Manipulation",
+          src: sophie,
+          time: "01:00pm",
+          duration: "30 mins",
+        },
+        {
+          name: "Ronald Yu",
+          company: "AutoPass",
+          topic: "Empower Real World Transaction into Blockchain",
+          src: ronald,
           time: "01:30pm",
           duration: "30 mins",
         },
@@ -479,7 +499,15 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hrs",
+          duration: "1 hrs",
+        },
+        {
+          name: "Igor Barinov",
+          company: "zkBob",
+          topic: "Road to compliant on-chain privacy with zkBob",
+          src: igor,
+          time: "01:00 pm",
+          duration: "30 mins",
         },
         {
           name: "I-Hung Hsu",
