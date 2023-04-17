@@ -6,7 +6,11 @@ import Image from "next/image";
 import banner from "@/public/images/vertical-transparent.png";
 import t from "@/public/constant/content";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
-import { hackathonUrl } from "@/public/constant/urls";
+import {
+  hackathonUrl,
+  sideEventListUrl,
+  unlockTicketUrl,
+} from "@/public/constant/urls";
 import gtagReportConversion from "@/public/utils/gtag";
 import { openNewTab } from "@/public/utils/common";
 
@@ -28,6 +32,18 @@ const Banner = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
+      <NotificationContainer>
+        <ImportantContainer>Important Information</ImportantContainer>
+        <MainTextContainer>
+          <Link onClick={() => openNewTab(unlockTicketUrl)}>
+            Unlock Ticket FAQ
+          </Link>
+          <NotificationText>{` & `} </NotificationText>
+          <Link onClick={() => openNewTab(sideEventListUrl)}>
+            Side Event List
+          </Link>
+        </MainTextContainer>
+      </NotificationContainer>
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
@@ -125,4 +141,43 @@ const ActivityDate = styled.h3`
   line-height: 24px;
   color: ${Colors.pennBlue};
   display: block;
+`;
+
+const NotificationContainer = styled.div`
+  margin: auto;
+  position: absolute;
+  top: 36px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+`;
+
+const ImportantContainer = styled.div`
+  padding: 4px 12px;
+  background-color: ${Colors.aero};
+  border-radius: 8px;
+  color: ${Colors.gray1};
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 8px;
+`;
+
+const NotificationText = styled.p`
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 4px;
+`;
+
+const Link = styled(NotificationText)`
+  color: ${Colors.aero};
+  cursor: pointer;
+  text-decoration: underline;
+`;
+
+const MainTextContainer = styled.div`
+  display: flex;
 `;
