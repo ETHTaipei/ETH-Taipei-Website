@@ -16,7 +16,7 @@ import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import sophie from "@/public/images/sophie.png";
 import ronald from "@/public/images/ronald.png";
-import igor from "@/public/images/igor.png"
+import igor from "@/public/images/Igor.png"
 import stefan from "@/public/images/stefan.png"
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
