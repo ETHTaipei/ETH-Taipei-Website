@@ -16,6 +16,8 @@ import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import sophie from "@/public/images/sophie.png";
 import ronald from "@/public/images/ronald.png";
+import igor from "@/public/images/igor.png"
+import stefan from "@/public/images/stefan.png"
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
 import jerry from "@/public/images/Jerry-Li.png";
@@ -244,6 +246,14 @@ export const conferenceAgendas: {
           duration: "1.5 hr",
         },
         {
+          name: "Dapplion",
+          company: "Gnosis Chain",
+          topic: "A Technical Deep Dive into the Evolution and Future of Gnosis Chain",
+          src: dapplion,
+          time: "13:00am",
+          duration: "30 mins",
+        },
+        {
           name: "Cathie",
           company: "Ethereum Foundation",
           topic:
@@ -326,10 +336,10 @@ export const conferenceAgendas: {
       track: "DeFi Track",
       speakers: [
         {
-          name: "",
-          company: "",
-          topic: "Gnosis",
-          src: null,
+          name: "Stefan Piech",
+          company: "Gnosis Chain",
+          topic: "Building the next generation of DeFi on Gnosis Chain",
+          src: stefan,
           time: "10:00am",
           duration: "30 mins",
         },
@@ -492,10 +502,10 @@ export const conferenceAgendas: {
           duration: "1.5 hrs",
         },
         {
-          name: "Igor",
+          name: "Igor Barinov",
           company: "zkBob",
           topic: "Road to compliant on-chain privacy with zkBob",
-          src: logo,
+          src: igor,
           time: "01:00 pm",
           duration: "30 mins",
         },
