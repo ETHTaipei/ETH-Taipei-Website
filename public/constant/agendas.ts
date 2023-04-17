@@ -16,8 +16,8 @@ import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
 import sophie from "@/public/images/sophie.png";
 import ronald from "@/public/images/ronald.png";
-import igor from "@/public/images/Igor.png"
-import stefan from "@/public/images/stefan.png"
+import igor from "@/public/images/Igor.png";
+import stefan from "@/public/images/stefan.png";
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
 import jerry from "@/public/images/Jerry-Li.png";
@@ -231,8 +231,7 @@ export const conferenceAgendas: {
         {
           name: "Mary Liu",
           company: "Celestia",
-          topic: "TBD",
-          // topic: "Scentered around Ethereum L2s that can use Celestia for DA.",
+          topic: "Scentered around Ethereum L2s that can use Celestia for DA",
           src: MaryLiu,
           time: "11:30am",
           duration: "30 mins",
@@ -248,7 +247,8 @@ export const conferenceAgendas: {
         {
           name: "Dapplion",
           company: "Gnosis Chain",
-          topic: "A Technical Deep Dive into the Evolution and Future of Gnosis Chain",
+          topic:
+            "A Technical Deep Dive into the Evolution and Future of Gnosis Chain",
           src: dapplion,
           time: "13:00am",
           duration: "30 mins",
@@ -378,7 +378,8 @@ export const conferenceAgendas: {
         {
           name: "Sophie Liu",
           company: "EigenPhi",
-          topic: "Insight into the Dark Forest: Exploring MEV Impact and Risks of Liquidity Manipulation",
+          topic:
+            "Insight into the Dark Forest: Exploring MEV Impact and Risks of Liquidity Manipulation",
           src: sophie,
           time: "01:00pm",
           duration: "30 mins",
