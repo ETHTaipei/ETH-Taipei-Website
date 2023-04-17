@@ -19,6 +19,8 @@ import ibeibe from "@/public/images/ibeibe.png";
 import guru from "@/public/images/guru.png";
 import jobin from "@/public/images/jobin.png";
 import jerry from "@/public/images/Jerry-Li.png";
+import sophie from "@/public/images/sophie.png";
+import ronald from "@/public/images/ronald.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
 import agrim from "@/public/images/agrim.png";
@@ -233,6 +235,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://quantstamp.com/",
   },
   {
+    name: "Ronald Yu",
+    company: "AutoPass",
+    src: ronald,
+    twitter: 'https://twitter.com/ronaldxxxx',
+    companyLink: "https://autopass.xyz/",
+  },
+  {
     name: "Savio",
     company: "Noir / Aztec",
     src: savio,
@@ -259,6 +268,12 @@ const speakers: SpeakerProps[] = [
     src: shotaroGranzierNakajima,
     twitter: "https://twitter.com/shotaronowhere",
     companyLink: "https://kleros.io/",
+  },
+  {
+    name: `Sophie Liu`,
+    company: "EigenPhi",
+    src: sophie,
+    companyLink: "https://eigenphi.io/",
   },
   {
     name: "Tom Soong",

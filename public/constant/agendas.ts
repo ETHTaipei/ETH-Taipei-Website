@@ -14,6 +14,8 @@ import balalKhan from "@/public/images/balalKhan.png";
 import guiltygyoza from "@/public/images/guiltygyoza.png";
 import ZDHu from "@/public/images/HDZu.png";
 import anderson from "@/public/images/anderson.png";
+import sophie from "@/public/images/sophie.png";
+import ronald from "@/public/images/ronald.png";
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
 import jerry from "@/public/images/Jerry-Li.png";
@@ -364,10 +366,18 @@ export const conferenceAgendas: {
           duration: "1.5 hrs",
         },
         {
-          name: "",
-          company: "",
-          topic: "AutoPass",
-          src: null,
+          name: "Siphie Liu",
+          company: "EigenPhi",
+          topic: "Insight into the Dark Forest: Exploring MEV Impact and Risks of Liquidity Manipulation",
+          src: sophie,
+          time: "01:00pm",
+          duration: "30 mins",
+        },
+        {
+          name: "Ronald",
+          company: "AutoPass",
+          topic: "Empower Real World Transaction into  Blockchain",
+          src: ronald,
           time: "01:30pm",
           duration: "30 mins",
         },
@@ -480,6 +490,14 @@ export const conferenceAgendas: {
           src: null,
           time: "12:00pm",
           duration: "1.5 hrs",
+        },
+        {
+          name: "Igor",
+          company: "zkBob",
+          topic: "Road to compliant on-chain privacy with zkBob",
+          src: logo,
+          time: "01:00 pm",
+          duration: "30 mins",
         },
         {
           name: "I-Hung Hsu",
