@@ -243,7 +243,7 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hr",
+          duration: "1 hr",
         },
         {
           name: "Dapplion",
@@ -373,10 +373,10 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hrs",
+          duration: "1 hrs",
         },
         {
-          name: "Siphie Liu",
+          name: "Sophie Liu",
           company: "EigenPhi",
           topic: "Insight into the Dark Forest: Exploring MEV Impact and Risks of Liquidity Manipulation",
           src: sophie,
@@ -499,7 +499,7 @@ export const conferenceAgendas: {
           topic: "Lunch Break",
           src: null,
           time: "12:00pm",
-          duration: "1.5 hrs",
+          duration: "1 hrs",
         },
         {
           name: "Igor Barinov",
