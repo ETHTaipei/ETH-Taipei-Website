@@ -386,7 +386,7 @@ export const conferenceAgendas: {
         {
           name: "Ronald",
           company: "AutoPass",
-          topic: "Empower Real World Transaction into  Blockchain",
+          topic: "Empower Real World Transaction into Blockchain",
           src: ronald,
           time: "01:30pm",
           duration: "30 mins",
