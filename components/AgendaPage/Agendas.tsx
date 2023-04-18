@@ -161,7 +161,10 @@ const Agendas = () => {
                         <DurationText>{s.duration}</DurationText>
                       </TimeContainer>
                       <div>
-                        <ScheduleText>{s.topic}</ScheduleText>
+                        <TopicContainer>
+                          <ScheduleText>{s.topic}</ScheduleText>
+                        </TopicContainer>
+                        <NameContainer>
                         {s.name && (
                           <SpeakerContainer>
                             {s.src && (
@@ -175,6 +178,8 @@ const Agendas = () => {
                             </SpeakerName>
                           </SpeakerContainer>
                         )}
+                        </NameContainer>
+                        
                         {s.panelOrganizations && (
                           <OrganizerContainer>
                             {s.panelOrganizations.map((o) => (
@@ -324,6 +329,20 @@ const DurationText = styled(TimeText)`
   @media (max-width: 576px) {
     text-align: right;
   }
+`;
+
+// with min height == 4 lines
+const TopicContainer = styled.div`
+  width: 100%;
+  min-height: 88px;
+`;
+
+
+// min height == 2 lines
+const NameContainer = styled.div`
+  display: flex;
+  width: 100%;
+  min-height: 55px;
 `;
 
 const ScheduleText = styled(TimeText)`

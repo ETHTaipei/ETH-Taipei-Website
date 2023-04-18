@@ -176,10 +176,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
+          name: "🧋",
           company: "",
           topic: "Break",
-          src: logo,
+          src: null,
           time: "03:30pm",
           duration: "30 mins",
         },
@@ -287,7 +287,7 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
+          name: "🧋",
           company: "",
           topic: "Break",
           src: null,
@@ -418,7 +418,7 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
+          name: "🧋",
           company: "",
           topic: "Break",
           src: null,
@@ -472,7 +472,7 @@ export const conferenceAgendas: {
           name: "Chris Tam",
           company: "BTQ",
           topic:
-            "The Future of Zero-Knowledge: Challenges, Advancements, and Tools for Developing Post-Quantum zk-SNARKs",
+            "The Future of ZK: Challenges, Advancements, and Tools for Developing Post-Quantum zk-SNARKs",
           src: chrisTam,
           time: "10:30 am",
           duration: "30 mins",
@@ -543,7 +543,7 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "",
+          name: "🧋",
           company: "",
           topic: "Break",
           src: null,
