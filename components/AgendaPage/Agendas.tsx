@@ -144,6 +144,9 @@ const Agendas = () => {
                     <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
                   </SpeakerContainer>
                 </SpeakersContainer>
+                <TopicContainer>
+                  <ScheduleText>{"The need for standardization of L2s, smart contract wallet and privacy"}</ScheduleText>
+                </TopicContainer>
               </TrackContainer>
             </KeynoteContainer>
           )}
