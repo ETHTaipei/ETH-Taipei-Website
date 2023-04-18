@@ -36,7 +36,7 @@ import palina from "@/public/images/PalinaTolmach.png";
 import vasily from "@/public/images/VasilySidorov.png";
 import mary from "@/public/images/MaryLiu.png";
 import tsk from "@/public/images/tsk.png";
-import Josh from '@/public/images/Josh.png';
+import Josh from "@/public/images/Josh.png";
 import richardMa from "@/public/images/RichardMa.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
@@ -165,7 +165,7 @@ const speakers: SpeakerProps[] = [
     company: "zkBob",
     src: igor,
     twitter: "https://twitter.com/barinov",
-    companyLink: "https://www.zkbob.com/"
+    companyLink: "https://www.zkbob.com/",
   },
   {
     name: "I-Hung Hsu",
@@ -183,10 +183,10 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Jerry",
-    company: "Term structure",
-    companyLink:'https://termstructure.com/',
+    company: "Term Structure",
+    companyLink: "https://termstructure.com/",
     src: jerry,
-    twitter: 'https://twitter.com/TermStructLabs', 
+    twitter: "https://twitter.com/TermStructLabs",
   },
   {
     name: "Jobin Babu Ayathil",
@@ -204,17 +204,17 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Mary Liu",
-    company: 'Celestia',
-    twitter: 'https://twitter.com/howdymerry',
-    companyLink: 'https://celestia.org/',
-    src: mary
+    company: "Celestia",
+    twitter: "https://twitter.com/howdymerry",
+    companyLink: "https://celestia.org/",
+    src: mary,
   },
   {
     name: "Neville Grech",
     company: "DEDAUB",
     companyLink: "https://dedaub.com/",
     src: neville,
-    twitter: 'https://twitter.com/neville_grech'
+    twitter: "https://twitter.com/neville_grech",
   },
   {
     name: "Nic Lin",
@@ -232,9 +232,9 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Palina Tolmach",
-    company: 'MakerDAO',
-    companyLink: 'https://makerdao.com/en/',
-    twitter: 'https://twitter.com/palinatolmach',
+    company: "MakerDAO",
+    companyLink: "https://makerdao.com/en/",
+    twitter: "https://twitter.com/palinatolmach",
     src: palina,
   },
   {
@@ -247,7 +247,7 @@ const speakers: SpeakerProps[] = [
     name: "Ronald Yu",
     company: "AutoPass",
     src: ronald,
-    twitter: 'https://twitter.com/ronaldxxxx',
+    twitter: "https://twitter.com/ronaldxxxx",
     companyLink: "https://autopass.xyz/",
   },
   {
@@ -305,11 +305,11 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.gnosis.io/",
   },
   {
-    name: 'Vasily Sidorov',
-    company: 'Anoma',
+    name: "Vasily Sidorov",
+    company: "Anoma",
     src: vasily,
-    companyLink: 'https://anoma.net/',
-    twitter: 'https://twitter.com/bazzilic'
+    companyLink: "https://anoma.net/",
+    twitter: "https://twitter.com/bazzilic",
   },
   {
     name: "Vivian",
