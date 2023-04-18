@@ -10,6 +10,7 @@ import {
   hackathonUrl,
   sideEventListUrl,
   unlockTicketUrl,
+  remindersUrl,
 } from "@/public/constant/urls";
 import gtagReportConversion from "@/public/utils/gtag";
 import { openNewTab } from "@/public/utils/common";
@@ -35,6 +36,10 @@ const Banner = () => {
       <NotificationContainer>
         <ImportantContainer>Important Information</ImportantContainer>
         <MainTextContainer>
+          <Link onClick={() => openNewTab(remindersUrl)}>
+            Event Reminders
+          </Link>
+          <NotificationText>{` & `} </NotificationText>
           <Link onClick={() => openNewTab(unlockTicketUrl)}>
             Unlock Ticket FAQ
           </Link>

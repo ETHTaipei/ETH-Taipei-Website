@@ -77,3 +77,5 @@ export const unlockTicketUrl =
   "https://www.notion.so/eth-taipei/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5";
 export const sideEventListUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
+export const remindersUrl =
+  "https://drive.google.com/file/d/1I9muEYeNwBYkt18n9x2t7baSuk9GQK4K/view";
