@@ -183,7 +183,7 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Jerry",
-    company: "Term structure",
+    company: "Term Structure",
     companyLink:'https://termstructure.com/',
     src: jerry,
     twitter: 'https://twitter.com/TermStructLabs', 
