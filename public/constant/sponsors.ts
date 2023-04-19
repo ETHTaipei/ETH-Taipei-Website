@@ -62,7 +62,7 @@ const goldSponsors: OrganizerProps[] = [
     url: gnosisChainUrl,
     logo: gnosisChain,
     width: 760,
-    height: 180,
+    height: 170,
   },
   {
     name: "ImToken",
