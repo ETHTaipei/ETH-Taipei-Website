@@ -78,4 +78,4 @@ export const unlockTicketUrl =
 export const sideEventListUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 export const remindersUrl =
-  "https://drive.google.com/file/d/1I9muEYeNwBYkt18n9x2t7baSuk9GQK4K/view";
+  "https://eth-taipei.notion.site/ETHTaipei-Reminder-df3335779211480486c9dcc4c0ff6fe4";
