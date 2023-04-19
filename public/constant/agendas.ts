@@ -21,6 +21,7 @@ import stefan from "@/public/images/stefan.png";
 import Josh from "@/public/images/Josh.png";
 import agrim from "@/public/images/agrim.png";
 import jerry from "@/public/images/Jerry-Li.png";
+import ping from "@/public/images/ping.png";
 import vivian from "@/public/images/vivian.png";
 import chrisTam from "@/public/images/chrisTam.png";
 import savio from "@/public/images/savioNoir.png";
@@ -145,7 +146,7 @@ export const conferenceAgendas: {
         {
           name: "TSK",
           company: "Perpetual Protocol",
-          topic: "TBD",
+          topic: "Funding Mechanisms of Perpetual Contract",
           src: tsk,
           time: "01:30pm",
           duration: "30 mins",
@@ -352,10 +353,10 @@ export const conferenceAgendas: {
           duration: "30 mins",
         },
         {
-          name: "Fully",
+          name: "Fully & Indigo",
           company: "OlympusDAO",
           topic: "Default: A Design Pattern for Better Protocol Development",
-          src: fully,
+          src: logo,
           time: "11:00am",
           duration: "30 mins",
         },
@@ -413,7 +414,7 @@ export const conferenceAgendas: {
           name: "Ping Chen",
           company: "Hakka Finance",
           topic: "TBD",
-          src: logo,
+          src: ping,
           time: "03:00pm",
           duration: "30 mins",
         },
@@ -463,7 +464,7 @@ export const conferenceAgendas: {
         {
           name: "Vivian",
           company: "Ethereum Foundation",
-          topic: "Introduction to Unirep: ZK attestation system",
+          topic: "Introduction to Unirep: ZK data system",
           src: vivian,
           time: "10:00 am",
           duration: "30 mins",
