@@ -61,7 +61,7 @@ const goldSponsors: OrganizerProps[] = [
     name: "Gnosis Chain",
     url: gnosisChainUrl,
     logo: gnosisChain,
-    width: 760,
+    width: 645,
     height: 180,
   },
   {
