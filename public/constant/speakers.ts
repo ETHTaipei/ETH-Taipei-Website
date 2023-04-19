@@ -29,8 +29,10 @@ import agrim from "@/public/images/agrim.png";
 import ZacL from "@/public/images/ZacL.png";
 import HDZu from "@/public/images/HDZu.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
+import ping from "@/public/images/ping.png";
+import tomo from "@/public/images/TomoTagami.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
-import ShantanuGupta from "@/public/images/ShantanuGupta.png";
+import indigo from "@/public/images/indigo.png";
 import v from "@/public/images/v.png";
 import palina from "@/public/images/PalinaTolmach.png";
 import vasily from "@/public/images/VasilySidorov.png";
@@ -161,6 +163,13 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://ethereum.org/en/",
   },
   {
+    name: "Ibeibe__",
+    company: "Predy Finance",
+    src: ibeibe,
+    twitter: "https://twitter.com/ibeibe__",
+    companyLink: "https://www.predy.finance/",
+  },
+  {
     name: "Igor Barinov",
     company: "zkBob",
     src: igor,
@@ -175,11 +184,11 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.amis.com/",
   },
   {
-    name: "Ibeibe__",
-    company: "Predy Finance",
-    src: ibeibe,
-    twitter: "https://twitter.com/ibeibe__",
-    companyLink: "https://www.predy.finance/",
+    name: "Indigo",
+    company: "OlympusDAO",
+    src: indigo,
+    twitter: "https://twitter.com/_ndigo",
+    companyLink: "https://olympusdao.finance/",
   },
   {
     name: "Jerry",
@@ -238,6 +247,12 @@ const speakers: SpeakerProps[] = [
     src: palina,
   },
   {
+    name: "Ping Chen",
+    company: "Hakka Finance",
+    src: ping,
+    companyLink: "https://hakka.finance/",
+  },
+  {
     name: "Richard Ma",
     company: "Quantstamp",
     src: richardMa,
@@ -290,6 +305,13 @@ const speakers: SpeakerProps[] = [
     src: TomSoong,
     twitter: "https://twitter.com/RealTomSoong",
     companyLink: "https://zomma.pro/",
+  },
+  {
+    name: "Tomo Tagami",
+    company: "Pheasant Network",
+    src: tomo,
+    companyLink: "https://pheasant.network/",
+    twitter: "https://twitter.com/tomohiro_tagami"
   },
   {
     name: "TSK",
