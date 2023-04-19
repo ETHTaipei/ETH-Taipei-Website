@@ -43,6 +43,7 @@ import nic from "@/public/images/Nic.png";
 import fully from "@/public/images/fully.png";
 import TomSoong from "@/public/images/TomSoong.png";
 import neville from "@/public/images/neville.png";
+import martinet from "@/public/images/Martinet.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -50,6 +51,9 @@ export type AgendaType = {
   time: string;
   event: string;
   duration: string;
+  speaker?: string;
+  title?: string;
+  src?: StaticImageData;
 };
 
 export const dates = {
@@ -59,27 +63,72 @@ export const dates = {
 
 export const hackathonAgendas: { [key: number]: AgendaType[] } = {
   21: [
-    { time: "03:00pm", duration: "4 hrs", event: "Pre-workshop" },
+    { time: "02:30pm", duration: "35 mins", event: "Registration/Check in" },
     {
-      time: "07:00pm",
+      time: "03:05pm",
+      duration: "5 mins",
+      event: "ETHTaipei Introduction",
+      speaker: "Martinet",
+      title: "Head of Developer Relations, Quantstamp / ETHTaipei Co-organizer",
+      src: martinet,
+    },
+    {
+      time: "03:10pm",
       duration: "30 mins",
-      event: "Opening ceremony and bounty sponsor talks",
+      event: "Workshop and Opening Talk: Gnosis",
     },
-    { time: "07:30pm", duration: "30 mins", event: "Team Formation Workshop" },
-    { time: "08:00pm", duration: "", event: "Kick Off" },
-    { time: "08:00pm", duration: "4 hrs", event: "Hacking" },
-  ],
-  22: [{ time: "00:00am", duration: "24 hrs", event: "Hacking" }],
-  23: [
-    { time: "00:00am", duration: "12 hrs", event: "Hacking" },
-    { time: "12:00pm", duration: "", event: "Submit" },
-    { time: "01:00pm", duration: "2 hrs", event: "Judging Time" },
     {
-      time: "03:00pm",
-      duration: "2 hrs",
-      event: "Winner Announcement & Demo Day",
+      time: "03:40pm",
+      duration: "30 mins",
+      event:
+        "Workshop: Furucombo - Unleashing Composable Power with Furucombo's Composable Router",
     },
-    { time: "05:00pm", duration: "1 hr", event: "Hackathon Closing Party" },
+    {
+      time: "04:10pm",
+      duration: "30 mins",
+      event: "Workshop: Blocto - Blocto's EVM SDK",
+    },
+    {
+      time: "04:40pm",
+      duration: "30 mins",
+      event: "Workshop: PSE",
+    },
+    {
+      time: "05:10pm",
+      duration: "30 mins",
+      event: "Workshop: Consensys",
+    },
+    {
+      time: "05:40pm",
+      duration: "7 hrs",
+      event: "Hack Time. Venue open overnight.",
+    },
+  ],
+  22: [
+    { time: "10:00am", duration: "1.5 hrs", event: "Hack Time" },
+    { time: "11:30am", duration: "30 mins", event: "BREAK / LUNCH" },
+    { time: "12:00pm", duration: "3 hrs", event: "Mentor Sessions" },
+    { time: "03:00pm", duration: "6 hrs", event: "Hack Time" },
+    { time: "09:00pm", duration: "1 hr", event: "Demo Day Sign up Deadline" },
+    {
+      time: "10:00pm",
+      duration: "2 hrs",
+      event: "Hack Time. Venue open overnight.",
+    },
+  ],
+
+  23: [
+    { time: "10:00am", duration: "1.5 hrs", event: "Hack Time" },
+    {
+      time: "11:30pm",
+      duration: "30 mins",
+      event: "12:00 Project Submission Deadline",
+    },
+    { time: "12:00pm", duration: "1 hr", event: "LUNCH / Demo Day Check-in" },
+    { time: "01:00pm", duration: "5 mins", event: "Demo Day Opening" },
+    { time: "01:05pm", duration: "4 hrs", event: "Demo Day" },
+
+    { time: "05:00pm", duration: "2 hrs", event: "Hackathon Closing Party" },
   ],
 };
 

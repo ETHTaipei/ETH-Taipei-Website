@@ -123,7 +123,22 @@ const Agendas = () => {
                   <TimeText>{agenda.time}</TimeText>
                   <DurationText>{agenda.duration}</DurationText>
                 </TimeContainer>
-                <ScheduleText>{agenda.event}</ScheduleText>
+                <div>
+                  <ScheduleText>{agenda.event}</ScheduleText>
+                  {agenda.speaker && (
+                    <SpeakerContainer>
+                      {agenda.src && (
+                        <SpeakerIcon>
+                          <Image fill src={agenda.src} alt={agenda.speaker} />
+                        </SpeakerIcon>
+                      )}
+                      <SpeakerName>
+                        {(agenda.speaker && `${agenda.speaker}`) +
+                          (agenda.title && `, ${agenda.title}`)}
+                      </SpeakerName>
+                    </SpeakerContainer>
+                  )}
+                </div>
               </ScheduleContainer>
             ))}
         </HackSchedulesContainer>
@@ -145,7 +160,11 @@ const Agendas = () => {
                   </SpeakerContainer>
                 </SpeakersContainer>
                 <TopicContainer>
-                  <ScheduleText>{"The need for standardization of L2s, smart contract wallet and privacy"}</ScheduleText>
+                  <ScheduleText>
+                    {
+                      "The need for standardization of L2s, smart contract wallet and privacy"
+                    }
+                  </ScheduleText>
                 </TopicContainer>
               </TrackContainer>
             </KeynoteContainer>
@@ -168,21 +187,21 @@ const Agendas = () => {
                           <ScheduleText>{s.topic}</ScheduleText>
                         </TopicContainer>
                         <NameContainer>
-                        {s.name && (
-                          <SpeakerContainer>
-                            {s.src && (
-                              <SpeakerIcon>
-                                <Image fill src={s.src} alt={s.name} />
-                              </SpeakerIcon>
-                            )}
-                            <SpeakerName>
-                              {(s.name && `${s.name}`) +
-                                (s.company && `, ${s.company}`)}
-                            </SpeakerName>
-                          </SpeakerContainer>
-                        )}
+                          {s.name && (
+                            <SpeakerContainer>
+                              {s.src && (
+                                <SpeakerIcon>
+                                  <Image fill src={s.src} alt={s.name} />
+                                </SpeakerIcon>
+                              )}
+                              <SpeakerName>
+                                {(s.name && `${s.name}`) +
+                                  (s.company && `, ${s.company}`)}
+                              </SpeakerName>
+                            </SpeakerContainer>
+                          )}
                         </NameContainer>
-                        
+
                         {s.panelOrganizations && (
                           <OrganizerContainer>
                             {s.panelOrganizations.map((o) => (
@@ -339,7 +358,6 @@ const TopicContainer = styled.div`
   width: 100%;
   min-height: 88px;
 `;
-
 
 // min height == 2 lines
 const NameContainer = styled.div`
