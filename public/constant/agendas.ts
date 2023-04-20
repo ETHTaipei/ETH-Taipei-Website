@@ -300,7 +300,7 @@ export const conferenceAgendas: {
           topic:
             "A Technical Deep Dive into the Evolution and Future of Gnosis Chain",
           src: dapplion,
-          time: "13:00am",
+          time: "01:00am",
           duration: "30 mins",
         },
         {
