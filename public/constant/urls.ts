@@ -63,6 +63,7 @@ export const twBlockchainAssociationUrl = "https://t-blockchain-a.org/";
 export const dlnewsUrl = "https://www.dlnews.com/";
 export const lydianLabsUrl = "https://lydianlabs.io/";
 export const todayInDefiUrl = "https://todayindefi.substack.com/";
+export const aceBeakerUrl = "https://acebeaker.media/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 

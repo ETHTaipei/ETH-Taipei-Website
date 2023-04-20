@@ -13,6 +13,7 @@ import {
   dlnewsUrl,
   lydianLabsUrl,
   todayInDefiUrl,
+  aceBeakerUrl,
 } from "./urls";
 
 import web3Plus from "@/public/images/web3Plus.png";
@@ -29,6 +30,7 @@ import twBlockchainAssociation from "@/public/images/taiwanBlockchainAssociation
 import dlNews from "@/public/images/dlNews.png";
 import lydianLabs from "@/public/images/lydianLabs.png";
 import todayInDefi from "@/public/images/todayInDefi.png";
+import AceBeaker from "@/public/images/AceBeaker.png";
 
 import { StaticImageData } from "next/image";
 
@@ -40,6 +42,7 @@ type MediaPartnerProps = {
 };
 
 const mediaPartners: MediaPartnerProps[] = [
+  { name: "ACE BEAKER", url: aceBeakerUrl, logo: AceBeaker },
   { name: "9up.io", url: nineupUrl, logo: nineup },
   { name: "blockbar", url: blockbarUrl, logo: blockbar },
   { name: "Coin Speaker", url: coinspeakerUrl, logo: coinspeaker },
