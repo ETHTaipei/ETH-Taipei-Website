@@ -26,7 +26,6 @@ import diamond from "@/public/images/diamond.png";
 import furucombo from "@/public/images/furucombo.png";
 import imToken from "@/public/images/imToken.png";
 import lyra from "@/public/images/lyra.png";
-import perpetual from "@/public/images/perpetual.png";
 import quantstamp from "@/public/images/quantstamp.png";
 import grenade from "@/public/images/grenade.png";
 import abmedia from "@/public/images/abmedia.png";
@@ -53,7 +52,6 @@ const partners: PartnerProps[] = [
   { name: "diamond protocol", url: diamondUrl, logo: diamond },
   { name: "grenade", url: grenadeUrl, logo: grenade },
   { name: "imToken", url: imTokenUrl, logo: imToken },
-  { name: "perpetual", url: perpetualUrl, logo: perpetual },
   { name: "quantstamp", url: quantstampUrl, logo: quantstamp },
   { name: "TABEI", url: taibeiUrl, logo: taibei },
   { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
