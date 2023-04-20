@@ -166,8 +166,8 @@ const bronzeSponsors: OrganizerProps[] = [
     name: "Consensys",
     url: consensysUrl,
     logo: Consensys,
-    width: 136,
-    height: 100,
+    width: 236,
+    height: 80,
   },
   {
     name: "Dataverse",
