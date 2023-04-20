@@ -177,7 +177,7 @@ const Agendas = () => {
                 </TrackTitleContainer>
                 <SpeakersContainer>
                   {agenda.speakers.map((s, index) => (
-                    <ScheduleContainer key={index}>
+                    <CScheduleContainer key={index}>
                       <TimeContainer>
                         <TimeText>{s.time}</TimeText>
                         <DurationText>{s.duration}</DurationText>
@@ -201,7 +201,22 @@ const Agendas = () => {
                             </SpeakerContainer>
                           )}
                         </NameContainer>
-
+                        {s.panelHost && (
+                          <OrganizerContainer>
+                            <SpeakerName>{`Panel Host:`}</SpeakerName>
+                            <SpeakerName>{`・${s.panelHost}`}</SpeakerName>
+                          </OrganizerContainer>
+                        )}
+                        {s.panelists && (
+                          <OrganizerContainer>
+                            <SpeakerName>{`Panelists:`}</SpeakerName>
+                            {s.panelists.map((panelist) => (
+                              <SpeakerName
+                                key={panelist}
+                              >{`・${panelist}`}</SpeakerName>
+                            ))}
+                          </OrganizerContainer>
+                        )}
                         {s.panelOrganizations && (
                           <OrganizerContainer>
                             {s.panelOrganizations.map((o) => (
@@ -210,7 +225,7 @@ const Agendas = () => {
                           </OrganizerContainer>
                         )}
                       </div>
-                    </ScheduleContainer>
+                    </CScheduleContainer>
                   ))}
                 </SpeakersContainer>
               </TrackContainer>
@@ -330,8 +345,17 @@ const ScheduleContainer = styled.div`
   align-items: flex-start;
   padding: 20px 10px;
   gap: 12px;
+
   @media (max-width: 576px) {
     grid-template-columns: none;
+  }
+`;
+
+const CScheduleContainer = styled(ScheduleContainer)`
+  min-height: 180px;
+
+  @media (max-width: 768px) {
+    min-height: auto;
   }
 `;
 
@@ -353,17 +377,14 @@ const DurationText = styled(TimeText)`
   }
 `;
 
-// with min height == 4 lines
 const TopicContainer = styled.div`
   width: 100%;
-  min-height: 88px;
+  margin-bottom: 8px;
 `;
 
-// min height == 2 lines
 const NameContainer = styled.div`
   display: flex;
   width: 100%;
-  min-height: 55px;
 `;
 
 const ScheduleText = styled(TimeText)`
@@ -465,9 +486,6 @@ const KeynoteContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  @media (max-width: 768px) {
-    text-align: left;
-  }
 `;
 
 const TimeContainer = styled.div`
