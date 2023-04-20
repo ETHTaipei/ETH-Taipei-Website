@@ -19,24 +19,34 @@ import ibeibe from "@/public/images/ibeibe.png";
 import guru from "@/public/images/guru.png";
 import jobin from "@/public/images/jobin.png";
 import jerry from "@/public/images/Jerry-Li.png";
+import sophie from "@/public/images/sophie.png";
+import ronald from "@/public/images/ronald.png";
+import igor from "@/public/images/Igor.png";
+import stefan from "@/public/images/stefan.png";
 import youngHwi from "@/public/images/YoungHwi.png";
 import nuno from "@/public/images/Nuno.png";
 import agrim from "@/public/images/agrim.png";
 import ZacL from "@/public/images/ZacL.png";
 import HDZu from "@/public/images/HDZu.png";
 import IHungHsu from "@/public/images/IHungHsu.png";
+import ping from "@/public/images/ping.png";
+import tomo from "@/public/images/TomoTagami.png";
 import SeiyaKobayashi from "@/public/images/SeiyaKobayashi.png";
-import ShantanuGupta from "@/public/images/ShantanuGupta.png";
+import indigo from "@/public/images/indigo.png";
 import v from "@/public/images/v.png";
 import palina from "@/public/images/PalinaTolmach.png";
 import vasily from "@/public/images/VasilySidorov.png";
 import mary from "@/public/images/MaryLiu.png";
 import tsk from "@/public/images/tsk.png";
-import Josh from '@/public/images/Josh.png';
+import Josh from "@/public/images/Josh.png";
 import richardMa from "@/public/images/RichardMa.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
 import TomSoong from "@/public/images/TomSoong.png";
+import fully from "@/public/images/fully.png";
+import neville from "@/public/images/neville.png";
+import Poming from "@/public/images/Poming.png";
+import Charlotte from "@/public/images/Charlotte.png";
 
 type SpeakerProps = {
   name: string;
@@ -92,6 +102,13 @@ const speakers: SpeakerProps[] = [
     companyLink: ethereumFoundationUrl,
   },
   {
+    name: "Charlotte",
+    company: "Zomma Protocol",
+    src: Charlotte,
+    twitter: "",
+    companyLink: "https://zomma.pro/",
+  },
+  {
     name: "Chris Tam",
     company: "BTQ",
     src: chrisTam,
@@ -118,6 +135,13 @@ const speakers: SpeakerProps[] = [
     src: deyeonKim,
     twitter: "https://twitter.com/DeyeonK",
     companyLink: "https://www.pods.finance/",
+  },
+  {
+    name: "Fully",
+    company: "OlympusDAO",
+    src: fully,
+    twitter: "https://twitter.com/fullyallocated",
+    companyLink: "https://olympusdao.finance/",
   },
   {
     name: "Gautham",
@@ -148,13 +172,6 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://ethereum.org/en/",
   },
   {
-    name: "I-Hung Hsu",
-    company: "AMIS",
-    src: IHungHsu,
-    twitter: "https://twitter.com/GlenHsuAmis",
-    companyLink: "https://www.amis.com/",
-  },
-  {
     name: "Ibeibe__",
     company: "Predy Finance",
     src: ibeibe,
@@ -162,11 +179,32 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://www.predy.finance/",
   },
   {
+    name: "Igor Barinov",
+    company: "zkBob",
+    src: igor,
+    twitter: "https://twitter.com/barinov",
+    companyLink: "https://www.zkbob.com/",
+  },
+  {
+    name: "I-Hung Hsu",
+    company: "AMIS",
+    src: IHungHsu,
+    twitter: "https://twitter.com/GlenHsuAmis",
+    companyLink: "https://www.amis.com/",
+  },
+  {
+    name: "Indigo",
+    company: "OlympusDAO",
+    src: indigo,
+    twitter: "https://twitter.com/_ndigo",
+    companyLink: "https://olympusdao.finance/",
+  },
+  {
     name: "Jerry",
-    company: "Term structure",
-    companyLink:'https://termstructure.com/',
+    company: "Term Structure",
+    companyLink: "https://termstructure.com/",
     src: jerry,
-    twitter: 'https://twitter.com/TermStructLabs', 
+    twitter: "https://twitter.com/TermStructLabs",
   },
   {
     name: "Jobin Babu Ayathil",
@@ -184,10 +222,17 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Mary Liu",
-    company: 'Celestia',
-    twitter: 'https://twitter.com/howdymerry',
-    companyLink: 'https://celestia.org/',
-    src: mary
+    company: "Celestia",
+    twitter: "https://twitter.com/howdymerry",
+    companyLink: "https://celestia.org/",
+    src: mary,
+  },
+  {
+    name: "Neville Grech",
+    company: "DEDAUB",
+    companyLink: "https://dedaub.com/",
+    src: neville,
+    twitter: "https://twitter.com/neville_grech",
   },
   {
     name: "Nic Lin",
@@ -205,16 +250,35 @@ const speakers: SpeakerProps[] = [
   },
   {
     name: "Palina Tolmach",
-    company: 'MakerDAO',
-    companyLink: 'https://makerdao.com/en/',
-    twitter: 'https://twitter.com/palinatolmach',
+    company: "MakerDAO",
+    companyLink: "https://makerdao.com/en/",
+    twitter: "https://twitter.com/palinatolmach",
     src: palina,
+  },
+  {
+    name: "Ping Chen",
+    company: "Hakka Finance",
+    src: ping,
+    companyLink: "https://hakka.finance/",
+  },
+  {
+    name: "Poming Lee",
+    company: "Quantstamp",
+    src: Poming,
+    companyLink: "https://quantstamp.com/",
   },
   {
     name: "Richard Ma",
     company: "Quantstamp",
     src: richardMa,
     companyLink: "https://quantstamp.com/",
+  },
+  {
+    name: "Ronald Yu",
+    company: "AutoPass",
+    src: ronald,
+    twitter: "https://twitter.com/ronaldxxxx",
+    companyLink: "https://autopass.xyz/",
   },
   {
     name: "Savio",
@@ -245,11 +309,17 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://kleros.io/",
   },
   {
-    name: "Tom Soong",
-    company: "zomma",
-    src: TomSoong,
-    twitter: "https://twitter.com/RealTomSoong",
-    companyLink: "https://zomma.pro/",
+    name: `Sophie Liu`,
+    company: "EigenPhi",
+    src: sophie,
+    companyLink: "https://eigenphi.io/",
+  },
+  {
+    name: "Tomo Tagami",
+    company: "Pheasant Network",
+    src: tomo,
+    companyLink: "https://pheasant.network/",
+    twitter: "https://twitter.com/tomohiro_tagami",
   },
   {
     name: "TSK",
@@ -259,11 +329,17 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://perp.com/",
   },
   {
-    name: 'Vasily Sidorov',
-    company: 'Anoma',
+    name: "Stefan Piech",
+    company: "Gnosis Chain",
+    src: stefan,
+    companyLink: "https://www.gnosis.io/",
+  },
+  {
+    name: "Vasily Sidorov",
+    company: "Anoma",
     src: vasily,
-    companyLink: 'https://anoma.net/',
-    twitter: 'https://twitter.com/bazzilic'
+    companyLink: "https://anoma.net/",
+    twitter: "https://twitter.com/bazzilic",
   },
   {
     name: "Vivian",

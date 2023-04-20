@@ -29,7 +29,6 @@ export const gnosisChainUrl = "https://www.gnosis.io/";
 export const dedaubUrl = "https://dedaub.com/";
 export const thunderCoreUrl = "https://www.thundercore.com/";
 export const teaHouseUrl = "https://teahouse.finance/";
-export const zkSyncUrl = "https://zksync.io/";
 export const taibeiUrl = "https://www.chain.tw/";
 export const mattersLabUrl = "https://matters-lab.io/";
 export const proticoUrl = "https://protico.io/";
@@ -59,6 +58,12 @@ export const ethereumFoundationUrl = "https://ethereum.foundation/";
 export const nineupUrl = "https://9up.io/";
 export const coinnewshkUrl = "https://coinnewshk.com/";
 export const blockbeatsUrl = "https://www.theblockbeats.info/";
+export const blockbarUrl = "https://blockbar.io/";
+export const decryptUrl = "https://decrypt.co/";
+export const twBlockchainAssociationUrl = "https://t-blockchain-a.org/";
+export const dlnewsUrl = "https://www.dlnews.com/";
+export const lydianLabsUrl = "https://lydianlabs.io/";
+export const todayInDefiUrl = "https://todayindefi.substack.com/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
@@ -68,3 +73,10 @@ export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
 export const bzdUrl = "https://buzhidao.tw/";
 export const panewsUrl = "https://www.panewslab.com/";
 export const dataverseUrl = "https://dataverse-os.com/";
+
+export const unlockTicketUrl =
+  "https://www.notion.so/eth-taipei/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5";
+export const sideEventListUrl =
+  "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
+export const remindersUrl =
+  "https://eth-taipei.notion.site/ETHTaipei-Reminder-df3335779211480486c9dcc4c0ff6fe4";

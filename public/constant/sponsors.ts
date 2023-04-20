@@ -15,7 +15,6 @@ import {
   thunderCoreUrl,
   furucomboUrl,
   teaHouseUrl,
-  zkSyncUrl,
   dataverseUrl,
   hashKeyUrl,
   pseUrl,
@@ -40,7 +39,6 @@ import dedaub from "@/public/images/dedaub.png";
 import thunderCore from "@/public/images/thunderCore.png";
 import furcombo from "@/public/images/furcombo.png";
 import teaHouse from "@/public/images/teaHouse.png";
-import zkSync from "@/public/images/zkSync.png";
 import dataverse from "@/public/images/dataverse.png";
 import HashKey from "@/public/images/HashKey.png";
 import pse from "@/public/images/PSE.png";
@@ -64,7 +62,7 @@ const goldSponsors: OrganizerProps[] = [
     url: gnosisChainUrl,
     logo: gnosisChain,
     width: 760,
-    height: 180,
+    height: 170,
   },
   {
     name: "ImToken",
@@ -204,13 +202,6 @@ const bronzeSponsors: OrganizerProps[] = [
     url: teaHouseUrl,
     logo: teaHouse,
     width: 210,
-    height: 80,
-  },
-  {
-    name: "zkSync",
-    url: zkSyncUrl,
-    logo: zkSync,
-    width: 242,
     height: 80,
   },
   {

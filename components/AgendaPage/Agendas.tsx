@@ -39,6 +39,97 @@ const Agendas = () => {
     };
   }, []);
 
+  const _renderDefiItem = (item: any, index: number) => {
+    return (
+      <div>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+        <TopicContainer>
+          <ScheduleText>{item.topic}</ScheduleText>
+        </TopicContainer>
+        <NameContainer>
+          {item.name && (
+            <SpeakerContainer>
+              {item.src && (
+                <SpeakerIcon>
+                  <Image fill src={item.src} alt={item.name} />
+                </SpeakerIcon>
+              )}
+              <SpeakerName>
+                {(item.name && `${item.name}`) +
+                  (item.company && `, ${item.company}`)}
+              </SpeakerName>
+            </SpeakerContainer>
+          )}
+        </NameContainer>
+        {item.panelHost && (
+          <OrganizerContainer>
+            <SpeakerName>{`Panel Host:`}</SpeakerName>
+            <SpeakerName>{`・${item.panelHost}`}</SpeakerName>
+          </OrganizerContainer>
+        )}
+        {item.panelists && (
+          <OrganizerContainer>
+            <SpeakerName>{`Panelists:`}</SpeakerName>
+            {item.panelists.map((panelist: any) => (
+              <SpeakerName key={panelist}>{`・${panelist}`}</SpeakerName>
+            ))}
+          </OrganizerContainer>
+        )}
+        {item.panelOrganizations && (
+          <OrganizerContainer>
+            {item.panelOrganizations.map((o: any) => (
+              <SpeakerName key={o}>{`・${o}`}</SpeakerName>
+            ))}
+          </OrganizerContainer>
+        )}
+      </div>
+    );
+  };
+
+  const _renderZkItem = (item: any, index: number) => {
+    return (
+      <div>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+        <TopicContainer>
+          <ScheduleText>{item.topic}</ScheduleText>
+        </TopicContainer>
+        <NameContainer>
+          {item.name && (
+            <SpeakerContainer>
+              {item.src && (
+                <SpeakerIcon>
+                  <Image fill src={item.src} alt={item.name} />
+                </SpeakerIcon>
+              )}
+              <SpeakerName>
+                {(item.name && `${item.name}`) +
+                  (item.company && `, ${item.company}`)}
+              </SpeakerName>
+            </SpeakerContainer>
+          )}
+        </NameContainer>
+      </div>
+    );
+  };
+
+  const _renderWorkshopItem = (item: any, index: number) => {
+    return (
+      <div>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+        <TopicContainer>
+          <ScheduleText>{`${item.title}`}</ScheduleText>
+        </TopicContainer>
+        <NameContainer>
+          {item.holder && (
+            <SpeakerContainer>
+              <SpeakerName>{item.holder}</SpeakerName>
+            </SpeakerContainer>
+          )}
+        </NameContainer>
+      </div>
+    );
+  };
+
   return (
     <Container>
       <span
@@ -123,65 +214,138 @@ const Agendas = () => {
                   <TimeText>{agenda.time}</TimeText>
                   <DurationText>{agenda.duration}</DurationText>
                 </TimeContainer>
-                <ScheduleText>{agenda.event}</ScheduleText>
+                <div>
+                  <ScheduleText>{agenda.event}</ScheduleText>
+                  {agenda.speaker && (
+                    <SpeakerContainer>
+                      {agenda.src && (
+                        <SpeakerIcon>
+                          <Image fill src={agenda.src} alt={agenda.speaker} />
+                        </SpeakerIcon>
+                      )}
+                      <SpeakerName>
+                        {(agenda.speaker && `${agenda.speaker}`) +
+                          (agenda.title && `, ${agenda.title}`)}
+                      </SpeakerName>
+                    </SpeakerContainer>
+                  )}
+                </div>
               </ScheduleContainer>
             ))}
         </HackSchedulesContainer>
       ) : (
         <>
           {date === 24 && (
-            <KeynoteContainer>
-              <TrackContainer>
-                <TrackTitleContainer>
-                  <TrackTitle>{t.homepage.keynote}</TrackTitle>
-                </TrackTitleContainer>
-                <SpeakersContainer>
-                  <SpeakerContainer style={{ justifyContent: "center" }}>
+            <NewTracksContainer>
+              <KeynoteRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>
+                  {t.homepage.keynote}
+                </NewTrackContainerHeader>
+              </KeynoteRow>
+              <KeynoteRow>
+                <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
+                <NewTrackContainer>
+                  <SpeakerContainer
+                    style={{ justifyContent: "center", marginTop: 0 }}
+                  >
                     <SpeakerIcon>
                       <Image fill src={v} alt={"vitalik"} />
                     </SpeakerIcon>
-                    <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
-                    <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
+                    <SpeakerName>
+                      {"Vitalik Buterin, Ethereum Foundation"}
+                    </SpeakerName>
                   </SpeakerContainer>
-                </SpeakersContainer>
-              </TrackContainer>
-            </KeynoteContainer>
+                  <TopicContainer style={{ textAlign: "center" }}>
+                    <ScheduleText>
+                      {
+                        "The need for standardization of L2s, smart contract wallet and privacy"
+                      }
+                    </ScheduleText>
+                  </TopicContainer>
+                </NewTrackContainer>
+              </KeynoteRow>
+            </NewTracksContainer>
           )}
-          <TracksContainer>
-            {conferenceAgendas[date].map((agenda, i) => (
-              <TrackContainer key={i}>
-                <TrackTitleContainer>
-                  <TrackTitle>{agenda.track}</TrackTitle>
-                </TrackTitleContainer>
-                <SpeakersContainer>
-                  {agenda.speakers.map((s, index) => (
-                    <ScheduleContainer key={index}>
-                      <TimeContainer>
-                        <TimeText>{s.time}</TimeText>
-                        <DurationText>{s.duration}</DurationText>
-                      </TimeContainer>
-                      <div>
-                        <ScheduleText>{s.topic}</ScheduleText>
-                        {s.name && (
-                          <SpeakerContainer>
-                            {s.src && (
-                              <SpeakerIcon>
-                                <Image fill src={s.src} alt={s.name} />
-                              </SpeakerIcon>
-                            )}
-                            <SpeakerName>
-                              {(s.name && `${s.name}`) +
-                                (s.company && `, ${s.company}`)}
-                            </SpeakerName>
-                          </SpeakerContainer>
-                        )}
-                      </div>
-                    </ScheduleContainer>
-                  ))}
-                </SpeakersContainer>
-              </TrackContainer>
-            ))}
-          </TracksContainer>
+          <DesktopScheduleContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>DeFi Track</NewTrackContainerHeader>
+                <NewTrackContainerHeader>
+                  ZK / Client / Security Track
+                </NewTrackContainerHeader>
+                <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
+              </NewScheduleRow>
+              {conferenceAgendas[date].map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <NewTrackContainer>
+                    {agenda.defi && _renderDefiItem(agenda.defi, i)}
+                  </NewTrackContainer>
+                  <NewTrackContainer>
+                    {agenda.zk && _renderZkItem(agenda.zk, i)}
+                  </NewTrackContainer>
+                  <NewTrackContainer>
+                    {agenda.workshop && _renderWorkshopItem(agenda.workshop, i)}
+                  </NewTrackContainer>
+                </NewScheduleRow>
+              ))}
+            </NewTracksContainer>
+          </DesktopScheduleContainer>
+          <MobileScheduleContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>DeFi Track</NewTrackContainerHeader>
+              </NewScheduleRow>
+              {conferenceAgendas[date]
+                .filter((i) => i.defi)
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <NewTrackContainer>
+                      {agenda.defi && _renderDefiItem(agenda.defi, i)}
+                    </NewTrackContainer>
+                  </NewScheduleRow>
+                ))}
+            </NewTracksContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>
+                  ZK / Client / Security Track
+                </NewTrackContainerHeader>
+              </NewScheduleRow>
+              {conferenceAgendas[date]
+                .filter((i) => i.zk)
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <NewTrackContainer>
+                      {agenda.zk && _renderZkItem(agenda.zk, i)}
+                    </NewTrackContainer>
+                  </NewScheduleRow>
+                ))}
+            </NewTracksContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
+              </NewScheduleRow>
+              {conferenceAgendas[date]
+                .filter((i) => i.workshop)
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <NewTrackContainer>
+                      {agenda.workshop &&
+                        _renderWorkshopItem(agenda.workshop, i)}
+                    </NewTrackContainer>
+                  </NewScheduleRow>
+                ))}
+            </NewTracksContainer>
+          </MobileScheduleContainer>
         </>
       )}
     </Container>
@@ -296,8 +460,17 @@ const ScheduleContainer = styled.div`
   align-items: flex-start;
   padding: 20px 10px;
   gap: 12px;
+
   @media (max-width: 576px) {
     grid-template-columns: none;
+  }
+`;
+
+const CScheduleContainer = styled(ScheduleContainer)`
+  min-height: 180px;
+
+  @media (max-width: 768px) {
+    min-height: auto;
   }
 `;
 
@@ -317,6 +490,16 @@ const DurationText = styled(TimeText)`
   @media (max-width: 576px) {
     text-align: right;
   }
+`;
+
+const TopicContainer = styled.div`
+  width: 100%;
+  margin-top: 8px;
+`;
+
+const NameContainer = styled.div`
+  display: flex;
+  width: 100%;
 `;
 
 const ScheduleText = styled(TimeText)`
@@ -369,16 +552,7 @@ const TrackTitle = styled.h3`
   }
 `;
 
-const SpeakersContainer = styled.div`
-  padding: 60px 0px 20px 0px;
-  @media (max-width: 768px) {
-    padding: 50px 0px 20px 0px;
-  }
-
-  > div:not(:first-child) {
-    border-top: 1px solid ${Colors.gray3};
-  }
-`;
+const SpeakersContainer = styled.div``;
 
 const SpeakerContainer = styled.div`
   margin-top: 8px;
@@ -418,9 +592,6 @@ const KeynoteContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  @media (max-width: 768px) {
-    text-align: left;
-  }
 `;
 
 const TimeContainer = styled.div`
@@ -428,5 +599,107 @@ const TimeContainer = styled.div`
 
   @media (max-width: 576px) {
     justify-content: space-between;
+  }
+`;
+
+const OrganizerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+`;
+
+const NewTracksContainer = styled.div`
+  width: 100%;
+  max-width: 1080px;
+  margin: 32px auto auto auto;
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    margin: 20px auto auto auto;
+  }
+`;
+
+const NewScheduleRow = styled.div`
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr 0.8fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100px 1fr;
+  }
+`;
+
+const KeynoteRow = styled(NewScheduleRow)`
+  display: grid;
+  grid-template-columns: 120px 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100px 1fr;
+  }
+`;
+
+const NewTrackTimeContainer = styled.div`
+  padding: 20px 8px;
+  background-color: #eeeeee;
+  text-align: center;
+  margin: 0 1px;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${Colors.pennBlue};
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const NewTrackContainer = styled.div`
+  background-color: #eeeeee;
+  padding: 20px 12px;
+  margin: 0 1px;
+`;
+
+const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
+  background-color: ${Colors.columbiaBlue};
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: ${Colors.pennBlue};
+`;
+
+const NewTrackContainerHeader = styled(NewTrackContainer)`
+  background-color: ${Colors.columbiaBlue};
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: ${Colors.pennBlue};
+`;
+
+const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
+  display: block;
+  font-weight: 400;
+  color: ${Colors.gray5};
+  margin-bottom: 8px;
+  border-top: ${({ isFirst }) => (isFirst ? 0 : 1)}px solid ${Colors.gray3};
+  padding-top: ${({ isFirst }) => (isFirst ? 0 : "8px")};
+
+  @media (max-width: 768px) {
+    border-top-width: 0px;
+    padding-top: 0px;
+  }
+`;
+
+const MobileScheduleContainer = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    width: 100%;
+    display: block;
+  }
+`;
+
+const DesktopScheduleContainer = styled.div`
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
