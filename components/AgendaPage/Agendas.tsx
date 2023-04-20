@@ -236,29 +236,36 @@ const Agendas = () => {
       ) : (
         <>
           {date === 24 && (
-            <KeynoteContainer>
-              <TrackContainer>
-                <TrackTitleContainer>
-                  <TrackTitle>{t.homepage.keynote}</TrackTitle>
-                </TrackTitleContainer>
-                <SpeakersContainer>
-                  <SpeakerContainer style={{ justifyContent: "center" }}>
+            <NewTracksContainer>
+              <KeynoteRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>
+                  {t.homepage.keynote}
+                </NewTrackContainerHeader>
+              </KeynoteRow>
+              <KeynoteRow>
+                <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
+                <NewTrackContainer>
+                  <SpeakerContainer
+                    style={{ justifyContent: "center", marginTop: 0 }}
+                  >
                     <SpeakerIcon>
                       <Image fill src={v} alt={"vitalik"} />
                     </SpeakerIcon>
-                    <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
-                    <SpeakerCompany>{`, Ethereum Foundation`}</SpeakerCompany>
+                    <SpeakerName>
+                      {"Vitalik Buterin, Ethereum Foundation"}
+                    </SpeakerName>
                   </SpeakerContainer>
-                </SpeakersContainer>
-                <TopicContainer>
-                  <ScheduleText>
-                    {
-                      "The need for standardization of L2s, smart contract wallet and privacy"
-                    }
-                  </ScheduleText>
-                </TopicContainer>
-              </TrackContainer>
-            </KeynoteContainer>
+                  <TopicContainer style={{ textAlign: "center" }}>
+                    <ScheduleText>
+                      {
+                        "The need for standardization of L2s, smart contract wallet and privacy"
+                      }
+                    </ScheduleText>
+                  </TopicContainer>
+                </NewTrackContainer>
+              </KeynoteRow>
+            </NewTracksContainer>
           )}
           <DesktopScheduleContainer>
             <NewTracksContainer>
@@ -487,7 +494,7 @@ const DurationText = styled(TimeText)`
 
 const TopicContainer = styled.div`
   width: 100%;
-  margin-bottom: 8px;
+  margin-top: 8px;
 `;
 
 const NameContainer = styled.div`
@@ -545,16 +552,7 @@ const TrackTitle = styled.h3`
   }
 `;
 
-const SpeakersContainer = styled.div`
-  padding: 60px 0px 20px 0px;
-  @media (max-width: 768px) {
-    padding: 50px 0px 20px 0px;
-  }
-
-  > div:not(:first-child) {
-    border-top: 1px solid ${Colors.gray3};
-  }
-`;
+const SpeakersContainer = styled.div``;
 
 const SpeakerContainer = styled.div`
   margin-top: 8px;
@@ -625,6 +623,15 @@ const NewTracksContainer = styled.div`
 const NewScheduleRow = styled.div`
   display: grid;
   grid-template-columns: 120px 1fr 1fr 0.8fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100px 1fr;
+  }
+`;
+
+const KeynoteRow = styled(NewScheduleRow)`
+  display: grid;
+  grid-template-columns: 120px 1fr;
 
   @media (max-width: 768px) {
     grid-template-columns: 100px 1fr;

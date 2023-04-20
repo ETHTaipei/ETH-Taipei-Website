@@ -45,6 +45,8 @@ import fully from "@/public/images/fully.png";
 import TomSoong from "@/public/images/TomSoong.png";
 import neville from "@/public/images/neville.png";
 import martinet from "@/public/images/Martinet.png";
+import Charlotte from "@/public/images/Charlotte.png";
+import Poming from "@/public/images/Poming.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -163,17 +165,18 @@ export const conferenceAgendas: {
     {
       time: "10:30am",
       defi: {
-        name: "Tom soong",
+        name: "Charlotte",
         company: "Zomma",
         topic:
           "Revolutionizing Options Tradings on zkSync - DeFi Options with the Highest Capital Efficiency",
-        src: TomSoong,
+        src: Charlotte,
         duration: "30 mins",
       },
       zk: {
         name: "Hsiao-Wei Wang",
         company: "Ethereum Foundation",
-        topic: "TBD",
+        topic:
+          "A summary of the recent Ethereum core protocol topics, the progress, and their impact on the Ethereum ecosystem",
         src: hsiaoWeiWang,
         duration: "30 mins",
       },
@@ -577,10 +580,10 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       zk: {
-        name: "Richard Ma",
+        name: "Poming Lee",
         company: "Quantstamp",
-        topic: "TBD",
-        src: RichardMa,
+        topic: "The Impact of Chain Forks and Reorgs on Cross-chain Bridges",
+        src: Poming,
         duration: "30 mins",
       },
     },
@@ -589,7 +592,7 @@ export const conferenceAgendas: {
       defi: {
         name: "Ping Chen",
         company: "Hakka Finance",
-        topic: "TBD",
+        topic: "Playing with Ethereum, the map editor of electronic cash",
         src: ping,
         duration: "30 mins",
       },

@@ -45,6 +45,8 @@ import nic from "@/public/images/Nic.png";
 import TomSoong from "@/public/images/TomSoong.png";
 import fully from "@/public/images/fully.png";
 import neville from "@/public/images/neville.png";
+import Poming from "@/public/images/Poming.png";
+import Charlotte from "@/public/images/Charlotte.png";
 
 type SpeakerProps = {
   name: string;
@@ -98,6 +100,13 @@ const speakers: SpeakerProps[] = [
     src: cathie,
     twitter: "https://twitter.com/drCathieSo_eth",
     companyLink: ethereumFoundationUrl,
+  },
+  {
+    name: "Charlotte",
+    company: "Zomma Protocol",
+    src: Charlotte,
+    twitter: "",
+    companyLink: "https://zomma.pro/",
   },
   {
     name: "Chris Tam",
@@ -253,6 +262,12 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://hakka.finance/",
   },
   {
+    name: "Poming Lee",
+    company: "Quantstamp",
+    src: Poming,
+    companyLink: "https://quantstamp.com/",
+  },
+  {
     name: "Richard Ma",
     company: "Quantstamp",
     src: richardMa,
@@ -300,18 +315,11 @@ const speakers: SpeakerProps[] = [
     companyLink: "https://eigenphi.io/",
   },
   {
-    name: "Tom Soong",
-    company: "zomma",
-    src: TomSoong,
-    twitter: "https://twitter.com/RealTomSoong",
-    companyLink: "https://zomma.pro/",
-  },
-  {
     name: "Tomo Tagami",
     company: "Pheasant Network",
     src: tomo,
     companyLink: "https://pheasant.network/",
-    twitter: "https://twitter.com/tomohiro_tagami"
+    twitter: "https://twitter.com/tomohiro_tagami",
   },
   {
     name: "TSK",
