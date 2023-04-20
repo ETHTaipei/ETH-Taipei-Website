@@ -144,6 +144,8 @@ export const conferenceAgendas: {
       time: string;
       duration: string;
       panelOrganizations?: string[];
+      panelHost?: string;
+      panelists?: string[];
     }[];
   }[];
 } = {
@@ -256,6 +258,8 @@ export const conferenceAgendas: {
           src: null,
           time: "05:00pm",
           duration: "1 hr",
+          panelHost: "Vince(Kronos)",
+          panelists: ["Dan (Rysk)", "Aerhy (Pods)", "Gautham (Polynomial)"],
         },
       ],
     },
