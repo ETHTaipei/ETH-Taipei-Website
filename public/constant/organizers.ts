@@ -31,8 +31,8 @@ type OrganizerProps = {
 
 const organizers: OrganizerProps[] = [
   {
-    name: "Yen Wen",
-    title: "Founder",
+    name: "Yenwen Feng",
+    title: "Co-Founder",
     organization: "Perpetual Protocol",
     src: yenWen,
     twitter: "https://twitter.com/tempofeng",
@@ -95,8 +95,8 @@ const organizers: OrganizerProps[] = [
     companyLink: furucomboUrl,
   },
   {
-    name: "Hana",
-    title: "Marketing",
+    name: "Hana Chang",
+    title: "COO",
     organization: "Perpetual Protocol",
     src: hana,
     twitter: "https://twitter.com/hanamizuki",
