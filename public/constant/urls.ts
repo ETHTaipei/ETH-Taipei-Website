@@ -74,6 +74,7 @@ export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
 export const bzdUrl = "https://buzhidao.tw/";
 export const panewsUrl = "https://www.panewslab.com/";
 export const dataverseUrl = "https://dataverse-os.com/";
+export const acebeakerUrl = "https://acebeaker.media/";
 
 export const unlockTicketUrl =
   "https://www.notion.so/eth-taipei/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5";
