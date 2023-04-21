@@ -565,8 +565,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "",
-        title: "Hands on Unirep workshop",
+        holder: "Unirep",
+        title: "Hands on Unirep workshop (in Mandarin)",
         duration: "2 hrs",
       },
     },
@@ -639,7 +639,7 @@ export const conferenceAgendas: {
       },
       workshop: {
         holder: "Hashkey",
-        title: "Staking ecosystem",
+        title: "Staking ecosystem (Virtual/in Mandarin)",
         duration: "2 hrs",
       },
     },
