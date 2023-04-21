@@ -16,7 +16,7 @@ const Home = () => {
     <div>
       <Banner />
       <Introduction />
-      <CountdownTimer />
+      {/* <CountdownTimer /> */}
       <Activities />
       <ApplicationForm />
       <Venue />
