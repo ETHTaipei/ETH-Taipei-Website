@@ -32,7 +32,7 @@ import protico from "@/public/images/protico.png";
 import zombit from "@/public/images/zombit.png";
 import brainCrypto from "@/public/images/brainCrypto.png";
 import BuZhiDAO from '@/public/images/BuZhiDAO.png';
-import represent from "@/public/images/represent.png";
+import represent from "@/public/images/REPRESENT.png";
 
 import { StaticImageData } from "next/image";
 
