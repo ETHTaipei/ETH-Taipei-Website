@@ -183,7 +183,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "imToken",
         title: "AA wallet (EIP-4337) workshop",
-        duration: "2 hrs",
+        duration: "10:30am-12:30pm (2 hrs)",
       },
     },
     {
@@ -221,7 +221,7 @@ export const conferenceAgendas: {
       },
     },
     {
-      time: "12:00am",
+      time: "12:00pm",
       defi: {
         name: "",
         company: "",
@@ -239,7 +239,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "Gnosis Chain",
         title: "Gnosis Chain Validator Workshop - Running a Validator",
-        duration: "2 hrs",
+        duration: "12:30pm-2:30pm (2 hrs)",
       },
     },
     {
@@ -298,7 +298,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "Trail of Bits",
         title: "Fuzzing: Like a Security Engineer",
-        duration: "2 hrs",
+        duration: "2:30pm-4:30pm (2 hrs)",
       },
     },
     {
@@ -369,7 +369,7 @@ export const conferenceAgendas: {
         src: jobin,
         duration: "30 mins",
       },
-      workshop: { holder: "Tenderly", title: "War Room!", duration: "4 hrs" },
+      workshop: { holder: "Tenderly", title: "War Room!", duration: "4:30pm-8:30pm (4 hrs)" },
     },
     {
       time: "04:30pm",
@@ -531,7 +531,7 @@ export const conferenceAgendas: {
       },
     },
     {
-      time: "01:30",
+      time: "01:30pm",
       defi: {
         name: "Ronald Yu",
         company: "AutoPass",
@@ -565,8 +565,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "",
-        title: "Hands on Unirep workshop",
+        holder: "Unirep",
+        title: "Hands on Unirep workshop (in Mandarin)",
         duration: "2 hrs",
       },
     },
@@ -639,7 +639,7 @@ export const conferenceAgendas: {
       },
       workshop: {
         holder: "Hashkey",
-        title: "Staking ecosystem",
+        title: "Staking ecosystem (Virtual/in Mandarin)",
         duration: "2 hrs",
       },
     },
