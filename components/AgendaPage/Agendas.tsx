@@ -195,6 +195,7 @@ const Agendas = () => {
             <EventText>{`Conference`}</EventText>
           </EventSwitcher>
         </EventSwitchers>
+
       </EventSwitcherContainer>
       <DatesContainer>
         {dates[type].map((num) => (
@@ -240,10 +241,21 @@ const Agendas = () => {
               <KeynoteRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
                 <NewTrackContainerHeader>
-                  {t.homepage.keynote}
+                  {t.homepage.openingandKeynote}
                 </NewTrackContainerHeader>
               </KeynoteRow>
               <KeynoteRow>
+              <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
+                <NewTrackContainer style={{ paddingBottom: 0 }}>
+                  <TopicContainer style={{ textAlign: "center", marginTop: 0, paddingBottom: "15px", borderBottom: "1px solid #ccc" }}>
+                    <ScheduleText>
+                      {
+                        "Opening"
+                      }
+                    </ScheduleText>
+                  </TopicContainer>
+                </NewTrackContainer>
+
                 <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
                 <NewTrackContainer>
                   <SpeakerContainer
@@ -266,6 +278,8 @@ const Agendas = () => {
                 </NewTrackContainer>
               </KeynoteRow>
             </NewTracksContainer>
+
+            
           )}
           <DesktopScheduleContainer>
             <NewTracksContainer>
