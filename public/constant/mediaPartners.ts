@@ -13,6 +13,8 @@ import {
   dlnewsUrl,
   lydianLabsUrl,
   todayInDefiUrl,
+  cryptonewsUrl,
+  acebeakerUrl,
 } from "./urls";
 
 import web3Plus from "@/public/images/web3Plus.png";
@@ -29,6 +31,8 @@ import twBlockchainAssociation from "@/public/images/taiwanBlockchainAssociation
 import dlNews from "@/public/images/dlNews.png";
 import lydianLabs from "@/public/images/lydianLabs.png";
 import todayInDefi from "@/public/images/todayInDefi.png";
+import cryptonews from "@/public/images/cryptonews.png";
+import acebeaker from "@/public/images/acebeaker.png";
 
 import { StaticImageData } from "next/image";
 
@@ -58,6 +62,8 @@ const mediaPartners: MediaPartnerProps[] = [
   { name: "Taiwan Blockchain Academia", url: tbaUrl, logo: tba },
   { name: "律動", url: blockbeatsUrl, logo: blockbeats },
   { name: "幣訊", url: coinnewshkUrl, logo: coinnewshk },
+  { name: "Cryptonews", url: cryptonewsUrl, logo: cryptonews },
+  { name: "AceBeaker", url: acebeakerUrl, logo: acebeaker },
 ];
 
 export default mediaPartners;
