@@ -15,8 +15,6 @@ import {
   todayInDefiUrl,
   cryptonewsUrl,
   acebeakerUrl,
-  representUrl,
-  acebeakerUrl,
 } from "./urls";
 
 import web3Plus from "@/public/images/web3Plus.png";
@@ -34,7 +32,6 @@ import dlNews from "@/public/images/dlNews.png";
 import lydianLabs from "@/public/images/lydianLabs.png";
 import todayInDefi from "@/public/images/todayInDefi.png";
 import cryptonews from "@/public/images/cryptonews.png";
-import represent from "@/public/images/represent.png";
 import acebeaker from "@/public/images/acebeaker.png";
 
 import { StaticImageData } from "next/image";
@@ -66,7 +63,6 @@ const mediaPartners: MediaPartnerProps[] = [
   { name: "律動", url: blockbeatsUrl, logo: blockbeats },
   { name: "幣訊", url: coinnewshkUrl, logo: coinnewshk },
   { name: "Cryptonews", url: cryptonewsUrl, logo: cryptonews },
-  { name: "Represent", url: representUrl, logo: represent },
   { name: "AceBeaker", url: acebeakerUrl, logo: acebeaker },
 ];
 
