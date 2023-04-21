@@ -176,7 +176,7 @@ export const conferenceAgendas: {
         name: "Hsiao-Wei Wang",
         company: "Ethereum Foundation",
         topic:
-          "A summary of the recent Ethereum core protocol topics, the progress, and their impact on the Ethereum ecosystem",
+          "Ethereum Core Protocol R&D in 2023",
         src: hsiaoWeiWang,
         duration: "30 mins",
       },
