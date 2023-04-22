@@ -215,7 +215,7 @@ export const conferenceAgendas: {
       zk: {
         name: "Mary Liu",
         company: "Celestia",
-        topic: "Scentered around Ethereum L2s that can use Celestia for DA",
+        topic: "Secure Off-Chain Data Availability for Ethereum L2s with Celestia",
         src: MaryLiu,
         duration: "30 mins",
       },
@@ -396,8 +396,8 @@ export const conferenceAgendas: {
         topic: "Panel: Derivatives",
         src: null,
         duration: "1 hr",
-        panelHost: "Vince(Kronos)",
-        panelists: ["Dan (Rysk)", "Aerhy (Pods)", "Gautham (Polynomial)"],
+        panelHost: "Vince (Kronos Research)",
+        panelists: ["Jib (Rysk)", "Aerhy (Pods)", "Gautham (Polynomial)", "Ibe (Predy)"],
       },
       zk: {
         name: "YoungHwi Cho",

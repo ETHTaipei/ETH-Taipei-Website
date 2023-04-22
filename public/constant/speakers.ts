@@ -42,7 +42,7 @@ import Josh from "@/public/images/Josh.png";
 import richardMa from "@/public/images/RichardMa.png";
 import alfred from "@/public/images/Alfred.png";
 import nic from "@/public/images/Nic.png";
-import TomSoong from "@/public/images/TomSoong.png";
+import vince from "@/public/images/vince.png";
 import fully from "@/public/images/fully.png";
 import neville from "@/public/images/neville.png";
 import Poming from "@/public/images/Poming.png";
@@ -327,6 +327,13 @@ const speakers: SpeakerProps[] = [
     src: tsk,
     twitter: "https://twitter.com/tienshaoku",
     companyLink: "https://perp.com/",
+  },
+  {
+    name: 'Vince',
+    company: "Kronos Research",
+    src: vince,
+    companyLink: "https://kronosresearch.com/",
+    twitter: 'https://twitter.com/a_year_from_now'
   },
   {
     name: "Stefan Piech",
