@@ -182,7 +182,7 @@ export const conferenceAgendas: {
       },
       workshop: {
         holder: "imToken",
-        title: "AA wallet (EIP-4337) workshop",
+        title: "AA wallet (EIP-4337) workshop (in Mandarin)",
         duration: "10:30am-12:30pm (2 hrs)",
       },
     },
