@@ -624,10 +624,10 @@ export const conferenceAgendas: {
     {
       time: "04:00pm",
       defi: {
-        name: "Josh Guha",
-        company: "Gyroscope",
-        topic: "Elliptical Eccentricity for Capital Efficiency",
-        src: Josh,
+        name: "Agrim Nagrani",
+        company: "Graph Advocate",
+        topic: "Web3 Data Querying by Graph",
+        src: agrim,
         duration: "30 mins",
       },
       zk: {
@@ -646,11 +646,17 @@ export const conferenceAgendas: {
     {
       time: "04:30pm",
       defi: {
-        name: "Agrim Nagrani",
-        company: "Graph Advocate",
-        topic: "Web3 Data Querying by Graph",
-        src: agrim,
-        duration: "30 mins",
+        name: "",
+        company: "",
+        topic: "Panel: Security",
+        src: null,
+        duration: "4:35pm-6:00pm (90 mins)",
+        panelOrganizations: [
+          "Code4rena",
+          "Trail of Bits",
+          "Quantstamp",
+          "Dedaub",
+        ],
       },
       zk: {
         name: "Nuno Loureiro",
@@ -662,19 +668,7 @@ export const conferenceAgendas: {
     },
     {
       time: "05:00pm",
-      defi: {
-        name: "",
-        company: "",
-        topic: "Panel: Security",
-        src: null,
-        duration: "1 hr",
-        panelOrganizations: [
-          "Code4rena",
-          "Trail of Bits",
-          "Quantstamp",
-          "Dedaub",
-        ],
-      },
+     
       zk: {
         name: "Guru",
         company: "Status",
