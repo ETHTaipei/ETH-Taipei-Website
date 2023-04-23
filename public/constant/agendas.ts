@@ -575,7 +575,7 @@ export const conferenceAgendas: {
       defi: {
         name: "Anderson Chen",
         company: "Diamond Protocol",
-        topic: "Uniswap v3 leverage liquidity providing platform on layer 2",
+        topic: "Uniswap v3 Fee Calculation, Fee APR Backtesting, and LP Tools",
         src: anderson,
         duration: "30 mins",
       },
