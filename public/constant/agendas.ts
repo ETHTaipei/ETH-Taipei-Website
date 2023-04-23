@@ -651,11 +651,13 @@ export const conferenceAgendas: {
         topic: "Panel: Security",
         src: null,
         duration: "90 mins",
-        panelOrganizations: [
-          "Code4rena",
-          "Trail of Bits",
-          "Quantstamp",
-          "Dedaub",
+        panelHost: "Martinet (Quantstamp)",
+        panelists: [
+          "Trebien (Code4rena)",
+          "Natalie Chin (Trail of Bits)",
+          "Richard Ma (Quantstamp)",
+          "Neville Grech (Dedaub)",
+          "hickuphh3 (Independent researcher)",
         ],
       },
       zk: {
