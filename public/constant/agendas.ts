@@ -650,7 +650,7 @@ export const conferenceAgendas: {
         company: "",
         topic: "Panel: Security",
         src: null,
-        duration: "4:35pm-6:00pm (85 mins)",
+        duration: "90 mins",
         panelOrganizations: [
           "Code4rena",
           "Trail of Bits",
