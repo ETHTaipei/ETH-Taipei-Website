@@ -250,7 +250,7 @@ const Agendas = () => {
                   <TopicContainer style={{ textAlign: "center", marginTop: 0, paddingBottom: "15px", borderBottom: "1px solid #ccc" }}>
                     <ScheduleText>
                       {
-                        "Opening"
+                        "Opening (Building M)"
                       }
                     </ScheduleText>
                   </TopicContainer>
@@ -271,7 +271,7 @@ const Agendas = () => {
                   <TopicContainer style={{ textAlign: "center" }}>
                     <ScheduleText>
                       {
-                        "The need for standardization of L2s, smart contract wallet and privacy (Virtual)"
+                        "The need for standardization of L2s, smart contract wallet and privacy (Virtual, steaming in all buildings)"
                       }
                     </ScheduleText>
                   </TopicContainer>
@@ -285,11 +285,11 @@ const Agendas = () => {
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>DeFi Track</NewTrackContainerHeader>
+                <NewTrackContainerHeader>DeFi Track<br /><span style={{ fontSize: "small" }}>(Building M)</span></NewTrackContainerHeader>
                 <NewTrackContainerHeader>
-                  ZK / Client / Security Track
+                  ZK / Client / Security Track<br /><span style={{ fontSize: "small" }}>(Building F)</span>
                 </NewTrackContainerHeader>
-                <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
+                <NewTrackContainerHeader>Workshop<br /><span style={{ fontSize: "small" }}>(Building I)</span></NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date].map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
@@ -311,7 +311,7 @@ const Agendas = () => {
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>DeFi Track</NewTrackContainerHeader>
+                <NewTrackContainerHeader>DeFi Track<br /><span style={{ fontSize: "small" }}>(Building M)</span></NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
                 .filter((i) => i.defi)
@@ -328,7 +328,7 @@ const Agendas = () => {
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
                 <NewTrackContainerHeader>
-                  ZK / Client / Security Track
+                  ZK / Client / Security Track<br /><span style={{ fontSize: "small" }}>(Building F)</span>
                 </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
@@ -345,7 +345,7 @@ const Agendas = () => {
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
+                <NewTrackContainerHeader>Workshop<br /><span style={{ fontSize: "small" }}>(Building I)</span></NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
                 .filter((i) => i.workshop)
