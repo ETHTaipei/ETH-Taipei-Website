@@ -126,6 +126,13 @@ const Agendas = () => {
             </SpeakerContainer>
           )}
         </NameContainer>
+        {item.prerequisite && (
+        <PrerequisiteContainer>
+          <PrerequisiteText>
+            <a href={item.prerequisiteLink} target="_blank">{item.prerequisite}</a>
+          </PrerequisiteText>
+        </PrerequisiteContainer>
+        )}
       </div>
     );
   };
@@ -518,6 +525,19 @@ const NameContainer = styled.div`
 
 const ScheduleText = styled(TimeText)`
   font-weight: 500;
+`;
+
+const PrerequisiteContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 12px;
+`;
+
+const PrerequisiteText = styled.div`
+  display: flex;
+  width: 100%;
+  color: ${Colors.gray4};
 `;
 
 const TracksContainer = styled.div`

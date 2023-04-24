@@ -158,7 +158,7 @@ export const conferenceAgendas: {
       panelHost?: string;
       panelists?: string[];
     };
-    workshop?: { holder: string; title: string; duration: string };
+    workshop?: { holder: string; title: string; duration: string; prerequisite?: string; prerequisiteLink?: string };
   }[];
 } = {
   24: [
@@ -440,6 +440,8 @@ export const conferenceAgendas: {
         holder: "Nethermind",
         title: "Warping Solidity to Cairo1 Manually",
         duration: "2 hrs",
+        prerequisite: "🔗 Presrequisites of the workshop",
+        prerequisiteLink: "https://github.com/NethermindEth/ethtaipei-cairo1-workshop",
       },
     },
     {
