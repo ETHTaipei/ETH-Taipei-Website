@@ -129,7 +129,7 @@ const Agendas = () => {
         {item.prerequisite && (
         <PrerequisiteContainer>
           <PrerequisiteText>
-            <a href={item.prerequisiteLink} target="_blank">{item.prerequisite}</a>
+            <a href={item.prerequisiteLink} target="_blank" rel="noreferrer">{item.prerequisite}</a>
           </PrerequisiteText>
         </PrerequisiteContainer>
         )}
