@@ -278,7 +278,7 @@ const Agendas = () => {
                   <TopicContainer style={{ textAlign: "center" }}>
                     <ScheduleText>
                       {
-                        "The need for standardization of L2s, smart contract wallet and privacy (Virtual, steaming in all buildings)"
+                        "The need for standardization of L2s, smart contract wallet and privacy (Virtual, streaming in all buildings)"
                       }
                     </ScheduleText>
                   </TopicContainer>
