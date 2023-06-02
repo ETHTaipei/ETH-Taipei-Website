@@ -22,8 +22,9 @@ const homepage = {
   conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.`,
   hackathonDateWithDays: "Apr 21 (Fri) → Apr 23 (Sun)",
   conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
-  hackathonBtnText: "Join Hackathon",
+  hackathonBtnText: "View Results",
   conferenceBtnText: "Sold Out",
+  recap: "Watch Recap!",
   applications: "Get Involved!",
   applicationsIntro:
     "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",

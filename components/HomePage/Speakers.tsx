@@ -84,7 +84,6 @@ const Speakers = () => {
             </SpeakerContainer>
           ))}
         </SpeakersContainer>
-        <Description>{t.homepage.moreToBeReleased}</Description>
       </MainContent>
     </Container>
   );

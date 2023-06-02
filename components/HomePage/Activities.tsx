@@ -34,7 +34,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn onClick={handleOpenUnlock}>
+          <Btn disabled={true} onClick={handleOpenUnlock}>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
