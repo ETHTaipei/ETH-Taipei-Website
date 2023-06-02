@@ -33,7 +33,7 @@ const Banner = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
-      <NotificationContainer>
+      {/* <NotificationContainer>
         <ImportantContainer>Important Information</ImportantContainer>
         <MainTextContainer>
           <Link onClick={() => openNewTab(remindersUrl)}>
@@ -48,7 +48,7 @@ const Banner = () => {
             Side Event List
           </Link>
         </MainTextContainer>
-      </NotificationContainer>
+      </NotificationContainer> */}
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>

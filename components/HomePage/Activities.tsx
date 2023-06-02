@@ -34,7 +34,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn onClick={handleOpenUnlock}>
+          <Btn disabled={true} onClick={handleOpenUnlock}>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -48,6 +48,7 @@ export default Activities;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
+  background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 40px 24px 60px 24px;
   }
@@ -66,9 +67,9 @@ const MainContent = styled.div`
 
 const ActivityContainer = styled.div`
   flex: 1;
-  padding: 32px;
-  background-color: ${Colors.yInMnBlue};
-  border-radius: 8px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "@/components/HomePage/Banner";
 import Introduction from "@/components/HomePage/Introduction";
 import Activities from "@/components/HomePage/Activities";
-import ApplicationForm from "@/components/HomePage/ApplicationForm";
+import Recap from "@/components/HomePage/Recap";
 import Venue from "@/components/HomePage/Venue";
 import Speakers from "@/components/HomePage/Speakers";
 import Sponsors from "@/components/HomePage/Sponsors";
@@ -14,9 +14,10 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <Recap />
       <Introduction />
       <Activities />
-      <ApplicationForm />
+      
       <Venue />
       <Speakers />
       <Sponsors />
