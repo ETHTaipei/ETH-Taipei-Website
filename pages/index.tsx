@@ -14,9 +14,10 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <Recap />
       <Introduction />
       <Activities />
-      <Recap />
+      
       <Venue />
       <Speakers />
       <Sponsors />
