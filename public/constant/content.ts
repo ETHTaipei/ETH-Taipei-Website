@@ -25,6 +25,7 @@ const homepage = {
   hackathonBtnText: "View Results",
   conferenceBtnText: "Sold Out",
   recap: "Watch Recap!",
+  communityEvents: 'Community Events',
   applications: "Get Involved!",
   applicationsIntro:
     "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",

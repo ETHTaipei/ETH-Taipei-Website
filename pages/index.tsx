@@ -9,6 +9,7 @@ import Sponsors from "@/components/HomePage/Sponsors";
 import Partners from "@/components/HomePage/Partners";
 import Organizers from "@/components/HomePage/Organizers";
 import CommunitySupport from "@/components/HomePage/CommunitySupport";
+import CommunityEvent from "@/components/HomePage/CommunityEvents";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <Partners />
       <Organizers />
       <CommunitySupport />
+      <CommunityEvent />
     </div>
   );
 };
