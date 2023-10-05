@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "@/components/HomePage/Banner";
 import Introduction from "@/components/HomePage/Introduction";
+import CountdownTimer from "@/components/HomePage/CountDownTimer";
 import Activities from "@/components/HomePage/Activities";
 import Recap from "@/components/HomePage/Recap";
 import Venue from "@/components/HomePage/Venue";
@@ -15,6 +16,7 @@ const Home = () => {
     <div>
       <Banner />
       <Recap />
+      <CountdownTimer />
       <Introduction />
       <Activities />
       

@@ -53,13 +53,13 @@ const Banner = () => {
         <Image src={banner} alt="logo" fill />
       </ImageContainer>
       <ActivitiesContainer>
-        <ActivityBtn onClick={handleHackathonOnClick}>
-          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
-          <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
-        </ActivityBtn>
         <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleHackathonOnClick}>
+          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
+          <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
         </ActivityBtn>
       </ActivitiesContainer>
     </Container>
