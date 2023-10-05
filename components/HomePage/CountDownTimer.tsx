@@ -15,7 +15,7 @@ const CountdownTimer = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime();
-      const distance = new Date("2023-04-21").getTime() - now;
+      const distance = new Date("2024-03-21").getTime() - now;
 
       const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
       const days = Math.floor(
