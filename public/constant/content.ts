@@ -6,9 +6,9 @@ const common = {
 
 const homepage = {
   hackathon: "Hackathon",
-  hackathonDate: "21 - 23 Apr, 2023",
+  hackathonDate: "22 - 24 March, 2024",
   conference: "Conference",
-  conferenceDate: "24 - 25 Apr, 2023",
+  conferenceDate: "21 - 22 March, 2024",
   ethTaipeiIntroTitle: "What is ETHTaipei?",
   ethTaipeiIntro1: `Welcome to the first ETHTaipei held in Taiwan. With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
   ethTaipeiIntro2: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
