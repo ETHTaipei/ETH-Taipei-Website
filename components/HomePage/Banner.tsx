@@ -8,9 +8,6 @@ import t from "@/public/constant/content";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import {
   hackathonUrl,
-  sideEventListUrl,
-  unlockTicketUrl,
-  remindersUrl,
 } from "@/public/constant/urls";
 import gtagReportConversion from "@/public/utils/gtag";
 import { openNewTab } from "@/public/utils/common";
@@ -33,22 +30,6 @@ const Banner = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
-      {/* <NotificationContainer>
-        <ImportantContainer>Important Information</ImportantContainer>
-        <MainTextContainer>
-          <Link onClick={() => openNewTab(remindersUrl)}>
-            Event Reminders
-          </Link>
-          <NotificationText>{` & `} </NotificationText>
-          <Link onClick={() => openNewTab(unlockTicketUrl)}>
-            Unlock Ticket FAQ
-          </Link>
-          <NotificationText>{` & `} </NotificationText>
-          <Link onClick={() => openNewTab(sideEventListUrl)}>
-            Side Event List
-          </Link>
-        </MainTextContainer>
-      </NotificationContainer> */}
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
       </ImageContainer>

@@ -23,16 +23,6 @@ const FAQ = () => {
           </Description>
         </Row>
         <Row>
-          <Title>{t.ticket.ticketQuestion1}</Title>
-          <Description>
-            {t.ticket.ticketAnswer1}
-            <Link href={t.ticket.ticketUrl} target="_blank">
-              {t.ticket.ticketLinkText}
-            </Link>
-            {t.ticket.ticketAnswer2}
-          </Description>
-        </Row>
-        <Row>
           <Title>{t.visa.visaQuestion1}</Title>
           <Description>
             {t.visa.visaAnswer1Part1}

@@ -3,8 +3,7 @@ export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
-export const speakerApplyUrl = "https://tally.so/r/wkb6V1";
-export const ticketSaleUrl = "";
+export const speakerApplyUrl = "https://tally.so/r/wkb6V1"
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
@@ -76,8 +75,6 @@ export const panewsUrl = "https://www.panewslab.com/";
 export const dataverseUrl = "https://dataverse-os.com/";
 export const acebeakerUrl = "https://acebeaker.media/";
 
-export const unlockTicketUrl =
-  "https://www.notion.so/eth-taipei/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5";
 export const sideEventListUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 export const remindersUrl =

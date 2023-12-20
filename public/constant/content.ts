@@ -20,8 +20,8 @@ const homepage = {
   seconds: "SECONDS",
   hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
   conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.`,
-  hackathonDateWithDays: "Apr 21 (Fri) → Apr 23 (Sun)",
-  conferenceDateWithDays: "Apr 24 (Mon), Apr 25 (Tue)",
+  conferenceDateWithDays: "March 21 (Thu), March 22 (Fri)",
+  hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "View Results",
   conferenceBtnText: "Sold Out",
   recap: "Watch Recap!",
@@ -57,7 +57,6 @@ const agendaPage = {
 const navs = {
   home: "Home",
   agenda: "Agenda",
-  ticket: "Ticket Sale",
   hackathon: "Hackathon",
   faq: "FAQ",
 };
@@ -79,21 +78,12 @@ const visa = {
   visaAnswer3Part2: " compiled by our community members.",
 };
 
-const ticket = {
-  ticketQuestion1: "What should I do with my NFT tickets?",
-  ticketAnswer1: "Please refer to the ",
-  ticketUrl: 'https://eth-taipei.notion.site/Unlock-Ticket-FAQ-a4407385f29d46ccbf9fc5073435cda5',
-  ticketLinkText: 'Unlock ticket FAQ ',
-  ticketAnswer2: "for more details on how to generate a QR code from the NFT ticket.",
-}
-
 const t = {
   common,
   homepage,
   agendaPage,
   navs,
-  visa,
-  ticket
+  visa
 };
 
 export default t;

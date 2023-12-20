@@ -37,13 +37,6 @@ const navItems = [
     isPlugin: false,
   },
   {
-    label: t.navs.ticket,
-    value: "/ticketSale",
-    disabled: false,
-    isNewTab: false,
-    isPlugin: true,
-  },
-  {
     label: t.navs.hackathon,
     value: hackathonUrl,
     disabled: false,
