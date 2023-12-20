@@ -22,10 +22,10 @@ const Home = () => {
       
       <Venue />
       <Speakers />
-      <Sponsors />
-      <Partners />
+      {/* <Sponsors /> */}
+      {/* <Partners /> */}
       <Organizers />
-      <CommunitySupport />
+      {/* <CommunitySupport /> */}
     </div>
   );
 };

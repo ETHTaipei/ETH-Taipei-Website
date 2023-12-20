@@ -44,22 +44,22 @@ type PartnerProps = {
 };
 
 const partners: PartnerProps[] = [
-  { name: "diamond protocol", url: diamondUrl, logo: diamond },
-  { name: "grenade", url: grenadeUrl, logo: grenade },
-  { name: "imToken", url: imTokenUrl, logo: imToken },
-  { name: "TABEI", url: taibeiUrl, logo: taibei },
-  { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
-  { name: "Unlock", url: unlockUrl, logo: unlock },
-  { name: "Block Booster", url: blockBoosterUrl, logo: blockBooster },
-  { name: "BuZhiDAO", url: bzdUrl, logo: BuZhiDAO },
-  { name: "Gen3", url: gen3Url, logo: gen3, maxHeight: 55 },
-  { name: "Matters Lab", url: mattersLabUrl, logo: mattersLab },
-  { name: "Protico", url: proticoUrl, logo: protico },
-  { name: "Zombit", url: zombitUrl, logo: zombit },
-  { name: "動區", url: blocktempoUrl, logo: blocktempo },
-  { name: "腦哥", url: brainCryptoUrl, logo: brainCrypto },
-  { name: "鏈新聞", url: abmediaUrl, logo: abmedia, maxHeight: 80 },
-  { name: "Represent", url: representUrl, logo: represent },
+  // { name: "diamond protocol", url: diamondUrl, logo: diamond },
+  // { name: "grenade", url: grenadeUrl, logo: grenade },
+  // { name: "imToken", url: imTokenUrl, logo: imToken },
+  // { name: "TABEI", url: taibeiUrl, logo: taibei },
+  // { name: "Taikai", url: taikaiUrl, logo: taikai, maxHeight: 90 },
+  // { name: "Unlock", url: unlockUrl, logo: unlock },
+  // { name: "Block Booster", url: blockBoosterUrl, logo: blockBooster },
+  // { name: "BuZhiDAO", url: bzdUrl, logo: BuZhiDAO },
+  // { name: "Gen3", url: gen3Url, logo: gen3, maxHeight: 55 },
+  // { name: "Matters Lab", url: mattersLabUrl, logo: mattersLab },
+  // { name: "Protico", url: proticoUrl, logo: protico },
+  // { name: "Zombit", url: zombitUrl, logo: zombit },
+  // { name: "動區", url: blocktempoUrl, logo: blocktempo },
+  // { name: "腦哥", url: brainCryptoUrl, logo: brainCrypto },
+  // { name: "鏈新聞", url: abmediaUrl, logo: abmedia, maxHeight: 80 },
+  // { name: "Represent", url: representUrl, logo: represent },
 ];
 
 export default partners;

@@ -13,24 +13,6 @@ const FAQ = () => {
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
       <Row>
-          <Title>{t.visa.visaQuestion3}</Title>
-          <Description>
-            {t.visa.visaAnswer3Part1}
-            <Link href={sideEventFormUrl} target="_blank">
-              {t.visa.sideEventForm}
-            </Link>
-            {t.visa.visaAnswer3Part2}
-          </Description>
-        </Row>
-        <Row>
-          <Title>{t.ticket.ticketQuestion1}</Title>
-          <Description>
-            {t.ticket.ticketAnswer1}
-            <Link href={t.ticket.ticketUrl} target="_blank">
-              {t.ticket.ticketLinkText}
-            </Link>
-            {t.ticket.ticketAnswer2}
-          </Description>
         </Row>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>

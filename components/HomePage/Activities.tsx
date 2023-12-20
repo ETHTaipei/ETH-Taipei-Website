@@ -1,6 +1,6 @@
 import t from "@/public/constant/content";
 import { openNewTab } from "@/public/utils/common";
-import { ticketSaleUrl, hackathonUrl } from "@/public/constant/urls";
+import { hackathonUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -20,15 +20,7 @@ const Activities = () => {
   return (
     <Container>
       <MainContent>
-        <ActivityContainer>
-          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
-          <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
-          <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={handleHackathonOnClick}>
-            <BtnText>{t.homepage.hackathonBtnText}</BtnText>
-          </Btn>
-        </ActivityContainer>
-        <ActivityContainer>
+      <ActivityContainer>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDateWithDays}</ActivityDate>
           <ActivityDescription>
@@ -36,6 +28,14 @@ const Activities = () => {
           </ActivityDescription>
           <Btn disabled={true} onClick={handleOpenUnlock}>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
+          </Btn>
+        </ActivityContainer>
+        <ActivityContainer>
+          <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
+          <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
+          <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
+          <Btn onClick={handleHackathonOnClick}>
+            <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
       </MainContent>

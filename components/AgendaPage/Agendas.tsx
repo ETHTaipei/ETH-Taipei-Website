@@ -19,26 +19,6 @@ const Agendas = () => {
     setDate(dates[type][0]);
   }, [type]);
 
-  useEffect(() => {
-    const frame = document.getElementById("proticoFrame") as HTMLIFrameElement;
-    const bObj = document.getElementById("frameBoxHandler") as HTMLDivElement;
-    bObj.onclick = () => {
-      if (frame.style.display === "block") {
-        frame.style.display = "none";
-        bObj.style.width = "auto";
-        bObj.innerHTML = "Lobby&nbsp;💬";
-        //// endline;
-      } else {
-        frame.src =
-          "https://main.protico.io/protico?roomUrl=" + window.location.href;
-        frame.style.display = "block";
-        bObj.style.width = "50px";
-        bObj.innerHTML = "👋";
-        //// endline;
-      }
-    };
-  }, []);
-
   const _renderDefiItem = (item: any, index: number) => {
     return (
       <div>
@@ -148,43 +128,6 @@ const Agendas = () => {
           background: "transparent",
         }}
       >
-        <iframe
-          id="proticoFrame"
-          style={{
-            display: "none",
-            border: "1px solid #666",
-            borderRadius: "8px",
-            boxShadow: "2px 2px rgba(0,0,0,0.2)",
-            width: "310px",
-            height: "500px",
-            marginBottom: "0.5em",
-            minWidth: "325px",
-            minHeight: "400px",
-          }}
-        ></iframe>
-        <div
-          id="frameBoxHandler"
-          style={{
-            display: "flex",
-            boxShadow: "2px 2px rgba(0,0,0,0.2)",
-            bottom: "0px",
-            marginLeft: "auto",
-            marginTop: "10px",
-            width: "auto",
-            height: "35px",
-            padding: "0 13px",
-            borderRadius: "20px 20px 0 0",
-            background: "#282c34",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            fontSize: "13px",
-            fontWeight: "500",
-            color: "#ddd",
-          }}
-        >
-          Lobby&nbsp;💬
-        </div>
       </span>
       <Title>{t.agendaPage.agenda}</Title>
       <EventSwitcherContainer>
@@ -204,7 +147,14 @@ const Agendas = () => {
         </EventSwitchers>
 
       </EventSwitcherContainer>
+
       <DatesContainer>
+        Agenda coming soon, you can take a look at  
+        <a color="blue" target="_blank" rel="noreferrer" href="https://ethtaipei-2023.netlify.app/agenda"> ETHTaipei 2023 Agenda</a> 
+        for now!
+      </DatesContainer>
+
+      {/* <DatesContainer>
         {dates[type].map((num) => (
           <DateSelector
             key={num}
@@ -368,7 +318,7 @@ const Agendas = () => {
             </NewTracksContainer>
           </MobileScheduleContainer>
         </>
-      )}
+      )} */}
     </Container>
   );
 };
