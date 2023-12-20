@@ -149,7 +149,9 @@ const Agendas = () => {
       </EventSwitcherContainer>
 
       <DatesContainer>
-      Agenda coming soon, you can take a look at our Agenda for ETHTaipei 2023 for now!
+        Agenda coming soon, you can take a look at  
+        <a color="blue" target="_blank" rel="noreferrer" href="https://ethtaipei-2023.netlify.app/agenda"> ETHTaipei 2023 Agenda</a> 
+        for now!
       </DatesContainer>
 
       {/* <DatesContainer>
