@@ -147,7 +147,12 @@ const Agendas = () => {
         </EventSwitchers>
 
       </EventSwitcherContainer>
+
       <DatesContainer>
+      Agenda coming soon, you can take a look at our Agenda for ETHTaipei 2023 for now!
+      </DatesContainer>
+
+      {/* <DatesContainer>
         {dates[type].map((num) => (
           <DateSelector
             key={num}
@@ -311,7 +316,7 @@ const Agendas = () => {
             </NewTracksContainer>
           </MobileScheduleContainer>
         </>
-      )}
+      )} */}
     </Container>
   );
 };
