@@ -79,7 +79,7 @@ button {
 const GlobalStyle = createGlobalStyle`
 body {
    /* overscroll-behavior-y: none; */
-  font-family: Helvetica Neue, Helvetica, Roboto,
+  font-family: 'Inter', Helvetica Neue, Helvetica, Roboto,
     PingFang TC, 微軟雅黑, Microsoft Yahei, sans-serif;
   box-sizing: border-box;
   background-color: ${Colors.seaSalt} ;

@@ -24,7 +24,7 @@ const homepage = {
   hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "View Results",
   conferenceBtnText: "Sold Out",
-  recap: "Watch Recap!",
+  recap: "Watch ETHTaipei 2023 Recap!",
   applications: "Get Involved!",
   applicationsIntro:
     "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
@@ -72,10 +72,6 @@ const visa = {
     "ETHTaipei can provide invitation letters for business visas. Please contact us via ",
   telegram: "telegram",
   visaAnswer2Part2: ".",
-  visaQuestion3: "Are there any side events?",
-  visaAnswer3Part1: "Yes! We have several side events organized by companies or communities. Please take a look at the ",
-  sideEventForm: "form",
-  visaAnswer3Part2: " compiled by our community members.",
 };
 
 const t = {

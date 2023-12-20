@@ -63,44 +63,9 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              (function(d, s) {
-                var js = d.createElement(s),
-                  sc = d.getElementsByTagName(s)[0];
-                js.src = "https://paywall.unlock-protocol.com/static/unlock.latest.min.js";
-                sc.parentNode.insertBefore(js, sc);
-              }(document, "script"));`,
-            }}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              var unlockProtocolConfig = {
-                "locks": {
-                  "0x8e4f319702f857585a6d5888f43edfece92f83a6": {
-                    "name": "ETHTaipei 2023",
-                    "network": 100,
-                  },
-                  "0x53FaF6285C426920b7d103c5f4a40F7788E1F1FD": {
-                    "name": "ETHTaipei 2023",
-                    "network": 10,
-                  },
-                  "0x8fB09430C4D31130Eb3a906c9244dD20f14C1F67": {
-                    "name": "ETHTaipei 2023",
-                    "network": 137,
-                  },
-                  "0xc741bf2cdcda007e76027348b39f9fff67ac885a": {
-                    "name": "ETHTaipei 2023",
-                    "network": 42161,
-                  }
-                },    
-                "title": "ETHTaipei Early Bird",
-                "icon": "https://ethtaipei.org/images/logo-transparent.png"           
-              }`,
-            }}
-          />
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Inter:wght@300&display=swap" rel="stylesheet"/>
         </Head>
         <body>
           <Main />

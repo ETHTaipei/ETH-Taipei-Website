@@ -12,6 +12,7 @@ const Partners = () => {
     <Container>
       <MainContent>
         <Title>{t.homepage.partners}</Title>
+        Coming soon
         <SponsorsContainer>
           {partners.map((partner) => (
             <SponsorBtn

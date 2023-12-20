@@ -9,45 +9,8 @@ const Speakers = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.keyNoteSpeakers}</Title>
-        <SpeakersContainer>
-          {keynoteSpeakers.map((speaker, i) => (
-            <SpeakerContainer key={i}>
-              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={true}>
-                <A
-                  href={speaker.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.twitter}
-                >
-                  <Image src={speaker.src} fill alt={speaker.name} />
-                </A>
-              </SpeakerIcon>
-              <SpeakerName canHover={!!speaker.twitter}>
-                <A
-                  href={speaker.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.twitter}
-                >
-                  {speaker.name}
-                </A>
-              </SpeakerName>
-              <SpeakerCompany canHover={!!speaker.companyLink}>
-                <A
-                  href={speaker.companyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.companyLink}
-                >
-                  {speaker.company}
-                </A>
-              </SpeakerCompany>
-            </SpeakerContainer>
-          ))}
-        </SpeakersContainer>
-
         <Title>{t.homepage.speakers}</Title>
+        Speaker application coming soon!
         <SpeakersContainer>
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
