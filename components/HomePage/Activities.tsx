@@ -34,7 +34,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={handleHackathonOnClick}>
+          <Btn onClick={handleHackathonOnClick} disabled>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
