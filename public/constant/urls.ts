@@ -3,7 +3,7 @@ export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
-export const speakerApplyUrl = "https://tally.so/r/wkb6V1"
+export const speakerApplyUrl = "https://forms.gle/ytf9qguqkY1ANucf6"
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
 export const sideEventUrl = " https://tally.so/r/wgboMN";

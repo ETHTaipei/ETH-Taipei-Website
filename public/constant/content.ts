@@ -25,12 +25,7 @@ const homepage = {
   hackathonBtnText: "Coming Soon",
   conferenceBtnText: "Coming Soon",
   recap: "Watch ETHTaipei 2023 Recap!",
-  applications: "Get Involved!",
-  applicationsIntro:
-    "We welcome everyone from all around the world to apply as sponsors, speakers, or volunteers for the ETHTaipei event.",
-  applyFor: "Apply for",
-  sponsors: "Sponsors",
-  speakers: "Speakers",
+  applyToSpeak: "Apply to speak",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",

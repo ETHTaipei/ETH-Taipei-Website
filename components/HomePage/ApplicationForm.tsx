@@ -1,6 +1,7 @@
 import Colors from "@/styles/colors";
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { keyframes, css } from 'styled-components';
+
 import { openNewTab } from "@/public/utils/common";
 import {
   sideEventUrl,
@@ -9,25 +10,39 @@ import {
 } from "@/public/constant/urls";
 import t from "@/public/constant/content";
 
+
+import speakerImg1 from "@/public/images/speaker-1.jpg";
+import Image from "next/image";
+const speakerImg2 = require("@/public/images/speaker-2.jpg");
+const speakerImg3 = require("@/public/images/speaker-3.jpg");
+
+
 const ApplicationForm = () => {
+  const images = [
+    speakerImg3,
+    speakerImg1,
+    speakerImg2,
+  ];
+
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.applications}</Title>
         <Applications>
-          <Application onClick={() => openNewTab(sponsorApplyUrl)}>
-            <Text>{t.homepage.applyFor}</Text>
-            <Subtitle>{t.homepage.sponsors}</Subtitle>
-          </Application>
           <Application onClick={() => openNewTab(speakerApplyUrl)}>
-            <Text>{t.homepage.applyFor}</Text>
-            <Subtitle>{t.homepage.speakers}</Subtitle>
-          </Application>
-          <Application onClick={() => openNewTab(sideEventUrl)}>
-            <Text>{t.homepage.addYour}</Text>
-            <Subtitle>{t.homepage.sideEvents}</Subtitle>
+            <Text>{t.homepage.applyToSpeak}</Text>
           </Application>
         </Applications>
+        <ImgWrapper>
+          {images.map((image, index) => (
+            <Image
+              key={index}
+              src={image}
+              width={500}
+              style={{padding: 10}}
+              alt={`img${index + 1}`}
+            />
+          ))}
+        </ImgWrapper>
       </MainContent>
     </Container>
   );
@@ -37,19 +52,11 @@ export default ApplicationForm;
 
 const Container = styled.div`
   width: 100%;
-  padding: 120px 40px;
+  padding: 40px 40px;
   background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
-`;
-
-const Title = styled.h2`
-  font-size: 35px;
-  font-weight: bold;
-  line-height: 32px;
-  color: ${Colors.pennBlue};
-  margin-bottom: 60px;
 `;
 
 const MainContent = styled.div`
@@ -70,7 +77,7 @@ const Text = styled.h2`
 
 const Applications = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 300px;
   display: flex;
   gap: 24px;
   @media (max-width: 768px) {
@@ -95,9 +102,9 @@ const Application = styled.button`
   }
 `;
 
-const Subtitle = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 32px;
-  color: ${Colors.seaSalt};
+const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px; /* Adjust the spacing from the applications */
 `;
+
