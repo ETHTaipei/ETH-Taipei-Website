@@ -43,6 +43,7 @@ const homepage = {
   keynote: "Keynote Speaker",
   openingandKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
+  sponsors: "Sponsors",
 };
 
 const agendaPage = {
