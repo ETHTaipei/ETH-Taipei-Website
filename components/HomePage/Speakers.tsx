@@ -4,13 +4,15 @@ import React from "react";
 import styled from "styled-components";
 import { speakers, keynoteSpeakers } from "@/public/constant/speakers";
 import Image from "next/image";
+import ApplicationForm from "./ApplicationForm";
 
 const Speakers = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.speakers}</Title>
-        Speaker application coming soon!
+        <Title> Speakers </Title>
+        <Description> Have an idea in mind that you want to share with other developers? </Description>
+        <ApplicationForm></ApplicationForm>
         <SpeakersContainer>
           {speakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
