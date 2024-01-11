@@ -1,10 +1,9 @@
 import t from "@/public/constant/content";
+import { ethTaipei2023Url } from "@/public/constant/urls";
+import taipei101 from "@/public/images/taipei101.jpg";
 import Colors from "@/styles/colors";
 import Image from "next/image";
-import React from "react";
 import styled from "styled-components";
-
-import taipei101 from "@/public/images/taipei101.jpg";
 
 const Introduction = () => {
   return (
@@ -14,7 +13,17 @@ const Introduction = () => {
           <Title>{t.homepage.ethTaipeiIntroTitle}</Title>
           <Description>{t.homepage.ethTaipeiIntro1}</Description>
           <Description>{t.homepage.ethTaipeiIntro2}</Description>
-          <Description>{t.homepage.ethTaipeiIntro3}</Description>
+          <Description>
+            {t.homepage.ethTaipeiIntro3_1}
+            <A
+              href={ethTaipei2023Url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </A>
+            {t.homepage.ethTaipeiIntro3_2}
+          </Description>
         </TextContainer>
         <ImageContainer>
           <Image src={taipei101} alt="taipei101" fill />
@@ -74,4 +83,9 @@ const ImageContainer = styled.div`
     object-fit: cover;
     border-radius: 8px;
   }
+`;
+
+const A = styled.a`
+  color: ${Colors.btnBlue};
+  text-decoration: underline;
 `;
