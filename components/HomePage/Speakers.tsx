@@ -1,9 +1,7 @@
-import t from "@/public/constant/content";
+import { speakers } from "@/public/constant/speakers";
 import Colors from "@/styles/colors";
-import React from "react";
-import styled from "styled-components";
-import { speakers, keynoteSpeakers } from "@/public/constant/speakers";
 import Image from "next/image";
+import styled from "styled-components";
 import ApplicationForm from "./ApplicationForm";
 
 const Speakers = () => {
@@ -57,6 +55,7 @@ const Speakers = () => {
 export default Speakers;
 
 const Container = styled.div`
+  overflow: hidden;
   width: 100%;
   padding: 120px 40px;
   background-color: ${Colors.yInMnBlue};
