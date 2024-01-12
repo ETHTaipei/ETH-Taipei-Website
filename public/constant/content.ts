@@ -25,6 +25,11 @@ const homepage = {
   hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "Coming Soon",
   conferenceBtnText: "Coming Soon",
+  promoteCallToActionTitle: "Jointly Create The Charm Event",
+  promoteCallToActionText:
+    "In this unique opportunity, you can choose to be one of our compelling speakers and share your story, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
+  beASpeaker: "Be a speaker",
+  beASponsor: "Be a sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
   applyToSpeak: "Apply to speak",
   keyNoteSpeakers: "Keynote Speakers",
@@ -76,7 +81,7 @@ const t = {
   homepage,
   agendaPage,
   navs,
-  visa
+  visa,
 };
 
 export default t;

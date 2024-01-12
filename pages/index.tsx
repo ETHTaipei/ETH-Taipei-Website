@@ -10,11 +10,13 @@ import Sponsors from "@/components/HomePage/Sponsors";
 import Partners from "@/components/HomePage/Partners";
 import Organizers from "@/components/HomePage/Organizers";
 import CommunitySupport from "@/components/HomePage/CommunitySupport";
+import PromoteCallToAction from "@/components/HomePage/PromoteCallToAction";
 
 const Home = () => {
   return (
     <div>
       <Banner />
+      <PromoteCallToAction />
       <Recap />
       <CountdownTimer />
       <Introduction />
