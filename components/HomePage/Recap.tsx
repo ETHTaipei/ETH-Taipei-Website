@@ -1,4 +1,5 @@
 import t from "@/public/constant/content";
+import { ethTaipei2023Url } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
 
@@ -15,6 +16,12 @@ const Recap = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen={true}
         ></iframe>
+        <Text>
+          {t.homepage.recapGoBackText}
+          <A href={ethTaipei2023Url} target="_blank" rel="noopener noreferrer">
+            ETH TPE 2023
+          </A>
+        </Text>
       </MainContent>
     </Container>
   );
@@ -46,4 +53,17 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Text = styled.div`
+  line-height: 24px;
+  margin-top: 50px;
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+  }
+`;
+
+const A = styled.a`
+  color: ${Colors.btnBlue};
+  text-decoration: underline;
 `;

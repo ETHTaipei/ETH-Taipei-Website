@@ -31,6 +31,7 @@ const homepage = {
   beASpeaker: "Be a speaker",
   beASponsor: "Be a sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
+  recapGoBackText: "Do you want to see more? Let's go back to ",
   applyToSpeak: "Apply to speak",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
