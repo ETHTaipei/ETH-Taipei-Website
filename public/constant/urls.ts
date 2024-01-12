@@ -81,3 +81,4 @@ export const remindersUrl =
   "https://eth-taipei.notion.site/ETHTaipei-Reminder-df3335779211480486c9dcc4c0ff6fe4";
 
 export const ethTaipei2023Url = "https://2023.ethtaipei.org/";
+export const ethTaipei2023AgendaUrl = "https://2023.ethtaipei.org/agenda";

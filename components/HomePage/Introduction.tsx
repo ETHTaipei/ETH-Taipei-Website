@@ -1,5 +1,5 @@
 import t from "@/public/constant/content";
-import { ethTaipei2023Url } from "@/public/constant/urls";
+import { ethTaipei2023AgendaUrl } from "@/public/constant/urls";
 import taipei101 from "@/public/images/taipei101.jpg";
 import Colors from "@/styles/colors";
 import Image from "next/image";
@@ -16,7 +16,7 @@ const Introduction = () => {
           <Description>
             {t.homepage.ethTaipeiIntro3_1}
             <A
-              href={ethTaipei2023Url}
+              href={ethTaipei2023AgendaUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
