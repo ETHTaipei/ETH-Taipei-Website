@@ -82,3 +82,5 @@ export const sideEventListUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 export const remindersUrl =
   "https://eth-taipei.notion.site/ETHTaipei-Reminder-df3335779211480486c9dcc4c0ff6fe4";
+
+export const ethTaipei2024Url = "https://ethtaipei.org/";

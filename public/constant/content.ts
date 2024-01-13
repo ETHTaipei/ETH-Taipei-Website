@@ -55,6 +55,7 @@ const agendaPage = {
 };
 
 const navs = {
+  latest: "Latest in ETH Taipei",
   home: "Home",
   agenda: "Agenda",
   ticket: "Ticket Sale",
