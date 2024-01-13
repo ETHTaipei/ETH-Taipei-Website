@@ -33,6 +33,7 @@ const homepage = {
   recap: "Watch ETHTaipei 2023 Recap!",
   recapGoBackText: "Want to see more? Let's go back to ",
   applyToSpeak: "Apply to speak",
+  applyToSponsor: "Apply to sponsor",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",
@@ -58,6 +59,8 @@ const agendaPage = {
 };
 
 const navs = {
+  applyToSpeak: "Apply to speak",
+  applyToSponsor: "Apply to sponsor",
   home: "Home",
   agenda: "Agenda",
   hackathon: "Hackathon",

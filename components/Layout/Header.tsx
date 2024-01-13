@@ -17,11 +17,27 @@ import {
   hackathonUrl,
   telegramUrl,
   twitterUrl,
+  sponsorApplyUrl,
+  speakerApplyUrl,  
 } from "@/public/constant/urls";
 import t from "@/public/constant/content";
 import gtagReportConversion from "@/public/utils/gtag";
 
 const navItems = [
+  {
+    label: t.navs.applyToSpeak,
+    value: speakerApplyUrl,
+    disabled: false,
+    isNewTab: true,
+    isPlugin: false,
+  },
+  {
+    label: t.navs.applyToSponsor,
+    value: sponsorApplyUrl,
+    disabled: false,
+    isNewTab: true,
+    isPlugin: false,
+  },
   {
     label: t.navs.home,
     value: "/",

@@ -3,7 +3,11 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { hackathonUrl } from "@/public/constant/urls";
+import {
+  hackathonUrl,
+  speakerApplyUrl,
+  sponsorApplyUrl,
+} from "@/public/constant/urls";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import banner from "@/public/images/vertical-transparent.png";
 import { openNewTab } from "@/public/utils/common";
@@ -24,6 +28,16 @@ const Banner = () => {
     gtagReportConversion();
   };
 
+  const handleApplySpeaker = () => {
+    openNewTab(speakerApplyUrl);
+    gtagReportConversion();
+  };
+
+  const handleApplySponsor = () => {
+    openNewTab(sponsorApplyUrl);
+    gtagReportConversion();
+  };
+
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -31,6 +45,14 @@ const Banner = () => {
         <Image src={banner} alt="logo" fill />
         <YearWatermark>2024</YearWatermark>
       </ImageContainer>
+      <ActivitiesContainer>
+        <ActivityBtn onClick={handleApplySpeaker}>
+          <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleApplySponsor}>
+          <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
+        </ActivityBtn>
+      </ActivitiesContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>

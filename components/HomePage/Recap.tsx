@@ -19,7 +19,7 @@ const Recap = () => {
         <Text>
           {t.homepage.recapGoBackText}
           <A href={ethTaipei2023Url} target="_blank" rel="noopener noreferrer">
-            ETH TPE 2023
+            EthTaipei 2023
           </A>
         </Text>
       </MainContent>
