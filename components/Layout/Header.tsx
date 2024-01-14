@@ -14,6 +14,7 @@ import Image from "next/image";
 import logo from "@/public/images/horizontal-transparent.png";
 import {
   discordUrl,
+  ethTaipei2024Url,
   hackathonUrl,
   telegramUrl,
   twitterUrl,
@@ -22,6 +23,13 @@ import t from "@/public/constant/content";
 import gtagReportConversion from "@/public/utils/gtag";
 
 const navItems = [
+  {
+    label: t.navs.latest,
+    value: ethTaipei2024Url,
+    disabled: false,
+    isNewTab: true,
+    isPlugin: false,
+  },
   {
     label: t.navs.home,
     value: "/",

@@ -51,6 +51,7 @@ const Banner = () => {
       </NotificationContainer> */}
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
+        <YearWatermark>2023</YearWatermark>
       </ImageContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleHackathonOnClick}>
@@ -185,4 +186,14 @@ const Link = styled(NotificationText)`
 
 const MainTextContainer = styled.div`
   display: flex;
+`;
+
+const YearWatermark = styled.div`
+  font-size: clamp(125px, 20vw, 200px);
+  font-weight: bold;
+  opacity: 0.06;
+  position: absolute;
+  top: 69%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
