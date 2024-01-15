@@ -10,9 +10,10 @@ const homepage = {
   conference: "Conference",
   conferenceDate: "21-22 March, 2024",
   ethTaipeiIntroTitle: "What is ETHTaipei?",
-  ethTaipeiIntro1: `Welcome to the first ETHTaipei held in Taiwan. With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
+  ethTaipeiIntro1: `Welcome to ETHTaipei the 2024 edition!!! With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
   ethTaipeiIntro2: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
-  ethTaipeiIntro3: `We believe that ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum, as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.`,
+  ethTaipeiIntro3_1: `ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition `,
+  ethTaipeiIntro3_2: `!, as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.`,
   weeks: "WEEKS",
   days: "DAYS",
   hours: "HOURS",
@@ -24,8 +25,15 @@ const homepage = {
   hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "Coming Soon",
   conferenceBtnText: "Coming Soon",
+  promoteCallToActionTitle: "Jointly Create The Charm Event",
+  promoteCallToActionText:
+    "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
+  beASpeaker: "Be a speaker",
+  beASponsor: "Be a sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
+  recapGoBackText: "Want to see more? Let's go back to ",
   applyToSpeak: "Apply to speak",
+  applyToSponsor: "Apply to sponsor",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",
@@ -51,6 +59,8 @@ const agendaPage = {
 };
 
 const navs = {
+  applyToSpeak: "Apply to speak",
+  applyToSponsor: "Apply to sponsor",
   home: "Home",
   agenda: "Agenda",
   hackathon: "Hackathon",
@@ -75,7 +85,7 @@ const t = {
   homepage,
   agendaPage,
   navs,
-  visa
+  visa,
 };
 
 export default t;

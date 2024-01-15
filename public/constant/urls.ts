@@ -2,8 +2,8 @@ export const twitterUrl = "https://twitter.com/EthTaipei";
 export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
 
-export const sponsorApplyUrl = "https://docsend.com/view/5i6f3dn6uc2j69qn";
-export const speakerApplyUrl = "https://forms.gle/ytf9qguqkY1ANucf6"
+export const sponsorApplyUrl = "https://forms.gle/QDbDJrxyapPLk9me8";
+export const speakerApplyUrl = "https://forms.gle/ytf9qguqkY1ANucf6";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
@@ -79,3 +79,6 @@ export const sideEventListUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
 export const remindersUrl =
   "https://eth-taipei.notion.site/ETHTaipei-Reminder-df3335779211480486c9dcc4c0ff6fe4";
+
+export const ethTaipei2023Url = "https://2023.ethtaipei.org/";
+export const ethTaipei2023AgendaUrl = "https://2023.ethtaipei.org/agenda";

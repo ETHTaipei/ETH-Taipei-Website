@@ -1,16 +1,17 @@
 import Colors from "@/styles/colors";
-import React from "react";
-import styled from "styled-components";
 import Image from "next/image";
+import styled from "styled-components";
 
-import banner from "@/public/images/vertical-transparent.png";
 import t from "@/public/constant/content";
-import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import {
   hackathonUrl,
+  speakerApplyUrl,
+  sponsorApplyUrl,
 } from "@/public/constant/urls";
-import gtagReportConversion from "@/public/utils/gtag";
+import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
+import banner from "@/public/images/vertical-transparent.png";
 import { openNewTab } from "@/public/utils/common";
+import gtagReportConversion from "@/public/utils/gtag";
 
 const Banner = () => {
   const handleOnClick = (url: string) => {
@@ -27,12 +28,31 @@ const Banner = () => {
     gtagReportConversion();
   };
 
+  const handleApplySpeaker = () => {
+    openNewTab(speakerApplyUrl);
+    gtagReportConversion();
+  };
+
+  const handleApplySponsor = () => {
+    openNewTab(sponsorApplyUrl);
+    gtagReportConversion();
+  };
+
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
+        <YearWatermark>2024</YearWatermark>
       </ImageContainer>
+      <ActivitiesContainer>
+        <ActivityBtn onClick={handleApplySpeaker}>
+          <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleApplySponsor}>
+          <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
+        </ActivityBtn>
+      </ActivitiesContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
@@ -166,4 +186,14 @@ const Link = styled(NotificationText)`
 
 const MainTextContainer = styled.div`
   display: flex;
+`;
+
+const YearWatermark = styled.div`
+  font-size: clamp(125px, 20vw, 200px);
+  font-weight: bold;
+  opacity: 0.06;
+  position: absolute;
+  top: 69%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
