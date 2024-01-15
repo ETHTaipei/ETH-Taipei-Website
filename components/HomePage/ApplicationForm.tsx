@@ -32,7 +32,7 @@ const ApplicationForm = () => {
             <Text>{t.homepage.applyToSpeak}</Text>
           </Application>
         </Applications>
-        <ImgWrapper>
+        {/* <ImgWrapper>
           {images.map((image, index) => (
             <Image
               key={index}
@@ -42,7 +42,7 @@ const ApplicationForm = () => {
               alt={`img${index + 1}`}
             />
           ))}
-        </ImgWrapper>
+        </ImgWrapper> */}
       </MainContent>
     </Container>
   );

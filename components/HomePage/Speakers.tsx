@@ -1,4 +1,5 @@
-import { speakers } from "@/public/constant/speakers";
+import t from "@/public/constant/content";
+import { keynoteSpeakers } from "@/public/constant/speakers";
 import Colors from "@/styles/colors";
 import Image from "next/image";
 import styled from "styled-components";
@@ -8,13 +9,12 @@ const Speakers = () => {
   return (
     <Container>
       <MainContent>
-        <Title> Speakers </Title>
-        <Description> Have an idea in mind that you want to share with other developers? </Description>
-        <ApplicationForm></ApplicationForm>
+        <Title>{t.homepage.speakers}</Title>
+
         <SpeakersContainer>
-          {speakers.map((speaker, i) => (
+          {keynoteSpeakers.map((speaker, i) => (
             <SpeakerContainer key={i}>
-              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={false}>
+              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={true}>
                 <A
                   href={speaker.twitter}
                   target="_blank"
@@ -47,6 +47,10 @@ const Speakers = () => {
             </SpeakerContainer>
           ))}
         </SpeakersContainer>
+
+        <Description>{t.homepage.speakersIntro}</Description>
+
+        <ApplicationForm></ApplicationForm>
       </MainContent>
     </Container>
   );
@@ -109,8 +113,8 @@ const SpeakerContainer = styled.div`
 `;
 
 const SpeakerIcon = styled.div<{ canHover: boolean, isKeynote: boolean }>`
-  width: ${(props) => (props.isKeynote ? "120px" : "100px")};
-  height: ${(props) => (props.isKeynote ? "120px" : "100px")};
+  width: ${(props) => (props.isKeynote ? "180px" : "100px")};
+  height: ${(props) => (props.isKeynote ? "180px" : "100px")};
   border-radius: 100px;
   display: flex;
   justify-content: center;
