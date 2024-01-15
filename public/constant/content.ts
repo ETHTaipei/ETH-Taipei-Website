@@ -30,12 +30,12 @@ const homepage = {
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
   speakers: "Speakers",
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
-  beASpeaker: "Be a speaker",
-  beASponsor: "Be a sponsor",
+  beASpeaker: "Be a Speaker",
+  beASponsor: "Be a Sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
   recapGoBackText: "Want to see more? Let's go back to ",
-  applyToSpeak: "Apply to speak",
-  applyToSponsor: "Apply to sponsor",
+  applyToSpeak: "Apply to Speak",
+  applyToSponsor: "Apply to Sponsor",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",
@@ -61,8 +61,8 @@ const agendaPage = {
 };
 
 const navs = {
-  applyToSpeak: "Apply to speak",
-  applyToSponsor: "Apply to sponsor",
+  applyToSpeak: "Apply to Speak",
+  applyToSponsor: "Apply to Sponsor",
   home: "Home",
   agenda: "Agenda",
   hackathon: "Hackathon",
