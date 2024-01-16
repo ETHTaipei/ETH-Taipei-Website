@@ -46,14 +46,6 @@ const Banner = () => {
         <YearWatermark>2024</YearWatermark>
       </ImageContainer>
       <ActivitiesContainer>
-        <ActivityBtn onClick={handleApplySpeaker}>
-          <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
-        </ActivityBtn>
-        <ActivityBtn onClick={handleApplySponsor}>
-          <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
-        </ActivityBtn>
-      </ActivitiesContainer>
-      <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
@@ -61,6 +53,14 @@ const Banner = () => {
         <ActivityBtn onClick={handleHackathonOnClick}>
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
+        </ActivityBtn>
+      </ActivitiesContainer>
+      <ActivitiesContainer>
+        <ActivityBtn onClick={handleApplySpeaker}>
+          <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleApplySponsor}>
+          <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
         </ActivityBtn>
       </ActivitiesContainer>
     </Container>
