@@ -1,3 +1,5 @@
+"use client"
+
 import { gql } from "@apollo/client";
 
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";

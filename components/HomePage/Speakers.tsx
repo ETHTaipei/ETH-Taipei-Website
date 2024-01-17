@@ -1,3 +1,5 @@
+"use client"
+
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import Image from "next/image";
