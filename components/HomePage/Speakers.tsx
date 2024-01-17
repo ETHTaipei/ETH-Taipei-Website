@@ -117,6 +117,7 @@ const Description = styled.span`
 
 const SpeakersContainer = styled.div`
   max-width: 1200px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

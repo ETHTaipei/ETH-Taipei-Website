@@ -5,15 +5,17 @@ import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
 import partners from "@/public/constant/partners";
-import mediaPartners from "@/public/constant/mediaPartners";
+import { useMediaPartners } from "../hooks/useMediaPartners";
 
 const Partners = () => {
+
+  const {mediaPartners} = useMediaPartners()
+
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.partners}</Title>
-        Coming soon
-        <SponsorsContainer>
+        {/* <Title>{t.homepage.partners}</Title> */}
+        {/* <SponsorsContainer>
           {partners.map((partner) => (
             <SponsorBtn
               key={partner.name}
@@ -22,7 +24,8 @@ const Partners = () => {
               <Image src={partner.logo} fill alt={partner.name} />
             </SponsorBtn>
           ))}
-        </SponsorsContainer>
+        </SponsorsContainer> */}
+        
         <MDPartnerTitle>{t.homepage.mediaPartners}</MDPartnerTitle>
         <SponsorsContainer>
           {mediaPartners.map((mediaPartner) => (
@@ -30,7 +33,7 @@ const Partners = () => {
               key={mediaPartner.name}
               onClick={() => openNewTab(mediaPartner.url)}
             >
-              <Image src={mediaPartner.logo} fill alt={mediaPartner.name} />
+              <Image src={mediaPartner.img} fill alt={mediaPartner.name} />
             </MDPartnerBtn>
           ))}
         </SponsorsContainer>

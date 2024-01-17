@@ -2,8 +2,6 @@
 
 import { gql, useQuery } from "@apollo/client";
 
-import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
-
 export type SpeakerProps = {
   name: string;
   company: string;

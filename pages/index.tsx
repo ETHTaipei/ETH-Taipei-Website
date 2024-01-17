@@ -25,7 +25,7 @@ const Home = () => {
       <Venue />
       <Speakers />
       {/* <Sponsors /> */}
-      {/* <Partners /> */}
+      <Partners />
       <Organizers />
       {/* <CommunitySupport /> */}
     </div>
