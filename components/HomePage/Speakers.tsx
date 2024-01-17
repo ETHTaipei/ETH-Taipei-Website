@@ -1,50 +1,30 @@
 import t from "@/public/constant/content";
-import { keynoteSpeakers } from "@/public/constant/speakers";
 import Colors from "@/styles/colors";
 import Image from "next/image";
 import styled from "styled-components";
 import ApplicationForm from "./ApplicationForm";
+import { SpeakerProps, useSpeakers } from "../hooks/useSpeakers";
 
 const Speakers = () => {
+
+  const {speakers, keynoteSpeakers} = useSpeakers();
+
   return (
     <Container>
       <MainContent>
         <Title>{t.homepage.speakers}</Title>
 
+        {/* keynote speakers */}
         <SpeakersContainer>
           {keynoteSpeakers.map((speaker, i) => (
-            <SpeakerContainer key={i}>
-              <SpeakerIcon canHover={!!speaker.twitter} isKeynote={true}>
-                <A
-                  href={speaker.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.twitter}
-                >
-                  <Image src={speaker.src} fill alt={speaker.name} />
-                </A>
-              </SpeakerIcon>
-              <SpeakerName canHover={!!speaker.twitter}>
-                <A
-                  href={speaker.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.twitter}
-                >
-                  {speaker.name}
-                </A>
-              </SpeakerName>
-              <SpeakerCompany canHover={!!speaker.companyLink}>
-                <A
-                  href={speaker.companyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  disabled={!speaker.companyLink}
-                >
-                  {speaker.company}
-                </A>
-              </SpeakerCompany>
-            </SpeakerContainer>
+            <Speaker speaker={speaker} key={i} />
+          ))}
+        </SpeakersContainer>
+
+        {/* regular speakers */}
+        <SpeakersContainer>
+          {speakers.map((speaker, i) => (
+            <Speaker speaker={speaker} key={i} />
           ))}
         </SpeakersContainer>
 
@@ -55,6 +35,45 @@ const Speakers = () => {
     </Container>
   );
 };
+
+function Speaker({speaker}: {speaker: SpeakerProps}) {
+  return (
+    <SpeakerContainer>
+      <SpeakerIcon canHover={!!speaker.profile} isKeynote={speaker.keynote}>
+        <A
+          href={speaker.profile}
+          target="_blank"
+          rel="noopener noreferrer"
+          disabled={!speaker.profile}
+        >
+          <RoundedImageWrapper>
+            <Image src={speaker.img} style={{borderRadius: '100%'}}  fill alt={speaker.name} />
+          </RoundedImageWrapper>
+        </A>
+      </SpeakerIcon>
+      <SpeakerName canHover={!!speaker.profile}>
+        <A
+          href={speaker.profile}
+          target="_blank"
+          rel="noopener noreferrer"
+          disabled={!speaker.profile}
+        >
+          {speaker.name}
+        </A>
+      </SpeakerName>
+      <SpeakerCompany canHover={!!speaker.companyLink}>
+        <A
+          href={speaker.companyLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          disabled={!speaker.companyLink}
+        >
+          {speaker.company}
+        </A>
+      </SpeakerCompany>
+    </SpeakerContainer>
+  )
+}
 
 export default Speakers;
 
@@ -113,8 +132,8 @@ const SpeakerContainer = styled.div`
 `;
 
 const SpeakerIcon = styled.div<{ canHover: boolean, isKeynote: boolean }>`
-  width: ${(props) => (props.isKeynote ? "180px" : "100px")};
-  height: ${(props) => (props.isKeynote ? "180px" : "100px")};
+  width: ${(props) => (props.isKeynote ? "180px" : "110px")};
+  height: ${(props) => (props.isKeynote ? "180px" : "110px")};
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -148,4 +167,11 @@ const SpeakerCompany = styled(SpeakerName)`
 const A = styled.a<{ disabled: boolean }>`
   pointer-events: ${(props) => props.disabled && "none"};
   cursor: ${(props) => (props.disabled ? "default" : "pointer")};
+`;
+
+const RoundedImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
 `;
