@@ -1,37 +1,21 @@
-// lib/apollo-provider.js
 "use client";
 
-import { ApolloLink, HttpLink } from "@apollo/client";
-import {
-  ApolloNextAppProvider,
-  NextSSRInMemoryCache,
-  NextSSRApolloClient,
-  SSRMultipartLink,
-} from "@apollo/experimental-nextjs-app-support/ssr";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
-export function makeClient() {
-  const httpLink = new HttpLink({
-      uri: "https://us-east-1-shared-usea1-02.cdn.hygraph.com/content/clrhiw5ac1aas01w2yynlhlw9/master",
+const createApolloClient = () => {
+  return new ApolloClient({
+    uri: "https://us-east-1-shared-usea1-02.cdn.hygraph.com/content/clrhiw5ac1aas01w2yynlhlw9/master",
+    cache: new InMemoryCache(),
   });
-
-  return new NextSSRApolloClient({
-    cache: new NextSSRInMemoryCache(),
-    link:
-      typeof window === "undefined"
-        ? ApolloLink.from([
-            new SSRMultipartLink({
-              stripDefer: true,
-            }),
-            httpLink,
-          ])
-        : httpLink,
-  });
-}
+};
 
 export function ApolloWrapper({ children }: React.PropsWithChildren) {
+
+  const client = createApolloClient()
+
   return (
-    <ApolloNextAppProvider makeClient={makeClient}>
+    <ApolloProvider client={client}>
       {children}
-    </ApolloNextAppProvider>
+    </ApolloProvider>
   );
 }

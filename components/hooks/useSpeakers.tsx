@@ -1,6 +1,6 @@
-"use client"
+// "use client"
 
-import { gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 
@@ -38,7 +38,7 @@ const query = gql`query Speakers {
  */
 export const useSpeakers = () => {
 
-  const { data } = useSuspenseQuery<{speakers: SpeakerProps[]}>(query);
+  const { data } = useQuery<{speakers: SpeakerProps[]}>(query);
 
   const all = data?.speakers || [];
 

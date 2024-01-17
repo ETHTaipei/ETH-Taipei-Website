@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
