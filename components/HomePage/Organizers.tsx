@@ -50,7 +50,7 @@ export default Organizers;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.yInMnBlue};
+  // background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
