@@ -3,16 +3,17 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import { ApolloWrapper } from "../providers/apollo";
 
 const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props;
 
   return (
-    <>
+    <ApolloWrapper>
       <Header />
       <Main>{children}</Main>
       <Footer />
-    </>
+    </ApolloWrapper>
   );
 };
 

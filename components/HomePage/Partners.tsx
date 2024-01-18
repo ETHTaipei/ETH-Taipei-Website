@@ -4,25 +4,29 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
-import partners from "@/public/constant/partners";
-import mediaPartners from "@/public/constant/mediaPartners";
+import { useMediaPartners } from "../hooks/useMediaPartners";
+import { usePartners } from "../hooks/usePartners";
 
 const Partners = () => {
+
+  const {mediaPartners} = useMediaPartners()
+  const {partners} = usePartners();
+
   return (
     <Container>
       <MainContent>
         <Title>{t.homepage.partners}</Title>
-        Coming soon
         <SponsorsContainer>
           {partners.map((partner) => (
             <SponsorBtn
               key={partner.name}
               onClick={() => openNewTab(partner.url)}
             >
-              <Image src={partner.logo} fill alt={partner.name} />
+              <Image src={partner.img} fill alt={partner.name} />
             </SponsorBtn>
           ))}
         </SponsorsContainer>
+        
         <MDPartnerTitle>{t.homepage.mediaPartners}</MDPartnerTitle>
         <SponsorsContainer>
           {mediaPartners.map((mediaPartner) => (
@@ -30,7 +34,7 @@ const Partners = () => {
               key={mediaPartner.name}
               onClick={() => openNewTab(mediaPartner.url)}
             >
-              <Image src={mediaPartner.logo} fill alt={mediaPartner.name} />
+              <Image src={mediaPartner.img} fill alt={mediaPartner.name} />
             </MDPartnerBtn>
           ))}
         </SponsorsContainer>
@@ -44,7 +48,6 @@ export default Partners;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
