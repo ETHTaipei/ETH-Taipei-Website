@@ -4,13 +4,12 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
-import {
-  goldSponsors,
-  silverSponsors,
-  bronzeSponsors,
-} from "@/public/constant/sponsors";
+import { useSponsors } from "../hooks/useSponsors";
 
 const Sponsors = () => {
+
+  const {  goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
+
   return (
     <Container>
       <MainContent>
@@ -19,7 +18,7 @@ const Sponsors = () => {
           {[...goldSponsors, ...silverSponsors, ...bronzeSponsors].map((s) => (
             <SponsorBtn key={s.name} onClick={() => openNewTab(s.url)}>
               <StyledImage
-                src={s.logo}
+                src={s.img}
                 alt={s.name}
                 width={s.width}
                 height={s.height}
@@ -91,7 +90,7 @@ const SponsorBtn = styled.button`
   }
 `;
 
-const StyledImage = styled(Image)<{ width: number; height: number }>`
+const StyledImage = styled(Image)<{ width: number; height?: number }>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
   @media (max-width: 768px) {

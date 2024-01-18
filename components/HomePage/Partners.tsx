@@ -51,6 +51,7 @@ const Container = styled.div`
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
+  background-color: ${Colors.yInMnBlue};
 `;
 
 const MainContent = styled.div`
