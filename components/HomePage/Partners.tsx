@@ -4,27 +4,28 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
-import partners from "@/public/constant/partners";
 import { useMediaPartners } from "../hooks/useMediaPartners";
+import { usePartners } from "../hooks/usePartners";
 
 const Partners = () => {
 
   const {mediaPartners} = useMediaPartners()
+  const {partners} = usePartners();
 
   return (
     <Container>
       <MainContent>
-        {/* <Title>{t.homepage.partners}</Title> */}
-        {/* <SponsorsContainer>
+        <Title>{t.homepage.partners}</Title>
+        <SponsorsContainer>
           {partners.map((partner) => (
             <SponsorBtn
               key={partner.name}
               onClick={() => openNewTab(partner.url)}
             >
-              <Image src={partner.logo} fill alt={partner.name} />
+              <Image src={partner.img} fill alt={partner.name} />
             </SponsorBtn>
           ))}
-        </SponsorsContainer> */}
+        </SponsorsContainer>
         
         <MDPartnerTitle>{t.homepage.mediaPartners}</MDPartnerTitle>
         <SponsorsContainer>
