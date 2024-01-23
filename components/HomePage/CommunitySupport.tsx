@@ -4,9 +4,12 @@ import styled from "styled-components";
 import Image from "next/image";
 import { openNewTab } from "@/public/utils/common";
 import t from "@/public/constant/content";
-import communitySupports from "@/public/constant/communitySupports";
+import { useCommunitySupport } from "../hooks/useCommunitySupport";
 
 const CommunitySupport = () => {
+
+  const { communitySupports } = useCommunitySupport()
+
   return (
     <Container>
       <MainContent>
@@ -17,7 +20,7 @@ const CommunitySupport = () => {
               key={community.name}
               onClick={() => openNewTab(community.url)}
             >
-              <Image src={community.logo} fill alt={community.name} />
+              <Image src={community.img} fill alt={community.name} />
             </CommunityBtn>
           ))}
         </CommunitiesContainer>
@@ -31,7 +34,7 @@ export default CommunitySupport;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.yInMnBlue};
+  background-color: ${Colors.lightBlue2};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
