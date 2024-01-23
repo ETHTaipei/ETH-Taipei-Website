@@ -9,7 +9,6 @@ const Colors = {
   pennBlue: "#0A1E4E",
   aero: "#59B2D6",
   yInMnBlue: "#f0f5ff",
-  lightBlue2: "#cbdff7",
   columbiaBlue: "#C2E2EE",
   btnBlue: "#44a4e3",
   seaSalt: "#FAFBFA",

@@ -34,7 +34,7 @@ export default CommunitySupport;
 const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.lightBlue2};
+  background-color: ${Colors.yInMnBlue};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
