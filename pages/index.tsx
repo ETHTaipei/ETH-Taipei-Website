@@ -27,7 +27,7 @@ const Home = () => {
       <Sponsors />
       <Partners />
       <Organizers />
-      {/* <CommunitySupport /> */}
+      <CommunitySupport />
     </div>
   );
 };

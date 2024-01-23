@@ -10,7 +10,7 @@ type PartnerType = {
 };
 
 const query = gql`query partners {
-  partners (where: {show:true, isCommunitySupport:false}) {
+  partners (where: {show:true, isCommunitySupport:true}) {
     url
     name
     img
@@ -18,11 +18,11 @@ const query = gql`query partners {
 }
 `;
 
-export const usePartners = () => {
+export const useCommunitySupport = () => {
 
   const { data } = useQuery<{partners: PartnerType[]}>(query);
 
-  const partners = data?.partners || [];
+  const communitySupports = data?.partners || [];
 
-  return {  partners };
+  return {  communitySupports };
 };

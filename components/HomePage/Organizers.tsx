@@ -2,10 +2,13 @@ import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
-import organizers from "@/public/constant/organizers";
 import Image from "next/image";
+import { useOrganizers } from "../hooks/useOrganizers";
 
 const Organizers = () => {
+
+  const {organizers} = useOrganizers()
+
   return (
     <Container>
       <MainContent>
@@ -13,17 +16,17 @@ const Organizers = () => {
         <SpeakersContainer>
           {organizers.map((o, i) => (
             <SpeakerContainer key={i}>
-              <SpeakerIcon canHover={!!o.twitter}>
-                {!!o.twitter ? (
-                  <a href={o.twitter} target="_blank" rel="noopener noreferrer">
-                    <Image src={o.src} fill alt={o.name} />
+              <SpeakerIcon canHover={!!o.profile}>
+                {!!o.profile ? (
+                  <a href={o.profile} target="_blank" rel="noopener noreferrer">
+                    <Image src={o.img} fill alt={o.name} />
                   </a>
                 ) : (
-                  <Image src={o.src} fill alt={o.name} />
+                  <Image src={o.img} fill alt={o.name} />
                 )}
               </SpeakerIcon>
-              <SpeakerName canHover={!!o.twitter}>
-                <a href={o.twitter} target="_blank" rel="noopener noreferrer">
+              <SpeakerName canHover={!!o.profile}>
+                <a href={o.profile} target="_blank" rel="noopener noreferrer">
                   {o.name}
                 </a>
               </SpeakerName>
@@ -34,7 +37,7 @@ const Organizers = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {`${o.title} @ ${o.organization}`}
+                  {`${o.titleAndCompany}`}
                 </a>
               </SpeakerCompany>
             </SpeakerContainer>
