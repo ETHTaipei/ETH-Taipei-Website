@@ -5,6 +5,7 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import {
   hackathonUrl,
+  sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
 } from "@/public/constant/urls";
@@ -38,6 +39,11 @@ const Banner = () => {
     gtagReportConversion();
   };
 
+  const handleApplySideEvent = () => {
+    openNewTab(sideEventApplyUrl);
+    gtagReportConversion();
+  };
+
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
@@ -55,14 +61,17 @@ const Banner = () => {
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
         </ActivityBtn>
       </ActivitiesContainer>
-      <ActivitiesContainer>
+      <ApplicationsContainer>
         <ActivityBtn onClick={handleApplySpeaker}>
           <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
         </ActivityBtn>
         <ActivityBtn onClick={handleApplySponsor}>
           <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
         </ActivityBtn>
-      </ActivitiesContainer>
+        <ActivityBtn onClick={handleApplySideEvent}>
+          <ActivityTitle>{t.homepage.applyToSideEvent}</ActivityTitle>
+        </ActivityBtn>
+      </ApplicationsContainer>
     </Container>
   );
 };
@@ -109,6 +118,21 @@ const ActivitiesContainer = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 450px;
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+`;
+
+const ApplicationsContainer = styled.div`
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 750px;
   @media (max-width: 768px) {
     padding: 0 24px;
   }
