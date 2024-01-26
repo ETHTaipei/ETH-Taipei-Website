@@ -36,6 +36,7 @@ const homepage = {
   recapGoBackText: "Want to see more? Let's go back to ",
   applyToSpeak: "Apply to Speak",
   applyToSponsor: "Apply to Sponsor",
+  applyToSideEvent: "Apply to Side Event",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",
