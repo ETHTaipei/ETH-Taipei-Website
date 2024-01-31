@@ -13,7 +13,7 @@ export type SpeakerProps = {
 };
 
 const query = gql`query Speakers {
-  speakers (where: { show: true }) {
+  speakers (first: 100, where: { show: true }) {
     name
     company
     companyLink
