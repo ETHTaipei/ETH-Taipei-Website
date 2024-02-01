@@ -12,7 +12,7 @@ export type SpeakerProps = {
 };
 
 const query = gql`query sponsors {
-  sponsors (where: {show:true}) {
+  sponsors (first: 100, where: {show:true}) {
     url
     name
     img

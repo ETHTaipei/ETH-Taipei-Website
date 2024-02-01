@@ -11,7 +11,7 @@ type OrganizerType = {
 };
 
 const query = gql`query organizers {
-  organizers {
+  organizers (first: 20) {
     name
     titleAndCompany
     profile

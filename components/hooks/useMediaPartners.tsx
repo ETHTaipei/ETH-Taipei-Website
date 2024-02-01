@@ -10,7 +10,7 @@ type MediaPartnerProps = {
 };
 
 const query = gql`query partners {
-  mediaPartner (where: {show:true}) {
+  mediaPartner (first: 100, where: {show:true}) {
     url
     name
     img

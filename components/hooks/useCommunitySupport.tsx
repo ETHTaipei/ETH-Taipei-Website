@@ -10,7 +10,7 @@ type PartnerType = {
 };
 
 const query = gql`query partners {
-  partners (where: {show:true, isCommunitySupport:true}) {
+  partners (first: 20, where: {show:true, isCommunitySupport:true}) {
     url
     name
     img
