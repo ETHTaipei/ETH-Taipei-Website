@@ -8,6 +8,7 @@ import {
   sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
+  tickSiteUrl,
 } from "@/public/constant/urls";
 import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import banner from "@/public/images/vertical-transparent.png";
@@ -20,7 +21,7 @@ const Banner = () => {
   };
 
   const handleOpenUnlock = () => {
-    window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+    openNewTab(tickSiteUrl);
     gtagReportConversion();
   };
 
