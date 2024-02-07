@@ -6,10 +6,11 @@ export const sponsorApplyUrl = "https://forms.gle/QDbDJrxyapPLk9me8";
 export const speakerApplyUrl = "https://forms.gle/ytf9qguqkY1ANucf6";
 export const sideEventApplyUrl = "https://forms.gle/gqcuPF99MtwnM7ve9";
 export const hackathonUrl =
-  "https://taikai.network/ethtaipei/hackathons/hackathon";
+  "https://taikai.network/ethtaipei/hackathons/hackathon-2024";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
 export const sideEventFormUrl =
   "https://jameshih.notion.site/Side-Events-484e1ca76e4c47549e1b66092183d8ec";
+export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";

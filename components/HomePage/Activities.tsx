@@ -1,14 +1,14 @@
 import t from "@/public/constant/content";
 import { openNewTab } from "@/public/utils/common";
-import { hackathonUrl } from "@/public/constant/urls";
+import { hackathonUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import gtagReportConversion from "@/public/utils/gtag";
 
 const Activities = () => {
-  const handleOpenUnlock = () => {
-    window?.unlockProtocol && window?.unlockProtocol.loadCheckoutModal();
+  const handleConfOnClink = () => {
+    openNewTab(tickSiteUrl);
     gtagReportConversion();
   };
 
@@ -26,7 +26,7 @@ const Activities = () => {
           <ActivityDescription>
             {t.homepage.conferenceIntro}
           </ActivityDescription>
-          <Btn disabled={true} onClick={handleOpenUnlock}>
+          <Btn onClick={handleConfOnClink}>
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
@@ -34,7 +34,7 @@ const Activities = () => {
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
-          <Btn onClick={handleHackathonOnClick} disabled>
+          <Btn onClick={handleHackathonOnClick}>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
