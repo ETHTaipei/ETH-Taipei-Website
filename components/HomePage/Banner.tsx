@@ -5,6 +5,7 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import {
   hackathonUrl,
+  mediaPartnerApplyUrl,
   sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
@@ -40,6 +41,11 @@ const Banner = () => {
     gtagReportConversion();
   };
 
+  const handleBecomeMediaPartner = () => {
+    openNewTab(mediaPartnerApplyUrl);
+    gtagReportConversion();
+  };
+
   const handleApplySideEvent = () => {
     openNewTab(sideEventApplyUrl);
     gtagReportConversion();
@@ -68,6 +74,9 @@ const Banner = () => {
         </ActivityBtn>
         <ActivityBtn onClick={handleApplySponsor}>
           <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleBecomeMediaPartner}>
+          <ActivityTitle>{t.homepage.applyToMediaPartner}</ActivityTitle>
         </ActivityBtn>
         <ActivityBtn onClick={handleApplySideEvent}>
           <ActivityTitle>{t.homepage.applyToSideEvent}</ActivityTitle>
