@@ -82,6 +82,9 @@ const visa = {
     "ETHTaipei can provide invitation letters for business visas. Please contact us via ",
   telegram: "telegram",
   visaAnswer2Part2: ".",
+  visaInvitationLetter1: "If you need the invitation letter, please fill ",
+  visaInvitationLetter2: "this form",
+  visaInvitationLetter3: " and we'll contact you within a week.",
 };
 
 const goldcard = {

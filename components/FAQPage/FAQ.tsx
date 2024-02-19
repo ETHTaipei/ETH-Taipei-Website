@@ -1,19 +1,20 @@
+import {
+  invitationLetterForm2024Url,
+  telegramUrl,
+  visaUrl,
+} from "@/public/constant/urls";
 import Colors from "@/styles/colors";
-import React from "react";
-import styled from "styled-components";
 import Image from "next/image";
-import { visaUrl, telegramUrl, sideEventFormUrl } from "@/public/constant/urls";
+import styled from "styled-components";
 
-import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 import t from "@/public/constant/content";
+import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
 
 const FAQ = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
-      <Row>
-        </Row>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>
           <Description>
@@ -33,6 +34,15 @@ const FAQ = () => {
             </Link>
             {t.visa.visaAnswer2Part2}
           </Description>
+        </Row>
+        <Row>
+          <Title>
+            {t.visa.visaInvitationLetter1}
+            <Link href={invitationLetterForm2024Url}>
+              {t.visa.visaInvitationLetter2}
+            </Link>
+            {t.visa.visaInvitationLetter3}
+          </Title>
         </Row>
       </MainContent>
     </Container>
