@@ -66,6 +66,13 @@ const navItems = [
     isNewTab: false,
     isPlugin: false,
   },
+  {
+    label: t.navs.goldcard,
+    value: "/goldcard",
+    disabled: false,
+    isNewTab: false,
+    isPlugin: false,
+  },
 ];
 
 function Header() {

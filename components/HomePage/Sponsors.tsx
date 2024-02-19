@@ -20,7 +20,7 @@ const Sponsors = () => {
               <StyledImage
                 src={s.img}
                 alt={s.name}
-                width={s.width}
+                width={s.width || 250}
                 height={s.height}
               />
             </SponsorBtn>

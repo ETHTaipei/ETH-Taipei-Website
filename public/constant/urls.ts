@@ -84,3 +84,31 @@ export const remindersUrl =
 
 export const ethTaipei2023Url = "https://2023.ethtaipei.org/";
 export const ethTaipei2023AgendaUrl = "https://2023.ethtaipei.org/agenda";
+
+export const goldcard1on1ServiceUrl =
+  "https://seminars.tca.org.tw/D10o04091.aspx?utm_source=TBW_website&utm_medium=TBW_website&utm_campaign=TBW&utm_id=TBW_website";
+export const goldcardApplySubsidyUrl =
+  "https://digigoldcard.tca.org.tw/page/a87ff679a2f3e71d9181a67b7542122c";
+export const goldcardADIUrl = "https://moda.gov.tw/en/ADI/";
+export const goldcardTCAUrl = "https://www.tca.org.tw/en/";
+export const goldcardSubsidyGuidelineUrl =
+  "https://digigoldcard.tca.org.tw/page/c81e728d9d4c2f636f067f89cc14862c";
+export const goldcardSubsidyPressReleaseUrl =
+  "https://digigoldcard.tca.org.tw/news/eccbc87e4b5ce2fe28308fd9f2a7baf3";
+export const goldcardApplyUrl = "https://goldcard.nat.gov.tw/en/";
+export const goldcardApplyLearnMoreENUrl =
+  "https://image.tca.org.tw/unblock/EDM1121006143206/";
+export const goldcardApplyLearnMoreCHUrl =
+  "https://image.tca.org.tw/unblock/EDM1121006143058/";
+export const goldcardImgUrl =
+  "https://images.squarespace-cdn.com/content/v1/62e43f6fccb8357cfc29e4de/b8ca0c1e-f946-429c-93d1-25d7c8705a3d/Taiwan+Gold+Card.png?format=750w";
+export const goldcardQualificationsUrl =
+  "https://goldcard.nat.gov.tw/en/qualification/";
+export const goldcardApplicationDetailUrl =
+  "https://goldcard.nat.gov.tw/en/application/";
+export const goldcardDIGILinkedInUrl =
+  "https://www.linkedin.com/company/digigoldcard/";
+export const goldcardJillChangMailUrl = "mailto:jill_chang@mail.tca.org.tw";
+export const goldcardDanaLiuMailUrl = "mailto:preedanan@mail.tca.org.tw";
+export const goldcardVickyHoMailUrl = "mailto:vicky_ho@mail.tca.org.tw";
+export const goldcardKellyChuangMailUrl = "mailto:kelly_chuang@mail.tca.org.tw";
