@@ -37,6 +37,7 @@ const homepage = {
   applyToSpeak: "Apply to Speak",
   applyToSponsor: "Apply to Sponsor",
   applyToSideEvent: "Apply to Side Event",
+  applyToMediaPartner: "Become Media Partner",
   keyNoteSpeakers: "Keynote Speakers",
   addYour: "Add Your",
   sideEvents: "Side Events",

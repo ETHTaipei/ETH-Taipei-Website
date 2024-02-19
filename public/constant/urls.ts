@@ -5,6 +5,7 @@ export const telegramUrl = "https://t.me/ethtaipei";
 export const sponsorApplyUrl = "https://forms.gle/QDbDJrxyapPLk9me8";
 export const speakerApplyUrl = "https://forms.gle/ytf9qguqkY1ANucf6";
 export const sideEventApplyUrl = "https://forms.gle/gqcuPF99MtwnM7ve9";
+export const mediaPartnerApplyUrl = "https://forms.gle/jhMaFmYsYZN21nJ49";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon-2024";
 export const sideEventUrl = " https://tally.so/r/wgboMN";
@@ -113,5 +114,4 @@ export const goldcardDanaLiuMailUrl = "mailto:preedanan@mail.tca.org.tw";
 export const goldcardVickyHoMailUrl = "mailto:vicky_ho@mail.tca.org.tw";
 export const goldcardKellyChuangMailUrl = "mailto:kelly_chuang@mail.tca.org.tw";
 
-export const invitationLetterForm2024Url =
-  "https://docs.google.com/forms/d/e/1FAIpQLSemYCF91TvowJk09EHwDHxxQAp7W6BslBQz8B_0ulxsSblbPQ/viewform";
+export const invitationLetter2024Url = "https://forms.gle/y5Br2Z7mtcyBXNuBA";

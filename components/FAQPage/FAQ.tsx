@@ -1,5 +1,5 @@
 import {
-  invitationLetterForm2024Url,
+  invitationLetter2024Url,
   telegramUrl,
   visaUrl,
 } from "@/public/constant/urls";
@@ -38,7 +38,7 @@ const FAQ = () => {
         <Row>
           <Title>
             {t.visa.visaInvitationLetter1}
-            <Link href={invitationLetterForm2024Url}>
+            <Link href={invitationLetter2024Url}>
               {t.visa.visaInvitationLetter2}
             </Link>
             {t.visa.visaInvitationLetter3}
