@@ -168,7 +168,8 @@ const goldcard = {
   goldcardFAQAnswer5_1: "LinkedIn:",
   goldcardFAQAnswer5_2: "DIGI Gold Card Community",
   goldcardFAQAnswer5_3: "Gold Card Questions:",
-  goldcardFAQAnswer5_4: "hello@digigoldcard.tw",
+  goldcardFAQAnswer5_4: "Contact here",
+  goldcardFAQAnswer5_5: "hello@digigoldcard.tw",
 
   goldcardFAQQuestion6: "How do I get this industry exchange travel subsidy?",
   goldcardFAQAnswer6_1:

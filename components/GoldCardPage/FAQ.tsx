@@ -77,27 +77,6 @@ const FAQ = () => {
               {t.goldcard.goldcardFAQAnswer5_5}
             </A>
           </div>
-          <div>
-            {t.goldcard.goldcardFAQAnswer5_6}{" "}
-            <A href={goldcardDanaLiuMailUrl} rel="noopener noreferrer">
-              {t.goldcard.goldcardFAQAnswer5_7}
-            </A>
-          </div>
-        </Description>
-        <Description>
-          {t.goldcard.goldcardFAQAnswer5_8}
-          <div>
-            {t.goldcard.goldcardFAQAnswer5_9}{" "}
-            <A href={goldcardVickyHoMailUrl} rel="noopener noreferrer">
-              {t.goldcard.goldcardFAQAnswer5_10}
-            </A>
-          </div>
-          <div>
-            {t.goldcard.goldcardFAQAnswer5_11}{" "}
-            <A href={goldcardKellyChuangMailUrl} rel="noopener noreferrer">
-              {t.goldcard.goldcardFAQAnswer5_12}
-            </A>
-          </div>
         </Description>
         <Question>{t.goldcard.goldcardFAQQuestion6}</Question>
         <Description>{t.goldcard.goldcardFAQAnswer6_1}</Description>
