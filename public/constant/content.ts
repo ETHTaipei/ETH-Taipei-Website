@@ -166,18 +166,9 @@ const goldcard = {
 
   goldcardFAQQuestion5: "Who can I contact about the Gold Card?",
   goldcardFAQAnswer5_1: "LinkedIn:",
-  goldcardFAQAnswer5_2: "Team DIGI Gold Card",
-  goldcardFAQAnswer5_3: "General Gold Card Questions:",
-  goldcardFAQAnswer5_4: "Jill Chang",
-  goldcardFAQAnswer5_5: "jill_chang@mail.tca.org.tw",
-  goldcardFAQAnswer5_6: "Dana Liu",
-  goldcardFAQAnswer5_7: "preedanan@mail.tca.org.tw",
-  goldcardFAQAnswer5_8:
-    "Application of Industry Exchange Incentives Questions:",
-  goldcardFAQAnswer5_9: "Vicky Ho",
-  goldcardFAQAnswer5_10: "vicky_ho@mail.tca.org.tw",
-  goldcardFAQAnswer5_11: "Kelly Chuang",
-  goldcardFAQAnswer5_12: "kelly_chuang@mail.tca.org.tw",
+  goldcardFAQAnswer5_2: "DIGI Gold Card Community",
+  goldcardFAQAnswer5_3: "Gold Card Questions:",
+  goldcardFAQAnswer5_4: "hello@digigoldcard.tw",
 
   goldcardFAQQuestion6: "How do I get this industry exchange travel subsidy?",
   goldcardFAQAnswer6_1:
