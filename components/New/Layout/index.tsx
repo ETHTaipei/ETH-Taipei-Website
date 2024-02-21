@@ -21,8 +21,4 @@ export default Layout;
 const Main = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding-top: 70px;
-  @media (max-width: 992px) {
-    padding-top: 60px;
-  }
 `;

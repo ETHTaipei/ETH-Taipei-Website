@@ -56,6 +56,18 @@ const homepage = {
   openingandKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
   sponsors: "Sponsors",
+
+  bannerTitle_1: "ETH",
+  bannerTitle_2: "Taipei",
+  bannerTitle_3: "2024",
+  bannerSubTitle: "Unleashing a New Era of Blockchain in Taiwan",
+  bannerInfoTitle_1: "Conference",
+  bannerInfoDesc_1: "21-22 March 2024",
+  bannerInfoTitle_2: "Hackathon",
+  bannerInfoDesc_2: "22-24 March 2024",
+  bannerInfoTitle_3: "POPOP Taipei",
+  bannerInfoDesc_3:
+    "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
 };
 
 const agendaPage = {

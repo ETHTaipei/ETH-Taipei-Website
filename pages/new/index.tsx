@@ -1,7 +1,12 @@
+import Banner from "@/components/New/HomePage/Banner";
 import Layout from "@/components/New/Layout";
 
 const New = () => {
-  return <div>New Design</div>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 };
 
 New.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
