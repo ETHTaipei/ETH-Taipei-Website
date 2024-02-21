@@ -1,10 +1,16 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
-import Layout from "@/components/Layout";
+
+import MainLayout from "@/components/Layout";
 import t from "@/public/constant/content";
+import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const getLayout =
+    (Component as any).getLayout ||
+    ((page: React.ReactNode) => <MainLayout>{page}</MainLayout>);
+  const Layout = getLayout(<Component {...pageProps} />);
+
   return (
     <div>
       <ResetStyle />
@@ -38,9 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://ethtaipei.org/images/meta_image.png"
         />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {Layout}
     </div>
   );
 }
