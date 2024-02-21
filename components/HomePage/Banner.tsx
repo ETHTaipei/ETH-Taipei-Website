@@ -11,7 +11,7 @@ import {
   sponsorApplyUrl,
   tickSiteUrl,
 } from "@/public/constant/urls";
-import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
+import bgImage from "@/public/images/eth-taipei-banner-2024-2.jpg";
 import banner from "@/public/images/vertical-transparent.png";
 import { openNewTab } from "@/public/utils/common";
 import gtagReportConversion from "@/public/utils/gtag";
@@ -53,10 +53,10 @@ const Banner = () => {
 
   return (
     <Container>
-      <Image src={bgImage} fill quality={100} alt="bgImage" />
+      <Image src={bgImage} fill quality={100} style={{ opacity: 0.18 }} alt="bgImage" />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
-        <YearWatermark>2024</YearWatermark>
+        {/* <YearWatermark>2024</YearWatermark> */}
       </ImageContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
@@ -70,16 +70,16 @@ const Banner = () => {
       </ActivitiesContainer>
       <ApplicationsContainer>
         <ActivityBtn onClick={handleApplySpeaker}>
-          <ActivityTitle>{t.homepage.applyToSpeak}</ActivityTitle>
+          <ActivityTitle2>{t.homepage.applyToSpeak}</ActivityTitle2>
         </ActivityBtn>
         <ActivityBtn onClick={handleApplySponsor}>
-          <ActivityTitle>{t.homepage.applyToSponsor}</ActivityTitle>
-        </ActivityBtn>
-        <ActivityBtn onClick={handleBecomeMediaPartner}>
-          <ActivityTitle>{t.homepage.applyToMediaPartner}</ActivityTitle>
+          <ActivityTitle2>{t.homepage.applyToSponsor}</ActivityTitle2>
         </ActivityBtn>
         <ActivityBtn onClick={handleApplySideEvent}>
-          <ActivityTitle>{t.homepage.applyToSideEvent}</ActivityTitle>
+          <ActivityTitle2>{t.homepage.applyToSideEvent}</ActivityTitle2>
+        </ActivityBtn>
+        <ActivityBtn onClick={handleBecomeMediaPartner}>
+          <ActivityTitle2>{t.homepage.applyToMediaPartner}</ActivityTitle2>
         </ActivityBtn>
       </ApplicationsContainer>
     </Container>
@@ -154,7 +154,7 @@ const ApplicationsContainer = styled.div`
 const ActivityBtn = styled.button`
   flex: 1;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
   background-color: ${Colors.seaSalt};
   display: flex;
   flex-direction: column;
@@ -169,7 +169,7 @@ const ActivityBtn = styled.button`
 `;
 
 const ActivityTitle = styled.h2`
-  font-size: 20px;
+  font-size: 25px;
   line-height: 28px;
   font-weight: bold;
   color: ${Colors.pennBlue};
@@ -179,6 +179,13 @@ const ActivityTitle = styled.h2`
 const ActivityDate = styled.h3`
   font-size: 20px;
   line-height: 24px;
+  color: ${Colors.pennBlue};
+  display: block;
+`;
+
+const ActivityTitle2 = styled.h2`
+  font-size: 20px;
+  line-height: 28px;
   color: ${Colors.pennBlue};
   display: block;
 `;
