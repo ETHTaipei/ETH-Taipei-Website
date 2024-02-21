@@ -16,7 +16,6 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <PromoteCallToAction />
       <Recap />
       <CountdownTimer />
       <Introduction />
@@ -28,6 +27,7 @@ const Home = () => {
       <Partners />
       <Organizers />
       <CommunitySupport />
+      <PromoteCallToAction />
     </div>
   );
 };
