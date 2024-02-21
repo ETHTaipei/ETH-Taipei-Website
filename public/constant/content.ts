@@ -70,6 +70,10 @@ const navs = {
   hackathon: "Hackathon",
   faq: "FAQ",
   goldcard: "Gold Card",
+
+  ticket: "Ticket",
+  apply: "Apply",
+  applyToSideEvent: "Side Event",
 };
 
 const visa = {
