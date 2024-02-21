@@ -38,13 +38,13 @@ const navItems = [
     isNewTab: true,
     isPlugin: false,
   },
-  {
-    label: t.navs.home,
-    value: "/",
-    disabled: false,
-    isNewTab: false,
-    isPlugin: false,
-  },
+  // {
+  //   label: t.navs.home,
+  //   value: "/",
+  //   disabled: false,
+  //   isNewTab: false,
+  //   isPlugin: false,
+  // },
   {
     label: t.navs.agenda,
     value: "/agenda",
