@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:description" content={t.common.ethTaipeiIntro} />
         <meta
           property="og:image"
-          content="https://ethtaipei.org/images/meta_image.png"
+          content="https://ethtaipei.org/images/ethtaipei-meta-image.jpg"
         />
 
         {/* Twitter */}
@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="twitter:image"
-          content="https://ethtaipei.org/images/meta_image.png"
+          content="https://ethtaipei.org/images/ethtaipei-meta-image.jpg"
         />
       </Head>
       <Layout>
