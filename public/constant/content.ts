@@ -85,6 +85,18 @@ const homepage = {
   introductionCardDesc_3_2: "here",
   introductionCardDesc_3_3:
     ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
+
+  activityTitle: "ETHTaipei 2024 Events",
+  activityName_1: "Conference",
+  activityDesc_1:
+    "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
+  activityDate_1: "21-22 March 2024",
+  activityBtn_1: "Coming Soon",
+  activityName_2: "Hackathon",
+  activityDesc_2:
+    "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
+  activityDate_2: "22-24 March 2024",
+  activityBtn_2: "View Now",
 };
 
 const agendaPage = {
