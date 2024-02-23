@@ -219,8 +219,6 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const MenuBtn = styled.div`
-  background-color: pink;
-
   display: none;
   cursor: pointer;
   @media (max-width: 992px) {

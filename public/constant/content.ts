@@ -68,6 +68,23 @@ const homepage = {
   bannerInfoTitle_3: "POPOP Taipei",
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
+
+  introductionTitle_1: "What is",
+  introductionTitle_2: "ETH",
+  introductionTitle_3: "Taipei?",
+  introductionSubtitle: "Welcome to ETHTaipei the 2024 edition!!!",
+  introductionCardTitle_1: "Global Connection, Taiwan's Spotlight",
+  introductionCardDesc_1:
+    "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
+  introductionCardTitle_2: "Insights from Experts & Hands-on Experiences",
+  introductionCardDesc_2:
+    "At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.",
+  introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
+  introductionCardDesc_3_1:
+    "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition ",
+  introductionCardDesc_3_2: "here",
+  introductionCardDesc_3_3:
+    ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
 };
 
 const agendaPage = {
