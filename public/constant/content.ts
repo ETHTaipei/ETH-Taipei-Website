@@ -97,6 +97,10 @@ const homepage = {
     "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
   activityDate_2: "22-24 March 2024",
   activityBtn_2: "View Now",
+
+  recapTitle: "Recap! 2023 Edition",
+  recapViewMore: "View More",
+  recapHide: "Hide",
 };
 
 const agendaPage = {
