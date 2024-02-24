@@ -13,6 +13,7 @@ const Colors = {
   columbiaBlue: "#C2E2EE",
   btnBlue: "#44a4e3",
   seaSalt: "#FAFBFA",
+  blue1: "#37CEFF",
 };
 
 export default Colors;
