@@ -1,7 +1,6 @@
 import { ApolloWrapper } from "@/components/providers/apollo";
 
 import styled from "styled-components";
-import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
@@ -11,7 +10,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
     <ApolloWrapper>
       <Header />
       <Main>{children}</Main>
-      <Footer />
     </ApolloWrapper>
   );
 };
