@@ -82,10 +82,28 @@ function Speaker({ speaker }: { speaker: SpeakerProps }) {
 }
 
 function KeynoteSpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
+  const handleClickName = () => {
+    speaker.profile && openNewTab(speaker.profile);
+  };
+  const handleClickCompany = () => {
+    speaker.companyLink && openNewTab(speaker.companyLink);
+  };
   return (
     <SpeakerInfoContainer>
-      <SpeakerName variant="lg">{speaker.name}</SpeakerName>
-      <SpeakerCompany variant="lg">@ {speaker.company}</SpeakerCompany>
+      <SpeakerName
+        onClick={handleClickName}
+        variant="lg"
+        hasLink={!!speaker.profile}
+      >
+        {speaker.name}
+      </SpeakerName>
+      <SpeakerCompany
+        onClick={handleClickCompany}
+        variant="lg"
+        hasLink={!!speaker.companyLink}
+      >
+        @ {speaker.company}
+      </SpeakerCompany>
     </SpeakerInfoContainer>
   );
 }
@@ -94,10 +112,20 @@ function SpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
   const handleClickName = () => {
     speaker.profile && openNewTab(speaker.profile);
   };
+  const handleClickCompany = () => {
+    speaker.companyLink && openNewTab(speaker.companyLink);
+  };
   return (
     <SpeakerInfoContainer>
-      <SpeakerName onClick={handleClickName}>{speaker.name}</SpeakerName>
-      <SpeakerCompany>@ {speaker.company}</SpeakerCompany>
+      <SpeakerName onClick={handleClickName} hasLink={!!speaker.profile}>
+        {speaker.name}
+      </SpeakerName>
+      <SpeakerCompany
+        onClick={handleClickCompany}
+        hasLink={!!speaker.companyLink}
+      >
+        @ {speaker.company}
+      </SpeakerCompany>
     </SpeakerInfoContainer>
   );
 }
@@ -218,7 +246,7 @@ const SpeakerInfoContainer = styled.div`
   color: ${Colors.pennBlue};
 `;
 
-const SpeakerName = styled.div<{ variant?: "lg" }>`
+const SpeakerName = styled.div<{ variant?: "lg"; hasLink: boolean }>`
   font-size: ${({ variant }) => {
     switch (variant) {
       case "lg": {
@@ -230,19 +258,24 @@ const SpeakerName = styled.div<{ variant?: "lg" }>`
     }
   }};
   font-weight: bold;
+  text-align: center;
+  cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
 `;
 
-const SpeakerCompany = styled.div<{ variant?: "lg" }>`
+const SpeakerCompany = styled.div<{ variant?: "lg"; hasLink: boolean }>`
   font-size: ${({ variant }) => {
     switch (variant) {
       case "lg": {
         return "20px";
       }
       default: {
-        return "18px";
+        return "16px";
       }
     }
   }};
+  text-align: center;
+  line-height: 20px;
+  cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
 `;
 
 const ApplyContainer = styled.div`
