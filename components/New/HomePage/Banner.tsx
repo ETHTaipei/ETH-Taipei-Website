@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styled from "styled-components";
 
+import IconLocation from "@/components/icons/IconLocation";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
+import BackgroundVideo from "./BackgroundVideo";
 
 const Banner = () => {
   return (
@@ -34,14 +36,7 @@ const Banner = () => {
             </InfoWrapper>
           </Info>
           <Info>
-            <Icon>
-              <Image
-                src={"/images/location-tag.svg"}
-                alt="location tag"
-                fill
-                style={{ objectFit: "contain" }}
-              ></Image>
-            </Icon>
+            <IconLocation width={55} height={55} color="white" />
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
@@ -49,21 +44,7 @@ const Banner = () => {
           </Info>
         </InfoContainer>
       </MainContent>
-      <Cover />
-      <VideoContainer>
-        <video
-          autoPlay
-          muted
-          loop
-          id="background-video"
-          style={{ objectFit: "cover" }}
-          width={"100%"}
-          height={"100%"}
-        >
-          <source src="/videos/2023-eth-tpe-recap-720p.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </VideoContainer>
+      <BackgroundVideo />
     </Container>
   );
 };
@@ -82,26 +63,6 @@ const MainContent = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-`;
-
-const Cover = styled.div`
-  background-color: black;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-`;
-
-const VideoContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
 `;
 
 const TitleContainer = styled.div`
@@ -125,7 +86,8 @@ const SubTitle = styled.div`
 const InfoContainer = styled.div`
   margin-top: 30px;
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
 `;
 
 const Info = styled.div`
