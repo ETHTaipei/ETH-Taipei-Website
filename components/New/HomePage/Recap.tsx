@@ -29,7 +29,7 @@ const Recap = () => {
           {Array.from({ length: 5 }).map((_, i) => (
             <ImgContainer key={i}>
               <Image
-                src={`/images/speaker-1.jpg`}
+                src={`/images/recap-2023/${i + 1}.png`}
                 alt="Recap 2023 Edition"
                 fill
                 style={{ objectFit: "cover" }}
@@ -40,7 +40,7 @@ const Recap = () => {
             Array.from({ length: 9 }).map((_, i) => (
               <ImgContainer key={i}>
                 <Image
-                  src={`/images/speaker-2.jpg`}
+                  src={`/images/recap-2023/${i + 6}.png`}
                   alt="Recap 2023 Edition"
                   fill
                   style={{ objectFit: "cover" }}
