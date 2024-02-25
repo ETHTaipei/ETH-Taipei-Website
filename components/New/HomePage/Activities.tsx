@@ -2,8 +2,8 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import Colors from "@/styles/colors";
 import { hackathonUrl, tickSiteUrl } from "@/public/constant/urls";
+import Colors from "@/styles/colors";
 import Link from "next/link";
 
 const Activities = () => {
@@ -37,7 +37,7 @@ const Activities = () => {
                   {t.homepage.activityDate_1}
                 </ActivityDate>
                 <ActionButton isActivity={true}>
-                <Link href={tickSiteUrl} target="_blank">
+                  <Link href={tickSiteUrl} target="_blank">
                     {t.homepage.activityBtn_1}
                   </Link>
                 </ActionButton>
@@ -120,6 +120,10 @@ const ActivityCard = styled.div`
   background-color: white;
   border-radius: 16px;
   overflow: hidden;
+  @media (max-width: 830px) {
+    flex-direction: column;
+    max-width: ;
+  }
 `;
 
 const ActivityNameWrapper = styled.div`
@@ -127,6 +131,9 @@ const ActivityNameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 830px) {
+    height: 200px;
+  }
 `;
 
 const ActivityName = styled.div`
