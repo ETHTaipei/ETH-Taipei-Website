@@ -219,6 +219,9 @@ const SpeakersContainer = styled.div`
   @media (max-width: 996px) {
     grid-template-columns: repeat(3, 1fr);
   }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const SpeakerContainer = styled.div`
@@ -288,8 +291,10 @@ const ApplyContainer = styled.div`
 
 const Description = styled.div`
   font-size: 18px;
+  line-height: 24px;
   font-weight: bold;
   color: ${Colors.pennBlue};
+  text-align: center;
 `;
 
 const BeSpeakerButton = styled.button`
