@@ -69,7 +69,6 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: rgba(205, 243, 255, 0.57);
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -86,7 +85,6 @@ const Title = styled.h2`
   font-family: 'Rammetto One';
   font-size: 42px;
   font-weight: bold;
-  color: ${Colors.pennBlue};
   text-align: center;
 `;
 
