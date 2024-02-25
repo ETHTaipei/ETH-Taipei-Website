@@ -2,7 +2,7 @@
 
 import { gql, useQuery } from "@apollo/client";
 
-type OrganizerType = {
+export type OrganizerType = {
   name: string;
   titleAndCompany: string;
   profile: string;

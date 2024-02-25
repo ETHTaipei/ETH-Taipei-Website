@@ -114,15 +114,6 @@ const SponsorContainer = styled.div`
   align-items: center;
 `;
 
-const BackgroundTop = styled.div`
-  width: 100%;
-  aspect-ratio: 1920 / 2000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-`;
-
 const RoundedImageWrapper = styled.div`
   margin: 10px;
   overflow: hidden;

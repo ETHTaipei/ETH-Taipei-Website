@@ -1,3 +1,4 @@
+import Organizers from "@/components/New/HomePage/Organizers";
 import Activities from "@/components/New/HomePage/Activities";
 import Banner from "@/components/New/HomePage/Banner";
 import FloatingButton from "@/components/New/HomePage/FloatingBotton";
@@ -22,6 +23,7 @@ const New = () => {
       <Venue />
       <Sponsors />
       <Partners />
+      <Organizers />
       <Participation />
     </div>
   );
