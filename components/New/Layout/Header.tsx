@@ -218,6 +218,10 @@ const Container = styled.nav<{ isScrolledOverFirstView: boolean }>`
   font-size: 14px;
   padding: 0 50px;
 
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+
   ${(props) => {
     if (props.isScrolledOverFirstView) {
       return css`
@@ -245,6 +249,11 @@ const NavContainer = styled.div`
   justify-content: end;
   gap: 60px;
   padding: 0 60px;
+
+  @media (max-width: 600px) {
+    gap: 16px;
+    padding: 0 20px;
+  }
 `;
 
 const NavItem = styled.div`
@@ -337,13 +346,14 @@ const Menu = styled.div<{ open: boolean }>`
 const MenuContent = styled.div`
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   background-color: white;
   border-bottom-left-radius: 60px;
   padding: 20px 50px;
   z-index: 1;
-  display: grid;
-  grid-template-rows: 80px 1fr 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const MenuCover = styled.div`
