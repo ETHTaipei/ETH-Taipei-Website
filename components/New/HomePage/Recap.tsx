@@ -125,4 +125,9 @@ const ViewMoreButton = styled.button`
   font-size: 22px;
   font-family: "Rammetto One";
   cursor: pointer;
+
+  transition: all 300ms ease;
+  :hover {
+    transform: scale(1.1);
+  }
 `;
