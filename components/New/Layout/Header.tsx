@@ -149,9 +149,15 @@ const Header = () => {
             <MenuItem>
               {t.navs.apply}
               <MenuSubItemContainer>
-                <MenuSubItem>{t.navs.toSpeak}</MenuSubItem>
-                <MenuSubItem>{t.navs.toSponsor}</MenuSubItem>
-                <MenuSubItem>{t.navs.sideEvent}</MenuSubItem>
+                <MenuSubItem onClick={handleToSpeak}>
+                  {t.navs.toSpeak}
+                </MenuSubItem>
+                <MenuSubItem onClick={handleToSponsor}>
+                  {t.navs.toSponsor}
+                </MenuSubItem>
+                <MenuSubItem onClick={handleSideEvent}>
+                  {t.navs.sideEvent}
+                </MenuSubItem>
               </MenuSubItemContainer>
             </MenuItem>
             <MenuItem onClick={handleOnClickFAQ}>{t.navs.faq}</MenuItem>
