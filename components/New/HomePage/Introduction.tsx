@@ -84,6 +84,7 @@ const MainContent = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   font-size: 42px;
 `;
