@@ -1,5 +1,6 @@
 import Activities from "@/components/New/HomePage/Activities";
 import Banner from "@/components/New/HomePage/Banner";
+import FloatingButton from "@/components/New/HomePage/FloatingBotton";
 import Introduction from "@/components/New/HomePage/Introduction";
 import Recap from "@/components/New/HomePage/Recap";
 import Speakers from "@/components/New/HomePage/Speakers";
@@ -10,6 +11,7 @@ import Layout from "@/components/New/Layout";
 const New = () => {
   return (
     <div>
+      <FloatingButton />
       <Banner />
       <Recap />
       <Introduction />
