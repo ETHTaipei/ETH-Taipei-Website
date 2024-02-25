@@ -1,7 +1,7 @@
 const common = {
   ethTaipei: "ETHTaipei 2024 | March 21-24",
   ethTaipeiIntro:
-    "Welcome to the first-ever ETHTaipei event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
+    "Welcome to the ETHTaipei 2024 event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei 2024 has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
 };
 
 const homepage = {
