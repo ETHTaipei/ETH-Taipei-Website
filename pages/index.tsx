@@ -1,35 +1,34 @@
-import React from "react";
-import Banner from "@/components/HomePage/Banner";
-import Introduction from "@/components/HomePage/Introduction";
-import CountdownTimer from "@/components/HomePage/CountDownTimer";
-import Activities from "@/components/HomePage/Activities";
-import Recap from "@/components/HomePage/Recap";
-import Venue from "@/components/HomePage/Venue";
-import Speakers from "@/components/HomePage/Speakers";
-import Sponsors from "@/components/HomePage/Sponsors";
-import Partners from "@/components/HomePage/Partners";
-import Organizers from "@/components/HomePage/Organizers";
-import CommunitySupport from "@/components/HomePage/CommunitySupport";
-import PromoteCallToAction from "@/components/HomePage/PromoteCallToAction";
+import Activities from "@/components/New/HomePage/Activities";
+import Banner from "@/components/New/HomePage/Banner";
+import FloatingButton from "@/components/New/HomePage/FloatingBotton";
+import Introduction from "@/components/New/HomePage/Introduction";
+import Organizers from "@/components/New/HomePage/Organizers";
+import Participation from "@/components/New/HomePage/Participation";
+import Partners from "@/components/New/HomePage/Partners";
+import Recap from "@/components/New/HomePage/Recap";
+import Speakers from "@/components/New/HomePage/Speakers";
+import Sponsors from "@/components/New/HomePage/Sponsors";
+import Venue from "@/components/New/HomePage/Venue";
+import Layout from "@/components/New/Layout";
 
 const Home = () => {
   return (
     <div>
+      <FloatingButton />
       <Banner />
-      <PromoteCallToAction />
       <Recap />
-      <CountdownTimer />
       <Introduction />
       <Activities />
-      
-      <Venue />
       <Speakers />
+      <Venue />
       <Sponsors />
       <Partners />
       <Organizers />
-      <CommunitySupport />
+      <Participation />
     </div>
   );
 };
+
+Home.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
 
 export default Home;
