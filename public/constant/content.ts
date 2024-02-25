@@ -25,7 +25,7 @@ const homepage = {
   hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "Join",
   conferenceBtnText: "Buy Ticket",
-  promoteCallToActionTitle: "Jointly Create The Charm Event",
+  promoteCallToActionTitle: "Jointly Create a Charm Event",
   promoteCallToActionText:
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
   speakers: "Speakers",
