@@ -2,7 +2,7 @@
 
 import { gql, useQuery } from "@apollo/client";
 
-export type SpeakerProps = {
+export type SponsorProps = {
   name: string;
   url: string;
   img: string; // img
@@ -29,7 +29,7 @@ const query = gql`query sponsors {
  */
 export const useSponsors= () => {
 
-  const { data } = useQuery<{sponsors: SpeakerProps[]}>(query);
+  const { data } = useQuery<{sponsors: SponsorProps[]}>(query);
 
   const all = data?.sponsors || [];
 
