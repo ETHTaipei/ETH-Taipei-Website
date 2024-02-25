@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
+import { hackathonUrl, tickSiteUrl } from "@/public/constant/urls";
+import Link from "next/link";
 
 const Activities = () => {
   return (
@@ -34,8 +36,10 @@ const Activities = () => {
                   </Icon>
                   {t.homepage.activityDate_1}
                 </ActivityDate>
-                <ActionButton isActivity={false}>
-                  {t.homepage.activityBtn_1}
+                <ActionButton isActivity={true}>
+                <Link href={tickSiteUrl} target="_blank">
+                    {t.homepage.activityBtn_1}
+                  </Link>
                 </ActionButton>
               </ActivityActions>
             </ActivityDescWrapper>
@@ -65,7 +69,9 @@ const Activities = () => {
                   {t.homepage.activityDate_2}
                 </ActivityDate>
                 <ActionButton isActivity={true}>
-                  {t.homepage.activityBtn_2}
+                  <Link href={hackathonUrl} target="_blank">
+                    {t.homepage.activityBtn_2}
+                  </Link>
                 </ActionButton>
               </ActivityActions>
             </ActivityDescWrapper>
@@ -180,4 +186,8 @@ const ActionButton = styled.button<{ isActivity: boolean }>`
   font-size: 22px;
   font-family: "Rammetto One";
   cursor: ${(props) => (props.isActivity ? "pointer" : "not-allowed")};
+  transition: all 300ms ease;
+  :hover {
+    transform: scale(1.1);
+  }
 `;
