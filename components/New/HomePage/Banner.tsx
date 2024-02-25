@@ -55,6 +55,9 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0 80px;
+  @media (max-width: 620px) {
+    padding: 0 50px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -67,7 +70,11 @@ const MainContent = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   font-size: 70px;
+  @media (max-width: 768px) {
+    font-size: 50px;
+  }
 `;
 
 const Title = styled.h1<{ color: string }>`
@@ -79,8 +86,12 @@ const SubTitle = styled.div`
   color: white;
   font-size: 28px;
   font-weight: bold;
+  line-height: 30px;
   margin-top: 8px;
   letter-spacing: 1.8px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -92,6 +103,7 @@ const InfoContainer = styled.div`
 
 const Info = styled.div`
   display: flex;
+  flex-wrap: wrap;
   color: white;
   align-items: center;
   gap: 20px;
@@ -108,6 +120,9 @@ const InfoWrapper = styled.div``;
 const InfoTitle = styled.div`
   font-size: 21px;
   font-family: "Rammetto One";
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const InfoDescription = styled.div`

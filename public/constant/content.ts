@@ -118,7 +118,9 @@ const navs = {
 
   ticket: "Ticket",
   apply: "Apply",
-  applyToSideEvent: "Side Event",
+  toSpeak: "to Speak",
+  toSponsor: "to Sponsor",
+  sideEvent: "Side Event",
 };
 
 const visa = {
