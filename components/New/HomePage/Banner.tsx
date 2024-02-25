@@ -11,8 +11,10 @@ const Banner = () => {
     <Container>
       <MainContent>
         <TitleContainer>
+          <div style={{display: 'flex'}}>
           <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title>
           <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title>
+          </div>
           <Title color={Colors.aero}>{t.homepage.bannerTitle_3}</Title>
         </TitleContainer>
         <SubTitle>{t.homepage.bannerSubTitle}</SubTitle>
@@ -55,6 +57,10 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0 80px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -68,6 +74,15 @@ const MainContent = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   font-size: 70px;
+
+  @media (max-width: 780px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h1<{ color: string }>`
@@ -81,6 +96,10 @@ const SubTitle = styled.div`
   font-weight: bold;
   margin-top: 8px;
   letter-spacing: 1.8px;
+
+  @media (max-width: 780px) {
+    font-size: 18px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -108,6 +127,10 @@ const InfoWrapper = styled.div``;
 const InfoTitle = styled.div`
   font-size: 21px;
   font-family: "Rammetto One";
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const InfoDescription = styled.div`
