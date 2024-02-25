@@ -6,12 +6,14 @@ const Colors = {
   gray5: "#666666",
   gray6: "#333333",
   gray7: "#000000",
+  gray8: "#F6F6F6",
   pennBlue: "#0A1E4E",
   aero: "#59B2D6",
   yInMnBlue: "#f0f5ff",
   columbiaBlue: "#C2E2EE",
   btnBlue: "#44a4e3",
   seaSalt: "#FAFBFA",
+  blue1: "#37CEFF",
 };
 
 export default Colors;

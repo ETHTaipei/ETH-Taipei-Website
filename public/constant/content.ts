@@ -25,7 +25,7 @@ const homepage = {
   hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
   hackathonBtnText: "Join",
   conferenceBtnText: "Buy Ticket",
-  promoteCallToActionTitle: "Jointly Create The Charm Event",
+  promoteCallToActionTitle: "Jointly Create a Charm Event",
   promoteCallToActionText:
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
   speakers: "Speakers",
@@ -56,6 +56,51 @@ const homepage = {
   openingandKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
   sponsors: "Sponsors",
+
+  bannerTitle_1: "ETH",
+  bannerTitle_2: "Taipei",
+  bannerTitle_3: "2024",
+  bannerSubTitle: "Unleashing a New Era of Blockchain in Taiwan",
+  bannerInfoTitle_1: "Conference",
+  bannerInfoDesc_1: "21-22 March 2024",
+  bannerInfoTitle_2: "Hackathon",
+  bannerInfoDesc_2: "22-24 March 2024",
+  bannerInfoTitle_3: "POPOP Taipei",
+  bannerInfoDesc_3:
+    "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
+
+  introductionTitle_1: "What is",
+  introductionTitle_2: "ETH",
+  introductionTitle_3: "Taipei?",
+  introductionSubtitle: "Welcome to ETHTaipei the 2024 edition!!!",
+  introductionCardTitle_1: "Global Connection, Taiwan's Spotlight",
+  introductionCardDesc_1:
+    "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
+  introductionCardTitle_2: "Insights from Experts & Hands-on Experiences",
+  introductionCardDesc_2:
+    "At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.",
+  introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
+  introductionCardDesc_3_1:
+    "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition ",
+  introductionCardDesc_3_2: "here",
+  introductionCardDesc_3_3:
+    ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
+
+  activityTitle: "ETHTaipei 2024 Events",
+  activityName_1: "Conference",
+  activityDesc_1:
+    "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
+  activityDate_1: "21-22 March 2024",
+  activityBtn_1: "Ticket",
+  activityName_2: "Hackathon",
+  activityDesc_2:
+    "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
+  activityDate_2: "22-24 March 2024",
+  activityBtn_2: "View Now",
+
+  recapTitle: "Recap! 2023 Edition",
+  recapViewMore: "View More",
+  recapHide: "Hide",
 };
 
 const agendaPage = {
@@ -70,6 +115,12 @@ const navs = {
   hackathon: "Hackathon",
   faq: "FAQ",
   goldcard: "Gold Card",
+
+  ticket: "Ticket",
+  apply: "Apply",
+  toSpeak: "to Speak",
+  toSponsor: "to Sponsor",
+  sideEvent: "Side Event",
 };
 
 const visa = {
