@@ -38,11 +38,9 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
 
   return (
     <OrganizerWrapper>
-      <Link href={organizer.profile} passHref>
-        <ProfileLink target='_blank' rel='noopener noreferrer'>
-          <ProfileImage src={organizer.img} alt={organizer.name} />
-        </ProfileLink>
-      </Link>
+      <ProfileLink href={organizer.profile} target='_blank' rel='noopener noreferrer'>
+        <ProfileImage src={organizer.img} alt={organizer.name} />
+      </ProfileLink>
       <OrganizerInfo>
         <OrganizerName>{organizer.name}</OrganizerName>
         <OrganizerTitle>{title}</OrganizerTitle>
