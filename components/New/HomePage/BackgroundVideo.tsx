@@ -13,6 +13,7 @@ const BackgroundVideo = () => {
           style={{ objectFit: "cover" }}
           width={"100%"}
           height={"100%"}
+          playsInline
         >
           <source src="/videos/2023-eth-tpe-recap-720p.mp4" type="video/mp4" />
           Your browser does not support the video tag.
