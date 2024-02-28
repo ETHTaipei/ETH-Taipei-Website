@@ -42,6 +42,7 @@ const Header = () => {
   const handleOnClickTicket = () => handleOnClickExternalLink(tickSiteUrl);
   const handleOnClickHackathon = () => handleOnClickExternalLink(hackathonUrl);
   const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq");
+  const handleOnClickGoldCard = () => handleOnClickInternalLInk("/goldcard");
   const handleOnClickTwitter = () => handleOnClickExternalLink(twitterUrl);
   const handleOnClickTelegram = () => handleOnClickExternalLink(telegramUrl);
   const handleOnClickDiscord = () => handleOnClickExternalLink(discordUrl);
@@ -102,6 +103,9 @@ const Header = () => {
         )}
         {isLarger860 && (
           <NavItem onClick={handleOnClickFAQ}>{t.navs.faq}</NavItem>
+        )}
+        {isLarger860 && (
+          <NavItem onClick={handleOnClickFAQ}>{t.navs.goldcard}</NavItem>
         )}
       </NavContainer>
       <MenuContainer>
