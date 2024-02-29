@@ -105,7 +105,7 @@ const Header = () => {
           <NavItem onClick={handleOnClickFAQ}>{t.navs.faq}</NavItem>
         )}
         {isLarger860 && (
-          <NavItem onClick={handleOnClickFAQ}>{t.navs.goldcard}</NavItem>
+          <NavItem onClick={handleOnClickGoldCard}>{t.navs.goldcard}</NavItem>
         )}
       </NavContainer>
       <MenuContainer>
@@ -165,6 +165,9 @@ const Header = () => {
               </MenuSubItemContainer>
             </MenuItem>
             <MenuItem onClick={handleOnClickFAQ}>{t.navs.faq}</MenuItem>
+            <MenuItem onClick={handleOnClickGoldCard}>
+              {t.navs.goldcard}
+            </MenuItem>
             <MenuItem>
               <MenuSocialMediaContainer>
                 <IconButton onClick={handleOnClickTwitter}>
