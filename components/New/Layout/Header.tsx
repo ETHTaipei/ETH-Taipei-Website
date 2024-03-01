@@ -89,9 +89,9 @@ const Header = () => {
           <NavGroupContainer>
             <NavItem>{t.navs.apply}</NavItem>
             <NavGroupList>
-              <NavGroupListItem onClick={handleToSpeak}>
+              {/* <NavGroupListItem onClick={handleToSpeak}>
                 {t.navs.toSpeak}
-              </NavGroupListItem>
+              </NavGroupListItem> */}
               <NavGroupListItem onClick={handleToSponsor}>
                 {t.navs.toSponsor}
               </NavGroupListItem>
@@ -153,9 +153,9 @@ const Header = () => {
             <MenuItem>
               {t.navs.apply}
               <MenuSubItemContainer>
-                <MenuSubItem onClick={handleToSpeak}>
+                {/* <MenuSubItem onClick={handleToSpeak}>
                   {t.navs.toSpeak}
-                </MenuSubItem>
+                </MenuSubItem> */}
                 <MenuSubItem onClick={handleToSponsor}>
                   {t.navs.toSponsor}
                 </MenuSubItem>

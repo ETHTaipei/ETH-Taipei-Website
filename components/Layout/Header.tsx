@@ -27,7 +27,7 @@ const navItems = [
   {
     label: t.navs.applyToSpeak,
     value: speakerApplyUrl,
-    disabled: false,
+    disabled: true,
     isNewTab: true,
     isPlugin: false,
   },

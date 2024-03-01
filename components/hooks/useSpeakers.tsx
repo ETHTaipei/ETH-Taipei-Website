@@ -42,7 +42,8 @@ export const useSpeakers = () => {
 
   const keynoteSpeakers = all.filter((speaker) => speaker.keynote);
 
-  const speakers = all.filter((speaker) => !speaker.keynote);
+  const unsortedSpeakers = all.filter((speaker) => !speaker.keynote);
+  const speakers = unsortedSpeakers.sort((a, b) => a.name.localeCompare(b.name));
 
   return {  speakers, keynoteSpeakers };
 };
