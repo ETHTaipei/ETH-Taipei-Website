@@ -18,9 +18,9 @@ const Participation = () => {
           </Description>
         </InfoContainer>
         <ActionContainer>
-          <Action onClick={() => openNewTab(speakerApplyUrl)}>
+          {/* <Action onClick={() => openNewTab(speakerApplyUrl)}>
             {t.homepage.beASpeaker}
-          </Action>
+          </Action> */}
           <Action onClick={() => openNewTab(sponsorApplyUrl)}>
             {t.homepage.beASponsor}
           </Action>

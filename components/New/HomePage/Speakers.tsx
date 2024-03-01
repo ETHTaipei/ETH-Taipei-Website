@@ -32,12 +32,12 @@ const Speakers = () => {
             <Speaker speaker={speaker} key={i} />
           ))}
         </SpeakersContainer>
-        <ApplyContainer>
+        {/* <ApplyContainer>
           <Description>{t.homepage.speakersIntro}</Description>
           <BeSpeakerButton onClick={handleClick}>
             {t.homepage.beASpeaker}
           </BeSpeakerButton>
-        </ApplyContainer>
+        </ApplyContainer> */}
       </MainContent>
       <BackgroundTop>
         <Image
