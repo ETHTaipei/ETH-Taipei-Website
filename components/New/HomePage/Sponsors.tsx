@@ -16,8 +16,9 @@ const Sponsors = () => {
         <Title>Sponsors</Title>
         <DescriptionContainer>
           <Description>
-            Thank you to our sponsors for your support, which has enabled our event to proceed
-            smoothly and perfectly!
+            We would like to express our immense gratitude to our sponsors for your 
+            unwavering support, which has been instrumental in ensuring the success 
+            and smooth execution of ETHTaipei!
           </Description>
         </DescriptionContainer>
         <SponsorContainer>
