@@ -104,6 +104,7 @@ const Description = styled.p`
   margin-top: 30px;
   max-width: 500px;
   font-size: 16px;
+  margin-bottom: 30px;
 `;
 
 const SponsorContainer = styled.div`
