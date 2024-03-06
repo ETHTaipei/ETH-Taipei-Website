@@ -18,6 +18,15 @@ const query = gql`query partners {
 }
 `;
 
+const communityQuery = gql`query partners {
+  partners (first: 100, where: {show:true, isCommunitySupport:true}) {
+    url
+    name
+    img
+  }
+}
+`;
+
 export const usePartners = () => {
 
   const { data } = useQuery<{partners: PartnerType[]}>(query);
@@ -26,3 +35,12 @@ export const usePartners = () => {
 
   return {  partners };
 };
+
+export const useCommunityPartners = () => {
+  
+    const { data } = useQuery<{partners: PartnerType[]}>(communityQuery);
+  
+    const partners = data?.partners || [];
+  
+    return {  partners };
+}

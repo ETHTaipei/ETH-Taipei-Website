@@ -1,5 +1,6 @@
 import Activities from "@/components/New/HomePage/Activities";
 import Banner from "@/components/New/HomePage/Banner";
+import Community from "@/components/New/HomePage/Community";
 import FloatingButton from "@/components/New/HomePage/FloatingBotton";
 import Introduction from "@/components/New/HomePage/Introduction";
 import Organizers from "@/components/New/HomePage/Organizers";
@@ -25,6 +26,7 @@ const Home = () => {
       <Partners />
       <Organizers />
       <Participation />
+      <Community />
     </div>
   );
 };
