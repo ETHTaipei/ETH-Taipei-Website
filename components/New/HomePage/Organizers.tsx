@@ -154,7 +154,7 @@ const BackgroundBottom = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 800px;
   overflow: hidden;
   z-index: -1;
 `;
