@@ -5,6 +5,7 @@ import IconLocation from "@/components/icons/IconLocation";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import BackgroundVideo from "./BackgroundVideo";
+import { sideEventFormUrl } from "@/public/constant/urls";
 
 const Banner = () => {
   return (
@@ -33,6 +34,12 @@ const Banner = () => {
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
+            </InfoWrapper>
+            <InfoWrapper>
+              <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
+              <InfoDescription>
+                <a href={sideEventFormUrl} target="blank">{t.homepage.bannerInfoDesc_2_1}</a>
+              </InfoDescription>
             </InfoWrapper>
           </Info>
           <Info>

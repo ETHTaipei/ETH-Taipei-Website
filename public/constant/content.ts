@@ -65,6 +65,8 @@ const homepage = {
   bannerInfoDesc_1: "21-22 March 2024",
   bannerInfoTitle_2: "Hackathon",
   bannerInfoDesc_2: "22-24 March 2024",
+  bannerInfoTitle_2_1: "Side Events",
+  bannerInfoDesc_2_1: "Click to see 10+ events",
   bannerInfoTitle_3: "POPOP Taipei",
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
