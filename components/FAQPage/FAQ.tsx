@@ -52,15 +52,12 @@ const FAQ = () => {
 export default FAQ;
 
 const Container = styled.div`
-  min-height: calc(100vh - 70px);
+  height: 100vh;
   width: 100%;
   /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  @media (max-width: 992px) {
-    min-height: calc(100vh - 60px);
-  }
   position: relative;
   > img {
     object-fit: cover;
@@ -75,6 +72,10 @@ const MainContent = styled.div`
   max-width: 960px;
   margin: auto;
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   gap: 40px;
   padding: 120px 40px;
