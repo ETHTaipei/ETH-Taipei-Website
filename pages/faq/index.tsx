@@ -1,4 +1,3 @@
-import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import FAQ from "@/components/FAQPage/FAQ";
