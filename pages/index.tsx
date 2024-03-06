@@ -1,8 +1,6 @@
 import Activities from "@/components/New/HomePage/Activities";
-import Banner from "@/components/New/HomePage/Banner";
 import Community from "@/components/New/HomePage/Community";
 import Contributors from "@/components/New/HomePage/Contributors";
-import FloatingButton from "@/components/New/HomePage/FloatingBotton";
 import Introduction from "@/components/New/HomePage/Introduction";
 import Organizers from "@/components/New/HomePage/Organizers";
 import Participation from "@/components/New/HomePage/Participation";
@@ -16,8 +14,6 @@ import Layout from "@/components/New/Layout";
 const Home = () => {
   return (
     <div>
-      <FloatingButton />
-      <Banner />
       <Recap />
       <Introduction />
       <Activities />
