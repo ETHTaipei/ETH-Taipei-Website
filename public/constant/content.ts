@@ -126,6 +126,7 @@ const navs = {
 };
 
 const visa = {
+  visaTitle: "FAQ",
   visaQuestion1: "Do I need a visa to enter Taiwan?",
   visaAnswer1Part1:
     "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days, depending on the country. Please visit the website of the ",
