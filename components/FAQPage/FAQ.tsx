@@ -54,7 +54,7 @@ const TitleH1 = styled.h1`
   font-weight: bold;
   font-family: "Rammetto One";
   color: ${Colors.pennBlue};
-  text-align: center;
+  // text-align: center;
 `;
 
 const Container = styled.div`
