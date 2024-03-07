@@ -1,7 +1,7 @@
-import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
 import FAQ from "@/components/FAQPage/FAQ";
+import Layout from "@/components/New/Layout";
 
 const FAQPage = () => {
   return (
@@ -10,6 +10,8 @@ const FAQPage = () => {
     </Container>
   );
 };
+
+FAQPage.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
 
 export default FAQPage;
 

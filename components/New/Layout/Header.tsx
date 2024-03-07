@@ -57,7 +57,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
+      if (window.scrollY >= window.innerHeight) {
         setIsScrolledOverFirstView(true);
       } else {
         setIsScrolledOverFirstView(false);
