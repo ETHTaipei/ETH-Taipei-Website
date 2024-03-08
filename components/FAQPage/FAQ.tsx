@@ -34,7 +34,7 @@ const FAQ = () => {
               {t.visa.telegram}
             </Link>
             {t.visa.visaAnswer2Part2}
-            <br/>
+            <br />
             {t.visa.visaInvitationLetter1}
             <Link href={invitationLetter2024Url}>
               {t.visa.visaInvitationLetter2}
@@ -54,7 +54,6 @@ const TitleH1 = styled.h1`
   font-weight: bold;
   font-family: "Rammetto One";
   color: ${Colors.pennBlue};
-  // text-align: center;
 `;
 
 const Container = styled.div`
