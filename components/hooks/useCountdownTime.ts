@@ -14,7 +14,7 @@ interface Countdown {
 
 function getTimeLeft(endDate: Date) {
   const now = new Date().getTime();
-  const distance = endDate.getTime() - now;
+  const distance = Math.max(endDate.getTime() - now, 0);
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
