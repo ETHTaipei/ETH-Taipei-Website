@@ -41,8 +41,9 @@ const Header = () => {
   const handleOnClickLogo = () => handleOnClickInternalLInk("/");
   const handleOnClickTicket = () => handleOnClickExternalLink(tickSiteUrl);
   const handleOnClickHackathon = () => handleOnClickExternalLink(hackathonUrl);
-  const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq");
-  const handleOnClickGoldCard = () => handleOnClickInternalLInk("/goldcard");
+  const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq#info");
+  const handleOnClickGoldCard = () =>
+    handleOnClickInternalLInk("/goldcard#intro");
   const handleOnClickTwitter = () => handleOnClickExternalLink(twitterUrl);
   const handleOnClickTelegram = () => handleOnClickExternalLink(telegramUrl);
   const handleOnClickDiscord = () => handleOnClickExternalLink(discordUrl);
