@@ -8,13 +8,14 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import bgImage from "@/public/images/eth-taipei-banner-background-2.png";
+import bgImage from "@/public/images/background/taipei-101.png";
 
 const FAQ = () => {
   return (
     <Container>
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
+        <TitleH1>{t.visa.visaTitle}</TitleH1>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>
           <Description>
@@ -33,16 +34,13 @@ const FAQ = () => {
               {t.visa.telegram}
             </Link>
             {t.visa.visaAnswer2Part2}
-          </Description>
-        </Row>
-        <Row>
-          <Title>
+            <br />
             {t.visa.visaInvitationLetter1}
             <Link href={invitationLetter2024Url}>
               {t.visa.visaInvitationLetter2}
             </Link>
             {t.visa.visaInvitationLetter3}
-          </Title>
+          </Description>
         </Row>
       </MainContent>
     </Container>
@@ -50,6 +48,13 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
+const TitleH1 = styled.h1`
+  font-size: 42px;
+  font-weight: bold;
+  font-family: "Rammetto One";
+  color: ${Colors.pennBlue};
+`;
 
 const Container = styled.div`
   height: 100vh;
@@ -91,7 +96,7 @@ const Row = styled.div`
 
 const Title = styled.h2`
   flex: 1;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   line-height: 40px;
   color: ${Colors.pennBlue};
