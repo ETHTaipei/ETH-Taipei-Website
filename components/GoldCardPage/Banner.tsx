@@ -13,7 +13,7 @@ const Banner = () => {
   };
 
   return (
-    <Container>
+    <Container id="intro">
       <MainContent>
         <Title>{t.goldcard.goldcardTitle}</Title>
         <Description>{t.goldcard.goldcardIntro_1}</Description>

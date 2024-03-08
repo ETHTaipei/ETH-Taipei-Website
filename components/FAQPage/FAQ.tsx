@@ -12,7 +12,7 @@ import bgImage from "@/public/images/background/taipei-101.png";
 
 const FAQ = () => {
   return (
-    <Container>
+    <Container id="info">
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
         <TitleH1>{t.visa.visaTitle}</TitleH1>
