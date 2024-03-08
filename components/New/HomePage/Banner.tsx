@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 import IconLocation from "@/components/icons/IconLocation";
 import t from "@/public/constant/content";
+import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import BackgroundVideo from "./BackgroundVideo";
-import { sideEventFormUrl } from "@/public/constant/urls";
+import CountdownTimer from "./CountdownTimer";
 
 const Banner = () => {
   return (
@@ -38,7 +39,9 @@ const Banner = () => {
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
               <InfoDescription>
-                <a href={sideEventFormUrl} target="blank">{t.homepage.bannerInfoDesc_2_1}</a>
+                <a href={sideEventFormUrl} target="blank">
+                  {t.homepage.bannerInfoDesc_2_1}
+                </a>
               </InfoDescription>
             </InfoWrapper>
           </Info>
@@ -50,6 +53,9 @@ const Banner = () => {
             </InfoWrapper>
           </Info>
         </InfoContainer>
+        <CountdownContainer>
+          <CountdownTimer />
+        </CountdownContainer>
       </MainContent>
       <BackgroundVideo />
     </Container>
@@ -135,4 +141,8 @@ const InfoTitle = styled.div`
 const InfoDescription = styled.div`
   margin-top: 8px;
   font-size: 13px;
+`;
+
+const CountdownContainer = styled.div`
+  margin-top: 30px;
 `;
