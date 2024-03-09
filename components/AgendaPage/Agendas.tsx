@@ -8,24 +8,20 @@ import t from "@/public/constant/content";
 import v from "@/public/images/v.png";
 import Colors from "@/styles/colors";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
   const [date, setDate] = useState<number>(dates[type][0]);
 
-  useEffect(() => {
-    setDate(dates[type][0]);
-  }, [type]);
-
   const _renderDefiItem = (item: any, index: number) => {
     return (
-      <div>
-        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+      <TrackMainContent>
         <TopicContainer>
           <ScheduleText>{item.topic}</ScheduleText>
         </TopicContainer>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
         <NameContainer>
           {item.name && (
             <SpeakerContainer>
@@ -34,10 +30,12 @@ const Agendas = () => {
                   <Image fill src={item.src} alt={item.name} />
                 </SpeakerIcon>
               )}
-              <SpeakerName>
-                {(item.name && `${item.name}`) +
-                  (item.company && `, ${item.company}`)}
-              </SpeakerName>
+              <SpeakerInfoContainer>
+                <SpeakerName>{item.name && `${item.name}`}</SpeakerName>
+                <SpeakerCompany>
+                  {item.company && `@ ${item.company}`}
+                </SpeakerCompany>
+              </SpeakerInfoContainer>
             </SpeakerContainer>
           )}
         </NameContainer>
@@ -62,17 +60,17 @@ const Agendas = () => {
             ))}
           </OrganizerContainer>
         )}
-      </div>
+      </TrackMainContent>
     );
   };
 
   const _renderZkItem = (item: any, index: number) => {
     return (
-      <div>
-        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+      <TrackMainContent>
         <TopicContainer>
           <ScheduleText>{item.topic}</ScheduleText>
         </TopicContainer>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
         <NameContainer>
           {item.name && (
             <SpeakerContainer>
@@ -88,17 +86,17 @@ const Agendas = () => {
             </SpeakerContainer>
           )}
         </NameContainer>
-      </div>
+      </TrackMainContent>
     );
   };
 
   const _renderWorkshopItem = (item: any, index: number) => {
     return (
-      <div>
-        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+      <TrackMainContent>
         <TopicContainer>
           <ScheduleText>{`${item.title}`}</ScheduleText>
         </TopicContainer>
+        <DurationT isFirst={index === 0}>{item.duration}</DurationT>
         <NameContainer>
           {item.holder && (
             <SpeakerContainer>
@@ -115,7 +113,7 @@ const Agendas = () => {
             </PrerequisiteText>
           </PrerequisiteContainer>
         )}
-      </div>
+      </TrackMainContent>
     );
   };
 
@@ -127,17 +125,23 @@ const Agendas = () => {
         <EventSwitchers>
           <EventSwitcher
             isSelect={type === "conference"}
-            onClick={() => setType("conference")}
+            onClick={() => {
+              setType("conference");
+              setDate(dates["conference"][0]);
+            }}
           >
             <EventText>{`Conference`}</EventText>
-            <EventSubText>{`22-24 March 2024`}</EventSubText>
+            <EventSubText>{`21-22 March 2024`}</EventSubText>
           </EventSwitcher>
           <EventSwitcher
             isSelect={type === "hackathon"}
-            onClick={() => setType("hackathon")}
+            onClick={() => {
+              setType("hackathon");
+              setDate(dates["hackathon"][0]);
+            }}
           >
             <EventText>{`Hackathon`}</EventText>
-            <EventSubText>{`21-22 March 2024`}</EventSubText>
+            <EventSubText>{`22-24 March 2024`}</EventSubText>
           </EventSwitcher>
         </EventSwitchers>
       </EventSwitcherContainer>
@@ -152,117 +156,128 @@ const Agendas = () => {
         ))}
       </DatesContainer>
 
-      {date < dates.conference[0] ? (
-        <HackSchedulesContainer>
-          {hackathonAgendas[date].length > 0 &&
-            hackathonAgendas[date].map((agenda, i) => (
-              <ScheduleContainer key={i}>
-                <TimeContainer>
-                  <TimeText>{agenda.time}</TimeText>
-                  <DurationText>{agenda.duration}</DurationText>
-                </TimeContainer>
-                <div>
-                  <ScheduleText>{agenda.event}</ScheduleText>
-                  {agenda.speaker && (
-                    <SpeakerContainer>
-                      {agenda.src && (
-                        <SpeakerIcon>
-                          <Image fill src={agenda.src} alt={agenda.speaker} />
-                        </SpeakerIcon>
-                      )}
-                      <SpeakerName>
-                        {(agenda.speaker && `${agenda.speaker}`) +
-                          (agenda.title && `, ${agenda.title}`)}
-                      </SpeakerName>
-                    </SpeakerContainer>
-                  )}
-                </div>
-              </ScheduleContainer>
-            ))}
-        </HackSchedulesContainer>
+      {type === "hackathon" ? (
+        <TableContainer>
+          <TimeZoneHint />
+          <HackSchedulesContainer>
+            {hackathonAgendas[date].length > 0 &&
+              hackathonAgendas[date].map((agenda, i) => (
+                <ScheduleContainer key={i}>
+                  <TimeContainer>
+                    <TimeText>{agenda.time}</TimeText>
+                    <DurationText>{agenda.duration}</DurationText>
+                  </TimeContainer>
+                  <div>
+                    <ScheduleText>{agenda.event}</ScheduleText>
+                    {agenda.speaker && (
+                      <SpeakerContainer>
+                        {agenda.src && (
+                          <SpeakerIcon>
+                            <Image fill src={agenda.src} alt={agenda.speaker} />
+                          </SpeakerIcon>
+                        )}
+                        <SpeakerName>
+                          {(agenda.speaker && `${agenda.speaker}`) +
+                            (agenda.title && `, ${agenda.title}`)}
+                        </SpeakerName>
+                      </SpeakerContainer>
+                    )}
+                  </div>
+                </ScheduleContainer>
+              ))}
+          </HackSchedulesContainer>
+        </TableContainer>
       ) : (
         <>
-          {date === 24 && (
-            <NewTracksContainer>
-              <KeynoteRow>
-                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>
-                  {t.homepage.openingandKeynote}
-                </NewTrackContainerHeader>
-              </KeynoteRow>
-              <KeynoteRow>
-                <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
-                <NewTrackContainer style={{ paddingBottom: 0 }}>
-                  <TopicContainer
-                    style={{
-                      textAlign: "center",
-                      marginTop: 0,
-                      paddingBottom: "15px",
-                      borderBottom: "1px solid #ccc",
-                    }}
-                  >
-                    <ScheduleText>{"Opening (Building M)"}</ScheduleText>
-                  </TopicContainer>
-                </NewTrackContainer>
+          {date === 21 && (
+            <TableContainer>
+              <TimeZoneHint />
+              <NewTracksContainer>
+                <KeynoteRow>
+                  <NewTrackTimeContainerHeader>
+                    Time
+                  </NewTrackTimeContainerHeader>
+                  <NewTrackContainerHeader>
+                    {t.homepage.openingandKeynote}
+                  </NewTrackContainerHeader>
+                </KeynoteRow>
+                <KeynoteRow>
+                  <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
+                  <TrackContainer style={{ paddingBottom: 0 }}>
+                    <TopicContainer
+                      style={{
+                        textAlign: "center",
+                        marginTop: 0,
+                        paddingBottom: "15px",
+                      }}
+                    >
+                      <ScheduleText>{"Opening!!!"}</ScheduleText>
+                    </TopicContainer>
+                  </TrackContainer>
 
-                <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
-                <NewTrackContainer>
-                  <SpeakerContainer
-                    style={{ justifyContent: "center", marginTop: 0 }}
+                  <NewTrackTimeContainer
+                    style={{ borderBottom: 0, backgroundColor: "white" }}
                   >
-                    <SpeakerIcon>
-                      <Image fill src={v} alt={"vitalik"} />
-                    </SpeakerIcon>
-                    <SpeakerName>
-                      {"Vitalik Buterin, Ethereum Foundation"}
-                    </SpeakerName>
-                  </SpeakerContainer>
-                  <TopicContainer style={{ textAlign: "center" }}>
-                    <ScheduleText>
-                      {
-                        "The need for standardization of L2s, smart contract wallet and privacy (Virtual, streaming in all buildings)"
-                      }
-                    </ScheduleText>
-                  </TopicContainer>
-                </NewTrackContainer>
-              </KeynoteRow>
-            </NewTracksContainer>
+                    10:00am
+                  </NewTrackTimeContainer>
+                  <TrackContainer
+                    style={{ borderBottom: 0, backgroundColor: "white" }}
+                  >
+                    <TrackMainContent>
+                      <TopicContainer>
+                        <ScheduleText>
+                          {
+                            "The need for standardization of L2s, smart contract wallet and privacy (Virtual, streaming in all buildings)"
+                          }
+                        </ScheduleText>
+                      </TopicContainer>
+                      <DurationT isFirst={true}>1 hours</DurationT>
+                      <SpeakerContainer>
+                        <SpeakerIcon>
+                          <Image fill src={v} alt={"vitalik"} />
+                        </SpeakerIcon>
+                        <SpeakerInfoContainer>
+                          <SpeakerName>{"Vitalik Buterin"}</SpeakerName>
+                          <SpeakerCompany>
+                            {"@ Ethereum Foundation"}
+                          </SpeakerCompany>
+                        </SpeakerInfoContainer>
+                      </SpeakerContainer>
+                    </TrackMainContent>
+                  </TrackContainer>
+                </KeynoteRow>
+              </NewTracksContainer>
+            </TableContainer>
           )}
           <DesktopScheduleContainer>
-            <NewTracksContainer>
-              <NewScheduleRow>
-                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>
-                  DeFi Track
-                  <br />
-                  <span style={{ fontSize: "small" }}>(Building M)</span>
-                </NewTrackContainerHeader>
-                <NewTrackContainerHeader>
-                  ZK / Client / Security Track
-                  <br />
-                  <span style={{ fontSize: "small" }}>(Building F)</span>
-                </NewTrackContainerHeader>
-                <NewTrackContainerHeader>
-                  Workshop
-                  <br />
-                  <span style={{ fontSize: "small" }}>(Building I)</span>
-                </NewTrackContainerHeader>
-              </NewScheduleRow>
-              {conferenceAgendas[date].map((agenda, i) => (
-                <NewScheduleRow key={date.toString() + i}>
-                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                  <NewTrackContainer>
-                    {agenda.defi && _renderDefiItem(agenda.defi, i)}
-                  </NewTrackContainer>
-                  <NewTrackContainer>
-                    {agenda.zk && _renderZkItem(agenda.zk, i)}
-                  </NewTrackContainer>
-                  <NewTrackContainer>
-                    {agenda.workshop && _renderWorkshopItem(agenda.workshop, i)}
-                  </NewTrackContainer>
+            <TableContainer>
+              <TimeZoneHint />
+              <NewTracksContainer>
+                <NewScheduleRow>
+                  <NewTrackTimeContainerHeader>
+                    Time
+                  </NewTrackTimeContainerHeader>
+                  <NewTrackContainerHeader>Track A</NewTrackContainerHeader>
+                  <NewTrackContainerHeader>Track B</NewTrackContainerHeader>
+                  <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
                 </NewScheduleRow>
-              ))}
-            </NewTracksContainer>
+                {conferenceAgendas[date].map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackA && _renderDefiItem(agenda.trackA, i)}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.trackB && _renderZkItem(agenda.trackB, i)}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.workshop &&
+                        _renderWorkshopItem(agenda.workshop, i)}
+                    </TrackContainer>
+                  </NewScheduleRow>
+                ))}
+              </NewTracksContainer>
+            </TableContainer>
           </DesktopScheduleContainer>
           <MobileScheduleContainer>
             <NewTracksContainer>
@@ -275,13 +290,13 @@ const Agendas = () => {
                 </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
-                .filter((i) => i.defi)
+                .filter((i) => i.trackA)
                 .map((agenda, i) => (
                   <NewScheduleRow key={date.toString() + i}>
                     <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                    <NewTrackContainer>
-                      {agenda.defi && _renderDefiItem(agenda.defi, i)}
-                    </NewTrackContainer>
+                    <TrackContainer>
+                      {agenda.trackA && _renderDefiItem(agenda.trackA, i)}
+                    </TrackContainer>
                   </NewScheduleRow>
                 ))}
             </NewTracksContainer>
@@ -295,13 +310,13 @@ const Agendas = () => {
                 </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
-                .filter((i) => i.zk)
+                .filter((i) => i.trackB)
                 .map((agenda, i) => (
                   <NewScheduleRow key={date.toString() + i}>
                     <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                    <NewTrackContainer>
-                      {agenda.zk && _renderZkItem(agenda.zk, i)}
-                    </NewTrackContainer>
+                    <TrackContainer>
+                      {agenda.trackB && _renderZkItem(agenda.trackB, i)}
+                    </TrackContainer>
                   </NewScheduleRow>
                 ))}
             </NewTracksContainer>
@@ -319,10 +334,10 @@ const Agendas = () => {
                 .map((agenda, i) => (
                   <NewScheduleRow key={date.toString() + i}>
                     <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                    <NewTrackContainer>
+                    <TrackContainer>
                       {agenda.workshop &&
                         _renderWorkshopItem(agenda.workshop, i)}
-                    </NewTrackContainer>
+                    </TrackContainer>
                   </NewScheduleRow>
                 ))}
             </NewTracksContainer>
@@ -334,6 +349,10 @@ const Agendas = () => {
 };
 
 export default Agendas;
+
+function TimeZoneHint() {
+  return <TimeZoneHintContainer>Taiwan Time Zone: UTC+8</TimeZoneHintContainer>;
+}
 
 const Container = styled.div`
   width: 100%;
@@ -358,11 +377,13 @@ const Title = styled.h2`
 
 const EventSwitcherContainer = styled.div`
   width: 100%;
+  max-width: 1080px;
+  display: flex;
+  justify-content: center;
 `;
 
 const EventSwitchers = styled.div`
   width: 100%;
-  max-width: 1080px;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -442,10 +463,21 @@ const DateSelector = styled.button<{ isSelect: boolean }>`
   }
 `;
 
-const HackSchedulesContainer = styled.div`
+const TableContainer = styled.div`
+  margin-top: 30px;
   width: 100%;
   max-width: 1080px;
-  margin: 28px auto auto auto;
+`;
+
+const TimeZoneHintContainer = styled.div`
+  colors: ${Colors.pennBlue};
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 12px;
+`;
+
+const HackSchedulesContainer = styled.div`
+  width: 100%;
   padding: 10px 24px;
   display: flex;
   flex-direction: column;
@@ -470,14 +502,6 @@ const ScheduleContainer = styled.div`
   }
 `;
 
-const CScheduleContainer = styled(ScheduleContainer)`
-  min-height: 180px;
-
-  @media (max-width: 768px) {
-    min-height: auto;
-  }
-`;
-
 const TimeText = styled.span`
   flex: 1;
   font-size: 16px;
@@ -499,6 +523,7 @@ const DurationText = styled(TimeText)`
 const TopicContainer = styled.div`
   width: 100%;
   margin-top: 8px;
+  font-family: "Rammetto One";
 `;
 
 const NameContainer = styled.div`
@@ -507,7 +532,7 @@ const NameContainer = styled.div`
 `;
 
 const ScheduleText = styled(TimeText)`
-  font-weight: 500;
+  font-size: 14px;
 `;
 
 const PrerequisiteContainer = styled.div`
@@ -523,92 +548,45 @@ const PrerequisiteText = styled.div`
   color: ${Colors.gray4};
 `;
 
-const TracksContainer = styled.div`
-  width: 100%;
-  max-width: 1080px;
-  margin: 32px auto auto auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  @media (max-width: 768px) {
-    grid-template-columns: none;
-    margin: 20px auto auto auto;
-  }
-`;
-
-const TrackContainer = styled.div`
-  width: 100%;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  background-color: #eeeeee;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-`;
-
-const TrackTitleContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  background-color: ${Colors.columbiaBlue};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-`;
-
-const TrackTitle = styled.h3`
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
-const SpeakersContainer = styled.div``;
-
 const SpeakerContainer = styled.div`
-  margin-top: 8px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 `;
 
+const SpeakerInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const SpeakerName = styled.span`
-  font-size: 16px;
-  line-height: 22px;
-  color: ${Colors.gray5};
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: ${Colors.pennBlue};
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 10px;
+  }
+`;
+
+const SpeakerCompany = styled.span`
+  font-size: 12px;
+  line-height: 16px;
+  color: ${Colors.pennBlue};
+  @media (max-width: 768px) {
+    font-size: 10px;
   }
 `;
 
 const SpeakerIcon = styled.div`
-  flex: 0 0 24px;
-  width: 24px;
-  height: 24px;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
   border-radius: 100px;
   position: relative;
   margin-right: 8px;
   background-color: ${Colors.gray1};
-`;
-
-const SpeakerCompany = styled(SpeakerName)`
-  font-weight: normal;
-  color: ${Colors.gray5};
-`;
-
-const KeynoteContainer = styled.div`
-  width: 100%;
-  max-width: 1080px;
-  margin: 32px auto auto auto;
-  display: flex;
-  justify-content: center;
-  text-align: center;
 `;
 
 const TimeContainer = styled.div`
@@ -628,9 +606,9 @@ const OrganizerContainer = styled.div`
 const NewTracksContainer = styled.div`
   width: 100%;
   max-width: 1080px;
-  margin: 32px auto auto auto;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
+  border: 1px solid ${Colors.pennBlue};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;
@@ -640,6 +618,10 @@ const NewTracksContainer = styled.div`
 const NewScheduleRow = styled.div`
   display: grid;
   grid-template-columns: 120px 1fr 1fr 0.8fr;
+
+  :nth-child(even) {
+    background-color: ${Colors.blue2};
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 100px 1fr;
@@ -657,50 +639,63 @@ const KeynoteRow = styled(NewScheduleRow)`
 
 const NewTrackTimeContainer = styled.div`
   padding: 20px 8px;
-  background-color: #eeeeee;
   text-align: center;
-  margin: 0 1px;
   font-size: 16px;
   line-height: 22px;
   color: ${Colors.pennBlue};
+
+  font-weight: bold;
+  border-bottom: 1px solid ${Colors.pennBlue};
+  border-right: 1px solid ${Colors.pennBlue};
 
   @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
 
-const NewTrackContainer = styled.div`
-  background-color: #eeeeee;
-  padding: 20px 12px;
-  margin: 0 1px;
+const TrackContainer = styled.div`
+  padding: 20px 32px;
+  border-bottom: 1px solid ${Colors.pennBlue};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const TrackMainContent = styled.div`
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
-  background-color: ${Colors.columbiaBlue};
+  background-color: ${Colors.pennBlue};
+  font-family: "Rammetto One";
   text-align: center;
   font-size: 16px;
   line-height: 22px;
   font-weight: bold;
-  color: ${Colors.pennBlue};
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const NewTrackContainerHeader = styled(NewTrackContainer)`
-  background-color: ${Colors.columbiaBlue};
+const NewTrackContainerHeader = styled(TrackContainer)`
+  background-color: white;
   text-align: center;
   font-size: 16px;
   line-height: 22px;
   font-weight: bold;
   color: ${Colors.pennBlue};
+  font-family: "Rammetto One";
 `;
 
 const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
   display: block;
   font-weight: 400;
   color: ${Colors.gray5};
-  margin-bottom: 8px;
-  border-top: ${({ isFirst }) => (isFirst ? 0 : 1)}px solid ${Colors.gray3};
-  padding-top: ${({ isFirst }) => (isFirst ? 0 : "8px")};
-
   @media (max-width: 768px) {
     border-top-width: 0px;
     padding-top: 0px;

@@ -14,6 +14,7 @@ const Colors = {
   btnBlue: "#44a4e3",
   seaSalt: "#FAFBFA",
   blue1: "#37CEFF",
+  blue2: "#f0fbff",
 };
 
 export default Colors;
