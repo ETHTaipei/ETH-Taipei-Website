@@ -1,15 +1,15 @@
-import Colors from "@/styles/colors";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import {
   EventType,
+  conferenceAgendas,
   dates,
   hackathonAgendas,
-  conferenceAgendas,
 } from "@/public/constant/agendas";
 import t from "@/public/constant/content";
-import Image from "next/image";
 import v from "@/public/images/v.png";
+import Colors from "@/styles/colors";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -107,11 +107,13 @@ const Agendas = () => {
           )}
         </NameContainer>
         {item.prerequisite && (
-        <PrerequisiteContainer>
-          <PrerequisiteText>
-            <a href={item.prerequisiteLink} target="_blank" rel="noreferrer">{item.prerequisite}</a>
-          </PrerequisiteText>
-        </PrerequisiteContainer>
+          <PrerequisiteContainer>
+            <PrerequisiteText>
+              <a href={item.prerequisiteLink} target="_blank" rel="noreferrer">
+                {item.prerequisite}
+              </a>
+            </PrerequisiteText>
+          </PrerequisiteContainer>
         )}
       </div>
     );
@@ -119,50 +121,37 @@ const Agendas = () => {
 
   return (
     <Container>
-      <span
-        style={{
-          position: "fixed",
-          bottom: "0px",
-          right: "20px",
-          zIndex: "9999",
-          background: "transparent",
-        }}
-      >
-      </span>
       <Title>{t.agendaPage.agenda}</Title>
+
       <EventSwitcherContainer>
         <EventSwitchers>
-          <EventSwitcher
-            isSelect={type === "hackathon"}
-            onClick={() => setType("hackathon")}
-          >
-            <EventText>{`Hackathon`}</EventText>
-          </EventSwitcher>
           <EventSwitcher
             isSelect={type === "conference"}
             onClick={() => setType("conference")}
           >
             <EventText>{`Conference`}</EventText>
+            <EventSubText>{`22-24 March 2024`}</EventSubText>
+          </EventSwitcher>
+          <EventSwitcher
+            isSelect={type === "hackathon"}
+            onClick={() => setType("hackathon")}
+          >
+            <EventText>{`Hackathon`}</EventText>
+            <EventSubText>{`21-22 March 2024`}</EventSubText>
           </EventSwitcher>
         </EventSwitchers>
-
       </EventSwitcherContainer>
 
       <DatesContainer>
-        Agenda coming soon, you can take a look at  
-        <a color="blue" target="_blank" rel="noreferrer" href="https://ethtaipei-2023.netlify.app/agenda"> ETHTaipei 2023 Agenda</a> 
-        for now!
-      </DatesContainer>
-
-      {/* <DatesContainer>
-        {dates[type].map((num) => (
+        {dates[type].map((num, i) => (
           <DateSelector
             key={num}
             isSelect={date === num}
             onClick={() => setDate(num)}
-          >{`Apr ${num}`}</DateSelector>
+          >{`Day${i + 1}. ${num} March`}</DateSelector>
         ))}
       </DatesContainer>
+
       {date < dates.conference[0] ? (
         <HackSchedulesContainer>
           {hackathonAgendas[date].length > 0 &&
@@ -202,14 +191,17 @@ const Agendas = () => {
                 </NewTrackContainerHeader>
               </KeynoteRow>
               <KeynoteRow>
-              <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
+                <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
                 <NewTrackContainer style={{ paddingBottom: 0 }}>
-                  <TopicContainer style={{ textAlign: "center", marginTop: 0, paddingBottom: "15px", borderBottom: "1px solid #ccc" }}>
-                    <ScheduleText>
-                      {
-                        "Opening (Building M)"
-                      }
-                    </ScheduleText>
+                  <TopicContainer
+                    style={{
+                      textAlign: "center",
+                      marginTop: 0,
+                      paddingBottom: "15px",
+                      borderBottom: "1px solid #ccc",
+                    }}
+                  >
+                    <ScheduleText>{"Opening (Building M)"}</ScheduleText>
                   </TopicContainer>
                 </NewTrackContainer>
 
@@ -235,18 +227,26 @@ const Agendas = () => {
                 </NewTrackContainer>
               </KeynoteRow>
             </NewTracksContainer>
-
-            
           )}
           <DesktopScheduleContainer>
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>DeFi Track<br /><span style={{ fontSize: "small" }}>(Building M)</span></NewTrackContainerHeader>
                 <NewTrackContainerHeader>
-                  ZK / Client / Security Track<br /><span style={{ fontSize: "small" }}>(Building F)</span>
+                  DeFi Track
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building M)</span>
                 </NewTrackContainerHeader>
-                <NewTrackContainerHeader>Workshop<br /><span style={{ fontSize: "small" }}>(Building I)</span></NewTrackContainerHeader>
+                <NewTrackContainerHeader>
+                  ZK / Client / Security Track
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building F)</span>
+                </NewTrackContainerHeader>
+                <NewTrackContainerHeader>
+                  Workshop
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building I)</span>
+                </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date].map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
@@ -268,7 +268,11 @@ const Agendas = () => {
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>DeFi Track<br /><span style={{ fontSize: "small" }}>(Building M)</span></NewTrackContainerHeader>
+                <NewTrackContainerHeader>
+                  DeFi Track
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building M)</span>
+                </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
                 .filter((i) => i.defi)
@@ -285,7 +289,9 @@ const Agendas = () => {
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
                 <NewTrackContainerHeader>
-                  ZK / Client / Security Track<br /><span style={{ fontSize: "small" }}>(Building F)</span>
+                  ZK / Client / Security Track
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building F)</span>
                 </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
@@ -302,7 +308,11 @@ const Agendas = () => {
             <NewTracksContainer>
               <NewScheduleRow>
                 <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-                <NewTrackContainerHeader>Workshop<br /><span style={{ fontSize: "small" }}>(Building I)</span></NewTrackContainerHeader>
+                <NewTrackContainerHeader>
+                  Workshop
+                  <br />
+                  <span style={{ fontSize: "small" }}>(Building I)</span>
+                </NewTrackContainerHeader>
               </NewScheduleRow>
               {conferenceAgendas[date]
                 .filter((i) => i.workshop)
@@ -318,7 +328,7 @@ const Agendas = () => {
             </NewTracksContainer>
           </MobileScheduleContainer>
         </>
-      )} */}
+      )}
     </Container>
   );
 };
@@ -338,31 +348,36 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
+  font-family: "Rammetto One";
   font-size: 35px;
   line-height: 32px;
   font-weight: bold;
   color: ${Colors.pennBlue};
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 `;
 
 const EventSwitcherContainer = styled.div`
   width: 100%;
-  box-shadow: inset 0px -1px 0px #eeeeee;
 `;
 
 const EventSwitchers = styled.div`
   width: 100%;
   max-width: 1080px;
-  margin: auto;
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 30px;
 `;
 
 const EventSwitcher = styled.button<{ isSelect: boolean }>`
-  padding: 12px;
+  padding: 12px 28px;
   cursor: pointer;
-  border-bottom: 4px solid
-    ${(props) => (props.isSelect ? Colors.aero : "transparent")};
+  color: ${(props) => (props.isSelect ? "white" : Colors.pennBlue)};
+  background-color: ${(props) => (props.isSelect ? Colors.pennBlue : "white")};
+  box-shadow: 0 6px 6px 0 rgba(88, 103, 113, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   :active {
     transform: scale(0.98);
   }
@@ -372,35 +387,53 @@ const EventSwitcher = styled.button<{ isSelect: boolean }>`
 `;
 
 const EventText = styled.span`
+  font-family: "Rammetto One";
   font-size: 18px;
-  line-height: 22px;
-  color: ${Colors.pennBlue};
   font-weight: bold;
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `;
 
+const EventSubText = styled.span`
+  font-size: 10px;
+  @media (max-width: 768px) {
+    font-size: 8px;
+  }
+`;
+
 const DatesContainer = styled.div`
   width: 100%;
   max-width: 1080px;
-  margin: 28px auto auto auto;
+  margin-top: 50px;
   display: flex;
   gap: 12px;
-  padding: 0 12px;
+  border-bottom: 2px solid ${Colors.gray2};
   @media (max-width: 768px) {
     padding: 0 6px;
   }
 `;
 
 const DateSelector = styled.button<{ isSelect: boolean }>`
-  background-color: ${(props) => (props.isSelect ? Colors.aero : Colors.gray2)};
+  color: ${(props) => (props.isSelect ? Colors.pennBlue : Colors.gray2)};
+  padding: 0px 20px 8px;
+  font-family: "Rammetto One";
   font-size: 16px;
   line-height: 22px;
-  color: ${Colors.seaSalt};
-  padding: 2px 16px;
-  border-radius: 100px;
   cursor: pointer;
+  position: relative;
+
+  ::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: ${(props) =>
+      props.isSelect ? Colors.pennBlue : "transparent"};
+    bottom: -3px;
+    left: 0;
+  }
+
   :active {
     transform: scale(0.98);
   }
