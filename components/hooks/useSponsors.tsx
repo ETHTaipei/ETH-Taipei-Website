@@ -7,8 +7,10 @@ export type SponsorProps = {
   url: string;
   img: string; // img
   tier: string;
-  width: number
-  height: number
+  width: number;
+  height: number;
+  highlightDescription: string;
+  highlightLink: string;
 };
 
 const query = gql`query sponsors {
@@ -18,6 +20,8 @@ const query = gql`query sponsors {
     img
     tier
     width
+    highlightDescription
+    highlightLink
   }
 }
 `;

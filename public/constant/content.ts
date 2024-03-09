@@ -125,6 +125,11 @@ const navs = {
   sideEvent: "Side Event",
 };
 
+const sponsorHighlight = {
+  sponsorHighlightTitle: "Sponsor Highlights",
+  readMore: "Read more",
+}
+
 const visa = {
   visaTitle: "Infos",
   visaQuestion1: "Do I need a visa to enter Taiwan?",
@@ -250,6 +255,7 @@ const t = {
   navs,
   visa,
   goldcard,
+  sponsorHighlight,
 };
 
 export default t;
