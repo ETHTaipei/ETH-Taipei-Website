@@ -9,12 +9,29 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import bgImage from "@/public/images/background/taipei-101.png";
+import { useSponsors } from "../hooks/useSponsors";
 
 const FAQ = () => {
+
+  const {  goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
+  const allSponsorsWithHighlights = [...goldSponsors, ...silverSponsors, ...bronzeSponsors].filter((s) => (s.highlightLink))
+
   return (
     <Container id="info">
       <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
+        <TitleH1 id="sponsorhighlight">{t.sponsorHighlight.sponsorHighlightTitle}</TitleH1>
+        {allSponsorsWithHighlights.map(s => (
+          <Row>
+          <Title>{s.name}</Title>
+          <Description>
+            {s.highlightDescription} &nbsp;
+            <Link href={s.highlightLink} target="_blank">
+              {t.sponsorHighlight.readMore}
+            </Link>
+          </Description>
+        </Row>
+        ))}
         <TitleH1>{t.visa.visaTitle}</TitleH1>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>
