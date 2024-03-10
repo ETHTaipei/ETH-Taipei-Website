@@ -9,11 +9,20 @@ export type EventType = "hackathon" | "conference";
 
 export type AgendaType = {
   time: string;
-  event: string;
-  duration: string;
-  speaker?: string;
-  title?: string;
-  src?: StaticImageData;
+  trackA?: {
+    topic: string;
+    duration: string;
+    speaker?: string;
+    title?: string;
+    src?: StaticImageData;
+  };
+  trackB?: {
+    topic: string;
+    duration: string;
+    speaker?: string;
+    title?: string;
+    src?: StaticImageData;
+  };
 };
 
 export const dates = {
@@ -23,72 +32,118 @@ export const dates = {
 
 export const hackathonAgendas: { [key: number]: AgendaType[] } = {
   22: [
-    { time: "02:30pm", duration: "35 mins", event: "Registration/Check in" },
     {
-      time: "03:05pm",
-      duration: "5 mins",
-      event: "ETHTaipei Introduction",
-      speaker: "Martinet",
-      title: "Head of Developer Relations, Quantstamp / ETHTaipei Co-organizer",
-      src: martinet,
+      time: "6:30pm",
+      trackA: {
+        topic: "Opening",
+        duration: "6:30pm-7:30pm (1 hr)",
+      },
     },
     {
-      time: "03:10pm",
-      duration: "30 mins",
-      event: "Workshop and Opening Talk: Gnosis",
+      time: "7:30pm",
+      trackA: {
+        topic: "OpSec Workshop",
+        duration: "30 mins",
+      },
+      trackB: {
+        topic: "Mint Club Workshop",
+        duration: "30 mins",
+      },
     },
     {
-      time: "03:40pm",
-      duration: "30 mins",
-      event:
-        "Workshop: Furucombo - Unleashing Composable Power with Furucombo's Composable Router",
+      time: "8:00pm",
+      trackA: {
+        topic: "Dyson Workshop",
+        duration: "30 mins",
+      },
+      trackB: {
+        topic: "Ten Protocol Workshop",
+        duration: "30 mins",
+      },
     },
     {
-      time: "04:10pm",
-      duration: "30 mins",
-      event: "Workshop: Blocto - Blocto's EVM SDK",
+      time: "8:30pm",
+      trackA: {
+        topic: "OP Labs Workshop",
+        duration: "30 mins",
+      },
+      trackB: {
+        topic: "Morpheus Labs Workshop",
+        duration: "30 mins",
+      },
     },
     {
-      time: "04:40pm",
-      duration: "30 mins",
-      event: "Workshop: PSE",
+      time: "9:00pm",
+      trackA: {
+        topic: "PSE MACI Workshop",
+        duration: "30 mins",
+      },
     },
     {
-      time: "05:10pm",
-      duration: "30 mins",
-      event: "Workshop: Consensys",
-    },
-    {
-      time: "05:40pm",
-      duration: "7 hrs",
-      event: "Hack Time. Venue open overnight.",
+      time: "9:30pm",
+      trackA: {
+        topic: "Hack Time.",
+        duration: "9:30pm-0:00am",
+      },
+      trackB: {
+        topic: "Hack Time.",
+        duration: "9:30pm-12:00pm",
+      },
     },
   ],
   23: [
-    { time: "10:00am", duration: "1.5 hrs", event: "Hack Time" },
-    { time: "11:30am", duration: "30 mins", event: "BREAK / LUNCH" },
-    { time: "12:00pm", duration: "3 hrs", event: "Mentor Sessions" },
-    { time: "03:00pm", duration: "6 hrs", event: "Hack Time" },
-    { time: "09:00pm", duration: "1 hr", event: "Demo Day Sign up Deadline" },
     {
-      time: "10:00pm",
-      duration: "2 hrs",
-      event: "Hack Time. Venue open overnight.",
+      time: "0:00am",
+      trackA: {
+        topic: "Hack Time.",
+        duration: "0:00am-12:00pm (24 hrs)",
+      },
+      trackB: {
+        topic: "Hack Time.",
+        duration: "0:00am-12:00pm (24 hrs)",
+      },
     },
   ],
-
   24: [
-    { time: "10:00am", duration: "1.5 hrs", event: "Hack Time" },
     {
-      time: "11:30pm",
-      duration: "30 mins",
-      event: "12:00 Project Submission Deadline",
+      time: "12:00pm",
+      trackA: {
+        topic: "Project Submission Deadline",
+        duration: "12:00am-1:00pm (1 hr)",
+      },
+      trackB: {
+        topic: "Project Submission Deadline",
+        duration: "12:00am-1:00pm (1 hr)",
+      },
     },
-    { time: "12:00pm", duration: "1 hr", event: "LUNCH / Demo Day Check-in" },
-    { time: "01:00pm", duration: "5 mins", event: "Demo Day Opening" },
-    { time: "01:05pm", duration: "4 hrs", event: "Demo Day" },
-
-    { time: "05:00pm", duration: "2 hrs", event: "Hackathon Closing Party" },
+    {
+      time: "1:00pm",
+      trackA: {
+        topic: "Demo Day Opening",
+        duration: "1:00pm-2:00pm (1 hr)",
+      },
+    },
+    {
+      time: "2:00pm",
+      trackA: {
+        topic: "Demo Day",
+        duration: "2:00pm-4:00pm (2 hr)",
+      },
+    },
+    {
+      time: "4:00pm",
+      trackA: {
+        topic: "Demo Day Closing Ceremony",
+        duration: "30 mins",
+      },
+    },
+    {
+      time: "4:30pm",
+      trackB: {
+        topic: "Closing Party",
+        duration: "4:30pm",
+      },
+    },
   ],
 };
 

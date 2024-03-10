@@ -40,6 +40,7 @@ const Header = () => {
 
   const handleOnClickLogo = () => handleOnClickInternalLInk("/");
   const handleOnClickTicket = () => handleOnClickExternalLink(tickSiteUrl);
+  const handleOnClickAgenda = () => handleOnClickInternalLInk("/agenda#info");
   const handleOnClickHackathon = () => handleOnClickExternalLink(hackathonUrl);
   const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq#info");
   const handleOnClickGoldCard = () =>
@@ -83,6 +84,9 @@ const Header = () => {
       </LogoContainer>
       <NavContainer>
         <NavItem onClick={handleOnClickTicket}>{t.navs.ticket}</NavItem>
+        {isLarger768 && (
+          <NavItem onClick={handleOnClickAgenda}>{t.navs.agenda}</NavItem>
+        )}
         {isLarger768 && (
           <NavItem onClick={handleOnClickHackathon}>{t.navs.hackathon}</NavItem>
         )}
@@ -148,6 +152,7 @@ const Header = () => {
           </MenuHeader>
           <MenuBody>
             <MenuItem onClick={handleOnClickTicket}>{t.navs.ticket}</MenuItem>
+            <MenuItem onClick={handleOnClickAgenda}>{t.navs.agenda}</MenuItem>
             <MenuItem onClick={handleOnClickHackathon}>
               {t.navs.hackathon}
             </MenuItem>

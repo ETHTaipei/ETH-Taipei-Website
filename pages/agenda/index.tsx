@@ -1,14 +1,15 @@
-import Colors from "@/styles/colors";
-import React from "react";
-import styled from "styled-components";
 import Agendas from "@/components/AgendaPage/Agendas";
+import Layout from "@/components/New/Layout";
+import React from "react";
 
 const Agenda = () => {
   return (
-    <div>
+    <div id="info">
       <Agendas />
     </div>
   );
 };
+
+Agenda.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
 
 export default Agenda;

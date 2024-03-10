@@ -79,10 +79,12 @@ const Agendas = () => {
                   <Image fill src={item.src} alt={item.name} />
                 </SpeakerIcon>
               )}
-              <SpeakerName>
-                {(item.name && `${item.name}`) +
-                  (item.company && `, ${item.company}`)}
-              </SpeakerName>
+              <SpeakerInfoContainer>
+                <SpeakerName>{item.name && `${item.name}`}</SpeakerName>
+                <SpeakerCompany>
+                  {item.company && `@ ${item.company}`}
+                </SpeakerCompany>
+              </SpeakerInfoContainer>
             </SpeakerContainer>
           )}
         </NameContainer>
@@ -158,34 +160,65 @@ const Agendas = () => {
 
       {type === "hackathon" ? (
         <TableContainer>
-          <TimeZoneHint />
-          <HackSchedulesContainer>
-            {hackathonAgendas[date].length > 0 &&
-              hackathonAgendas[date].map((agenda, i) => (
-                <ScheduleContainer key={i}>
-                  <TimeContainer>
-                    <TimeText>{agenda.time}</TimeText>
-                    <DurationText>{agenda.duration}</DurationText>
-                  </TimeContainer>
-                  <div>
-                    <ScheduleText>{agenda.event}</ScheduleText>
-                    {agenda.speaker && (
-                      <SpeakerContainer>
-                        {agenda.src && (
-                          <SpeakerIcon>
-                            <Image fill src={agenda.src} alt={agenda.speaker} />
-                          </SpeakerIcon>
-                        )}
-                        <SpeakerName>
-                          {(agenda.speaker && `${agenda.speaker}`) +
-                            (agenda.title && `, ${agenda.title}`)}
-                        </SpeakerName>
-                      </SpeakerContainer>
-                    )}
-                  </div>
-                </ScheduleContainer>
-              ))}
-          </HackSchedulesContainer>
+          <DesktopScheduleContainer>
+            <TableContainer>
+              <TimeZoneHint />
+              <NewTracksContainer>
+                <HackathonScheduleRow>
+                  <NewTrackTimeContainerHeader>
+                    Time
+                  </NewTrackTimeContainerHeader>
+                  <NewTrackContainerHeader>Building M</NewTrackContainerHeader>
+                  <NewTrackContainerHeader>Building F</NewTrackContainerHeader>
+                </HackathonScheduleRow>
+                {hackathonAgendas[date].map((agenda, i) => (
+                  <HackathonScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackA && _renderZkItem(agenda.trackA, i)}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.trackB && _renderZkItem(agenda.trackB, i)}
+                    </TrackContainer>
+                  </HackathonScheduleRow>
+                ))}
+              </NewTracksContainer>
+            </TableContainer>
+          </DesktopScheduleContainer>
+          <MobileScheduleContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>Building M</NewTrackContainerHeader>
+              </NewScheduleRow>
+              {hackathonAgendas[date]
+                .filter((i) => i.trackA)
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackA && _renderZkItem(agenda.trackA, i)}
+                    </TrackContainer>
+                  </NewScheduleRow>
+                ))}
+            </NewTracksContainer>
+            <NewTracksContainer>
+              <NewScheduleRow>
+                <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
+                <NewTrackContainerHeader>Building F</NewTrackContainerHeader>
+              </NewScheduleRow>
+              {hackathonAgendas[date]
+                .filter((i) => i.trackB)
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackB && _renderZkItem(agenda.trackB, i)}
+                    </TrackContainer>
+                  </NewScheduleRow>
+                ))}
+            </NewTracksContainer>
+          </MobileScheduleContainer>
         </TableContainer>
       ) : (
         <>
@@ -618,6 +651,19 @@ const NewTracksContainer = styled.div`
 const NewScheduleRow = styled.div`
   display: grid;
   grid-template-columns: 120px 1fr 1fr 0.8fr;
+
+  :nth-child(even) {
+    background-color: ${Colors.blue2};
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100px 1fr;
+  }
+`;
+
+const HackathonScheduleRow = styled.div`
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
 
   :nth-child(even) {
     background-color: ${Colors.blue2};
