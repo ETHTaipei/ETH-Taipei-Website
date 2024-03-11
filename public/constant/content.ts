@@ -99,6 +99,11 @@ const homepage = {
     "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
   activityDate_2: "22-24 March 2024",
   activityBtn_2: "View Now",
+  activityName_3: "SideEvent",
+  activityDesc_3:
+    "Get ready for an extra dose of fun at ETHTaipei! While the main conference and hackathon take center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
+  activityDate_3: "20-25 March 2024",
+  activityBtn_3: "See Events",
 
   recapTitle: "Recap! 2023 Edition",
   recapViewMore: "View More",
@@ -128,7 +133,7 @@ const navs = {
 const sponsorHighlight = {
   sponsorHighlightTitle: "Sponsor Highlights",
   readMore: "Read more",
-}
+};
 
 const visa = {
   visaTitle: "Infos",
