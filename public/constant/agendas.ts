@@ -207,14 +207,14 @@ export const conferenceAgendas: {
     {
       time: "12:00pm",
       trackA: {
-        name: "",
+        name: "🧋",
         company: "",
         topic: "Lunch Break",
         src: ZacL,
         duration: "1.5 hr",
       },
       trackB: {
-        name: "",
+        name: "🧋",
         company: "",
         topic: "Lunch Break",
         src: null,
@@ -226,7 +226,8 @@ export const conferenceAgendas: {
       trackA: {
         name: "Stefan",
         company: "Gnosis Pay",
-        topic: "TBD",
+        topic:
+          "Gnosis Pay - Bridging the gap between real world and blockchain payments.",
         src: stefan,
         duration: "30 mins",
       },
@@ -247,7 +248,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Nic Lin",
         company: "imToken",
-        topic: "TBD",
+        topic: "What is OFA and why should you care",
         src: nic,
         duration: "1.5 hr",
       },
@@ -263,7 +264,8 @@ export const conferenceAgendas: {
       trackA: {
         name: "Martin Derka",
         company: "Zircuit",
-        topic: "TBD",
+        topic:
+          "Challenges of Building an EVM Equivalent ZK Rollup on the OP-Stack",
         duration: "30 mins",
       },
       trackB: {
@@ -309,7 +311,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Tony Valentine",
         company: "Dedaub",
-        topic: "TBD",
+        topic: "How to predict the impact of EVM upgrades",
         duration: "30 mins",
       },
       trackB: {
@@ -329,7 +331,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Tim Pechersky",
         company: "OpenZeppelin",
-        topic: "TBD",
+        topic: "Vulnerability management: Zero-Day, Today & Tomorrow",
         duration: "30 mins",
       },
       trackB: {
@@ -361,7 +363,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Rahul Saxena",
         company: "ZkSync",
-        topic: "TBD",
+        topic: "Threat Modelling for Complex Systems in web3",
         duration: "30 mins",
       },
       trackB: {
@@ -378,7 +380,8 @@ export const conferenceAgendas: {
       trackA: {
         name: "Marius van der Wijden",
         company: "Geth",
-        topic: "TBD",
+        topic:
+          "Don't let your friends do MEV - How MEV infrastructure makes Ethereum more brittle",
         duration: "30 mins",
       },
       trackB: {
@@ -398,7 +401,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Guillaume Ballet",
         company: "Geth",
-        topic: "TBD",
+        topic: "Recipes for a Stateless Ethereum",
         duration: "30 mins",
       },
       trackB: {
@@ -441,13 +444,13 @@ export const conferenceAgendas: {
     {
       time: "12:00pm",
       trackA: {
-        name: "",
+        name: "🧋",
         company: "",
         topic: "Lunch Break",
         duration: "1 hrs",
       },
       trackB: {
-        name: "",
+        name: "🧋",
         company: "",
         topic: "Lunch Break",
         duration: "1 hrs",
@@ -473,7 +476,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Cathie",
         company: "Ora Protocol",
-        topic: "TBD",
+        topic: "Tokenizing Open-Source AI’s Future",
         duration: "30 mins",
       },
       trackB: {
@@ -488,7 +491,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Shao-Kang Lee",
         company: "Perpetual",
-        topic: "TBD",
+        topic: "Smart Liquidity Framework for On-Chain Perp",
         duration: "30 mins",
       },
       trackB: {
@@ -503,7 +506,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Indigo & Fully",
         company: "Baseline",
-        topic: "TBD",
+        topic: "Baseline: An Automated Tokenomics Engine",
         duration: "30 mins",
       },
       trackB: {
@@ -549,7 +552,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Josh Guha",
         company: "Gyroscope",
-        topic: "TBD",
+        topic: "Elliptical Eccentricity for Capital Efficiency",
         duration: "30 mins",
       },
       trackB: {
@@ -565,7 +568,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Terence An",
         company: "Itos Finance",
-        topic: "TBD",
+        topic: "DeFi Calculus 102: Building Derivatives",
         duration: "30 mins",
       },
       trackB: {
