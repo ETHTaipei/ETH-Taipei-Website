@@ -702,6 +702,7 @@ const NewTrackTimeContainer = styled.div`
 const TrackContainer = styled.div`
   padding: 20px 32px;
   border-bottom: 1px solid ${Colors.pennBlue};
+  border-right: 1px solid ${Colors.pennBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
