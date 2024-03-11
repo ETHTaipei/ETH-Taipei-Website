@@ -29,7 +29,7 @@ export type ConferenceItemType = {
   name: string;
   company: string;
   topic: string;
-  src?: StaticImageData | null;
+  src?: StaticImageData | null | string;
   duration: string;
   panelOrganizations?: string[];
   panelHost?: string;

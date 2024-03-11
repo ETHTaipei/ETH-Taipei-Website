@@ -41,6 +41,7 @@ const SpeakerIcon = styled.div`
   position: relative;
   margin-right: 8px;
   background-color: ${Colors.gray1};
+  overflow: hidden;
 `;
 
 const SpeakerInfoContainer = styled.div`

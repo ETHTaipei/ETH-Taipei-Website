@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { conferenceAgendas } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
+import { useSpeakers } from "../hooks/useSpeakers";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
 import TimeZoneHint from "./ui/TimeZoneHint";
@@ -11,6 +12,33 @@ interface ConferenceTableProps {
 }
 
 const ConferenceTable = ({ date }: ConferenceTableProps) => {
+  const { speakers } = useSpeakers();
+  const conferenceAgendasWithSpeakerImg = {
+    ...conferenceAgendas,
+    [date]: conferenceAgendas[date].map((agenda, i) => {
+      const newAgenda = { ...agenda };
+      if (agenda.trackA && !agenda.trackA.src) {
+        newAgenda.trackA = {
+          ...agenda.trackA,
+          src: speakers.find((speaker) => speaker.name === agenda.trackA?.name)
+            ?.img,
+        };
+      }
+      if (agenda.trackB && !agenda.trackB.src) {
+        newAgenda.trackB = {
+          ...agenda.trackB,
+          src: speakers.find((speaker) => speaker.name === agenda.trackB?.name)
+            ?.img,
+        };
+      }
+      return newAgenda;
+    }),
+  };
+
+  const Column1Name = `Track A`;
+  const Column2Name = `Track B`;
+  const Column3Name = `Workshop`;
+
   return (
     <>
       <DesktopScheduleContainer>
@@ -19,11 +47,11 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           <NewTracksContainer>
             <NewScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <NewTrackContainerHeader>Track A</NewTrackContainerHeader>
-              <NewTrackContainerHeader>Track B</NewTrackContainerHeader>
-              <NewTrackContainerHeader>Workshop</NewTrackContainerHeader>
+              <NewTrackContainerHeader>{Column1Name}</NewTrackContainerHeader>
+              <NewTrackContainerHeader>{Column2Name}</NewTrackContainerHeader>
+              <NewTrackContainerHeader>{Column3Name}</NewTrackContainerHeader>
             </NewScheduleRow>
-            {conferenceAgendas[date].map((agenda, i) => (
+            {conferenceAgendasWithSpeakerImg[date].map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
                 <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
                 <TrackContainer>
@@ -50,13 +78,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>
-              DeFi Track
-              <br />
-              <span style={{ fontSize: "small" }}>(Building M)</span>
-            </NewTrackContainerHeader>
+            <NewTrackContainerHeader>{Column1Name}</NewTrackContainerHeader>
           </NewScheduleRow>
-          {conferenceAgendas[date]
+          {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackA)
             .map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
@@ -72,13 +96,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>
-              ZK / Client / Security Track
-              <br />
-              <span style={{ fontSize: "small" }}>(Building F)</span>
-            </NewTrackContainerHeader>
+            <NewTrackContainerHeader>{Column2Name}</NewTrackContainerHeader>
           </NewScheduleRow>
-          {conferenceAgendas[date]
+          {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackB)
             .map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
@@ -94,13 +114,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>
-              Workshop
-              <br />
-              <span style={{ fontSize: "small" }}>(Building I)</span>
-            </NewTrackContainerHeader>
+            <NewTrackContainerHeader>{Column3Name}</NewTrackContainerHeader>
           </NewScheduleRow>
-          {conferenceAgendas[date]
+          {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.workshop)
             .map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
