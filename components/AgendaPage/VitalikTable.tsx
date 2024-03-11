@@ -3,6 +3,7 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import vitalik from "@/public/images/v.png";
 import Colors from "@/styles/colors";
+import HeaderCell from "./ui/HeaderCell";
 import SpeakerInfo from "./ui/SpeakerInfo";
 import TimeZoneHint from "./ui/TimeZoneHint";
 
@@ -13,9 +14,7 @@ const VitalikTable = () => {
       <NewTracksContainer>
         <KeynoteRow>
           <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-          <NewTrackContainerHeader>
-            {t.homepage.openingandKeynote}
-          </NewTrackContainerHeader>
+          <HeaderCell title={t.homepage.openingandKeynote} location="M" />
         </KeynoteRow>
         <KeynoteRow>
           <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>

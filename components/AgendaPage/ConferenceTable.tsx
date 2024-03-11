@@ -5,6 +5,7 @@ import Colors from "@/styles/colors";
 import { useSpeakers } from "../hooks/useSpeakers";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
+import HeaderCell from "./ui/HeaderCell";
 import TimeZoneHint from "./ui/TimeZoneHint";
 
 interface ConferenceTableProps {
@@ -36,8 +37,13 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
   };
 
   const Column1Name = `Track A`;
+  const Column1Location = "M";
+
   const Column2Name = `Track B`;
+  const Column2Location = "F";
+
   const Column3Name = `Workshop`;
+  const Column3Location = "G";
 
   return (
     <>
@@ -47,9 +53,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           <NewTracksContainer>
             <NewScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <NewTrackContainerHeader>{Column1Name}</NewTrackContainerHeader>
-              <NewTrackContainerHeader>{Column2Name}</NewTrackContainerHeader>
-              <NewTrackContainerHeader>{Column3Name}</NewTrackContainerHeader>
+              <HeaderCell title={Column1Name} location={Column1Location} />
+              <HeaderCell title={Column2Name} location={Column2Location} />
+              <HeaderCell title={Column3Name} location={Column3Location} />
             </NewScheduleRow>
             {conferenceAgendasWithSpeakerImg[date].map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
@@ -78,7 +84,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>{Column1Name}</NewTrackContainerHeader>
+            <HeaderCell title={Column1Name} location={Column1Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackA)
@@ -96,7 +102,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>{Column2Name}</NewTrackContainerHeader>
+            <HeaderCell title={Column2Name} location={Column2Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackB)
@@ -114,7 +120,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>{Column3Name}</NewTrackContainerHeader>
+            <HeaderCell title={Column3Name} location={Column3Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.workshop)
@@ -217,16 +223,6 @@ const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const NewTrackContainerHeader = styled(TrackContainer)`
-  background-color: white;
-  text-align: center;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
 `;
 
 const MobileScheduleContainer = styled.div`

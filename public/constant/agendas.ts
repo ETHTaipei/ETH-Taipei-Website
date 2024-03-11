@@ -318,7 +318,7 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "MPC + FHE",
+        holder: "",
         title: "MPC + FHE",
         duration: "4:00pm-6:00pm (2 hrs)",
       },
@@ -390,7 +390,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "Myra",
         title: "Creating distributed validators in the wild",
-        duration: "2 hrs",
+        duration: "10:00am-12:00pm (2 hrs)",
       },
     },
     {
@@ -411,7 +411,7 @@ export const conferenceAgendas: {
     {
       time: "11:00am",
       trackA: {
-        name: "L1 Panel",
+        name: "Panel",
         company: "",
         topic: "L1 Panel",
         duration: "30 mins",
@@ -426,7 +426,7 @@ export const conferenceAgendas: {
     {
       time: "11:30am",
       trackA: {
-        name: "L1 Panel",
+        name: "Panel",
         company: "",
         topic: "L1 Panel",
         duration: "30 mins",
@@ -516,7 +516,7 @@ export const conferenceAgendas: {
     {
       time: "03:00pm",
       trackA: {
-        name: "Random Defi Panel",
+        name: "Panel",
         company: "",
         topic: "Random Defi Panel",
         duration: "40 mins",

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { hackathonAgendas } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import HackathonItem from "./HackathonItem";
+import HeaderCell from "./ui/HeaderCell";
 import TimeZoneHint from "./ui/TimeZoneHint";
 
 interface HackathonTableProps {
@@ -10,6 +11,12 @@ interface HackathonTableProps {
 }
 
 const HackathonTable = ({ date }: HackathonTableProps) => {
+  const Column1Name = `Hackathon`;
+  const Column1Location = "M";
+
+  const Column2Name = `Hackathon`;
+  const Column2Location = "F";
+
   return (
     <TableContainer>
       <DesktopScheduleContainer>
@@ -18,8 +25,8 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
           <NewTracksContainer>
             <HackathonScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <NewTrackContainerHeader>Building M</NewTrackContainerHeader>
-              <NewTrackContainerHeader>Building F</NewTrackContainerHeader>
+              <HeaderCell title={Column1Name} location={Column1Location} />
+              <HeaderCell title={Column2Name} location={Column2Location} />
             </HackathonScheduleRow>
             {hackathonAgendas[date].map((agenda, i) => (
               <HackathonScheduleRow key={date.toString() + i}>
@@ -43,7 +50,7 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>Building M</NewTrackContainerHeader>
+            <HeaderCell title={Column1Name} location={Column1Location} />
           </NewScheduleRow>
           {hackathonAgendas[date]
             .filter((i) => i.trackA)
@@ -61,7 +68,7 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <NewTrackContainerHeader>Building F</NewTrackContainerHeader>
+            <HeaderCell title={Column2Name} location={Column2Location} />
           </NewScheduleRow>
           {hackathonAgendas[date]
             .filter((i) => i.trackB)
@@ -163,16 +170,6 @@ const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const NewTrackContainerHeader = styled(TrackContainer)`
-  background-color: white;
-  text-align: center;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
 `;
 
 const MobileScheduleContainer = styled.div`
