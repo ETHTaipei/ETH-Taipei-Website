@@ -2,7 +2,6 @@ import { StaticImageData } from "next/image";
 
 import martinet from "@/public/images/Martinet.png";
 import nic from "@/public/images/Nic.png";
-import ZacL from "@/public/images/ZacL.png";
 import stefan from "@/public/images/stefan.png";
 
 export type EventType = "hackathon" | "conference";
@@ -118,11 +117,11 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "0:00am",
       trackA: {
         topic: "Hack Time.",
-        duration: "0:00am-12:00pm (24 hrs)",
+        duration: "24 hrs",
       },
       trackB: {
         topic: "Hack Time.",
-        duration: "0:00am-12:00pm (24 hrs)",
+        duration: "24 hrs",
       },
     },
   ],
@@ -210,14 +209,12 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        src: ZacL,
         duration: "1.5 hr",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        src: null,
         duration: "1.5 hr",
       },
     },
