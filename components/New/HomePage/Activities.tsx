@@ -2,7 +2,11 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { hackathonUrl, tickSiteUrl } from "@/public/constant/urls";
+import {
+  hackathonUrl,
+  sideEventFormUrl,
+  tickSiteUrl,
+} from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 
@@ -76,6 +80,38 @@ const Activities = () => {
               </ActivityActions>
             </ActivityDescWrapper>
           </ActivityCard>
+          <ActivityCard>
+            <ActivityNameWrapper>
+              <Image
+                src="/images/activity-sideevent-bg.png"
+                alt="Side Event"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+              <ActivityName>{t.homepage.activityName_3}</ActivityName>
+            </ActivityNameWrapper>
+            <ActivityDescWrapper>
+              <ActivityDesc>{t.homepage.activityDesc_3}</ActivityDesc>
+              <ActivityActions>
+                <ActivityDate>
+                  <Icon>
+                    <Image
+                      src="/images/calendar-pennblue.svg"
+                      alt="Date"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Icon>
+                  {t.homepage.activityDate_3}
+                </ActivityDate>
+                <ActionButton isActivity={true}>
+                  <Link href={sideEventFormUrl} target="_blank">
+                    {t.homepage.activityBtn_3}
+                  </Link>
+                </ActionButton>
+              </ActivityActions>
+            </ActivityDescWrapper>
+          </ActivityCard>
         </ActivityCardWrapper>
       </MainContent>
     </Container>
@@ -131,6 +167,7 @@ const ActivityNameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 255px;
   @media (max-width: 830px) {
     height: 200px;
   }
