@@ -2,7 +2,6 @@ import { StaticImageData } from "next/image";
 
 import martinet from "@/public/images/Martinet.png";
 import nic from "@/public/images/Nic.png";
-import stefan from "@/public/images/stefan.png";
 
 export type EventType = "hackathon" | "conference";
 
@@ -225,7 +224,6 @@ export const conferenceAgendas: {
         company: "Gnosis Pay",
         topic:
           "Gnosis Pay - Bridging the gap between real world and blockchain payments.",
-        src: stefan,
         duration: "30 mins",
       },
       trackB: {
@@ -329,13 +327,6 @@ export const conferenceAgendas: {
         name: "Tim Pechersky",
         company: "OpenZeppelin",
         topic: "Vulnerability management: Zero-Day, Today & Tomorrow",
-        duration: "30 mins",
-      },
-      trackB: {
-        name: "Marcin Kazmierczak",
-        company: "RedStone Oracles",
-        topic:
-          "The Future Usage of ZK Tech by Oracles: 5 Conclusions of Our Research",
         duration: "30 mins",
       },
     },

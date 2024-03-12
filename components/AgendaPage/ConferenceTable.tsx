@@ -148,20 +148,6 @@ const TableContainer = styled.div`
   max-width: 1080px;
 `;
 
-const TimeText = styled.span`
-  flex: 1;
-  font-size: 16px;
-  line-height: 22px;
-  color: ${Colors.pennBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
-const ScheduleText = styled(TimeText)`
-  font-size: 14px;
-`;
-
 const NewTracksContainer = styled.div`
   width: 100%;
   max-width: 1080px;
@@ -190,7 +176,7 @@ const NewScheduleRow = styled.div`
 const NewTrackTimeContainer = styled.div`
   padding: 20px 8px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 22px;
   color: ${Colors.pennBlue};
 
@@ -210,6 +196,10 @@ const TrackContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 1050px) {
+    padding: 20px 20px;
+  }
 `;
 
 const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`

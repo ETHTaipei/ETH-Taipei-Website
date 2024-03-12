@@ -87,8 +87,8 @@ const SpeakerContainer = styled.div`
 
 const SpeakerName = styled.span`
   font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 19px;
   color: ${Colors.pennBlue};
   @media (max-width: 768px) {
     font-size: 10px;
