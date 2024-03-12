@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { speakerApplyUrl, sponsorApplyUrl } from "@/public/constant/urls";
+import { sideEventApplyUrl, sponsorApplyUrl } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
 
@@ -24,7 +24,7 @@ const Participation = () => {
           <Action onClick={() => openNewTab(sponsorApplyUrl)}>
             {t.homepage.beASponsor}
           </Action>
-          <Action onClick={() => openNewTab(sponsorApplyUrl)}>
+          <Action onClick={() => openNewTab(sideEventApplyUrl)}>
             {t.homepage.applyToSideEvent}
           </Action>
         </ActionContainer>

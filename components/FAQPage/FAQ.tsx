@@ -37,6 +37,7 @@ const FAQ = () => {
             </Description>
           </Row>
         ))}
+
         <TitleH1>{t.visa.visaTitle}</TitleH1>
         <Row>
           <Title>{t.visa.visaQuestion1}</Title>
@@ -79,7 +80,7 @@ const TitleH1 = styled.h1`
 `;
 
 const Container = styled.div`
-  height: 100vh;
+  height: 150vh;
   width: 100%;
   /* display: flex;
   flex-direction: column;
