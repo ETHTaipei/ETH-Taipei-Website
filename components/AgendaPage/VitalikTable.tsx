@@ -123,7 +123,7 @@ const KeynoteRow = styled(NewScheduleRow)`
 const NewTrackTimeContainer = styled.div`
   padding: 20px 8px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 22px;
   color: ${Colors.pennBlue};
 
@@ -164,16 +164,6 @@ const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const NewTrackContainerHeader = styled(TrackContainer)`
-  background-color: white;
-  text-align: center;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
 `;
 
 const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
