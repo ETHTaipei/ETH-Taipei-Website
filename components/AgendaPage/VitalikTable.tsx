@@ -40,7 +40,7 @@ const VitalikTable = () => {
               <TopicContainer>
                 <ScheduleText>
                   {
-                    "The need for standardization of L2s, smart contract wallet and privacy (Virtual, streaming in all buildings)"
+                    "The need for standardization of L2s, smart contract wallet and privacy"
                   }
                 </ScheduleText>
               </TopicContainer>

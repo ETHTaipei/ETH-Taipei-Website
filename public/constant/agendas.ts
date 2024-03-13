@@ -335,7 +335,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Martinet",
         company: "QuantStamp",
-        topic: "TBD",
+        topic: "Detecting pitfalls in ERC4337 implementation",
         src: martinet,
         duration: "30 mins",
       },
@@ -509,7 +509,7 @@ export const conferenceAgendas: {
       trackA: {
         name: "Panel",
         company: "",
-        topic: "Random Defi Panel",
+        topic: "Defi Panel",
         duration: "40 mins",
       },
       trackB: {
