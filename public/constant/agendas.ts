@@ -174,10 +174,18 @@ export const conferenceAgendas: {
     {
       time: "11:00am",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
-        topic: "Restaking Panel",
+        topic:
+          "Includes restaking intro by Filipe Gonçalves from Tagus Labs for 20 mins",
         duration: "30 mins",
+        panelHost: "Evan Hsu (@ Aves Lair Accelerator)",
+        panelists: [
+          "Matthew Liu (@ Origin Protocol)",
+          "Mischa0x (@ VaultCraft)",
+          "Filipe Gonçalves (@ Tagus Labs)",
+          "Maja (@ RedStone Oracles)",
+        ],
       },
       trackB: {
         name: "Adrian Li",
@@ -189,12 +197,6 @@ export const conferenceAgendas: {
     },
     {
       time: "11:30am",
-      trackA: {
-        name: "Panel",
-        company: "",
-        topic: "Restaking Panel",
-        duration: "30 mins",
-      },
       trackB: {
         name: "Soowon Jeong",
         company: "PSE",
@@ -274,10 +276,18 @@ export const conferenceAgendas: {
     {
       time: "3:00pm",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
         topic: "L2 Panel",
         duration: "40 mins",
+        panelHost: "Queenie (@ imToken Venture)",
+        panelists: [
+          "Vitalik Buterin (@ EF Research)",
+          "Jordi (@ Polygon)",
+          "Martin Derka (@ Zircuit)",
+          "Yuan Su (@ Metis)",
+          "Karl (@ OP Labs)",
+        ],
       },
       trackB: {
         name: "Christopher Tam",
@@ -402,10 +412,16 @@ export const conferenceAgendas: {
     {
       time: "11:00am",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
-        topic: "L1 Panel",
-        duration: "30 mins",
+        topic: "Ethereum L1 R&D Panel",
+        duration: "1 hr",
+        panelHost: "Hsiao-Wei Wang (@ EF Research)",
+        panelists: [
+          "Vitalik Buterin (@ EF Research)",
+          "Marius van der Wijden (@ EF Geth)",
+          "Guillaume Ballet (@ EF Geth)",
+        ],
       },
       trackB: {
         name: "Marco Lau",
@@ -416,12 +432,6 @@ export const conferenceAgendas: {
     },
     {
       time: "11:30am",
-      trackA: {
-        name: "Panel",
-        company: "",
-        topic: "L1 Panel",
-        duration: "30 mins",
-      },
       trackB: {
         name: "YoungHwi Cho",
         company: "Mint Club",
@@ -507,10 +517,18 @@ export const conferenceAgendas: {
     {
       time: "03:00pm",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
         topic: "Defi Panel",
         duration: "40 mins",
+        panelHost: "Host: Jun (@ Sora Ventures)",
+        panelists: [
+          "Tom Soong (@ Zomma)",
+          "Jerry Li (@ Term Structure)",
+          "Yenwen Feng (@ Perpetual)",
+          "Ran Yi (@ Orderly Network)",
+          "Jason Lau (@ OKX)",
+        ],
       },
       trackB: {
         name: "Ventali Tan",
