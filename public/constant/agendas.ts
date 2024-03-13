@@ -176,9 +176,8 @@ export const conferenceAgendas: {
       trackA: {
         name: "",
         company: "",
-        topic:
-          "Includes restaking intro by Filipe Gonçalves from Tagus Labs for 20 mins",
-        duration: "30 mins",
+        topic: "Restaking Panel",
+        duration: "1 hr",
         panelHost: "Evan Hsu (@ Aves Lair Accelerator)",
         panelists: [
           "Matthew Liu (@ Origin Protocol)",
@@ -283,10 +282,10 @@ export const conferenceAgendas: {
         panelHost: "Queenie (@ imToken Venture)",
         panelists: [
           "Vitalik Buterin (@ EF Research)",
-          "Jordi (@ Polygon)",
+          "Jordi Baylina (@ Polygon)",
           "Martin Derka (@ Zircuit)",
           "Yuan Su (@ Metis)",
-          "Karl (@ OP Labs)",
+          "Karl Floersch (@ OP Labs, Optimism Cofounder)",
         ],
       },
       trackB: {
@@ -421,6 +420,7 @@ export const conferenceAgendas: {
           "Vitalik Buterin (@ EF Research)",
           "Marius van der Wijden (@ EF Geth)",
           "Guillaume Ballet (@ EF Geth)",
+          "Matthew Keil (@ Lodestar, ChainSafe)",
         ],
       },
       trackB: {
