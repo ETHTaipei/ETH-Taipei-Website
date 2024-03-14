@@ -409,8 +409,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "Myra",
-        title: "Creating distributed validators in the wild",
+        holder: "ZKBankai",
+        title: "ZKBankai Whiteboarding Session",
         duration: "2 hrs (10:00am-12:00pm)",
       },
     },
@@ -489,6 +489,11 @@ export const conferenceAgendas: {
         topic: "The Easiest Way to Build Fully On-Chain Games",
         duration: "30 mins",
       },
+      workshop: {
+        holder: "Tobi",
+        title: "TBD",
+        duration: "1 hrs (1:00pm-2:00pm)",
+      },      
     },
     {
       time: "01:30pm",
@@ -519,6 +524,11 @@ export const conferenceAgendas: {
         topic: "Mopro: Client-side proving on mobile made easy",
         duration: "30 mins",
       },
+      workshop: {
+        holder: "Myra",
+        title: "Creating distributed validators in the wild",
+        duration: "2 hrs (2:00pm-4:00pm)",
+      }, 
     },
     {
       time: "02:30pm",
@@ -557,7 +567,7 @@ export const conferenceAgendas: {
         topic:
           "Plonky3 & Valida: Pushing the Performance and Usability of Zero Knowledge Proof",
         duration: "30 mins",
-      },
+      },       
     },
     {
       time: "03:30pm",
