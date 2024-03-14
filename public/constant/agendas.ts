@@ -219,7 +219,7 @@ export const conferenceAgendas: {
       },
     },
     {
-      time: "01:30pm",
+      time: "01:00pm",
       trackA: {
         name: "Stefan",
         company: "Gnosis Pay",
@@ -233,6 +233,22 @@ export const conferenceAgendas: {
         topic: "State of lookup arguments and benchmarks",
         duration: "30 mins",
       },
+    },
+    {
+      time: "1:30pm",
+      trackA: {
+        name: "Nic Lin",
+        company: "imToken",
+        topic: "What is OFA and why should you care",
+        src: nic,
+        duration: "30 mins",
+      },
+      trackB: {
+        name: "Jordi Baylina",
+        company: "Polygon",
+        topic: "TBD",
+        duration: "30 mins",
+      },
       workshop: {
         holder: "Vivian",
         title: "Build a web3 anonymous social media with UniRep",
@@ -242,10 +258,9 @@ export const conferenceAgendas: {
     {
       time: "2:00pm",
       trackA: {
-        name: "Nic Lin",
-        company: "imToken",
-        topic: "What is OFA and why should you care",
-        src: nic,
+        name: "Karl Floersch",
+        company: "OP Labs, Cofounder",
+        topic: "TBD",
         duration: "30 mins",
       },
       trackB: {
@@ -253,13 +268,13 @@ export const conferenceAgendas: {
         company: "PSE",
         topic: "Introduction to circom-2PC",
         duration: "30 mins",
-      },
+      }
     },
     {
       time: "2:30pm",
       trackA: {
         name: "Martin Derka",
-        company: "Zircuit",
+        company: "Zircuit, Cofounder",
         topic:
           "Challenges of Building an EVM Equivalent ZK Rollup on the OP-Stack",
         duration: "30 mins",
@@ -282,10 +297,10 @@ export const conferenceAgendas: {
         panelHost: "Queenie (@ imToken Venture)",
         panelists: [
           "Vitalik Buterin (@ EF Research)",
-          "Jordi Baylina (@ Polygon)",
-          "Martin Derka (@ Zircuit)",
-          "Yuan Su (@ Metis)",
-          "Karl Floersch (@ OP Labs, Optimism Cofounder)",
+          "Jordi Baylina (@ Polygon, Tech lead)",
+          "Martin Derka (@ Zircuit, Cofounder)",
+          "Yuan Su (@ Metis, Cofounder)",
+          "Karl Floersch (@ OP Labs, Cofounder)",
         ],
       },
       trackB: {
@@ -336,6 +351,12 @@ export const conferenceAgendas: {
         name: "Tim Pechersky",
         company: "OpenZeppelin",
         topic: "Vulnerability management: Zero-Day, Today & Tomorrow",
+        duration: "30 mins",
+      },
+      trackB: {
+        name: "David Wong",
+        company: "zksecurity.xyz",
+        topic: "ZKBitcoin",
         duration: "30 mins",
       },
     },
