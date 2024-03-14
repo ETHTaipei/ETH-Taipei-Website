@@ -44,7 +44,7 @@ const VitalikTable = () => {
                   }
                 </ScheduleText>
               </TopicContainer>
-              <DurationT isFirst={true}>1 hours</DurationT>
+              <DurationT isFirst={true}>1 hr</DurationT>
               <SpeakerInfo
                 src={vitalik}
                 name={"Vitalik Buterin"}
