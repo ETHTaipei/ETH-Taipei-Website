@@ -147,7 +147,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "2:00pm",
       trackA: {
         topic: "Demo Day",
-        duration: "2:00pm-4:00pm (2 hr)",
+        duration: "2 hrs (2:00pm-4:00pm)",
       },
     },
     {
@@ -174,10 +174,17 @@ export const conferenceAgendas: {
     {
       time: "11:00am",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
         topic: "Restaking Panel",
-        duration: "30 mins",
+        duration: "1 hr (11:00am-12:00pm)",
+        panelHost: "Evan Hsu (@ Aves Lair Accelerator)",
+        panelists: [
+          "Matthew Liu (@ Origin Protocol)",
+          "Mischa0x (@ VaultCraft)",
+          "Filipe Gonçalves (@ Tagus Labs)",
+          "Maja (@ RedStone Oracles)",
+        ],
       },
       trackB: {
         name: "Adrian Li",
@@ -189,12 +196,6 @@ export const conferenceAgendas: {
     },
     {
       time: "11:30am",
-      trackA: {
-        name: "Panel",
-        company: "",
-        topic: "Restaking Panel",
-        duration: "30 mins",
-      },
       trackB: {
         name: "Soowon Jeong",
         company: "PSE",
@@ -208,13 +209,13 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hr",
+        duration: "1.5 hrs",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hr",
+        duration: "1.5 hrs",
       },
     },
     {
@@ -235,7 +236,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "Vivian",
         title: "Build a web3 anonymous social media with UniRep",
-        duration: "1:30pm-3:30pm (2 hrs)",
+        duration: "2 hrs (1:30pm-3:30pm)",
       },
     },
     {
@@ -245,7 +246,7 @@ export const conferenceAgendas: {
         company: "imToken",
         topic: "What is OFA and why should you care",
         src: nic,
-        duration: "1.5 hr",
+        duration: "30 mins",
       },
       trackB: {
         name: "Nam Ngo",
@@ -274,10 +275,18 @@ export const conferenceAgendas: {
     {
       time: "3:00pm",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
         topic: "L2 Panel",
         duration: "40 mins",
+        panelHost: "Queenie (@ imToken Venture)",
+        panelists: [
+          "Vitalik Buterin (@ EF Research)",
+          "Jordi Baylina (@ Polygon)",
+          "Martin Derka (@ Zircuit)",
+          "Yuan Su (@ Metis)",
+          "Karl Floersch (@ OP Labs, Optimism Cofounder)",
+        ],
       },
       trackB: {
         name: "Christopher Tam",
@@ -318,7 +327,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "",
         title: "MPC + FHE",
-        duration: "4:00pm-6:00pm (2 hrs)",
+        duration: "2 hrs (4:00pm-6:00pm)",
       },
     },
     {
@@ -381,7 +390,7 @@ export const conferenceAgendas: {
       workshop: {
         holder: "Myra",
         title: "Creating distributed validators in the wild",
-        duration: "10:00am-12:00pm (2 hrs)",
+        duration: "2 hrs (10:00am-12:00pm)",
       },
     },
     {
@@ -402,10 +411,17 @@ export const conferenceAgendas: {
     {
       time: "11:00am",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
-        topic: "L1 Panel",
-        duration: "30 mins",
+        topic: "Ethereum L1 R&D Panel",
+        duration: "1 hr (11:00-12:00pm)",
+        panelHost: "Hsiao-Wei Wang (@ EF Research)",
+        panelists: [
+          "Vitalik Buterin (@ EF Research)",
+          "Marius van der Wijden (@ EF Geth)",
+          "Guillaume Ballet (@ EF Geth)",
+          "Matthew Keil (@ Lodestar, ChainSafe)",
+        ],
       },
       trackB: {
         name: "Marco Lau",
@@ -416,12 +432,6 @@ export const conferenceAgendas: {
     },
     {
       time: "11:30am",
-      trackA: {
-        name: "Panel",
-        company: "",
-        topic: "L1 Panel",
-        duration: "30 mins",
-      },
       trackB: {
         name: "YoungHwi Cho",
         company: "Mint Club",
@@ -435,13 +445,13 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1 hrs",
+        duration: "1 hr",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1 hrs",
+        duration: "1 hr",
       },
     },
     {
@@ -507,10 +517,18 @@ export const conferenceAgendas: {
     {
       time: "03:00pm",
       trackA: {
-        name: "Panel",
+        name: "",
         company: "",
         topic: "Defi Panel",
         duration: "40 mins",
+        panelHost: "Host: Jun (@ Sora Ventures)",
+        panelists: [
+          "Tom Soong (@ Zomma)",
+          "Jerry Li (@ Term Structure)",
+          "Yenwen Feng (@ Perpetual)",
+          "Ran Yi (@ Orderly Network)",
+          "Jason Lau (@ OKX)",
+        ],
       },
       trackB: {
         name: "Ventali Tan",

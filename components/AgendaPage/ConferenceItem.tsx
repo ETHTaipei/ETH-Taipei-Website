@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { ConferenceItemType } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
+import PanelInfo from "./ui/PanelInfo";
 import SpeakerInfo from "./ui/SpeakerInfo";
 
 interface AgendaItemProps {
@@ -21,6 +22,9 @@ const ConferenceAgendaItem = ({ item, index }: AgendaItemProps) => {
           <SpeakerInfo src={item.src} name={item.name} company={item.company} />
         )}
       </NameContainer>
+      {item.panelHost && item.panelists && (
+        <PanelInfo panelHost={item.panelHost} panelists={item.panelists} />
+      )}
     </TrackMainContent>
   );
 };
