@@ -17,7 +17,7 @@ const VitalikTable = () => {
           <HeaderCell title={t.homepage.openingandKeynote} location="M" />
         </KeynoteRow>
         <KeynoteRow>
-          <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
+          <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
           <TrackContainer style={{ paddingBottom: 0 }}>
             <TopicContainer
               style={{
@@ -26,14 +26,14 @@ const VitalikTable = () => {
                 paddingBottom: "15px",
               }}
             >
-              <ScheduleText>{"Opening!!!"}</ScheduleText>
+              <ScheduleText>{"NUVO Opening Speech!!!"}</ScheduleText>
             </TopicContainer>
           </TrackContainer>
 
           <NewTrackTimeContainer
             style={{ borderBottom: 0, backgroundColor: "white" }}
           >
-            10:00am
+            10:20am
           </NewTrackTimeContainer>
           <TrackContainer style={{ borderBottom: 0, backgroundColor: "white" }}>
             <TrackMainContent>
@@ -44,7 +44,7 @@ const VitalikTable = () => {
                   }
                 </ScheduleText>
               </TopicContainer>
-              <DurationT isFirst={true}>1 hours</DurationT>
+              <DurationT isFirst={true}>40 mins</DurationT>
               <SpeakerInfo
                 src={vitalik}
                 name={"Vitalik Buterin"}
