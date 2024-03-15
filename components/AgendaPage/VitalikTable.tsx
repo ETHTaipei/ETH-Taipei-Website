@@ -17,7 +17,7 @@ const VitalikTable = () => {
           <HeaderCell title={t.homepage.openingandKeynote} location="M" />
         </KeynoteRow>
         <KeynoteRow>
-          <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
+          <NewTrackTimeContainer>10:00am</NewTrackTimeContainer>
           <TrackContainer style={{ paddingBottom: 0 }}>
             <TopicContainer
               style={{
@@ -33,14 +33,14 @@ const VitalikTable = () => {
           <NewTrackTimeContainer
             style={{ borderBottom: 0, backgroundColor: "white" }}
           >
-            10:00am
+            10:20am
           </NewTrackTimeContainer>
           <TrackContainer style={{ borderBottom: 0, backgroundColor: "white" }}>
             <TrackMainContent>
               <TopicContainer>
                 <ScheduleText>
                   {
-                    "The need for standardization of L2s, smart contract wallet and privacy"
+                    "Desired properties of ideal PoS economics"
                   }
                 </ScheduleText>
               </TopicContainer>
