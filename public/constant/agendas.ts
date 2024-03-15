@@ -55,7 +55,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
     {
       time: "6:30pm",
       trackA: {
-        topic: "Opening",
+        topic: "Opening Ceremony",
         duration: "1 hr",
       },
     },
@@ -102,45 +102,102 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
     {
       time: "9:30pm",
       trackA: {
-        topic: "Hack Time.",
-        duration: "9:30pm-0:00am",
+        topic: "Hack Time!!! (Building M will CLOSE at 22:00)",
+        duration: "30 mins",
       },
       trackB: {
-        topic: "Hack Time.",
-        duration: "9:30pm-12:00pm",
+        topic: "Hack Time!!! (Building F is open 24 hours)",
+        duration: "2.5 hrs",
       },
     },
   ],
   23: [
     {
       time: "0:00am",
-      trackA: {
-        topic: "Hack Time.",
+      trackB: {
+        topic: "Hack Time!!! (Building F is open 24 hours)",
         duration: "24 hrs",
       },
+    },
+    {
+      time: "10:00am",
+      trackA: {
+        topic: "Hack Time!!! (Building M will CLOSE at 10:00pm)",
+        duration: "12 hrs",
+      },
+    },
+    {
+      time: "11:00am",
+      trackA: {
+        topic: "Mentor Time!!! (Ends at 6:00pm)",
+        duration: "7 hrs",
+      },
       trackB: {
-        topic: "Hack Time.",
-        duration: "24 hrs",
+        topic: "Mentor Time!!! (Ends at 6:00pm)",
+        duration: "7 hrs",
+      },
+    },
+    {
+      time: "7:30pm",
+      trackA: {
+        topic: "Demo Day Registration Due",
+        duration: "",
+      },
+      trackB: {
+        topic: "Demo Day Registration Due",
+        duration: "",
+      },
+    },
+    {
+      time: "9:30pm",
+      trackA: {
+        topic: "Announce Demo Day Team through Discord",
+        duration: "",
+      },
+      trackB: {
+        topic: "Announce Demo Day Team through Discord",
+        duration: "",
       },
     },
   ],
   24: [
     {
-      time: "12:00pm",
-      trackA: {
-        topic: "Project Submission Deadline",
-        duration: "1 hr",
-      },
+      time: "0:00am",
       trackB: {
-        topic: "Project Submission Deadline",
-        duration: "1hr",
+        topic: "Hack Time!!!",
+        duration: "12 hrs",
       },
     },
     {
-      time: "1:00pm",
+      time: "10:00am",
       trackA: {
-        topic: "Demo Day Opening",
-        duration: "1 hr",
+        topic: "Day3 Opening",
+        duration: "30 mins",
+      },
+    },
+    {
+      time: "10:30am",
+      trackA: {
+        topic: "Hack Time!!!",
+        duration: "1.5 hrs",
+      },
+    },
+    {
+      time: "12:00pm",
+      trackA: {
+        topic: "Project Submission Deadline",
+        duration: "",
+      },
+      trackB: {
+        topic: "Project Submission Deadline",
+        duration: "",
+      },
+    },
+    {
+      time: "1:30pm",
+      trackA: {
+        topic: "Hackathon Wrap-up",
+        duration: "30 mins",
       },
     },
     {
@@ -161,7 +218,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "4:30pm",
       trackB: {
         topic: "Closing Party",
-        duration: "4:30pm",
+        duration: "",
       },
     },
   ],
@@ -268,7 +325,7 @@ export const conferenceAgendas: {
         company: "PSE",
         topic: "Introduction to circom-2PC",
         duration: "30 mins",
-      }
+      },
     },
     {
       time: "2:30pm",
@@ -493,7 +550,7 @@ export const conferenceAgendas: {
         holder: "Tobi",
         title: "TBD",
         duration: "1 hrs (1:00pm-2:00pm)",
-      },      
+      },
     },
     {
       time: "01:30pm",
@@ -528,7 +585,7 @@ export const conferenceAgendas: {
         holder: "Myra",
         title: "Creating distributed validators in the wild",
         duration: "2 hrs (2:00pm-4:00pm)",
-      }, 
+      },
     },
     {
       time: "02:30pm",
@@ -567,7 +624,7 @@ export const conferenceAgendas: {
         topic:
           "Plonky3 & Valida: Pushing the Performance and Usability of Zero Knowledge Proof",
         duration: "30 mins",
-      },       
+      },
     },
     {
       time: "03:30pm",
