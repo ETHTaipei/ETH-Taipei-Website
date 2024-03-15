@@ -209,13 +209,13 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
     },
     {
@@ -223,14 +223,14 @@ export const conferenceAgendas: {
       trackA: {
         name: "Stefan",
         company: "Gnosis Pay",
-        topic:
-          "Gnosis Pay - Bridging the gap between real world and blockchain payments.",
+        topic: "Replacing CEXs one step at a time",
         duration: "30 mins",
       },
       trackB: {
         name: "Dohoon Kim",
         company: "PSE",
-        topic: "State of lookup arguments and benchmarks",
+        topic:
+          "Zafny, framework for writing formally verified zero-knowledge circuit",
         duration: "30 mins",
       },
       workshop: {
@@ -325,8 +325,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "",
-        title: "MPC + FHE",
+        holder: "PSE",
+        title: "",
         duration: "2 hrs (4:00pm-6:00pm)",
       },
     },
@@ -425,7 +425,7 @@ export const conferenceAgendas: {
       },
       trackB: {
         name: "Marco Lau",
-        company: "Otterlayer",
+        company: "LazyOtter",
         topic: "web3 security: Incident Responses for DeFi retail users",
         duration: "30 mins",
       },
@@ -457,9 +457,9 @@ export const conferenceAgendas: {
     {
       time: "01:00pm",
       trackA: {
-        name: "TBD",
+        name: "Seraya Takahashi",
         company: "Polkadot",
-        topic: "TBD",
+        topic: "Polkadot in 30 minutes",
         duration: "30 mins",
       },
       trackB: {

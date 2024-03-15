@@ -53,7 +53,7 @@ const homepage = {
   organizers: "Organizers",
   communitySupport: "Community Supports",
   keynote: "Keynote Speaker",
-  openingandKeynote: "Opening / Keynote Speaker",
+  openingAndKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
   sponsors: "Sponsors",
 
