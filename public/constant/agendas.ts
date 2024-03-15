@@ -56,7 +56,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "6:30pm",
       trackA: {
         topic: "Opening",
-        duration: "6:30pm-7:30pm (1 hr)",
+        duration: "1 hr",
       },
     },
     {
@@ -129,25 +129,25 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "12:00pm",
       trackA: {
         topic: "Project Submission Deadline",
-        duration: "12:00am-1:00pm (1 hr)",
+        duration: "1 hr",
       },
       trackB: {
         topic: "Project Submission Deadline",
-        duration: "12:00am-1:00pm (1 hr)",
+        duration: "1hr",
       },
     },
     {
       time: "1:00pm",
       trackA: {
         topic: "Demo Day Opening",
-        duration: "1:00pm-2:00pm (1 hr)",
+        duration: "1 hr",
       },
     },
     {
       time: "2:00pm",
       trackA: {
         topic: "Demo Day",
-        duration: "2 hrs (2:00pm-4:00pm)",
+        duration: "2 hrs",
       },
     },
     {
@@ -209,13 +209,13 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
     },
     {
@@ -223,14 +223,14 @@ export const conferenceAgendas: {
       trackA: {
         name: "Stefan",
         company: "Gnosis Pay",
-        topic:
-          "Gnosis Pay - Bridging the gap between real world and blockchain payments.",
+        topic: "Replacing CEXs one step at a time",
         duration: "30 mins",
       },
       trackB: {
         name: "Dohoon Kim",
         company: "PSE",
-        topic: "State of lookup arguments and benchmarks",
+        topic:
+          "Zafny, framework for writing formally verified zero-knowledge circuit",
         duration: "30 mins",
       },
     },
@@ -340,8 +340,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "",
-        title: "MPC + FHE",
+        holder: "PSE",
+        title: "",
         duration: "2 hrs (4:00pm-6:00pm)",
       },
     },
@@ -446,7 +446,7 @@ export const conferenceAgendas: {
       },
       trackB: {
         name: "Marco Lau",
-        company: "Otterlayer",
+        company: "LazyOtter",
         topic: "web3 security: Incident Responses for DeFi retail users",
         duration: "30 mins",
       },
@@ -478,9 +478,9 @@ export const conferenceAgendas: {
     {
       time: "01:00pm",
       trackA: {
-        name: "TBD",
+        name: "Seraya Takahashi",
         company: "Polkadot",
-        topic: "TBD",
+        topic: "Polkadot in 30 minutes",
         duration: "30 mins",
       },
       trackB: {

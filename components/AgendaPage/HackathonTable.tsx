@@ -11,10 +11,8 @@ interface HackathonTableProps {
 }
 
 const HackathonTable = ({ date }: HackathonTableProps) => {
-  const Column1Name = `Hackathon`;
+  // the activity trait is set to empty cuz all activities in this page is hackathon
   const Column1Location = "M";
-
-  const Column2Name = `Hackathon`;
   const Column2Location = "F";
 
   return (
@@ -25,8 +23,8 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
           <NewTracksContainer>
             <HackathonScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <HeaderCell title={Column1Name} location={Column1Location} />
-              <HeaderCell title={Column2Name} location={Column2Location} />
+              <HeaderCell activity="" location={Column1Location} />
+              <HeaderCell activity="" location={Column2Location} />
             </HackathonScheduleRow>
             {hackathonAgendas[date].map((agenda, i) => (
               <HackathonScheduleRow key={date.toString() + i}>
@@ -50,7 +48,7 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column1Name} location={Column1Location} />
+            <HeaderCell activity="" location={Column1Location} />
           </NewScheduleRow>
           {hackathonAgendas[date]
             .filter((i) => i.trackA)
@@ -68,7 +66,7 @@ const HackathonTable = ({ date }: HackathonTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column2Name} location={Column2Location} />
+            <HeaderCell activity="" location={Column2Location} />
           </NewScheduleRow>
           {hackathonAgendas[date]
             .filter((i) => i.trackB)

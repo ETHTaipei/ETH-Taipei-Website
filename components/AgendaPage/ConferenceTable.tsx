@@ -36,13 +36,13 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
     }),
   };
 
-  const Column1Name = `Track A`;
+  const Column1Activity = "Conference";
   const Column1Location = "M";
 
-  const Column2Name = `Track B`;
+  const Column2Activity = "Conference";
   const Column2Location = "F";
 
-  const Column3Name = `Workshop`;
+  const Column3Activity = "Workshop";
   const Column3Location = "G";
 
   return (
@@ -53,9 +53,18 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           <NewTracksContainer>
             <NewScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <HeaderCell title={Column1Name} location={Column1Location} />
-              <HeaderCell title={Column2Name} location={Column2Location} />
-              <HeaderCell title={Column3Name} location={Column3Location} />
+              <HeaderCell
+                activity={Column1Activity}
+                location={Column1Location}
+              />
+              <HeaderCell
+                activity={Column2Activity}
+                location={Column2Location}
+              />
+              <HeaderCell
+                activity={Column3Activity}
+                location={Column3Location}
+              />
             </NewScheduleRow>
             {conferenceAgendasWithSpeakerImg[date].map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>
@@ -84,7 +93,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column1Name} location={Column1Location} />
+            <HeaderCell activity={Column1Activity} location={Column1Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackA)
@@ -102,7 +111,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column2Name} location={Column2Location} />
+            <HeaderCell activity={Column2Activity} location={Column2Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.trackB)
@@ -120,7 +129,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column3Name} location={Column3Location} />
+            <HeaderCell activity={Column3Activity} location={Column3Location} />
           </NewScheduleRow>
           {conferenceAgendasWithSpeakerImg[date]
             .filter((i) => i.workshop)
