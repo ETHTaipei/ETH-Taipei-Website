@@ -14,7 +14,7 @@ const VitalikTable = () => {
       <NewTracksContainer>
         <KeynoteRow>
           <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-          <HeaderCell title={t.homepage.openingandKeynote} location="M" />
+          <HeaderCell activity={t.homepage.openingandKeynote} location="M" />
         </KeynoteRow>
         <KeynoteRow>
           <NewTrackTimeContainer>9:50am</NewTrackTimeContainer>
