@@ -310,6 +310,8 @@ export const conferenceAgendas: {
         holder: "Vivian",
         title: "Build a web3 anonymous social media with UniRep",
         duration: "2 hrs (1:30pm-3:30pm)",
+        prerequisite: "materials",
+        prerequisiteLink: "https://hackmd.io/@vivi432/2024-ETHTaipei-workshop",
       },
     },
     {
