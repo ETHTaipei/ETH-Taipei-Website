@@ -32,6 +32,16 @@ const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
           <EventText>{`Hackathon`}</EventText>
           <EventSubText>{`22-24 March 2024`}</EventSubText>
         </EventSwitcherButton>
+        <EventSwitcherButton
+          isSelect={type === "sideEvent"}
+          onClick={() => {
+            setType("sideEvent");
+            setDate(dates["sideEvent"][0]);
+          }}
+        >
+          <EventText>{`Side Event`}</EventText>
+          <EventSubText>{`21-23 March 2024`}</EventSubText>
+        </EventSwitcherButton>
       </EventSwitchers>
     </EventSwitcherContainer>
   );

@@ -7,29 +7,35 @@ import Map from "./Map";
 
 interface HeaderCellProps {
   activity: string;
-  location: string;
+  location?: string;
 }
 
 const HeaderCell = ({ activity, location }: HeaderCellProps) => {
   const [openMap, setOpenMap] = useState(false);
   return (
     <Container>
-      <Title>
-        <IconLocation width={14} height={14} color={Colors.pennBlue} />
-        {` Building ${location}`}
-      </Title>
-      <ViewMap onClick={() => setOpenMap(true)}>
-        <Icon>
-          <Image
-            src="/images/map.svg"
-            alt="Map"
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </Icon>
-        View Map
-      </ViewMap>
-      {openMap && <Map id={location} onClose={() => setOpenMap(false)} />}
+      {location && (
+        <Title>
+          <IconLocation width={14} height={14} color={Colors.pennBlue} />
+          {` Building ${location}`}
+        </Title>
+      )}
+      {location && (
+        <ViewMap onClick={() => setOpenMap(true)}>
+          <Icon>
+            <Image
+              src="/images/map.svg"
+              alt="Map"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </Icon>
+          View Map
+        </ViewMap>
+      )}
+      {openMap && location && (
+        <Map id={location} onClose={() => setOpenMap(false)} />
+      )}
       {activity && <Subtitle>{activity}</Subtitle>}
     </Container>
   );

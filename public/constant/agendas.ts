@@ -3,11 +3,12 @@ import { StaticImageData } from "next/image";
 import martinet from "@/public/images/Martinet.png";
 import nic from "@/public/images/Nic.png";
 
-export type EventType = "hackathon" | "conference";
+export type EventType = "hackathon" | "conference" | "sideEvent";
 
 export const dates = {
   hackathon: [22, 23, 24],
   conference: [21, 22],
+  sideEvent: [21, 22, 23],
 };
 
 export type HackathonItemType = {
@@ -48,6 +49,69 @@ export type ConferenceAgenda = {
   trackA?: ConferenceItemType;
   trackB?: ConferenceItemType;
   workshop?: WorkshopItemType;
+};
+
+export type SideEventItemType = {
+  topic: string;
+  duration: string;
+};
+
+export type SideEventAgenda = {
+  time: string;
+  trackA: SideEventItemType;
+};
+
+export const sideEventAgendas: {
+  [key: number]: SideEventAgenda[];
+} = {
+  21: [
+    {
+      time: "3:30pm",
+      trackA: {
+        topic: "OKX Happy Hour @ The terrace next to Building M",
+        duration: "2.5 hrs (3:30pm-6:00pm)",
+      },
+    },
+    {
+      time: "6:30pm",
+      trackA: {
+        topic: "IoTeX side event @ Building I",
+        duration: "3 hrs (6:30pm-9:30pm)",
+      },
+    },
+  ],
+  22: [
+    {
+      time: "1:00pm",
+      trackA: {
+        topic: "Tobi panel @ Building G",
+        duration: "1 hr (1:00pm-2:00pm)",
+      },
+    },
+    {
+      time: "3:30pm",
+      trackA: {
+        topic: "Orderly Network Happy Hour @ Building I",
+        duration: "2.5 hrs (3:30pm-6:00pm)",
+      },
+    },
+    {
+      time: "6:30pm",
+      trackA: {
+        topic: "imToken side event @ Building G",
+        duration: "3 hrs (6:30pm-9:30pm)",
+      },
+    },
+  ],
+  23: [
+    {
+      time: "6:30pm",
+      trackA: {
+        topic: "Aleo side event @ Building I",
+        duration: "3 hrs (6:30pm-9:30pm)",
+      },
+    },
+  ],
 };
 
 export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
