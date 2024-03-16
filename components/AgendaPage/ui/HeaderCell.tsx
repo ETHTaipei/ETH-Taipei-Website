@@ -6,20 +6,19 @@ import styled from "styled-components";
 import Map from "./Map";
 
 interface HeaderCellProps {
-  title: string;
+  activity: string;
   location?: string;
 }
 
-const HeaderCell = ({ title, location }: HeaderCellProps) => {
+const HeaderCell = ({ activity, location }: HeaderCellProps) => {
   const [openMap, setOpenMap] = useState(false);
   return (
     <Container>
-      <Title>{title}</Title>
       {location && (
-        <Subtitle>
+        <Title>
           <IconLocation width={14} height={14} color={Colors.pennBlue} />
-          {`Building ${location}`}
-        </Subtitle>
+          {` Building ${location}`}
+        </Title>
       )}
       {location && (
         <ViewMap onClick={() => setOpenMap(true)}>
@@ -37,6 +36,7 @@ const HeaderCell = ({ title, location }: HeaderCellProps) => {
       {openMap && location && (
         <Map id={location} onClose={() => setOpenMap(false)} />
       )}
+      {activity && <Subtitle>{activity}</Subtitle>}
     </Container>
   );
 };
@@ -68,19 +68,19 @@ const Subtitle = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: 16px;
 `;
 
 const ViewMap = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   font-size: 12px;
   cursor: pointer;
 `;
 
 const Icon = styled.div`
   position: relative;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 `;

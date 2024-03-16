@@ -120,7 +120,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "6:30pm",
       trackA: {
         topic: "Opening Ceremony",
-        duration: "6:30pm-7:30pm (1 hr)",
+        duration: "1 hr",
       },
     },
     {
@@ -167,11 +167,11 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "9:30pm",
       trackA: {
         topic: "Hack Time!!! (Building M will CLOSE at 22:00)",
-        duration: "9:30pm-10:00pm (30 mins)",
+        duration: "30 mins",
       },
       trackB: {
-        topic: "Hack Time!!!",
-        duration: "9:30pm-0:00am (Building F is 24 hours open)",
+        topic: "Hack Time!!! (Building F is open 24 hours)",
+        duration: "2.5 hrs",
       },
     },
   ],
@@ -179,7 +179,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
     {
       time: "0:00am",
       trackB: {
-        topic: "Hack Time!!! (Building F is 24 hours open)",
+        topic: "Hack Time!!! (Building F is open 24 hours)",
         duration: "24 hrs",
       },
     },
@@ -187,22 +187,22 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "10:00am",
       trackA: {
         topic: "Hack Time!!! (Building M will CLOSE at 10:00pm)",
-        duration: "10:00am-10:00pm (12 hrs)",
+        duration: "12 hrs",
       },
     },
     {
       time: "11:00am",
       trackA: {
         topic: "Mentor Time!!! (Ends at 6:00pm)",
-        duration: "11:00am-6:00pm (7 hrs)",
+        duration: "7 hrs",
       },
       trackB: {
         topic: "Mentor Time!!! (Ends at 6:00pm)",
-        duration: "11:00am-6:00pm (7 hrs)",
+        duration: "7 hrs",
       },
     },
     {
-      time: "19:30pm",
+      time: "7:30pm",
       trackA: {
         topic: "Demo Day Registration Due",
         duration: "",
@@ -213,7 +213,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       },
     },
     {
-      time: "21:30pm",
+      time: "9:30pm",
       trackA: {
         topic: "Announce Demo Day Team through Discord",
         duration: "",
@@ -229,21 +229,21 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "0:00am",
       trackB: {
         topic: "Hack Time!!!",
-        duration: "0:00am-12:00pm (12 hrs)",
+        duration: "12 hrs",
       },
     },
     {
       time: "10:00am",
       trackA: {
         topic: "Day3 Opening",
-        duration: "10:00am-10:30am (30 mins)",
+        duration: "30 mins",
       },
     },
     {
       time: "10:30am",
       trackA: {
         topic: "Hack Time!!!",
-        duration: "10:30am-12:00pm (2 hrs)",
+        duration: "1.5 hrs",
       },
     },
     {
@@ -258,17 +258,17 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       },
     },
     {
-      time: "13:30pm",
+      time: "1:30pm",
       trackA: {
         topic: "Hackathon Wrap-up",
-        duration: "1:30pm-2:00pm (30 mins)",
+        duration: "30 mins",
       },
     },
     {
       time: "2:00pm",
       trackA: {
         topic: "Demo Day",
-        duration: "2 hrs (2:00pm-4:00pm)",
+        duration: "2 hrs",
       },
     },
     {
@@ -282,7 +282,7 @@ export const hackathonAgendas: { [key: number]: HackathonAgenda[] } = {
       time: "4:30pm",
       trackB: {
         topic: "Closing Party",
-        duration: "4:30pm",
+        duration: "",
       },
     },
   ],
@@ -330,13 +330,13 @@ export const conferenceAgendas: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
       trackB: {
         name: "🧋",
         company: "",
         topic: "Lunch Break",
-        duration: "1.5 hrs",
+        duration: "1 hr",
       },
     },
     {
@@ -344,14 +344,14 @@ export const conferenceAgendas: {
       trackA: {
         name: "Stefan",
         company: "Gnosis Pay",
-        topic:
-          "Gnosis Pay - Bridging the gap between real world and blockchain payments.",
+        topic: "Replacing CEXs one step at a time",
         duration: "30 mins",
       },
       trackB: {
         name: "Dohoon Kim",
         company: "PSE",
-        topic: "State of lookup arguments and benchmarks",
+        topic:
+          "Zafny, framework for writing formally verified zero-knowledge circuit",
         duration: "30 mins",
       },
     },
@@ -461,8 +461,8 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "",
-        title: "MPC + FHE",
+        holder: "PSE",
+        title: "",
         duration: "2 hrs (4:00pm-6:00pm)",
       },
     },
@@ -567,7 +567,7 @@ export const conferenceAgendas: {
       },
       trackB: {
         name: "Marco Lau",
-        company: "Otterlayer",
+        company: "LazyOtter",
         topic: "web3 security: Incident Responses for DeFi retail users",
         duration: "30 mins",
       },
@@ -599,9 +599,9 @@ export const conferenceAgendas: {
     {
       time: "01:00pm",
       trackA: {
-        name: "TBD",
+        name: "Seraya Takahashi",
         company: "Polkadot",
-        topic: "TBD",
+        topic: "Polkadot in 30 minutes",
         duration: "30 mins",
       },
       trackB: {

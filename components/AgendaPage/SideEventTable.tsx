@@ -21,7 +21,7 @@ const SideEventTable = ({ date }: SideEventProps) => {
           <NewTracksContainer>
             <HackathonScheduleRow>
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-              <HeaderCell title={Column1Name} />
+              <HeaderCell activity={Column1Name} />
             </HackathonScheduleRow>
             {sideevents[date].map((agenda, i) => (
               <HackathonScheduleRow key={date.toString() + i}>
@@ -40,7 +40,7 @@ const SideEventTable = ({ date }: SideEventProps) => {
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
-            <HeaderCell title={Column1Name} />
+            <HeaderCell activity={Column1Name} />
           </NewScheduleRow>
           {sideevents[date]
             .filter((i) => i.trackA)
