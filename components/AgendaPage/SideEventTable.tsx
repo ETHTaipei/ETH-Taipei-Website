@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { sideevents } from "@/public/constant/agendas";
+import { sideEventAgendas } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import HackathonItem from "./HackathonItem";
 import HeaderCell from "./ui/HeaderCell";
@@ -23,7 +23,7 @@ const SideEventTable = ({ date }: SideEventProps) => {
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
               <HeaderCell activity={Column1Name} />
             </HackathonScheduleRow>
-            {sideevents[date].map((agenda, i) => (
+            {sideEventAgendas[date].map((agenda, i) => (
               <HackathonScheduleRow key={date.toString() + i}>
                 <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
                 <TrackContainer>
@@ -42,7 +42,7 @@ const SideEventTable = ({ date }: SideEventProps) => {
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
             <HeaderCell activity={Column1Name} />
           </NewScheduleRow>
-          {sideevents[date]
+          {sideEventAgendas[date]
             .filter((i) => i.trackA)
             .map((agenda, i) => (
               <NewScheduleRow key={date.toString() + i}>

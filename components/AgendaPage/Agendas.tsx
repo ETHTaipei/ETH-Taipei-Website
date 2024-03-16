@@ -16,7 +16,7 @@ const Agendas = () => {
 
   const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
-  const isTypeSideevent = type === "sideevent";
+  const isTypeSideEvent = type === "sideEvent";
   const isShowingVitalik = isTypeConference && date === 21;
 
   return (
@@ -27,7 +27,7 @@ const Agendas = () => {
       {isTypeHackathon && <HackathonTable date={date} />}
       {isShowingVitalik && <VitalikTable />}
       {isTypeConference && <ConferenceTable date={date} />}
-      {isTypeSideevent && <SideEventTable date={date} />}
+      {isTypeSideEvent && <SideEventTable date={date} />}
     </Container>
   );
 };
