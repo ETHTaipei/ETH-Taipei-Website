@@ -105,5 +105,5 @@ const PrerequisiteContainer = styled.div`
 const PrerequisiteText = styled.div`
   display: flex;
   width: 100%;
-  color: ${Colors.gray4};
+  color: ${Colors.btnBlue};
 `;
