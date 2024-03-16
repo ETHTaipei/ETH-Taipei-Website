@@ -51,7 +51,19 @@ export type ConferenceAgenda = {
   workshop?: WorkshopItemType;
 };
 
-export const sideevents = {
+export type SideEventItemType = {
+  topic: string;
+  duration: string;
+};
+
+export type SideEventAgenda = {
+  time: string;
+  trackA: SideEventItemType;
+};
+
+export const sideevents: {
+  [key: number]: SideEventAgenda[];
+} = {
   21: [
     {
       time: "3:30pm",

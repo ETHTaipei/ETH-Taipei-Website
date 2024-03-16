@@ -7,7 +7,7 @@ import Map from "./Map";
 
 interface HeaderCellProps {
   title: string;
-  location: string;
+  location?: string;
 }
 
 const HeaderCell = ({ title, location }: HeaderCellProps) => {
@@ -15,22 +15,28 @@ const HeaderCell = ({ title, location }: HeaderCellProps) => {
   return (
     <Container>
       <Title>{title}</Title>
-      <Subtitle>
-        <IconLocation width={14} height={14} color={Colors.pennBlue} />
-        {`Building ${location}`}
-      </Subtitle>
-      <ViewMap onClick={() => setOpenMap(true)}>
-        <Icon>
-          <Image
-            src="/images/map.svg"
-            alt="Map"
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </Icon>
-        View Map
-      </ViewMap>
-      {openMap && <Map id={location} onClose={() => setOpenMap(false)} />}
+      {location && (
+        <Subtitle>
+          <IconLocation width={14} height={14} color={Colors.pennBlue} />
+          {`Building ${location}`}
+        </Subtitle>
+      )}
+      {location && (
+        <ViewMap onClick={() => setOpenMap(true)}>
+          <Icon>
+            <Image
+              src="/images/map.svg"
+              alt="Map"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </Icon>
+          View Map
+        </ViewMap>
+      )}
+      {openMap && location && (
+        <Map id={location} onClose={() => setOpenMap(false)} />
+      )}
     </Container>
   );
 };

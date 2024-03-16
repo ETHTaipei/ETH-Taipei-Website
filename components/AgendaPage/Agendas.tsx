@@ -7,6 +7,7 @@ import ConferenceTable from "./ConferenceTable";
 import DateSwitcher from "./DateSwitcher";
 import EventSwitcher from "./EventSwitcher";
 import HackathonTable from "./HackathonTable";
+import SideEventTable from "./SideEventTable";
 import VitalikTable from "./VitalikTable";
 
 const Agendas = () => {
@@ -15,6 +16,7 @@ const Agendas = () => {
 
   const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
+  const isTypeSideevent = type === "sideevent";
   const isShowingVitalik = isTypeConference && date === 21;
 
   return (
@@ -25,6 +27,7 @@ const Agendas = () => {
       {isTypeHackathon && <HackathonTable date={date} />}
       {isShowingVitalik && <VitalikTable />}
       {isTypeConference && <ConferenceTable date={date} />}
+      {isTypeSideevent && <SideEventTable date={date} />}
     </Container>
   );
 };
