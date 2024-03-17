@@ -8,7 +8,7 @@ export type EventType = "hackathon" | "conference" | "sideEvent";
 export const dates = {
   hackathon: [22, 23, 24],
   conference: [21, 22],
-  sideEvent: [21, 22, 23],
+  sideEvent: [21, 22],
 };
 
 export type HackathonItemType = {
@@ -99,15 +99,6 @@ export const sideEventAgendas: {
       time: "6:30pm",
       trackA: {
         topic: "imToken side event @ Building G",
-        duration: "3 hrs (6:30pm-9:30pm)",
-      },
-    },
-  ],
-  23: [
-    {
-      time: "6:30pm",
-      trackA: {
-        topic: "Aleo side event @ Building I",
         duration: "3 hrs (6:30pm-9:30pm)",
       },
     },
@@ -314,6 +305,11 @@ export const conferenceAgendas: {
           "Navigating the ZKP Learning Curve: Bottom-Up vs. Top-Down Approaches",
         duration: "30 mins",
       },
+      workshop: {
+        holder: "Daniel Helm @ Scroll",
+        title: "TBD",
+        duration: "1 hrs (11:00am-12:00pm)",    
+      }
     },
     {
       time: "11:30am",
@@ -371,7 +367,7 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "Vivian",
+        holder: "Vivian @ UniRep",
         title: "Build a web3 anonymous social media with UniRep",
         duration: "2 hrs (1:30pm-3:30pm)",
         prerequisite: "materials",
@@ -479,7 +475,7 @@ export const conferenceAgendas: {
       trackB: {
         name: "David Wong",
         company: "zksecurity.xyz",
-        topic: "ZKBitcoin",
+        topic: "An Overview of ZKBitcoin",
         duration: "30 mins",
       },
     },
@@ -648,9 +644,9 @@ export const conferenceAgendas: {
         duration: "30 mins",
       },
       workshop: {
-        holder: "Myra",
-        title: "Creating distributed validators in the wild",
-        duration: "2 hrs (2:00pm-4:00pm)",
+        holder: "Consensys",
+        title: "Build a NFT events platform on Linea",
+        duration: "1 hrs (2:00pm-3:00pm)",
       },
     },
     {

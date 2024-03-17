@@ -39,8 +39,8 @@ const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
             setDate(dates["sideEvent"][0]);
           }}
         >
-          <EventText>{`Side Event`}</EventText>
-          <EventSubText>{`21-23 March 2024`}</EventSubText>
+          <EventText>{`In-house Event`}</EventText>
+          <EventSubText>{`21-22 March 2024`}</EventSubText>
         </EventSwitcherButton>
       </EventSwitchers>
     </EventSwitcherContainer>
