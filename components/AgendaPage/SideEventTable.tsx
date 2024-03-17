@@ -11,7 +11,7 @@ interface SideEventProps {
 }
 
 const SideEventTable = ({ date }: SideEventProps) => {
-  const Column1Name = `Side Event`;
+  const Column1Name = `In-House Event`;
 
   return (
     <TableContainer>
