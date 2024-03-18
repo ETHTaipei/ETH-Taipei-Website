@@ -166,7 +166,7 @@ const goldcard = {
   goldcardSubsidySubtitle:
     "Receive a $1300 - $2750 USD  travel incentive to Taiwan for industry exchange",
   goldcardSubsidyDesc:
-    "A qualifying trip may include exhibiting, speaking, or participating  in the hackathon during Taipei Blockchain Week!",
+    "A qualifying trip may include exhibiting, speaking, or participating  in the hackathon during ETHTaipei!",
   goldcardSubsidyOrganization_1: "Organized by the ",
   goldcardSubsidyOrganization_2: "Administration of Digital Industries (moda)",
   goldcardSubsidyOrganization_3: " and ",
@@ -219,7 +219,7 @@ const goldcard = {
 
   goldcardFAQQuestion3: "How long does the process take?",
   goldcardFAQAnswer3_1:
-    "In general, the process takes about 4-8 weeks from initial application to approval. For overseas applications, your passport will have to be inspected by the Bureau of Consular Affairs or an ROC overseas mission/office. If you need to expedite the application process for a smooth entry to Taiwan during Taipei Blockchain Week, please contact the Gold Card team below to confirm the relevant procedures.",
+    "In general, the process takes about 4-8 weeks from initial application to approval. For overseas applications, your passport will have to be inspected by the Bureau of Consular Affairs or an ROC overseas mission/office. If you need to expedite the application process for a smooth entry to Taiwan during ETHTaipei, please contact the Gold Card team below to confirm the relevant procedures.",
 
   goldcardFAQQuestion4: "How much does the Gold Card cost?",
   goldcardFAQAnswer4_1:
