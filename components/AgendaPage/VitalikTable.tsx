@@ -30,6 +30,23 @@ const VitalikTable = () => {
             </TopicContainer>
           </TrackContainer>
 
+          <NewTrackTimeContainer style={{ backgroundColor: "white" }}>
+            10:15am
+          </NewTrackTimeContainer>
+          <TrackContainer
+            style={{ paddingBottom: 0, backgroundColor: "white" }}
+          >
+            <TopicContainer
+              style={{
+                textAlign: "center",
+                marginTop: 0,
+                paddingBottom: "15px",
+              }}
+            >
+              <ScheduleText>{"Opening Talk Caria @ NUVO"}</ScheduleText>
+            </TopicContainer>
+          </TrackContainer>
+
           <NewTrackTimeContainer
             style={{ borderBottom: 0, backgroundColor: "white" }}
           >
@@ -39,9 +56,7 @@ const VitalikTable = () => {
             <TrackMainContent>
               <TopicContainer>
                 <ScheduleText>
-                  {
-                    "Desired properties of ideal PoS economics"
-                  }
+                  {"Desired properties of ideal PoS economics"}
                 </ScheduleText>
               </TopicContainer>
               <DurationT isFirst={true}>40 mins</DurationT>
