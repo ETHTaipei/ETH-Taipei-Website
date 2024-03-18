@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-import { conferenceAgendas } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
-import { useSpeakers } from "../hooks/useSpeakers";
+import { useConferences } from "../hooks/useConferences";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
 import HeaderCell from "./ui/HeaderCell";
@@ -13,28 +12,7 @@ interface ConferenceTableProps {
 }
 
 const ConferenceTable = ({ date }: ConferenceTableProps) => {
-  const { speakers } = useSpeakers();
-  const conferenceAgendasWithSpeakerImg = {
-    ...conferenceAgendas,
-    [date]: conferenceAgendas[date].map((agenda, i) => {
-      const newAgenda = { ...agenda };
-      if (agenda.trackA && !agenda.trackA.src) {
-        newAgenda.trackA = {
-          ...agenda.trackA,
-          src: speakers.find((speaker) => speaker.name === agenda.trackA?.name)
-            ?.img,
-        };
-      }
-      if (agenda.trackB && !agenda.trackB.src) {
-        newAgenda.trackB = {
-          ...agenda.trackB,
-          src: speakers.find((speaker) => speaker.name === agenda.trackB?.name)
-            ?.img,
-        };
-      }
-      return newAgenda;
-    }),
-  };
+  const conferenceAgendas = useConferences();
 
   const Column1Activity = "Conference";
   const Column1Location = "M";
@@ -66,26 +44,28 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
                 location={Column3Location}
               />
             </NewScheduleRow>
-            {conferenceAgendasWithSpeakerImg[date].map((agenda, i) => (
-              <NewScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.trackA && (
-                    <ConferenceAgendaItem item={agenda.trackA} index={i} />
-                  )}
-                </TrackContainer>
-                <TrackContainer>
-                  {agenda.trackB && (
-                    <ConferenceAgendaItem item={agenda.trackB} index={i} />
-                  )}
-                </TrackContainer>
-                <TrackContainer>
-                  {agenda.workshop && (
-                    <WorkshopItem item={agenda.workshop} index={i} />
-                  )}
-                </TrackContainer>
-              </NewScheduleRow>
-            ))}
+            {conferenceAgendas[date] &&
+              conferenceAgendas[date].length > 0 &&
+              conferenceAgendas[date].map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.trackA && (
+                      <ConferenceAgendaItem item={agenda.trackA} index={i} />
+                    )}
+                  </TrackContainer>
+                  <TrackContainer>
+                    {agenda.trackB && (
+                      <ConferenceAgendaItem item={agenda.trackB} index={i} />
+                    )}
+                  </TrackContainer>
+                  <TrackContainer>
+                    {agenda.workshop && (
+                      <WorkshopItem item={agenda.workshop} index={i} />
+                    )}
+                  </TrackContainer>
+                </NewScheduleRow>
+              ))}
           </NewTracksContainer>
         </TableContainer>
       </DesktopScheduleContainer>
@@ -95,54 +75,60 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
             <HeaderCell activity={Column1Activity} location={Column1Location} />
           </NewScheduleRow>
-          {conferenceAgendasWithSpeakerImg[date]
-            .filter((i) => i.trackA)
-            .map((agenda, i) => (
-              <NewScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.trackA && (
-                    <ConferenceAgendaItem item={agenda.trackA} index={i} />
-                  )}
-                </TrackContainer>
-              </NewScheduleRow>
-            ))}
+          {conferenceAgendas[date] &&
+            conferenceAgendas[date].length > 0 &&
+            conferenceAgendas[date]
+              .filter((i) => i.trackA)
+              .map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.trackA && (
+                      <ConferenceAgendaItem item={agenda.trackA} index={i} />
+                    )}
+                  </TrackContainer>
+                </NewScheduleRow>
+              ))}
         </NewTracksContainer>
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
             <HeaderCell activity={Column2Activity} location={Column2Location} />
           </NewScheduleRow>
-          {conferenceAgendasWithSpeakerImg[date]
-            .filter((i) => i.trackB)
-            .map((agenda, i) => (
-              <NewScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.trackB && (
-                    <ConferenceAgendaItem item={agenda.trackB} index={i} />
-                  )}
-                </TrackContainer>
-              </NewScheduleRow>
-            ))}
+          {conferenceAgendas[date] &&
+            conferenceAgendas[date].length > 0 &&
+            conferenceAgendas[date]
+              .filter((i) => i.trackB)
+              .map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.trackB && (
+                      <ConferenceAgendaItem item={agenda.trackB} index={i} />
+                    )}
+                  </TrackContainer>
+                </NewScheduleRow>
+              ))}
         </NewTracksContainer>
         <NewTracksContainer>
           <NewScheduleRow>
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
             <HeaderCell activity={Column3Activity} location={Column3Location} />
           </NewScheduleRow>
-          {conferenceAgendasWithSpeakerImg[date]
-            .filter((i) => i.workshop)
-            .map((agenda, i) => (
-              <NewScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.workshop && (
-                    <WorkshopItem item={agenda.workshop} index={i} />
-                  )}
-                </TrackContainer>
-              </NewScheduleRow>
-            ))}
+          {conferenceAgendas[date] &&
+            conferenceAgendas[date].length > 0 &&
+            conferenceAgendas[date]
+              .filter((i) => i.workshop)
+              .map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.workshop && (
+                      <WorkshopItem item={agenda.workshop} index={i} />
+                    )}
+                  </TrackContainer>
+                </NewScheduleRow>
+              ))}
         </NewTracksContainer>
       </MobileScheduleContainer>
     </>
