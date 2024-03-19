@@ -88,7 +88,7 @@ export const sideEventAgendas: {
     {
       time: "3:30pm",
       trackA: {
-        topic: "Orderly Network Happy Hour @ Building I",
+        topic: "Orderly Network Happy Hour @ The terrace next to Building M",
         duration: "2.5 hrs (3:30pm-6:00pm)",
       },
     },
