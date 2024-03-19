@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { sideEventAgendas } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
+import { useSideEvents } from "../hooks/useSideEvents";
 import HackathonItem from "./HackathonItem";
 import HeaderCell from "./ui/HeaderCell";
 import TimeZoneHint from "./ui/TimeZoneHint";
@@ -12,6 +12,7 @@ interface SideEventProps {
 
 const SideEventTable = ({ date }: SideEventProps) => {
   const Column1Name = `In-House Event`;
+  const sideEventAgendas = useSideEvents();
 
   return (
     <TableContainer>
@@ -23,16 +24,18 @@ const SideEventTable = ({ date }: SideEventProps) => {
               <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
               <HeaderCell activity={Column1Name} />
             </HackathonScheduleRow>
-            {sideEventAgendas[date].map((agenda, i) => (
-              <HackathonScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.trackA && (
-                    <HackathonItem item={agenda.trackA} index={i} />
-                  )}
-                </TrackContainer>
-              </HackathonScheduleRow>
-            ))}
+            {sideEventAgendas &&
+              sideEventAgendas[date] &&
+              sideEventAgendas[date].map((agenda, i) => (
+                <HackathonScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.trackA && (
+                      <HackathonItem item={agenda.trackA} index={i} />
+                    )}
+                  </TrackContainer>
+                </HackathonScheduleRow>
+              ))}
           </NewTracksContainer>
         </TableContainer>
       </DesktopScheduleContainer>
@@ -42,18 +45,20 @@ const SideEventTable = ({ date }: SideEventProps) => {
             <NewTrackTimeContainerHeader>Time</NewTrackTimeContainerHeader>
             <HeaderCell activity={Column1Name} />
           </NewScheduleRow>
-          {sideEventAgendas[date]
-            .filter((i) => i.trackA)
-            .map((agenda, i) => (
-              <NewScheduleRow key={date.toString() + i}>
-                <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                <TrackContainer>
-                  {agenda.trackA && (
-                    <HackathonItem item={agenda.trackA} index={i} />
-                  )}
-                </TrackContainer>
-              </NewScheduleRow>
-            ))}
+          {sideEventAgendas &&
+            sideEventAgendas[date] &&
+            sideEventAgendas[date]
+              .filter((i) => i.trackA)
+              .map((agenda, i) => (
+                <NewScheduleRow key={date.toString() + i}>
+                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                  <TrackContainer>
+                    {agenda.trackA && (
+                      <HackathonItem item={agenda.trackA} index={i} />
+                    )}
+                  </TrackContainer>
+                </NewScheduleRow>
+              ))}
         </NewTracksContainer>
       </MobileScheduleContainer>
     </TableContainer>
