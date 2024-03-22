@@ -435,7 +435,7 @@ export const conferenceAgendas: {
         name: "",
         company: "",
         topic: "Ethereum L1 R&D Panel",
-        duration: "1 hr (11:00-12:00pm)",
+        duration: "40 mins (11:00-11:40)",
         panelHost: "Hsiao-Wei Wang (@ EF Research)",
         panelists: [
           "Vitalik Buterin (@ EF Research)",

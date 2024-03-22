@@ -11,7 +11,7 @@ import VitalikTable from "./VitalikTable";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
-  const [date, setDate] = useState<number>(dates[type][0]);
+  const [date, setDate] = useState<number>(dates[type][1]);
 
   const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
