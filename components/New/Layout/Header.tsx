@@ -10,7 +10,6 @@ import IconTwitterX from "@/components/icons/IconTwitterX";
 import t from "@/public/constant/content";
 import {
   discordUrl,
-  hackathonUrl,
   sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
@@ -41,7 +40,7 @@ const Header = () => {
   const handleOnClickLogo = () => handleOnClickInternalLInk("/");
   const handleOnClickTicket = () => handleOnClickExternalLink(tickSiteUrl);
   const handleOnClickAgenda = () => handleOnClickInternalLInk("/agenda#info");
-  const handleOnClickHackathon = () => handleOnClickExternalLink(hackathonUrl);
+  // const handleOnClickHackathon = () => handleOnClickExternalLink(hackathonUrl);
   const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq#info");
   const handleOnClickGoldCard = () =>
     handleOnClickInternalLInk("/goldcard#intro");
@@ -87,16 +86,16 @@ const Header = () => {
         {isLarger768 && (
           <NavItem onClick={handleOnClickAgenda}>{t.navs.agenda}</NavItem>
         )}
-        {isLarger768 && (
+        {/* {isLarger768 && (
           <NavItem onClick={handleOnClickHackathon}>{t.navs.hackathon}</NavItem>
-        )}
+        )} */}
         {isLarger860 && (
           <NavGroupContainer>
             <NavItem>{t.navs.apply}</NavItem>
             <NavGroupList>
-              {/* <NavGroupListItem onClick={handleToSpeak}>
+              <NavGroupListItem onClick={handleToSpeak}>
                 {t.navs.toSpeak}
-              </NavGroupListItem> */}
+              </NavGroupListItem>
               <NavGroupListItem onClick={handleToSponsor}>
                 {t.navs.toSponsor}
               </NavGroupListItem>
@@ -153,15 +152,15 @@ const Header = () => {
           <MenuBody>
             <MenuItem onClick={handleOnClickTicket}>{t.navs.ticket}</MenuItem>
             <MenuItem onClick={handleOnClickAgenda}>{t.navs.agenda}</MenuItem>
-            <MenuItem onClick={handleOnClickHackathon}>
+            {/* <MenuItem onClick={handleOnClickHackathon}>
               {t.navs.hackathon}
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem>
               {t.navs.apply}
               <MenuSubItemContainer>
-                {/* <MenuSubItem onClick={handleToSpeak}>
+                <MenuSubItem onClick={handleToSpeak}>
                   {t.navs.toSpeak}
-                </MenuSubItem> */}
+                </MenuSubItem>
                 <MenuSubItem onClick={handleToSponsor}>
                   {t.navs.toSponsor}
                 </MenuSubItem>

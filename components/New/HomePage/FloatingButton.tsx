@@ -1,9 +1,8 @@
 // FloatingMenu.js
-import { hackathonUrl, sponsorApplyUrl, tickSiteUrl } from '@/public/constant/urls';
-import Colors from '@/styles/colors';
-import Link from 'next/link';
-import React from 'react';
-import styled from 'styled-components';
+import { sponsorApplyUrl, tickSiteUrl } from "@/public/constant/urls";
+import Colors from "@/styles/colors";
+import React from "react";
+import styled from "styled-components";
 
 // This is a styled component for the floating container
 const FloatingContainer = styled.div`
@@ -14,9 +13,10 @@ const FloatingContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
-  z-index: 1000; 
+  z-index: 1000;
 
-  @media (max-width: 768px) { // Adjust the breakpoint as needed
+  @media (max-width: 768px) {
+    // Adjust the breakpoint as needed
     position: fixed;
     left: 0;
     right: 0;
@@ -65,9 +65,28 @@ const Button = styled.button`
 const FloatingMenu = () => {
   return (
     <FloatingContainer>
-      <Button onClick={() => { window.open(tickSiteUrl, "_blank") }} >Tickets</Button>
-      <Button onClick={() => { window.open(hackathonUrl, "_blank") }}> <span style={{fontSize: 10}}> Hackathon </span> </Button>
-      <Button onClick={() => { window.open(sponsorApplyUrl, "_blank") }}>Sponsor</Button>
+      <Button
+        onClick={() => {
+          window.open(tickSiteUrl, "_blank");
+        }}
+      >
+        Tickets
+      </Button>
+      {/* <Button
+        onClick={() => {
+          window.open(hackathonUrl, "_blank");
+        }}
+      >
+        {" "}
+        <span style={{ fontSize: 10 }}> Hackathon </span>{" "}
+      </Button> */}
+      <Button
+        onClick={() => {
+          window.open(sponsorApplyUrl, "_blank");
+        }}
+      >
+        Sponsor
+      </Button>
     </FloatingContainer>
   );
 };

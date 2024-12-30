@@ -32,10 +32,10 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_1}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_1}</InfoDescription>
             </InfoWrapper>
-            <InfoWrapper>
+            {/* <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
-            </InfoWrapper>
+            </InfoWrapper> */}
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
               <InfoDescription>

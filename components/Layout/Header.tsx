@@ -18,7 +18,7 @@ import {
   telegramUrl,
   twitterUrl,
   sponsorApplyUrl,
-  speakerApplyUrl,  
+  speakerApplyUrl,
 } from "@/public/constant/urls";
 import t from "@/public/constant/content";
 import gtagReportConversion from "@/public/utils/gtag";
@@ -52,13 +52,13 @@ const navItems = [
     isNewTab: false,
     isPlugin: false,
   },
-  {
-    label: t.navs.hackathon,
-    value: hackathonUrl,
-    disabled: false,
-    isNewTab: true,
-    isPlugin: false,
-  },
+  // {
+  //   label: t.navs.hackathon,
+  //   value: hackathonUrl,
+  //   disabled: false,
+  //   isNewTab: true,
+  //   isPlugin: false,
+  // },
   {
     label: t.navs.faq,
     value: "/faq",
@@ -92,9 +92,9 @@ function Header() {
 
     if (isNewTab) {
       window.open(url, "_blank");
-      if (url === hackathonUrl) {
-        gtagReportConversion();
-      }
+      // if (url === hackathonUrl) {
+      //   gtagReportConversion();
+      // }
     } else if (isPlugin) {
       handleOpenUnlock();
     } else {
