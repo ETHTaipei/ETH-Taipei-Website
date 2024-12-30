@@ -1,12 +1,16 @@
 import { EventType, dates } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
+import { dateDayMonthYear } from "@/public/constant/content";
 
 interface EventSwitcherProps {
   type: EventType;
   setType: (type: EventType) => void;
   setDate: (date: number) => void;
 }
+
+const conferenceDate = dateDayMonthYear;
+const hackathonDate = "";
 
 const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
   return (
@@ -20,7 +24,7 @@ const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
           }}
         >
           <EventText>{`Conference`}</EventText>
-          <EventSubText>{`21-22 March 2024`}</EventSubText>
+          <EventSubText>{conferenceDate}</EventSubText>
         </EventSwitcherButton>
         {/* <EventSwitcherButton
           isSelect={type === "hackathon"}
@@ -30,7 +34,7 @@ const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
           }}
         >
           <EventText>{`Hackathon`}</EventText>
-          <EventSubText>{`22-24 March 2024`}</EventSubText>
+          <EventSubText>{hackathonDate}</EventSubText>
         </EventSwitcherButton> */}
         <EventSwitcherButton
           isSelect={type === "sideEvent"}
@@ -40,7 +44,7 @@ const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
           }}
         >
           <EventText>{`In-house Event`}</EventText>
-          <EventSubText>{`21-22 March 2024`}</EventSubText>
+          <EventSubText>{conferenceDate}</EventSubText>
         </EventSwitcherButton>
       </EventSwitchers>
     </EventSwitcherContainer>

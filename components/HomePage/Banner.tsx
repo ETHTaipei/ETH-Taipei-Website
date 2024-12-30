@@ -14,6 +14,7 @@ import bgImage from "@/public/images/eth-taipei-banner-2024-2.jpg";
 import banner from "@/public/images/vertical-transparent.png";
 import { openNewTab } from "@/public/utils/common";
 import gtagReportConversion from "@/public/utils/gtag";
+import { year } from "@/public/constant/content";
 
 const Banner = () => {
   const handleOnClick = (url: string) => {
@@ -61,7 +62,7 @@ const Banner = () => {
       />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
-        {/* <YearWatermark>2024</YearWatermark> */}
+        {/* <YearWatermark>year</YearWatermark> */}
       </ImageContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
