@@ -1,17 +1,27 @@
+export const year = "2025";
+export const month = "April";
+export const dayDuration = "1-2";
+export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
+export const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
+
 const common = {
-  ethTaipei: "ETHTaipei 2024 | March 21-24",
+  ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
   ethTaipeiIntro:
-    "Welcome to the ETHTaipei 2024 event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei 2024 has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
+    // "Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
+    `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 2-day conference focusing on the application and technology of Ethereum.`,
+  ethTaipeiIntro2:
+    // `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+    `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
 };
 
 const homepage = {
-  hackathon: "Hackathon",
-  hackathonDate: "22-24 March, 2024",
+  // hackathon: "Hackathon",
+  // hackathonDate: "",
   conference: "Conference",
-  conferenceDate: "21-22 March, 2024",
+  conferenceDate: dateDayMonthYear,
   ethTaipeiIntroTitle: "What is ETHTaipei?",
-  ethTaipeiIntro1: `Welcome to ETHTaipei the 2024 edition!!! With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
-  ethTaipeiIntro2: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+  ethTaipeiIntro1: `${welcomeEdition} With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
+  ethTaipeiIntro2: common.ethTaipeiIntro2,
   ethTaipeiIntro3_1: `ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition `,
   ethTaipeiIntro3_2: `!, as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.`,
   weeks: "WEEKS",
@@ -19,11 +29,11 @@ const homepage = {
   hours: "HOURS",
   minutes: "MINUTES",
   seconds: "SECONDS",
-  hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
+  // hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
   conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.`,
-  conferenceDateWithDays: "March 21 (Thu), March 22 (Fri)",
-  hackathonDateWithDays: "March 22 (Fri) → March 24 (Sun)",
-  hackathonBtnText: "Join",
+  conferenceDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
+  // hackathonDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
+  // hackathonBtnText: "Join",
   conferenceBtnText: "Buy Ticket",
   promoteCallToActionTitle: "Jointly Create a Charm Event",
   promoteCallToActionText:
@@ -59,12 +69,12 @@ const homepage = {
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
-  bannerTitle_3: "2024",
+  bannerTitle_3: `${year}`,
   bannerSubTitle: "Unleashing a New Era of Blockchain in Taiwan",
   bannerInfoTitle_1: "Conference",
-  bannerInfoDesc_1: "21-22 March 2024",
-  bannerInfoTitle_2: "Hackathon",
-  bannerInfoDesc_2: "22-24 March 2024",
+  bannerInfoDesc_1: dateDayMonthYear,
+  // bannerInfoTitle_2: "Hackathon",
+  // bannerInfoDesc_2: dateDayMonthYear,
   bannerInfoTitle_2_1: "Side Events",
   bannerInfoDesc_2_1: "Click to see 10+ events",
   bannerInfoTitle_3: "POPOP Taipei",
@@ -74,13 +84,12 @@ const homepage = {
   introductionTitle_1: "What is",
   introductionTitle_2: "ETH",
   introductionTitle_3: "Taipei?",
-  introductionSubtitle: "Welcome to ETHTaipei the 2024 edition!!!",
+  introductionSubtitle: welcomeEdition,
   introductionCardTitle_1: "Global Connection, Taiwan's Spotlight",
   introductionCardDesc_1:
     "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
   introductionCardTitle_2: "Insights from Experts & Hands-on Experiences",
-  introductionCardDesc_2:
-    "At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.",
+  introductionCardDesc_2: common.ethTaipeiIntro2,
   introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
   introductionCardDesc_3_1:
     "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition ",
@@ -88,21 +97,22 @@ const homepage = {
   introductionCardDesc_3_3:
     ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
 
-  activityTitle: "ETHTaipei 2024 Events",
+  activityTitle: `ETHTaipei ${year} Events`,
   activityName_1: "Conference",
   activityDesc_1:
     "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
-  activityDate_1: "21-22 March 2024",
+  activityDate_1: dateDayMonthYear,
   activityBtn_1: "Ticket",
-  activityName_2: "Hackathon",
-  activityDesc_2:
-    "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
-  activityDate_2: "22-24 March 2024",
-  activityBtn_2: "View Now",
+  // activityName_2: "Hackathon",
+  // activityDesc_2:
+  //   "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
+  // activityDate_2: dateDayMonthYear,
+  // activityBtn_2: "View Now",
   activityName_3: "SideEvent",
   activityDesc_3:
-    "Get ready for an extra dose of fun at ETHTaipei! While the main conference and hackathon take center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
-  activityDate_3: "20-25 March 2024",
+    // "Get ready for an extra dose of fun at ETHTaipei! While the main conference and hackathon take center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
+    "Get ready for an extra dose of fun at ETHTaipei! While the main conference takes center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
+  activityDate_3: dateDayMonthYear,
   activityBtn_3: "See Events",
 
   recapTitle: "Recap! 2023 Edition",
@@ -119,8 +129,8 @@ const navs = {
   applyToSponsor: "Apply to Sponsor",
   home: "Home",
   agenda: "Agenda",
-  hackathon: "Hackathon",
-  faq: "Infos",
+  // hackathon: "Hackathon",
+  faq: "Info",
   goldcard: "Gold Card",
 
   ticket: "Ticket",
@@ -136,7 +146,7 @@ const sponsorHighlight = {
 };
 
 const visa = {
-  visaTitle: "Infos",
+  visaTitle: "Info",
   visaQuestion1: "Do I need a visa to enter Taiwan?",
   visaAnswer1Part1:
     "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days, depending on the country. Please visit the website of the ",
@@ -161,12 +171,12 @@ const goldcard = {
   goldcardSubtitle: "Next Stop, Taiwan! Your Home in Asia.",
   goldcard1on1BtnText: "Get 1:1 Help with your Gold Card Application",
 
-  goldcardSubsidyTitle:
-    "For Gold Card holders working in the digital economy from now until October 2024",
+  goldcardSubsidyTitle: `For Gold Card holders working in the digital economy from now until October ${year}`,
   goldcardSubsidySubtitle:
     "Receive a $1300 - $2750 USD  travel incentive to Taiwan for industry exchange",
   goldcardSubsidyDesc:
-    "A qualifying trip may include exhibiting, speaking, or participating  in the hackathon during ETHTaipei!",
+    // "A qualifying trip may include exhibiting, speaking, or participating in the hackathon during ETHTaipei!",
+    "A qualifying trip may include exhibiting or speaking during ETHTaipei!",
   goldcardSubsidyOrganization_1: "Organized by the ",
   goldcardSubsidyOrganization_2: "Administration of Digital Industries (moda)",
   goldcardSubsidyOrganization_3: " and ",

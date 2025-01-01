@@ -6,15 +6,15 @@ import styled from "styled-components";
 import ConferenceTable from "./ConferenceTable";
 import DateSwitcher from "./DateSwitcher";
 import EventSwitcher from "./EventSwitcher";
-import HackathonTable from "./HackathonTable";
+// import HackathonTable from "./HackathonTable";
 import SideEventTable from "./SideEventTable";
 import VitalikTable from "./VitalikTable";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
-  const [date, setDate] = useState<number>(dates[type][1]);
+  const [date, setDate] = useState<number>(dates[type][0]);
 
-  const isTypeHackathon = type === "hackathon";
+  // const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
   const isTypeSideEvent = type === "sideEvent";
   const isShowingVitalik = isTypeConference && date === 21;
@@ -24,7 +24,7 @@ const Agendas = () => {
       <Title>{t.agendaPage.agenda}</Title>
       <EventSwitcher type={type} setType={setType} setDate={setDate} />
       <DateSwitcher type={type} date={date} setDate={setDate} />
-      {isTypeHackathon && <HackathonTable date={date} />}
+      {/* {isTypeHackathon && <HackathonTable date={date} />} */}
       {isShowingVitalik && <VitalikTable />}
       {isTypeConference && <ConferenceTable date={date} />}
       {isTypeSideEvent && <SideEventTable date={date} />}

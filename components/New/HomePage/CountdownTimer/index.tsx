@@ -3,8 +3,9 @@ import styled from "styled-components";
 import useCountdownTime from "@/components/hooks/useCountdownTime";
 import CountdownCard from "./CountdownCard";
 
+const date = "2025-04-01";
 const Countdown = () => {
-  const { current, previous } = useCountdownTime(new Date("2024-03-21"));
+  const { current, previous } = useCountdownTime(new Date(date));
 
   const currDays = convertToDigits(current.days);
   const prevDays = convertToDigits(previous.days);

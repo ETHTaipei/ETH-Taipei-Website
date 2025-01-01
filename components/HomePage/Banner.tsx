@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import {
-  hackathonUrl,
   mediaPartnerApplyUrl,
   sideEventApplyUrl,
   speakerApplyUrl,
@@ -15,6 +14,7 @@ import bgImage from "@/public/images/eth-taipei-banner-2024-2.jpg";
 import banner from "@/public/images/vertical-transparent.png";
 import { openNewTab } from "@/public/utils/common";
 import gtagReportConversion from "@/public/utils/gtag";
+import { year } from "@/public/constant/content";
 
 const Banner = () => {
   const handleOnClick = (url: string) => {
@@ -26,10 +26,10 @@ const Banner = () => {
     gtagReportConversion();
   };
 
-  const handleHackathonOnClick = () => {
-    openNewTab(hackathonUrl);
-    gtagReportConversion();
-  };
+  // const handleHackathonOnClick = () => {
+  //   openNewTab(hackathonUrl);
+  //   gtagReportConversion();
+  // };
 
   const handleApplySpeaker = () => {
     openNewTab(speakerApplyUrl);
@@ -53,20 +53,26 @@ const Banner = () => {
 
   return (
     <Container>
-      <Image src={bgImage} fill quality={100} style={{ opacity: 0.18 }} alt="bgImage" />
+      <Image
+        src={bgImage}
+        fill
+        quality={100}
+        style={{ opacity: 0.18 }}
+        alt="bgImage"
+      />
       <ImageContainer>
         <Image src={banner} alt="logo" fill />
-        {/* <YearWatermark>2024</YearWatermark> */}
+        {/* <YearWatermark>year</YearWatermark> */}
       </ImageContainer>
       <ActivitiesContainer>
         <ActivityBtn onClick={handleOpenUnlock}>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDate}</ActivityDate>
         </ActivityBtn>
-        <ActivityBtn onClick={handleHackathonOnClick}>
+        {/* <ActivityBtn onClick={handleHackathonOnClick}>
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDate}</ActivityDate>
-        </ActivityBtn>
+        </ActivityBtn> */}
       </ActivitiesContainer>
       <ApplicationsContainer>
         <ActivityBtn onClick={handleApplySpeaker}>

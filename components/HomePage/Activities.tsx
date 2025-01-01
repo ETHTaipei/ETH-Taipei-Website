@@ -1,6 +1,6 @@
 import t from "@/public/constant/content";
 import { openNewTab } from "@/public/utils/common";
-import { hackathonUrl, tickSiteUrl } from "@/public/constant/urls";
+import { tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -12,15 +12,15 @@ const Activities = () => {
     gtagReportConversion();
   };
 
-  const handleHackathonOnClick = () => {
-    openNewTab(hackathonUrl);
-    gtagReportConversion();
-  };
+  // const handleHackathonOnClick = () => {
+  //   openNewTab(hackathonUrl);
+  //   gtagReportConversion();
+  // };
 
   return (
     <Container>
       <MainContent>
-      <ActivityContainer>
+        <ActivityContainer>
           <ActivityTitle>{t.homepage.conference}</ActivityTitle>
           <ActivityDate>{t.homepage.conferenceDateWithDays}</ActivityDate>
           <ActivityDescription>
@@ -30,14 +30,14 @@ const Activities = () => {
             <BtnText>{t.homepage.conferenceBtnText}</BtnText>
           </Btn>
         </ActivityContainer>
-        <ActivityContainer>
+        {/* <ActivityContainer>
           <ActivityTitle>{t.homepage.hackathon}</ActivityTitle>
           <ActivityDate>{t.homepage.hackathonDateWithDays}</ActivityDate>
           <ActivityDescription>{t.homepage.hackathonIntro}</ActivityDescription>
           <Btn onClick={handleHackathonOnClick}>
             <BtnText>{t.homepage.hackathonBtnText}</BtnText>
           </Btn>
-        </ActivityContainer>
+        </ActivityContainer> */}
       </MainContent>
     </Container>
   );

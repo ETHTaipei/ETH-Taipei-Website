@@ -48,7 +48,7 @@ const Activities = () => {
               </ActivityActions>
             </ActivityDescWrapper>
           </ActivityCard>
-          <ActivityCard>
+          {/* <ActivityCard>
             <ActivityNameWrapper>
               <Image
                 src="/images/activity-hackathon-bg.png"
@@ -79,7 +79,7 @@ const Activities = () => {
                 </ActionButton>
               </ActivityActions>
             </ActivityDescWrapper>
-          </ActivityCard>
+          </ActivityCard> */}
           <ActivityCard>
             <ActivityNameWrapper>
               <Image

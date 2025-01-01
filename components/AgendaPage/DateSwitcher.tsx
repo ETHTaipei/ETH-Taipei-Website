@@ -2,6 +2,8 @@ import { EventType, dates } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
 
+import { month } from "@/public/constant/content";
+
 interface DateSwitcherProps {
   type: EventType;
   date: number;
@@ -16,7 +18,7 @@ const DateSwitcher = ({ type, date, setDate }: DateSwitcherProps) => {
           key={num}
           isSelect={date === num}
           onClick={() => setDate(num)}
-        >{`Day${i + 1}. ${num} March`}</DateSelector>
+        >{`Day${i + 1}. ${num} ${month}`}</DateSelector>
       ))}
     </DatesContainer>
   );
