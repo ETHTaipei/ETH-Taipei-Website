@@ -1,8 +1,9 @@
 export const year = "2025";
 export const month = "April";
-export const dayDuration = "1-2";
+const dayDuration = "1-2";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
-export const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
+const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
+const agenda = "Agenda 2024";
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
@@ -121,14 +122,14 @@ const homepage = {
 };
 
 const agendaPage = {
-  agenda: "Agenda",
+  agenda: agenda,
 };
 
 const navs = {
   applyToSpeak: "Apply to Speak",
   applyToSponsor: "Apply to Sponsor",
   home: "Home",
-  agenda: "Agenda",
+  agenda: agenda,
   // hackathon: "Hackathon",
   faq: "Info",
   goldcard: "Gold Card",
