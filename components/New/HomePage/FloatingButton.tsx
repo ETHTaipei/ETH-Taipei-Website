@@ -1,5 +1,4 @@
-// FloatingMenu.js
-import { sponsorApplyUrl, tickSiteUrl } from "@/public/constant/urls";
+import { sponsorApplyUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -65,13 +64,13 @@ const Button = styled.button`
 const FloatingMenu = () => {
   return (
     <FloatingContainer>
-      <Button
+      {/* <Button
         onClick={() => {
           window.open(tickSiteUrl, "_blank");
         }}
       >
         Tickets
-      </Button>
+      </Button> */}
       {/* <Button
         onClick={() => {
           window.open(hackathonUrl, "_blank");
