@@ -4,7 +4,7 @@ export const telegramUrl = "https://t.me/ethtaipei";
 
 export const sponsorApplyUrl = "https://forms.gle/d3b7rjBcQVp468cUA";
 export const speakerApplyUrl = "https://forms.gle/xwFWkYHAoJKj7ek18";
-export const sideEventApplyUrl = "https://forms.gle/gqcuPF99MtwnM7ve9";
+export const sideEventApplyUrl = "https://forms.gle/vT4QWtZu9kR5ng5d8";
 export const mediaPartnerApplyUrl = "https://forms.gle/jhMaFmYsYZN21nJ49";
 export const hackathonUrl =
   "https://taikai.network/ethtaipei/hackathons/hackathon-2024";
