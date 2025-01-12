@@ -40,10 +40,11 @@ const Activities = () => {
                   </Icon>
                   {t.homepage.activityDate_1}
                 </ActivityDate>
-                <ActionButton isActivity={true}>
-                  <Link href={tickSiteUrl} target="_blank">
+                <ActionButton isActivity={false}>
+                  {t.homepage.activityBtn_1}
+                  {/* <Link href={tickSiteUrl} target="_blank">
                     {t.homepage.activityBtn_1}
-                  </Link>
+                  </Link> */}
                 </ActionButton>
               </ActivityActions>
             </ActivityDescWrapper>
@@ -104,10 +105,11 @@ const Activities = () => {
                   </Icon>
                   {t.homepage.activityDate_3}
                 </ActivityDate>
-                <ActionButton isActivity={true}>
-                  <Link href={sideEventFormUrl} target="_blank">
+                <ActionButton isActivity={false}>
+                  {t.homepage.activityBtn_3}
+                  {/* <Link href={sideEventFormUrl} target="_blank">
                     {t.homepage.activityBtn_3}
-                  </Link>
+                  </Link> */}
                 </ActionButton>
               </ActivityActions>
             </ActivityDescWrapper>

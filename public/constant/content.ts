@@ -39,7 +39,7 @@ const homepage = {
   promoteCallToActionTitle: "Jointly Create a Charm Event",
   promoteCallToActionText:
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
-  speakers: "Speakers",
+  speakers: "2024 Speakers",
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
@@ -59,14 +59,14 @@ const homepage = {
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   comingSoon: "Coming Soon",
-  partners: "Partners",
+  partners: "2024 Partners",
   moreToBeReleased: "More To Be Released ...",
   organizers: "Organizers",
   communitySupport: "Community Supports",
   keynote: "Keynote Speaker",
   openingAndKeynote: "Opening / Keynote Speaker",
-  mediaPartners: "Media Partners",
-  sponsors: "Sponsors",
+  mediaPartners: "2024 Media Partners",
+  sponsors: "2024 Sponsors",
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
