@@ -6,53 +6,26 @@ const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
 
 // for transition period; remove when 2025 version is live
 const lastYear = "2024";
-const agenda = `${lastYear} Agenda`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
   ethTaipeiIntro:
     // "Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
     `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 2-day conference focusing on the application and technology of Ethereum.`,
-  ethTaipeiIntro2:
-    // `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
-    `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
 };
 
 const homepage = {
-  // hackathon: "Hackathon",
-  // hackathonDate: "",
-  conference: "Conference",
-  conferenceDate: dateDayMonthYear,
-  ethTaipeiIntroTitle: "What is ETHTaipei?",
-  ethTaipeiIntro1: `${welcomeEdition} With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.`,
-  ethTaipeiIntro2: common.ethTaipeiIntro2,
-  ethTaipeiIntro3_1: `ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition `,
-  ethTaipeiIntro3_2: `!, as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.`,
-  weeks: "WEEKS",
-  days: "DAYS",
-  hours: "HOURS",
-  minutes: "MINUTES",
-  seconds: "SECONDS",
   // hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
-  conferenceIntro: `The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.`,
-  conferenceDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
   // hackathonDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
   // hackathonBtnText: "Join",
-  conferenceBtnText: "Buy Ticket",
-  promoteCallToActionTitle: "Jointly Create a Charm Event",
-  promoteCallToActionText:
+  callToActionTitle: "Jointly Create a Charm Event",
+  callToActionText:
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
   speakers: `${lastYear} Speakers`,
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
-  recapGoBackText: "Want to see more? Let's go back to ",
-  applyToSpeak: "Apply to Speak",
-  applyToSponsor: "Apply to Sponsor",
-  applyToSideEvent: "Add Side Event",
-  applyToMediaPartner: "Become Media Partner",
-  keyNoteSpeakers: "Keynote Speakers",
   venue: "Venue",
   venueName: "POPOP Taipei",
   venueDescription:
@@ -89,7 +62,8 @@ const homepage = {
   introductionCardDesc_1:
     "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
   introductionCardTitle_2: "Insights from Experts & Hands-on Experiences",
-  introductionCardDesc_2: common.ethTaipeiIntro2,
+  // `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+  introductionCardDesc_2: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
   introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
   introductionCardDesc_3_1:
     "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition ",
@@ -120,24 +94,28 @@ const homepage = {
   recapHide: "Hide",
 };
 
+const agenda = `${lastYear} Agenda`;
 const agendaPage = {
   agenda: agenda,
 };
 
 const navs = {
-  applyToSpeak: "Apply to Speak",
-  applyToSponsor: "Apply to Sponsor",
   home: "Home",
-  agenda: agenda,
-  // hackathon: "Hackathon",
-  faq: "Info",
-  goldcard: "Gold Card",
-
   ticket: "Ticket",
+  // hackathon: "Hackathon",
+  agenda: agenda,
   apply: "Apply",
   toSpeak: "to Speak",
   toSponsor: "to Sponsor",
   sideEvent: "Side Event",
+  faq: "Info",
+  goldcard: "Gold Card",
+};
+
+const participation = {
+  applyToSpeak: "Apply to Speak",
+  applyToSponsor: "Apply to Sponsor",
+  addSideEvent: "Add Side Event",
 };
 
 const sponsorHighlight = {
@@ -204,7 +182,7 @@ const goldcard = {
   goldcardApplicationLearnMore_4: "Chinese",
   goldcardApplyBtn: "Apply for Gold Card",
 
-  goldcardFAQTitle: "FAQs",
+  goldcardFAQTitle: "FAQ",
   goldcardFAQQuestion1: "Why Gold Card?",
   goldcardFAQAnswer1_1:
     "The Gold Card is an Alien Residence Certificate that grants the holder the right to freely work for any employer in Taiwan or abroad and live in Taiwan for up to 3 years. The card also grants unlimited re-entries into Taiwan.",
@@ -268,6 +246,7 @@ const t = {
   homepage,
   agendaPage,
   navs,
+  participation,
   visa,
   goldcard,
   sponsorHighlight,
