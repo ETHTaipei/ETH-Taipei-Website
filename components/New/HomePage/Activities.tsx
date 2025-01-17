@@ -2,13 +2,70 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import {
-  hackathonUrl,
-  sideEventFormUrl,
-  tickSiteUrl,
-} from "@/public/constant/urls";
+import { sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
+
+interface ActivityCardParam {
+  imageSrc: string;
+  imageAlt: string;
+  name: string;
+  description: string;
+  date: string;
+  buttonText: string;
+  isActivated: boolean;
+  linkUrl: string;
+}
+
+const ActivityCardComponent = ({
+  imageSrc,
+  imageAlt,
+  name,
+  description,
+  date,
+  buttonText,
+  isActivated,
+  linkUrl,
+}: ActivityCardParam) => {
+  return (
+    <ActivityCard>
+      <ActivityNameWrapper>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          style={{ objectFit: "cover" }}
+        />
+        <ActivityName>{name}</ActivityName>
+      </ActivityNameWrapper>
+      <ActivityDescWrapper>
+        <ActivityDesc>{description}</ActivityDesc>
+        <ActivityActions>
+          <ActivityDate>
+            <Icon>
+              <Image
+                src="/images/calendar-pennblue.svg"
+                alt="Date"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </Icon>
+            {date}
+          </ActivityDate>
+          <ActionButton isActivated={isActivated}>
+            {isActivated && linkUrl ? (
+              <Link href={linkUrl} target="_blank">
+                {buttonText}
+              </Link>
+            ) : (
+              buttonText
+            )}
+          </ActionButton>
+        </ActivityActions>
+      </ActivityDescWrapper>
+    </ActivityCard>
+  );
+};
 
 const Activities = () => {
   return (
@@ -16,104 +73,36 @@ const Activities = () => {
       <MainContent>
         <Title>{t.homepage.activityTitle}</Title>
         <ActivityCardWrapper>
-          <ActivityCard>
-            <ActivityNameWrapper>
-              <Image
-                src="/images/activity-conference-bg.png"
-                alt="Conference"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-              <ActivityName>{t.homepage.activityName_1}</ActivityName>
-            </ActivityNameWrapper>
-            <ActivityDescWrapper>
-              <ActivityDesc>{t.homepage.activityDesc_1}</ActivityDesc>
-              <ActivityActions>
-                <ActivityDate>
-                  <Icon>
-                    <Image
-                      src="/images/calendar-pennblue.svg"
-                      alt="Date"
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Icon>
-                  {t.homepage.activityDate_1}
-                </ActivityDate>
-                <ActionButton isActivity={false}>
-                  {t.homepage.activityBtn_1}
-                  {/* <Link href={tickSiteUrl} target="_blank">
-                    {t.homepage.activityBtn_1}
-                  </Link> */}
-                </ActionButton>
-              </ActivityActions>
-            </ActivityDescWrapper>
-          </ActivityCard>
-          {/* <ActivityCard>
-            <ActivityNameWrapper>
-              <Image
-                src="/images/activity-hackathon-bg.png"
-                alt="Conference"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-              <ActivityName>{t.homepage.activityName_2}</ActivityName>
-            </ActivityNameWrapper>
-            <ActivityDescWrapper>
-              <ActivityDesc>{t.homepage.activityDesc_2}</ActivityDesc>
-              <ActivityActions>
-                <ActivityDate>
-                  <Icon>
-                    <Image
-                      src="/images/calendar-pennblue.svg"
-                      alt="Date"
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Icon>
-                  {t.homepage.activityDate_2}
-                </ActivityDate>
-                <ActionButton isActivity={true}>
-                  <Link href={hackathonUrl} target="_blank">
-                    {t.homepage.activityBtn_2}
-                  </Link>
-                </ActionButton>
-              </ActivityActions>
-            </ActivityDescWrapper>
-          </ActivityCard> */}
-          <ActivityCard>
-            <ActivityNameWrapper>
-              <Image
-                src="/images/activity-sideevent-bg.png"
-                alt="Side Event"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-              <ActivityName>{t.homepage.activityName_3}</ActivityName>
-            </ActivityNameWrapper>
-            <ActivityDescWrapper>
-              <ActivityDesc>{t.homepage.activityDesc_3}</ActivityDesc>
-              <ActivityActions>
-                <ActivityDate>
-                  <Icon>
-                    <Image
-                      src="/images/calendar-pennblue.svg"
-                      alt="Date"
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Icon>
-                  {t.homepage.activityDate_3}
-                </ActivityDate>
-                <ActionButton isActivity={false}>
-                  {t.homepage.activityBtn_3}
-                  {/* <Link href={sideEventFormUrl} target="_blank">
-                    {t.homepage.activityBtn_3}
-                  </Link> */}
-                </ActionButton>
-              </ActivityActions>
-            </ActivityDescWrapper>
-          </ActivityCard>
+          <ActivityCardComponent
+            imageSrc="/images/activity-conference-bg.png"
+            imageAlt={t.homepage.activityName_1}
+            name={t.homepage.activityName_1}
+            description={t.homepage.activityDesc_1}
+            date={t.homepage.activityDate_1}
+            buttonText={t.homepage.activityBtn_1}
+            isActivated={false}
+            linkUrl={tickSiteUrl}
+          />
+          {/* <ActivityCardComponent
+            imageSrc="/images/activity-hackathon-bg.png"
+            imageAlt={t.homepage.activityName_2}
+            name={t.homepage.activityName_2}
+            description={t.homepage.activityDesc_2}
+            date={t.homepage.activityDate_2}
+            buttonText={t.homepage.activityBtn_2}
+            isActivated={false}
+            linkUrl={hackathonUrl}
+          /> */}
+          <ActivityCardComponent
+            imageSrc="/images/activity-sideevent-bg.png"
+            imageAlt={t.homepage.activityName_3}
+            name={t.homepage.activityName_3}
+            description={t.homepage.activityDesc_3}
+            date={t.homepage.activityDate_3}
+            buttonText={t.homepage.activityBtn_3}
+            isActivated={false}
+            linkUrl={sideEventFormUrl}
+          />
         </ActivityCardWrapper>
       </MainContent>
     </Container>
@@ -223,15 +212,15 @@ const Icon = styled.div`
   height: 20px;
 `;
 
-const ActionButton = styled.button<{ isActivity: boolean }>`
+const ActionButton = styled.button<{ isActivated: boolean }>`
   border-radius: 8px;
   padding: 8px 40px;
   background-color: ${(props) =>
-    props.isActivity ? Colors.btnBlue : Colors.gray3};
+    props.isActivated ? Colors.btnBlue : Colors.gray3};
   color: white;
   font-size: 22px;
   font-family: "Rammetto One";
-  cursor: ${(props) => (props.isActivity ? "pointer" : "not-allowed")};
+  cursor: ${(props) => (props.isActivated ? "pointer" : "not-allowed")};
   transition: all 300ms ease;
   :hover {
     transform: scale(1.1);
