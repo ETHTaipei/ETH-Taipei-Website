@@ -1,11 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import Colors from '@/styles/colors';
 import { SponsorProps, useSponsors } from '@/components/hooks/useSponsors';
+import t from "@/public/constant/content";
 
 const Sponsors = () => {
   const { goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
@@ -13,7 +12,7 @@ const Sponsors = () => {
   return (
     <Container>
       <MainContent>
-        <Title>Sponsors</Title>
+        <Title>{t.homepage.sponsors}</Title>
         <DescriptionContainer>
           <Description>
             We would like to express our immense gratitude to our sponsors for your 

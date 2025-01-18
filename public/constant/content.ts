@@ -3,7 +3,10 @@ export const month = "April";
 const dayDuration = "1-2";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
 const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
-const agenda = "Agenda 2024";
+
+// for transition period; remove when 2025 version is live
+const lastYear = "2024";
+const agenda = `${lastYear} Agenda`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
@@ -39,7 +42,7 @@ const homepage = {
   promoteCallToActionTitle: "Jointly Create a Charm Event",
   promoteCallToActionText:
     "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
-  speakers: "Speakers",
+  speakers: `${lastYear} Speakers`,
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
@@ -50,23 +53,19 @@ const homepage = {
   applyToSideEvent: "Add Side Event",
   applyToMediaPartner: "Become Media Partner",
   keyNoteSpeakers: "Keynote Speakers",
-  addYour: "Add Your",
-  sideEvents: "Side Events",
-  venue: "The Venue",
+  venue: "Venue",
   venueName: "POPOP Taipei",
   venueDescription:
     "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
+  venueCapacity: "Capacity: 700 people",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
-  comingSoon: "Coming Soon",
-  partners: "Partners",
-  moreToBeReleased: "More To Be Released ...",
+  partners: `${lastYear} Partners`,
   organizers: "Organizers",
   communitySupport: "Community Supports",
-  keynote: "Keynote Speaker",
   openingAndKeynote: "Opening / Keynote Speaker",
-  mediaPartners: "Media Partners",
-  sponsors: "Sponsors",
+  mediaPartners: `${lastYear} Media Partners`,
+  sponsors: `${lastYear} Sponsors`,
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",

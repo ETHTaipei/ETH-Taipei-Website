@@ -68,7 +68,7 @@ const ImageContainer = styled.div`
 const Slideshow = styled.div<ThemedStyledProps<SlideshowProps, any>>`
   display: flex;
   position: absolute;
-  transform: translateX(${props => props.index * -100}%);
+  transform: translateX(${(props) => props.index * -100}%);
   transition: transform 0.5s ease-in-out;
 `;
 
@@ -115,56 +115,71 @@ const Venue = () => {
     "https://i.imgur.com/yQDjfrF.png",
     "https://i.imgur.com/touZtUt.png",
     "https://i.imgur.com/ug5ZI5k.png",
-    ];
-    
-    useEffect(() => {
+  ];
+
+  useEffect(() => {
     const intervalId = setInterval(() => {
-    setCurrentImage((currentImage + 1) % images.length);
+      setCurrentImage((currentImage + 1) % images.length);
     }, 5000);
     return () => clearInterval(intervalId);
-    }, [currentImage, images.length]);
-    
-    const handlePrev = () => {
+  }, [currentImage, images.length]);
+
+  const handlePrev = () => {
     setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
-    };
-    
-    const handleNext = () => {
+  };
+
+  const handleNext = () => {
     setCurrentImage((currentImage + 1) % images.length);
-    };
-    
-    return (
+  };
+
+  return (
     <Container>
-    <MainContent>
-    <TextContainer>
-    <Title>{t.homepage.venue}</Title>
-    <SubTitle>{t.homepage.venueName}</SubTitle>
-    <Description>{t.homepage.venueDescription}</Description>
-    <Description> <p style={{fontWeight: 'bold', minWidth: 80}}>Capacity:</p> 700 people</Description>
-    <Description> <p style={{fontWeight: 'bold', minWidth: 80}}>Address:</p> {t.homepage.venueAddress}</Description>
-    
-    <a style={{paddingBottom: 6, opacity: 0.8}} href={"https://goo.gl/maps/CCXUtykxqYjyp9wVA"} target="_blank" rel="noreferrer">View on Google Maps</a>
-    </TextContainer>
-    <ImageContainer>
-    <Slideshow index={currentImage}>
-    {images.map((image, index) => (
-    <Image
-    src={image}
-    alt={`Image ${index}`}
-    key={index}
-    width={600}
-    />
-    ))}
-    </Slideshow>
-    <PrevButton onClick={handlePrev}>
-    <FiChevronLeft />
-    </PrevButton>
-    <NextButton onClick={handleNext}>
-    <FiChevronRight />
-    </NextButton>
-    </ImageContainer>
-    </MainContent>
+      <MainContent>
+        <TextContainer>
+          <Title>{t.homepage.venue}</Title>
+          <SubTitle>{t.homepage.venueName}</SubTitle>
+          <Description>{t.homepage.venueDescription}</Description>
+          <Description>
+            {" "}
+            <p style={{ fontWeight: "bold", minWidth: 80 }}>Capacity:</p>{" "}
+            {t.homepage.venueCapacity}
+          </Description>
+          <Description>
+            {" "}
+            <p style={{ fontWeight: "bold", minWidth: 80 }}>Address:</p>{" "}
+            {t.homepage.venueAddress}
+          </Description>
+
+          <a
+            style={{ paddingBottom: 6, opacity: 0.8 }}
+            href={"https://goo.gl/maps/CCXUtykxqYjyp9wVA"}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on Google Maps
+          </a>
+        </TextContainer>
+        <ImageContainer>
+          <Slideshow index={currentImage}>
+            {images.map((image, index) => (
+              <Image
+                src={image}
+                alt={`Image ${index}`}
+                key={index}
+                width={600}
+              />
+            ))}
+          </Slideshow>
+          <PrevButton onClick={handlePrev}>
+            <FiChevronLeft />
+          </PrevButton>
+          <NextButton onClick={handleNext}>
+            <FiChevronRight />
+          </NextButton>
+        </ImageContainer>
+      </MainContent>
     </Container>
-    );
-    };
-    
-    export default Venue;
+  );
+};
+
+export default Venue;
