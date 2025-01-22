@@ -3,7 +3,6 @@ import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
 import Image from "next/image";
 import styled from "styled-components";
-import { useMediaPartners } from "../../hooks/useMediaPartners";
 import { useCommunityPartners } from "../../hooks/usePartners";
 
 const Community = () => {
@@ -13,7 +12,7 @@ const Community = () => {
     <Container>
       <MainContent>
         <PartnerContainer>
-          <Title> Community Support </Title>
+          <Title> {t.homepage.communitySupport} </Title>
           <SponsorsContainer>
             {partners.map((partner) => (
               <SponsorBtn
@@ -38,7 +37,11 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 140px 80px;
-  background: linear-gradient(143.49deg, rgba(205, 243, 255, 0.37) 5.18%, #CDF3FF 94.78%);
+  background: linear-gradient(
+    143.49deg,
+    rgba(205, 243, 255, 0.37) 5.18%,
+    #cdf3ff 94.78%
+  );
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -96,17 +99,4 @@ const SponsorBtn = styled.button`
   @media (max-width: 768px) {
     min-height: 80px;
   }
-`;
-
-const MDPartnerBtn = styled(SponsorBtn)`
-  flex: 0 1 200px;
-`;
-
-const BackgroundBottom = styled.div`
-  width: 100%;
-  aspect-ratio: 1510 / 609;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
 `;

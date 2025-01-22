@@ -10,22 +10,20 @@ const Participation = () => {
     <Container>
       <MainContent>
         <InfoContainer>
-          <Title>{t.homepage.promoteCallToActionTitle}</Title>
+          <Title>{t.homepage.callToActionTitle}</Title>
           <Description>
-            <DescriptionBox>
-              {t.homepage.promoteCallToActionText}
-            </DescriptionBox>
+            <DescriptionBox>{t.homepage.callToActionText}</DescriptionBox>
           </Description>
         </InfoContainer>
         <ActionContainer>
           {/* <Action onClick={() => openNewTab(speakerApplyUrl)}>
-            {t.homepage.beASpeaker}
+            {t.participation.applyToSpeak}
           </Action> */}
           <Action onClick={() => openNewTab(sponsorApplyUrl)}>
-            {t.homepage.beASponsor}
+            {t.participation.applyToSponsor}
           </Action>
           <Action onClick={() => openNewTab(sideEventApplyUrl)}>
-            {t.homepage.applyToSideEvent}
+            {t.participation.addSideEvent}
           </Action>
         </ActionContainer>
       </MainContent>
