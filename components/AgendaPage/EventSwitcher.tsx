@@ -1,7 +1,7 @@
 import { EventType, dates } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
-import { dateDayMonthYear } from "@/public/constant/content";
+import { dateDayMonthLastYear } from "@/public/constant/content";
 
 interface EventSwitcherProps {
   type: EventType;
@@ -9,7 +9,7 @@ interface EventSwitcherProps {
   setDate: (date: number) => void;
 }
 
-const conferenceDate = dateDayMonthYear;
+const conferenceDate = dateDayMonthLastYear;
 const hackathonDate = "";
 
 const EventSwitcher = ({ type, setType, setDate }: EventSwitcherProps) => {
