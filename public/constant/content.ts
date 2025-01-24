@@ -1,11 +1,14 @@
+// for transition period; remove when 2025 version is live
+const lastYear = "2024";
+const lastMonth = "April";
+const lastDayDuration = "21-22";
+
 export const year = "2025";
 export const month = "April";
 const dayDuration = "1-2";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
+export const dateDayMonthLastYear = `${lastDayDuration} ${lastMonth}, ${lastYear}`;
 const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
-
-// for transition period; remove when 2025 version is live
-const lastYear = "2024";
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
