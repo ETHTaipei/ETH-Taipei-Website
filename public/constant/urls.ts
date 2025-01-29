@@ -11,7 +11,7 @@ export const hackathonUrl =
 export const sideEventUrl = " https://tally.so/r/wgboMN";
 export const sideEventFormUrl =
   "https://docs.google.com/spreadsheets/d/1wcldPZ8QpGMDJTas6Uh4p-I0sysmS1YCFHugGCs2il8";
-export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei";
+export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei-2025";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
