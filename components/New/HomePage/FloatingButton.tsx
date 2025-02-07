@@ -1,4 +1,4 @@
-import { sponsorApplyUrl } from "@/public/constant/urls";
+import { sponsorApplyUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import React from "react";
 import styled from "styled-components";
@@ -31,7 +31,7 @@ const FloatingContainer = styled.div`
 // This is a styled component for each button
 const Button = styled.button`
   font-family: "Rammetto One";
-  background-color: ${Colors.btnBlue}; // Your button color
+  background-color: ${Colors.btnBlue};
   border: none;
   cursor: pointer;
   padding: 10px 15px;
@@ -64,13 +64,13 @@ const Button = styled.button`
 const FloatingMenu = () => {
   return (
     <FloatingContainer>
-      {/* <Button
+      <Button
         onClick={() => {
           window.open(tickSiteUrl, "_blank");
         }}
       >
         Tickets
-      </Button> */}
+      </Button>
       {/* <Button
         onClick={() => {
           window.open(hackathonUrl, "_blank");
