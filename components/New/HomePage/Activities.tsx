@@ -80,7 +80,7 @@ const Activities = () => {
             description={t.homepage.activityDesc_1}
             date={t.homepage.activityDate_1}
             buttonText={t.homepage.activityBtn_1}
-            isActivated={false}
+            isActivated={true}
             linkUrl={tickSiteUrl}
           />
           {/* <ActivityCardComponent
