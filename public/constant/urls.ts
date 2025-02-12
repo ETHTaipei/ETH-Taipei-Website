@@ -114,4 +114,4 @@ export const goldcardDanaLiuMailUrl = "mailto:preedanan@mail.tca.org.tw";
 export const goldcardVickyHoMailUrl = "mailto:vicky_ho@mail.tca.org.tw";
 export const goldcardKellyChuangMailUrl = "mailto:kelly_chuang@mail.tca.org.tw";
 
-export const invitationLetterUrl = "https://forms.gle/y5Br2Z7mtcyBXNuBA";
+export const invitationLetterUrl = "https://forms.gle/Ms8KGf8K621vyvMG6";
