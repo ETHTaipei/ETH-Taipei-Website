@@ -31,29 +31,45 @@ import DiscordIcon from "@/public/images/2025/icon/discord_icon.svg";
 const ImageButton = ({
   url,
   src,
-  width,
+  percent,
 }: {
   url: string;
   src: string;
-  width: number;
+  percent: string;
 }) => (
   <CircleButton as="a" href={url} target="_blank">
-    <Image src={src} alt={url} width={width} style={{ objectFit: "contain" }} />
+    <Image
+      src={src}
+      alt={url}
+      style={{
+        objectFit: "contain",
+        width: `${percent}%`,
+        height: `${percent}%`,
+      }}
+    />
   </CircleButton>
 );
 
-const XButton = () => <ImageButton url={xUrl} src={XIcon} width={17} />;
+const XButton = () => <ImageButton url={xUrl} src={XIcon} percent="50" />;
 const TelegramButton = () => (
-  <ImageButton url={telegramUrl} src={TelegramIcon} width={20} />
+  <ImageButton url={telegramUrl} src={TelegramIcon} percent="55" />
 );
 const DiscordButton = () => (
-  <ImageButton url={discordUrl} src={DiscordIcon} width={22} />
+  <ImageButton url={discordUrl} src={DiscordIcon} percent="60" />
 );
 
 // LumaButton uses icon and is thus not an ImageButton
 const LumaButton = () => (
   <CircleButton as="a" href={lumaUrl} target="_blank">
-    <FontAwesomeIcon icon={faCalendar} fontSize={18} color="white" />
+    <FontAwesomeIcon
+      icon={faCalendar}
+      style={{
+        objectFit: "contain",
+        width: "50%",
+        height: "50%",
+      }}
+      color="white"
+    />
   </CircleButton>
 );
 
@@ -63,13 +79,18 @@ const Header2025 = () => {
 
   const MenuButtonXOrBars = ({
     isOpen,
-    icon,
+    iconWhenOpen,
+    iconWhenClose,
   }: {
     isOpen: boolean;
-    icon: IconDefinition;
+    iconWhenOpen: IconDefinition;
+    iconWhenClose: IconDefinition;
   }) => (
-    <MenuButton onClick={() => setIsMobileMenuOpen(isOpen)}>
-      <FontAwesomeIcon icon={icon} fontSize={27} />
+    <MenuButton onClick={() => setIsMobileMenuOpen(!isOpen)}>
+      <FontAwesomeIcon
+        icon={isOpen ? iconWhenOpen : iconWhenClose}
+        fontSize={27}
+      />
     </MenuButton>
   );
 
@@ -87,27 +108,31 @@ const Header2025 = () => {
         </Logo>
 
         <NavButtons>
-          <SocialContainer>
+          <SocialContainer className="social-container">
             <XButton />
             <TelegramButton />
             <DiscordButton />
             <LumaButton />
           </SocialContainer>
 
-          <TicketButton onClick={() => window.open(tickSiteUrl, "_blank")}>
+          <TicketButton
+            className="ticket-button"
+            onClick={() => window.open(tickSiteUrl, "_blank")}
+          >
             {t.navs.ticket}
           </TicketButton>
         </NavButtons>
 
-        <MenuButtonXOrBars isOpen={true} icon={faBars} />
+        <MenuButtonXOrBars
+          isOpen={isMobileMenuOpen}
+          iconWhenOpen={faXmark}
+          iconWhenClose={faBars}
+        />
       </HeaderContainer>
 
-      <Menu open={isMobileMenuOpen}>
+      <DropdownMenu open={isMobileMenuOpen}>
         <MenuContent>
-          <div style={{ textAlign: "right" }}>
-            <MenuButtonXOrBars isOpen={false} icon={faXmark} />
-          </div>
-          <SocialContainer style={{ justifyContent: "center" }}>
+          <SocialContainer>
             <XButton />
             <TelegramButton />
             <DiscordButton />
@@ -122,12 +147,16 @@ const Header2025 = () => {
             {t.navs.ticket}
           </TicketButton>
         </MenuContent>
-      </Menu>
+      </DropdownMenu>
     </>
   );
 };
 
 export default Header2025;
+
+const breakpointWidth = "768px";
+const componentHeight = "40px";
+const headerShrunkHeight = "50px";
 
 const HeaderContainer = styled.header`
   background-color: ${Colors.neonGreen};
@@ -142,16 +171,23 @@ const HeaderContainer = styled.header`
   grid-template-columns: 150px 1fr auto;
   padding: 0 25px;
 
-  @media (max-width: 600px) {
-    padding: 0 20px;
+  @media (max-width: ${breakpointWidth}) {
+    height: ${headerShrunkHeight};
+    padding: 0;
   }
 `;
 
 const Logo = styled.div`
   position: relative;
   cursor: pointer;
-  height: 40px;
+  height: ${componentHeight};
   margin: auto 0;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: ${breakpointWidth}) {
+    height: 25px;
+  }
 `;
 
 const NavButtons = styled.div`
@@ -160,8 +196,14 @@ const NavButtons = styled.div`
   justify-content: flex-end;
   gap: 24px;
 
-  @media (max-width: 600px) {
-    padding: 0 20px;
+  @media (max-width: ${breakpointWidth}) {
+    .social-container {
+      display: none;
+    }
+
+    .ticket-button {
+      display: none;
+    }
   }
 `;
 
@@ -175,9 +217,25 @@ const BaseButton = styled.div`
 `;
 
 const CircleButton = styled(BaseButton)`
-  width: 40px;
-  height: 40px;
+  width: ${componentHeight};
+  height: ${componentHeight};
   border-radius: 50%;
+
+  @media (max-width: ${breakpointWidth}) {
+    width: min(${componentHeight}, 10vw);
+    height: min(${componentHeight}, 10vw);
+  }
+`;
+
+const TicketButton = styled(BaseButton)`
+  padding: 0 20px;
+  border-radius: 24px;
+  width: 115px;
+  height: ${componentHeight};
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: white;
 `;
 
 const SocialContainer = styled.div`
@@ -186,16 +244,24 @@ const SocialContainer = styled.div`
   gap: 16px;
 `;
 
-const Menu = styled.div<{ open: boolean }>`
+// use headerShrunkHeight directly for its distance to top
+const DropdownMenu = styled.div<{ open: boolean }>`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: white;
+  top: ${headerShrunkHeight};
+  right: 0;
+  width: 50vw;
+  max-width: 50vw;
+  min-width: 191px;
+  background-color: ${Colors.brightBlue};
   transition: transform 0.3s ease;
-  transform: translateX(${(props) => (props.open ? "0" : "100%")});
-  z-index: 101;
+  transform: translateY(${(props) => (props.open ? "0" : "-100%")});
+  z-index: 99;
+  border-bottom: 2px solid ${Colors.grayBorder};
+  border-left: none;
+
+  @media (min-width: ${breakpointWidth}) {
+    display: none;
+  }
 `;
 
 const MenuContent = styled.div`
@@ -203,28 +269,36 @@ const MenuContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: white;
+
+  ${SocialContainer} {
+    justify-content: center;
+  }
 `;
 
 const MenuButton = styled.div`
   background: none;
-  border: none;
+  border: 2px solid ${Colors.grayBorder};
   cursor: pointer;
   display: none;
-  margin-left: auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  color: ${Colors.grayBorder};
+  align-items: center;
+  justify-content: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${breakpointWidth}) {
     display: flex;
-    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
   }
-`;
-
-const TicketButton = styled(BaseButton)`
-  padding: 0 20px;
-  border-radius: 24px;
-  width: 115px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: 400;
-  white-space: nowrap;
-  color: white;
 `;
