@@ -1,6 +1,7 @@
 import {
   faBars,
   faXmark,
+  faCalendar,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,12 +14,13 @@ import useWindowSize from "@/components/hooks/useWindowSize";
 import t from "@/public/constant/content";
 import {
   discordUrl,
+  lumaUrl,
   sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
   telegramUrl,
   tickSiteUrl,
-  twitterUrl,
+  xUrl,
 } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
@@ -26,11 +28,40 @@ import XIcon from "@/public/images/2025/icon/x_icon.svg";
 import TelegramIcon from "@/public/images/2025/icon/telegram_icon.svg";
 import DiscordIcon from "@/public/images/2025/icon/discord_icon.svg";
 
+const ImageButton = ({
+  url,
+  src,
+  width,
+}: {
+  url: string;
+  src: string;
+  width: number;
+}) => (
+  <CircleButton as="a" href={url} target="_blank">
+    <Image src={src} alt={url} width={width} style={{ objectFit: "contain" }} />
+  </CircleButton>
+);
+
+const XButton = () => <ImageButton url={xUrl} src={XIcon} width={17} />;
+const TelegramButton = () => (
+  <ImageButton url={telegramUrl} src={TelegramIcon} width={20} />
+);
+const DiscordButton = () => (
+  <ImageButton url={discordUrl} src={DiscordIcon} width={22} />
+);
+
+// LumaButton uses icon and is thus not an ImageButton
+const LumaButton = () => (
+  <CircleButton as="a" href={lumaUrl} target="_blank">
+    <FontAwesomeIcon icon={faCalendar} fontSize={18} color="white" />
+  </CircleButton>
+);
+
 const Header2025 = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
-  const MenuButton = ({
+  const MenuButtonXOrBars = ({
     isOpen,
     icon,
   }: {
@@ -57,69 +88,30 @@ const Header2025 = () => {
 
         <NavButtons>
           <SocialContainer>
-            <CircleButton as="a" href={twitterUrl} target="_blank">
-              <Image
-                src={XIcon}
-                alt="X"
-                width={17}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
-            <CircleButton as="a" href={telegramUrl} target="_blank">
-              <Image
-                src={TelegramIcon}
-                alt="Telegram"
-                width={20}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
-            <CircleButton as="a" href={discordUrl} target="_blank">
-              <Image
-                src={DiscordIcon}
-                alt="Discord"
-                width={22}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
+            <XButton />
+            <TelegramButton />
+            <DiscordButton />
+            <LumaButton />
           </SocialContainer>
+
           <TicketButton onClick={() => window.open(tickSiteUrl, "_blank")}>
-            Ticket
+            {t.navs.ticket}
           </TicketButton>
         </NavButtons>
 
-        <MenuButton isOpen={true} icon={faBars} />
+        <MenuButtonXOrBars isOpen={true} icon={faBars} />
       </HeaderContainer>
 
       <Menu open={isMobileMenuOpen}>
         <MenuContent>
           <div style={{ textAlign: "right" }}>
-            <MenuButton isOpen={false} icon={faXmark} />
+            <MenuButtonXOrBars isOpen={false} icon={faXmark} />
           </div>
           <SocialContainer style={{ justifyContent: "center" }}>
-            <CircleButton as="a" href={twitterUrl} target="_blank">
-              <Image
-                src={XIcon}
-                alt="X"
-                width={17}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
-            <CircleButton as="a" href={telegramUrl} target="_blank">
-              <Image
-                src={TelegramIcon}
-                alt="Telegram"
-                width={20}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
-            <CircleButton as="a" href={discordUrl} target="_blank">
-              <Image
-                src={DiscordIcon}
-                alt="Discord"
-                width={22}
-                style={{ objectFit: "contain" }}
-              />
-            </CircleButton>
+            <XButton />
+            <TelegramButton />
+            <DiscordButton />
+            <LumaButton />
           </SocialContainer>
           <TicketButton
             onClick={() => {
@@ -127,7 +119,7 @@ const Header2025 = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            Ticket
+            {t.navs.ticket}
           </TicketButton>
         </MenuContent>
       </Menu>
