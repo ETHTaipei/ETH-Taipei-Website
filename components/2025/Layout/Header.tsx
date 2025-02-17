@@ -6,12 +6,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import useWindowSize from "@/components/hooks/useWindowSize";
 import t from "@/public/constant/content";
 import {
   discordUrl,
@@ -23,7 +21,7 @@ import {
   tickSiteUrl,
   xUrl,
 } from "@/public/constant/urls";
-import { openNewTab } from "@/public/utils/common";
+import { useRouting } from "@/public/utils/common";
 import Colors from "@/styles/colors";
 import XIcon from "@/public/images/2025/icon/x_icon.svg";
 import TelegramIcon from "@/public/images/2025/icon/telegram_icon.svg";
@@ -74,6 +72,8 @@ const LumaButton = () => (
   </CircleButton>
 );
 
+// undone paths are set to "" to avoid onClick
+const isNonEmptyPath = (path: string) => path !== "";
 const navItems = [
   { label: t.navs.home, path: "/" },
   { label: t.navs.agenda2025, path: "/agenda#info" },
@@ -83,24 +83,24 @@ const navItems = [
   { label: t.navs.brand, path: "" },
 ];
 
+const isApply = (label: string) => label === t.navs.apply;
 const applyDropdownItems = [
   { label: t.navs.toSpeak, url: speakerApplyUrl },
   { label: t.navs.toSponsor, url: sponsorApplyUrl },
   { label: t.navs.sideEvent, url: sideEventApplyUrl },
 ];
 
-const isApply = (label: string) => label === t.navs.apply;
-
-const NavSection = () => {
+const PagesNav = () => {
   const pathname = usePathname();
-  const router = useRouter();
   const [showApplyDropdown, setShowApplyDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout>();
+  const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
 
+  // 200ms delay before hiding s.t. applyDropdown won't disappear so fast
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setShowApplyDropdown(false);
-    }, 300); // 300ms delay before hiding
+    }, 200);
   };
 
   const handleMouseEnter = (label: string) => {
@@ -113,16 +113,18 @@ const NavSection = () => {
   };
 
   return (
-    <NavSectionContainer>
+    <PagesNavContainer>
       {navItems.map(({ label, path }: { label: string; path: string }) => (
-        <NavButtonWrapper
+        <NavButtonContainer
           key={label}
           onMouseEnter={() => handleMouseEnter(label)}
           onMouseLeave={handleMouseLeave}
         >
           <NavButton
             isActive={pathname === path}
-            onClick={() => path !== "" && router.push(path)}
+            onClick={() =>
+              isNonEmptyPath(path) && handleOnClickInternalLink(path)
+            }
           >
             {label}
           </NavButton>
@@ -131,22 +133,22 @@ const NavSection = () => {
               {applyDropdownItems.map((item) => (
                 <ApplyDropdownItem
                   key={item.label}
-                  onClick={() => openNewTab(item.url)}
+                  onClick={() => handleOnClickExternalLink(item.url)}
                 >
                   {item.label}
                 </ApplyDropdownItem>
               ))}
             </ApplyDropdown>
           )}
-        </NavButtonWrapper>
+        </NavButtonContainer>
       ))}
-    </NavSectionContainer>
+    </PagesNavContainer>
   );
 };
 
 const Header2025 = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter();
+  const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
 
   const MenuButtonXOrBars = ({
     isOpen,
@@ -174,13 +176,13 @@ const Header2025 = () => {
             alt="ETH Taipei Logo"
             fill
             style={{ objectFit: "contain" }}
-            onClick={() => router.push("/")}
+            onClick={() => handleOnClickInternalLink("/")}
           />
         </Logo>
 
-        <NavSection />
+        <PagesNav />
 
-        <SocialAndTicketButtons>
+        <SocialAndTicketButtonsContainer>
           <SocialContainer className="social-container">
             <XButton />
             <TelegramButton />
@@ -190,11 +192,11 @@ const Header2025 = () => {
 
           <TicketButton
             className="ticket-button"
-            onClick={() => window.open(tickSiteUrl, "_blank")}
+            onClick={() => handleOnClickExternalLink(tickSiteUrl)}
           >
             {t.navs.ticket}
           </TicketButton>
-        </SocialAndTicketButtons>
+        </SocialAndTicketButtonsContainer>
 
         <MenuButtonXOrBars
           isOpen={isMobileMenuOpen}
@@ -203,54 +205,54 @@ const Header2025 = () => {
         />
       </HeaderContainer>
 
-      <DropdownMenu open={isMobileMenuOpen}>
-        <MenuContent>
+      <BarsMenu open={isMobileMenuOpen}>
+        <BarsMenuContent>
           {navItems.map(({ label, path }: { label: string; path: string }) => (
             <div key={label}>
-              <MenuLink
+              <BarsMenuLink
                 onClick={() => {
-                  if (path !== "") {
-                    router.push(path);
+                  if (isNonEmptyPath(path)) {
+                    handleOnClickInternalLink(path);
                     setIsMobileMenuOpen(false);
                   }
                 }}
               >
                 {label}
-              </MenuLink>
+              </BarsMenuLink>
               {isApply(label) && (
                 <>
                   {applyDropdownItems.map((item) => (
-                    <MenuLink
+                    <BarsMenuLink
                       key={item.label}
                       className="apply-sub-item"
                       onClick={() => {
-                        openNewTab(item.url);
+                        handleOnClickExternalLink(item.url);
                         setIsMobileMenuOpen(false);
                       }}
                     >
                       {item.label}
-                    </MenuLink>
+                    </BarsMenuLink>
                   ))}
                 </>
               )}
             </div>
           ))}
-          <MenuLink
+          <BarsMenuLink
             onClick={() => {
-              window.open(tickSiteUrl, "_blank");
+              handleOnClickExternalLink(tickSiteUrl);
               setIsMobileMenuOpen(false);
             }}
           >
             {t.navs.ticket}
-          </MenuLink>
+          </BarsMenuLink>
           <SocialContainer>
             <XButton />
             <TelegramButton />
             <DiscordButton />
             <LumaButton />
           </SocialContainer>
-        </MenuContent>
-      </DropdownMenu>
+        </BarsMenuContent>
+      </BarsMenu>
     </>
   );
 };
@@ -299,12 +301,13 @@ const Logo = styled.div`
   }
 `;
 
-const SocialAndTicketButtons = styled.div`
+const SocialAndTicketButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: ${smallGap};
 
+  // prioritize hiding socials
   @media (max-width: 1075px) {
     .social-container {
       display: none;
@@ -355,13 +358,12 @@ const TicketButton = styled(BaseButton)`
   }
 `;
 
-// use headerShrunkHeight directly for its distance to top
-const DropdownMenu = styled.div<{ open: boolean }>`
+const BarsMenu = styled.div<{ open: boolean }>`
   position: fixed;
   border: ${border};
   border-top: none;
   box-sizing: border-box;
-  top: ${headerShrunkHeight};
+  top: ${headerShrunkHeight}; // use headerShrunkHeight for its distance to top
   right: 0;
   width: 40vw;
   max-width: 40vw;
@@ -377,7 +379,7 @@ const DropdownMenu = styled.div<{ open: boolean }>`
   }
 `;
 
-const MenuLink = styled.div`
+const BarsMenuLink = styled.div`
   color: white;
   cursor: pointer;
   padding: 8px 4px;
@@ -391,7 +393,7 @@ const MenuLink = styled.div`
   }
 `;
 
-const MenuContent = styled.div`
+const BarsMenuContent = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -400,20 +402,20 @@ const MenuContent = styled.div`
   align-items: center;
   font-weight: ${fontWeight};
 
-  ${MenuLink}.apply-sub-item {
+  ${BarsMenuLink}.apply-sub-item {
     font-size: 16px;
     font-weight: 200;
   }
 `;
 
-// place here for using MenuContent
+// place here for using BarsMenuContent
 const SocialContainer = styled.div`
   display: flex;
   align-items: center;
   gap: ${smallGap};
   margin: 0 auto;
 
-  ${MenuContent} & {
+  ${BarsMenuContent} & {
     margin: 0;
     width: 100%;
     justify-content: center;
@@ -445,7 +447,7 @@ const MenuButton = styled.div`
   }
 `;
 
-const NavSectionContainer = styled.nav`
+const PagesNavContainer = styled.nav`
   background-color: white;
   height: ${componentHeight};
   border: ${border};
@@ -461,6 +463,10 @@ const NavSectionContainer = styled.nav`
   @media (max-width: ${breakpointWidth}) {
     display: none;
   }
+`;
+
+const NavButtonContainer = styled.div`
+  position: relative;
 `;
 
 const NavButton = styled.button<{ isActive: boolean }>`
@@ -481,10 +487,6 @@ const NavButton = styled.button<{ isActive: boolean }>`
       props.isActive ? Colors.brightBlue : Colors.brightBlue};
     color: white;
   }
-`;
-
-const NavButtonWrapper = styled.div`
-  position: relative;
 `;
 
 const ApplyDropdown = styled.div`
