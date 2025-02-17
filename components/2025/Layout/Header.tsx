@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useRef } from "react";
 import styled, { css } from "styled-components";
 
 import useWindowSize from "@/components/hooks/useWindowSize";
@@ -83,20 +83,62 @@ const navItems = [
   { label: t.navs.brand, path: "" },
 ];
 
+const applyDropdownItems = [
+  { label: t.navs.toSpeak, url: speakerApplyUrl },
+  { label: t.navs.toSponsor, url: sponsorApplyUrl },
+  { label: t.navs.sideEvent, url: sideEventApplyUrl },
+];
+
+const isApply = (label: string) => label === t.navs.apply;
+
 const NavSection = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const [showApplyDropdown, setShowApplyDropdown] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout>();
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowApplyDropdown(false);
+    }, 300); // 300ms delay before hiding
+  };
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    if (isApply(label)) {
+      setShowApplyDropdown(true);
+    }
+  };
 
   return (
     <NavSectionContainer>
       {navItems.map(({ label, path }: { label: string; path: string }) => (
-        <NavButton
+        <NavButtonWrapper
           key={label}
-          isActive={pathname === path}
-          onClick={() => path !== "" && router.push(path)}
+          onMouseEnter={() => handleMouseEnter(label)}
+          onMouseLeave={handleMouseLeave}
         >
-          {label}
-        </NavButton>
+          <NavButton
+            isActive={pathname === path}
+            onClick={() => path !== "" && router.push(path)}
+          >
+            {label}
+          </NavButton>
+          {isApply(label) && showApplyDropdown && (
+            <ApplyDropdown>
+              {applyDropdownItems.map((item) => (
+                <ApplyDropdownItem
+                  key={item.label}
+                  onClick={() => openNewTab(item.url)}
+                >
+                  {item.label}
+                </ApplyDropdownItem>
+              ))}
+            </ApplyDropdown>
+          )}
+        </NavButtonWrapper>
       ))}
     </NavSectionContainer>
   );
@@ -164,17 +206,34 @@ const Header2025 = () => {
       <DropdownMenu open={isMobileMenuOpen}>
         <MenuContent>
           {navItems.map(({ label, path }: { label: string; path: string }) => (
-            <MenuLink
-              key={label}
-              onClick={() => {
-                if (path !== "") {
-                  router.push(path);
-                  setIsMobileMenuOpen(false);
-                }
-              }}
-            >
-              {label}
-            </MenuLink>
+            <div key={label}>
+              <MenuLink
+                onClick={() => {
+                  if (path !== "") {
+                    router.push(path);
+                    setIsMobileMenuOpen(false);
+                  }
+                }}
+              >
+                {label}
+              </MenuLink>
+              {isApply(label) && (
+                <>
+                  {applyDropdownItems.map((item) => (
+                    <MenuLink
+                      key={item.label}
+                      className="apply-sub-item"
+                      onClick={() => {
+                        openNewTab(item.url);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.label}
+                    </MenuLink>
+                  ))}
+                </>
+              )}
+            </div>
           ))}
           <MenuLink
             onClick={() => {
@@ -204,6 +263,7 @@ const headerShrunkHeight = "50px";
 const bigGap = "24px";
 const smallGap = "16px";
 const border = `2px solid ${Colors.grayBorder}`;
+const fontWeight = "500px";
 
 const HeaderContainer = styled.header`
   background-color: ${Colors.neonGreen};
@@ -245,11 +305,14 @@ const SocialAndTicketButtons = styled.div`
   justify-content: flex-end;
   gap: ${smallGap};
 
-  @media (max-width: ${breakpointWidth}) {
+  @media (max-width: 1075px) {
     .social-container {
       display: none;
     }
+  }
 
+  @media (max-width: ${breakpointWidth}) {
+    .social-container,
     .ticket-button {
       display: none;
     }
@@ -282,9 +345,14 @@ const TicketButton = styled(BaseButton)`
   width: 115px;
   height: ${componentHeight};
   font-size: 14px;
-  font-weight: 400;
+  font-weight: ${fontWeight};
   white-space: nowrap;
   color: white;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: ${Colors.neonGreen};
+  }
 `;
 
 // use headerShrunkHeight directly for its distance to top
@@ -295,8 +363,8 @@ const DropdownMenu = styled.div<{ open: boolean }>`
   box-sizing: border-box;
   top: ${headerShrunkHeight};
   right: 0;
-  width: 50vw;
-  max-width: 50vw;
+  width: 40vw;
+  max-width: 40vw;
   min-width: 191px;
   z-index: 98;
   background-color: ${Colors.brightBlue};
@@ -313,11 +381,13 @@ const MenuLink = styled.div`
   color: white;
   cursor: pointer;
   padding: 8px 4px;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
+  transition: all 0.3s ease;
 
   &:hover {
-    opacity: 0.8;
+    color: ${Colors.neonGreen};
+    opacity: 1;
   }
 `;
 
@@ -328,6 +398,12 @@ const MenuContent = styled.div`
   gap: ${smallGap};
   color: white;
   align-items: center;
+  font-weight: ${fontWeight};
+
+  ${MenuLink}.apply-sub-item {
+    font-size: 16px;
+    font-weight: 200;
+  }
 `;
 
 // place here for using MenuContent
@@ -397,12 +473,44 @@ const NavButton = styled.button<{ isActive: boolean }>`
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: ${fontWeight};
   min-width: max-content;
 
   &:hover {
     background-color: ${(props) =>
       props.isActive ? Colors.brightBlue : Colors.brightBlue};
+    color: white;
+  }
+`;
+
+const NavButtonWrapper = styled.div`
+  position: relative;
+`;
+
+const ApplyDropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: ${border};
+  border-radius: 12px;
+  padding: 4px;
+  margin-top: 6px;
+  min-width: 100px;
+  z-index: 99;
+`;
+
+const ApplyDropdownItem = styled.div`
+  padding: 8px 16px;
+  cursor: pointer;
+  color: ${Colors.grayBorder};
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border-radius: 24px;
+
+  &:hover {
+    background-color: ${Colors.brightBlue};
     color: white;
   }
 `;
