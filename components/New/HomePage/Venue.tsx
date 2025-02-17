@@ -186,7 +186,7 @@ const Venue = () => {
   };
 
   return (
-    <Container>
+    <Container id="venue">
       <MainContent>
         <TextContainer>
           <Title>{t.homepage.venue}</Title>

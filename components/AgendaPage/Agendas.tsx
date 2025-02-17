@@ -21,7 +21,7 @@ const Agendas = () => {
 
   return (
     <Container>
-      <Title>{t.agendaPage.agenda}</Title>
+      <Title>{t.navs.agenda}</Title>
       <EventSwitcher type={type} setType={setType} setDate={setDate} />
       <DateSwitcher type={type} date={date} setDate={setDate} />
       {/* {isTypeHackathon && <HackathonTable date={date} />} */}
