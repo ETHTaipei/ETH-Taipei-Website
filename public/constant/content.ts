@@ -8,7 +8,7 @@ export const month = "April";
 const dayDuration = "1-2";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
 export const dateDayMonthLastYear = `${lastDayDuration} ${lastMonth}, ${lastYear}`;
-const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
+// const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
@@ -60,7 +60,7 @@ const homepage = {
   introductionTitle_1: "What is",
   introductionTitle_2: "ETH",
   introductionTitle_3: "Taipei?",
-  introductionSubtitle: welcomeEdition,
+  introductionSubtitle: "Where Builders, Dreamers, and Innovators Connected.",
   introductionCardTitle_1: "Global Connection, Taiwan's Spotlight",
   introductionCardDesc_1:
     "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
@@ -75,6 +75,7 @@ const homepage = {
     ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
 
   activityTitle: `ETHTaipei ${year} Events`,
+  activitySubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
   activityName_1: "Conference",
   activityDesc_1:
     "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
@@ -92,9 +93,10 @@ const homepage = {
   activityDate_3: dateDayMonthYear,
   activityBtn_3: "See Events",
 
-  recapTitle: "Recap! 2023 Edition",
-  recapViewMore: "View More",
-  recapHide: "Hide",
+  recapTitle: "Recap! 2024 Edition",
+  recapSubTitle: "Highlights from an unforgettable ETHTaipei 2024!!",
+  recapViewMore: "Load More",
+  recapHide: "Show Less",
 };
 
 const agenda = `${lastYear} Agenda`;
