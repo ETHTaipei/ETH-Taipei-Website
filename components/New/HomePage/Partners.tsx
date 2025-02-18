@@ -14,7 +14,16 @@ const Partners = () => {
     <Container>
       <MainContent>
         <PartnerContainer>
-          <Title>{t.homepage.partners}</Title>
+          <Title>
+            <img
+              src="./images/icons/smile.svg"
+              style={{ marginRight: 16, height: 36 }}
+            />
+            {t.homepage.partners}
+          </Title>
+          <Subtitle>
+            {t.homepage.partnersDesc}
+          </Subtitle>
           <SponsorsContainer>
             {partners.map((partner) => (
               <SponsorBtn
@@ -27,7 +36,16 @@ const Partners = () => {
           </SponsorsContainer>
         </PartnerContainer>
         <PartnerContainer>
-          <Title>{t.homepage.mediaPartners}</Title>
+          <Title>
+            <img
+              src="./images/icons/smile.svg"
+              style={{ marginRight: 16, height: 36 }}
+            />
+            {t.homepage.mediaPartners}
+          </Title>
+          <Subtitle>
+            {t.homepage.mediaPartnersDesc}
+          </Subtitle>
           <SponsorsContainer>
             {mediaPartners.map((mediaPartner) => (
               <MDPartnerBtn
@@ -60,9 +78,17 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: rgba(205, 243, 255, 0.57);
+  background-color: #EDEDED;
+  background-image: 
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px);
+  }
+
   @media (max-width: 768px) {
     padding: 60px 24px;
+    background-image: 
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 
@@ -80,10 +106,24 @@ const PartnerContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 42px;
-  font-family: "Rammetto One";
-  color: ${Colors.pennBlue};
+  font-size: 48px;
+  color: ${Colors.brightBlue};
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+`;
+
+const Subtitle = styled.h2`
+  margin-top: 20px;
+  font-size: 22px;
+  color: black;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const SponsorsContainer = styled.div`

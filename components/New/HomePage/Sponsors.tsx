@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { SponsorProps, useSponsors } from '@/components/hooks/useSponsors';
 import t from "@/public/constant/content";
+import Colors from '@/styles/colors';
 
 const Sponsors = () => {
   const { goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
@@ -12,12 +13,16 @@ const Sponsors = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.sponsors}</Title>
+        <Title>
+          <img
+            src="./images/icons/love.svg"
+            style={{ marginRight: 16, height: 36 }}
+          />
+          {t.homepage.sponsors}
+        </Title>
         <DescriptionContainer>
           <Description>
-            We would like to express our immense gratitude to our sponsors for your 
-            unwavering support, which has been instrumental in ensuring the success 
-            and smooth execution of ETHTaipei!
+            These Sponsors Make ETHTaipei Possible!!
           </Description>
         </DescriptionContainer>
         <SponsorContainer>
@@ -69,8 +74,17 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
+  background-color: #EDEDED;
+  background-image: 
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px);
+  }
+
   @media (max-width: 768px) {
     padding: 60px 24px;
+    background-image: 
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 
@@ -82,10 +96,13 @@ const MainContent = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: 'Rammetto One';
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 48px;
+  color: ${Colors.brightBlue};
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -101,9 +118,8 @@ const DescriptionContainer = styled.div`
 const Description = styled.p`
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
   max-width: 500px;
-  font-size: 16px;
+  font-size: 22px;
   margin-bottom: 30px;
 `;
 
