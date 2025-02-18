@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import styled from 'styled-components';
-import Colors from '@/styles/colors';
-import { useOrganizers, OrganizerType } from '@/components/hooks/useOrganizers';
-import Image from 'next/image';
+import Link from "next/link";
+import styled from "styled-components";
+import Colors from "@/styles/colors";
+import { useOrganizers, OrganizerType } from "@/components/hooks/useOrganizers";
+import Image from "next/image";
 
 const Organizers = () => {
   const { organizers } = useOrganizers();
@@ -13,7 +13,16 @@ const Organizers = () => {
     <Container>
       <MainContent>
         <ContentCenter>
-          <OrganizersTitle> Organizers </OrganizersTitle>
+          <OrganizersTitle>
+            <img
+              src="./images/icons/butterfly-green.svg"
+              style={{ marginRight: 12, height: 30 }}
+            />
+            Organizers
+          </OrganizersTitle>
+          <OrganizersSubtitle>
+            The team that makes ETHTaipeiTaipei101Taipei101 happen!!
+          </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
               <OrganizerCard organizer={organizer} key={index} />
@@ -23,10 +32,10 @@ const Organizers = () => {
       </MainContent>
       <BackgroundBottom>
         <Image
-          src='/images/background/decoration.png'
+          src="/images/background/decoration.png"
           fill
-          alt='Speaker 101 Background'
-          style={{ objectFit: 'cover' }}
+          alt="Speaker 101 Background"
+          style={{ objectFit: "cover" }}
         />
       </BackgroundBottom>
     </Container>
@@ -34,11 +43,15 @@ const Organizers = () => {
 };
 
 const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
-  const [title, team] = organizer.titleAndCompany.split('@');
+  const [title, team] = organizer.titleAndCompany.split("@");
 
   return (
     <OrganizerWrapper>
-      <ProfileLink href={organizer.profile} target='_blank' rel='noopener noreferrer'>
+      <ProfileLink
+        href={organizer.profile}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <ProfileImage src={organizer.img} alt={organizer.name} />
       </ProfileLink>
       <OrganizerInfo>
@@ -59,9 +72,10 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 90px;
-  background: linear-gradient(130.81deg, rgba(252, 252, 252, 0.75) 20.56%, #e5e5e5 98.6%);
+  background-color: ${Colors.brightBlue};
+
   @media (max-width: 768px) {
-    padding: 60px 24px;
+    padding: 60px 16px;
   }
 `;
 
@@ -69,7 +83,7 @@ const MainContent = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  
+
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
 
@@ -87,23 +101,28 @@ const ContentCenter = styled.div`
 `;
 
 const OrganizersTitle = styled.h2`
-  font-family: 'Rammetto One';
   font-size: 42px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
+  color: ${Colors.neonGreen};
   text-align: center;
 `;
 
+const OrganizersSubtitle = styled.h2`
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+`
+
 const OrganizersList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  width: 80%;
+  gap: 20px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 `;
 
@@ -111,7 +130,11 @@ const OrganizerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px;
+  width: 240px;
+
+  @media (max-width: 768px) {
+    width: 110px;
+  }
 `;
 
 const ProfileLink = styled.a`
@@ -119,11 +142,15 @@ const ProfileLink = styled.a`
 `;
 
 const ProfileImage = styled.img`
-  height: 166px;
-  width: 166px;
-  border-radius: 50%;
+  height: 110px;
+  width: 110px;
   object-fit: cover;
   transition: transform 300ms ease;
+  border: 3px solid ${Colors.neonGreen};
+  border-top-left-radius: 24px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 24px;
 
   &:hover {
     transform: scale(1.1);
@@ -132,13 +159,13 @@ const ProfileImage = styled.img`
 
 const OrganizerInfo = styled.div`
   text-align: center;
-  color: ${Colors.pennBlue};
+  color: white;
 `;
 
 const OrganizerName = styled.div`
   font-size: 20px;
-  font-weight: bold;
   margin-top: 10px;
+  color: ${Colors.neonGreen}
 `;
 
 const OrganizerTitle = styled.p`
