@@ -5,6 +5,7 @@ import styled, { ThemedStyledProps } from "styled-components";
 import IconLocation from "@/components/icons/IconLocation";
 import t from "@/public/constant/content";
 import BackgroundVideo from "./BackgroundVideo";
+import Colors from "@/styles/colors";
 
 interface SlideshowProps extends HTMLAttributes<HTMLDivElement> {
   index: number;
@@ -14,6 +15,7 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   padding: 120px 40px;
+  background-color: black;
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -21,56 +23,51 @@ const Container = styled.div`
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1020px;
   margin: auto;
   display: flex;
-  flex-direction: row-reverse;
-  gap: 40px;
+  flex-direction: row;
+  flex-wrap: wrap;
   @media (max-width: 996px) {
     flex-direction: column;
-    gap: 24px;
   }
 `;
 
 const TextContainer = styled.div`
-  flex: 1;
+  flex: 1 1 50%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  color: white;
+  padding: 40px;
+  height: 370px;
+  background-color: ${Colors.brightBlue};
+  gap: 12px;
   @media (max-width: 996px) {
     gap: 24px;
   }
 `;
 
 const Title = styled.h1`
-  font-family: "Rammetto One";
-  font-size: 42px;
-  @media (max-width: 996px) {
-    text-align: center;
-    margin-bottom: 16px;
-  }
+  font-size: 32px;
+  color: ${Colors.neonGreen};
 `;
 
 const SubTitleContainer = styled.div`
   display: flex;
   gap: 22px;
-  font-weight: bold;
   align-items: end;
+  color: ${Colors.neonGreen}
 `;
 
 const SubTitle = styled.h2`
-  font-size: 28px;
-`;
-
-const SubTitleCapacity = styled.div`
-  font-size: 16px;
+  font-size: 44px;
 `;
 
 const Description = styled.span`
   display: flex;
   font-size: 16px;
   line-height: 24px;
+  color: white;
+  font-family: "Inter";
 `;
 
 const AddressContainer = styled.div`
@@ -87,32 +84,34 @@ const Address = styled.a`
   line-height: 24px;
 `;
 
-const AddressDetail = styled.div``;
+const AddressDetail = styled.div`
+  color: ${Colors.neonGreen};
+`;
 
 const MapContainer = styled.div`
-  width: 100%;
-  height: 180px;
-  border-radius: 16px;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 
+  height: 370px;
   @media (max-width: 996px) {
     height: 200px;
   }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
+  flex: 1 1 50%;
   display: flex;
   align-items: center;
   position: relative;
-  width: 100%;
+  height: 370px;
   overflow: hidden;
-
+  object-fit: cover;
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 16px;
 
   @media (max-width: 996px) {
-    min-height: 450px;
+    min-height: 370px;
   }
 `;
 
@@ -192,7 +191,6 @@ const Venue = () => {
           <Title>{t.homepage.venue}</Title>
           <SubTitleContainer>
             <SubTitle>{t.homepage.venueName}</SubTitle>
-            <SubTitleCapacity>Capacity: 700 people</SubTitleCapacity>
           </SubTitleContainer>
           <Description>{t.homepage.venueDescription}</Description>
           <AddressContainer>
@@ -201,19 +199,33 @@ const Venue = () => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <IconLocation width={24} height={28} color="white" />
+              {/* <IconLocation width={24} height={28} color="white" /> */}
+              <img src="./images/icons/location.svg" alt="location" style={{ width: 24, marginRight: 4 }} />
               <AddressDetail>{t.homepage.venueAddress}</AddressDetail>
             </Address>
-            <MapContainer>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
-                width="100%"
-                height="100%"
-                loading="lazy"
-              ></iframe>
-            </MapContainer>
           </AddressContainer>
         </TextContainer>
+        <MapContainer>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
+            width="100%"
+            height="100%"
+            loading="lazy"
+          ></iframe>
+        </MapContainer>
+        <ImageContainer>
+          <Slideshow index={currentImage}>
+            {images.map((image, index) => (
+              <Image src={image} alt={`Image ${index}`} key={index} />
+            ))}
+          </Slideshow>
+          <PrevButton onClick={handlePrev}>
+            <FiChevronLeft />
+          </PrevButton>
+          <NextButton onClick={handleNext}>
+            <FiChevronRight />
+          </NextButton>
+        </ImageContainer>
         <ImageContainer>
           <Slideshow index={currentImage}>
             {images.map((image, index) => (
@@ -228,7 +240,8 @@ const Venue = () => {
           </NextButton>
         </ImageContainer>
       </MainContent>
-      <BackgroundVideo />
+      {/* TODO: use background video */}
+      {/* <BackgroundVideo /> */}
     </Container>
   );
 };
