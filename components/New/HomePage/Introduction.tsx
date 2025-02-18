@@ -211,6 +211,10 @@ const CardImg = styled.div`
   border-bottom-right-radius: 24px;
   min-width: 240px;
   min-height: 280px;
+  @media (max-width: 992px) {
+    min-width: 0;
+    min-height: 0;
+  }
 `;
 
 const CardImgDesc = styled.div`
