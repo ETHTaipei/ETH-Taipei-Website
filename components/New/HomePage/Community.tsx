@@ -12,7 +12,11 @@ const Community = () => {
     <Container>
       <MainContent>
         <PartnerContainer>
-          <Title> {t.homepage.communitySupport} </Title>
+          <Title>
+            <Icon src="/images/icons/orchid.svg" />
+            {t.homepage.communitySupport}
+          </Title>
+          <Subtitle> {t.homepage.communitySupportSubtitle}</Subtitle>
           <SponsorsContainer>
             {partners.map((partner) => (
               <SponsorBtn
@@ -25,6 +29,18 @@ const Community = () => {
           </SponsorsContainer>
         </PartnerContainer>
       </MainContent>
+      <BgDecoration position="left">
+        <BgImage
+          src={"/images/background/community-left.svg"}
+          alt="decoration-left"
+        />
+      </BgDecoration>
+      <BgDecoration position="right">
+        <BgImage
+          src={"/images/background/community-right.svg"}
+          alt="decoration-right"
+        />
+      </BgDecoration>
     </Container>
   );
 };
@@ -37,13 +53,17 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 140px 80px;
-  background: linear-gradient(
-    143.49deg,
-    rgba(205, 243, 255, 0.37) 5.18%,
-    #cdf3ff 94.78%
-  );
+  background-color: ${Colors.brightBlue};
+  background-image: 
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 145px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 145px);
+  }
   @media (max-width: 768px) {
     padding: 60px 24px;
+    background-image: 
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
+    }
   }
 `;
 
@@ -54,17 +74,43 @@ const MainContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 120px;
+
+  margin-bottom: 40px;
+  @media (max-width: 768px) {
+    margin-bottom: 200px;
+  }
 `;
 
 const PartnerContainer = styled.div`
   width: 100%;
+  z-index: 10;
 `;
 
 const Title = styled.h2`
   font-size: 42px;
-  font-family: "Rammetto One";
-  color: ${Colors.pennBlue};
+  color: ${Colors.neonGreen};
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+`;
+
+const Icon = styled.img`
+  width: 44px;
+  margin-right: 12px;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 26px;
+  margin-top: 12px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const SponsorsContainer = styled.div`
@@ -98,5 +144,18 @@ const SponsorBtn = styled.button`
   }
   @media (max-width: 768px) {
     min-height: 80px;
+  }
+`;
+
+const BgDecoration = styled.div<{ position: string}>`
+  position: absolute;
+  bottom: 0px;
+  ${(props) => props.position === "left" ? "left: 60px;" : "right: 60px;"}
+`;
+
+const BgImage = styled.img`
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 100px;
   }
 `;
