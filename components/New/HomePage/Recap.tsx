@@ -13,26 +13,51 @@ const Recap = () => {
 
   return (
     <Container>
+      <BgDecoration>
+        <BgImage src={"/images/background/decoration.svg"} alt="decoration" />
+      </BgDecoration>
       <MainContent>
-        <Title>{t.homepage.recapTitle}</Title>
+        <Title>
+          <Image
+            src={"/images/icons/boba.svg"}
+            alt="calendar"
+            width={55}
+            height={55}
+            style={{ objectFit: "contain", marginRight: "12px" }}
+          />
+          {t.homepage.recapTitle}
+        </Title>
+        <Subtitle>{t.homepage.recapSubTitle}</Subtitle>
         <Gallery>
           <VideoWrapper>
-            <iframe
+            {/* <iframe
               src="https://www.youtube.com/embed/G7uA9RNQ8FA"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
               width="100%"
               height="100%"
-            />
+            /> */}
+            <div>
+              <HightlightImg
+                src={`/images/recap-2024/1.jpg`}
+                alt="Recap 2024 Edition"
+              />
+            </div>
           </VideoWrapper>
           {Array.from({ length: 5 }).map((_, i) => (
             <ImgContainer key={i}>
               <Image
-                src={`/images/recap-2023/${i + 1}.png`}
-                alt="Recap 2023 Edition"
+                src={`/images/recap-2024/${i + 2}.jpg`}
+                alt="Recap 2024 Edition"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{
+                  objectFit: "cover",
+                  borderTopLeftRadius: 24,
+                  borderTopRightRadius: 8,
+                  borderBottomLeftRadius: 8,
+                  borderBottomRightRadius: 24,
+                }}
               />
             </ImgContainer>
           ))}
@@ -60,15 +85,40 @@ const Recap = () => {
 
 export default Recap;
 
+const BgDecoration = styled.div`
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+`;
+
+const BgImage = styled.img`
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+`;
+
+const HightlightImg = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border: 3px solid ${Colors.brightBlue};
+  border-top-left-radius: 24px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 24px;
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.yInMnBlue};
+  background-color: ${Colors.neonGreen};
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
+  position: relative;
 `;
 
 const MainContent = styled.div`
@@ -76,12 +126,16 @@ const MainContent = styled.div`
   max-width: 886px;
 `;
 
-const Title = styled.h1`
-  font-size: 42px;
-  font-weight: bold;
-  font-family: "Rammetto One";
-  color: ${Colors.pennBlue};
+const Title = styled.div`
+  font-size: 64px;
+  color: ${Colors.brightBlue};
   text-align: center;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 22px;
+  text-align: center;
+  margin-top: 14px;
 `;
 
 const Gallery = styled.div`
@@ -89,6 +143,9 @@ const Gallery = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  @media (max-width: 834px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const VideoWrapper = styled.div`
@@ -100,15 +157,21 @@ const VideoWrapper = styled.div`
   @media (max-width: 834px) {
     aspect-ratio: 582 / 329;
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 2;
   }
+  z-index: 10;
 `;
 
+// FIXME: gradient issues
 const ImgContainer = styled.div`
   position: relative;
   aspect-ratio: 272 / 149;
+  z-index: 10;
+  overflow: hidden;
+  border-image: linear-gradient(180deg, #7E8EFF 0%, #3952FF 100%);
+  border-image-slice: 1;
 `;
 
 const Controller = styled.div`
@@ -118,16 +181,24 @@ const Controller = styled.div`
 `;
 
 const ViewMoreButton = styled.button`
-  border-radius: 8px;
-  padding: 8px 40px;
-  background-color: ${Colors.btnBlue};
-  color: white;
-  font-size: 22px;
-  font-family: "Rammetto One";
+  border-radius: 9999px;
+  padding: 16px 40px;
+  width: 320px;
+  margin-top: 60px;
+  background-color: ${Colors.brightBlue};
+  color: ${Colors.neonGreen};
+  font-size: 32px;
+  font-family: "W95fa";
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 
+  z-index: 10;
   transition: all 300ms ease;
   :hover {
     transform: scale(1.1);
+    background-color: ${Colors.brightPink};
+    color: black;
   }
 `;
