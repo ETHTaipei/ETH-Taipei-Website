@@ -15,7 +15,7 @@ import {
   sponsorApplyUrl,
   telegramUrl,
   tickSiteUrl,
-  twitterUrl,
+  xUrl,
 } from "@/public/constant/urls";
 import logoImg from "@/public/images/horizontal-transparent.png";
 import logoImgW from "@/public/images/logo-eth-tpe-w.png";
@@ -44,7 +44,7 @@ const Header = () => {
   const handleOnClickFAQ = () => handleOnClickInternalLInk("/faq#info");
   const handleOnClickGoldCard = () =>
     handleOnClickInternalLInk("/goldcard#intro");
-  const handleOnClickTwitter = () => handleOnClickExternalLink(twitterUrl);
+  const handleOnClickTwitter = () => handleOnClickExternalLink(xUrl);
   const handleOnClickTelegram = () => handleOnClickExternalLink(telegramUrl);
   const handleOnClickDiscord = () => handleOnClickExternalLink(discordUrl);
   const handleToSpeak = () => handleOnClickExternalLink(speakerApplyUrl);

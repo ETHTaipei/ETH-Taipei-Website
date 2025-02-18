@@ -15,6 +15,10 @@ const Colors = {
   seaSalt: "#FAFBFA",
   blue1: "#37CEFF",
   blue2: "#f0fbff",
+  // 2025
+  neonGreen: "#D7FC01",
+  brightBlue: "#3952FF",
+  grayBorder: "#767676",
 };
 
 export default Colors;

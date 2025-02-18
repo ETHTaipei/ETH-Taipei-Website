@@ -98,21 +98,21 @@ const homepage = {
 };
 
 const agenda = `${lastYear} Agenda`;
-const agendaPage = {
-  agenda: agenda,
-};
 
 const navs = {
   home: "Home",
   ticket: "Ticket",
   // hackathon: "Hackathon",
   agenda: agenda,
+  agenda2025: "Agenda",
   apply: "Apply",
   toSpeak: "to Speak",
   toSponsor: "to Sponsor",
   sideEvent: "Side Event",
   faq: "Info",
   goldcard: "Gold Card",
+  venue: "Venue",
+  brand: "Brand",
 };
 
 const participation = {
@@ -247,7 +247,6 @@ const goldcard = {
 const t = {
   common,
   homepage,
-  agendaPage,
   navs,
   participation,
   visa,
