@@ -71,10 +71,18 @@ const Activities = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.activityTitle}</Title>
+        <Title>
+          <ImageWrapper>
+            <img src="/images/icons/butterfly.svg" style={{ width: 48, marginRight: 4 }} />
+          </ImageWrapper>
+          {t.homepage.activityTitle}
+        </Title>
+        <Subtitle>
+          {t.homepage.activitySubTitle}
+        </Subtitle>
         <ActivityCardWrapper>
           <ActivityCardComponent
-            imageSrc="/images/activity-conference-bg.png"
+            imageSrc="/images/activities/1.jpg"
             imageAlt={t.homepage.activityName_1}
             name={t.homepage.activityName_1}
             description={t.homepage.activityDesc_1}
@@ -94,7 +102,7 @@ const Activities = () => {
             linkUrl={hackathonUrl}
           /> */}
           <ActivityCardComponent
-            imageSrc="/images/activity-sideevent-bg.png"
+            imageSrc="/images/activities/2.jpg"
             imageAlt={t.homepage.activityName_3}
             name={t.homepage.activityName_3}
             description={t.homepage.activityDesc_3}
@@ -116,7 +124,15 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: ${Colors.gray8};
+  background-color: rgba(0, 0, 0, 0.8);
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const MainContent = styled.div`
@@ -126,30 +142,46 @@ const MainContent = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: "Rammetto One";
-  color: ${Colors.pennBlue};
+  color: ${Colors.neonGreen};
   text-align: center;
-  font-size: 42px;
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+`;
+
+const Subtitle = styled.div`
+  font-size: 22px;
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 16px;
 `;
 
 const ActivityCardWrapper = styled.div`
   margin-top: 40px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ActivityCard = styled.div`
   width: 100%;
   max-width: 886px;
   display: flex;
-  background-color: white;
-  border-radius: 16px;
   overflow: hidden;
-  @media (max-width: 830px) {
+  flex-direction: column;
+  @media (max-width: 768px) {
     flex-direction: column;
-    max-width: ;
   }
 `;
 
@@ -159,21 +191,24 @@ const ActivityNameWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 255px;
+  height: 320px;
+  overflow: hidden;
+  border: 3px solid ${Colors.brightBlue};
+  border-top-left-radius: 24px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 24px;
   @media (max-width: 830px) {
-    height: 200px;
+    height: 240px;
   }
 `;
 
 const ActivityName = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 24px;
-  font-family: "Rammetto One";
-  font-size: 30px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 32px;
+  font-size: 36px;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
   width: 100%;
   height: 100%;
 `;
@@ -186,14 +221,16 @@ const ActivityDescWrapper = styled.div`
 `;
 
 const ActivityDesc = styled.div`
-  color: ${Colors.pennBlue};
-  font-size: 16px;
+  color: white;
+  font-family: Inter;
+  font-size: 14px;
   line-height: 24px;
 `;
 
 const ActivityActions = styled.div`
   margin-top: 16px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 `;
 
@@ -201,9 +238,8 @@ const ActivityDate = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: ${Colors.pennBlue};
+  color: white;
   font-size: 18px;
-  font-weight: bold;
 `;
 
 const Icon = styled.div`
@@ -219,7 +255,6 @@ const ActionButton = styled.button<{ isActivated: boolean }>`
     props.isActivated ? Colors.btnBlue : Colors.gray3};
   color: white;
   font-size: 22px;
-  font-family: "Rammetto One";
   cursor: ${(props) => (props.isActivated ? "pointer" : "not-allowed")};
   transition: all 300ms ease;
   :hover {
