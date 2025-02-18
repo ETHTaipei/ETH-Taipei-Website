@@ -16,18 +16,23 @@ const Participation = () => {
           </Description>
         </InfoContainer>
         <ActionContainer>
+          {/* TODO: order */}
+          <img src="./images/icons/participation.svg" />
           {/* <Action onClick={() => openNewTab(speakerApplyUrl)}>
             {t.participation.applyToSpeak}
           </Action> */}
           <Action onClick={() => openNewTab(sponsorApplyUrl)}>
             {t.participation.applyToSponsor}
+            <img src="./images/icons/arrow-right.svg" />
           </Action>
           <Action onClick={() => openNewTab(sideEventApplyUrl)}>
             {t.participation.addSideEvent}
+            <img src="./images/icons/arrow-right.svg" />
           </Action>
         </ActionContainer>
       </MainContent>
-      <Background />
+      {/* TODO: add background video */}
+      {/* <Background /> */}
     </Container>
   );
 };
@@ -41,6 +46,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 120px 40px;
+  background-color: black;
 `;
 
 const MainContent = styled.div`
@@ -56,29 +62,39 @@ const MainContent = styled.div`
 `;
 
 const InfoContainer = styled.div`
-  flex: 1.2;
+  flex: 1;
+  padding: 40px;
+  background-color: ${Colors.neonGreen};
+  border-top-left-radius: 24px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 24px;
+  @media (max-width: 860px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 42px;
   line-height: 48px;
-  font-family: "Rammetto One";
-  color: white;
+  color: ${Colors.brightBlue};
   @media (max-width: 860px) {
-    text-align: center;
+    font-size: 36px;
   }
 `;
 
 const Description = styled.div`
   margin-top: 20px;
-  font-size: 16px;
-  line-height: 28px;
-  color: white;
+  font-size: 14px;
+  line-height: 24px;
+  color: black;
   display: flex;
   justify-content: center;
 `;
 
-const DescriptionBox = styled.div``;
+const DescriptionBox = styled.div`
+  font-family: 'Inter';
+`;
 
 const ActionContainer = styled.div`
   display: flex;
@@ -88,14 +104,19 @@ const ActionContainer = styled.div`
 `;
 
 const Action = styled.button`
-  font-family: "Rammetto One";
-  font-size: 18px;
-  width: 330px;
-  color: white;
-  background-color: ${Colors.blue1};
-  border-radius: 8px;
+  font-size: 22px;
+  width: 240px;
+  color: ${Colors.neonGreen};
+  border: 3px solid white;
+  background-color: ${Colors.brightBlue};
+  border-radius: 9999px;
   padding: 12px 0;
   cursor: pointer;
+  font-family: 'W95fa';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   box-shadow: 0 4px 8px 0 rgba(36, 62, 81, 0.2),
     0 6px 12px 0 rgba(63, 83, 114, 0.19);
 `;
