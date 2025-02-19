@@ -1,5 +1,6 @@
 // "use client"
 
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 
 type PartnerType = {
@@ -9,8 +10,8 @@ type PartnerType = {
   height?: number; // heigh overrider
 };
 
-const query = gql`query partners {
-  partners (first: 100, where: {show:true, isCommunitySupport:false}) {
+const query = gql`query {
+  partners: partners${year} (first: 100, where: {show:true, isCommunitySupport:false}) {
     url
     name
     img
@@ -18,8 +19,8 @@ const query = gql`query partners {
 }
 `;
 
-const communityQuery = gql`query partners {
-  partners (first: 100, where: {show:true, isCommunitySupport:true}) {
+const communityQuery = gql`query {
+  partners: partners${year} (first: 100, where: {show:true, isCommunitySupport:true}) {
     url
     name
     img

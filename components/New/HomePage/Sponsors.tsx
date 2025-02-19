@@ -30,7 +30,6 @@ const Sponsors = () => {
             <Sponsor sponsor={sponsor} key={i} />
           ))}
         </SponsorContainer>
-
         <SponsorContainer>
           {silverSponsors.map((sponsor, i) => (
             <Sponsor sponsor={sponsor} key={i} />

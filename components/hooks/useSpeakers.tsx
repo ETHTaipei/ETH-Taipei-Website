@@ -1,19 +1,20 @@
 // "use client"
 
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 
 export type SpeakerProps = {
   name: string;
   company: string;
-  img: string; // img
-  profile?: string; // link to profile
+  img: string;
+  profile?: string;
   companyLink?: string;
   show: boolean;
   keynote: boolean;
 };
 
-const query = gql`query Speakers {
-  speakers (first: 100, where: { show: true }) {
+const query = gql`query {
+  speakers: speakers${year} (first: 100, where: { show: true }) {
     name
     company
     companyLink

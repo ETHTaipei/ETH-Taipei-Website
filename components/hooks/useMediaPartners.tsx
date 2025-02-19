@@ -1,5 +1,6 @@
 // "use client"
 
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 
 type MediaPartnerProps = {
@@ -9,8 +10,8 @@ type MediaPartnerProps = {
   height?: number; // heigh overrider
 };
 
-const query = gql`query partners {
-  mediaPartner (first: 100, where: {show:true}) {
+const query = gql`query {
+  mediaPartner: mediaPartners${year} (first: 100, where: {show:true}) {
     url
     name
     img
