@@ -8,9 +8,9 @@ type MediaPartnerProps = {
   img: string;
   height?: number; // heigh overrider
 };
-
+const schema = "medias2025"
 const query = gql`query partners {
-  mediaPartner (first: 100, where: {show:true}) {
+  ${schema} (first: 100, where: {show:true}) {
     url
     name
     img
@@ -20,9 +20,7 @@ const query = gql`query partners {
 
 export const useMediaPartners = () => {
 
-  const { data } = useQuery<{mediaPartner: MediaPartnerProps[]}>(query);
-
-  const mediaPartners = data?.mediaPartner || [];
-
-  return {  mediaPartners };
+  const { data } = useQuery<{ mediaPartner: MediaPartnerProps[] }>(query);
+  const mediaPartners = data?.[schema] || [];
+  return { mediaPartners };
 };
