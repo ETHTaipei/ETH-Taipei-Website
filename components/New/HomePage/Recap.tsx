@@ -5,6 +5,30 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 
+const GalleryImages = ({
+  year,
+  startIndex,
+  count,
+  extension,
+}: {
+  year: number;
+  startIndex: number;
+  count: number;
+  extension: string;
+}) => (
+  <>
+    {Array.from({ length: count }).map((_, i) => (
+      <ImgContainer key={i}>
+        <GalleryImg
+          src={`/images/recap-${year}/${startIndex + i}.${extension}`}
+          alt={`Recap ${year} Edition`}
+          fill
+        />
+      </ImgContainer>
+    ))}
+  </>
+);
+
 const Recap = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const handleClick = () => {
@@ -29,49 +53,21 @@ const Recap = () => {
         </Title>
         <Subtitle>{t.homepage.recapSubTitle}</Subtitle>
         <Gallery>
-          <VideoWrapper>
-            {/* <iframe
-              src="https://www.youtube.com/embed/G7uA9RNQ8FA"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen={true}
-              width="100%"
-              height="100%"
-            /> */}
-            <div>
-              <HightlightImg
-                src={`/images/recap-2024/1.jpg`}
-                alt="Recap 2024 Edition"
-              />
-            </div>
-          </VideoWrapper>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <ImgContainer key={i}>
-              <Image
-                src={`/images/recap-2024/${i + 2}.jpg`}
-                alt="Recap 2024 Edition"
-                fill
-                style={{
-                  objectFit: "cover",
-                  borderTopLeftRadius: 24,
-                  borderTopRightRadius: 8,
-                  borderBottomLeftRadius: 8,
-                  borderBottomRightRadius: 24,
-                }}
-              />
-            </ImgContainer>
-          ))}
-          {isExpanded &&
-            Array.from({ length: 9 }).map((_, i) => (
-              <ImgContainer key={i}>
-                <Image
-                  src={`/images/recap-2023/${i + 6}.png`}
-                  alt="Recap 2023 Edition"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </ImgContainer>
-            ))}
+          <HighlightImgWrapper>
+            <HighlightImg
+              src={`/images/recap-2024/1.jpg`}
+              alt="Recap 2024 Edition"
+            />
+          </HighlightImgWrapper>
+          <GalleryImages year={2024} startIndex={2} count={5} extension="jpg" />
+          {isExpanded && (
+            <GalleryImages
+              year={2023}
+              startIndex={6}
+              count={9}
+              extension="png"
+            />
+          )}
         </Gallery>
         <Controller>
           <ViewMoreButton onClick={handleClick}>
@@ -96,17 +92,6 @@ const BgImage = styled.img`
   @media (max-width: 768px) {
     width: 280px;
   }
-`;
-
-const HightlightImg = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border: 3px solid ${Colors.brightBlue};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
 `;
 
 const Container = styled.div`
@@ -148,7 +133,7 @@ const Gallery = styled.div`
   }
 `;
 
-const VideoWrapper = styled.div`
+const HighlightImgWrapper = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -164,14 +149,33 @@ const VideoWrapper = styled.div`
   z-index: 10;
 `;
 
+const baseImgStyles = `
+  object-fit: cover;
+  border: 3px solid ${Colors.brightBlue};
+  border-top-left-radius: 24px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 24px;
+`;
+
+const HighlightImg = styled.img`
+  ${baseImgStyles}
+  width: 100%;
+  height: 100%;
+`;
+
 // FIXME: gradient issues
+const GalleryImg = styled(Image)`
+  border-image: linear-gradient(180deg, #7e8eff 0%, #3952ff 100%);
+  border-image-slice: 1;
+  ${baseImgStyles}
+`;
+
 const ImgContainer = styled.div`
   position: relative;
   aspect-ratio: 272 / 149;
   z-index: 10;
   overflow: hidden;
-  border-image: linear-gradient(180deg, #7E8EFF 0%, #3952FF 100%);
-  border-image-slice: 1;
 `;
 
 const Controller = styled.div`
