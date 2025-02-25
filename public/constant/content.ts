@@ -60,10 +60,8 @@ const homepage = {
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
 
-  introductionTitle_1: "What is",
-  introductionTitle_2: "ETH",
-  introductionTitle_3: "Taipei?",
-  introductionSubtitle: "Where Builders, Dreamers, and Innovators Connected.",
+  introductionTitle: "What is ETHTaipei?",
+  introductionSubtitle: "where Builders, Dreamers, and Innovators connect.",
   introductionCardTitle_1: "Insights from Experts & Hands-on Experiences",
   introductionCardDesc_1: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
   introductionCardTitle_2: "Global Connection, Taiwan's Spotlight",
@@ -97,7 +95,7 @@ const homepage = {
   activityBtn_3: "See Events",
 
   recapTitle: "Recap! 2024 Edition",
-  recapSubTitle: "Highlights from an unforgettable ETHTaipei 2024!!",
+  recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
   recapViewMore: "Load More",
   recapHide: "Show Less",
 };

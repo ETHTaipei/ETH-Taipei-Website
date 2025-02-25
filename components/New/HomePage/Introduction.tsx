@@ -14,13 +14,7 @@ const Introduction = () => {
       <MainContent>
         <TitleContainer>
           <IconImg src={"/images/icons/temple.svg"} alt="boba" />
-          {/* <IconImg
-            src={"/images/icons/boba.svg"}
-            alt="boba"
-          /> */}
-          <Title>{t.homepage.introductionTitle_1}&nbsp;</Title>
-          <Title>{t.homepage.introductionTitle_2}</Title>
-          <Title>{t.homepage.introductionTitle_3}</Title>
+          <Title>{t.homepage.introductionTitle}</Title>
         </TitleContainer>
         <Subtitle>{t.homepage.introductionSubtitle}</Subtitle>
         <CardContainer>
