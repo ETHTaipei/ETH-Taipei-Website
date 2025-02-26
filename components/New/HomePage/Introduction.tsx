@@ -138,6 +138,7 @@ const IconImg = styled.img`
 
 const Title = styled.h1`
   color: ${Colors.neonGreen};
+  text-align: center;
 `;
 
 const Subtitle = styled.div`
