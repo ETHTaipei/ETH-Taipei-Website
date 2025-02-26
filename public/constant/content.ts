@@ -5,7 +5,7 @@ const lastDayDuration = "21-22";
 
 export const year = "2025";
 export const month = "April";
-const dayDuration = "1-2";
+const dayDuration = "1st-2nd";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
 export const dateDayMonthLastYear = `${lastDayDuration} ${lastMonth}, ${lastYear}`;
 // const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
@@ -56,6 +56,10 @@ const homepage = {
   // bannerInfoDesc_2: dateDayMonthYear,
   bannerInfoTitle_2_1: "Side Events",
   bannerInfoDesc_2_1: "Click to see 10+ events",
+  bannerInfoTitle_2_2: "ETHGlobal Pragma",
+  bannerInfoDesc_2_2: "3rd April, 2025",
+  bannerInfoTitle_2_3: "ETHGlobal Hackathon",
+  bannerInfoDesc_2_3: "4th-6th April, 2025",
   bannerInfoTitle_3: "POPOP Taipei",
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
@@ -127,7 +131,6 @@ const participation = {
 const sponsorHighlight = {
   sponsorHighlightTitle: "Sponsor Highlights",
   readMore: "Read more",
-  sponsorSubtitle: "These Sponsors Make ETHTaipei Possible!",
 };
 
 const visa = {
