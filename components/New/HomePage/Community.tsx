@@ -147,10 +147,10 @@ const SponsorBtn = styled.button`
   }
 `;
 
-const BgDecoration = styled.div<{ position: string}>`
+const BgDecoration = styled.div<{ position: string }>`
   position: absolute;
   bottom: 0px;
-  ${(props) => props.position === "left" ? "left: 60px;" : "right: 60px;"}
+  ${(props) => (props.position === "left" ? "left: 60px;" : "right: 60px;")}
 `;
 
 const BgImage = styled.img`

@@ -7,7 +7,7 @@ type MediaPartnerProps = {
   name: string;
   url: string;
   img: string;
-  height?: number; // heigh overrider
+  height?: number; // height override
 };
 
 const query = gql`query {
@@ -20,10 +20,9 @@ const query = gql`query {
 `;
 
 export const useMediaPartners = () => {
-
-  const { data } = useQuery<{mediaPartner: MediaPartnerProps[]}>(query);
+  const { data } = useQuery<{ mediaPartner: MediaPartnerProps[] }>(query);
 
   const mediaPartners = data?.mediaPartner || [];
 
-  return {  mediaPartners };
+  return { mediaPartners };
 };

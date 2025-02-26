@@ -40,7 +40,7 @@ const homepage = {
   partnersDesc: "Stronger Together in the Ethereum Ecosystem!",
   organizers: "Organizers",
   communitySupport: "Community Support",
-  communitySupportSubtitle: "These Sponsors Make ETHTaipei Possible!!",
+  communitySupportSubtitle: "Support from ETH Organizations!",
   openingAndKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
   mediaPartnersDesc: "Bringing Web3 Stories to the World!",
@@ -127,6 +127,7 @@ const participation = {
 const sponsorHighlight = {
   sponsorHighlightTitle: "Sponsor Highlights",
   readMore: "Read more",
+  sponsorSubtitle: "These Sponsors Make ETHTaipei Possible!",
 };
 
 const visa = {

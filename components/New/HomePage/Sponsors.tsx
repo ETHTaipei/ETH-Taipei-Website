@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import styled from 'styled-components';
+import Link from "next/link";
+import styled from "styled-components";
 
-import { SponsorProps, useSponsors } from '@/components/hooks/useSponsors';
+import { SponsorProps, useSponsors } from "@/components/hooks/useSponsors";
 import t from "@/public/constant/content";
-import Colors from '@/styles/colors';
+import Colors from "@/styles/colors";
 
 const Sponsors = () => {
   const { goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
@@ -21,9 +21,7 @@ const Sponsors = () => {
           {t.homepage.sponsors}
         </Title>
         <DescriptionContainer>
-          <Description>
-            These Sponsors Make ETHTaipei Possible!!
-          </Description>
+          <Description>{t.sponsorHighlight.sponsorSubtitle}</Description>
         </DescriptionContainer>
         <SponsorContainer>
           {goldSponsors.map((sponsor, i) => (
@@ -46,17 +44,18 @@ const Sponsors = () => {
 };
 
 function Sponsor({ sponsor }: { sponsor: SponsorProps }) {
-  const maxWidth = sponsor.tier === 'gold' ? 200 : sponsor.tier === 'silver' ? 150 : 100;
+  const maxWidth =
+    sponsor.tier === "gold" ? 200 : sponsor.tier === "silver" ? 150 : 100;
 
   return (
     <RoundedImageWrapper>
-      <Link href={sponsor.url} target='_blank' rel='noopener noreferrer'>
+      <Link href={sponsor.url} target="_blank" rel="noopener noreferrer">
         <div>
           <img
             src={sponsor.img}
             alt={sponsor.name}
             // if width is set, then height is auto-scaled
-            height={sponsor.width ? 'auto' : sponsor.height}
+            height={sponsor.width ? "auto" : sponsor.height}
             width={sponsor.width}
           />
         </div>
