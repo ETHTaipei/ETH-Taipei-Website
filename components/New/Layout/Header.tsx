@@ -259,7 +259,7 @@ const Header = () => {
 
 export default Header;
 
-const breakpointWidth = "768px";
+const breakpointWidth = "992px";
 const componentHeight = "40px";
 const headerShrunkHeight = "50px";
 const bigGap = "24px";
