@@ -1,15 +1,9 @@
-import { HTMLAttributes, useEffect, useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import styled, { ThemedStyledProps } from "styled-components";
+import styled from "styled-components";
+import Image from "next/image";
 
-import IconLocation from "@/components/icons/IconLocation";
 import t from "@/public/constant/content";
 import BackgroundVideo from "./BackgroundVideo";
 import Colors from "@/styles/colors";
-
-interface SlideshowProps extends HTMLAttributes<HTMLDivElement> {
-  index: number;
-}
 
 const Container = styled.div`
   position: relative;
@@ -55,7 +49,7 @@ const SubTitleContainer = styled.div`
   display: flex;
   gap: 22px;
   align-items: end;
-  color: ${Colors.neonGreen}
+  color: ${Colors.neonGreen};
 `;
 
 const SubTitle = styled.h2`
@@ -93,10 +87,11 @@ const MapContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
   height: 370px;
+
   @media (max-width: 996px) {
-    height: 200px;
+    flex: none;
+    height: 265px;
   }
 `;
 
@@ -107,83 +102,19 @@ const ImageContainer = styled.div`
   position: relative;
   height: 370px;
   overflow: hidden;
-  object-fit: cover;
-  background: rgba(0, 0, 0, 0.8);
 
   @media (max-width: 996px) {
     min-height: 370px;
   }
 `;
 
-const Slideshow = styled.div<ThemedStyledProps<SlideshowProps, any>>`
-  display: flex;
-  align-items: center;
-  position: absolute;
-  transform: translateX(${(props) => props.index * -100}%);
-  transition: transform 0.5s ease-in-out;
-  height: 100%;
-`;
-
-const Image = styled.img`
+const ResponsiveImage = styled.img`
   width: 100%;
-  aspect-ratio: 1024 / 681;
+  height: 100%;
   object-fit: cover;
 `;
 
-const Button = styled.button`
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  height: 48px;
-  width: 48px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-`;
-
-const PrevButton = styled(Button)`
-  left: 8px;
-`;
-
-const NextButton = styled(Button)`
-  right: 8px;
-`;
-
 const Venue = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const images = [
-    "https://i.imgur.com/nfrbgCy.png",
-    "https://i.imgur.com/RjQkZr9.jpg",
-    "https://i.imgur.com/UHjIcGj.png",
-    "https://i.imgur.com/xoUN62U.png",
-    "https://i.imgur.com/yQDjfrF.png",
-    "https://i.imgur.com/touZtUt.png",
-    "https://i.imgur.com/ug5ZI5k.png",
-  ];
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImage((currentImage + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(intervalId);
-  }, [currentImage, images.length]);
-
-  const handlePrev = () => {
-    setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
-  };
-
-  const handleNext = () => {
-    setCurrentImage((currentImage + 1) % images.length);
-  };
-
   return (
     <Container id="venue">
       <MainContent>
@@ -199,8 +130,13 @@ const Venue = () => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              {/* <IconLocation width={24} height={28} color="white" /> */}
-              <img src="./images/icons/location.svg" alt="location" style={{ width: 24, marginRight: 4 }} />
+              <Image
+                src="/images/icons/location.svg"
+                alt="location"
+                width={24}
+                height={24}
+                style={{ marginRight: 4 }}
+              />
               <AddressDetail>{t.homepage.venueAddress}</AddressDetail>
             </Address>
           </AddressContainer>
@@ -214,30 +150,16 @@ const Venue = () => {
           ></iframe>
         </MapContainer>
         <ImageContainer>
-          <Slideshow index={currentImage}>
-            {images.map((image, index) => (
-              <Image src={image} alt={`Image ${index}`} key={index} />
-            ))}
-          </Slideshow>
-          <PrevButton onClick={handlePrev}>
-            <FiChevronLeft />
-          </PrevButton>
-          <NextButton onClick={handleNext}>
-            <FiChevronRight />
-          </NextButton>
-        </ImageContainer>
-        <ImageContainer>
-          <Slideshow index={currentImage}>
-            {images.map((image, index) => (
-              <Image src={image} alt={`Image ${index}`} key={index} />
-            ))}
-          </Slideshow>
-          <PrevButton onClick={handlePrev}>
-            <FiChevronLeft />
-          </PrevButton>
-          <NextButton onClick={handleNext}>
-            <FiChevronRight />
-          </NextButton>
+          <picture>
+            <source
+              media="(max-width: 996px)"
+              srcSet="./images/2025/venue/venue_vertical.jpg"
+            />
+            <ResponsiveImage
+              src="./images/2025/venue/venue_horizontal.jpg"
+              alt="Venue"
+            />
+          </picture>
         </ImageContainer>
       </MainContent>
       {/* TODO: use background video */}
