@@ -22,7 +22,9 @@ const Speakers = () => {
     <Container>
       <MainContent>
         <Title>
-          <img src="./images/icons/cat.svg" style={{ marginRight: 12, height: 40 }} />
+          <TitleIcon>
+            <img src="./images/icons/cat.svg" />
+          </TitleIcon>
           {t.homepage.speakers}
         </Title>
         <KeynoteSpeakersContainer>
@@ -180,6 +182,16 @@ const MainContent = styled.div`
   max-width: 1020px;
 `;
 
+const TitleIcon = styled.div`
+  display: flex;
+  margin-right: 12px;
+  height: 40px;
+  @media (max-width: 768px) {
+    margin-right: 8px;
+    height: 30px;
+  }
+`
+
 const Title = styled.h2`
   font-size: 42px;
   color: ${Colors.neonGreen};
@@ -187,6 +199,10 @@ const Title = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const KeynoteSpeakersContainer = styled.div`
