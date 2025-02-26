@@ -131,6 +131,7 @@ const participation = {
 const sponsorHighlight = {
   sponsorHighlightTitle: "Sponsor Highlights",
   readMore: "Read more",
+  sponsorSubtitle: "These Sponsors Make ETHTaipei Possible!",
 };
 
 const visa = {
