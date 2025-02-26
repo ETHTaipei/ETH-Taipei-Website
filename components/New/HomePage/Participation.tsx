@@ -4,6 +4,7 @@ import t from "@/public/constant/content";
 import { sideEventApplyUrl, sponsorApplyUrl } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
+import BackgroundVideo from "./BackgroundVideo";
 
 const Participation = () => {
   return (
@@ -31,8 +32,7 @@ const Participation = () => {
           </Action>
         </ActionContainer>
       </MainContent>
-      {/* TODO: add background video */}
-      {/* <Background /> */}
+      <BackgroundVideo />
     </Container>
   );
 };
@@ -46,7 +46,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 120px 40px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const MainContent = styled.div`
@@ -93,7 +93,7 @@ const Description = styled.div`
 `;
 
 const DescriptionBox = styled.div`
-  font-family: 'Inter';
+  font-family: "Inter";
 `;
 
 const ActionContainer = styled.div`
@@ -112,7 +112,7 @@ const Action = styled.button`
   border-radius: 9999px;
   padding: 12px 0;
   cursor: pointer;
-  font-family: 'W95fa';
+  font-family: "W95fa";
   display: flex;
   justify-content: center;
   align-items: center;

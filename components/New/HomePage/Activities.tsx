@@ -73,13 +73,17 @@ const Activities = () => {
       <MainContent>
         <Title>
           <ImageWrapper>
-            <img src="/images/icons/butterfly.svg" style={{ width: 48, marginRight: 4 }} />
+            <Image
+              src="/images/icons/butterfly.svg"
+              alt="location"
+              width={48}
+              height={48}
+              style={{ marginRight: 4 }}
+            />
           </ImageWrapper>
           {t.homepage.activityTitle}
         </Title>
-        <Subtitle>
-          {t.homepage.activitySubTitle}
-        </Subtitle>
+        <Subtitle>{t.homepage.activitySubTitle}</Subtitle>
         <ActivityCardWrapper>
           <ActivityCardComponent
             imageSrc="/images/activities/1.jpg"
@@ -124,7 +128,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 `;
 
 const ImageWrapper = styled.div`

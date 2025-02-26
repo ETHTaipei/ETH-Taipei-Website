@@ -9,7 +9,7 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   padding: 120px 40px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -162,8 +162,7 @@ const Venue = () => {
           </picture>
         </ImageContainer>
       </MainContent>
-      {/* TODO: use background video */}
-      {/* <BackgroundVideo /> */}
+      <BackgroundVideo />
     </Container>
   );
 };
