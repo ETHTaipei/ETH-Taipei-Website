@@ -117,14 +117,27 @@ const Title = styled.div`
   letter-spacing: 1.6px;
   color: ${Colors.neonGreen};
   text-align: center;
+  @media (max-width: 476px) {
+    font-size: 30px;
+    img {
+      width: 32px; /* 在小螢幕上縮小圖片 */
+      height: 32px;
+    }
+  }
+    
 `;
 
 const Subtitle = styled.h2`
   font-size: 20px;
   text-align: center;
   letter-spacing: 1.6px;
+  line-height:30px;
   margin-top: 14px;
   color: white;
+  @media (max-width: 476px) {
+    font-size: 18px;
+    line-height:24px;
+  }
 `;
 
 const Gallery = styled.div`
@@ -208,5 +221,11 @@ const ViewMoreButton = styled.button`
     transform: scale(1.1);
     background-color: ${Colors.brightPink};
     color: black;
+  }
+  @media (max-width: 476px) {
+    padding: 12px 20px;
+  width: 200px;
+  font-size:20px;
+  margin-top: 20px;
   }
 `;

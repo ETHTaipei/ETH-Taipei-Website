@@ -78,6 +78,9 @@ const Container = styled.div`
   @media (max-width: 768px) {
     padding: 60px 16px;
   }
+  @media (max-width: 476px) {
+    padding: 60px 16px 0px 16px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -90,6 +93,9 @@ const MainContent = styled.div`
 
   @media (max-width: 768px) {
     padding: 60px 24px;
+  }
+    @media (max-width: 476px) {
+    padding: 60px 16px 0px 16px;
   }
 `;
 
@@ -123,7 +129,7 @@ const OrganizersList = styled.div`
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0px;
+    gap: 10px;
   }
 `;
 
@@ -137,6 +143,7 @@ const OrganizerWrapper = styled.div`
   @media (max-width: 768px) {
     width: 110px;
   }
+    
 `;
 
 const ProfileLink = styled.a`
@@ -153,10 +160,15 @@ const ProfileImage = styled.img`
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 24px;
+  @media (max-width: 476px) {
+    width: 96px;
+    height: 96px;
+  }
 
   &:hover {
     transform: scale(1.1);
   }
+
 `;
 
 const OrganizerInfo = styled.div`

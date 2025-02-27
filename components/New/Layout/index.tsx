@@ -20,5 +20,6 @@ export default Layout;
 
 const Main = styled.main`
   width: 100%;
+  overflow:hidden;
   min-height: 100vh;
 `;

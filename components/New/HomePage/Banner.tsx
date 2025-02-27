@@ -132,25 +132,25 @@ const Banner = () => {
 export default Banner;
 
 const Container = styled.div`
-  width: 86vw;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1080px;
   height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: flex-start; 
   margin: auto;
-  padding: 0 60px;
+  padding: 0 0px;
 
 
   @media (max-width: 1280px) {
-    width: 93vw;
+    width: 100%;
   }
   @media (max-width: 1024px) {
     flex-direction: column; 
     align-items: center;
     height: auto;
-    width: 94vw;
     padding: 0 0% 10%;
+    overflow: hidden;
     
   }
 `;
@@ -163,7 +163,7 @@ const MainContent = styled.div`
   // outline:red 5px solid;
   flex-grow: 1;
 flex-basis: 0;
-  width: 100%;
+  width: 85%;
   height: 100%;
   
   @media (max-width: 1024px) {
@@ -199,6 +199,9 @@ const SubTitle = styled.div`
   }
   @media (max-width: 768px) {
     font-size: 18px;
+  }
+    @media (max-width: 476px) {
+    font-size: 20px;
   }
 `;
 
@@ -249,6 +252,10 @@ const InfoDescription = styled.div`
   font-size: 12px;
   max-width: 150px;
   }
+  @media (max-width: 476px) {
+  font-size: 12px;
+  max-width: 230px;
+  }
 `;
 
 const CountdownContainer = styled.div`
@@ -261,6 +268,10 @@ const StyledImage = styled.img`
    @media (max-width: 1024px) {
     width: 80%;
     margin-top: 15%;
+  }
+    @media (max-width: 476px) {
+    width: 95%;
+    margin-top: 20%;
   }
 `
 const GridOverlay = styled.div`
@@ -281,6 +292,9 @@ const ScrollingIconsWrapper = styled.div`
   animation: marquee 10s linear infinite;
   height:34px;
   margin-top:6px;
+   @media (max-width: 476px) {
+    width: 300%;
+  }
     @keyframes marquee {
   from {
     transform: translateX(0%);
@@ -302,9 +316,8 @@ const ScrollingIconsBg = styled.div`
   @media (max-width: 1024px) {
     margin-left: -10%;
     overflow: show;
-    width:90vw;
+    width:110vw;
     height: 48px;
-    overflow: scroll;
   }
 `
 const ScrollingIcons = styled.div`
@@ -347,6 +360,16 @@ const SpeechBubble = styled.div`
     font-size: 12px;
     padding: 4vw 15vw 12vw 4vw;
   }
+    @media (max-width: 476px) {
+    width: 42vw;
+    height: 30vw;
+    position:absolute;
+    top:-12vw;
+    right:5vw;
+    text-align:left;
+    font-size: 12px;
+    padding: 4vw 15vw 12vw 4vw;
+  }
 
 `;
 
@@ -377,6 +400,14 @@ const SpeechBubble2 = styled.div`
     height: 15vw;
     position:absolute;
     top:4vw;
+    right:8vw;
+    padding: 6px;
+  }
+    @media (max-width: 476px) {
+    width: 10vw;
+    height: 15vw;
+    position:absolute;
+    top:-9vw;
     right:8vw;
     padding: 6px;
   }
@@ -476,6 +507,13 @@ const PixelIconTaiwan = styled.div`
     top:-0px;
     left:30%;
   }
+    @media (max-width: 1024px) {
+    width: 30px;
+    height: 70px;
+    position:absolute;
+    top:-30px;
+    left:30%;
+  }
 `;
 
 const PixelIconTaipei101 = styled.div`
@@ -495,6 +533,13 @@ const PixelIconTaipei101 = styled.div`
     position:absolute;
     bottom:20px;
     right:0px;
+  }
+    @media (max-width: 476px) {
+    width: 50px;
+    height: 70px;
+    position:absolute;
+    bottom:0px;
+    right:-10px;
   }
 `;
 
@@ -516,6 +561,13 @@ const PixelIconMountain = styled.div`
     bottom:-10px;
     left:30px;
   }
+    @media (max-width: 476px) {
+    width: 60px;
+    height: 40px;
+    position:absolute;
+    bottom:-10px;
+    left:30px;
+  }
 `;
 
 const RightSection = styled.div`
@@ -532,7 +584,7 @@ const RightSection = styled.div`
   align-items: center;
   justify-content: flex-start;
   @media (max-width: 1024px) {
-    width: 90vw;
+    width: 90%;
     right: 0;
     align-items: center;
     text-align: center;
@@ -540,12 +592,22 @@ const RightSection = styled.div`
     margin: 50px auto auto auto;
   }
   @media (max-width: 786px) {
-    width: 90vw;
+    width: 90%;
     right: 0;
     align-items: center;
     text-align: center;
     height:380px;
     margin: 10vw auto auto auto;
+    
+  }
+    @media (max-width: 476px) {
+    width: 90%;
+    right: 0;
+    align-items: center;
+    text-align: center;
+    height:220px;
+    margin: 10vw auto auto auto;
+    
   }
 `;
 

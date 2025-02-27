@@ -22,6 +22,7 @@ const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   z-index: -2;
 `;
 
@@ -40,8 +41,8 @@ const VideoContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: -2;
