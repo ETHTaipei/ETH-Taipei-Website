@@ -21,9 +21,7 @@ const Partners = () => {
             />
             {t.homepage.partners}
           </Title>
-          <Subtitle>
-            {t.homepage.partnersDesc}
-          </Subtitle>
+          <Subtitle>{t.homepage.partnersDesc}</Subtitle>
           <SponsorsContainer>
             {partners.map((partner) => (
               <SponsorBtn
@@ -43,9 +41,7 @@ const Partners = () => {
             />
             {t.homepage.mediaPartners}
           </Title>
-          <Subtitle>
-            {t.homepage.mediaPartnersDesc}
-          </Subtitle>
+          <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
           <SponsorsContainer>
             {mediaPartners.map((mediaPartner) => (
               <MDPartnerBtn
@@ -58,14 +54,6 @@ const Partners = () => {
           </SponsorsContainer>
         </PartnerContainer>
       </MainContent>
-      <BackgroundBottom>
-        <Image
-          src="/images/background/taipei-101-2.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundBottom>
     </Container>
   );
 };
@@ -162,13 +150,4 @@ const SponsorBtn = styled.button`
 
 const MDPartnerBtn = styled(SponsorBtn)`
   flex: 0 1 200px;
-`;
-
-const BackgroundBottom = styled.div`
-  width: 100%;
-  aspect-ratio: 1510 / 609;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
 `;

@@ -4,11 +4,9 @@ import {
   visaUrl,
 } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
-import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import bgImage from "@/public/images/background/taipei-101.png";
 import { useSponsors } from "../hooks/useSponsors";
 
 const FAQ = () => {
@@ -21,7 +19,6 @@ const FAQ = () => {
 
   return (
     <Container id="info">
-      <Image src={bgImage} fill quality={100} alt="bgImage" />
       <MainContent>
         <TitleH1 id="sponsorhighlight">
           {t.sponsorHighlight.sponsorHighlightTitle}
@@ -58,11 +55,6 @@ const FAQ = () => {
             </Link>
             {t.visa.visaAnswer2Part2}
             <br />
-            {t.visa.visaInvitationLetter1}
-            <Link href={invitationLetterUrl}>
-              {t.visa.visaInvitationLetter2}
-            </Link>
-            {t.visa.visaInvitationLetter3}
           </Description>
         </Row>
       </MainContent>

@@ -31,14 +31,6 @@ const Contributors = () => {
           </OrganizersList>
         </ContentCenter>
       </MainContent>
-      <BackgroundBottom>
-        <Image
-          src="/images/background/taipei-101-3.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundBottom>
     </Container>
   );
 };
@@ -75,7 +67,7 @@ const Container = styled.div`
   padding: 60px 90px 130px 90px;
   background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
   background-attachment: fixed;
-  background-position:center center;
+  background-position: center center;
   background-size: cover;
 
   @media (max-width: 768px) {
@@ -203,14 +195,4 @@ const OrganizerTeam = styled.p`
   @media (max-width: 768px) {
     font-size: 12px;
   }
-`;
-
-const BackgroundBottom = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 900px;
-  overflow: hidden;
-  z-index: -1;
 `;
