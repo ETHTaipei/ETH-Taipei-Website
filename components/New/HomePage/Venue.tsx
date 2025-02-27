@@ -10,8 +10,10 @@ const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
   background-color: rgba(0, 0, 0, 0.5);
+  scroll-margin-top: -20px;
   @media (max-width: 768px) {
     padding: 60px 24px;
+    scroll-margin-top: -50px;
   }
 `;
 
@@ -34,7 +36,7 @@ const TextContainer = styled.div`
   padding: 40px;
   height: 330px;
   background-color: ${Colors.brightBlue};
-  opacity:0.85;
+  opacity: 0.85;
   gap: 8px;
   @media (max-width: 996px) {
     gap: 24px;
