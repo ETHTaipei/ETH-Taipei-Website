@@ -74,11 +74,7 @@ const MainContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 120px;
-
-  margin-bottom: 40px;
-  @media (max-width: 768px) {
-    margin-bottom: 200px;
-  }
+  margin-bottom: 80px;
 `;
 
 const PartnerContainer = styled.div`

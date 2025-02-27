@@ -31,10 +31,14 @@ const Organizers = () => {
         </ContentCenter>
       </MainContent>
       <BackgroundBottom>
-      <div
-        style={{ objectFit: "cover", objectPosition: "center", backgroundAttachment:"fixed", backgroundColor:"rgba(0, 48, 206, 0.9);"}}
-      />
-
+        <div
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            backgroundAttachment: "fixed",
+            backgroundColor: "rgba(0, 48, 206, 0.9)",
+          }}
+        />
       </BackgroundBottom>
     </Container>
   );
@@ -72,7 +76,7 @@ const Container = styled.div`
   padding: 120px 90px 0px 90px;
   background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
   background-attachment: fixed;
-  background-position:center center;
+  background-position: center center;
   background-size: cover;
 
   @media (max-width: 768px) {
@@ -86,7 +90,6 @@ const Container = styled.div`
 const MainContent = styled.div`
   display: flex;
   justify-content: center;
-  
 
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
@@ -94,7 +97,7 @@ const MainContent = styled.div`
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     padding: 60px 16px 0px 16px;
   }
 `;
@@ -118,7 +121,7 @@ const OrganizersSubtitle = styled.h2`
   color: white;
   text-align: center;
   margin-top: 20px;
-`
+`;
 
 const OrganizersList = styled.div`
   display: grid;
@@ -143,7 +146,6 @@ const OrganizerWrapper = styled.div`
   @media (max-width: 768px) {
     width: 110px;
   }
-    
 `;
 
 const ProfileLink = styled.a`
@@ -168,7 +170,6 @@ const ProfileImage = styled.img`
   &:hover {
     transform: scale(1.1);
   }
-
 `;
 
 const OrganizerInfo = styled.div`
@@ -179,7 +180,7 @@ const OrganizerInfo = styled.div`
 const OrganizerName = styled.div`
   font-size: 20px;
   margin-top: 10px;
-  color: ${Colors.neonGreen}
+  color: ${Colors.neonGreen};
 `;
 
 const OrganizerTitle = styled.p`
