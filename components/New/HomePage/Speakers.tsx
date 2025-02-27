@@ -44,22 +44,6 @@ const Speakers = () => {
           </BeSpeakerButton>
         </ApplyContainer> */}
       </MainContent>
-      <BackgroundTop>
-        <Image
-          src="/images/background/cloud.png"
-          fill
-          alt="Speaker Cloud Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundTop>
-      <BackgroundBottom>
-        <Image
-          src="/images/background/taipei-101.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundBottom>
     </Container>
   );
 };
@@ -173,7 +157,7 @@ const Container = styled.div`
   padding: 120px 40px;
   background-image: url("/images/2025/OtherSection/SpeakerBg.jpg");
   background-attachment: fixed;
-  background-position:center center;
+  background-position: center center;
   background-size: cover;
   @media (max-width: 768px) {
     padding: 60px 24px;
@@ -193,7 +177,7 @@ const TitleIcon = styled.div`
     margin-right: 8px;
     height: 30px;
   }
-`
+`;
 
 const Title = styled.h2`
   font-size: 42px;
