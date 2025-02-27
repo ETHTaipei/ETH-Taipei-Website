@@ -118,6 +118,7 @@ const navs = {
   sideEvent: "Side Event",
   faq: "Info",
   goldcard: "Gold Card",
+  visaInfo: "Visa Info",
   venue: "Venue",
   brand: "Brand",
 };
@@ -138,17 +139,18 @@ const visa = {
   visaTitle: "Info",
   visaQuestion1: "Do I need a visa to enter Taiwan?",
   visaAnswer1Part1:
-    "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days, depending on the country. Please visit the website of the ",
+    "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days. Please visit the website of the ",
   BureauOfConsularAffairs: "Bureau of Consular Affairs website",
   visaAnswer1Part2: " for more details.",
   visaQuestion2: "What if I need a visa?",
   visaAnswer2Part1:
-    "ETHTaipei can provide invitation letters for business visas. Please contact us via ",
-  telegram: "telegram",
-  visaAnswer2Part2: ".",
-  visaInvitationLetter1: "If you need the invitation letter, please fill ",
-  visaInvitationLetter2: "this form",
-  visaInvitationLetter3: " and we'll contact you within a week.",
+    "ETHTaipei can provide invitation letters for business visas.",
+
+  visaAnswer2Part2: "If you need an invitation letter, please first fill ",
+  form: "this form",
+  visaAnswer2Part3: ", and contact us via ",
+  telegram: "Telegram",
+  visaAnswer2Part4: ". We'll get back to you within a week.",
 };
 
 const goldcard = {

@@ -79,7 +79,7 @@ const navItems = [
   // { label: t.navs.agenda2025, path: "/agenda#info" },
   { label: t.navs.apply, path: "" },
   { label: t.navs.venue, path: "/#venue" },
-  { label: t.navs.goldcard, path: "/goldcard#intro" },
+  { label: t.navs.visaInfo, path: "/visainfo#visa" },
   // { label: t.navs.brand, path: "" },
 ];
 
@@ -112,6 +112,31 @@ const PagesNav = () => {
     }
   };
 
+  const isActivePath = (targetPath: string) => {
+    // Split current pathname and target path into base and hash
+    const [targetBase, targetHash] = targetPath.split("#");
+    const [currentBase] = pathname.split("#");
+
+    if (typeof window !== "undefined") {
+      // For paths with hash like "/#venue"
+      if (targetHash) {
+        // Check if we're on the correct base path && hashes match
+        return (
+          currentBase === targetBase &&
+          window.location.hash === `#${targetHash}`
+        );
+      }
+
+      // For home path ("/"), only active if there's no hash
+      if (targetPath === "/") {
+        return pathname === targetPath && !window.location.hash;
+      }
+    }
+
+    // Otherwise false
+    return false;
+  };
+
   return (
     <PagesNavContainer>
       {navItems.map(({ label, path }: { label: string; path: string }) => (
@@ -121,7 +146,7 @@ const PagesNav = () => {
           onMouseLeave={handleMouseLeave}
         >
           <NavButton
-            isActive={pathname === path}
+            isActive={isActivePath(path)}
             onClick={() =>
               isNonEmptyPath(path) && handleOnClickInternalLink(path)
             }

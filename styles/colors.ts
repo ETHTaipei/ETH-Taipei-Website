@@ -20,6 +20,7 @@ const Colors = {
   brightBlue: "#3952FF",
   grayBorder: "#767676",
   brightPink: "#FFB0BA",
+  black: "#000000",
 };
 
 export default Colors;
