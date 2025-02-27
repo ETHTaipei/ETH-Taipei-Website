@@ -21,9 +21,9 @@ const homepage = {
   // hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
   // hackathonDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
   // hackathonBtnText: "Join",
-  callToActionTitle: "Jointly Create a Charm Event",
+  callToActionTitle: "Let's Buidl ETHTaipei together!",
   callToActionText:
-    "At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.",
+    "ETHTaipei is hosted by the local ETH community, and we'd love to see more participants and different parties getting involved! If you have great ideas, resources, wanna host cool side events, make sure to click the Apply buttons and reach out to us through social links!",
   speakers: `${year} Speakers`,
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
