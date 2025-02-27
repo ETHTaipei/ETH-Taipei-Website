@@ -78,23 +78,23 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: #EDEDED;
+  background-color:rgba(237, 237, 237, 0.85);
   background-image: 
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 145px);
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px);
   }
 
   @media (max-width: 768px) {
     padding: 60px 24px;
     background-image: 
-      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 1px, transparent 1px, transparent 45px),
-      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
   display: flex;
   flex-direction: column;
   align-items: center;

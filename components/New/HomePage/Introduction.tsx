@@ -78,9 +78,12 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background: ${Colors.brightBlue};
+  background-image: url("/images/2025/OtherSection/WhatsETHTaipeBg.jpg");
+  background-attachment: fixed;
+  background-position:center center;
+  background-size: cover;
 
-  padding: 120px 40px 200px 40px;
+  padding: 120px 40px 120px 40px;
   @media (max-width: 768px) {
     padding: 60px 24px 120px 24px;
   }
@@ -96,15 +99,18 @@ const BgDecoration = styled.div`
 `;
 
 const BgImage = styled.img`
-  width: 100%;
+  width: 90%;
+  opacity:0.6;
+  margin-right:-80px;
   @media (max-width: 768px) {
     width: 112px;
   }
 `;
 
 const MainContent = styled.div`
-  width: 100%;
-  max-width: 1280px;
+  width: 90vw;
+  max-width: 1120px;
+  margin:auto;
 `;
 
 const TitleContainer = styled.div`
@@ -139,10 +145,12 @@ const IconImg = styled.img`
 const Title = styled.h1`
   color: ${Colors.neonGreen};
   text-align: center;
+  letter-spacing: 1.6px;
 `;
 
 const Subtitle = styled.div`
-  font-size: 22px;
+  font-size: 20px;
+  letter-spacing: 1.6px;
   color: white;
   text-align: center;
   margin-top: 14px;
@@ -185,7 +193,7 @@ const RightCard = styled.div`
 const RightCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 `;
 
 const CardContent = styled.div`
@@ -198,14 +206,14 @@ const CardImg = styled.div`
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 336 / 234;
+  aspect-ratio: 306 / 180;
   border: 3px solid ${Colors.neonGreen};
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 24px;
-  min-width: 240px;
-  min-height: 280px;
+  min-width: 230px;
+  min-height: 210px;
   @media (max-width: 992px) {
     min-width: 0;
     min-height: 0;
@@ -216,6 +224,7 @@ const CardImgDesc = styled.div`
   font-size: 24px;
   color: ${Colors.neonGreen};
   line-height: 28px;
+  margin-top:8px;
 `;
 
 const CarInfo = styled.div`

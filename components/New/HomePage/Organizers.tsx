@@ -21,7 +21,7 @@ const Organizers = () => {
             Organizers
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The team that makes ETHTaipeiTaipei101Taipei101 happen!!
+            The team that makes ETHTaipei happen!!
           </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
@@ -31,12 +31,10 @@ const Organizers = () => {
         </ContentCenter>
       </MainContent>
       <BackgroundBottom>
-        <Image
-          src="/images/background/decoration.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
+      <div
+        style={{ objectFit: "cover", objectPosition: "center", backgroundAttachment:"fixed", backgroundColor:"rgba(0, 48, 206, 0.9);"}}
+      />
+
       </BackgroundBottom>
     </Container>
   );
@@ -71,8 +69,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 120px 90px;
-  background-color: ${Colors.brightBlue};
+  padding: 120px 90px 0px 90px;
+  background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
+  background-attachment: fixed;
+  background-position:center center;
+  background-size: cover;
 
   @media (max-width: 768px) {
     padding: 60px 16px;
@@ -82,7 +83,7 @@ const Container = styled.div`
 const MainContent = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  
 
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
@@ -94,7 +95,7 @@ const MainContent = styled.div`
 
 const ContentCenter = styled.div`
   width: 100%;
-  max-width: 1020px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,12 +118,12 @@ const OrganizersList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  gap: 20px;
+  gap: 0px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 0px;
   }
 `;
 
@@ -130,7 +131,8 @@ const OrganizerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 240px;
+  width: 200px;
+  height: 240px;
 
   @media (max-width: 768px) {
     width: 110px;
@@ -145,8 +147,8 @@ const ProfileImage = styled.img`
   height: 110px;
   width: 110px;
   object-fit: cover;
-  transition: transform 300ms ease;
-  border: 3px solid ${Colors.neonGreen};
+  transition: transform 600ms ease;
+  border: 2px solid ${Colors.neonGreen};
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -181,7 +183,7 @@ const BackgroundBottom = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 800px;
+  height: 100%;
   overflow: hidden;
   z-index: -1;
 `;

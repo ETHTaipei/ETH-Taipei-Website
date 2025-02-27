@@ -65,6 +65,7 @@ const InfoContainer = styled.div`
   flex: 1;
   padding: 40px;
   background-color: ${Colors.neonGreen};
+  opacity:0.85;
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;

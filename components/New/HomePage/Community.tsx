@@ -55,8 +55,8 @@ const Container = styled.div`
   padding: 140px 80px;
   background-color: ${Colors.brightBlue};
   background-image: 
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 145px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 145px);
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 70px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 70px);
   }
   @media (max-width: 768px) {
     padding: 60px 24px;

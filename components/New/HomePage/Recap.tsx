@@ -88,9 +88,10 @@ const BgDecoration = styled.div`
 `;
 
 const BgImage = styled.img`
-  width: 100%;
+  width: 50%;
+  opacity:0.05;
   @media (max-width: 768px) {
-    width: 280px;
+    width: 240px;
   }
 `;
 
@@ -99,7 +100,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.neonGreen};
+  background-color: rgba(0, 0, 0, 0.75);
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -107,20 +108,23 @@ const Container = styled.div`
 `;
 
 const MainContent = styled.div`
-  width: 100%;
-  max-width: 886px;
+  width: 85vw;
+  max-width: 800px;
 `;
 
 const Title = styled.div`
-  font-size: 64px;
-  color: ${Colors.brightBlue};
+  font-size: 48px;
+  letter-spacing: 1.6px;
+  color: ${Colors.neonGreen};
   text-align: center;
 `;
 
 const Subtitle = styled.h2`
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
+  letter-spacing: 1.6px;
   margin-top: 14px;
+  color: white;
 `;
 
 const Gallery = styled.div`
@@ -173,7 +177,7 @@ const GalleryImg = styled(Image)`
 
 const ImgContainer = styled.div`
   position: relative;
-  aspect-ratio: 272 / 149;
+  aspect-ratio: 272 / 180;
   z-index: 10;
   overflow: hidden;
 `;

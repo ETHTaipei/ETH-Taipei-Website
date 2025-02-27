@@ -17,7 +17,7 @@ const Container = styled.div`
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1020px;
+  max-width: 880px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -32,16 +32,17 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px;
-  height: 370px;
+  height: 330px;
   background-color: ${Colors.brightBlue};
-  gap: 12px;
+  opacity:0.85;
+  gap: 8px;
   @media (max-width: 996px) {
     gap: 24px;
   }
 `;
 
 const Title = styled.h1`
-  font-size: 32px;
+  font-size: 28px;
   color: ${Colors.neonGreen};
 `;
 
@@ -53,7 +54,7 @@ const SubTitleContainer = styled.div`
 `;
 
 const SubTitle = styled.h2`
-  font-size: 44px;
+  font-size: 36px;
 `;
 
 const Description = styled.span`
@@ -67,7 +68,7 @@ const Description = styled.span`
 const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 `;
 
 const Address = styled.a`
@@ -87,7 +88,7 @@ const MapContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 370px;
+  height: 330px;
 
   @media (max-width: 996px) {
     flex: none;
@@ -100,11 +101,11 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  height: 370px;
+  height: 329px;
   overflow: hidden;
 
   @media (max-width: 996px) {
-    min-height: 370px;
+    min-height: 329px;
   }
 `;
 

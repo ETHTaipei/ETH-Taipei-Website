@@ -72,8 +72,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 120px 90px;
-  background-color: ${Colors.brightBlue};
+  padding: 60px 90px 130px 90px;
+  background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
+  background-attachment: fixed;
+  background-position:center center;
+  background-size: cover;
 
   @media (max-width: 768px) {
     padding: 60px 16px;
@@ -122,12 +125,12 @@ const OrganizersList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  gap: 20px;
+  gap: 0px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 0px;
   }
 `;
 
@@ -136,7 +139,8 @@ const OrganizerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   color: white;
-  width: 240px;
+  width: 200px;
+  height: 240px;
 
   @media (max-width: 768px) {
     width: 110px;
@@ -152,7 +156,7 @@ const ProfileImage = styled.img`
   width: 110px;
   object-fit: cover;
   transition: transform 300ms ease;
-  border: 3px solid ${Colors.neonGreen};
+  border: 2px solid ${Colors.neonGreen};
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;

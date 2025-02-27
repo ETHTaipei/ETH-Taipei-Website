@@ -171,7 +171,10 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: ${Colors.brightBlue};
+  background-image: url("/images/2025/OtherSection/SpeakerBg.jpg");
+  background-attachment: fixed;
+  background-position:center center;
+  background-size: cover;
   @media (max-width: 768px) {
     padding: 60px 24px;
   }

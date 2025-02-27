@@ -44,7 +44,7 @@ const ActivityCardComponent = ({
           <ActivityDate>
             <Icon>
               <Image
-                src="/images/calendar-pennblue.svg"
+                src="/images/2025/FirstViewBanner/Date_Icon.svg"
                 alt="Date"
                 fill
                 style={{ objectFit: "cover" }}
@@ -141,7 +141,7 @@ const ImageWrapper = styled.div`
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1060px;
   padding: 120px 40px;
 `;
 
@@ -180,7 +180,7 @@ const ActivityCardWrapper = styled.div`
 
 const ActivityCard = styled.div`
   width: 100%;
-  max-width: 886px;
+  max-width: 880px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -194,8 +194,8 @@ const ActivityNameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 255px;
-  height: 320px;
+  min-width: 230px;
+  height: 230px;
   overflow: hidden;
   border: 3px solid ${Colors.brightBlue};
   border-top-left-radius: 24px;
@@ -248,15 +248,15 @@ const ActivityDate = styled.div`
 
 const Icon = styled.div`
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 `;
 
 const ActionButton = styled.button<{ isActivated: boolean }>`
   border-radius: 8px;
   padding: 8px 40px;
   background-color: ${(props) =>
-    props.isActivated ? Colors.btnBlue : Colors.gray3};
+    props.isActivated ? Colors.brightBlue : Colors.gray3};
   color: white;
   font-size: 22px;
   cursor: ${(props) => (props.isActivated ? "pointer" : "not-allowed")};
