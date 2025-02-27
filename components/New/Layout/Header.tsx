@@ -76,11 +76,11 @@ const LumaButton = () => (
 const isNonEmptyPath = (path: string) => path !== "";
 const navItems = [
   { label: t.navs.home, path: "/" },
-  { label: t.navs.agenda2025, path: "/agenda#info" },
+  // { label: t.navs.agenda2025, path: "/agenda#info" },
   { label: t.navs.apply, path: "" },
   { label: t.navs.venue, path: "/#venue" },
   { label: t.navs.goldcard, path: "/goldcard#intro" },
-  { label: t.navs.brand, path: "" },
+  // { label: t.navs.brand, path: "" },
 ];
 
 const isApply = (label: string) => label === t.navs.apply;
@@ -185,9 +185,9 @@ const Header = () => {
         <SocialAndTicketButtonsContainer>
           <SocialContainer className="social-container">
             <XButton />
+            <LumaButton />
             <TelegramButton />
             <DiscordButton />
-            <LumaButton />
           </SocialContainer>
 
           <TicketButton
@@ -247,9 +247,9 @@ const Header = () => {
           </BarsMenuLink>
           <SocialContainer>
             <XButton />
+            <LumaButton />
             <TelegramButton />
             <DiscordButton />
-            <LumaButton />
           </SocialContainer>
         </BarsMenuContent>
       </BarsMenu>
@@ -262,10 +262,10 @@ export default Header;
 const breakpointWidth = "992px";
 const componentHeight = "40px";
 const headerShrunkHeight = "50px";
-const bigGap = "24px";
 const smallGap = "16px";
 const border = `2px solid ${Colors.grayBorder}`;
-const fontWeight = "500px";
+const fontWeight = "500";
+const fontSize = "16px";
 
 const HeaderContainer = styled.header`
   background-color: ${Colors.neonGreen};
@@ -279,7 +279,11 @@ const HeaderContainer = styled.header`
   display: grid;
   grid-template-columns: 150px 1fr auto;
   padding: 0 25px;
-  gap: ${bigGap};
+
+  /* the second child is PagesNav */
+  & > *:nth-child(2) {
+    justify-self: center;
+  }
 
   @media (max-width: ${breakpointWidth}) {
     height: ${headerShrunkHeight};
@@ -347,7 +351,7 @@ const TicketButton = styled(BaseButton)`
   border-radius: 24px;
   width: 115px;
   height: ${componentHeight};
-  font-size: 14px;
+  font-size: ${fontSize};
   font-weight: ${fontWeight};
   white-space: nowrap;
   color: white;
@@ -403,7 +407,7 @@ const BarsMenuContent = styled.div`
   font-weight: ${fontWeight};
 
   ${BarsMenuLink}.apply-sub-item {
-    font-size: 16px;
+    font-size: ${fontSize};
     font-weight: 200;
   }
 `;
@@ -418,7 +422,25 @@ const SocialContainer = styled.div`
   ${BarsMenuContent} & {
     margin: 0;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+
+    & > * {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* the below makes four of them collapse into two lines */
+    & > *:nth-child(1),
+    & > *:nth-child(2) {
+      margin: 0px 4px;
+    }
+
+    & > *:nth-child(3),
+    & > *:nth-child(4) {
+      margin: 0px 4px;
+    }
   }
 `;
 
@@ -470,6 +492,7 @@ const NavButtonContainer = styled.div`
 `;
 
 const NavButton = styled.button<{ isActive: boolean }>`
+  font-family: inherit;
   background-color: ${(props) =>
     props.isActive ? Colors.brightBlue : "white"};
   color: ${(props) => (props.isActive ? "white" : Colors.grayBorder)};
@@ -478,13 +501,12 @@ const NavButton = styled.button<{ isActive: boolean }>`
   padding: 8px 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: ${fontSize};
   font-weight: ${fontWeight};
   min-width: max-content;
 
   &:hover {
-    background-color: ${(props) =>
-      props.isActive ? Colors.brightBlue : Colors.brightBlue};
+    background-color: ${Colors.brightBlue};
     color: white;
   }
 `;
@@ -506,7 +528,7 @@ const ApplyDropdownItem = styled.div`
   padding: 8px 16px;
   cursor: pointer;
   color: ${Colors.grayBorder};
-  font-size: 14px;
+  font-size: ${fontSize};
   white-space: nowrap;
   transition: all 0.3s ease;
   border-radius: 24px;
