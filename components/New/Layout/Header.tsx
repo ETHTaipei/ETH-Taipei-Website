@@ -113,11 +113,11 @@ const PagesNav = () => {
   };
 
   const isActivePath = (targetPath: string) => {
-    // Split current pathname and target path into base and hash
-    const [targetBase, targetHash] = targetPath.split("#");
-    const [currentBase] = pathname.split("#");
+    if (typeof window !== "undefined" && pathname) {
+      // Split current pathname and target path into base and hash
+      const [targetBase, targetHash] = targetPath.split("#");
+      const [currentBase] = pathname.split("#");
 
-    if (typeof window !== "undefined") {
       // For paths with hash like "/#venue"
       if (targetHash) {
         // Check if we're on the correct base path && hashes match
