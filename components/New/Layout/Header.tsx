@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
@@ -95,6 +95,11 @@ const PagesNav = () => {
   const [showApplyDropdown, setShowApplyDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout>();
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // 200ms delay before hiding s.t. applyDropdown won't disappear so fast
   const handleMouseLeave = () => {
@@ -113,24 +118,23 @@ const PagesNav = () => {
   };
 
   const isActivePath = (targetPath: string) => {
+    if (!mounted) return false; // Return false during server-side rendering
+
     // Split current pathname and target path into base and hash
     const [targetBase, targetHash] = targetPath.split("#");
     const [currentBase] = pathname.split("#");
 
-    if (typeof window !== "undefined") {
-      // For paths with hash like "/#venue"
-      if (targetHash) {
-        // Check if we're on the correct base path && hashes match
-        return (
-          currentBase === targetBase &&
-          window.location.hash === `#${targetHash}`
-        );
-      }
+    // For paths with hash like "/#venue"
+    if (targetHash) {
+      // Check if we're on the correct base path && hashes match
+      return (
+        currentBase === targetBase && window.location.hash === `#${targetHash}`
+      );
+    }
 
-      // For home path ("/"), only active if there's no hash
-      if (targetPath === "/") {
-        return pathname === targetPath && !window.location.hash;
-      }
+    // For home path ("/"), only active if there's no hash
+    if (targetPath === "/") {
+      return pathname === targetPath && !window.location.hash;
     }
 
     // Otherwise false
@@ -529,6 +533,7 @@ const NavButton = styled.button<{ isActive: boolean }>`
   font-size: ${fontSize};
   font-weight: ${fontWeight};
   min-width: max-content;
+  suppresshydrationwarning: true;
 
   &:hover {
     background-color: ${Colors.brightBlue};
