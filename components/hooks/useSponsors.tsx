@@ -1,11 +1,12 @@
 // "use client"
 
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 
 export type SponsorProps = {
   name: string;
   url: string;
-  img: string; // img
+  img: string;
   tier: string;
   width: number;
   height: number;
@@ -13,8 +14,8 @@ export type SponsorProps = {
   highlightLink: string;
 };
 
-const query = gql`query sponsors {
-  sponsors (first: 100, where: {show:true}) {
+const query = gql`query {
+  sponsors: sponsors${year} (first: 100, where: {show:true}) {
     url
     name
     img

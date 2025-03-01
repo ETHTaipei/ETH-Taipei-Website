@@ -101,8 +101,7 @@ const CountdownCardUnitContainer = styled.div`
 `;
 
 const CountdownCardUnit = styled.div`
-  font-family: "Rammetto One";
-  color: white;
+  color: black;
   font-size: 16px;
 
   @media (max-width: 700px) {

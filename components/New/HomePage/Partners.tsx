@@ -14,7 +14,14 @@ const Partners = () => {
     <Container>
       <MainContent>
         <PartnerContainer>
-          <Title>{t.homepage.partners}</Title>
+          <Title>
+            <img
+              src="./images/icons/smile.svg"
+              style={{ marginRight: 16, height: 36 }}
+            />
+            {t.homepage.partners}
+          </Title>
+          <Subtitle>{t.homepage.partnersDesc}</Subtitle>
           <SponsorsContainer>
             {partners.map((partner) => (
               <SponsorBtn
@@ -27,7 +34,14 @@ const Partners = () => {
           </SponsorsContainer>
         </PartnerContainer>
         <PartnerContainer>
-          <Title>{t.homepage.mediaPartners}</Title>
+          <Title>
+            <img
+              src="./images/icons/smile.svg"
+              style={{ marginRight: 16, height: 36 }}
+            />
+            {t.homepage.mediaPartners}
+          </Title>
+          <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
           <SponsorsContainer>
             {mediaPartners.map((mediaPartner) => (
               <MDPartnerBtn
@@ -40,14 +54,6 @@ const Partners = () => {
           </SponsorsContainer>
         </PartnerContainer>
       </MainContent>
-      <BackgroundBottom>
-        <Image
-          src="/images/background/taipei-101-2.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundBottom>
     </Container>
   );
 };
@@ -60,15 +66,23 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: rgba(205, 243, 255, 0.57);
+  background-color:rgba(237, 237, 237, 0.85);
+  background-image: 
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px);
+  }
+
   @media (max-width: 768px) {
     padding: 60px 24px;
+    background-image: 
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,10 +94,24 @@ const PartnerContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 42px;
-  font-family: "Rammetto One";
-  color: ${Colors.pennBlue};
+  font-size: 48px;
+  color: ${Colors.brightBlue};
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+`;
+
+const Subtitle = styled.h2`
+  margin-top: 20px;
+  font-size: 22px;
+  color: black;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const SponsorsContainer = styled.div`
@@ -122,13 +150,4 @@ const SponsorBtn = styled.button`
 
 const MDPartnerBtn = styled(SponsorBtn)`
   flex: 0 1 200px;
-`;
-
-const BackgroundBottom = styled.div`
-  width: 100%;
-  aspect-ratio: 1510 / 609;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
 `;

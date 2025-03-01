@@ -30,13 +30,16 @@ export default React.memo(CountdownCard);
 
 const CardContainer = styled.div`
   position: relative;
-  width: 70px;
-  height: 90px;
+  width: 50px;
+  height: 64px;
   perspective: 600px;
-
+  @media (max-width: 1280px) {
+    width: 42px;
+    height: 65px;
+  }
   @media (max-width: 996px) {
-    width: 49px;
-    height: 81px;
+    width: 40px;
+    height: 54px;
   }
 
   @media (max-width: 700px) {
@@ -51,16 +54,16 @@ const CardTopSharedStyles = css`
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: rgba(31, 138, 172, 1);
-  border-radius: 16px 16px 0 0;
+  background-color: #3952FF;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
 
   @media (max-width: 996px) {
-    border-radius: 12px 12px 0 0;
+    border-radius: 8px 8px 0 0;
   }
 
   @media (max-width: 700px) {
-    border-radius: 8px 8px 0 0;
+    border-radius: 6px 6px 0 0;
   }
 `;
 
@@ -89,20 +92,20 @@ const CardTopDynamic = styled.div`
 
 const CardBottomSharedStyles = css`
   position: absolute;
-  top: 52%;
+  top: 55%;
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: ${Colors.aero};
-  border-radius: 0 0 16px 16px;
+  background-color: #3952FF;
+  border-radius: 0 0 10px 10px;
   overflow: hidden;
 
   @media (max-width: 996px) {
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 8px 8px;
   }
 
   @media (max-width: 700px) {
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 6px 6px;
   }
 `;
 
@@ -130,26 +133,28 @@ const CardBottomDynamic = styled.div`
 `;
 
 const CardNumSharedStyles = css`
-  color: white;
-  font-size: 48px;
+  color: #D7FC01;
+  font-size: 46px;
   font-weight: bold;
   position: absolute;
   display: flex;
   justify-content: center;
   width: 100%;
-
+  @media (max-width: 1280px) {
+    font-size: 42px;
+  }
   @media (max-width: 996px) {
-    font-size: 44px;
+    font-size: 38px;
   }
 
   @media (max-width: 700px) {
-    font-size: 24px;
+    font-size: 26px;
   }
 `;
 
 const CardTopNum = styled.div<{ v: number }>`
   ${CardNumSharedStyles};
-  top: 50%;
+  top: 40%;
   ::before {
     content: "${(props) => props.v}";
   }
@@ -157,7 +162,7 @@ const CardTopNum = styled.div<{ v: number }>`
 
 const CardBottomNum = styled.div<{ v: number }>`
   ${CardNumSharedStyles};
-  bottom: 50%;
+  bottom: 30%;
   ::before {
     content: "${(props) => props.v}";
   }

@@ -19,6 +19,8 @@ const Colors = {
   neonGreen: "#D7FC01",
   brightBlue: "#3952FF",
   grayBorder: "#767676",
+  brightPink: "#FFB0BA",
+  black: "#000000",
 };
 
 export default Colors;

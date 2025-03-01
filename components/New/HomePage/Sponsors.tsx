@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import styled from 'styled-components';
+import Link from "next/link";
+import styled from "styled-components";
 
-import { SponsorProps, useSponsors } from '@/components/hooks/useSponsors';
+import { SponsorProps, useSponsors } from "@/components/hooks/useSponsors";
 import t from "@/public/constant/content";
+import Colors from "@/styles/colors";
 
 const Sponsors = () => {
   const { goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
@@ -12,20 +13,21 @@ const Sponsors = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.sponsors}</Title>
+        <Title>
+          <img
+            src="./images/icons/love.svg"
+            style={{ marginRight: 16, height: 36 }}
+          />
+          {t.homepage.sponsors}
+        </Title>
         <DescriptionContainer>
-          <Description>
-            We would like to express our immense gratitude to our sponsors for your 
-            unwavering support, which has been instrumental in ensuring the success 
-            and smooth execution of ETHTaipei!
-          </Description>
+          <Description>{t.sponsorHighlight.sponsorSubtitle}</Description>
         </DescriptionContainer>
         <SponsorContainer>
           {goldSponsors.map((sponsor, i) => (
             <Sponsor sponsor={sponsor} key={i} />
           ))}
         </SponsorContainer>
-
         <SponsorContainer>
           {silverSponsors.map((sponsor, i) => (
             <Sponsor sponsor={sponsor} key={i} />
@@ -42,17 +44,18 @@ const Sponsors = () => {
 };
 
 function Sponsor({ sponsor }: { sponsor: SponsorProps }) {
-  const maxWidth = sponsor.tier === 'gold' ? 200 : sponsor.tier === 'silver' ? 150 : 100;
+  const maxWidth =
+    sponsor.tier === "gold" ? 200 : sponsor.tier === "silver" ? 150 : 100;
 
   return (
     <RoundedImageWrapper>
-      <Link href={sponsor.url} target='_blank' rel='noopener noreferrer'>
+      <Link href={sponsor.url} target="_blank" rel="noopener noreferrer">
         <div>
           <img
             src={sponsor.img}
             alt={sponsor.name}
             // if width is set, then height is auto-scaled
-            height={sponsor.width ? 'auto' : sponsor.height}
+            height={sponsor.width ? "auto" : sponsor.height}
             width={sponsor.width}
           />
         </div>
@@ -68,9 +71,18 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 120px 40px;
+  padding: 120px 40px 0px 40px;
+  background-color:rgba(237, 237, 237, 0.85);
+  background-image: 
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px);
+  }
+
   @media (max-width: 768px) {
     padding: 60px 24px;
+    background-image: 
+      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 45px),
+      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 
@@ -82,10 +94,13 @@ const MainContent = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: 'Rammetto One';
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 48px;
+  color: ${Colors.brightBlue};
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -101,9 +116,8 @@ const DescriptionContainer = styled.div`
 const Description = styled.p`
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
   max-width: 500px;
-  font-size: 16px;
+  font-size: 22px;
   margin-bottom: 30px;
 `;
 

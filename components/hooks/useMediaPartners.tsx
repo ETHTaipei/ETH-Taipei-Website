@@ -1,16 +1,17 @@
 // "use client"
 
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 
 type MediaPartnerProps = {
   name: string;
   url: string;
   img: string;
-  height?: number; // heigh overrider
+  height?: number; // height override
 };
 
-const query = gql`query partners {
-  mediaPartner (first: 100, where: {show:true}) {
+const query = gql`query {
+  mediaPartner: mediaPartners${year} (first: 100, where: {show:true}) {
     url
     name
     img
@@ -19,10 +20,9 @@ const query = gql`query partners {
 `;
 
 export const useMediaPartners = () => {
-
-  const { data } = useQuery<{mediaPartner: MediaPartnerProps[]}>(query);
+  const { data } = useQuery<{ mediaPartner: MediaPartnerProps[] }>(query);
 
   const mediaPartners = data?.mediaPartner || [];
 
-  return {  mediaPartners };
+  return { mediaPartners };
 };

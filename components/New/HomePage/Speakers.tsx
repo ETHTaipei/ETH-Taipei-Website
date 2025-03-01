@@ -21,7 +21,12 @@ const Speakers = () => {
   return (
     <Container>
       <MainContent>
-        <Title>{t.homepage.speakers}</Title>
+        <Title>
+          <TitleIcon>
+            <img src="./images/icons/cat.svg" />
+          </TitleIcon>
+          {t.homepage.speakers}
+        </Title>
         <KeynoteSpeakersContainer>
           {keynoteSpeakers.map((speaker, i) => (
             <KeynoteSpeaker speaker={speaker} key={i} />
@@ -39,22 +44,6 @@ const Speakers = () => {
           </BeSpeakerButton>
         </ApplyContainer> */}
       </MainContent>
-      <BackgroundTop>
-        <Image
-          src="/images/background/cloud.png"
-          fill
-          alt="Speaker Cloud Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundTop>
-      <BackgroundBottom>
-        <Image
-          src="/images/background/taipei-101.png"
-          fill
-          alt="Speaker 101 Background"
-          style={{ objectFit: "cover" }}
-        />
-      </BackgroundBottom>
     </Container>
   );
 };
@@ -135,7 +124,6 @@ function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
     <RoundedImageWrapper>
       <Image
         src={speaker.img}
-        style={{ borderRadius: "100%" }}
         fill
         alt={speaker.name}
       />
@@ -166,7 +154,10 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color: rgba(205, 243, 255, 0.57);
+  background-image: url("/images/2025/OtherSection/SpeakerBg.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -177,12 +168,27 @@ const MainContent = styled.div`
   max-width: 1020px;
 `;
 
+const TitleIcon = styled.div`
+  display: flex;
+  margin-right: 12px;
+  height: 40px;
+  @media (max-width: 768px) {
+    margin-right: 8px;
+    height: 30px;
+  }
+`;
+
 const Title = styled.h2`
-  font-family: "Rammetto One";
   font-size: 42px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
+  color: ${Colors.neonGreen};
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const KeynoteSpeakersContainer = styled.div`
@@ -206,8 +212,19 @@ const KeynoteSpeakerAvatar = styled.div`
   width: 250px;
   height: 250px;
   position: relative;
-  border-radius: 100%;
   overflow: hidden;
+  border: 3px solid ${Colors.neonGreen};
+  border-top-left-radius: 36px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 36px;
+
+  @media (max-width: 768px) {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 24px;
+  }
 `;
 
 const SpeakersContainer = styled.div`
@@ -239,6 +256,19 @@ const SpeakerAvatar = styled.div`
   position: relative;
   border-radius: 100%;
   overflow: hidden;
+
+  border: 3px solid ${Colors.neonGreen};
+  border-top-left-radius: 36px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 36px;
+
+  @media (max-width: 768px) {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 24px;
+  }
 `;
 
 const SpeakerInfoContainer = styled.div`
@@ -246,7 +276,7 @@ const SpeakerInfoContainer = styled.div`
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  color: ${Colors.pennBlue};
+  color: white;
 `;
 
 const SpeakerName = styled.div<{ variant?: "lg"; hasLink: boolean }>`
@@ -262,6 +292,7 @@ const SpeakerName = styled.div<{ variant?: "lg"; hasLink: boolean }>`
   }};
   font-weight: bold;
   text-align: center;
+  color: ${Colors.neonGreen};
   cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
 `;
 

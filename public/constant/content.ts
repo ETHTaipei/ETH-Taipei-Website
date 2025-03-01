@@ -5,10 +5,10 @@ const lastDayDuration = "21-22";
 
 export const year = "2025";
 export const month = "April";
-const dayDuration = "1-2";
+const dayDuration = "1st-2nd";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
 export const dateDayMonthLastYear = `${lastDayDuration} ${lastMonth}, ${lastYear}`;
-const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
+// const welcomeEdition = `Welcome to ETHTaipei, the ${year} edition!!!`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
@@ -21,27 +21,30 @@ const homepage = {
   // hackathonIntro: `The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.`,
   // hackathonDateWithDays: `${month} 1 (Tue) → ${month} 2 (Wed)`,
   // hackathonBtnText: "Join",
-  callToActionTitle: "Jointly Create a Charm Event",
+  callToActionTitle: "Let's Buidl ETHTaipei together!",
   callToActionText:
-    "In this unique opportunity, you can choose to be one of our compelling speakers and share your expertise, or become a supporter of our events and co-create an unforgettable experience. Whether you want to take center stage or be in the background, this is your time to let your unique light shine. Join us and create the excitement and charm of the event together!",
-  speakers: `${lastYear} Speakers`,
+    "ETHTaipei is hosted by the local ETH community, and we'd love to see more participants and different parties getting involved! If you have great ideas, resources, wanna host cool side events, make sure to click the Apply buttons and reach out to us through social links!",
+  speakers: `${year} Speakers`,
   speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
   recap: "Watch ETHTaipei 2023 Recap!",
-  venue: "Venue",
+  venue: "The Venue",
   venueName: "POPOP Taipei",
   venueDescription:
     "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
   venueCapacity: "Capacity: 700 people",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
-  partners: `${lastYear} Partners`,
+  partners: "Partners",
+  partnersDesc: "Stronger Together in the Ethereum Ecosystem!",
   organizers: "Organizers",
   communitySupport: "Community Support",
+  communitySupportSubtitle: "Support from ETH Organizations!",
   openingAndKeynote: "Opening / Keynote Speaker",
-  mediaPartners: `${lastYear} Media Partners`,
-  sponsors: `${lastYear} Sponsors`,
+  mediaPartners: "Media Partners",
+  mediaPartnersDesc: "Bringing Web3 Stories to the World!",
+  sponsors: `Sponsors`,
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
@@ -53,28 +56,31 @@ const homepage = {
   // bannerInfoDesc_2: dateDayMonthYear,
   bannerInfoTitle_2_1: "Side Events",
   bannerInfoDesc_2_1: "Click to see 10+ events",
+  bannerInfoTitle_2_2: "ETHGlobal Pragma",
+  bannerInfoDesc_2_2: "3rd April, 2025",
+  bannerInfoTitle_2_3: "ETHGlobal Hackathon",
+  bannerInfoDesc_2_3: "4th-6th April, 2025",
   bannerInfoTitle_3: "POPOP Taipei",
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
 
-  introductionTitle_1: "What is",
-  introductionTitle_2: "ETH",
-  introductionTitle_3: "Taipei?",
-  introductionSubtitle: welcomeEdition,
-  introductionCardTitle_1: "Global Connection, Taiwan's Spotlight",
-  introductionCardDesc_1:
+  introductionTitle: "What is ETHTaipei?",
+  introductionSubtitle: "where Builders, Dreamers, and Innovators connect.",
+  introductionCardTitle_1: "Insights from Experts & Hands-on Experiences",
+  introductionCardDesc_1: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+  introductionCardTitle_2: "Global Connection, Taiwan's Spotlight",
+  introductionCardDesc_2:
     "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
-  introductionCardTitle_2: "Insights from Experts & Hands-on Experiences",
   // `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
-  introductionCardDesc_2: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
   introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
   introductionCardDesc_3_1:
-    "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (check out our 2023 edition ",
+    "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (2024 edition ",
   introductionCardDesc_3_2: "here",
   introductionCardDesc_3_3:
-    ", as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
+    "), as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
 
   activityTitle: `ETHTaipei ${year} Events`,
+  activitySubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
   activityName_1: "Conference",
   activityDesc_1:
     "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
@@ -92,9 +98,10 @@ const homepage = {
   activityDate_3: dateDayMonthYear,
   activityBtn_3: "See Events",
 
-  recapTitle: "Recap! 2023 Edition",
-  recapViewMore: "View More",
-  recapHide: "Hide",
+  recapTitle: "Recap! 2024 Edition",
+  recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
+  recapViewMore: "Load More",
+  recapHide: "Show Less",
 };
 
 const agenda = `${lastYear} Agenda`;
@@ -111,6 +118,7 @@ const navs = {
   sideEvent: "Side Event",
   faq: "Info",
   goldcard: "Gold Card",
+  visaInfo: "Visa Info",
   venue: "Venue",
   brand: "Brand",
 };
@@ -124,23 +132,25 @@ const participation = {
 const sponsorHighlight = {
   sponsorHighlightTitle: "Sponsor Highlights",
   readMore: "Read more",
+  sponsorSubtitle: "These Sponsors Make ETHTaipei Possible!",
 };
 
 const visa = {
   visaTitle: "Info",
   visaQuestion1: "Do I need a visa to enter Taiwan?",
   visaAnswer1Part1:
-    "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days, depending on the country. Please visit the website of the ",
+    "Taiwan grants a visa exemption to visitors from 65 countries for stays of 14-90 days. Please visit the website of the ",
   BureauOfConsularAffairs: "Bureau of Consular Affairs website",
   visaAnswer1Part2: " for more details.",
   visaQuestion2: "What if I need a visa?",
   visaAnswer2Part1:
-    "ETHTaipei can provide invitation letters for business visas. Please contact us via ",
-  telegram: "telegram",
-  visaAnswer2Part2: ".",
-  visaInvitationLetter1: "If you need the invitation letter, please fill ",
-  visaInvitationLetter2: "this form",
-  visaInvitationLetter3: " and we'll contact you within a week.",
+    "ETHTaipei can provide invitation letters for business visas.",
+
+  visaAnswer2Part2: "If you need an invitation letter, please first fill ",
+  form: "this form",
+  visaAnswer2Part3: ", and contact us via ",
+  telegram: "Telegram",
+  visaAnswer2Part4: ". We'll get back to you within a week.",
 };
 
 const goldcard = {
