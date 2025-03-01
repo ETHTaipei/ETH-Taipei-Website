@@ -10,10 +10,9 @@ const Container = styled.div`
   width: 100%;
   padding: 120px 40px;
   background-color: rgba(0, 0, 0, 0.5);
-  scroll-margin-top: -20px;
+  scroll-margin-top: -10px;
   @media (max-width: 768px) {
     padding: 60px 24px;
-    scroll-margin-top: -50px;
   }
 `;
 
