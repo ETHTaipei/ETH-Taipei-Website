@@ -41,7 +41,6 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
             </InfoWrapper> */}
-
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2_2}</InfoDescription>
@@ -66,7 +65,6 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
             </InfoWrapper>
-            {/* uncomment when side events are confirmed
             <Icon>
               <Image
                 src={"/images/2025/FirstViewBanner/SideEvent_Icon.svg"}
@@ -82,7 +80,7 @@ const Banner = () => {
                   {t.homepage.bannerInfoDesc_2_1}
                 </a>
               </InfoDescription>
-            </InfoWrapper> */}
+            </InfoWrapper>
           </Info>
         </InfoContainer>
         <ScrollingIconsBg>
