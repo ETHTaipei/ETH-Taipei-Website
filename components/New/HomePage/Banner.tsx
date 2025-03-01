@@ -13,10 +13,11 @@ const Banner = () => {
     <Container>
       <MainContent>
         <TitleContainer>
-        <StyledImage 
-        id="ETHTaipeiOrg" 
-        src="/images/2025/FirstViewBanner/ETHTaipeiOrg.png" 
-        alt="ETHTaipeiOrg" />
+          <StyledImage
+            id="ETHTaipeiOrg"
+            src="/images/2025/FirstViewBanner/ETHTaipeiOrg.png"
+            alt="ETHTaipeiOrg"
+          />
           {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
           {/* <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title> */}
           {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_3}</Title> */}
@@ -40,7 +41,7 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
             </InfoWrapper> */}
-            
+
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_2_2}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_2_2}</InfoDescription>
@@ -50,10 +51,10 @@ const Banner = () => {
               <InfoDescription>{t.homepage.bannerInfoDesc_2_3}</InfoDescription>
             </InfoWrapper>
           </Info>
-          </InfoContainer>
-          <InfoContainer>
+        </InfoContainer>
+        <InfoContainer>
           <Info>
-          <Icon>
+            <Icon>
               <Image
                 src={"/images/2025/FirstViewBanner/Location_Icon.svg"}
                 alt="calendar"
@@ -65,6 +66,7 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
             </InfoWrapper>
+            {/* uncomment when side events are confirmed
             <Icon>
               <Image
                 src={"/images/2025/FirstViewBanner/SideEvent_Icon.svg"}
@@ -80,9 +82,8 @@ const Banner = () => {
                   {t.homepage.bannerInfoDesc_2_1}
                 </a>
               </InfoDescription>
-            </InfoWrapper>
+            </InfoWrapper> */}
           </Info>
-          
         </InfoContainer>
         <ScrollingIconsBg>
           <ScrollingIconsWrapper>
@@ -94,35 +95,32 @@ const Banner = () => {
         <CountdownContainer>
           <CountdownTimer />
         </CountdownContainer>
-        
-
-
       </MainContent>
       <RightSection>
-          {/* 右上角文字區塊 */}
-          <SpeechBubble>
-            Unleashing a New Era of Blockchain in Taiwan
-          </SpeechBubble>
+        {/* 右上角文字區塊 */}
+        <SpeechBubble>
+          Unleashing a New Era of Blockchain in Taiwan
+        </SpeechBubble>
 
-          {/* Recap Video 區塊 */}
-          <RecapVidContainer>
-            <RecapVideo autoPlay loop muted>
-              <source src="/videos/ETHTaipei_2024_Recap.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </RecapVideo>
-          </RecapVidContainer>
+        {/* Recap Video 區塊 */}
+        <RecapVidContainer>
+          <RecapVideo autoPlay loop muted>
+            <source src="/videos/ETHTaipei_2024_Recap.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </RecapVideo>
+        </RecapVidContainer>
 
-          {/* 半透明藍色背景（放在影片之後） */}
-          <RecapVidBg />
+        {/* 半透明藍色背景（放在影片之後） */}
+        <RecapVidBg />
 
-          {/* 右側小圖示 */}
-          <SpeechBubble2>
-            <PixelIcon />
-          </SpeechBubble2>
-          <PixelIconTaiwan />
-          <PixelIconTaipei101 />
-          <PixelIconMountain />
-        </RightSection>
+        {/* 右側小圖示 */}
+        <SpeechBubble2>
+          <PixelIcon />
+        </SpeechBubble2>
+        <PixelIconTaiwan />
+        <PixelIconTaipei101 />
+        <PixelIconMountain />
+      </RightSection>
       <GridOverlay />
       <BrandVideo />
     </Container>
@@ -137,24 +135,21 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: flex-start; 
+  align-items: flex-start;
   margin: auto;
   padding: 0 0px;
-
 
   @media (max-width: 1280px) {
     width: 100%;
   }
   @media (max-width: 1024px) {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     height: auto;
     padding: 0 0% 10%;
     overflow: hidden;
-    
   }
 `;
-
 
 const MainContent = styled.div`
   display: flex;
@@ -162,46 +157,21 @@ const MainContent = styled.div`
   justify-content: center;
   // outline:red 5px solid;
   flex-grow: 1;
-flex-basis: 0;
+  flex-basis: 0;
   width: 85%;
   height: 100%;
-  
+
   @media (max-width: 1024px) {
-    
   }
 `;
 
 const TitleContainer = styled.div`
   display: flex;
-  margin-top:30px;
+  margin-top: 30px;
   flex-wrap: wrap;
   font-size: 70px;
   @media (max-width: 768px) {
     font-size: 50px;
-  }
-`;
-
-const Title = styled.h1<{ color: string }>`
-  font-family: 'W95fa';
-  color: ${(props) => props.color};
-`;
-
-const SubTitle = styled.div`
-  color: black;
-  font-family: 'W95fa';
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 30px;
-  margin-top: 8px;
-  letter-spacing: 1.8px;
-    @media (max-width: 1280px) {
-    font-size: 24px;
-  }
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-    @media (max-width: 476px) {
-    font-size: 20px;
   }
 `;
 
@@ -224,7 +194,7 @@ const Icon = styled.div`
   width: 55px;
   height: 55px;
   position: relative;
-    @media (max-width: 1280px) {
+  @media (max-width: 1280px) {
     width: 45px;
     height: 45px;
   }
@@ -234,9 +204,9 @@ const InfoWrapper = styled.div``;
 
 const InfoTitle = styled.div`
   font-size: 18px;
-  font-family: 'W95fa';
+  font-family: "W95fa";
   @media (max-width: 1280px) {
-  font-size: 16px;
+    font-size: 16px;
   }
   @media (max-width: 1024px) {
     font-size: 18px;
@@ -249,12 +219,12 @@ const InfoDescription = styled.div`
   max-width: 200px;
   line-height: 18px;
   @media (max-width: 1280px) {
-  font-size: 12px;
-  max-width: 150px;
+    font-size: 12px;
+    max-width: 150px;
   }
   @media (max-width: 476px) {
-  font-size: 12px;
-  max-width: 230px;
+    font-size: 12px;
+    max-width: 230px;
   }
 `;
 
@@ -265,15 +235,15 @@ const CountdownContainer = styled.div`
 const StyledImage = styled.img`
   width: 34vw;
   margin-top: 9%;
-   @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     width: 80%;
     margin-top: 15%;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 95%;
     margin-top: 20%;
   }
-`
+`;
 const GridOverlay = styled.div`
   position: absolute;
   top: 0;
@@ -282,7 +252,7 @@ const GridOverlay = styled.div`
   height: 100vh;
   opacity: 0.4;
   background-size: 100% auto;
-  z-index:-1;
+  z-index: -1;
   background-image: url(/images/2025/FirstViewBanner/white_grid.svg);
 `;
 
@@ -290,23 +260,23 @@ const ScrollingIconsWrapper = styled.div`
   display: flex;
   width: 200%;
   animation: marquee 10s linear infinite;
-  height:34px;
-  margin-top:6px;
-   @media (max-width: 476px) {
+  height: 34px;
+  margin-top: 6px;
+  @media (max-width: 476px) {
     width: 300%;
   }
-    @keyframes marquee {
-  from {
-    transform: translateX(0%);
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
-  to {
-    transform: translateX(-50%);
-  }
-}
 `;
 
 const ScrollingIconsBg = styled.div`
-  width:90vw;
+  width: 90vw;
   height: 48px;
   background: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
@@ -316,14 +286,14 @@ const ScrollingIconsBg = styled.div`
   @media (max-width: 1024px) {
     margin-left: -10%;
     overflow: show;
-    width:110vw;
+    width: 110vw;
     height: 48px;
   }
-`
+`;
 const ScrollingIcons = styled.div`
   display: flex;
   width: 100%;
-  height:34px;
+  height: 34px;
   background-image: url("/images/2025/FirstViewBanner/Scrolling_Icons.png");
   background-size: contain;
   background-repeat: repeat-x;
@@ -336,41 +306,40 @@ const SpeechBubble = styled.div`
   width: 300px;
   height: 180px;
   padding: 30px 120px 90px 30px;
-  border-radius:12px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.85);
   font-size: 18px;
-  line-height:120%;
+  line-height: 120%;
   color: black;
   align-items: center;
   @media (max-width: 1024px) {
     width: 300px;
     height: 150px;
-    position:absolute;
-    top:-75px;
-    right:30px;
-    text-align:left;
+    position: absolute;
+    top: -75px;
+    right: 30px;
+    text-align: left;
   }
-    @media (max-width: 786px) {
+  @media (max-width: 786px) {
     width: 36vw;
     height: 10vw;
-    position:absolute;
-    top:0vw;
-    right:5vw;
-    text-align:left;
+    position: absolute;
+    top: 0vw;
+    right: 5vw;
+    text-align: left;
     font-size: 12px;
     padding: 4vw 15vw 12vw 4vw;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 42vw;
     height: 30vw;
-    position:absolute;
-    top:-12vw;
-    right:5vw;
-    text-align:left;
+    position: absolute;
+    top: -12vw;
+    right: 5vw;
+    text-align: left;
     font-size: 12px;
     padding: 4vw 15vw 12vw 4vw;
   }
-
 `;
 
 const SpeechBubble2 = styled.div`
@@ -380,10 +349,10 @@ const SpeechBubble2 = styled.div`
   width: 80px;
   height: 120px;
   padding: 12px;
-  border-radius:8px;
-  background: #CBF101;
+  border-radius: 8px;
+  background: #cbf101;
   font-size: 18px;
-  line-height:120%;
+  line-height: 120%;
   color: black;
   display: flex;
   align-items: center;
@@ -391,38 +360,37 @@ const SpeechBubble2 = styled.div`
   @media (max-width: 1024px) {
     width: 80px;
     height: 120px;
-    position:absolute;
-    top:-30px;
-    right:60px;
+    position: absolute;
+    top: -30px;
+    right: 60px;
   }
-    @media (max-width: 786px) {
+  @media (max-width: 786px) {
     width: 10vw;
     height: 15vw;
-    position:absolute;
-    top:4vw;
-    right:8vw;
+    position: absolute;
+    top: 4vw;
+    right: 8vw;
     padding: 6px;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 10vw;
     height: 15vw;
-    position:absolute;
-    top:-9vw;
-    right:8vw;
+    position: absolute;
+    top: -9vw;
+    right: 8vw;
     padding: 6px;
   }
-
 `;
 
 const PixelIcon = styled.div`
   width: 80px;
   height: 100px;
-  margin:auto;
-  top:0;
-  background-image:url("/images/2025/FirstViewBanner/Logo_Icon.svg");
+  margin: auto;
+  top: 0;
+  background-image: url("/images/2025/FirstViewBanner/Logo_Icon.svg");
   background-size: contain;
   background-position: center center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   // outline: red solid 5px
   @media (max-width: 786px) {
     width: 12vw;
@@ -432,9 +400,9 @@ const PixelIcon = styled.div`
 
 const RecapVidContainer = styled.div`
   bottom: 0;
-  top:0;
-  margin:auto ;
-  margin-top:60px;
+  top: 0;
+  margin: auto;
+  margin-top: 60px;
   width: 498px;
   height: 284px;
   position: absolute;
@@ -449,37 +417,37 @@ const RecapVidContainer = styled.div`
   @media (max-width: 1024px) {
     width: 79.2vw;
     height: 45.1vw;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    margin:auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
   }
-    @media (max-width: 786px) {
+  @media (max-width: 786px) {
     width: 84vw;
     height: 48vw;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    margin:auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
   }
 `;
 
 const RecapVideo = styled.video`
   width: 100%;
   height: 100%;
-  border: 4px solid #CBF101;
-  border-radius:36px 12px;
+  border: 4px solid #cbf101;
+  border-radius: 36px 12px;
   position: absolute;
 `;
 
 const RecapVidBg = styled.div`
   position: absolute;
   bottom: 0; /* 確保它比影片稍微往下 */
-  top:0;
-  margin:auto;
-  margin-top:10px;
+  top: 0;
+  margin: auto;
+  margin-top: 10px;
   width: 600px;
   height: 32vw;
   background: rgba(0, 100, 255, 0.3);
@@ -488,85 +456,84 @@ const RecapVidBg = styled.div`
   filter: blur(80px);
 `;
 
-
 const PixelIconTaiwan = styled.div`
   width: 55px;
   height: 110px;
-  position:absolute;
-  top:-10px;
-  left:110px;
-  background-image:url("/images/2025/FirstViewBanner/Taiwan_Icon.svg");
+  position: absolute;
+  top: -10px;
+  left: 110px;
+  background-image: url("/images/2025/FirstViewBanner/Taiwan_Icon.svg");
   background-size: contain;
   background-position: center center;
-  background-repeat:no-repeat;
-  opacity:0.8;
+  background-repeat: no-repeat;
+  opacity: 0.8;
   @media (max-width: 1024px) {
     width: 50px;
     height: 100px;
-    position:absolute;
-    top:-0px;
-    left:30%;
+    position: absolute;
+    top: -0px;
+    left: 30%;
   }
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     width: 30px;
     height: 70px;
-    position:absolute;
-    top:-30px;
-    left:30%;
+    position: absolute;
+    top: -30px;
+    left: 30%;
   }
 `;
 
 const PixelIconTaipei101 = styled.div`
   width: 80px;
   height: 150px;
-  position:absolute;
-  bottom:-80px;
-  right:-80px;
-  background-image:url("/images/2025/FirstViewBanner/Taipei101_Icon.svg");
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  background-image: url("/images/2025/FirstViewBanner/Taipei101_Icon.svg");
   background-size: contain;
   background-position: center center;
-  background-repeat:no-repeat;
-  opacity:0.8;
+  background-repeat: no-repeat;
+  opacity: 0.8;
   @media (max-width: 1024px) {
     width: 80px;
     height: 120px;
-    position:absolute;
-    bottom:20px;
-    right:0px;
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 50px;
     height: 70px;
-    position:absolute;
-    bottom:0px;
-    right:-10px;
+    position: absolute;
+    bottom: 0px;
+    right: -10px;
   }
 `;
 
 const PixelIconMountain = styled.div`
   width: 120px;
   height: 60px;
-  position:absolute;
-  bottom:-100px;
-  left:0px;
-  background-image:url("/images/2025/FirstViewBanner/Mountain_Icon.svg");
+  position: absolute;
+  bottom: -100px;
+  left: 0px;
+  background-image: url("/images/2025/FirstViewBanner/Mountain_Icon.svg");
   background-size: contain;
   background-position: center center;
-  background-repeat:no-repeat;
-  opacity:0.8;
+  background-repeat: no-repeat;
+  opacity: 0.8;
   @media (max-width: 1024px) {
     width: 100px;
     height: 80px;
-    position:absolute;
-    bottom:-10px;
-    left:30px;
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 60px;
     height: 40px;
-    position:absolute;
-    bottom:-10px;
-    left:30px;
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
   }
 `;
 
@@ -574,7 +541,7 @@ const RightSection = styled.div`
   position: relative;
   // outline: red solid 5px;
   width: 700px;
-  height:280px;
+  height: 280px;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -588,7 +555,7 @@ const RightSection = styled.div`
     right: 0;
     align-items: center;
     text-align: center;
-    height:520px;
+    height: 520px;
     margin: 50px auto auto auto;
   }
   @media (max-width: 786px) {
@@ -596,18 +563,15 @@ const RightSection = styled.div`
     right: 0;
     align-items: center;
     text-align: center;
-    height:380px;
+    height: 380px;
     margin: 10vw auto auto auto;
-    
   }
-    @media (max-width: 476px) {
+  @media (max-width: 476px) {
     width: 90%;
     right: 0;
     align-items: center;
     text-align: center;
-    height:220px;
+    height: 220px;
     margin: 10vw auto auto auto;
-    
   }
 `;
-
