@@ -112,7 +112,7 @@ const Activities = () => {
             description={t.homepage.activityDesc_3}
             date={t.homepage.activityDate_3}
             buttonText={t.homepage.activityBtn_3}
-            isActivated={false}
+            isActivated={true}
             linkUrl={sideEventFormUrl}
           />
         </ActivityCardWrapper>

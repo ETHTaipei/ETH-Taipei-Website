@@ -124,7 +124,6 @@ function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
     <RoundedImageWrapper>
       <Image
         src={speaker.img}
-        style={{ borderRadius: "100%" }}
         fill
         alt={speaker.name}
       />
