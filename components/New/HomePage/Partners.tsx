@@ -7,6 +7,16 @@ import { useMediaPartners } from "../../hooks/useMediaPartners";
 import { usePartners } from "../../hooks/usePartners";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 
+const SmileIcon = () => (
+  <Image
+    src="./images/icons/smile.svg"
+    alt="Smile icon"
+    width={36}
+    height={36}
+    style={{ marginRight: 16 }}
+  />
+);
+
 const Partners = () => {
   const { mediaPartners } = useMediaPartners();
   const { partners } = usePartners();
@@ -16,10 +26,7 @@ const Partners = () => {
       <MainContent>
         <PartnerContainer>
           <Title>
-            <img
-              src="./images/icons/smile.svg"
-              style={{ marginRight: 16, height: 36 }}
-            />
+            <SmileIcon />
             {t.homepage.partners}
           </Title>
           <Subtitle>{t.homepage.partnersDesc}</Subtitle>
@@ -36,10 +43,7 @@ const Partners = () => {
         </PartnerContainer>
         <PartnerContainer>
           <Title>
-            <img
-              src="./images/icons/smile.svg"
-              style={{ marginRight: 16, height: 36 }}
-            />
+            <SmileIcon />
             {t.homepage.mediaPartners}
           </Title>
           <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
@@ -70,7 +74,7 @@ const Container = styled.div`
   padding: 120px 40px;
 
   @media (max-width: 768px) {
-    padding: 60px 24px;
+    padding: 0px 24px 80px 24px;
   }
 `;
 
@@ -114,7 +118,7 @@ const SponsorsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  margin-top: 80px;
+  margin-top: 40px;
   @media (max-width: 768px) {
     gap: 32px;
   }

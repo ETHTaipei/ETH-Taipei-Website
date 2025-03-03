@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import Image from "next/image";
 import t from "@/public/constant/content";
 import {
   sideEventApplyUrl,
@@ -13,7 +14,12 @@ import BackgroundVideo from "./BackgroundVideo";
 const ActionButton = ({ url, text }: { url: string; text: string }) => (
   <Action onClick={() => openNewTab(url)}>
     {text}
-    <img src="./images/icons/arrow-right.svg" />
+    <Image
+      src="./images/icons/arrow-right.svg"
+      alt="Arrow icon"
+      width={20}
+      height={20}
+    />
   </Action>
 );
 
@@ -53,7 +59,12 @@ const Participation = () => {
           </Description>
         </InfoContainer>
         <ActionContainer>
-          <img src="./images/icons/participation.svg" />
+          <Image
+            src="./images/icons/participation.svg"
+            alt="Participation icon"
+            width={291}
+            height={62}
+          />
           <ActionButtons />
         </ActionContainer>
       </MainContent>

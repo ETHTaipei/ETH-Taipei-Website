@@ -14,9 +14,12 @@ const Organizers = () => {
       <MainContent>
         <ContentCenter>
           <OrganizersTitle>
-            <img
+            <Image
               src="./images/icons/butterfly-green.svg"
-              style={{ marginRight: 12, height: 30 }}
+              style={{ marginRight: 12 }}
+              height={36}
+              width={36}
+              alt="Organizers icon"
             />
             Organizers
           </OrganizersTitle>
@@ -77,9 +80,6 @@ const Container = styled.div`
   padding: 120px 90px 0px 90px;
 
   @media (max-width: 768px) {
-    padding: 60px 16px;
-  }
-  @media (max-width: 476px) {
     padding: 60px 16px 0px 16px;
   }
 `;
@@ -90,13 +90,6 @@ const MainContent = styled.div`
 
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
-
-  @media (max-width: 768px) {
-    padding: 60px 24px;
-  }
-  @media (max-width: 476px) {
-    padding: 60px 16px 0px 16px;
-  }
 `;
 
 const ContentCenter = styled.div`
@@ -124,12 +117,11 @@ const OrganizersList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  gap: 0px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 `;
 

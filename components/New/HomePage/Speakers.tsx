@@ -24,7 +24,12 @@ const Speakers = () => {
       <MainContent>
         <Title>
           <TitleIcon>
-            <img src="./images/icons/cat.svg" />
+            <Image
+              src="./images/icons/cat.svg"
+              alt="Cat icon"
+              width={138}
+              height={40}
+            />
           </TitleIcon>
           {t.homepage.speakers}
         </Title>
