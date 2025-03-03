@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import { OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
 import { usePastContributors } from "@/components/hooks/useContributors";
@@ -59,16 +59,13 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
 export default Contributors;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 60px 90px 130px 90px;
-  background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
 
   @media (max-width: 768px) {
     padding: 60px 16px;

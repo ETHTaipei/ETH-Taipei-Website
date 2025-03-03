@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import { SponsorProps, useSponsors } from "@/components/hooks/useSponsors";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
@@ -67,22 +68,15 @@ function Sponsor({ sponsor }: { sponsor: SponsorProps }) {
 export default Sponsors;
 
 const Container = styled.div`
+  ${GrayGridBackgroundStyles}
   position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 120px 40px 0px 40px;
-  background-color:rgba(237, 237, 237, 0.85);
-  background-image: 
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px);
-  }
 
   @media (max-width: 768px) {
     padding: 60px 24px;
-    background-image: 
-      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 45px),
-      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 

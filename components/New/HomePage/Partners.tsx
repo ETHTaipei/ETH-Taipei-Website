@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { useMediaPartners } from "../../hooks/useMediaPartners";
 import { usePartners } from "../../hooks/usePartners";
+import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 
 const Partners = () => {
   const { mediaPartners } = useMediaPartners();
@@ -61,22 +62,15 @@ const Partners = () => {
 export default Partners;
 
 const Container = styled.div`
+  ${GrayGridBackgroundStyles}
   position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-color:rgba(237, 237, 237, 0.85);
-  background-image: 
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 70px);
-  }
 
   @media (max-width: 768px) {
     padding: 60px 24px;
-    background-image: 
-      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.5) 1px, transparent 1px, transparent 45px),
-      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
   }
 `;
 

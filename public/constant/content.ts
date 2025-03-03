@@ -67,17 +67,13 @@ const homepage = {
   introductionTitle: "What is ETHTaipei?",
   introductionSubtitle: "where Builders, Dreamers, and Innovators connect.",
   introductionCardTitle_1: "Insights from Experts & Hands-on Experiences",
-  introductionCardDesc_1: `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in workshops and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+  introductionCardDesc_1: `At ETHTaipei, you'll hear from renowned experts, scholars, and industry leaders as they discuss the latest trends and applications of Ethereum. Beyond the talks, you can also participate in hands-on workshops and side events, gaining unique experiences while connecting and collaborating with fellow attendees.`,
   introductionCardTitle_2: "Global Connection, Taiwan's Spotlight",
   introductionCardDesc_2:
-    "With a vibrant Ethereum and developer community, ETHTaipei unites Ethereum-focused teams from across the globe, showcasing Taiwan as a significant hub for blockchain technology. This event also offers Taiwanese teams a platform to connect with the global community and gain increased visibility.",
-  // `At ETHTaipei, you'll have the chance to hear renowned experts, scholars, and industry leaders from around the world discuss the latest trends and applications of Ethereum. You can also participate in hackathons, workshops, and various other activities, fostering collaboration and idea exchange with developers worldwide to build valuable blockchain applications.`,
+    "ETHTaipei brings together Ethereum-focused teams from around the world, uniting local Ethereum and developer communities while highlighting Taiwan as a vibrant hub for Ethereum ecosystem. It also provides a platform for Taiwanese developers and teams to connect with the global community and gain greater visibility.",
   introductionCardTitle_3: "A Frontier Platform for Learning & Collaboration",
   introductionCardDesc_3_1:
-    "ETHTaipei presents an unparalleled opportunity to learn about cutting-edge technology and applications about Ethereum (2024 edition ",
-  introductionCardDesc_3_2: "here",
-  introductionCardDesc_3_3:
-    "), as well as to get involved with the local community in Taiwan. We look forward to collaborating with you in advancing Ethereum globally and creating a better future together.",
+    "ETHTaipei offers an unparalleled opportunity to explore cutting-edge Ethereum technology and applications while connecting with local communities in Taiwan. We look forward to your participation to build and advance Ethereum together!",
 
   activityTitle: `ETHTaipei ${year} Events`,
   activitySubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
