@@ -3,12 +3,12 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
-import { useOrganizers, OrganizerType } from "@/components/hooks/useOrganizers";
+import { OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
-import { useContributors } from "@/components/hooks/useContributors";
+import { usePastContributors } from "@/components/hooks/useContributors";
 
 const Contributors = () => {
-  const { contributors } = useContributors();
+  const { pastContributors } = usePastContributors();
 
   return (
     <Container>
@@ -19,13 +19,13 @@ const Contributors = () => {
               src="./images/icons/contributors.svg"
               style={{ marginRight: 12 }}
             />
-            Contributors
+            Past Contributors
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The people behind the scenes, growing Web3!!
+            {"ETHTaipei won't be possible without you <3"}
           </OrganizersSubtitle>
           <OrganizersList>
-            {contributors.map((organizer, index) => (
+            {pastContributors.map((organizer, index) => (
               <OrganizerCard organizer={organizer} key={index} />
             ))}
           </OrganizersList>

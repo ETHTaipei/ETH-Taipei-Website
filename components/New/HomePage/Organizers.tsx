@@ -21,7 +21,7 @@ const Organizers = () => {
             Organizers
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The team that makes ETHTaipei happen!!
+            The team that makes ETHTaipei happen!
           </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
