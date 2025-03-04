@@ -103,7 +103,7 @@ const Banner = () => {
         {/* Recap Video 區塊 */}
         <RecapVidContainer>
           <RecapVideo autoPlay loop muted>
-            <source src="/videos/ETHTaipei_2024_Recap.mp4" type="video/mp4" />
+            <source src="/videos/2024_recap.webm" type="video/webm" />
             Your browser does not support the video tag.
           </RecapVideo>
         </RecapVidContainer>

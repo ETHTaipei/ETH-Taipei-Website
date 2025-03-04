@@ -6,7 +6,7 @@ const BrandVideo = () => {
       <Cover />
       <VideoContainer>
         <Video autoPlay muted loop playsInline>
-          <source src="/videos/main_retime 3logo_20s.mp4" type="video/mp4" />
+          <source src="/videos/icon_transform.webm" type="video/webm" />
           Your browser does not support the video tag.
         </Video>
       </VideoContainer>
@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 const Cover = styled.div`
-  background: linear-gradient(180deg, #FFFFFF 0%, #EFEFEF 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #efefef 100%);
   opacity: 0.75;
   position: absolute;
   top: 0;
