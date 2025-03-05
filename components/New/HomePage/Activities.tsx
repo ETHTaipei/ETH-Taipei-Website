@@ -86,7 +86,7 @@ const Activities = () => {
         <Subtitle>{t.homepage.activitySubTitle}</Subtitle>
         <ActivityCardWrapper>
           <ActivityCardComponent
-            imageSrc="/images/activities/1.jpg"
+            imageSrc="/images/recap-2024/1.jpg"
             imageAlt={t.homepage.activityName_1}
             name={t.homepage.activityName_1}
             description={t.homepage.activityDesc_1}
@@ -106,7 +106,7 @@ const Activities = () => {
             linkUrl={hackathonUrl}
           /> */}
           <ActivityCardComponent
-            imageSrc="/images/activities/2.jpg"
+            imageSrc="/images/recap-2024/2.jpg"
             imageAlt={t.homepage.activityName_3}
             name={t.homepage.activityName_3}
             description={t.homepage.activityDesc_3}

@@ -20,7 +20,7 @@ const Introduction = () => {
           <Card>
             <CardImg>
               <Image
-                src="/images/introduction/1.jpg"
+                src="/images/recap-2024/7.jpg"
                 alt={t.homepage.introductionCardTitle_1}
                 fill
                 style={{ objectFit: "cover" }}
@@ -33,7 +33,7 @@ const Introduction = () => {
             <RightCard>
               <CardImg>
                 <Image
-                  src="/images/introduction/2.jpg"
+                  src="/images/recap-2024/3.jpg"
                   alt={t.homepage.introductionCardTitle_2}
                   fill
                   style={{ objectFit: "cover" }}
@@ -47,7 +47,7 @@ const Introduction = () => {
             <RightCard>
               <CardImg>
                 <Image
-                  src="/images/introduction/3.jpg"
+                  src="/images/recap-2024/4.jpg"
                   alt={t.homepage.introductionCardTitle_3}
                   fill
                   style={{ objectFit: "cover" }}
