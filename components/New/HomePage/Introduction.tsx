@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
-import BackgroundVideo from "./BackgroundVideo";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
+import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
 
 const Introduction = () => {
   return (
     <Container>
-      <BgDecoration>
-        <BgImage src={"/images/background/taipei-101.svg"} alt="decoration" />
-      </BgDecoration>
+      <BackgroundBottomDecoration />
       <MainContent>
         <TitleContainer>
           <IconImg src={"/images/icons/temple.svg"} alt="boba" />
@@ -21,7 +20,7 @@ const Introduction = () => {
           <Card>
             <CardImg>
               <Image
-                src="/images/introduction/1.jpg"
+                src="/images/recap-2024/7.jpg"
                 alt={t.homepage.introductionCardTitle_1}
                 fill
                 style={{ objectFit: "cover" }}
@@ -34,7 +33,7 @@ const Introduction = () => {
             <RightCard>
               <CardImg>
                 <Image
-                  src="/images/introduction/2.jpg"
+                  src="/images/recap-2024/3.jpg"
                   alt={t.homepage.introductionCardTitle_2}
                   fill
                   style={{ objectFit: "cover" }}
@@ -48,7 +47,7 @@ const Introduction = () => {
             <RightCard>
               <CardImg>
                 <Image
-                  src="/images/introduction/3.jpg"
+                  src="/images/recap-2024/4.jpg"
                   alt={t.homepage.introductionCardTitle_3}
                   fill
                   style={{ objectFit: "cover" }}
@@ -56,17 +55,12 @@ const Introduction = () => {
               </CardImg>
               <CardContent>
                 <CardImgDesc>{t.homepage.introductionCardTitle_3}</CardImgDesc>
-                <CarInfo>
-                  {t.homepage.introductionCardDesc_3_1}
-                  <A>{t.homepage.introductionCardDesc_3_2}</A>
-                  {t.homepage.introductionCardDesc_3_3}
-                </CarInfo>
+                <CarInfo>{t.homepage.introductionCardDesc_3_1}</CarInfo>
               </CardContent>
             </RightCard>
           </RightCardContainer>
         </CardContainer>
       </MainContent>
-      {/* <BackgroundVideo /> */}
     </Container>
   );
 };
@@ -74,43 +68,27 @@ const Introduction = () => {
 export default Introduction;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-image: url("/images/2025/OtherSection/WhatsETHTaipeBg.jpg");
-  background-attachment: fixed;
-  background-position:center center;
-  background-size: cover;
+  padding: 120px 40px;
 
-  padding: 120px 40px 120px 40px;
   @media (max-width: 768px) {
     padding: 60px 24px 120px 24px;
   }
 `;
 
-const BgDecoration = styled.div`
-  position: absolute;
-  bottom: 0px;
-  right: 60px;
-  @media (max-width: 768px) {
-    right: 0px;
-  }
-`;
-
-const BgImage = styled.img`
-  width: 90%;
-  opacity:0.6;
-  margin-right:-80px;
-  @media (max-width: 768px) {
-    width: 112px;
-  }
-`;
-
 const MainContent = styled.div`
   width: 90vw;
-  max-width: 1120px;
-  margin:auto;
+  max-width: 1200px;
+  margin: auto;
+  /* add margin-bottom for BackgroundBottomDecoration */
+  margin-bottom: 80px;
+  @media (max-width: 768px) {
+    margin-bottom: 0px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -224,18 +202,12 @@ const CardImgDesc = styled.div`
   font-size: 24px;
   color: ${Colors.neonGreen};
   line-height: 28px;
-  margin-top:8px;
+  margin-top: 8px;
 `;
 
 const CarInfo = styled.div`
   font-family: "Inter";
-  font-size: 12px;
+  font-size: 14px;
   line-height: 21px;
   letter-spacing: 0.5px;
-`;
-
-const A = styled.a`
-  color: ${Colors.aero};
-  text-decoration: underline;
-  cursor: pointer;
 `;

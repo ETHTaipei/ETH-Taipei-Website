@@ -7,25 +7,25 @@ export type ContributorType = {
   titleAndCompany: string;
   profile: string;
   companyLink: string;
-  img: string
+  img: string;
 };
 
-const query = gql`query organizers {
-  contributors (first: 20) {
-    name
-    titleAndCompany
-    profile
-    companyLink
-    img
+const query = gql`
+  query organizers {
+    contributors(first: 20) {
+      name
+      titleAndCompany
+      profile
+      companyLink
+      img
+    }
   }
-}
 `;
 
-export const useContributors = () => {
+export const usePastContributors = () => {
+  const { data } = useQuery<{ contributors: ContributorType[] }>(query);
 
-  const { data } = useQuery<{contributors: ContributorType[]}>(query);
+  const pastContributors = data?.contributors || [];
 
-  const contributors = data?.contributors || [];
-
-  return {  contributors };
+  return { pastContributors };
 };

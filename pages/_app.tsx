@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ethtaipei.org" />
-        <meta property="og:title" content="ETH Taipei" />
+        <meta property="og:title" content="ETHTaipei" />
         <meta property="og:description" content={t.common.ethTaipeiIntro} />
         <meta
           property="og:image"
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://ethtaipei.org" />
-        <meta property="twitter:title" content="ETH Taipei" />
+        <meta property="twitter:title" content="ETHTaipei" />
         <meta
           property="twitter:description"
           content={t.common.ethTaipeiIntro}

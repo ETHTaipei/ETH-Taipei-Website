@@ -1,31 +1,34 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
-import { useOrganizers, OrganizerType } from "@/components/hooks/useOrganizers";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
+import { OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
-import { useContributors } from "@/components/hooks/useContributors";
+import { usePastContributors } from "@/components/hooks/useContributors";
 
 const Contributors = () => {
-  const { contributors } = useContributors();
+  const { pastContributors } = usePastContributors();
 
   return (
     <Container>
       <MainContent>
         <ContentCenter>
           <OrganizersTitle>
-            <img
-              src="./images/icons/contributors.svg"
-              style={{ marginRight: 12 }}
+            <Image
+              src="/images/icons/contributors.svg"
+              alt="Contributors icon"
+              width={46}
+              height={46}
+              style={{ marginRight: 12, verticalAlign: "bottom" }}
             />
-            Contributors
+            Past Contributors
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The people behind the scenes, growing Web3!!
+            {"ETHTaipei won't be possible without you <3"}
           </OrganizersSubtitle>
           <OrganizersList>
-            {contributors.map((organizer, index) => (
+            {pastContributors.map((organizer, index) => (
               <OrganizerCard organizer={organizer} key={index} />
             ))}
           </OrganizersList>
@@ -59,19 +62,16 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
 export default Contributors;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 60px 90px 130px 90px;
-  background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
+  padding: 40px 90px;
 
   @media (max-width: 768px) {
-    padding: 60px 16px;
+    padding: 0px 16px 50px 16px;
   }
 `;
 
@@ -82,10 +82,6 @@ const MainContent = styled.div`
 
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
-
-  @media (max-width: 768px) {
-    padding: 60px 24px;
-  }
 `;
 
 const ContentCenter = styled.div`
@@ -117,12 +113,11 @@ const OrganizersList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  gap: 0px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 `;
 

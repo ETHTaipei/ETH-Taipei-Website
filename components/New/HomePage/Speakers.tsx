@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 
 import { SpeakerProps, useSpeakers } from "@/components/hooks/useSpeakers";
 import IconTwitterX from "@/components/icons/IconTwitterX";
@@ -23,7 +24,12 @@ const Speakers = () => {
       <MainContent>
         <Title>
           <TitleIcon>
-            <img src="./images/icons/cat.svg" />
+            <Image
+              src="./images/icons/cat.svg"
+              alt="Cat icon"
+              width={138}
+              height={40}
+            />
           </TitleIcon>
           {t.homepage.speakers}
         </Title>
@@ -122,11 +128,7 @@ function SpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
 function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
   return (
     <RoundedImageWrapper>
-      <Image
-        src={speaker.img}
-        fill
-        alt={speaker.name}
-      />
+      <Image src={speaker.img} fill alt={speaker.name} />
       {speaker.profile && (
         <Link href={speaker.profile} target="_blank" rel="noopener noreferrer">
           <TwitterCover>
@@ -148,16 +150,13 @@ function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
 export default Speakers;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 120px 40px;
-  background-image: url("/images/2025/OtherSection/SpeakerBg.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
   @media (max-width: 768px) {
     padding: 60px 24px;
   }

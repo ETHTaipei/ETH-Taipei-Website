@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import { useOrganizers, OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
 
@@ -14,14 +14,17 @@ const Organizers = () => {
       <MainContent>
         <ContentCenter>
           <OrganizersTitle>
-            <img
+            <Image
               src="./images/icons/butterfly-green.svg"
-              style={{ marginRight: 12, height: 30 }}
+              style={{ marginRight: 12 }}
+              height={36}
+              width={36}
+              alt="Organizers icon"
             />
             Organizers
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The team that makes ETHTaipei happen!!
+            The team that makes ETHTaipei happen!
           </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
@@ -68,21 +71,15 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
 export default Organizers;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 120px 90px 0px 90px;
-  background-image: url("/images/2025/OtherSection/ETHTaipei_Recap_Pic3.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
 
   @media (max-width: 768px) {
-    padding: 60px 16px;
-  }
-  @media (max-width: 476px) {
     padding: 60px 16px 0px 16px;
   }
 `;
@@ -93,13 +90,6 @@ const MainContent = styled.div`
 
   position: relative; // Needed for absolute positioning of the child
   overflow: hidden; // Ensures the decoration doesn't overflow the container
-
-  @media (max-width: 768px) {
-    padding: 60px 24px;
-  }
-  @media (max-width: 476px) {
-    padding: 60px 16px 0px 16px;
-  }
 `;
 
 const ContentCenter = styled.div`
@@ -127,12 +117,11 @@ const OrganizersList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
-  gap: 0px;
 
   @media (max-width: 768px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 `;
 

@@ -1,15 +1,18 @@
 import t from "@/public/constant/content";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import Image from "next/image";
 import styled from "styled-components";
 import { useCommunityPartners } from "../../hooks/usePartners";
+import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
 
 const Community = () => {
   const { partners } = useCommunityPartners();
 
   return (
     <Container>
+      <BackgroundBottomDecoration />
       <MainContent>
         <PartnerContainer>
           <Title>
@@ -29,18 +32,6 @@ const Community = () => {
           </SponsorsContainer>
         </PartnerContainer>
       </MainContent>
-      <BgDecoration position="left">
-        <BgImage
-          src={"/images/background/community-left.svg"}
-          alt="decoration-left"
-        />
-      </BgDecoration>
-      <BgDecoration position="right">
-        <BgImage
-          src={"/images/background/community-right.svg"}
-          alt="decoration-right"
-        />
-      </BgDecoration>
     </Container>
   );
 };
@@ -48,22 +39,15 @@ const Community = () => {
 export default Community;
 
 const Container = styled.div`
+  ${BlueGridBackgroundStyles}
   position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 140px 80px;
-  background-color: ${Colors.brightBlue};
-  background-image: 
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 70px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 70px);
-  }
+
   @media (max-width: 768px) {
     padding: 60px 24px;
-    background-image: 
-      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px),
-      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 45px);
-    }
   }
 `;
 
@@ -73,7 +57,7 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 120px;
+  /* add margin-bottom for BackgroundBottomDecoration */
   margin-bottom: 80px;
 `;
 
@@ -140,18 +124,5 @@ const SponsorBtn = styled.button`
   }
   @media (max-width: 768px) {
     min-height: 80px;
-  }
-`;
-
-const BgDecoration = styled.div<{ position: string }>`
-  position: absolute;
-  bottom: 0px;
-  ${(props) => (props.position === "left" ? "left: 60px;" : "right: 60px;")}
-`;
-
-const BgImage = styled.img`
-  width: 100%;
-  @media (max-width: 768px) {
-    width: 100px;
   }
 `;
