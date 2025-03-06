@@ -102,10 +102,24 @@ const Banner = () => {
 
         {/* Recap Video 區塊 */}
         <RecapVidContainer>
-          <RecapVideo autoPlay loop muted>
+          <video
+            autoPlay
+            muted
+            loop
+            id="recap-video"
+            style={{
+              objectFit: "cover",
+              border: "4px solid #cbf101",
+              borderRadius: "36px 12px",
+              position: "absolute",
+            }}
+            width={"100%"}
+            height={"100%"}
+            playsInline
+          >
             <source src="/videos/2024_recap.webm" type="video/webm" />
             Your browser does not support the video tag.
-          </RecapVideo>
+          </video>
         </RecapVidContainer>
 
         {/* 半透明藍色背景（放在影片之後） */}
@@ -430,14 +444,6 @@ const RecapVidContainer = styled.div`
     bottom: 0;
     margin: auto;
   }
-`;
-
-const RecapVideo = styled.video`
-  width: 100%;
-  height: 100%;
-  border: 4px solid #cbf101;
-  border-radius: 36px 12px;
-  position: absolute;
 `;
 
 const RecapVidBg = styled.div`
