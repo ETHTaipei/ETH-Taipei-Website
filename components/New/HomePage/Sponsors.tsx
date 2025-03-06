@@ -10,7 +10,15 @@ import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 
 const Sponsors = () => {
-  const { goldSponsors, silverSponsors, bronzeSponsors } = useSponsors();
+  const { platinumSponsors, goldSponsors, silverSponsors, bronzeSponsors } =
+    useSponsors();
+
+  const sponsors = [
+    platinumSponsors,
+    goldSponsors,
+    silverSponsors,
+    bronzeSponsors,
+  ];
 
   return (
     <Container>
@@ -28,30 +36,19 @@ const Sponsors = () => {
         <DescriptionContainer>
           <Description>{t.sponsorHighlight.sponsorSubtitle}</Description>
         </DescriptionContainer>
-        <SponsorContainer>
-          {goldSponsors.map((sponsor, i) => (
-            <Sponsor sponsor={sponsor} key={i} />
-          ))}
-        </SponsorContainer>
-        <SponsorContainer>
-          {silverSponsors.map((sponsor, i) => (
-            <Sponsor sponsor={sponsor} key={i} />
-          ))}
-        </SponsorContainer>
-        <SponsorContainer>
-          {bronzeSponsors.map((sponsor, i) => (
-            <Sponsor sponsor={sponsor} key={i} />
-          ))}
-        </SponsorContainer>
+        {sponsors.map((tierSponsors, index) => (
+          <SponsorContainer key={index}>
+            {tierSponsors.map((sponsor, i) => (
+              <Sponsor sponsor={sponsor} key={i} />
+            ))}
+          </SponsorContainer>
+        ))}
       </MainContent>
     </Container>
   );
 };
 
 function Sponsor({ sponsor }: { sponsor: SponsorProps }) {
-  const maxWidth =
-    sponsor.tier === "gold" ? 200 : sponsor.tier === "silver" ? 150 : 100;
-
   return (
     <RoundedImageWrapper>
       <Link href={sponsor.url} target="_blank" rel="noopener noreferrer">

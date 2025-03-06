@@ -27,20 +27,34 @@ const query = gql`query {
 }
 `;
 
-/**
- * 
- * @description get sponsors
- * 
- */
-export const useSponsors= () => {
-
-  const { data } = useQuery<{sponsors: SponsorProps[]}>(query);
+export const useSponsors = () => {
+  const { data } = useQuery<{ sponsors: SponsorProps[] }>(query);
 
   const all = data?.sponsors || [];
 
-  const goldSponsors = all.filter((sponsor) => sponsor.tier === "gold").map((s) => {return {...s, height: 200}});
-  const silverSponsors = all.filter((sponsor) => sponsor.tier === "silver").map((s) => {return {...s, height: 150}});
-  const bronzeSponsors = all.filter((sponsor) => sponsor.tier === "bronze").map((s) => {return {...s, height: 100}});
+  const getSponsors = (tier: string) => {
+    const height = (() => {
+      switch (tier) {
+        case "platinum":
+          return 250;
+        case "gold":
+          return 200;
+        case "silver":
+          return 150;
+        default:
+          return 100;
+      }
+    })();
 
-  return {  goldSponsors, silverSponsors, bronzeSponsors }
-}
+    return all
+      .filter((sponsor) => sponsor.tier === tier)
+      .map((s) => ({ ...s, height }));
+  };
+
+  const platinumSponsors = getSponsors("platinum");
+  const goldSponsors = getSponsors("gold");
+  const silverSponsors = getSponsors("silver");
+  const bronzeSponsors = getSponsors("bronze");
+
+  return { platinumSponsors, goldSponsors, silverSponsors, bronzeSponsors };
+};
