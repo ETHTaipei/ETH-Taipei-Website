@@ -70,7 +70,7 @@ const Container = styled.div`
   width: 100%;
   padding: 40px 90px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding: 0px 16px 50px 16px;
   }
 `;
@@ -114,7 +114,7 @@ const OrganizersList = styled.div`
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
