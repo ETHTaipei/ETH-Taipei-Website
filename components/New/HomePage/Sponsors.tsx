@@ -48,23 +48,18 @@ const Sponsors = () => {
   );
 };
 
-function Sponsor({ sponsor }: { sponsor: SponsorProps }) {
+export const Sponsor = ({ sponsor }: { sponsor: SponsorProps }) => {
   return (
-    <RoundedImageWrapper>
-      <Link href={sponsor.url} target="_blank" rel="noopener noreferrer">
-        <div>
-          <img
-            src={sponsor.img}
-            alt={sponsor.name}
-            // if width is set, then height is auto-scaled
-            height={sponsor.width ? "auto" : sponsor.height}
-            width={sponsor.width}
-          />
-        </div>
-      </Link>
-    </RoundedImageWrapper>
+    <StyledLink href={sponsor.url} target="_blank" rel="noopener noreferrer">
+      <img
+        src={sponsor.img}
+        alt={sponsor.name}
+        width={sponsor.width}
+        height="auto"
+      />
+    </StyledLink>
   );
-}
+};
 
 export default Sponsors;
 
@@ -124,19 +119,19 @@ const SponsorContainer = styled.div`
   align-items: center;
 `;
 
-const RoundedImageWrapper = styled.div`
+const StyledLink = styled(Link)`
   margin: 10px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 300ms ease;
+  display: block;
+
   :hover {
     transform: scale(1.1);
   }
+
   > img {
     object-fit: contain;
-  }
-  @media (max-width: 768px) {
-    min-height: 80px;
   }
 `;
