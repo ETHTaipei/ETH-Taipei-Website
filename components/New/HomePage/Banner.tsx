@@ -220,9 +220,6 @@ const InfoTitle = styled.div`
   @media (max-width: 1280px) {
     font-size: 16px;
   }
-  @media (max-width: 1024px) {
-    font-size: 18px;
-  }
 `;
 
 const InfoDescription = styled.div`

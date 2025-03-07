@@ -2,6 +2,7 @@
 
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
+import { PLATINUM, GOLD, SILVER, BRONZE } from "@/public/constant/logo_width";
 
 export type SponsorProps = {
   name: string;
@@ -9,9 +10,6 @@ export type SponsorProps = {
   img: string;
   tier: string;
   width: number;
-  height: number;
-  highlightDescription: string;
-  highlightLink: string;
 };
 
 const query = gql`query {
@@ -20,9 +18,6 @@ const query = gql`query {
     name
     img
     tier
-    width
-    highlightDescription
-    highlightLink
   }
 }
 `;
@@ -32,29 +27,23 @@ export const useSponsors = () => {
 
   const all = data?.sponsors || [];
 
-  const getSponsors = (tier: string) => {
-    const height = (() => {
-      switch (tier) {
-        case "platinum":
-          return 250;
-        case "gold":
-          return 200;
-        case "silver":
-          return 150;
-        default:
-          return 100;
-      }
-    })();
+  const filterSponsorByTier = (tier: string): SponsorProps[] => {
+    const width =
+      {
+        platinum: PLATINUM,
+        gold: GOLD,
+        silver: SILVER,
+      }[tier] || BRONZE;
 
     return all
       .filter((sponsor) => sponsor.tier === tier)
-      .map((s) => ({ ...s, height }));
+      .map((s) => ({ ...s, width }));
   };
 
-  const platinumSponsors = getSponsors("platinum");
-  const goldSponsors = getSponsors("gold");
-  const silverSponsors = getSponsors("silver");
-  const bronzeSponsors = getSponsors("bronze");
+  const platinumSponsors = filterSponsorByTier("platinum");
+  const goldSponsors = filterSponsorByTier("gold");
+  const silverSponsors = filterSponsorByTier("silver");
+  const bronzeSponsors = filterSponsorByTier("bronze");
 
   return { platinumSponsors, goldSponsors, silverSponsors, bronzeSponsors };
 };

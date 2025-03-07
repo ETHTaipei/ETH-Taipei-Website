@@ -1,78 +1,57 @@
 import t from "@/public/constant/content";
-import { openNewTab } from "@/public/utils/common";
-import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import Image from "next/image";
 import styled from "styled-components";
 import { useCommunityPartners } from "../../hooks/usePartners";
 import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
+import {
+  BaseContainer,
+  BaseMainContent,
+  Partner,
+  PartnersGrid,
+  Subtitle,
+  Title,
+} from "./PartnerAndSponsor";
+import Colors from "@/styles/colors";
 
 const Community = () => {
-  const { partners } = useCommunityPartners();
+  const { communityPartners } = useCommunityPartners();
 
   return (
     <Container>
       <BackgroundBottomDecoration />
-      <MainContent>
-        <PartnerContainer>
-          <Title>
-            <Icon src="/images/icons/orchid.svg" />
-            {t.homepage.communitySupport}
-          </Title>
-          <Subtitle> {t.homepage.communitySupportSubtitle}</Subtitle>
-          <SponsorsContainer>
-            {partners.map((partner) => (
-              <SponsorBtn
-                key={partner.name}
-                onClick={() => openNewTab(partner.url)}
-              >
-                <Image src={partner.img} fill alt={partner.name} />
-              </SponsorBtn>
-            ))}
-          </SponsorsContainer>
-        </PartnerContainer>
-      </MainContent>
+      <BaseMainContent>
+        <StyledTitle>
+          <Icon src="/images/icons/orchid.svg" />
+          {t.homepage.communitySupport}
+        </StyledTitle>
+        <StyledSubtitle>{t.homepage.communitySupportSubtitle}</StyledSubtitle>
+        <PartnersGrid>
+          {communityPartners.map((partner) => (
+            <Partner key={partner.name} partner={partner} />
+          ))}
+        </PartnersGrid>
+      </BaseMainContent>
     </Container>
   );
 };
 
 export default Community;
 
-const Container = styled.div`
+const Container = styled(BaseContainer)`
   ${BlueGridBackgroundStyles}
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 140px 80px;
+  && {
+    padding: 80px 80px 160px 80px;
 
-  @media (max-width: 768px) {
-    padding: 60px 24px;
+    @media (max-width: 768px) {
+      padding: 60px 24px 80px 24px;
+    }
   }
 `;
 
-const MainContent = styled.div`
-  width: 100%;
-  max-width: 1280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* add margin-bottom for BackgroundBottomDecoration */
-  margin-bottom: 80px;
-`;
-
-const PartnerContainer = styled.div`
-  width: 100%;
-  z-index: 10;
-`;
-
-const Title = styled.h2`
-  font-size: 42px;
-  color: ${Colors.neonGreen};
-  text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 36px;
+const StyledTitle = styled(Title)`
+  && {
+    color: ${Colors.neonGreen};
+    font-size: 42px;
   }
 `;
 
@@ -81,48 +60,6 @@ const Icon = styled.img`
   margin-right: 12px;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 22px;
+const StyledSubtitle = styled(Subtitle)`
   color: white;
-  text-align: center;
-  line-height: 26px;
-  margin-top: 12px;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-`;
-
-const SponsorsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 80px;
-  @media (max-width: 768px) {
-    gap: 32px;
-  }
-`;
-
-const SponsorBtn = styled.button`
-  flex: 0 1 240px;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  transition: all 300ms ease;
-  :hover {
-    transform: scale(1.1);
-  }
-  > img {
-    object-fit: contain;
-  }
-  @media (max-width: 768px) {
-    min-height: 80px;
-  }
 `;

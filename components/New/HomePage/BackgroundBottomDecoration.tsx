@@ -40,7 +40,7 @@ const BgDecoration = styled.div<{ position: string }>`
 
 const BgImage = styled.img`
   width: 100%;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 100px;
   }
 `;

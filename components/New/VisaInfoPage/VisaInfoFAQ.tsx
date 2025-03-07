@@ -65,7 +65,7 @@ const Description = styled.div`
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 10px;
-  color: ${Colors.black};
+  color: black;
 `;
 
 const Link = styled.a`
