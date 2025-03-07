@@ -2,7 +2,7 @@
 
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
-import { PARTNER } from "@/public/constant/logo_width";
+import { COMMUNITY_PARTNER, PARTNER } from "@/public/constant/logo_width";
 
 export type PartnerType = {
   name: string;
@@ -72,7 +72,7 @@ export const useCommunityPartners = () => {
   const communityPartners =
     data?.partners.map((partner) => ({
       ...partner,
-      width: PARTNER,
+      width: COMMUNITY_PARTNER,
     })) || [];
 
   return { communityPartners };
