@@ -8,7 +8,7 @@ import { useCommunityPartners } from "../../hooks/usePartners";
 import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
 
 const Community = () => {
-  const { partners } = useCommunityPartners();
+  const { communityPartners } = useCommunityPartners();
 
   return (
     <Container>
@@ -21,7 +21,7 @@ const Community = () => {
           </Title>
           <Subtitle> {t.homepage.communitySupportSubtitle}</Subtitle>
           <SponsorsContainer>
-            {partners.map((partner) => (
+            {communityPartners.map((partner) => (
               <SponsorBtn
                 key={partner.name}
                 onClick={() => openNewTab(partner.url)}
@@ -87,10 +87,6 @@ const Subtitle = styled.h2`
   text-align: center;
   line-height: 26px;
   margin-top: 12px;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
 `;
 
 const SponsorsContainer = styled.div`

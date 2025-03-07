@@ -33,9 +33,7 @@ const Sponsors = () => {
           />
           {t.homepage.sponsors}
         </Title>
-        <DescriptionContainer>
-          <Description>{t.sponsorHighlight.sponsorSubtitle}</Description>
-        </DescriptionContainer>
+        <Subtitle>{t.sponsorHighlight.sponsorSubtitle}</Subtitle>
         {sponsors.map((tierSponsors, index) => (
           <SponsorContainer key={index}>
             {tierSponsors.map((sponsor, i) => (
@@ -78,9 +76,10 @@ const Container = styled.div`
 
 const MainContent = styled.div`
   width: 100%;
-  max-width: 1020px;
+  max-width: 1080px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.h2`
@@ -93,22 +92,15 @@ const Title = styled.h2`
   }
 `;
 
-const DescriptionContainer = styled.div`
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 30px;
-  line-height: 2;
-`;
-
-const Description = styled.p`
-  justify-content: center;
-  align-items: center;
+const Subtitle = styled.p`
   max-width: 500px;
   font-size: 22px;
   margin-bottom: 30px;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 2;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const SponsorContainer = styled.div`

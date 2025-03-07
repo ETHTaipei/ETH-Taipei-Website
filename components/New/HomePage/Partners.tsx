@@ -3,8 +3,12 @@ import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
 import Image from "next/image";
 import styled from "styled-components";
-import { useMediaPartners } from "../../hooks/useMediaPartners";
-import { usePartners } from "../../hooks/usePartners";
+import {
+  usePartners,
+  useMediaPartners,
+  PartnerType,
+} from "../../hooks/usePartners";
+import Link from "next/link";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 
 const SmileIcon = () => (
@@ -24,42 +28,45 @@ const Partners = () => {
   return (
     <Container>
       <MainContent>
-        <PartnerContainer>
+        <SectionContainer>
           <Title>
             <SmileIcon />
             {t.homepage.partners}
           </Title>
           <Subtitle>{t.homepage.partnersDesc}</Subtitle>
-          <SponsorsContainer>
-            {partners.map((partner) => (
-              <SponsorBtn
-                key={partner.name}
-                onClick={() => openNewTab(partner.url)}
-              >
-                <Image src={partner.img} fill alt={partner.name} />
-              </SponsorBtn>
+          <PartnerContainer>
+            {partners.map((partner, index) => (
+              <Partner partner={partner} key={index} />
             ))}
-          </SponsorsContainer>
-        </PartnerContainer>
-        <PartnerContainer>
+          </PartnerContainer>
+        </SectionContainer>
+        <SectionContainer>
           <Title>
             <SmileIcon />
             {t.homepage.mediaPartners}
           </Title>
           <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
-          <SponsorsContainer>
-            {mediaPartners.map((mediaPartner) => (
-              <MDPartnerBtn
-                key={mediaPartner.name}
-                onClick={() => openNewTab(mediaPartner.url)}
-              >
-                <Image src={mediaPartner.img} fill alt={mediaPartner.name} />
-              </MDPartnerBtn>
+          <PartnerContainer>
+            {mediaPartners.map((partner, index) => (
+              <Partner partner={partner} key={index} />
             ))}
-          </SponsorsContainer>
-        </PartnerContainer>
+          </PartnerContainer>
+        </SectionContainer>
       </MainContent>
     </Container>
+  );
+};
+
+export const Partner = ({ partner }: { partner: PartnerType }) => {
+  return (
+    <StyledLink href={partner.url} target="_blank" rel="noopener noreferrer">
+      <img
+        src={partner.img}
+        alt={partner.name}
+        height="auto"
+        width={partner.width}
+      />
+    </StyledLink>
   );
 };
 
@@ -87,7 +94,7 @@ const MainContent = styled.div`
   gap: 120px;
 `;
 
-const PartnerContainer = styled.div`
+const SectionContainer = styled.div`
   width: 100%;
 `;
 
@@ -101,51 +108,39 @@ const Title = styled.h2`
   }
 `;
 
-const Subtitle = styled.h2`
-  margin-top: 20px;
+const Subtitle = styled.p`
+  max-width: 500px;
   font-size: 22px;
-  color: black;
+  margin-bottom: 30px;
+  margin-top: 20px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
+  line-height: 2;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
-const SponsorsContainer = styled.div`
+const PartnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-  @media (max-width: 768px) {
-    gap: 32px;
-  }
+  align-items: center;
 `;
 
-const SponsorBtn = styled.button`
-  flex: 0 1 240px;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
+const StyledLink = styled(Link)`
+  margin: 10px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 300ms ease;
+  display: block;
+
   :hover {
     transform: scale(1.1);
   }
+
   > img {
     object-fit: contain;
+    max-height: 80px;
   }
-  @media (max-width: 768px) {
-    min-height: 80px;
-  }
-`;
-
-const MDPartnerBtn = styled(SponsorBtn)`
-  flex: 0 1 200px;
 `;
