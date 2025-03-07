@@ -80,6 +80,6 @@ export const PartnerLink = styled(Link)`
 
   > img {
     object-fit: contain;
-    max-height: 80px;
+    max-height: 100px;
   }
 `;
