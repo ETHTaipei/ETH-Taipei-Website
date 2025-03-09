@@ -54,7 +54,7 @@ const CardTopSharedStyles = css`
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: #3952FF;
+  background-color: ${Colors.brightBlue};
   border-radius: 10px 10px 0 0;
   overflow: hidden;
 
@@ -96,7 +96,7 @@ const CardBottomSharedStyles = css`
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: #3952FF;
+  background-color: ${Colors.brightBlue};
   border-radius: 0 0 10px 10px;
   overflow: hidden;
 
@@ -133,7 +133,7 @@ const CardBottomDynamic = styled.div`
 `;
 
 const CardNumSharedStyles = css`
-  color: #D7FC01;
+  color: ${Colors.neonGreen};
   font-size: 46px;
   font-weight: bold;
   position: absolute;

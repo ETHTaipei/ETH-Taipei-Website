@@ -41,7 +41,7 @@ const SpeakerIcon = styled.div`
   border-radius: 100px;
   position: relative;
   margin-right: 8px;
-  background-color: ${Colors.gray1};
+  background-color: white;
   overflow: hidden;
 `;
 

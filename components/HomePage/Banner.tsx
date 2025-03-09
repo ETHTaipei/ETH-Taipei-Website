@@ -109,7 +109,7 @@ const Banner = () => {
             id="recap-video"
             style={{
               objectFit: "cover",
-              border: "4px solid #cbf101",
+              border: `4px solid ${Colors.neonGreen}`,
               borderRadius: "36px 12px",
               position: "absolute",
             }}
@@ -359,7 +359,7 @@ const SpeechBubble2 = styled.div`
   height: 120px;
   padding: 12px;
   border-radius: 8px;
-  background: #cbf101;
+  background: ${Colors.neonGreen};
   font-size: 18px;
   line-height: 120%;
   color: black;

@@ -89,7 +89,7 @@ const BgDecoration = styled.div`
 
 const BgImage = styled.img`
   width: 50%;
-  opacity:0.05;
+  opacity: 0.05;
   @media (max-width: 768px) {
     width: 240px;
   }
@@ -124,19 +124,18 @@ const Title = styled.div`
       height: 32px;
     }
   }
-    
 `;
 
 const Subtitle = styled.h2`
   font-size: 20px;
   text-align: center;
   letter-spacing: 1.6px;
-  line-height:30px;
+  line-height: 30px;
   margin-top: 14px;
   color: white;
   @media (max-width: 476px) {
     font-size: 18px;
-    line-height:24px;
+    line-height: 24px;
   }
 `;
 
@@ -183,7 +182,7 @@ const HighlightImg = styled.img`
 
 // FIXME: gradient issues
 const GalleryImg = styled(Image)`
-  border-image: linear-gradient(180deg, #7e8eff 0%, #3952ff 100%);
+  border-image: linear-gradient(180deg, #7e8eff 0%, ${Colors.brightBlue} 100%);
   border-image-slice: 1;
   ${baseImgStyles}
 `;
@@ -224,8 +223,8 @@ const ViewMoreButton = styled.button`
   }
   @media (max-width: 476px) {
     padding: 12px 20px;
-  width: 200px;
-  font-size:20px;
-  margin-top: 20px;
+    width: 200px;
+    font-size: 20px;
+    margin-top: 20px;
   }
 `;
