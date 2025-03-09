@@ -4,8 +4,8 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
-import BrandVideo from "./BrandVideo";
-import BackgroundVideo from "./BackgroundVideo";
+import BrandVideo from "./BrandBgVideo";
+import BackgroundVideo from "./RecapBgVideo";
 import CountdownTimer from "./CountdownTimer";
 
 const Banner = () => {

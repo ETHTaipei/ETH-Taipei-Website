@@ -9,7 +9,7 @@ import {
 } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
-import BackgroundVideo from "./BackgroundVideo";
+import BackgroundVideo from "./RecapBgVideo";
 
 const ActionButton = ({ url, text }: { url: string; text: string }) => (
   <Action onClick={() => openNewTab(url)}>

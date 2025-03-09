@@ -5,7 +5,7 @@ import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import { OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
-import { usePastContributors } from "@/components/hooks/useContributors";
+import { usePastContributors } from "@/components/hooks/usePastContributors";
 
 const Contributors = () => {
   const { pastContributors } = usePastContributors();

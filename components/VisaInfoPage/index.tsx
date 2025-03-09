@@ -8,7 +8,7 @@ import {
 } from "@/public/constant/urls";
 import { useRouting } from "@/public/utils/common";
 
-const VisaInfoFAQ = () => {
+const VisaInfoPage = () => {
   const { handleOnClickExternalLink } = useRouting();
 
   return (
@@ -39,7 +39,7 @@ const VisaInfoFAQ = () => {
     </Container>
   );
 };
-export default VisaInfoFAQ;
+export default VisaInfoPage;
 
 const Container = styled.div`
   width: 100%;

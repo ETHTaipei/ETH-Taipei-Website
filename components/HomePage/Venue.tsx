@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import t from "@/public/constant/content";
-import BackgroundVideo from "./BackgroundVideo";
+import BackgroundVideo from "./RecapBgVideo";
 import Colors from "@/styles/colors";
 
 const Container = styled.div`

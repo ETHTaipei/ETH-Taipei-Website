@@ -4,7 +4,7 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
+import BackgroundBottomDecoration from "./BgIconDecoration";
 
 const Introduction = () => {
   return (
