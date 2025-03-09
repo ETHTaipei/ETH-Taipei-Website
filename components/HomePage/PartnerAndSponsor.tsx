@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Colors from "@/styles/colors";
 
-import { PartnerType } from "../../hooks/usePartners";
+import { PartnerType } from "../hooks/usePartners";
 
 export const Partner = ({ partner }: { partner: PartnerType }) => {
   return (

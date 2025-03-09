@@ -155,10 +155,10 @@ const Venue = () => {
           <picture>
             <source
               media="(max-width: 996px)"
-              srcSet="./images/2025/venue/venue_vertical.jpg"
+              srcSet="./images/venue/venue_vertical.jpg"
             />
             <ResponsiveImage
-              src="./images/2025/venue/venue_horizontal.jpg"
+              src="./images/venue/venue_horizontal.jpg"
               alt="Venue"
             />
           </picture>

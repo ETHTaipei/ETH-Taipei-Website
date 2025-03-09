@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-import MainLayout from "@/components/New/Layout";
+import MainLayout from "@/components/Layout";
 import t from "@/public/constant/content";
 import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
 

@@ -1,7 +1,7 @@
 import t from "@/public/constant/content";
 import Image from "next/image";
 import styled from "styled-components";
-import { usePartners, useMediaPartners } from "../../hooks/usePartners";
+import { usePartners, useMediaPartners } from "../hooks/usePartners";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import {
   Title,

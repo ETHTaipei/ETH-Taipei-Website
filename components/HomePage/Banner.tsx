@@ -4,9 +4,9 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
-import BrandVideo from "../../New/HomePage/BrandVideo";
-import BackgroundVideo from "../../New/HomePage/BackgroundVideo";
-import CountdownTimer from "../../New/HomePage/CountdownTimer";
+import BrandVideo from "./BrandVideo";
+import BackgroundVideo from "./BackgroundVideo";
+import CountdownTimer from "./CountdownTimer";
 
 const Banner = () => {
   return (
@@ -15,7 +15,7 @@ const Banner = () => {
         <TitleContainer>
           <StyledImage
             id="ETHTaipeiOrg"
-            src="/images/2025/FirstViewBanner/ETHTaipeiOrg.png"
+            src="/images/FirstViewBanner/ETHTaipeiOrg.png"
             alt="ETHTaipeiOrg"
           />
           {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
@@ -27,7 +27,7 @@ const Banner = () => {
           <Info>
             <Icon>
               <Image
-                src={"/images/2025/FirstViewBanner/Date_Icon.svg"}
+                src={"/images/FirstViewBanner/Date_Icon.svg"}
                 alt="calendar"
                 fill
                 style={{ objectFit: "contain" }}
@@ -55,7 +55,7 @@ const Banner = () => {
           <Info>
             <Icon>
               <Image
-                src={"/images/2025/FirstViewBanner/Location_Icon.svg"}
+                src={"/images/FirstViewBanner/Location_Icon.svg"}
                 alt="calendar"
                 fill
                 style={{ objectFit: "contain" }}
@@ -67,7 +67,7 @@ const Banner = () => {
             </InfoWrapper>
             <Icon>
               <Image
-                src={"/images/2025/FirstViewBanner/SideEvent_Icon.svg"}
+                src={"/images/FirstViewBanner/SideEvent_Icon.svg"}
                 alt="calendar"
                 fill
                 style={{ objectFit: "contain" }}
@@ -262,7 +262,7 @@ const GridOverlay = styled.div`
   opacity: 0.4;
   background-size: 100% auto;
   z-index: -1;
-  background-image: url(/images/2025/FirstViewBanner/white_grid.svg);
+  background-image: url(/images/FirstViewBanner/white_grid.svg);
 `;
 
 const ScrollingIconsWrapper = styled.div`
@@ -303,7 +303,7 @@ const ScrollingIcons = styled.div`
   display: flex;
   width: 100%;
   height: 34px;
-  background-image: url("/images/2025/FirstViewBanner/Scrolling_Icons.png");
+  background-image: url("/images/FirstViewBanner/Scrolling_Icons.png");
   background-size: contain;
   background-repeat: repeat-x;
 `;
@@ -396,7 +396,7 @@ const PixelIcon = styled.div`
   height: 100px;
   margin: auto;
   top: 0;
-  background-image: url("/images/2025/FirstViewBanner/Logo_Icon.svg");
+  background-image: url("/images/FirstViewBanner/Logo_Icon.svg");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -463,7 +463,7 @@ const PixelIconTaiwan = styled.div`
   position: absolute;
   top: -10px;
   left: 110px;
-  background-image: url("/images/2025/FirstViewBanner/Taiwan_Icon.svg");
+  background-image: url("/images/FirstViewBanner/Taiwan_Icon.svg");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -490,7 +490,7 @@ const PixelIconTaipei101 = styled.div`
   position: absolute;
   bottom: -80px;
   right: -80px;
-  background-image: url("/images/2025/FirstViewBanner/Taipei101_Icon.svg");
+  background-image: url("/images/FirstViewBanner/Taipei101_Icon.svg");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -517,7 +517,7 @@ const PixelIconMountain = styled.div`
   position: absolute;
   bottom: -100px;
   left: 0px;
-  background-image: url("/images/2025/FirstViewBanner/Mountain_Icon.svg");
+  background-image: url("/images/FirstViewBanner/Mountain_Icon.svg");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;

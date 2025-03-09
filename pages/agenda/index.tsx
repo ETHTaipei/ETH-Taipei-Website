@@ -1,5 +1,5 @@
 import Agendas from "@/components/AgendaPage/Agendas";
-import Layout from "@/components/New/Layout";
+import Layout from "@/components/Layout";
 import React from "react";
 
 const Agenda = () => {

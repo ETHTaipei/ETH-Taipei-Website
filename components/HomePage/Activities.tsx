@@ -44,7 +44,7 @@ const ActivityCardComponent = ({
           <ActivityDate>
             <Icon>
               <Image
-                src="/images/2025/FirstViewBanner/Date_Icon.svg"
+                src="/images/FirstViewBanner/Date_Icon.svg"
                 alt="Date"
                 fill
                 style={{ objectFit: "cover" }}

@@ -1,7 +1,7 @@
 import t from "@/public/constant/content";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import styled from "styled-components";
-import { useCommunityPartners } from "../../hooks/usePartners";
+import { useCommunityPartners } from "../hooks/usePartners";
 import BackgroundBottomDecoration from "./BackgroundBottomDecoration";
 import {
   BaseContainer,

@@ -23,9 +23,9 @@ import {
 } from "@/public/constant/urls";
 import { useRouting } from "@/public/utils/common";
 import Colors from "@/styles/colors";
-import XIcon from "@/public/images/2025/icon/x_icon.svg";
-import TelegramIcon from "@/public/images/2025/icon/telegram_icon.svg";
-import DiscordIcon from "@/public/images/2025/icon/discord_icon.svg";
+import XIcon from "@/public/images/icon/x_icon.svg";
+import TelegramIcon from "@/public/images/icon/telegram_icon.svg";
+import DiscordIcon from "@/public/images/icon/discord_icon.svg";
 
 const ImageButton = ({
   url,
@@ -197,7 +197,7 @@ const Header = () => {
       <HeaderContainer>
         <Logo>
           <Image
-            src="/images/2025/icon/ethtaipei_logo.svg"
+            src="/images/icon/ethtaipei_logo.svg"
             alt="ETH Taipei Logo"
             fill
             style={{ objectFit: "contain" }}

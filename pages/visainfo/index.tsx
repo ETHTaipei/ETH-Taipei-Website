@@ -1,5 +1,5 @@
-import VisaInfoFAQ from "@/components/New/VisaInfoPage/VisaInfoFAQ";
-import Layout from "@/components/New/Layout";
+import VisaInfoFAQ from "@/components/VisaInfoPage/VisaInfoFAQ";
+import Layout from "@/components/Layout";
 
 const VisaInfo = () => {
   return <VisaInfoFAQ />;
