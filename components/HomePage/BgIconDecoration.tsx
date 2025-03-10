@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-interface BackgroundBottomDecorationProps {
+interface BgIconDecorationProps {
   leftImage?: string;
   rightImage?: string;
 }
 
-const BackgroundBottomDecoration: React.FC<
-  BackgroundBottomDecorationProps
-> = () => {
+const BgIconDecoration: React.FC<BgIconDecorationProps> = () => {
   return (
     <>
       {
@@ -30,7 +28,7 @@ const BackgroundBottomDecoration: React.FC<
   );
 };
 
-export default BackgroundBottomDecoration;
+export default BgIconDecoration;
 
 const BgDecoration = styled.div<{ position: string }>`
   position: absolute;

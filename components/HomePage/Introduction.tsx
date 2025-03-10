@@ -4,12 +4,12 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import BackgroundBottomDecoration from "./BgIconDecoration";
+import BgIconDecoration from "./BgIconDecoration";
 
 const Introduction = () => {
   return (
     <Container>
-      <BackgroundBottomDecoration />
+      <BgIconDecoration />
       <MainContent>
         <TitleContainer>
           <IconImg src={"/images/icons/temple.svg"} alt="boba" />
@@ -84,7 +84,7 @@ const MainContent = styled.div`
   width: 90vw;
   max-width: 1200px;
   margin: auto;
-  /* add margin-bottom for BackgroundBottomDecoration */
+  /* add margin-bottom for BgIconDecoration */
   margin-bottom: 80px;
   @media (max-width: 768px) {
     margin-bottom: 0px;
