@@ -3,18 +3,20 @@
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import { OrganizerType } from "@/components/hooks/useOrganizers";
 import Image from "next/image";
-import { usePastContributors } from "@/components/hooks/usePastContributors";
+import {
+  usePastContributors,
+  ContributorType,
+} from "@/components/hooks/useContributors";
 
-const Contributors = () => {
+const PastContributors = () => {
   const { pastContributors } = usePastContributors();
 
   return (
     <Container>
       <MainContent>
         <ContentCenter>
-          <OrganizersTitle>
+          <Title>
             <Image
               src="/images/icons/contributors.svg"
               alt="Contributors icon"
@@ -23,43 +25,41 @@ const Contributors = () => {
               style={{ marginRight: 12, verticalAlign: "bottom" }}
             />
             Past Contributors
-          </OrganizersTitle>
-          <OrganizersSubtitle>
-            {"ETHTaipei won't be possible without you <3"}
-          </OrganizersSubtitle>
-          <OrganizersList>
-            {pastContributors.map((organizer, index) => (
-              <OrganizerCard organizer={organizer} key={index} />
+          </Title>
+          <Subtitle>{"ETHTaipei won't be possible without you <3"}</Subtitle>
+          <ContributorList>
+            {pastContributors.map((contributor, index) => (
+              <ContributorCard contributor={contributor} key={index} />
             ))}
-          </OrganizersList>
+          </ContributorList>
         </ContentCenter>
       </MainContent>
     </Container>
   );
 };
 
-const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
-  const [title, team] = organizer.titleAndCompany.split("@");
+const ContributorCard = ({ contributor }: { contributor: ContributorType }) => {
+  const [title, team] = contributor.titleAndCompany.split("@");
 
   return (
-    <OrganizerWrapper>
+    <ContributorWrapper>
       <ProfileLink
-        href={organizer.profile}
+        href={contributor.profile}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <ProfileImage src={organizer.img} alt={organizer.name} />
+        <ProfileImage src={contributor.img} alt={contributor.name} />
       </ProfileLink>
-      <OrganizerInfo>
-        <OrganizerName>{organizer.name}</OrganizerName>
-        <OrganizerTitle>{title}</OrganizerTitle>
-        {team && <OrganizerTeam>@{team}</OrganizerTeam>}
-      </OrganizerInfo>
-    </OrganizerWrapper>
+      <ContributorInfo>
+        <ContributorName>{contributor.name}</ContributorName>
+        <ContributorTitle>{title}</ContributorTitle>
+        {team && <ContributorTeam>@{team}</ContributorTeam>}
+      </ContributorInfo>
+    </ContributorWrapper>
   );
 };
 
-export default Contributors;
+export default PastContributors;
 
 const Container = styled.div`
   ${BlueGridBackgroundStyles}
@@ -92,20 +92,20 @@ const ContentCenter = styled.div`
   align-items: center;
 `;
 
-const OrganizersTitle = styled.h2`
+const Title = styled.h2`
   font-size: 42px;
   color: ${Colors.neonGreen};
   text-align: center;
 `;
 
-const OrganizersSubtitle = styled.h2`
+const Subtitle = styled.h2`
   font-size: 22px;
   color: white;
   text-align: center;
   margin-top: 20px;
 `;
 
-const OrganizersList = styled.div`
+const ContributorList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 80px;
@@ -117,7 +117,7 @@ const OrganizersList = styled.div`
   }
 `;
 
-const OrganizerWrapper = styled.div`
+const ContributorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,12 +155,12 @@ const ProfileImage = styled.img`
   }
 `;
 
-const OrganizerInfo = styled.div`
+const ContributorInfo = styled.div`
   text-align: center;
   color: ${Colors.neonGreen};
 `;
 
-const OrganizerName = styled.div`
+const ContributorName = styled.div`
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
@@ -170,7 +170,7 @@ const OrganizerName = styled.div`
   }
 `;
 
-const OrganizerTitle = styled.p`
+const ContributorTitle = styled.p`
   margin-top: 10px;
   color: white;
 
@@ -179,7 +179,7 @@ const OrganizerTitle = styled.p`
   }
 `;
 
-const OrganizerTeam = styled.p`
+const ContributorTeam = styled.p`
   margin-top: 4px;
   color: white;
 

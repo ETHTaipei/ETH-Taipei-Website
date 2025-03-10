@@ -6,7 +6,7 @@ import { sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 
-interface ActivityCardParam {
+interface EventCardParam {
   imageSrc: string;
   imageAlt: string;
   name: string;
@@ -17,7 +17,7 @@ interface ActivityCardParam {
   linkUrl: string;
 }
 
-const ActivityCardComponent = ({
+const EventCardComponent = ({
   imageSrc,
   imageAlt,
   name,
@@ -26,22 +26,22 @@ const ActivityCardComponent = ({
   buttonText,
   isActivated,
   linkUrl,
-}: ActivityCardParam) => {
+}: EventCardParam) => {
   return (
-    <ActivityCard>
-      <ActivityNameWrapper>
+    <EventCard>
+      <EventNameWrapper>
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
           style={{ objectFit: "cover" }}
         />
-        <ActivityName>{name}</ActivityName>
-      </ActivityNameWrapper>
-      <ActivityDescWrapper>
-        <ActivityDesc>{description}</ActivityDesc>
-        <ActivityActions>
-          <ActivityDate>
+        <EventName>{name}</EventName>
+      </EventNameWrapper>
+      <EventDescWrapper>
+        <EventDesc>{description}</EventDesc>
+        <EventActions>
+          <EventDate>
             <Icon>
               <Image
                 src="/images/FirstViewBanner/Date_Icon.svg"
@@ -51,7 +51,7 @@ const ActivityCardComponent = ({
               />
             </Icon>
             {date}
-          </ActivityDate>
+          </EventDate>
           <ActionButton isActivated={isActivated}>
             {isActivated && linkUrl ? (
               <Link href={linkUrl} target="_blank">
@@ -61,13 +61,13 @@ const ActivityCardComponent = ({
               buttonText
             )}
           </ActionButton>
-        </ActivityActions>
-      </ActivityDescWrapper>
-    </ActivityCard>
+        </EventActions>
+      </EventDescWrapper>
+    </EventCard>
   );
 };
 
-const Activities = () => {
+const Events = () => {
   return (
     <Container>
       <MainContent>
@@ -81,47 +81,47 @@ const Activities = () => {
               style={{ marginRight: 4 }}
             />
           </ImageWrapper>
-          {t.homepage.activityTitle}
+          {t.homepage.eventTitle}
         </Title>
-        <Subtitle>{t.homepage.activitySubTitle}</Subtitle>
-        <ActivityCardWrapper>
-          <ActivityCardComponent
+        <Subtitle>{t.homepage.eventSubTitle}</Subtitle>
+        <EventCardWrapper>
+          <EventCardComponent
             imageSrc="/images/recap-2024/1.jpg"
-            imageAlt={t.homepage.activityName_1}
-            name={t.homepage.activityName_1}
-            description={t.homepage.activityDesc_1}
-            date={t.homepage.activityDate_1}
-            buttonText={t.homepage.activityBtn_1}
+            imageAlt={t.homepage.eventName_1}
+            name={t.homepage.eventName_1}
+            description={t.homepage.eventDesc_1}
+            date={t.homepage.eventDate_1}
+            buttonText={t.homepage.eventBtn_1}
             isActivated={true}
             linkUrl={tickSiteUrl}
           />
-          {/* <ActivityCardComponent
-            imageSrc="/images/activity-hackathon-bg.png"
-            imageAlt={t.homepage.activityName_2}
-            name={t.homepage.activityName_2}
-            description={t.homepage.activityDesc_2}
-            date={t.homepage.activityDate_2}
-            buttonText={t.homepage.activityBtn_2}
+          {/* <EventCardComponent
+            imageSrc="/images/event-hackathon-bg.png"
+            imageAlt={t.homepage.eventName_2}
+            name={t.homepage.eventName_2}
+            description={t.homepage.eventDesc_2}
+            date={t.homepage.eventDate_2}
+            buttonText={t.homepage.eventBtn_2}
             isActivated={false}
             linkUrl={hackathonUrl}
           /> */}
-          <ActivityCardComponent
+          <EventCardComponent
             imageSrc="/images/recap-2024/2.jpg"
-            imageAlt={t.homepage.activityName_3}
-            name={t.homepage.activityName_3}
-            description={t.homepage.activityDesc_3}
-            date={t.homepage.activityDate_3}
-            buttonText={t.homepage.activityBtn_3}
+            imageAlt={t.homepage.eventName_3}
+            name={t.homepage.eventName_3}
+            description={t.homepage.eventDesc_3}
+            date={t.homepage.eventDate_3}
+            buttonText={t.homepage.eventBtn_3}
             isActivated={true}
             linkUrl={sideEventFormUrl}
           />
-        </ActivityCardWrapper>
+        </EventCardWrapper>
       </MainContent>
     </Container>
   );
 };
 
-export default Activities;
+export default Events;
 
 const Container = styled.div`
   position: relative;
@@ -167,7 +167,7 @@ const Subtitle = styled.div`
   margin-top: 16px;
 `;
 
-const ActivityCardWrapper = styled.div`
+const EventCardWrapper = styled.div`
   margin-top: 40px;
   display: flex;
   flex-direction: row;
@@ -178,7 +178,7 @@ const ActivityCardWrapper = styled.div`
   }
 `;
 
-const ActivityCard = styled.div`
+const EventCard = styled.div`
   width: 100%;
   max-width: 880px;
   display: flex;
@@ -189,7 +189,7 @@ const ActivityCard = styled.div`
   }
 `;
 
-const ActivityNameWrapper = styled.div`
+const EventNameWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -207,7 +207,7 @@ const ActivityNameWrapper = styled.div`
   }
 `;
 
-const ActivityName = styled.div`
+const EventName = styled.div`
   position: relative;
   padding: 32px;
   font-size: 36px;
@@ -217,28 +217,28 @@ const ActivityName = styled.div`
   height: 100%;
 `;
 
-const ActivityDescWrapper = styled.div`
+const EventDescWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 24px;
 `;
 
-const ActivityDesc = styled.div`
+const EventDesc = styled.div`
   color: white;
   font-family: Inter;
   font-size: 14px;
   line-height: 24px;
 `;
 
-const ActivityActions = styled.div`
+const EventActions = styled.div`
   margin-top: 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 
-const ActivityDate = styled.div`
+const EventDate = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;

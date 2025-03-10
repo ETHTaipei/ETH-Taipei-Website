@@ -3,7 +3,10 @@
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import { useOrganizers, OrganizerType } from "@/components/hooks/useOrganizers";
+import {
+  useOrganizers,
+  ContributorType,
+} from "@/components/hooks/useContributors";
 import Image from "next/image";
 
 const Organizers = () => {
@@ -47,7 +50,7 @@ const Organizers = () => {
   );
 };
 
-const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
+const OrganizerCard = ({ organizer }: { organizer: ContributorType }) => {
   const [title, team] = organizer.titleAndCompany.split("@");
 
   return (

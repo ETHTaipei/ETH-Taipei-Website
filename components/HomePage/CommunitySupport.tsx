@@ -13,7 +13,7 @@ import {
 } from "./PartnerAndSponsor";
 import Colors from "@/styles/colors";
 
-const Community = () => {
+const CommunitySupport = () => {
   const { communityPartners } = useCommunityPartners();
 
   return (
@@ -35,7 +35,7 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default CommunitySupport;
 
 const Container = styled(BaseContainer)`
   ${BlueGridBackgroundStyles}

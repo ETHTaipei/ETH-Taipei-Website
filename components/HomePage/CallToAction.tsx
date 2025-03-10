@@ -27,15 +27,15 @@ const ActionButtons = () => {
   const buttons = [
     {
       url: speakerApplyUrl,
-      text: t.participation.applyToSpeak,
+      text: t.callToAction.applyToSpeak,
     },
     {
       url: sponsorApplyUrl,
-      text: t.participation.applyToSponsor,
+      text: t.callToAction.applyToSponsor,
     },
     {
       url: sideEventApplyUrl,
-      text: t.participation.addSideEvent,
+      text: t.callToAction.addSideEvent,
     },
   ];
 
@@ -48,7 +48,7 @@ const ActionButtons = () => {
   );
 };
 
-const Participation = () => {
+const CallToAction = () => {
   return (
     <Container id="calltoaction">
       <MainContent>
@@ -60,8 +60,8 @@ const Participation = () => {
         </InfoContainer>
         <ActionContainer>
           <Image
-            src="./images/icons/participation.svg"
-            alt="Participation icon"
+            src="./images/icons/callToAction.svg"
+            alt="CallToAction icon"
             width={291}
             height={62}
           />
@@ -73,7 +73,7 @@ const Participation = () => {
   );
 };
 
-export default Participation;
+export default CallToAction;
 
 const Container = styled.div`
   position: relative;

@@ -75,24 +75,24 @@ const homepage = {
   introductionCardDesc_3_1:
     "ETHTaipei offers an unparalleled opportunity to explore cutting-edge Ethereum technology and applications while connecting with local communities in Taiwan. We look forward to your participation to build and advance Ethereum together!",
 
-  activityTitle: `ETHTaipei ${year} Events`,
-  activitySubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
-  activityName_1: "Conference",
-  activityDesc_1:
+  eventTitle: `ETHTaipei ${year} Events`,
+  eventSubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
+  eventName_1: "Conference",
+  eventDesc_1:
     "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
-  activityDate_1: dateDayMonthYear,
-  activityBtn_1: "Ticket",
-  // activityName_2: "Hackathon",
-  // activityDesc_2:
+  eventDate_1: dateDayMonthYear,
+  eventBtn_1: "Ticket",
+  // eventName_2: "Hackathon",
+  // eventDesc_2:
   //   "The ETHTaipei hackathon is a three-day event inviting developers to compete for prizes sponsored by industry leaders. Participants will collaborate in teams to develop innovative blockchain applications using the most cutting-edge technology, tools or packages. Attendance is free and includes workshops and talks from industry experts. Don't miss this chance to gain hands-on experience and connect with Ethereum enthusiasts from Taiwan and beyond.",
-  // activityDate_2: dateDayMonthYear,
-  // activityBtn_2: "View Now",
-  activityName_3: "SideEvent",
-  activityDesc_3:
+  // eventDate_2: dateDayMonthYear,
+  // eventBtn_2: "View Now",
+  eventName_3: "SideEvent",
+  eventDesc_3:
     // "Get ready for an extra dose of fun at ETHTaipei! While the main conference and hackathon take center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
     "Get ready for an extra dose of fun at ETHTaipei! While the main conference takes center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
-  activityDate_3: dateDayMonthYear,
-  activityBtn_3: "See Events",
+  eventDate_3: dateDayMonthYear,
+  eventBtn_3: "See Events",
 
   recapTitle: "Recap! 2024 Edition",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
@@ -119,7 +119,7 @@ const navs = {
   brand: "Brand",
 };
 
-const participation = {
+const callToAction = {
   applyToSpeak: "Apply to Speak",
   applyToSponsor: "Apply to Sponsor",
   addSideEvent: "Add Side Event",
@@ -254,7 +254,7 @@ const t = {
   common,
   homepage,
   navs,
-  participation,
+  callToAction,
   visa,
   goldcard,
   sponsorHighlight,

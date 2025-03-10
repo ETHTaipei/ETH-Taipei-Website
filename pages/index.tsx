@@ -1,9 +1,9 @@
-import Activities from "@/components/HomePage/Events";
-import Community from "@/components/HomePage/CommunitySupport";
-import Contributors from "@/components/HomePage/PastContributors";
+import Events from "@/components/HomePage/Events";
+import CommunitySupport from "@/components/HomePage/CommunitySupport";
+import PastContributors from "@/components/HomePage/PastContributors";
 import Introduction from "@/components/HomePage/Introduction";
 import Organizers from "@/components/HomePage/Organizers";
-import Participation from "@/components/HomePage/CallToAction";
+import CallToAction from "@/components/HomePage/CallToAction";
 import Partners from "@/components/HomePage/Partners";
 import Recap from "@/components/HomePage/Recap";
 import Speakers from "@/components/HomePage/Speakers";
@@ -16,15 +16,15 @@ const Home = () => {
     <div>
       <Recap />
       <Introduction />
-      <Activities />
+      <Events />
       <Speakers />
       <Venue />
       <Sponsors />
       <Partners />
       <Organizers />
-      <Contributors />
-      <Participation />
-      <Community />
+      <PastContributors />
+      <CallToAction />
+      <CommunitySupport />
     </div>
   );
 };
