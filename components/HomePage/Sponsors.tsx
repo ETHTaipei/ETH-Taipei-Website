@@ -38,7 +38,7 @@ const Sponsors = () => {
           />
           {t.homepage.sponsors}
         </Title>
-        <Subtitle>{t.sponsorHighlight.sponsorSubtitle}</Subtitle>
+        <Subtitle>{t.homepage.sponsorSubtitle}</Subtitle>
         {sponsors.map((tierSponsors, index) => (
           <PartnersGrid key={index}>
             {tierSponsors.map((sponsor, i) => (

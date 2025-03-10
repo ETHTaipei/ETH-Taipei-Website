@@ -96,9 +96,7 @@ const Banner = () => {
       </MainContent>
       <RightSection>
         {/* 右上角文字區塊 */}
-        <SpeechBubble>
-          Unleashing a New Era of Blockchain in Taiwan
-        </SpeechBubble>
+        <SpeechBubble>{t.homepage.bannerSubTitle}</SpeechBubble>
 
         {/* Recap Video 區塊 */}
         <RecapVidContainer>

@@ -1,5 +1,6 @@
 "use client";
 
+import t from "@/public/constant/content";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
@@ -24,10 +25,10 @@ const Organizers = () => {
               width={36}
               alt="Organizers icon"
             />
-            Organizers
+            {t.homepage.organizers}
           </OrganizersTitle>
           <OrganizersSubtitle>
-            The team that makes ETHTaipei happen!
+            {t.homepage.organizerSubtitle}
           </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
