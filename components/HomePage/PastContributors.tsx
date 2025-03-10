@@ -157,31 +157,21 @@ const ProfileImage = styled.img`
 
 const ContributorInfo = styled.div`
   text-align: center;
-  color: ${Colors.neonGreen};
+  color: white;
 `;
 
 const ContributorName = styled.div`
   font-size: 20px;
-  font-weight: bold;
   margin-top: 10px;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
+  color: ${Colors.neonGreen};
 `;
 
 const ContributorTitle = styled.p`
   margin-top: 10px;
-  color: white;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
 `;
 
 const ContributorTeam = styled.p`
   margin-top: 4px;
-  color: white;
 
   @media (max-width: 768px) {
     font-size: 12px;

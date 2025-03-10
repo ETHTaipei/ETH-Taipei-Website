@@ -182,6 +182,10 @@ const OrganizerTitle = styled.p`
 
 const OrganizerTeam = styled.p`
   margin-top: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const BackgroundBottom = styled.div`
