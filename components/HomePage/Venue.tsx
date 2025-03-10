@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import t from "@/public/constant/content";
-import BackgroundVideo from "./RecapBgVideo";
+import { RecapBgVideo } from "./Video";
 import Colors from "@/styles/colors";
 
 const Container = styled.div`
@@ -164,7 +164,7 @@ const Venue = () => {
           </picture>
         </ImageContainer>
       </MainContent>
-      <BackgroundVideo />
+      <RecapBgVideo />
     </Container>
   );
 };

@@ -9,7 +9,7 @@ import {
 } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
-import BackgroundVideo from "./RecapBgVideo";
+import { RecapBgVideo } from "./Video";
 
 const ActionButton = ({ url, text }: { url: string; text: string }) => (
   <Action onClick={() => openNewTab(url)}>
@@ -68,7 +68,7 @@ const CallToAction = () => {
           <ActionButtons />
         </ActionContainer>
       </MainContent>
-      <BackgroundVideo />
+      <RecapBgVideo />
     </Container>
   );
 };

@@ -4,9 +4,8 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
-import BrandVideo from "./BrandBgVideo";
-import BackgroundVideo from "./RecapBgVideo";
 import CountdownTimer from "./CountdownTimer";
+import { Video, BrandBgVideo } from "./Video";
 
 const Banner = () => {
   return (
@@ -100,10 +99,8 @@ const Banner = () => {
 
         {/* Recap Video 區塊 */}
         <RecapVidContainer>
-          <video
-            autoPlay
-            muted
-            loop
+          <Video
+            src="/videos/2024_recap.webm"
             id="recap-video"
             style={{
               objectFit: "cover",
@@ -111,13 +108,7 @@ const Banner = () => {
               borderRadius: "36px 12px",
               position: "absolute",
             }}
-            width={"100%"}
-            height={"100%"}
-            playsInline
-          >
-            <source src="/videos/2024_recap.webm" type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
+          />
         </RecapVidContainer>
 
         {/* 半透明藍色背景（放在影片之後） */}
@@ -132,7 +123,7 @@ const Banner = () => {
         <PixelIconMountain />
       </RightSection>
       <GridOverlay />
-      <BrandVideo />
+      <BrandBgVideo />
     </Container>
   );
 };
