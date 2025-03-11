@@ -103,10 +103,6 @@ const OrganizersSubtitle = styled.h2`
   color: white;
   text-align: center;
   margin-top: 20px;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
 `;
 
 const OrganizersList = styled.div`

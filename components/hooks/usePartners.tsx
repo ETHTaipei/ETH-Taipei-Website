@@ -2,16 +2,26 @@
 
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
+import { COMMUNITY_PARTNER, PARTNER } from "@/public/constant/logo_width";
 
-type PartnerType = {
+export type PartnerType = {
   name: string;
   url: string;
   img: string;
-  height?: number; // height override
+  width: number;
 };
 
-const query = gql`query {
+const partnerQuery = gql`query {
   partners: partners${year} (first: 100, where: {show:true, isCommunitySupport:false}) {
+    url
+    name
+    img
+  }
+}
+`;
+
+const mediaPartnerQuery = gql`query {
+  partners: mediaPartners${year} (first: 100, where: {show:true}) {
     url
     name
     img
@@ -33,17 +43,37 @@ const communityQuery = gql`
 `;
 
 export const usePartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(query);
+  const { data } = useQuery<{ partners: PartnerType[] }>(partnerQuery);
 
-  const partners = data?.partners || [];
+  const partners =
+    data?.partners.map((partner) => ({
+      ...partner,
+      width: PARTNER,
+    })) || [];
 
   return { partners };
+};
+
+export const useMediaPartners = () => {
+  const { data } = useQuery<{ partners: PartnerType[] }>(mediaPartnerQuery);
+
+  const mediaPartners =
+    data?.partners.map((partner) => ({
+      ...partner,
+      width: PARTNER,
+    })) || [];
+
+  return { mediaPartners };
 };
 
 export const useCommunityPartners = () => {
   const { data } = useQuery<{ partners: PartnerType[] }>(communityQuery);
 
-  const partners = data?.partners || [];
+  const communityPartners =
+    data?.partners.map((partner) => ({
+      ...partner,
+      width: COMMUNITY_PARTNER,
+    })) || [];
 
-  return { partners };
+  return { communityPartners };
 };
