@@ -20,7 +20,7 @@ const Agendas = () => {
   const isShowingVitalik = isTypeConference && date === 21;
 
   return (
-    <Container id="agenda">
+    <Container id="info">
       <Title>{t.navs.agenda}</Title>
       <EventSwitcher type={type} setType={setType} setDate={setDate} />
       <DateSwitcher type={type} date={date} setDate={setDate} />

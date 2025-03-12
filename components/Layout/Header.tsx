@@ -76,10 +76,10 @@ const LumaButton = () => (
 const isNonEmptyPath = (path: string) => path !== "";
 const navItems = [
   { label: t.navs.home, path: "/" },
-  // { label: t.navs.agenda2025, path: "/agenda#agenda" },
+  // { label: t.navs.agenda2025, path: "/agenda#info" },
   { label: t.navs.apply, path: "/#calltoaction" },
   { label: t.navs.venue, path: "/#venue" },
-  { label: t.navs.visaInfo, path: "/visainfo#visa" },
+  { label: t.navs.visaInfo, path: "/visainfo#info" },
   // { label: t.navs.brand, path: "" },
 ];
 

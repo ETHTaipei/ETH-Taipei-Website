@@ -12,7 +12,7 @@ const VisaInfoPage = () => {
   const { handleOnClickExternalLink } = useRouting();
 
   return (
-    <Container id="visa">
+    <Container id="info">
       <Question>{t.visa.visaQuestion1}</Question>
       <Description>
         {t.visa.visaAnswer1Part1}
