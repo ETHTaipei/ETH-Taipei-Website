@@ -10,8 +10,20 @@ export type ContributorType = {
   img: string;
 };
 
-const query = gql`
+const organizerQuery = gql`
   query organizers {
+    organizers(first: 20) {
+      name
+      titleAndCompany
+      profile
+      companyLink
+      img
+    }
+  }
+`;
+
+const pastContributorQuery = gql`
+  query contributors {
     contributors(first: 20) {
       name
       titleAndCompany
@@ -22,8 +34,18 @@ const query = gql`
   }
 `;
 
+export const useOrganizers = () => {
+  const { data } = useQuery<{ organizers: ContributorType[] }>(organizerQuery);
+
+  const organizers = data?.organizers || [];
+
+  return { organizers };
+};
+
 export const usePastContributors = () => {
-  const { data } = useQuery<{ contributors: ContributorType[] }>(query);
+  const { data } = useQuery<{ contributors: ContributorType[] }>(
+    pastContributorQuery
+  );
 
   const pastContributors = data?.contributors || [];
 

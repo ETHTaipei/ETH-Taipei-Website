@@ -1,30 +1,30 @@
-import Activities from "@/components/New/HomePage/Activities";
-import Community from "@/components/New/HomePage/Community";
-import Contributors from "@/components/New/HomePage/Contributors";
-import Introduction from "@/components/New/HomePage/Introduction";
-import Organizers from "@/components/New/HomePage/Organizers";
-import Participation from "@/components/New/HomePage/Participation";
-import Partners from "@/components/New/HomePage/Partners";
-import Recap from "@/components/New/HomePage/Recap";
-import Speakers from "@/components/New/HomePage/Speakers";
-import Sponsors from "@/components/New/HomePage/Sponsors";
-import Venue from "@/components/New/HomePage/Venue";
-import Layout from "@/components/New/Layout";
+import Events from "@/components/HomePage/Events";
+import CommunitySupport from "@/components/HomePage/CommunitySupport";
+import PastContributors from "@/components/HomePage/PastContributors";
+import Introduction from "@/components/HomePage/Introduction";
+import Organizers from "@/components/HomePage/Organizers";
+import CallToAction from "@/components/HomePage/CallToAction";
+import Partners from "@/components/HomePage/Partners";
+import Recap from "@/components/HomePage/Recap";
+import Speakers from "@/components/HomePage/Speakers";
+import Sponsors from "@/components/HomePage/Sponsors";
+import Venue from "@/components/HomePage/Venue";
+import Layout from "@/components/Layout";
 
 const Home = () => {
   return (
     <div>
       <Recap />
       <Introduction />
-      <Activities />
+      <Events />
       <Speakers />
       <Venue />
       <Sponsors />
       <Partners />
       <Organizers />
-      <Contributors />
-      <Participation />
-      <Community />
+      <PastContributors />
+      <CallToAction />
+      <CommunitySupport />
     </div>
   );
 };

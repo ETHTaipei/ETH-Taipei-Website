@@ -1,13 +1,8 @@
 import Agendas from "@/components/AgendaPage/Agendas";
-import Layout from "@/components/New/Layout";
-import React from "react";
+import Layout from "@/components/Layout";
 
 const Agenda = () => {
-  return (
-    <div id="info">
-      <Agendas />
-    </div>
-  );
+  return <Agendas />;
 };
 
 Agenda.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;

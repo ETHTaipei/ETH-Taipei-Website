@@ -1,8 +1,8 @@
-import VisaInfoFAQ from "@/components/New/VisaInfoPage/VisaInfoFAQ";
-import Layout from "@/components/New/Layout";
+import VisaInfoPage from "@/components/VisaInfoPage";
+import Layout from "@/components/Layout";
 
 const VisaInfo = () => {
-  return <VisaInfoFAQ />;
+  return <VisaInfoPage />;
 };
 
 VisaInfo.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
