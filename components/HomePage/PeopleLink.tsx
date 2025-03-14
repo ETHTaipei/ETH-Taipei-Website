@@ -52,11 +52,13 @@ const ProfileImage = styled.img`
   width: 110px;
   object-fit: cover;
   transition: transform 600ms ease;
+
   border: 2px solid ${Colors.neonGreen};
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 24px;
+
   @media (max-width: 476px) {
     width: 96px;
     height: 96px;

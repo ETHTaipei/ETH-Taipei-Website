@@ -1,23 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 
 import { SpeakerProps, useSpeakers } from "@/components/hooks/useSpeakers";
-import IconTwitterX from "@/components/icons/IconTwitterX";
 import t from "@/public/constant/content";
-import { speakerApplyUrl } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
 
 const Speakers = () => {
   const { speakers, keynoteSpeakers } = useSpeakers();
-
-  const handleClick = () => {
-    openNewTab(speakerApplyUrl);
-  };
 
   return (
     <Container>
@@ -43,12 +36,6 @@ const Speakers = () => {
             <Speaker speaker={speaker} key={i} />
           ))}
         </SpeakersContainer>
-        {/* <ApplyContainer>
-          <Description>{t.homepage.speakersIntro}</Description>
-          <BeSpeakerButton onClick={handleClick}>
-            {t.homepage.beASpeaker}
-          </BeSpeakerButton>
-        </ApplyContainer> */}
       </MainContent>
     </Container>
   );
@@ -128,20 +115,14 @@ function SpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
 function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
   return (
     <RoundedImageWrapper>
-      <Image src={speaker.img} fill alt={speaker.name} />
       {speaker.profile && (
-        <Link href={speaker.profile} target="_blank" rel="noopener noreferrer">
-          <TwitterCover>
-            <TwitterIcon>
-              <IconTwitterX
-                width={50}
-                height={50}
-                color={"white"}
-                opacity={0.7}
-              />
-            </TwitterIcon>
-          </TwitterCover>
-        </Link>
+        <ProfileLink
+          href={speaker.profile}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={speaker.img} fill alt={speaker.name} />
+        </ProfileLink>
       )}
     </RoundedImageWrapper>
   );
@@ -224,6 +205,11 @@ const KeynoteSpeakerAvatar = styled.div`
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 24px;
   }
+
+  transition: transform 600ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const SpeakersContainer = styled.div`
@@ -241,7 +227,6 @@ const SpeakersContainer = styled.div`
 `;
 
 const SpeakerContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -267,6 +252,11 @@ const SpeakerAvatar = styled.div`
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 24px;
+  }
+
+  transition: transform 600ms ease;
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -311,51 +301,6 @@ const SpeakerCompany = styled.div<{ variant?: "lg"; hasLink: boolean }>`
   cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
 `;
 
-const ApplyContainer = styled.div`
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-`;
-
-const Description = styled.div`
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-  color: ${Colors.pennBlue};
-  text-align: center;
-`;
-
-const BeSpeakerButton = styled.button`
-  background-color: ${Colors.blue1};
-  border-radius: 8px;
-  padding: 12px 44px;
-  color: white;
-  font-family: "Rammetto One";
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(36, 62, 81, 0.2);
-`;
-
-const BackgroundTop = styled.div`
-  width: 100%;
-  aspect-ratio: 1920 / 2000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-`;
-
-const BackgroundBottom = styled.div`
-  width: 100%;
-  aspect-ratio: 1920 / 1080;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-`;
-
 const RoundedImageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -363,20 +308,6 @@ const RoundedImageWrapper = styled.div`
   overflow: hidden;
 `;
 
-const TwitterCover = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: relative;
-  opacity: 0;
-  transition: 0.2s;
-  ${RoundedImageWrapper}:hover & {
-    opacity: 1;
-  }
-`;
-
-const TwitterIcon = styled.div`
-  position: absolute;
-  right: 20%;
-  bottom: 20%;
+const ProfileLink = styled.a`
+  cursor: pointer;
 `;
