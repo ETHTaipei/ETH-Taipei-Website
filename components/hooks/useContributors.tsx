@@ -12,7 +12,7 @@ export type ContributorType = {
 
 const organizerQuery = gql`
   query organizers {
-    organizers(first: 20) {
+    organizers(first: 40) {
       name
       titleAndCompany
       profile
