@@ -4,10 +4,8 @@ import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import Image from "next/image";
-import {
-  usePastContributors,
-  ContributorType,
-} from "@/components/hooks/useContributors";
+import { usePastContributors } from "@/components/hooks/useContributors";
+import PeopleLink from "./PeopleLink";
 
 const PastContributors = () => {
   const { pastContributors } = usePastContributors();
@@ -29,33 +27,12 @@ const PastContributors = () => {
           <Subtitle>{"ETHTaipei won't be possible without you <3"}</Subtitle>
           <ContributorList>
             {pastContributors.map((contributor, index) => (
-              <ContributorCard contributor={contributor} key={index} />
+              <PeopleLink person={contributor} key={index} />
             ))}
           </ContributorList>
         </ContentCenter>
       </MainContent>
     </Container>
-  );
-};
-
-const ContributorCard = ({ contributor }: { contributor: ContributorType }) => {
-  const [title, team] = contributor.titleAndCompany.split("@");
-
-  return (
-    <ContributorWrapper>
-      <ProfileLink
-        href={contributor.profile}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ProfileImage src={contributor.img} alt={contributor.name} />
-      </ProfileLink>
-      <ContributorInfo>
-        <ContributorName>{contributor.name}</ContributorName>
-        <ContributorTitle>{title}</ContributorTitle>
-        {team && <ContributorTeam>@{team}</ContributorTeam>}
-      </ContributorInfo>
-    </ContributorWrapper>
   );
 };
 
@@ -114,66 +91,5 @@ const ContributorList = styled.div`
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-  }
-`;
-
-const ContributorWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  width: 200px;
-  height: 240px;
-
-  @media (max-width: 768px) {
-    width: 110px;
-    height: 200px;
-  }
-`;
-
-const ProfileLink = styled.a`
-  cursor: pointer;
-`;
-
-const ProfileImage = styled.img`
-  height: 110px;
-  width: 110px;
-  object-fit: cover;
-  transition: transform 300ms ease;
-  border: 2px solid ${Colors.neonGreen};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
-  @media (max-width: 476px) {
-    width: 96px;
-    height: 96px;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const ContributorInfo = styled.div`
-  text-align: center;
-  color: white;
-`;
-
-const ContributorName = styled.div`
-  font-size: 20px;
-  margin-top: 10px;
-  color: ${Colors.neonGreen};
-`;
-
-const ContributorTitle = styled.p`
-  margin-top: 10px;
-`;
-
-const ContributorTeam = styled.p`
-  margin-top: 4px;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
   }
 `;
