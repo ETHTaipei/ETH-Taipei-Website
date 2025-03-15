@@ -9,7 +9,6 @@ export type SpeakerProps = {
   img: string;
   profile?: string;
   companyLink?: string;
-  show: boolean;
   keynote: boolean;
 };
 
@@ -23,7 +22,6 @@ const query = gql`query {
     createdAt
     id
     publishedAt
-    show
     updatedAt
     keynote
   }
@@ -31,20 +29,21 @@ const query = gql`query {
 `;
 
 /**
- * 
+ *
  * @description fetch speakers with GraphQL
- * 
+ *
  */
 export const useSpeakers = () => {
-
-  const { data } = useQuery<{speakers: SpeakerProps[]}>(query);
+  const { data } = useQuery<{ speakers: SpeakerProps[] }>(query);
 
   const all = data?.speakers || [];
 
   const keynoteSpeakers = all.filter((speaker) => speaker.keynote);
 
   const unsortedSpeakers = all.filter((speaker) => !speaker.keynote);
-  const speakers = unsortedSpeakers.sort((a, b) => a.name.localeCompare(b.name));
+  const speakers = unsortedSpeakers.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
-  return {  speakers, keynoteSpeakers };
+  return { speakers, keynoteSpeakers };
 };

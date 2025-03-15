@@ -24,7 +24,6 @@ const homepage = {
   callToActionText:
     "ETHTaipei is hosted by the local ETH community, and we'd love to see more participants and different parties getting involved! If you have great ideas, resources, wanna host cool side events, make sure to click the Apply buttons and reach out to us through social links!",
   speakers: `${year} Speakers`,
-  speakersIntro: "Have an idea in mind that you want to share in ETHTaipei?",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
   venue: "The Venue",

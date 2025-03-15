@@ -4,11 +4,9 @@ import t from "@/public/constant/content";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import {
-  useOrganizers,
-  ContributorType,
-} from "@/components/hooks/useContributors";
+import { useOrganizers } from "@/components/hooks/useContributors";
 import Image from "next/image";
+import PeopleLink from "./PeopleLink";
 
 const Organizers = () => {
   const { organizers } = useOrganizers();
@@ -32,7 +30,7 @@ const Organizers = () => {
           </OrganizersSubtitle>
           <OrganizersList>
             {organizers.map((organizer, index) => (
-              <OrganizerCard organizer={organizer} key={index} />
+              <PeopleLink person={organizer} key={index} />
             ))}
           </OrganizersList>
         </ContentCenter>
@@ -48,27 +46,6 @@ const Organizers = () => {
         />
       </BackgroundBottom>
     </Container>
-  );
-};
-
-const OrganizerCard = ({ organizer }: { organizer: ContributorType }) => {
-  const [title, team] = organizer.titleAndCompany.split("@");
-
-  return (
-    <OrganizerWrapper>
-      <ProfileLink
-        href={organizer.profile}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ProfileImage src={organizer.img} alt={organizer.name} />
-      </ProfileLink>
-      <OrganizerInfo>
-        <OrganizerName>{organizer.name}</OrganizerName>
-        <OrganizerTitle>{title}</OrganizerTitle>
-        {team && <OrganizerTeam>@{team}</OrganizerTeam>}
-      </OrganizerInfo>
-    </OrganizerWrapper>
   );
 };
 
@@ -126,65 +103,6 @@ const OrganizersList = styled.div`
     padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-  }
-`;
-
-const OrganizerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  height: 240px;
-
-  @media (max-width: 768px) {
-    width: 110px;
-  }
-`;
-
-const ProfileLink = styled.a`
-  cursor: pointer;
-`;
-
-const ProfileImage = styled.img`
-  height: 110px;
-  width: 110px;
-  object-fit: cover;
-  transition: transform 600ms ease;
-  border: 2px solid ${Colors.neonGreen};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
-  @media (max-width: 476px) {
-    width: 96px;
-    height: 96px;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const OrganizerInfo = styled.div`
-  text-align: center;
-  color: white;
-`;
-
-const OrganizerName = styled.div`
-  font-size: 20px;
-  margin-top: 10px;
-  color: ${Colors.neonGreen};
-`;
-
-const OrganizerTitle = styled.p`
-  margin-top: 10px;
-`;
-
-const OrganizerTeam = styled.p`
-  margin-top: 4px;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
   }
 `;
 
