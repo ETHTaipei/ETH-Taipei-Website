@@ -41,13 +41,37 @@ const Speakers = () => {
   );
 };
 
+function SpeakerInfo({
+  speaker,
+  isKeynote = false,
+}: {
+  speaker: SpeakerProps;
+  isKeynote?: boolean;
+}) {
+  const handleClickCompany = () => {
+    speaker.companyLink && openNewTab(speaker.companyLink);
+  };
+  return (
+    <SpeakerInfoContainer>
+      <SpeakerName isKeynote={isKeynote}>{speaker.name}</SpeakerName>
+      <SpeakerCompany
+        onClick={handleClickCompany}
+        isKeynote={isKeynote}
+        hasLink={!!speaker.companyLink}
+      >
+        {speaker.company && `@ ${speaker.company}`}
+      </SpeakerCompany>
+    </SpeakerInfoContainer>
+  );
+}
+
 function KeynoteSpeaker({ speaker }: { speaker: SpeakerProps }) {
   return (
     <KeynoteSpeakerContainer>
       <KeynoteSpeakerAvatar>
         <RoundedImageWrapperComponent speaker={speaker} />
       </KeynoteSpeakerAvatar>
-      <KeynoteSpeakerInfo speaker={speaker} />
+      <SpeakerInfo speaker={speaker} isKeynote={true} />
     </KeynoteSpeakerContainer>
   );
 }
@@ -60,55 +84,6 @@ function Speaker({ speaker }: { speaker: SpeakerProps }) {
       </SpeakerAvatar>
       <SpeakerInfo speaker={speaker} />
     </SpeakerContainer>
-  );
-}
-
-function KeynoteSpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
-  const handleClickName = () => {
-    speaker.profile && openNewTab(speaker.profile);
-  };
-  const handleClickCompany = () => {
-    speaker.companyLink && openNewTab(speaker.companyLink);
-  };
-  return (
-    <SpeakerInfoContainer>
-      <SpeakerName
-        onClick={handleClickName}
-        variant="lg"
-        hasLink={!!speaker.profile}
-      >
-        {speaker.name}
-      </SpeakerName>
-      <SpeakerCompany
-        onClick={handleClickCompany}
-        variant="lg"
-        hasLink={!!speaker.companyLink}
-      >
-        @ {speaker.company}
-      </SpeakerCompany>
-    </SpeakerInfoContainer>
-  );
-}
-
-function SpeakerInfo({ speaker }: { speaker: SpeakerProps }) {
-  const handleClickName = () => {
-    speaker.profile && openNewTab(speaker.profile);
-  };
-  const handleClickCompany = () => {
-    speaker.companyLink && openNewTab(speaker.companyLink);
-  };
-  return (
-    <SpeakerInfoContainer>
-      <SpeakerName onClick={handleClickName} hasLink={!!speaker.profile}>
-        {speaker.name}
-      </SpeakerName>
-      <SpeakerCompany
-        onClick={handleClickCompany}
-        hasLink={!!speaker.companyLink}
-      >
-        @ {speaker.company}
-      </SpeakerCompany>
-    </SpeakerInfoContainer>
   );
 }
 
@@ -268,34 +243,15 @@ const SpeakerInfoContainer = styled.div`
   color: white;
 `;
 
-const SpeakerName = styled.div<{ variant?: "lg"; hasLink: boolean }>`
-  font-size: ${({ variant }) => {
-    switch (variant) {
-      case "lg": {
-        return "30px";
-      }
-      default: {
-        return "22px";
-      }
-    }
-  }};
+const SpeakerName = styled.div<{ isKeynote?: boolean }>`
+  font-size: ${({ isKeynote }) => (isKeynote ? "30px" : "22px")};
   font-weight: bold;
   text-align: center;
   color: ${Colors.neonGreen};
-  cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
 `;
 
-const SpeakerCompany = styled.div<{ variant?: "lg"; hasLink: boolean }>`
-  font-size: ${({ variant }) => {
-    switch (variant) {
-      case "lg": {
-        return "20px";
-      }
-      default: {
-        return "16px";
-      }
-    }
-  }};
+const SpeakerCompany = styled.div<{ isKeynote?: boolean; hasLink: boolean }>`
+  font-size: ${({ isKeynote }) => (isKeynote ? "20px" : "16px")};
   text-align: center;
   line-height: 20px;
   cursor: ${({ hasLink }) => (hasLink ? "pointer" : "auto")};
