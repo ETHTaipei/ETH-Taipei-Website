@@ -69,7 +69,7 @@ const EventCardComponent = ({
 
 const Events = () => {
   return (
-    <Container>
+    <Container id="events">
       <MainContent>
         <Title>
           <ImageWrapper>
@@ -150,6 +150,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background-color: rgba(33, 35, 37, 1);
+  scroll-margin-top: -10px;
 `;
 
 const ImageWrapper = styled.div`

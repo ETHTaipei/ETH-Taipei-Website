@@ -120,6 +120,7 @@ const navs = {
   visaInfo: "Visa Info",
   venue: "Venue",
   brand: "Brand",
+  event: "Events",
 };
 
 const callToAction = {
