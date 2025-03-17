@@ -170,7 +170,7 @@ const MainContent = styled.div`
   padding: 120px 40px;
 
   @media (max-width: 768px) {
-    padding: 60px 24px 30px 24px;
+    padding: 60px 24px;
   }
 `;
 

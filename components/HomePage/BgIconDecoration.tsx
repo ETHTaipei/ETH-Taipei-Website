@@ -39,6 +39,7 @@ export const LogoBgIconDecoration = () => {
 const BgDecoration = styled.div<{ position: string }>`
   position: absolute;
   bottom: 0px;
+  pointer-events: none;
   ${({ position }) =>
     ({
       left: "left: 60px;",
