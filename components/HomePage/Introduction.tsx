@@ -4,12 +4,12 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
-import BgIconDecoration from "./BgIconDecoration";
+import { CuteBgIconDecoration } from "./BgIconDecoration";
 
 const Introduction = () => {
   return (
     <Container>
-      <BgIconDecoration />
+      <CuteBgIconDecoration />
       <MainContent>
         <TitleContainer>
           <IconImg src={"/images/icons/temple.svg"} alt="boba" />

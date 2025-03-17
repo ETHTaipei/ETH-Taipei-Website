@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-interface BgIconDecorationProps {
+interface CuteBgIconDecorationProps {
   leftImage?: string;
   rightImage?: string;
 }
 
-const BgIconDecoration: React.FC<BgIconDecorationProps> = () => {
+export const CuteBgIconDecoration: React.FC<CuteBgIconDecorationProps> = () => {
   return (
     <>
       {
         <BgDecoration position="left">
-          <BgImage
+          <CuteBgImage
             src="/images/background/community-left.svg"
             alt="decoration-left"
           />
@@ -18,7 +18,7 @@ const BgIconDecoration: React.FC<BgIconDecorationProps> = () => {
       }
       {
         <BgDecoration position="right">
-          <BgImage
+          <CuteBgImage
             src="/images/background/community-right.svg"
             alt="decoration-right"
           />
@@ -28,17 +28,35 @@ const BgIconDecoration: React.FC<BgIconDecorationProps> = () => {
   );
 };
 
-export default BgIconDecoration;
+export const LogoBgIconDecoration = () => {
+  return (
+    <BgDecoration position="left-most">
+      <LogoBgImage src={"/images/background/decoration.svg"} alt="decoration" />
+    </BgDecoration>
+  );
+};
 
 const BgDecoration = styled.div<{ position: string }>`
   position: absolute;
   bottom: 0px;
-  ${(props) => (props.position === "left" ? "left: 60px;" : "right: 60px;")}
+  ${({ position }) =>
+    ({
+      left: "left: 60px;",
+      right: "right: 60px;",
+    }[position] || "left: 0px;")}/* left-most */
 `;
 
-const BgImage = styled.img`
+const CuteBgImage = styled.img`
   width: 100%;
   @media (max-width: 992px) {
     width: 100px;
+  }
+`;
+
+const LogoBgImage = styled.img`
+  width: 50%;
+  opacity: 0.05;
+  @media (max-width: 768px) {
+    width: 240px;
   }
 `;

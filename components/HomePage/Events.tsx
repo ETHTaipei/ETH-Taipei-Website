@@ -5,6 +5,7 @@ import t from "@/public/constant/content";
 import { lumaUrl, sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
+import { LogoBgIconDecoration } from "./BgIconDecoration";
 
 interface EventCardParam {
   imageSrc: string;
@@ -70,6 +71,7 @@ const EventCardComponent = ({
 const Events = () => {
   return (
     <Container id="events">
+      <LogoBgIconDecoration />
       <MainContent>
         <Title>
           <ImageWrapper>
