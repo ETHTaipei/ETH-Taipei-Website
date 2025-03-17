@@ -134,7 +134,8 @@ const Events = () => {
             allowFullScreen
             aria-hidden="false"
             tabIndex={0}
-            style={{ minHeight: "275px" }}
+            loading="lazy"
+            style={{ minHeight: "350px" }}
           />
         </EventCardWrapper>
       </MainContent>
@@ -165,6 +166,10 @@ const MainContent = styled.div`
   width: 100%;
   max-width: 1060px;
   padding: 120px 40px;
+
+  @media (max-width: 768px) {
+    padding: 60px 24px 30px 24px;
+  }
 `;
 
 const Title = styled.h1`
@@ -232,8 +237,9 @@ const EventName = styled.div`
   position: relative;
   padding: 32px;
   font-size: 36px;
-  color: black;
-  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+  color: white;
+  text-shadow: -3px 0 ${Colors.brightBlue}, 0 3px ${Colors.brightBlue},
+    3px 0 ${Colors.brightBlue}, 0 -3px ${Colors.brightBlue};
   width: 100%;
   height: 100%;
 `;
@@ -265,7 +271,7 @@ const EventDate = styled.div`
   gap: 8px;
   color: white;
   font-size: 18px;
-  margin-right: 8px;
+  margin-right: 4px;
 `;
 
 const Icon = styled.div`
