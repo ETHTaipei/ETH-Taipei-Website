@@ -1,7 +1,6 @@
 import {
   faBars,
   faXmark,
-  faCalendar,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +12,6 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import {
   discordUrl,
-  lumaUrl,
   sideEventApplyUrl,
   speakerApplyUrl,
   sponsorApplyUrl,
@@ -49,28 +47,12 @@ const ImageButton = ({
   </CircleButton>
 );
 
-const XButton = () => <ImageButton url={xUrl} src={XIcon} percent="50" />;
-const TelegramButton = () => (
-  <ImageButton url={telegramUrl} src={TelegramIcon} percent="55" />
-);
-const DiscordButton = () => (
-  <ImageButton url={discordUrl} src={DiscordIcon} percent="60" />
-);
-
-// LumaButton uses icon and is thus not an ImageButton
-const LumaButton = () => (
-  <CircleButton as="a" href={lumaUrl} target="_blank">
-    <FontAwesomeIcon
-      icon={faCalendar}
-      style={{
-        objectFit: "contain",
-        width: "50%",
-        height: "50%",
-      }}
-      color="white"
-    />
-  </CircleButton>
-);
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+  percent: string;
+}
 
 // undone paths are set to "" to avoid onClick
 const isNonEmptyPath = (path: string) => path !== "";
@@ -92,7 +74,6 @@ const applyDropdownItems = [
 ];
 
 const PagesNav = () => {
-  const pathname = usePathname();
   const [showApplyDropdown, setShowApplyDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout>();
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
@@ -113,31 +94,6 @@ const PagesNav = () => {
     }
   };
 
-  const isActivePath = (targetPath: string) => {
-    if (typeof window !== "undefined" && pathname) {
-      // Split current pathname and target path into base and hash
-      const [targetBase, targetHash] = targetPath.split("#");
-      const [currentBase] = pathname.split("#");
-
-      // For paths with hash like "/#venue"
-      if (targetHash) {
-        // Check if we're on the correct base path && hashes match
-        return (
-          currentBase === targetBase &&
-          window.location.hash === `#${targetHash}`
-        );
-      }
-
-      // For home path ("/"), only active if there's no hash
-      if (targetPath === "/") {
-        return pathname === targetPath && !window.location.hash;
-      }
-    }
-
-    // Otherwise false
-    return false;
-  };
-
   return (
     <PagesNavContainer>
       {navItems.map(({ label, path }: { label: string; path: string }) => (
@@ -147,7 +103,6 @@ const PagesNav = () => {
           onMouseLeave={handleMouseLeave}
         >
           <NavButton
-            isActive={isActivePath(path)}
             onClick={() =>
               isNonEmptyPath(path) && handleOnClickInternalLink(path)
             }
@@ -172,9 +127,38 @@ const PagesNav = () => {
   );
 };
 
+const socialLinks: SocialLink[] = [
+  {
+    name: "X",
+    url: xUrl,
+    icon: XIcon,
+    percent: "50",
+  },
+  {
+    name: "Telegram",
+    url: telegramUrl,
+    icon: TelegramIcon,
+    percent: "55",
+  },
+  {
+    name: "Discord",
+    url: discordUrl,
+    icon: DiscordIcon,
+    percent: "60",
+  },
+];
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
+
+  const SocialLinks = () => (
+    <>
+      {socialLinks.map(({ url, icon, percent, name }: SocialLink) => (
+        <ImageButton url={url} src={icon} percent={percent} key={name} />
+      ))}
+    </>
+  );
 
   const MenuButtonXOrBars = ({
     isOpen,
@@ -210,10 +194,7 @@ const Header = () => {
 
         <SocialAndTicketButtonsContainer>
           <SocialContainer className="social-container">
-            <XButton />
-            <LumaButton />
-            <TelegramButton />
-            <DiscordButton />
+            <SocialLinks />
           </SocialContainer>
 
           <TicketButton
@@ -272,10 +253,7 @@ const Header = () => {
             {t.navs.ticket}
           </BarsMenuLink>
           <SocialContainer>
-            <XButton />
-            <LumaButton />
-            <TelegramButton />
-            <DiscordButton />
+            <SocialLinks />
           </SocialContainer>
         </BarsMenuContent>
       </BarsMenu>
@@ -456,17 +434,6 @@ const SocialContainer = styled.div`
       width: 32px;
       height: 32px;
     }
-
-    /* the below makes four of them collapse into two lines */
-    & > *:nth-child(1),
-    & > *:nth-child(2) {
-      margin: 0px 4px;
-    }
-
-    & > *:nth-child(3),
-    & > *:nth-child(4) {
-      margin: 0px 4px;
-    }
   }
 `;
 
@@ -517,11 +484,10 @@ const NavButtonContainer = styled.div`
   position: relative;
 `;
 
-const NavButton = styled.button<{ isActive: boolean }>`
+const NavButton = styled.button`
   font-family: inherit;
-  background-color: ${(props) =>
-    props.isActive ? Colors.brightBlue : "white"};
-  color: ${(props) => (props.isActive ? "white" : Colors.grayBorder)};
+  background-color: "white";
+  color: ${Colors.grayBorder};
   border: none;
   border-radius: 24px;
   padding: 8px 16px;
