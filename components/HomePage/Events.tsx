@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
+import { lumaUrl, sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 
@@ -116,6 +116,27 @@ const Events = () => {
             linkUrl={sideEventFormUrl}
           />
         </EventCardWrapper>
+        <EventCardWrapper>
+          <EventCardComponent
+            imageSrc="/images/recap-2024/8.jpg"
+            imageAlt={t.homepage.eventName_4}
+            name={t.homepage.eventName_4}
+            description={t.homepage.eventDesc_4}
+            date={t.homepage.eventDate_4}
+            buttonText={t.homepage.eventBtn_4}
+            isActivated={true}
+            linkUrl={lumaUrl}
+          />
+          <iframe
+            src="https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark"
+            width="100%"
+            height="auto"
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex={0}
+            style={{ minHeight: "275px" }}
+          />
+        </EventCardWrapper>
       </MainContent>
     </Container>
   );
@@ -128,7 +149,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(33, 35, 37, 1);
 `;
 
 const ImageWrapper = styled.div`
@@ -180,7 +201,6 @@ const EventCardWrapper = styled.div`
 
 const EventCard = styled.div`
   width: 100%;
-  max-width: 880px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -244,6 +264,7 @@ const EventDate = styled.div`
   gap: 8px;
   color: white;
   font-size: 18px;
+  margin-right: 8px;
 `;
 
 const Icon = styled.div`

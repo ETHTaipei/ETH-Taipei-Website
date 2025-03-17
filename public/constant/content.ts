@@ -91,6 +91,11 @@ const homepage = {
     "Get ready for an extra dose of fun at ETHTaipei! While the main conference takes center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
   eventDate_3: dateDayMonthYear,
   eventBtn_3: "See Events",
+  eventName_4: "Community Events",
+  eventDesc_4:
+    "At ETHTaipei, we host regular monthly events: Meetups on the first Wed and talks on the third Wed of every month. Wanna hang out with us and the local communities? Click on the event links to sign up and subscribe for more!",
+  eventDate_4: "1st & 3rd Wed of the month",
+  eventBtn_4: "Subscribe",
 
   recapTitle: "Recap! 2024 Edition",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
