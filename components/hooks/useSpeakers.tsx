@@ -12,7 +12,7 @@ export type SpeakerProps = {
   keynote: boolean;
 };
 
-const query = gql`query {
+export const SPEAKER_QUERY = gql`query {
   speakers: speakers${year} (first: 100, where: { show: true }) {
     name
     company
@@ -34,7 +34,7 @@ const query = gql`query {
  *
  */
 export const useSpeakers = () => {
-  const { data } = useQuery<{ speakers: SpeakerProps[] }>(query);
+  const { data } = useQuery<{ speakers: SpeakerProps[] }>(SPEAKER_QUERY);
 
   const all = data?.speakers || [];
 

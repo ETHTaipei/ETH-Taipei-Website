@@ -52,7 +52,7 @@ const communityQuery = gql`
 `;
 
 export const usePartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(partnerQuery);
+  const { data } = useQuery<{ partners: PartnerType[] }>(PARTNER_QUERY);
 
   const partners =
     data?.partners.map((partner) => ({
@@ -65,7 +65,7 @@ export const usePartners = () => {
 
 export const useMediaPartners = () => {
   const { data } = useQuery<{ partners: MediaPartnerType[] }>(
-    mediaPartnerQuery
+    MEDIAPARTNER_QUERY
   );
 
   const mediaPartners =
@@ -82,7 +82,7 @@ export const useMediaPartners = () => {
 };
 
 export const useCommunityPartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(communityQuery);
+  const { data } = useQuery<{ partners: PartnerType[] }>(COMMUNITY_QUERY);
 
   const communityPartners =
     data?.partners.map((partner) => ({

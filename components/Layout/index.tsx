@@ -8,7 +8,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props;
 
   return (
-    <ApolloWrapper>
+    <ApolloWrapper pageProps={{}}>
       <Header />
       <Banner />
       <Main>{children}</Main>

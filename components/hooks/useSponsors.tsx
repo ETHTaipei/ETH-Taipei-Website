@@ -12,7 +12,7 @@ export type SponsorProps = {
   width: number;
 };
 
-const query = gql`query {
+export const SPONSOR_QUERY = gql`query {
   sponsors: sponsors${year} (first: 100, where: {show:true}) {
     url
     name
@@ -23,7 +23,7 @@ const query = gql`query {
 `;
 
 export const useSponsors = () => {
-  const { data } = useQuery<{ sponsors: SponsorProps[] }>(query);
+  const { data } = useQuery<{ sponsors: SponsorProps[] }>(SPONSOR_QUERY);
 
   const all = data?.sponsors || [];
 
