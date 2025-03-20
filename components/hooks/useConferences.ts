@@ -35,7 +35,7 @@ export type WorkshopItemType = {
   prerequisiteLink?: string;
 };
 
-const queryConferences = gql`
+export const CONFERENCE_QUERY = gql`
   query Conferences {
     conferences(first: 100, orderBy: time_ASC) {
       time
@@ -71,7 +71,7 @@ const queryWorkshops = gql`
 
 export const useConferences = () => {
   const { data: conferences } = useQuery<{ conferences: ConferenceItemType[] }>(
-    queryConferences
+    CONFERENCE_QUERY
   );
   const { data: workshops } = useQuery<{ workshops: WorkshopItemType[] }>(
     queryWorkshops

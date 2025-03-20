@@ -1,5 +1,3 @@
-import { ApolloWrapper } from "@/components/providers/apollo";
-
 import styled from "styled-components";
 import Header from "./Header";
 import Banner from "@/components/HomePage/Banner";
@@ -8,11 +6,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props;
 
   return (
-    <ApolloWrapper pageProps={{}}>
+    <>
       <Header />
       <Banner />
       <Main>{children}</Main>
-    </ApolloWrapper>
+    </>
   );
 };
 
