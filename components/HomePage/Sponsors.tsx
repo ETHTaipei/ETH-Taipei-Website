@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import { useSponsors } from "@/components/hooks/useSponsors";

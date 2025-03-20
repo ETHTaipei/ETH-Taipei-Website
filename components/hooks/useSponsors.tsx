@@ -1,5 +1,3 @@
-// "use client"
-
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 import { PLATINUM, GOLD, SILVER, BRONZE } from "@/public/constant/logo_width";

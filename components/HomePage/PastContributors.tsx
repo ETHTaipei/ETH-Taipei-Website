@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
