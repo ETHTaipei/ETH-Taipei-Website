@@ -21,36 +21,19 @@ import {
   ORGANIZER_QUERY,
   PASTCONTRIBUTOR_QUERY,
 } from "@/components/hooks/useContributors";
-import { ApolloWrapper, initializeApollo } from "@/components/providers/apollo";
+import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
 import type { GetStaticProps } from "next";
 
-async function getInitialData() {
-  const apolloClient = initializeApollo();
-
-  try {
-    for (const query of [
-      SPEAKER_QUERY,
-      SPONSOR_QUERY,
-      PARTNER_QUERY,
-      MEDIAPARTNER_QUERY,
-      COMMUNITY_QUERY,
-      ORGANIZER_QUERY,
-      PASTCONTRIBUTOR_QUERY,
-    ]) {
-      await apolloClient.query({ query });
-      // Add delay between requests to avoid rate limiting
-      await new Promise((resolve) => setTimeout(resolve, 100));
-    }
-
-    return apolloClient.cache.extract();
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {};
-  }
-}
-
 export const getStaticProps: GetStaticProps = async () => {
-  const initialApolloState = await getInitialData();
+  const initialApolloState = await getInitialData([
+    SPEAKER_QUERY,
+    SPONSOR_QUERY,
+    PARTNER_QUERY,
+    MEDIAPARTNER_QUERY,
+    COMMUNITY_QUERY,
+    ORGANIZER_QUERY,
+    PASTCONTRIBUTOR_QUERY,
+  ]);
 
   return {
     props: {

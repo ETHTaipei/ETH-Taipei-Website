@@ -5,6 +5,7 @@ import {
   ApolloProvider,
   InMemoryCache,
   NormalizedCacheObject,
+  DocumentNode,
 } from "@apollo/client";
 import { useMemo } from "react";
 
@@ -18,7 +19,7 @@ function createApolloClient() {
   });
 }
 
-export function initializeApollo(initialState: any = null) {
+function initializeApollo(initialState: any = null) {
   const _apolloClient = apolloClient ?? createApolloClient();
 
   // If there's initial state from SSR, restore it
@@ -35,7 +36,7 @@ export function initializeApollo(initialState: any = null) {
   return apolloClient;
 }
 
-export function useApollo(initialState: any) {
+function useApollo(initialState: any) {
   const store = useMemo(() => initializeApollo(initialState), [initialState]);
   return store;
 }
@@ -50,4 +51,21 @@ export function ApolloWrapper({
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return <ApolloProvider client={apolloClient}>{children}</ApolloProvider>;
+}
+
+export async function getInitialData(queries: DocumentNode[]) {
+  const apolloClient = initializeApollo();
+
+  try {
+    for (const query of queries) {
+      await apolloClient.query({ query });
+      // Add delay between requests to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+
+    return apolloClient.cache.extract();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {};
+  }
 }
