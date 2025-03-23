@@ -2,9 +2,10 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
+import { lumaUrl, sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
+import { LogoBgIconDecoration } from "./BgIconDecoration";
 
 interface EventCardParam {
   imageSrc: string;
@@ -69,7 +70,8 @@ const EventCardComponent = ({
 
 const Events = () => {
   return (
-    <Container>
+    <Container id="events">
+      <LogoBgIconDecoration />
       <MainContent>
         <Title>
           <ImageWrapper>
@@ -116,6 +118,28 @@ const Events = () => {
             linkUrl={sideEventFormUrl}
           />
         </EventCardWrapper>
+        <EventCardWrapper>
+          <EventCardComponent
+            imageSrc="/images/recap-2024/8.jpg"
+            imageAlt={t.homepage.eventName_4}
+            name={t.homepage.eventName_4}
+            description={t.homepage.eventDesc_4}
+            date={t.homepage.eventDate_4}
+            buttonText={t.homepage.eventBtn_4}
+            isActivated={true}
+            linkUrl={lumaUrl}
+          />
+          <iframe
+            src="https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark"
+            width="100%"
+            height="auto"
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex={0}
+            loading="lazy"
+            style={{ minHeight: "350px" }}
+          />
+        </EventCardWrapper>
       </MainContent>
     </Container>
   );
@@ -128,7 +152,8 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(33, 35, 37, 1);
+  scroll-margin-top: -10px;
 `;
 
 const ImageWrapper = styled.div`
@@ -143,6 +168,10 @@ const MainContent = styled.div`
   width: 100%;
   max-width: 1060px;
   padding: 120px 40px;
+
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
 `;
 
 const Title = styled.h1`
@@ -180,7 +209,6 @@ const EventCardWrapper = styled.div`
 
 const EventCard = styled.div`
   width: 100%;
-  max-width: 880px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -211,8 +239,9 @@ const EventName = styled.div`
   position: relative;
   padding: 32px;
   font-size: 36px;
-  color: black;
-  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+  color: white;
+  text-shadow: -3px 0 ${Colors.brightBlue}, 0 3px ${Colors.brightBlue},
+    3px 0 ${Colors.brightBlue}, 0 -3px ${Colors.brightBlue};
   width: 100%;
   height: 100%;
 `;
@@ -244,6 +273,7 @@ const EventDate = styled.div`
   gap: 8px;
   color: white;
   font-size: 18px;
+  margin-right: 4px;
 `;
 
 const Icon = styled.div`

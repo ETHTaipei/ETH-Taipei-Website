@@ -2,7 +2,7 @@ import t from "@/public/constant/content";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import styled from "styled-components";
 import { useCommunityPartners } from "../hooks/usePartners";
-import BgIconDecoration from "./BgIconDecoration";
+import { CuteBgIconDecoration } from "./BgIconDecoration";
 import {
   BaseContainer,
   BaseMainContent,
@@ -18,7 +18,7 @@ const CommunitySupport = () => {
 
   return (
     <Container>
-      <BgIconDecoration />
+      <CuteBgIconDecoration />
       <BaseMainContent>
         <StyledTitle>
           <Icon src="/images/icons/orchid.svg" />

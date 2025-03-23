@@ -11,6 +11,10 @@ export type PartnerType = {
   width: number;
 };
 
+type MediaPartnerType = PartnerType & {
+  tier?: number;
+};
+
 const partnerQuery = gql`query {
   partners: partners${year} (first: 100, where: {show:true, isCommunitySupport:false}) {
     url
@@ -20,13 +24,18 @@ const partnerQuery = gql`query {
 }
 `;
 
-const mediaPartnerQuery = gql`query {
-  partners: mediaPartners${year} (first: 100, where: {show:true}) {
-    url
-    name
-    img
+const mediaPartnerQuery = gql`
+  query {
+    partners: mediaPartners${year}(
+      first: 100, 
+      where: { show: true }
+    ) {
+      url
+      name
+      img
+      tier
+    }
   }
-}
 `;
 
 const communityQuery = gql`
@@ -55,13 +64,19 @@ export const usePartners = () => {
 };
 
 export const useMediaPartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(mediaPartnerQuery);
+  const { data } = useQuery<{ partners: MediaPartnerType[] }>(
+    mediaPartnerQuery
+  );
 
   const mediaPartners =
     data?.partners.map((partner) => ({
       ...partner,
       width: PARTNER,
+      tier: partner.tier || 1, // Default to tier 1 if not specified
     })) || [];
+
+  // tier: 3 ~ 1, with 3 being the highest importance
+  mediaPartners.sort((a, b) => b.tier - a.tier);
 
   return { mediaPartners };
 };

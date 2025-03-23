@@ -1,14 +1,13 @@
 export const xUrl = "https://twitter.com/EthTaipei";
 export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
-export const lumaUrl = "https://lu.ma/ETHTaipei_2024";
+export const lumaUrl = "https://lu.ma/ETHTaipei_2025";
 
 export const sponsorApplyUrl = "https://forms.gle/d3b7rjBcQVp468cUA";
 export const speakerApplyUrl = "https://forms.gle/xwFWkYHAoJKj7ek18";
 export const sideEventApplyUrl = "https://forms.gle/vT4QWtZu9kR5ng5d8";
 export const mediaPartnerApplyUrl = "";
-export const hackathonUrl =
-  "https://ethglobal.com/events/taipei";
+export const hackathonUrl = "https://ethglobal.com/events/taipei";
 export const sideEventFormUrl =
   "https://docs.google.com/spreadsheets/d/1vHw0q1cp-b8gLfF11VkQ0rFM5oFvN1JVmz98vYnzkhY/edit?gid=0#gid=0";
 export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei-2025";

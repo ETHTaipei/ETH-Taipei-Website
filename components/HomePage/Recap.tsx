@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
+import { LogoBgIconDecoration } from "./BgIconDecoration";
 
 const GalleryImages = ({
   year,
@@ -37,9 +38,7 @@ const Recap = () => {
 
   return (
     <Container>
-      <BgDecoration>
-        <BgImage src={"/images/background/decoration.svg"} alt="decoration" />
-      </BgDecoration>
+      <LogoBgIconDecoration />
       <MainContent>
         <Title>
           <Image
@@ -80,20 +79,6 @@ const Recap = () => {
 };
 
 export default Recap;
-
-const BgDecoration = styled.div`
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-`;
-
-const BgImage = styled.img`
-  width: 50%;
-  opacity: 0.05;
-  @media (max-width: 768px) {
-    width: 240px;
-  }
-`;
 
 const Container = styled.div`
   display: flex;
