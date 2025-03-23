@@ -96,7 +96,7 @@ function RoundedImageWrapperComponent({ speaker }: { speaker: SpeakerProps }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={speaker.img} fill alt={speaker.name} />
+          {speaker.img && <Image src={speaker.img} fill alt={speaker.name} />}
         </ProfileLink>
       )}
     </RoundedImageWrapper>

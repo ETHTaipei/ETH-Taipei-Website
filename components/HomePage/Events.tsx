@@ -130,7 +130,7 @@ const Events = () => {
             linkUrl={lumaUrl}
           />
           <iframe
-            src="https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark"
+            src="https://lu.ma/embed/calendar/cal-7G3rRv9BrZuKS3R/events?lt=dark"
             width="100%"
             height="auto"
             allowFullScreen
