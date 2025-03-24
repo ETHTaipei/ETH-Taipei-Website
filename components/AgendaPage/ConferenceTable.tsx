@@ -47,26 +47,33 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
             </NewScheduleRow>
             {conferenceAgendas[date] &&
               conferenceAgendas[date].length > 0 &&
-              conferenceAgendas[date].map((agenda, i) => (
-                <NewScheduleRow key={date.toString() + i}>
-                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                  <TrackContainer>
-                    {agenda.trackA && (
-                      <ConferenceAgendaItem item={agenda.trackA} index={i} />
-                    )}
-                  </TrackContainer>
-                  <TrackContainer>
-                    {agenda.trackB && (
-                      <ConferenceAgendaItem item={agenda.trackB} index={i} />
-                    )}
-                  </TrackContainer>
-                  <TrackContainer>
-                    {agenda.workshop && (
-                      <WorkshopItem item={agenda.workshop} index={i} />
-                    )}
-                  </TrackContainer>
-                </NewScheduleRow>
-              ))}
+              conferenceAgendas[date]
+                .slice(
+                  conferenceAgendas[date].findIndex(
+                    (agenda) =>
+                      agenda.trackA || agenda.trackB || agenda.workshop
+                  )
+                )
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackA && (
+                        <ConferenceAgendaItem item={agenda.trackA} index={i} />
+                      )}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.trackB && (
+                        <ConferenceAgendaItem item={agenda.trackB} index={i} />
+                      )}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.workshop && (
+                        <WorkshopItem item={agenda.workshop} index={i} />
+                      )}
+                    </TrackContainer>
+                  </NewScheduleRow>
+                ))}
           </NewTracksContainer>
         </TableContainer>
       </DesktopScheduleContainer>
@@ -79,7 +86,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.trackA)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.trackA)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
@@ -99,7 +108,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.trackB)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.trackB)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
@@ -119,7 +130,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.workshop)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.workshop)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
