@@ -1,5 +1,3 @@
-// "use client"
-
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 import { COMMUNITY_PARTNER, PARTNER } from "@/public/constant/logo_width";
@@ -15,7 +13,7 @@ type MediaPartnerType = PartnerType & {
   tier?: number;
 };
 
-const partnerQuery = gql`query {
+export const PARTNER_QUERY = gql`query {
   partners: partners${year} (first: 100, where: {show:true, isCommunitySupport:false}) {
     url
     name
@@ -24,21 +22,17 @@ const partnerQuery = gql`query {
 }
 `;
 
-const mediaPartnerQuery = gql`
-  query {
-    partners: mediaPartners${year}(
-      first: 100, 
-      where: { show: true }
-    ) {
-      url
-      name
-      img
-      tier
-    }
+export const MEDIAPARTNER_QUERY = gql`query {
+  partners: mediaPartners${year} (first: 100, where: {show:true}) {
+    url
+    name
+    img
+    tier
   }
+}
 `;
 
-const communityQuery = gql`
+export const COMMUNITY_QUERY = gql`
   query {
     partners: partners(
       first: 20
@@ -52,7 +46,7 @@ const communityQuery = gql`
 `;
 
 export const usePartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(partnerQuery);
+  const { data } = useQuery<{ partners: PartnerType[] }>(PARTNER_QUERY);
 
   const partners =
     data?.partners.map((partner) => ({
@@ -65,7 +59,7 @@ export const usePartners = () => {
 
 export const useMediaPartners = () => {
   const { data } = useQuery<{ partners: MediaPartnerType[] }>(
-    mediaPartnerQuery
+    MEDIAPARTNER_QUERY
   );
 
   const mediaPartners =
@@ -82,7 +76,7 @@ export const useMediaPartners = () => {
 };
 
 export const useCommunityPartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(communityQuery);
+  const { data } = useQuery<{ partners: PartnerType[] }>(COMMUNITY_QUERY);
 
   const communityPartners =
     data?.partners.map((partner) => ({

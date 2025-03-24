@@ -1,5 +1,3 @@
-// "use client"
-
 import { gql, useQuery } from "@apollo/client";
 
 export type ContributorType = {
@@ -10,7 +8,7 @@ export type ContributorType = {
   img: string;
 };
 
-const organizerQuery = gql`
+export const ORGANIZER_QUERY = gql`
   query organizers {
     organizers(first: 40) {
       name
@@ -22,7 +20,7 @@ const organizerQuery = gql`
   }
 `;
 
-const pastContributorQuery = gql`
+export const PASTCONTRIBUTOR_QUERY = gql`
   query contributors {
     contributors(first: 20) {
       name
@@ -35,7 +33,7 @@ const pastContributorQuery = gql`
 `;
 
 export const useOrganizers = () => {
-  const { data } = useQuery<{ organizers: ContributorType[] }>(organizerQuery);
+  const { data } = useQuery<{ organizers: ContributorType[] }>(ORGANIZER_QUERY);
 
   const organizers = data?.organizers || [];
 
@@ -44,7 +42,7 @@ export const useOrganizers = () => {
 
 export const usePastContributors = () => {
   const { data } = useQuery<{ contributors: ContributorType[] }>(
-    pastContributorQuery
+    PASTCONTRIBUTOR_QUERY
   );
 
   const pastContributors = data?.contributors || [];

@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { ContributorType } from "@/components/hooks/useContributors";

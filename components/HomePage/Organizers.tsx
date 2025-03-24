@@ -1,5 +1,3 @@
-"use client";
-
 import t from "@/public/constant/content";
 import styled from "styled-components";
 import Colors from "@/styles/colors";

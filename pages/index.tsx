@@ -10,10 +10,42 @@ import Speakers from "@/components/HomePage/Speakers";
 import Sponsors from "@/components/HomePage/Sponsors";
 import Venue from "@/components/HomePage/Venue";
 import Layout from "@/components/Layout";
+import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
+import { SPONSOR_QUERY } from "@/components/hooks/useSponsors";
+import {
+  PARTNER_QUERY,
+  MEDIAPARTNER_QUERY,
+  COMMUNITY_QUERY,
+} from "@/components/hooks/usePartners";
+import {
+  ORGANIZER_QUERY,
+  PASTCONTRIBUTOR_QUERY,
+} from "@/components/hooks/useContributors";
+import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
+import type { GetStaticProps } from "next";
 
-const Home = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const initialApolloState = await getInitialData([
+    SPEAKER_QUERY,
+    SPONSOR_QUERY,
+    PARTNER_QUERY,
+    MEDIAPARTNER_QUERY,
+    COMMUNITY_QUERY,
+    ORGANIZER_QUERY,
+    PASTCONTRIBUTOR_QUERY,
+  ]);
+
+  return {
+    props: {
+      initialApolloState,
+    },
+    revalidate: 3600, // revalidate every hour
+  };
+};
+
+const Home = ({ initialApolloState }: any) => {
   return (
-    <div>
+    <ApolloWrapper pageProps={{ initialApolloState }}>
       <Recap />
       <Introduction />
       <Events />
@@ -25,7 +57,7 @@ const Home = () => {
       <PastContributors />
       <CallToAction />
       <CommunitySupport />
-    </div>
+    </ApolloWrapper>
   );
 };
 
