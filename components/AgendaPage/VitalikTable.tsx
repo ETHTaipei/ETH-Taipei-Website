@@ -6,6 +6,7 @@ import Colors from "@/styles/colors";
 import HeaderCell from "./ui/HeaderCell";
 import SpeakerInfo from "./ui/SpeakerInfo";
 import TimeZoneHint from "./ui/TimeZoneHint";
+import { Duration, ScheduleText } from "./ui/DurationText";
 
 const VitalikTable = () => {
   return (
@@ -59,7 +60,7 @@ const VitalikTable = () => {
                   {"Desired properties of ideal PoS economics"}
                 </ScheduleText>
               </TopicContainer>
-              <DurationT isFirst={true}>40 mins</DurationT>
+              <Duration>40 mins</Duration>
               <SpeakerInfo
                 src={vitalik}
                 name={"Vitalik Buterin"}
@@ -81,23 +82,9 @@ const TableContainer = styled.div`
   max-width: 1080px;
 `;
 
-const TimeText = styled.span`
-  flex: 1;
-  font-size: 16px;
-  line-height: 22px;
-  color: ${Colors.brightBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
 const TopicContainer = styled.div`
   width: 100%;
   margin-top: 8px;
-`;
-
-const ScheduleText = styled(TimeText)`
-  font-size: 14px;
 `;
 
 const NewTracksContainer = styled.div`
@@ -177,14 +164,4 @@ const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
-  display: block;
-  font-weight: 400;
-  color: ${Colors.gray5};
-  @media (max-width: 768px) {
-    border-top-width: 0px;
-    padding-top: 0px;
-  }
 `;

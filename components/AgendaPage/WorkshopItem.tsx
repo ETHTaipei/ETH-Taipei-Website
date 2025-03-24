@@ -1,6 +1,7 @@
 import { WorkshopItemType } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
+import { Duration, ScheduleText } from "./ui/DurationText";
 
 interface WorkshopItemProps {
   item: WorkshopItemType;
@@ -13,7 +14,7 @@ const WorkshopItem = ({ item, index }: WorkshopItemProps) => {
       <TopicContainer>
         <ScheduleText>{`${item.title}`}</ScheduleText>
       </TopicContainer>
-      <DurationT isFirst={index === 0}>{item.duration}</DurationT>
+      <Duration>{item.duration}</Duration>
       <NameContainer>
         {item.holder && (
           <SpeakerContainer>
@@ -47,30 +48,6 @@ const TrackMainContent = styled.div`
 const TopicContainer = styled.div`
   width: 100%;
   margin-top: 8px;
-`;
-
-const TimeText = styled.span`
-  flex: 1;
-  font-size: 16px;
-  line-height: 22px;
-  color: ${Colors.brightBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
-const ScheduleText = styled(TimeText)`
-  font-size: 14px;
-`;
-
-const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
-  display: block;
-  font-weight: 400;
-  color: ${Colors.gray5};
-  @media (max-width: 768px) {
-    border-top-width: 0px;
-    padding-top: 0px;
-  }
 `;
 
 const NameContainer = styled.div`
