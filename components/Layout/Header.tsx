@@ -60,7 +60,7 @@ interface SocialLink {
 const isNonEmptyPath = (path: string) => path !== "";
 const navItems = [
   { label: t.navs.home, path: "/" },
-  // { label: t.navs.agenda2025, path: "/agenda#info" },
+  { label: t.navs.agenda, path: "/agenda#info" },
   { label: t.navs.event, path: "/#events" },
   { label: t.navs.apply, path: "/#calltoaction" },
   { label: t.navs.venue, path: "/#venue" },
@@ -269,7 +269,7 @@ const breakpointWidth = "992px";
 const componentHeight = "40px";
 const headerShrunkHeight = "50px";
 const smallGap = "16px";
-const border = `2px solid ${Colors.grayBorder}`;
+const border = `2px solid ${Colors.borderGray}`;
 const fontWeight = "500";
 const fontSize = "16px";
 
@@ -382,7 +382,7 @@ const BarsMenu = styled.div<{ open: boolean }>`
   background-color: ${Colors.brightBlue};
   transition: transform 0.3s ease;
   transform: translateY(${(props) => (props.open ? "0" : "-100%")});
-  border-bottom: 2px solid ${Colors.grayBorder};
+  border-bottom: 2px solid ${Colors.borderGray};
 
   @media (min-width: ${breakpointWidth}) {
     display: none;
@@ -446,7 +446,7 @@ const MenuButton = styled.div`
   display: none;
   width: 48px;
   height: 48px;
-  color: ${Colors.grayBorder};
+  color: ${Colors.borderGray};
   align-items: center;
   justify-content: center;
 
@@ -489,7 +489,7 @@ const NavButtonContainer = styled.div`
 const NavButton = styled.button`
   font-family: inherit;
   background-color: "white";
-  color: ${Colors.grayBorder};
+  color: ${Colors.borderGray};
   border: none;
   border-radius: 24px;
   padding: 8px 16px;
@@ -521,7 +521,7 @@ const ApplyDropdown = styled.div`
 const ApplyDropdownItem = styled.div`
   padding: 8px 16px;
   cursor: pointer;
-  color: ${Colors.grayBorder};
+  color: ${Colors.borderGray};
   font-size: ${fontSize};
   white-space: nowrap;
   transition: all 0.3s ease;

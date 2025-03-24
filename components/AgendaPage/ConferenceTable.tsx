@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "@/styles/colors";
+import { agendaBorder } from "@/styles/constants";
 import { useConferences } from "../hooks/useConferences";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
@@ -46,26 +47,33 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
             </NewScheduleRow>
             {conferenceAgendas[date] &&
               conferenceAgendas[date].length > 0 &&
-              conferenceAgendas[date].map((agenda, i) => (
-                <NewScheduleRow key={date.toString() + i}>
-                  <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
-                  <TrackContainer>
-                    {agenda.trackA && (
-                      <ConferenceAgendaItem item={agenda.trackA} index={i} />
-                    )}
-                  </TrackContainer>
-                  <TrackContainer>
-                    {agenda.trackB && (
-                      <ConferenceAgendaItem item={agenda.trackB} index={i} />
-                    )}
-                  </TrackContainer>
-                  <TrackContainer>
-                    {agenda.workshop && (
-                      <WorkshopItem item={agenda.workshop} index={i} />
-                    )}
-                  </TrackContainer>
-                </NewScheduleRow>
-              ))}
+              conferenceAgendas[date]
+                .slice(
+                  conferenceAgendas[date].findIndex(
+                    (agenda) =>
+                      agenda.trackA || agenda.trackB || agenda.workshop
+                  )
+                )
+                .map((agenda, i) => (
+                  <NewScheduleRow key={date.toString() + i}>
+                    <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
+                    <TrackContainer>
+                      {agenda.trackA && (
+                        <ConferenceAgendaItem item={agenda.trackA} index={i} />
+                      )}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.trackB && (
+                        <ConferenceAgendaItem item={agenda.trackB} index={i} />
+                      )}
+                    </TrackContainer>
+                    <TrackContainer>
+                      {agenda.workshop && (
+                        <WorkshopItem item={agenda.workshop} index={i} />
+                      )}
+                    </TrackContainer>
+                  </NewScheduleRow>
+                ))}
           </NewTracksContainer>
         </TableContainer>
       </DesktopScheduleContainer>
@@ -78,7 +86,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.trackA)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.trackA)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
@@ -98,7 +108,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.trackB)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.trackB)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
@@ -118,7 +130,9 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
           {conferenceAgendas[date] &&
             conferenceAgendas[date].length > 0 &&
             conferenceAgendas[date]
-              .filter((i) => i.workshop)
+              .slice(
+                conferenceAgendas[date].findIndex((agenda) => agenda.workshop)
+              )
               .map((agenda, i) => (
                 <NewScheduleRow key={date.toString() + i}>
                   <NewTrackTimeContainer>{agenda.time}</NewTrackTimeContainer>
@@ -148,7 +162,7 @@ const NewTracksContainer = styled.div`
   max-width: 1080px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid ${Colors.pennBlue};
+  border: ${agendaBorder};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;
@@ -160,7 +174,11 @@ const NewScheduleRow = styled.div`
   grid-template-columns: 120px 1fr 1fr 0.8fr;
 
   :nth-child(even) {
-    background-color: ${Colors.blue2};
+    background-color: ${Colors.lightBlue};
+  }
+
+  :nth-child(odd) {
+    background-color: white;
   }
 
   @media (max-width: 768px) {
@@ -173,11 +191,11 @@ const NewTrackTimeContainer = styled.div`
   text-align: center;
   font-size: 18px;
   line-height: 22px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
 
   font-weight: bold;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -186,8 +204,8 @@ const NewTrackTimeContainer = styled.div`
 
 const TrackContainer = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,8 +216,7 @@ const TrackContainer = styled.div`
 `;
 
 const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
-  background-color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
+  background-color: ${Colors.brightBlue};
   text-align: center;
   font-size: 16px;
   line-height: 22px;

@@ -8,8 +8,8 @@ const TimeZoneHint = () => {
 export default TimeZoneHint;
 
 const TimeZoneHintContainer = styled.div`
-  colors: ${Colors.pennBlue};
+  colors: ${Colors.brightBlue};
   width: 100%;
   margin-bottom: 12px;
-  font-size: 12px;
+  font-size: 14px;
 `;

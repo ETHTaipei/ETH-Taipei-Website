@@ -1,3 +1,4 @@
+import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 import {
   ConferenceAgenda as ConferenceAgendaUI,
@@ -35,13 +36,12 @@ export type WorkshopItemType = {
   prerequisiteLink?: string;
 };
 
-export const CONFERENCE_QUERY = gql`
-  query Conferences {
-    conferences(first: 100, orderBy: time_ASC) {
+export const CONFERENCE_QUERY = gql`query {
+    conferences: conferences${year}(first: 200, orderBy: time_ASC) {
       time
       topic
       duration
-      speaker {
+      speaker: speaker2025 {
         name
         company
         img
@@ -57,8 +57,8 @@ export const CONFERENCE_QUERY = gql`
 `;
 
 const queryWorkshops = gql`
-  query Workshops {
-    workshops(first: 100) {
+  query {
+    workshops: workshops(first: 50) {
       time
       holder
       title
@@ -88,6 +88,7 @@ class ConferenceAgendaFactory {
   conferences: ConferenceItemType[];
   workshops: WorkshopItemType[];
   agenda: { [key: number]: ConferenceAgendaUI[] } = {};
+
   constructor(
     conferences: ConferenceItemType[],
     workshops: WorkshopItemType[]

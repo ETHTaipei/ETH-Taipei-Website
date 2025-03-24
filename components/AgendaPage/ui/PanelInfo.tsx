@@ -30,7 +30,7 @@ const PanelSpeakerContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
 `;
 
 const PanelHostContainer = styled.div`

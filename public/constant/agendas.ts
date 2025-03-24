@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image";
 
-export type EventType = "hackathon" | "conference" | "sideEvent";
+export type EventType = "conference" | "sideEvent";
 
 export const dates = {
-  hackathon: [22, 23, 24],
-  conference: [21, 22],
-  sideEvent: [21, 22],
+  // hackathon: [22, 23, 24],
+  conference: [1, 2],
+  sideEvent: [1, 2],
 };
 
 export type HackathonItemType = {

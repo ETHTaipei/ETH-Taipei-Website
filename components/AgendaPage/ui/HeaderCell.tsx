@@ -1,9 +1,9 @@
 import IconLocation from "@/components/icons/IconLocation";
 import Colors from "@/styles/colors";
-import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 import Map from "./Map";
+import { agendaBorder } from "@/styles/constants";
 
 interface HeaderCellProps {
   activity: string;
@@ -14,29 +14,16 @@ const HeaderCell = ({ activity, location }: HeaderCellProps) => {
   const [openMap, setOpenMap] = useState(false);
   return (
     <Container>
+      {activity && <Title>{activity}</Title>}
       {location && (
-        <Title>
-          <IconLocation width={14} height={14} color={Colors.pennBlue} />
+        <Location onClick={() => setOpenMap(true)}>
+          <IconLocation width={14} height={14} color={Colors.brightBlue} />
           {` Building ${location}`}
-        </Title>
-      )}
-      {location && (
-        <ViewMap onClick={() => setOpenMap(true)}>
-          <Icon>
-            <Image
-              src="/images/map.svg"
-              alt="Map"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </Icon>
-          View Map
-        </ViewMap>
+        </Location>
       )}
       {openMap && location && (
         <Map id={location} onClose={() => setOpenMap(false)} />
       )}
-      {activity && <Subtitle>{activity}</Subtitle>}
     </Container>
   );
 };
@@ -45,8 +32,8 @@ export default HeaderCell;
 
 const Container = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,33 +41,20 @@ const Container = styled.div`
 
   background-color: white;
   text-align: center;
-  font-size: 16px;
   line-height: 22px;
   font-weight: bold;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
 `;
 
 const Title = styled.div`
-  font-family: "Rammetto One";
-`;
-
-const Subtitle = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 16px;
+  font-size: 20px;
 `;
 
-const ViewMap = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
+const Location = styled.div`
   cursor: pointer;
-`;
-
-const Icon = styled.div`
-  position: relative;
-  width: 12px;
-  height: 12px;
+  font-size: 16px;
+  margin-top: 4px;
 `;

@@ -97,7 +97,6 @@ body {
   font-family: W95fa, 'Inter', Helvetica Neue, Helvetica, Roboto,
     PingFang TC, 微軟雅黑, Microsoft Yahei, sans-serif;
   box-sizing: border-box;
-  background-color: ${Colors.seaSalt} ;
 }
 `;
 

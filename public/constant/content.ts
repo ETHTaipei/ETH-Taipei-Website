@@ -1,9 +1,3 @@
-// for transition period; remove when 2025 version is live
-const lastYear = "2024";
-const lastMonth = "April";
-const lastDayDuration = "21-22";
-export const dateDayMonthLastYear = `${lastDayDuration} ${lastMonth}, ${lastYear}`;
-
 export const year = "2025";
 export const month = "April";
 const dayDuration = "1st-2nd";
@@ -103,14 +97,11 @@ const homepage = {
   recapHide: "Show Less",
 };
 
-const agenda = `${lastYear} Agenda`;
-
 const navs = {
   home: "Home",
   ticket: "Ticket",
   // hackathon: "Hackathon",
-  agenda: agenda,
-  agenda2025: "Agenda",
+  agenda: "Agenda",
   apply: "Apply",
   toSpeak: "to Speak",
   toSponsor: "to Sponsor",

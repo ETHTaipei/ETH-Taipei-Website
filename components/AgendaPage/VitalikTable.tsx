@@ -6,6 +6,8 @@ import Colors from "@/styles/colors";
 import HeaderCell from "./ui/HeaderCell";
 import SpeakerInfo from "./ui/SpeakerInfo";
 import TimeZoneHint from "./ui/TimeZoneHint";
+import { Duration, ScheduleText } from "./ui/DurationText";
+import { agendaBorder } from "@/styles/constants";
 
 const VitalikTable = () => {
   return (
@@ -30,36 +32,17 @@ const VitalikTable = () => {
             </TopicContainer>
           </TrackContainer>
 
-          <NewTrackTimeContainer style={{ backgroundColor: "white" }}>
-            10:15am
-          </NewTrackTimeContainer>
-          <TrackContainer
-            style={{ paddingBottom: 0, backgroundColor: "white" }}
-          >
-            <TopicContainer
-              style={{
-                textAlign: "center",
-                marginTop: 0,
-                paddingBottom: "15px",
-              }}
-            >
-              <ScheduleText>{"Opening Talk Caria @ NUVO"}</ScheduleText>
-            </TopicContainer>
-          </TrackContainer>
-
           <NewTrackTimeContainer
             style={{ borderBottom: 0, backgroundColor: "white" }}
           >
-            10:20am
+            10:10am
           </NewTrackTimeContainer>
           <TrackContainer style={{ borderBottom: 0, backgroundColor: "white" }}>
             <TrackMainContent>
               <TopicContainer>
-                <ScheduleText>
-                  {"Desired properties of ideal PoS economics"}
-                </ScheduleText>
+                <ScheduleText>{"Vitalik Keynote"}</ScheduleText>
               </TopicContainer>
-              <DurationT isFirst={true}>40 mins</DurationT>
+              <Duration>30 mins</Duration>
               <SpeakerInfo
                 src={vitalik}
                 name={"Vitalik Buterin"}
@@ -81,24 +64,9 @@ const TableContainer = styled.div`
   max-width: 1080px;
 `;
 
-const TimeText = styled.span`
-  flex: 1;
-  font-size: 16px;
-  line-height: 22px;
-  color: ${Colors.pennBlue};
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
 const TopicContainer = styled.div`
   width: 100%;
   margin-top: 8px;
-  font-family: "Rammetto One";
-`;
-
-const ScheduleText = styled(TimeText)`
-  font-size: 14px;
 `;
 
 const NewTracksContainer = styled.div`
@@ -106,7 +74,7 @@ const NewTracksContainer = styled.div`
   max-width: 1080px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid ${Colors.pennBlue};
+  border: ${agendaBorder};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;
@@ -118,7 +86,7 @@ const NewScheduleRow = styled.div`
   grid-template-columns: 120px 1fr 1fr 0.8fr;
 
   :nth-child(even) {
-    background-color: ${Colors.blue2};
+    background-color: ${Colors.lightBlue};
   }
 
   @media (max-width: 768px) {
@@ -140,11 +108,11 @@ const NewTrackTimeContainer = styled.div`
   text-align: center;
   font-size: 18px;
   line-height: 22px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
 
   font-weight: bold;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -153,8 +121,8 @@ const NewTrackTimeContainer = styled.div`
 
 const TrackContainer = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,15 +130,14 @@ const TrackContainer = styled.div`
 
 const TrackMainContent = styled.div`
   width: 100%;
-  max-width: 480px;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 `;
 
 const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
-  background-color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
+  background-color: ${Colors.brightBlue};
   text-align: center;
   font-size: 16px;
   line-height: 22px;
@@ -179,14 +146,4 @@ const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const DurationT = styled(ScheduleText)<{ isFirst: boolean }>`
-  display: block;
-  font-weight: 400;
-  color: ${Colors.gray5};
-  @media (max-width: 768px) {
-    border-top-width: 0px;
-    padding-top: 0px;
-  }
 `;
