@@ -19,7 +19,7 @@ const DateSwitcher = ({ type, date, setDate }: DateSwitcherProps) => {
           key={num}
           isSelect={date === num}
           onClick={() => setDate(num)}
-        >{`Day${i + 1}. ${num} ${month}`}</DateSelector>
+        >{`Day${i + 1}, ${month} ${num}`}</DateSelector>
       ))}
     </DatesContainer>
   );
