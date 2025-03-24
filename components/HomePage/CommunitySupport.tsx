@@ -1,3 +1,4 @@
+import Image from "next/image";
 import t from "@/public/constant/content";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import styled from "styled-components";
@@ -21,7 +22,13 @@ const CommunitySupport = () => {
       <CuteBgIconDecoration />
       <BaseMainContent>
         <StyledTitle>
-          <Icon src="/images/icons/orchid.svg" />
+          <Image
+            src="/images/icons/orchid.svg"
+            alt="Icon"
+            width={44}
+            height={36}
+            style={{ marginRight: "12px" }}
+          />
           {t.homepage.communitySupport}
         </StyledTitle>
         <StyledSubtitle>{t.homepage.communitySupportSubtitle}</StyledSubtitle>
@@ -53,11 +60,6 @@ const StyledTitle = styled(Title)`
     color: ${Colors.neonGreen};
     font-size: 42px;
   }
-`;
-
-const Icon = styled.img`
-  width: 44px;
-  margin-right: 12px;
 `;
 
 const StyledSubtitle = styled(Subtitle)`

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { ContributorType } from "@/components/hooks/useContributors";
@@ -16,7 +17,12 @@ const PeopleLink = ({ person }: PeopleLinkProps) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <ProfileImage src={person.img} alt={person.name} />
+        <ProfileImage
+          src={person.img}
+          alt={person.name}
+          width={110}
+          height={110}
+        />
       </ProfileLink>
       <InfoWrapper>
         <Name>{person.name}</Name>
@@ -45,9 +51,7 @@ const ProfileLink = styled.a`
   cursor: pointer;
 `;
 
-const ProfileImage = styled.img`
-  height: 110px;
-  width: 110px;
+const ProfileImage = styled(Image)`
   object-fit: cover;
   transition: transform 600ms ease;
 

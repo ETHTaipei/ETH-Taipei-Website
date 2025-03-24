@@ -12,7 +12,12 @@ const Introduction = () => {
       <CuteBgIconDecoration />
       <MainContent>
         <TitleContainer>
-          <IconImg src={"/images/icons/temple.svg"} alt="boba" />
+          <IconImg
+            src={"/images/icons/temple.svg"}
+            alt="boba"
+            width={60}
+            height={48}
+          />
           <Title>{t.homepage.introductionTitle}</Title>
         </TitleContainer>
         <Subtitle>{t.homepage.introductionSubtitle}</Subtitle>
@@ -105,9 +110,7 @@ const TitleContainer = styled.div`
   }
 `;
 
-const IconImg = styled.img`
-  width: 60px;
-  height: 48px;
+const IconImg = styled(Image)`
   object-fit: contain;
   margin-right: 12px;
   @media (max-width: 768px) {

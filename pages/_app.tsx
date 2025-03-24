@@ -4,6 +4,10 @@ import Head from "next/head";
 import MainLayout from "@/components/Layout";
 import t from "@/public/constant/content";
 import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false; // Prevent FontAwesome from dynamically loading its CSS
 
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout =
