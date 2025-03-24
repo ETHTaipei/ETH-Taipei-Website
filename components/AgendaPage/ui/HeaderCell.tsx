@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 import Map from "./Map";
+import { agendaBorder } from "@/styles/constants";
 
 interface HeaderCellProps {
   activity: string;
@@ -45,8 +46,8 @@ export default HeaderCell;
 
 const Container = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.brightBlue};
-  border-right: 1px solid ${Colors.brightBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
   display: flex;
   flex-direction: column;
   align-items: center;

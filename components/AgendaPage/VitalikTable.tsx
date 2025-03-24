@@ -7,6 +7,7 @@ import HeaderCell from "./ui/HeaderCell";
 import SpeakerInfo from "./ui/SpeakerInfo";
 import TimeZoneHint from "./ui/TimeZoneHint";
 import { Duration, ScheduleText } from "./ui/DurationText";
+import { agendaBorder } from "@/styles/constants";
 
 const VitalikTable = () => {
   return (
@@ -92,7 +93,7 @@ const NewTracksContainer = styled.div`
   max-width: 1080px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid ${Colors.brightBlue};
+  border: ${agendaBorder};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;

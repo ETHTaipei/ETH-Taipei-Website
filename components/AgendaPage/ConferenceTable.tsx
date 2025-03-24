@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "@/styles/colors";
+import { agendaBorder } from "@/styles/constants";
 import { useConferences } from "../hooks/useConferences";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
@@ -148,7 +149,7 @@ const NewTracksContainer = styled.div`
   max-width: 1080px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid ${Colors.brightBlue};
+  border: ${agendaBorder};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;
@@ -161,6 +162,10 @@ const NewScheduleRow = styled.div`
 
   :nth-child(even) {
     background-color: ${Colors.lightBlue};
+  }
+
+  :nth-child(odd) {
+    background-color: white;
   }
 
   @media (max-width: 768px) {
@@ -176,8 +181,8 @@ const NewTrackTimeContainer = styled.div`
   color: ${Colors.brightBlue};
 
   font-weight: bold;
-  border-bottom: 1px solid ${Colors.brightBlue};
-  border-right: 1px solid ${Colors.brightBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -186,8 +191,8 @@ const NewTrackTimeContainer = styled.div`
 
 const TrackContainer = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.brightBlue};
-  border-right: 1px solid ${Colors.brightBlue};
+  border-bottom: ${agendaBorder};
+  border-right: ${agendaBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
