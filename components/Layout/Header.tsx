@@ -60,7 +60,7 @@ interface SocialLink {
 const isNonEmptyPath = (path: string) => path !== "";
 const navItems = [
   { label: t.navs.home, path: "/" },
-  // { label: t.navs.agenda2025, path: "/agenda#info" },
+  { label: t.navs.agenda, path: "/agenda#info" },
   { label: t.navs.event, path: "/#events" },
   { label: t.navs.apply, path: "/#calltoaction" },
   { label: t.navs.venue, path: "/#venue" },

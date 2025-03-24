@@ -18,17 +18,17 @@ const Agendas = () => {
   // const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
   const isTypeSideEvent = type === "sideEvent";
-  const isShowingVitalik = isTypeConference && date === 21;
+  const isShowingVitalik = isTypeConference && date === 1;
 
   return (
     <Container id="info">
       <Title>{t.navs.agenda}</Title>
-      <EventSwitcher type={type} setType={setType} setDate={setDate} />
+      {/* <EventSwitcher type={type} setType={setType} setDate={setDate} /> */}
       <DateSwitcher type={type} date={date} setDate={setDate} />
       {/* {isTypeHackathon && <HackathonTable date={date} />} */}
       {isShowingVitalik && <VitalikTable />}
       {isTypeConference && <ConferenceTable date={date} />}
-      {isTypeSideEvent && <SideEventTable date={date} />}
+      {/* {isTypeSideEvent && <SideEventTable date={date} />} */}
     </Container>
   );
 };
