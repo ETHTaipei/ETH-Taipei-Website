@@ -11,5 +11,5 @@ const TimeZoneHintContainer = styled.div`
   colors: ${Colors.brightBlue};
   width: 100%;
   margin-bottom: 12px;
-  font-size: 12px;
+  font-size: 14px;
 `;

@@ -54,11 +54,11 @@ const SpeakerInfoContainer = styled.div`
 
 const SpeakerName = styled.span`
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 19px;
   color: ${Colors.brightBlue};
   @media (max-width: 768px) {
-    font-size: 10px;
+    font-size: 14px;
   }
 `;
 
@@ -67,6 +67,6 @@ const SpeakerCompany = styled.span`
   line-height: 16px;
   color: ${Colors.brightBlue};
   @media (max-width: 768px) {
-    font-size: 10px;
+    font-size: 14px;
   }
 `;
