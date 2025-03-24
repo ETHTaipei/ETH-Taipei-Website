@@ -22,7 +22,16 @@ const Agendas = () => {
 
   return (
     <Container id="info">
-      <Title>{t.navs.agenda}</Title>
+      <Title>
+        <Image
+          src="/images/icons/moon-blocks.svg"
+          alt="Contributors icon"
+          width={35}
+          height={35}
+          style={{ marginRight: 12, verticalAlign: "bottom" }}
+        />
+        {t.navs.agenda}
+      </Title>
       {/* <EventSwitcher type={type} setType={setType} setDate={setDate} /> */}
       <DateSwitcher type={type} date={date} setDate={setDate} />
       {/* {isTypeHackathon && <HackathonTable date={date} />} */}
