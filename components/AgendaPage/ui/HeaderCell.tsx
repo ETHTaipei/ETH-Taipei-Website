@@ -15,10 +15,10 @@ const HeaderCell = ({ activity, location }: HeaderCellProps) => {
   return (
     <Container>
       {location && (
-        <Title>
-          <IconLocation width={14} height={14} color={Colors.pennBlue} />
+        <div>
+          <IconLocation width={14} height={14} color={Colors.brightBlue} />
           {` Building ${location}`}
-        </Title>
+        </div>
       )}
       {location && (
         <ViewMap onClick={() => setOpenMap(true)}>
@@ -45,8 +45,8 @@ export default HeaderCell;
 
 const Container = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: 1px solid ${Colors.brightBlue};
+  border-right: 1px solid ${Colors.brightBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,11 +57,7 @@ const Container = styled.div`
   font-size: 16px;
   line-height: 22px;
   font-weight: bold;
-  color: ${Colors.pennBlue};
-`;
-
-const Title = styled.div`
-  font-family: "Rammetto One";
+  color: ${Colors.brightBlue};
 `;
 
 const Subtitle = styled.div`

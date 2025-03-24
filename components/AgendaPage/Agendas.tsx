@@ -9,6 +9,7 @@ import EventSwitcher from "./EventSwitcher";
 // import HackathonTable from "./HackathonTable";
 import SideEventTable from "./SideEventTable";
 import VitalikTable from "./VitalikTable";
+import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
@@ -35,22 +36,19 @@ const Agendas = () => {
 export default Agendas;
 
 const Container = styled.div`
+  ${GrayGridBackgroundStyles}
   width: 100%;
-  padding: 60px 24px;
+  padding: 90px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
-    padding: 60px 24px 60px 24px;
-  }
 `;
 
 const Title = styled.h2`
-  font-family: "Rammetto One";
   font-size: 35px;
   line-height: 32px;
   font-weight: bold;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
   margin-bottom: 50px;
 `;

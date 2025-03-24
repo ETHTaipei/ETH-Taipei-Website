@@ -56,7 +56,7 @@ const SpeakerName = styled.span`
   font-weight: bold;
   font-size: 15px;
   line-height: 19px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
   @media (max-width: 768px) {
     font-size: 10px;
   }
@@ -65,7 +65,7 @@ const SpeakerName = styled.span`
 const SpeakerCompany = styled.span`
   font-size: 14px;
   line-height: 16px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
   @media (max-width: 768px) {
     font-size: 10px;
   }

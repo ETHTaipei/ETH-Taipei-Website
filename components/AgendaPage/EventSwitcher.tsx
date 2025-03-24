@@ -70,8 +70,9 @@ const EventSwitchers = styled.div`
 const EventSwitcherButton = styled.button<{ isSelect: boolean }>`
   padding: 12px 28px;
   cursor: pointer;
-  color: ${(props) => (props.isSelect ? "white" : Colors.pennBlue)};
-  background-color: ${(props) => (props.isSelect ? Colors.pennBlue : "white")};
+  color: ${(props) => (props.isSelect ? "white" : Colors.brightBlue)};
+  background-color: ${(props) =>
+    props.isSelect ? Colors.brightBlue : "white"};
   box-shadow: 0 6px 6px 0 rgba(88, 103, 113, 0.2);
   border-radius: 10px;
   display: flex;
@@ -86,7 +87,6 @@ const EventSwitcherButton = styled.button<{ isSelect: boolean }>`
 `;
 
 const EventText = styled.span`
-  font-family: "Rammetto One";
   font-size: 18px;
   font-weight: bold;
   @media (max-width: 768px) {

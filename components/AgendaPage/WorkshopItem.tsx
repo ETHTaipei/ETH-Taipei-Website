@@ -47,14 +47,13 @@ const TrackMainContent = styled.div`
 const TopicContainer = styled.div`
   width: 100%;
   margin-top: 8px;
-  font-family: "Rammetto One";
 `;
 
 const TimeText = styled.span`
   flex: 1;
   font-size: 16px;
   line-height: 22px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
   @media (max-width: 768px) {
     font-size: 14px;
   }
@@ -89,7 +88,7 @@ const SpeakerName = styled.span`
   font-weight: bold;
   font-size: 15px;
   line-height: 19px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
   @media (max-width: 768px) {
     font-size: 10px;
   }

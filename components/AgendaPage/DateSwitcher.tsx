@@ -32,17 +32,17 @@ const DatesContainer = styled.div`
   margin-top: 50px;
   display: flex;
   gap: 12px;
-  border-bottom: 2px solid ${Colors.gray2};
+  border-bottom: 2px solid ${Colors.brightBlue};
   @media (max-width: 768px) {
     padding: 0 6px;
   }
 `;
 
 const DateSelector = styled.button<{ isSelect: boolean }>`
-  color: ${(props) => (props.isSelect ? Colors.pennBlue : Colors.gray2)};
+  color: ${(props) => (props.isSelect ? Colors.brightBlue : Colors.gray2)};
   padding: 0px 20px 8px;
-  font-family: "Rammetto One";
-  font-size: 16px;
+  font-family: inherit;
+  font-size: 20px;
   line-height: 22px;
   cursor: pointer;
   position: relative;
@@ -53,7 +53,7 @@ const DateSelector = styled.button<{ isSelect: boolean }>`
     width: 100%;
     height: 4px;
     background-color: ${(props) =>
-      props.isSelect ? Colors.pennBlue : "transparent"};
+      props.isSelect ? Colors.brightBlue : "transparent"};
     bottom: -3px;
     left: 0;
   }
@@ -62,6 +62,6 @@ const DateSelector = styled.button<{ isSelect: boolean }>`
     transform: scale(0.98);
   }
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;

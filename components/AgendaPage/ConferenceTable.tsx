@@ -148,7 +148,7 @@ const NewTracksContainer = styled.div`
   max-width: 1080px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid ${Colors.pennBlue};
+  border: 1px solid ${Colors.brightBlue};
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;
@@ -160,7 +160,7 @@ const NewScheduleRow = styled.div`
   grid-template-columns: 120px 1fr 1fr 0.8fr;
 
   :nth-child(even) {
-    background-color: ${Colors.blue2};
+    background-color: ${Colors.lightBlue};
   }
 
   @media (max-width: 768px) {
@@ -173,11 +173,11 @@ const NewTrackTimeContainer = styled.div`
   text-align: center;
   font-size: 18px;
   line-height: 22px;
-  color: ${Colors.pennBlue};
+  color: ${Colors.brightBlue};
 
   font-weight: bold;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: 1px solid ${Colors.brightBlue};
+  border-right: 1px solid ${Colors.brightBlue};
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -186,8 +186,8 @@ const NewTrackTimeContainer = styled.div`
 
 const TrackContainer = styled.div`
   padding: 20px 32px;
-  border-bottom: 1px solid ${Colors.pennBlue};
-  border-right: 1px solid ${Colors.pennBlue};
+  border-bottom: 1px solid ${Colors.brightBlue};
+  border-right: 1px solid ${Colors.brightBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,8 +198,7 @@ const TrackContainer = styled.div`
 `;
 
 const NewTrackTimeContainerHeader = styled(NewTrackTimeContainer)`
-  background-color: ${Colors.pennBlue};
-  font-family: "Rammetto One";
+  background-color: ${Colors.brightBlue};
   text-align: center;
   font-size: 16px;
   line-height: 22px;
