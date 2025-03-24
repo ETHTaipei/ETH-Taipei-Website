@@ -10,7 +10,8 @@ const PastContributors = () => {
       title="Past Contributors"
       subtitle="ETHTaipei won't be possible without you <3"
       iconSrc="/images/icons/contributors.svg"
-      iconSize={46}
+      iconWidth={46}
+      iconHeight={46}
       paddingStyle={{
         default: "0px 40px 120px 40px",
         mobile: "0px 24px 60px 24px",

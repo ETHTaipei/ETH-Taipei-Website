@@ -7,32 +7,36 @@ interface PeopleSectionProps {
   title: string;
   subtitle: string;
   iconSrc: string;
-  iconSize: number;
+  iconWidth: number;
+  iconHeight: number;
   children: React.ReactNode;
   paddingStyle: {
     default: string;
     mobile: string;
   };
+  maxWidth?: string;
 }
 
 const PeopleSection = ({
   title,
   subtitle,
   iconSrc,
-  iconSize,
+  iconWidth,
+  iconHeight,
   children,
   paddingStyle,
+  maxWidth = "800px",
 }: PeopleSectionProps) => {
   return (
     <Container $paddingStyle={paddingStyle}>
-      <MainContent>
+      <MainContent $maxWidth={maxWidth}>
         <ContentCenter>
           <Title>
             <Image
               src={iconSrc}
               alt={`${title} icon`}
-              width={iconSize}
-              height={iconSize}
+              width={iconWidth}
+              height={iconHeight}
               style={{ marginRight: 12, verticalAlign: "bottom" }}
             />
             {title}
@@ -63,10 +67,12 @@ const Container = styled.div<{
   }
 `;
 
-const MainContent = styled.div`
+const MainContent = styled.div<{
+  $maxWidth: string;
+}>`
   display: flex;
   width: 100%;
-  max-width: 800px;
+  max-width: ${(props) => props.$maxWidth};
   justify-content: center;
   position: relative;
   overflow: hidden;
@@ -97,15 +103,14 @@ const PeopleList = styled.div`
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   min-width: 0;
-  padding-top: 80px;
+  padding-top: 50px;
   gap: 12px;
 
   @media (max-width: 992px) {
-    padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

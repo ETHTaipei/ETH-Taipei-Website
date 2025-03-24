@@ -6,9 +6,16 @@ import { ContributorType } from "@/components/hooks/useContributors";
 interface PeopleLinkProps {
   person: ContributorType;
   imageSize?: number;
+  minImageSize?: number;
+  isKeynote?: boolean;
 }
 
-const PeopleLink = ({ person, imageSize = 110 }: PeopleLinkProps) => {
+const PeopleLink = ({
+  person,
+  imageSize = 120,
+  minImageSize = 96,
+  isKeynote = false,
+}: PeopleLinkProps) => {
   const [title, team] = person.titleAndCompany.split("@");
 
   return (
@@ -23,12 +30,22 @@ const PeopleLink = ({ person, imageSize = 110 }: PeopleLinkProps) => {
           alt={person.name}
           width={imageSize}
           height={imageSize}
+          $minImageSize={minImageSize}
         />
       </ProfileLink>
       <InfoWrapper>
-        <Name>{person.name}</Name>
-        <Title>{title}</Title>
-        {team && <Team>@{team}</Team>}
+        <Name $isKeynote={isKeynote}>{person.name}</Name>
+        <Title $isKeynote={isKeynote}>{title}</Title>
+        {team && (
+          <Team
+            $isKeynote={isKeynote}
+            href={person.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @{team}
+          </Team>
+        )}
       </InfoWrapper>
     </Wrapper>
   );
@@ -49,10 +66,9 @@ const ProfileLink = styled.a`
   cursor: pointer;
 `;
 
-const ProfileImage = styled(Image)`
+const ProfileImage = styled(Image)<{ $minImageSize: number }>`
   object-fit: cover;
   transition: transform 600ms ease;
-
   border: 2px solid ${Colors.neonGreen};
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
@@ -60,8 +76,8 @@ const ProfileImage = styled(Image)`
   border-bottom-right-radius: 24px;
 
   @media (max-width: 476px) {
-    width: 96px;
-    height: 96px;
+    height: ${({ $minImageSize }) => `${$minImageSize}px`};
+    width: ${({ $minImageSize }) => `${$minImageSize}px`};
   }
 
   &:hover {
@@ -74,16 +90,18 @@ const InfoWrapper = styled.div`
   color: white;
 `;
 
-const Name = styled.div`
-  font-size: 20px;
-  margin-top: 10px;
+const Name = styled.div<{ $isKeynote: boolean }>`
   color: ${Colors.neonGreen};
-`;
-
-const Title = styled.p`
   margin-top: 10px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "30px" : "20px")};
 `;
 
-const Team = styled.p`
+const Title = styled.p<{ $isKeynote: boolean }>`
+  margin-top: 10px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "20px" : "16px")};
+`;
+
+const Team = styled.a<{ $isKeynote: boolean }>`
   margin-top: 4px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "20px" : "16px")};
 `;

@@ -3,9 +3,9 @@ import { gql, useQuery } from "@apollo/client";
 export type ContributorType = {
   name: string;
   titleAndCompany: string;
-  profile: string;
-  companyLink: string;
   img: string;
+  profile: string;
+  companyLink?: string;
 };
 
 export const ORGANIZER_QUERY = gql`

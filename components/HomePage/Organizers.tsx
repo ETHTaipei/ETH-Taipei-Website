@@ -11,7 +11,8 @@ const Organizers = () => {
       title={t.homepage.organizers}
       subtitle={t.homepage.organizerSubtitle}
       iconSrc="/images/icons/butterfly-green.svg"
-      iconSize={36}
+      iconWidth={36}
+      iconHeight={36}
       paddingStyle={{
         default: "120px 40px",
         mobile: "60px 24px",
