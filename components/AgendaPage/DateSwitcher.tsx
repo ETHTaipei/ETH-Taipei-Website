@@ -39,7 +39,7 @@ const DatesContainer = styled.div`
 `;
 
 const DateSelector = styled.button<{ isSelect: boolean }>`
-  color: ${(props) => (props.isSelect ? Colors.brightBlue : Colors.gray2)};
+  color: ${(props) => (props.isSelect ? Colors.brightBlue : Colors.borderGray)};
   padding: 0px 20px 8px;
   font-family: inherit;
   font-size: 20px;

@@ -1,14 +1,11 @@
 const Colors = {
-  gray2: "#B2B2B2",
   gray3: "#CCCCCC",
-  aero: "#59B2D6",
-  yInMnBlue: "#f0f5ff",
-  btnBlue: "#44a4e3",
-  seaSalt: "#FAFBFA",
   // 2025
+  aero: "#59B2D6",
+  btnBlue: "#44a4e3",
   neonGreen: "#cbf101",
   brightBlue: "#3952FF",
-  grayBorder: "#767676",
+  borderGray: "#767676",
   brightPink: "#FFB0BA",
   lightBlue: "#E3E9FF",
 };
