@@ -5,9 +5,10 @@ import { ContributorType } from "@/components/hooks/useContributors";
 
 interface PeopleLinkProps {
   person: ContributorType;
+  imageSize?: number;
 }
 
-const PeopleLink = ({ person }: PeopleLinkProps) => {
+const PeopleLink = ({ person, imageSize = 110 }: PeopleLinkProps) => {
   const [title, team] = person.titleAndCompany.split("@");
 
   return (
@@ -18,10 +19,10 @@ const PeopleLink = ({ person }: PeopleLinkProps) => {
         rel="noopener noreferrer"
       >
         <ProfileImage
-          src={person.img}
+          src={person.img || ""}
           alt={person.name}
-          width={110}
-          height={110}
+          width={imageSize}
+          height={imageSize}
         />
       </ProfileLink>
       <InfoWrapper>
@@ -39,12 +40,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
-  height: 240px;
-
-  @media (max-width: 768px) {
-    width: 110px;
-  }
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
 `;
 
 const ProfileLink = styled.a`
@@ -88,8 +86,4 @@ const Title = styled.p`
 
 const Team = styled.p`
   margin-top: 4px;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
 `;
