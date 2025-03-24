@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { EventType, dates } from "@/public/constant/agendas";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
@@ -59,5 +60,5 @@ const Title = styled.h2`
   line-height: 32px;
   font-weight: bold;
   color: ${Colors.brightBlue};
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 `;
