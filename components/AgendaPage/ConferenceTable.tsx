@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "@/styles/colors";
-import { agendaBorder } from "@/styles/constants";
+import { agendaBorder, diagonalSymmetricBorder } from "@/styles/constants";
 import { useConferences } from "../hooks/useConferences";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
@@ -160,9 +160,9 @@ const TableContainer = styled.div`
 const NewTracksContainer = styled.div`
   width: 100%;
   max-width: 1080px;
-  border-radius: 16px;
   overflow: hidden;
   border: ${agendaBorder};
+  ${diagonalSymmetricBorder}
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;

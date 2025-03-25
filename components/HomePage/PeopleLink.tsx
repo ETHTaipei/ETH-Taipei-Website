@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { ContributorType } from "@/components/hooks/useContributors";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 interface PeopleLinkProps {
   person: ContributorType;
@@ -70,10 +71,7 @@ const ProfileImage = styled(Image)<{ $minImageSize: number }>`
   object-fit: cover;
   transition: transform 600ms ease;
   border: 2px solid ${Colors.neonGreen};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
 
   @media (max-width: 476px) {
     height: ${({ $minImageSize }) => `${$minImageSize}px`};

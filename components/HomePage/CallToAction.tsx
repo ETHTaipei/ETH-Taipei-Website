@@ -9,6 +9,7 @@ import {
 } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 import { RecapBgVideo } from "./Video";
 
 const ActionButton = ({ url, text }: { url: string; text: string }) => (
@@ -103,10 +104,7 @@ const InfoContainer = styled.div`
   padding: 40px;
   background-color: ${Colors.neonGreen};
   opacity: 0.85;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
   @media (max-width: 860px) {
     padding: 20px;
   }

@@ -5,6 +5,7 @@ import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import { CuteBgIconDecoration } from "./BgIconDecoration";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 const Introduction = () => {
   return (
@@ -185,14 +186,10 @@ const CardContent = styled.div`
 
 const CardImg = styled.div`
   position: relative;
-  border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 306 / 180;
   border: 3px solid ${Colors.neonGreen};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
   min-width: 230px;
   min-height: 210px;
   @media (max-width: 992px) {
