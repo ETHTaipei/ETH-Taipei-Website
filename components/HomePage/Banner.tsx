@@ -16,6 +16,9 @@ const Banner = () => {
             id="ETHTaipeiOrg"
             src="/images/FirstViewBanner/ETHTaipeiOrg.png"
             alt="ETHTaipeiOrg"
+            priority={true}
+            width={500}
+            height={200}
           />
           {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
           {/* <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title> */}
@@ -230,18 +233,22 @@ const CountdownContainer = styled.div`
   margin-top: 30px;
 `;
 
-const StyledImage = styled.img`
+const StyledImage = styled(Image)`
   width: 34vw;
+  height: auto;
   margin-top: 9%;
+
   @media (max-width: 1024px) {
     width: 80%;
     margin-top: 15%;
   }
+
   @media (max-width: 476px) {
     width: 95%;
     margin-top: 20%;
   }
 `;
+
 const GridOverlay = styled.div`
   position: absolute;
   top: 0;
