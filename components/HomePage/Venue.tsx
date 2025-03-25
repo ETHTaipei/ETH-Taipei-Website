@@ -102,18 +102,25 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  height: 329px;
-  overflow: hidden;
+`;
+
+const DesktopImage = styled(Image)`
+  width: 100%;
+  height: auto;
 
   @media (max-width: 996px) {
-    min-height: 329px;
+    display: none;
   }
 `;
 
-const ResponsiveImage = styled.img`
+const MobileImage = styled(Image)`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: none;
+
+  @media (max-width: 996px) {
+    display: initial;
+  }
 `;
 
 const Venue = () => {
@@ -152,16 +159,20 @@ const Venue = () => {
           ></iframe>
         </MapContainer>
         <ImageContainer>
-          <picture>
-            <source
-              media="(max-width: 996px)"
-              srcSet="./images/venue/venue_vertical.jpg"
-            />
-            <ResponsiveImage
-              src="./images/venue/venue_horizontal.jpg"
-              alt="Venue"
-            />
-          </picture>
+          <DesktopImage
+            src="/images/venue/venue_horizontal.jpg"
+            alt="Venue"
+            width={2016}
+            height={746}
+            priority
+          />
+          <MobileImage
+            src="/images/venue/venue_vertical.jpg"
+            alt="Venue"
+            width={1073}
+            height={1587}
+            priority
+          />
         </ImageContainer>
       </MainContent>
       <RecapBgVideo />
