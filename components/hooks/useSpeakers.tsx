@@ -1,12 +1,9 @@
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
+import { ContributorType } from "./useContributors";
 
-export type SpeakerProps = {
-  name: string;
+export type SpeakerType = Omit<ContributorType, "titleAndCompany"> & {
   company: string;
-  img: string;
-  profile?: string;
-  companyLink?: string;
   keynote: boolean;
 };
 
@@ -32,7 +29,7 @@ export const SPEAKER_QUERY = gql`query {
  *
  */
 export const useSpeakers = () => {
-  const { data } = useQuery<{ speakers: SpeakerProps[] }>(SPEAKER_QUERY);
+  const { data } = useQuery<{ speakers: SpeakerType[] }>(SPEAKER_QUERY);
 
   const all = data?.speakers || [];
 

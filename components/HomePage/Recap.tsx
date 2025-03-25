@@ -5,6 +5,7 @@ import styled from "styled-components";
 import t from "@/public/constant/content";
 import Colors from "@/styles/colors";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 const GalleryImages = ({
   year,
@@ -153,10 +154,7 @@ const HighlightImgWrapper = styled.div`
 const baseImgStyles = `
   object-fit: cover;
   border: 3px solid ${Colors.brightBlue};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
 `;
 
 const HighlightImg = styled.img`

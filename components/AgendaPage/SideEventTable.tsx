@@ -5,7 +5,7 @@ import Colors from "@/styles/colors";
 import HackathonItem from "./HackathonItem";
 import HeaderCell from "./ui/HeaderCell";
 import TimeZoneHint from "./ui/TimeZoneHint";
-import { agendaBorder } from "@/styles/constants";
+import { agendaBorder, diagonalSymmetricBorder } from "@/styles/constants";
 
 interface SideEventProps {
   date: number;
@@ -72,9 +72,9 @@ const TableContainer = styled.div`
 const NewTracksContainer = styled.div`
   width: 100%;
   max-width: 1080px;
-  border-radius: 16px;
   overflow: hidden;
   border: ${agendaBorder};
+  ${diagonalSymmetricBorder}
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;

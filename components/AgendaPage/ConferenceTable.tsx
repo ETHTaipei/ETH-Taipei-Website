@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "@/styles/colors";
-import { agendaBorder } from "@/styles/constants";
+import { agendaBorder, diagonalSymmetricBorder } from "@/styles/constants";
 import { useConferences } from "../hooks/useConferences";
 import ConferenceAgendaItem from "./ConferenceItem";
 import WorkshopItem from "./WorkshopItem";
@@ -19,10 +19,10 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
   const Column1Location = "M";
 
   const Column2Activity = "Conference";
-  const Column2Location = "F";
+  const Column2Location = "A2";
 
   const Column3Activity = "Workshop";
-  const Column3Location = "G";
+  const Column3Location = date === 1 ? "G" : "I";
 
   return (
     <>
@@ -160,9 +160,9 @@ const TableContainer = styled.div`
 const NewTracksContainer = styled.div`
   width: 100%;
   max-width: 1080px;
-  border-radius: 16px;
   overflow: hidden;
   border: ${agendaBorder};
+  ${diagonalSymmetricBorder}
 
   @media (max-width: 768px) {
     margin: 20px auto auto auto;

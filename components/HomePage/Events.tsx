@@ -6,6 +6,7 @@ import { lumaUrl, sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 interface EventCardParam {
   imageSrc: string;
@@ -226,10 +227,7 @@ const EventNameWrapper = styled.div`
   height: 230px;
   overflow: hidden;
   border: 3px solid ${Colors.brightBlue};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
   @media (max-width: 830px) {
     height: 240px;
   }

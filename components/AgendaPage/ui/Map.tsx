@@ -1,3 +1,4 @@
+import { diagonalSymmetricBorder } from "@/styles/constants";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -41,6 +42,6 @@ const ImageContainer = styled.div`
   width: 100%;
   max-width: 880px;
   aspect-ratio: 1321 / 647;
-  border-radius: 16px;
   overflow: hidden;
+  ${diagonalSymmetricBorder}
 `;

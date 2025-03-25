@@ -1,12 +1,22 @@
+import Image from "next/image";
 import styled from "styled-components";
 import Colors from "@/styles/colors";
 import { ContributorType } from "@/components/hooks/useContributors";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 interface PeopleLinkProps {
   person: ContributorType;
+  imageSize?: number;
+  minImageSize?: number;
+  isKeynote?: boolean;
 }
 
-const PeopleLink = ({ person }: PeopleLinkProps) => {
+const PeopleLink = ({
+  person,
+  imageSize = 120,
+  minImageSize = 96,
+  isKeynote = false,
+}: PeopleLinkProps) => {
   const [title, team] = person.titleAndCompany.split("@");
 
   return (
@@ -16,12 +26,27 @@ const PeopleLink = ({ person }: PeopleLinkProps) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <ProfileImage src={person.img} alt={person.name} />
+        <ProfileImage
+          src={person.img || ""}
+          alt={person.name}
+          width={imageSize}
+          height={imageSize}
+          $minImageSize={minImageSize}
+        />
       </ProfileLink>
       <InfoWrapper>
-        <Name>{person.name}</Name>
-        <Title>{title}</Title>
-        {team && <Team>@{team}</Team>}
+        <Name $isKeynote={isKeynote}>{person.name}</Name>
+        <Title $isKeynote={isKeynote}>{title}</Title>
+        {team && (
+          <Team
+            $isKeynote={isKeynote}
+            href={person.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @{team}
+          </Team>
+        )}
       </InfoWrapper>
     </Wrapper>
   );
@@ -33,33 +58,24 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
-  height: 240px;
-
-  @media (max-width: 768px) {
-    width: 110px;
-  }
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
 `;
 
 const ProfileLink = styled.a`
   cursor: pointer;
 `;
 
-const ProfileImage = styled.img`
-  height: 110px;
-  width: 110px;
+const ProfileImage = styled(Image)<{ $minImageSize: number }>`
   object-fit: cover;
   transition: transform 600ms ease;
-
   border: 2px solid ${Colors.neonGreen};
-  border-top-left-radius: 24px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  ${diagonalSymmetricBorder}
 
   @media (max-width: 476px) {
-    width: 96px;
-    height: 96px;
+    height: ${({ $minImageSize }) => `${$minImageSize}px`};
+    width: ${({ $minImageSize }) => `${$minImageSize}px`};
   }
 
   &:hover {
@@ -72,20 +88,18 @@ const InfoWrapper = styled.div`
   color: white;
 `;
 
-const Name = styled.div`
-  font-size: 20px;
-  margin-top: 10px;
+const Name = styled.div<{ $isKeynote: boolean }>`
   color: ${Colors.neonGreen};
-`;
-
-const Title = styled.p`
   margin-top: 10px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "30px" : "20px")};
 `;
 
-const Team = styled.p`
-  margin-top: 4px;
+const Title = styled.p<{ $isKeynote: boolean }>`
+  margin-top: 10px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "20px" : "16px")};
+`;
 
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
+const Team = styled.a<{ $isKeynote: boolean }>`
+  margin-top: 4px;
+  font-size: ${({ $isKeynote }) => ($isKeynote ? "20px" : "16px")};
 `;

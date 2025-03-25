@@ -2,6 +2,7 @@ import { EventType, dates } from "@/public/constant/agendas";
 import Colors from "@/styles/colors";
 import styled from "styled-components";
 import { dateDayMonthYear } from "@/public/constant/content";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 
 interface EventSwitcherProps {
   type: EventType;
@@ -74,7 +75,7 @@ const EventSwitcherButton = styled.button<{ isSelect: boolean }>`
   background-color: ${(props) =>
     props.isSelect ? Colors.brightBlue : "white"};
   box-shadow: 0 6px 6px 0 rgba(88, 103, 113, 0.2);
-  border-radius: 10px;
+  ${diagonalSymmetricBorder}
   display: flex;
   flex-direction: column;
   align-items: center;
