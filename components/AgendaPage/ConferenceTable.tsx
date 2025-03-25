@@ -22,7 +22,7 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
   const Column2Location = "A2";
 
   const Column3Activity = "Workshop";
-  const Column3Location = "I";
+  const Column3Location = date === 1 ? "G" : "I";
 
   return (
     <>
