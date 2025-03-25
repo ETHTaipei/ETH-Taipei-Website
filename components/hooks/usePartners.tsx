@@ -66,11 +66,11 @@ export const useMediaPartners = () => {
     data?.partners.map((partner) => ({
       ...partner,
       width: PARTNER,
-      tier: partner.tier || 1, // Default to tier 1 if not specified
+      tier: partner.tier || 3, // Default to tier 3 if not specified
     })) || [];
 
-  // tier: 3 ~ 1, with 3 being the highest importance
-  mediaPartners.sort((a, b) => b.tier - a.tier);
+  // tier: 1 ~ 3, with 1 being the highest importance
+  mediaPartners.sort((a, b) => a.tier - b.tier);
 
   return { mediaPartners };
 };
