@@ -19,10 +19,10 @@ const ConferenceTable = ({ date }: ConferenceTableProps) => {
   const Column1Location = "M";
 
   const Column2Activity = "Conference";
-  const Column2Location = "F";
+  const Column2Location = "A2";
 
   const Column3Activity = "Workshop";
-  const Column3Location = "G";
+  const Column3Location = "I";
 
   return (
     <>
