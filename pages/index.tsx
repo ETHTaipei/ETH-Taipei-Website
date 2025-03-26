@@ -12,27 +12,14 @@ import Venue from "@/components/HomePage/Venue";
 import Layout from "@/components/Layout";
 import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
 import { SPONSOR_QUERY } from "@/components/hooks/useSponsors";
-import {
-  PARTNER_QUERY,
-  MEDIAPARTNER_QUERY,
-  COMMUNITY_QUERY,
-} from "@/components/hooks/usePartners";
-import {
-  ORGANIZER_QUERY,
-  PASTCONTRIBUTOR_QUERY,
-} from "@/components/hooks/useContributors";
 import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
 import type { GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 
 export const getStaticProps: GetStaticProps = async () => {
   const initialApolloState = await getInitialData([
     SPEAKER_QUERY,
     SPONSOR_QUERY,
-    PARTNER_QUERY,
-    MEDIAPARTNER_QUERY,
-    COMMUNITY_QUERY,
-    ORGANIZER_QUERY,
-    PASTCONTRIBUTOR_QUERY,
   ]);
 
   return {
@@ -43,6 +30,21 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+const DynamicVenue = dynamic(() => import("@/components/HomePage/Venue"));
+const DynamicPartners = dynamic(() => import("@/components/HomePage/Partners"));
+const DynamicOrganizers = dynamic(
+  () => import("@/components/HomePage/Organizers")
+);
+const DynamicPastContributors = dynamic(
+  () => import("@/components/HomePage/PastContributors")
+);
+const DynamicCallToAction = dynamic(
+  () => import("@/components/HomePage/CallToAction")
+);
+const DynamicCommunitySupport = dynamic(
+  () => import("@/components/HomePage/CommunitySupport")
+);
+
 const Home = ({ initialApolloState }: any) => {
   return (
     <ApolloWrapper pageProps={{ initialApolloState }}>
@@ -50,13 +52,13 @@ const Home = ({ initialApolloState }: any) => {
       <Introduction />
       <Events />
       <Speakers />
-      <Venue />
+      <DynamicVenue />
       <Sponsors />
-      <Partners />
-      <Organizers />
-      <PastContributors />
-      <CallToAction />
-      <CommunitySupport />
+      <DynamicPartners />
+      <DynamicOrganizers />
+      <DynamicPastContributors />
+      <DynamicCallToAction />
+      <DynamicCommunitySupport />
     </ApolloWrapper>
   );
 };
