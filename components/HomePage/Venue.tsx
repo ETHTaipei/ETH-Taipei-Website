@@ -152,11 +152,12 @@ const Venue = () => {
         </TextContainer>
         <MapContainer>
           <iframe
+            title="Venue GMap"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
             width="100%"
             height="100%"
             loading="lazy"
-          ></iframe>
+          />
         </MapContainer>
         <ImageContainer>
           <DesktopImage
