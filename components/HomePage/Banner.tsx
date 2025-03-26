@@ -6,6 +6,7 @@ import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import CountdownTimer from "./CountdownTimer";
 import { Video, BrandBgVideo } from "./Video";
+import { LOGO_BASE64 } from "@/public/images/FirstViewBanner/ETHTaipeiOrg_Base64";
 
 const Banner = () => {
   return (
@@ -14,11 +15,12 @@ const Banner = () => {
         <TitleContainer>
           <StyledImage
             id="ETHTaipeiOrg"
-            src="/images/FirstViewBanner/ETHTaipeiOrg.png"
+            src={LOGO_BASE64}
             alt="ETHTaipeiOrg"
             priority={true}
             width={500}
             height={200}
+            loading="eager"
           />
           {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
           {/* <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title> */}
@@ -295,6 +297,7 @@ const ScrollingIconsBg = styled.div`
     height: 48px;
   }
 `;
+
 const ScrollingIcons = styled.div`
   display: flex;
   width: 100%;
