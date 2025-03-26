@@ -10,13 +10,12 @@ interface MapProps {
 const Map = ({ id, onClose }: MapProps) => {
   return (
     <Container onClick={onClose}>
-      <ImageContainer>
-        <Image
-          src={`/images/map/building${id}.png`}
-          alt={`Map Building ${id}`}
-          fill
-        />
-      </ImageContainer>
+      <StyledImage
+        src={`/images/map/building${id}.png`}
+        alt={`Map Building ${id}`}
+        width={1321}
+        height={647}
+      />
     </Container>
   );
 };
@@ -37,11 +36,10 @@ const Container = styled.div`
   padding: 40px;
 `;
 
-const ImageContainer = styled.div`
+const StyledImage = styled(Image)`
   position: relative;
-  width: 100%;
   max-width: 880px;
-  aspect-ratio: 1321 / 647;
+  height: auto;
   overflow: hidden;
   ${diagonalSymmetricBorder}
 `;
