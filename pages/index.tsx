@@ -1,14 +1,7 @@
 import Events from "@/components/HomePage/Events";
-import CommunitySupport from "@/components/HomePage/CommunitySupport";
-import PastContributors from "@/components/HomePage/PastContributors";
 import Introduction from "@/components/HomePage/Introduction";
-import Organizers from "@/components/HomePage/Organizers";
-import CallToAction from "@/components/HomePage/CallToAction";
-import Partners from "@/components/HomePage/Partners";
 import Recap from "@/components/HomePage/Recap";
 import Speakers from "@/components/HomePage/Speakers";
-import Sponsors from "@/components/HomePage/Sponsors";
-import Venue from "@/components/HomePage/Venue";
 import Layout from "@/components/Layout";
 import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
 import { SPONSOR_QUERY } from "@/components/hooks/useSponsors";
@@ -17,10 +10,8 @@ import type { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const initialApolloState = await getInitialData([
-    SPEAKER_QUERY,
-    SPONSOR_QUERY,
-  ]);
+  // only pre-fetch speakers for now for performance
+  const initialApolloState = await getInitialData([SPEAKER_QUERY]);
 
   return {
     props: {
@@ -31,6 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const DynamicVenue = dynamic(() => import("@/components/HomePage/Venue"));
+const DynamicSponsors = dynamic(() => import("@/components/HomePage/Sponsors"));
 const DynamicPartners = dynamic(() => import("@/components/HomePage/Partners"));
 const DynamicOrganizers = dynamic(
   () => import("@/components/HomePage/Organizers")
@@ -53,7 +45,7 @@ const Home = ({ initialApolloState }: any) => {
       <Events />
       <Speakers />
       <DynamicVenue />
-      <Sponsors />
+      <DynamicSponsors />
       <DynamicPartners />
       <DynamicOrganizers />
       <DynamicPastContributors />
