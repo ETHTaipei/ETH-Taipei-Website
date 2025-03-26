@@ -53,12 +53,13 @@ const Recap = () => {
         </Title>
         <Subtitle>{t.homepage.recapSubTitle}</Subtitle>
         <Gallery>
-          <HighlightImgWrapper>
+          <HighlightContainer>
             <HighlightImg
               src={`/images/recap-2024/1.jpg`}
               alt="Recap 2024 Edition"
+              fill
             />
-          </HighlightImgWrapper>
+          </HighlightContainer>
           <GalleryImages year={2024} startIndex={2} count={5} extension="jpg" />
           {isExpanded && (
             <GalleryImages
@@ -135,7 +136,11 @@ const Gallery = styled.div`
   }
 `;
 
-const HighlightImgWrapper = styled.div`
+const HighlightContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -157,10 +162,8 @@ const baseImgStyles = `
   ${diagonalSymmetricBorder}
 `;
 
-const HighlightImg = styled.img`
+const HighlightImg = styled(Image)`
   ${baseImgStyles}
-  width: 100%;
-  height: 100%;
 `;
 
 // FIXME: gradient issues

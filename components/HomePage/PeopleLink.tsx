@@ -9,6 +9,7 @@ interface PeopleLinkProps {
   imageSize?: number;
   minImageSize?: number;
   isKeynote?: boolean;
+  index?: number;
 }
 
 const PeopleLink = ({
@@ -16,6 +17,7 @@ const PeopleLink = ({
   imageSize = 120,
   minImageSize = 96,
   isKeynote = false,
+  index = 0,
 }: PeopleLinkProps) => {
   const [title, team] = person.titleAndCompany.split("@");
 
@@ -32,6 +34,7 @@ const PeopleLink = ({
           width={imageSize}
           height={imageSize}
           $minImageSize={minImageSize}
+          loading={index < 4 ? "eager" : "lazy"}
         />
       </ProfileLink>
       <InfoWrapper>

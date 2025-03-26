@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import Colors from "@/styles/colors";
@@ -7,11 +8,14 @@ import { PartnerType } from "../hooks/usePartners";
 export const Partner = ({ partner }: { partner: PartnerType }) => {
   return (
     <PartnerLink href={partner.url} target="_blank" rel="noopener noreferrer">
-      <img
+      <Image
         src={partner.img}
         alt={partner.name}
-        height="auto"
         width={partner.width}
+        height={100} // default height
+        style={{
+          height: "auto",
+        }}
       />
     </PartnerLink>
   );

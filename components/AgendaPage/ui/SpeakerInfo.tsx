@@ -12,11 +12,7 @@ interface SpeakerInfoProps {
 const SpeakerInfo = ({ src, name, company }: SpeakerInfoProps) => {
   return (
     <SpeakerContainer>
-      {src && (
-        <SpeakerIcon>
-          <Image fill src={src} alt={name || ""} />
-        </SpeakerIcon>
-      )}
+      {src && <SpeakerIcon src={src} alt={name || ""} width={70} height={70} />}
       <SpeakerInfoContainer>
         <SpeakerName>{name && `${name}`}</SpeakerName>
         <SpeakerCompany>{company && `@ ${company}`}</SpeakerCompany>
@@ -34,7 +30,7 @@ const SpeakerContainer = styled.div`
   gap: 4px;
 `;
 
-const SpeakerIcon = styled.div`
+const SpeakerIcon = styled(Image)`
   flex: 0 0 70px;
   width: 70px;
   height: 70px;

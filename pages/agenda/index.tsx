@@ -1,23 +1,10 @@
 import Agendas from "@/components/AgendaPage/Agendas";
 import Layout from "@/components/Layout";
-import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
-import type { GetStaticProps } from "next";
+import { ApolloWrapper } from "@/components/providers/apollo";
 
-import { CONFERENCE_QUERY } from "@/components/hooks/useConferences";
-
-export const getStaticProps: GetStaticProps = async () => {
-  const initialApolloState = await getInitialData([CONFERENCE_QUERY]);
-  return {
-    props: {
-      initialApolloState,
-    },
-    revalidate: 3600,
-  };
-};
-
-const Agenda = ({ initialApolloState }: any) => {
+const Agenda = () => {
   return (
-    <ApolloWrapper pageProps={{ initialApolloState }}>
+    <ApolloWrapper pageProps={{ initialApolloState: null }}>
       <Agendas />
     </ApolloWrapper>
   );

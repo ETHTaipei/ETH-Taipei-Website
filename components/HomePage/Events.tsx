@@ -131,6 +131,7 @@ const Events = () => {
             linkUrl={lumaUrl}
           />
           <iframe
+            title="Events Calendar"
             src="https://lu.ma/embed/calendar/cal-7G3rRv9BrZuKS3R/events?lt=dark"
             width="100%"
             height="auto"

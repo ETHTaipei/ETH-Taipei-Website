@@ -76,10 +76,18 @@ export const useConferences = () => {
   const { data: workshops } = useQuery<{ workshops: WorkshopItemType[] }>(
     queryWorkshops
   );
+
+  // Workshops include > 1 year
+  const filteredWorkshops = workshops?.workshops.filter((workshop) => {
+    const workshopYear = new Date(workshop.time).getFullYear();
+    return workshopYear.toString() === year;
+  });
+
   const factory = new ConferenceAgendaFactory(
     conferences?.conferences || [],
-    workshops?.workshops || []
+    filteredWorkshops || []
   );
+
   const agenda = factory.getConferenceAgenda();
   return agenda;
 };
