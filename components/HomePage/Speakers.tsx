@@ -22,11 +22,11 @@ const Speakers = () => {
     >
       <KeynoteSpeakerContainer>
         {keynoteSpeakers.map((speaker, i) => (
-          <KeynoteSpeaker speaker={speaker} key={i} />
+          <KeynoteSpeaker speaker={speaker} key={i} index={i} />
         ))}
       </KeynoteSpeakerContainer>
       {speakers.map((speaker, i) => (
-        <Speaker speaker={speaker} key={i} />
+        <Speaker speaker={speaker} key={i} index={i} />
       ))}
     </PeopleSection>
   );
@@ -37,6 +37,7 @@ type SpeakerComponentProps = {
   imageSize: number;
   minImageSize: number;
   isKeynote?: boolean;
+  index: number;
 };
 
 function SpeakerComponent({
@@ -44,6 +45,7 @@ function SpeakerComponent({
   imageSize,
   minImageSize,
   isKeynote,
+  index,
 }: SpeakerComponentProps) {
   return (
     <PeopleLink
@@ -57,24 +59,37 @@ function SpeakerComponent({
       imageSize={imageSize}
       isKeynote={isKeynote}
       minImageSize={minImageSize}
+      index={index}
     />
   );
 }
 
-function KeynoteSpeaker({ speaker }: { speaker: SpeakerType }) {
+function KeynoteSpeaker({
+  speaker,
+  index,
+}: {
+  speaker: SpeakerType;
+  index: number;
+}) {
   return (
     <SpeakerComponent
       speaker={speaker}
       imageSize={250}
       minImageSize={200}
       isKeynote={true}
+      index={index}
     />
   );
 }
 
-function Speaker({ speaker }: { speaker: SpeakerType }) {
+function Speaker({ speaker, index }: { speaker: SpeakerType; index: number }) {
   return (
-    <SpeakerComponent speaker={speaker} imageSize={180} minImageSize={140} />
+    <SpeakerComponent
+      speaker={speaker}
+      imageSize={180}
+      minImageSize={140}
+      index={index}
+    />
   );
 }
 

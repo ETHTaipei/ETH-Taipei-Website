@@ -18,7 +18,7 @@ const PastContributors = () => {
       }}
     >
       {pastContributors.map((contributor, index) => (
-        <PeopleLink person={contributor} key={index} />
+        <PeopleLink person={contributor} key={index} index={index} />
       ))}
     </PeopleSection>
   );

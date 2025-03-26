@@ -19,7 +19,7 @@ const Organizers = () => {
       }}
     >
       {organizers.map((organizer, index) => (
-        <PeopleLink person={organizer} key={index} />
+        <PeopleLink person={organizer} key={index} index={index} />
       ))}
     </PeopleSection>
   );
