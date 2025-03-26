@@ -2,7 +2,11 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { lumaUrl, sideEventFormUrl, tickSiteUrl } from "@/public/constant/urls";
+import {
+  closingPartyUrl,
+  sideEventFormUrl,
+  tickSiteUrl,
+} from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
@@ -10,7 +14,6 @@ import { diagonalSymmetricBorder } from "@/styles/constants";
 
 interface EventCardParam {
   imageSrc: string;
-  imageAlt: string;
   name: string;
   description: string;
   date: string;
@@ -21,7 +24,6 @@ interface EventCardParam {
 
 const EventCardComponent = ({
   imageSrc,
-  imageAlt,
   name,
   description,
   date,
@@ -32,12 +34,7 @@ const EventCardComponent = ({
   return (
     <EventCard>
       <EventNameWrapper>
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          style={{ objectFit: "cover" }}
-        />
+        <Image src={imageSrc} alt={name} fill style={{ objectFit: "cover" }} />
         <EventName>{name}</EventName>
       </EventNameWrapper>
       <EventDescWrapper>
@@ -90,7 +87,6 @@ const Events = () => {
         <EventCardWrapper>
           <EventCardComponent
             imageSrc="/images/recap-2024/1.jpg"
-            imageAlt={t.homepage.eventName_1}
             name={t.homepage.eventName_1}
             description={t.homepage.eventDesc_1}
             date={t.homepage.eventDate_1}
@@ -100,7 +96,6 @@ const Events = () => {
           />
           {/* <EventCardComponent
             imageSrc="/images/event-hackathon-bg.png"
-            imageAlt={t.homepage.eventName_2}
             name={t.homepage.eventName_2}
             description={t.homepage.eventDesc_2}
             date={t.homepage.eventDate_2}
@@ -108,9 +103,28 @@ const Events = () => {
             isActivated={false}
             linkUrl={hackathonUrl}
           /> */}
+          {/* <EventCardComponent
+            imageSrc="/images/recap-2024/8.jpg"
+            name={t.homepage.eventName_4}
+            description={t.homepage.eventDesc_4}
+            date={t.homepage.eventDate_4}
+            buttonText={t.homepage.eventBtn_4}
+            isActivated={true}
+            linkUrl={lumaUrl}
+          /> */}
+          <EventCardComponent
+            imageSrc="/images/closing_party.jpg"
+            name={t.homepage.eventName_5}
+            description={t.homepage.eventDesc_5}
+            date={t.homepage.eventDate_5}
+            buttonText={t.homepage.eventBtn_5}
+            isActivated={true}
+            linkUrl={closingPartyUrl}
+          />
+        </EventCardWrapper>
+        <EventCardWrapper>
           <EventCardComponent
             imageSrc="/images/recap-2024/2.jpg"
-            imageAlt={t.homepage.eventName_3}
             name={t.homepage.eventName_3}
             description={t.homepage.eventDesc_3}
             date={t.homepage.eventDate_3}
@@ -118,18 +132,7 @@ const Events = () => {
             isActivated={true}
             linkUrl={sideEventFormUrl}
           />
-        </EventCardWrapper>
-        <EventCardWrapper>
-          <EventCardComponent
-            imageSrc="/images/recap-2024/8.jpg"
-            imageAlt={t.homepage.eventName_4}
-            name={t.homepage.eventName_4}
-            description={t.homepage.eventDesc_4}
-            date={t.homepage.eventDate_4}
-            buttonText={t.homepage.eventBtn_4}
-            isActivated={true}
-            linkUrl={lumaUrl}
-          />
+
           <iframe
             title="Events Calendar"
             src="https://lu.ma/embed/calendar/cal-7G3rRv9BrZuKS3R/events?lt=dark"

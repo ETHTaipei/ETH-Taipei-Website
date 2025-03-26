@@ -91,6 +91,13 @@ const homepage = {
   eventDate_4: "every 1st & 3rd Wed",
   eventBtn_4: "Subscribe",
 
+  // closing party
+  eventName_5: "Closing Party",
+  eventDesc_5:
+    "This is a special closing dinner hosted by the ETHTaipei team. After two days of intense brainpower recharge, it's time to relax, unwind and hang out together :)",
+  eventDate_5: "2nd April, 18:30",
+  eventBtn_5: "RSVP !",
+
   recapTitle: "Recap! 2024 Edition",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
   recapViewMore: "Load More",

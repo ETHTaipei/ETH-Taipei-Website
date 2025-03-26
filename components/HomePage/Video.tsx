@@ -39,7 +39,7 @@ const BgVideo = ({
 };
 
 export const RecapBgVideo = () => {
-  return <BgVideo src="/videos/2024_recap.webm" coverColor="black" />;
+  return <BgVideo src="/videos/2024_recap_bg.webm" coverColor="black" />;
 };
 
 export const BrandBgVideo = () => {
