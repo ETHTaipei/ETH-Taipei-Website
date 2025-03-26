@@ -6,7 +6,6 @@ import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import CountdownTimer from "./CountdownTimer";
 import { Video, BrandBgVideo } from "./Video";
-import { LOGO_BASE64 } from "@/public/images/FirstViewBanner/ETHTaipeiOrg_Base64";
 
 const Banner = () => {
   return (
@@ -15,7 +14,7 @@ const Banner = () => {
         <TitleContainer>
           <StyledImage
             id="ETHTaipeiOrg"
-            src={LOGO_BASE64}
+            src="/images/FirstViewBanner/ETHTaipeiOrg.webp"
             alt="ETHTaipeiOrg"
             priority={true}
             width={500}
