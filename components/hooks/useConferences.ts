@@ -1,3 +1,4 @@
+import { TZDate } from "@date-fns/tz";
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
 import {
@@ -192,7 +193,7 @@ class ConferenceAgendaFactory {
   }
 
   getDate(str: string) {
-    return new Date(str);
+    return new TZDate(str, "Asia/Taipei");
   }
 
   getTimeStr(date: Date) {
