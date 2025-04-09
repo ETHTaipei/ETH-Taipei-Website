@@ -2,11 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import {
-  closingPartyUrl,
-  sideEventFormUrl,
-  tickSiteUrl,
-} from "@/public/constant/urls";
+import { sideEventFormUrl, tickSiteUrl, lumaUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
@@ -103,26 +99,7 @@ const Events = () => {
             isActivated={false}
             linkUrl={hackathonUrl}
           /> */}
-          {/* <EventCardComponent
-            imageSrc="/images/recap-2024/8.jpg"
-            name={t.homepage.eventName_4}
-            description={t.homepage.eventDesc_4}
-            date={t.homepage.eventDate_4}
-            buttonText={t.homepage.eventBtn_4}
-            isActivated={true}
-            linkUrl={lumaUrl}
-          /> */}
-          <EventCardComponent
-            imageSrc="/images/closing_party.jpg"
-            name={t.homepage.eventName_5}
-            description={t.homepage.eventDesc_5}
-            date={t.homepage.eventDate_5}
-            buttonText={t.homepage.eventBtn_5}
-            isActivated={true}
-            linkUrl={closingPartyUrl}
-          />
-        </EventCardWrapper>
-        <EventCardWrapper>
+
           <EventCardComponent
             imageSrc="/images/recap-2024/2.jpg"
             name={t.homepage.eventName_3}
@@ -131,6 +108,17 @@ const Events = () => {
             buttonText={t.homepage.eventBtn_3}
             isActivated={true}
             linkUrl={sideEventFormUrl}
+          />
+        </EventCardWrapper>
+        <EventCardWrapper>
+          <EventCardComponent
+            imageSrc="/images/recap-2024/8.jpg"
+            name={t.homepage.eventName_4}
+            description={t.homepage.eventDesc_4}
+            date={t.homepage.eventDate_4}
+            buttonText={t.homepage.eventBtn_4}
+            isActivated={true}
+            linkUrl={lumaUrl}
           />
 
           <iframe
@@ -142,7 +130,7 @@ const Events = () => {
             aria-hidden="false"
             tabIndex={0}
             loading="lazy"
-            style={{ minHeight: "350px" }}
+            style={{ minHeight: "370px" }}
           />
         </EventCardWrapper>
       </MainContent>
