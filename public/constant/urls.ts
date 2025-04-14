@@ -2,6 +2,8 @@ export const xUrl = "https://twitter.com/EthTaipei";
 export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
 export const lumaUrl = "https://lu.ma/ETHTaipei_2025";
+export const lumaEmbedUrl =
+  "https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark";
 export const closingPartyUrl =
   "https://app.unlock-protocol.com/event/eth-taipei-2025-closing-party";
 
