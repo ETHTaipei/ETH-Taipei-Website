@@ -2,7 +2,12 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
-import { sideEventFormUrl, tickSiteUrl, lumaUrl } from "@/public/constant/urls";
+import {
+  sideEventFormUrl,
+  tickSiteUrl,
+  lumaUrl,
+  lumaEmbedUrl,
+} from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import Link from "next/link";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
@@ -123,7 +128,7 @@ const Events = () => {
 
           <iframe
             title="Events Calendar"
-            src="https://lu.ma/embed/calendar/cal-7G3rRv9BrZuKS3R/events?lt=dark"
+            src={lumaEmbedUrl}
             width="100%"
             height="auto"
             allowFullScreen
