@@ -59,15 +59,18 @@ interface SocialLink {
 
 // undone paths are set to "" to avoid onClick
 const isNonEmptyPath = (path: string) => path !== "";
-const allNavItems = [
-  { label: t.navs.home, path: "/", show: true },
-  { label: t.navs.agenda, path: "/agenda#info", show: FLAGS.showAgenda },
-  { label: t.navs.event, path: "/#events", show: true },
-  { label: t.navs.apply, path: "/#calltoaction", show: FLAGS.showApplyCTAs },
-  { label: t.navs.venue, path: "/#venue", show: true },
-  { label: t.navs.visaInfo, path: "/visainfo#info", show: true },
+const navItems = [
+  { label: t.navs.home, path: "/", disabled: false },
+  { label: t.navs.agenda, path: "/agenda#info", disabled: !FLAGS.showAgenda },
+  { label: t.navs.event, path: "/#events", disabled: false },
+  {
+    label: t.navs.apply,
+    path: "/#calltoaction",
+    disabled: !FLAGS.showApplyCTAs && !speakerApplyUrl,
+  },
+  { label: t.navs.venue, path: "/#venue", disabled: false },
+  { label: t.navs.visaInfo, path: "/visainfo#info", disabled: false },
 ];
-const navItems = allNavItems.filter((item) => item.show);
 
 const isApply = (label: string) => label === t.navs.apply;
 const applyDropdownItems = [
@@ -88,40 +91,54 @@ const PagesNav = () => {
     }, 200);
   };
 
-  const handleMouseEnter = (label: string) => {
+  const handleMouseEnter = (label: string, disabled: boolean) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    if (isApply(label)) {
+    if (isApply(label) && !disabled) {
       setShowApplyDropdown(true);
     }
   };
 
   return (
     <PagesNavContainer>
-      {navItems.map(({ label, path }: { label: string; path: string }) => (
+      {navItems.map(({ label, path, disabled }) => (
         <NavButtonContainer
           key={label}
-          onMouseEnter={() => handleMouseEnter(label)}
+          onMouseEnter={() => handleMouseEnter(label, disabled)}
           onMouseLeave={handleMouseLeave}
         >
           <NavButton
-            onClick={() =>
-              isNonEmptyPath(path) && handleOnClickInternalLink(path)
-            }
+            as="button"
+            disabled={disabled}
+            title={disabled ? "Coming soon" : undefined}
+            onClick={() => {
+              if (disabled) return;
+              if (isNonEmptyPath(path)) handleOnClickInternalLink(path);
+            }}
           >
             {label}
+            {disabled && <TbaBadge>TBA</TbaBadge>}
           </NavButton>
-          {isApply(label) && showApplyDropdown && (
+          {isApply(label) && !disabled && showApplyDropdown && (
             <ApplyDropdown>
-              {applyDropdownItems.map((item) => (
-                <ApplyDropdownItem
-                  key={item.label}
-                  onClick={() => handleOnClickExternalLink(item.url)}
-                >
-                  {item.label}
-                </ApplyDropdownItem>
-              ))}
+              {applyDropdownItems.map((item) => {
+                const itemDisabled = !item.url;
+                return (
+                  <ApplyDropdownItem
+                    key={item.label}
+                    $disabled={itemDisabled}
+                    title={itemDisabled ? "Coming soon" : undefined}
+                    onClick={() => {
+                      if (itemDisabled) return;
+                      handleOnClickExternalLink(item.url);
+                    }}
+                  >
+                    {item.label}
+                    {itemDisabled && <TbaBadge>TBA</TbaBadge>}
+                  </ApplyDropdownItem>
+                );
+              })}
             </ApplyDropdown>
           )}
         </NavButtonContainer>
@@ -219,10 +236,12 @@ const Header = () => {
 
       <BarsMenu open={isMobileMenuOpen}>
         <BarsMenuContent>
-          {navItems.map(({ label, path }: { label: string; path: string }) => (
+          {navItems.map(({ label, path, disabled }) => (
             <div key={label}>
               <BarsMenuLink
+                $disabled={disabled}
                 onClick={() => {
+                  if (disabled) return;
                   if (isNonEmptyPath(path)) {
                     handleOnClickInternalLink(path);
                     setIsMobileMenuOpen(false);
@@ -230,21 +249,28 @@ const Header = () => {
                 }}
               >
                 {label}
+                {disabled && <TbaBadge>TBA</TbaBadge>}
               </BarsMenuLink>
-              {isApply(label) && (
+              {isApply(label) && !disabled && (
                 <>
-                  {applyDropdownItems.map((item) => (
-                    <BarsMenuLink
-                      key={item.label}
-                      className="apply-sub-item"
-                      onClick={() => {
-                        handleOnClickExternalLink(item.url);
-                        setIsMobileMenuOpen(false);
-                      }}
-                    >
-                      {item.label}
-                    </BarsMenuLink>
-                  ))}
+                  {applyDropdownItems.map((item) => {
+                    const itemDisabled = !item.url;
+                    return (
+                      <BarsMenuLink
+                        key={item.label}
+                        className="apply-sub-item"
+                        $disabled={itemDisabled}
+                        onClick={() => {
+                          if (itemDisabled) return;
+                          handleOnClickExternalLink(item.url);
+                          setIsMobileMenuOpen(false);
+                        }}
+                      >
+                        {item.label}
+                        {itemDisabled && <TbaBadge>TBA</TbaBadge>}
+                      </BarsMenuLink>
+                    );
+                  })}
                 </>
               )}
             </div>
@@ -394,17 +420,22 @@ const BarsMenu = styled.div<{ open: boolean }>`
   }
 `;
 
-const BarsMenuLink = styled.div`
+const BarsMenuLink = styled.div<{ $disabled?: boolean }>`
   color: white;
-  cursor: pointer;
+  cursor: ${(p) => (p.$disabled ? "not-allowed" : "pointer")};
   padding: 8px 4px;
   font-size: 18px;
   text-align: center;
   transition: all 0.3s ease;
+  opacity: ${(p) => (p.$disabled ? 0.55 : 1)};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 
   &:hover {
-    color: ${Colors.neonGreen};
-    opacity: 1;
+    color: ${(p) => (p.$disabled ? "white" : Colors.neonGreen)};
+    opacity: ${(p) => (p.$disabled ? 0.55 : 1)};
   }
 `;
 
@@ -503,11 +534,35 @@ const NavButton = styled.button`
   font-size: ${fontSize};
   font-weight: ${fontWeight};
   min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 
   &:hover {
     background-color: ${Colors.brightBlue};
     color: white;
   }
+
+  &:disabled {
+    color: ${Colors.gray3 || "#9aa0a6"};
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &:disabled:hover {
+    background-color: transparent;
+    color: ${Colors.gray3 || "#9aa0a6"};
+  }
+`;
+
+const TbaBadge = styled.span`
+  font-family: "W95fa";
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.12);
+  color: inherit;
 `;
 
 const ApplyDropdown = styled.div`
@@ -523,17 +578,22 @@ const ApplyDropdown = styled.div`
   z-index: 99;
 `;
 
-const ApplyDropdownItem = styled.div`
+const ApplyDropdownItem = styled.div<{ $disabled?: boolean }>`
   padding: 8px 16px;
-  cursor: pointer;
+  cursor: ${(p) => (p.$disabled ? "not-allowed" : "pointer")};
   color: ${Colors.borderGray};
   font-size: ${fontSize};
   white-space: nowrap;
   transition: all 0.3s ease;
   border-radius: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: ${(p) => (p.$disabled ? 0.55 : 1)};
 
   &:hover {
-    background-color: ${Colors.brightBlue};
-    color: white;
+    background-color: ${(p) =>
+      p.$disabled ? "transparent" : Colors.brightBlue};
+    color: ${(p) => (p.$disabled ? Colors.borderGray : "white")};
   }
 `;

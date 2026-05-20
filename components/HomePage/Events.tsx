@@ -86,7 +86,7 @@ const Events = () => {
           {t.homepage.eventTitle}
         </Title>
         <Subtitle>{t.homepage.eventSubTitle}</Subtitle>
-        <EventCardWrapper>
+        <EventCardWrapper $singleCard={!FLAGS.showSideEvents}>
           <EventCardComponent
             imageSrc="/images/recap-2024/1.jpg"
             name={t.homepage.eventName_1}
@@ -188,11 +188,20 @@ const Subtitle = styled.div`
   margin-top: 16px;
 `;
 
-const EventCardWrapper = styled.div`
+const EventCardWrapper = styled.div<{ $singleCard?: boolean }>`
   margin-top: 40px;
   display: flex;
   flex-direction: row;
   gap: 24px;
+  ${(p) =>
+    p.$singleCard &&
+    `
+    justify-content: center;
+    & > * {
+      max-width: 520px;
+      width: 100%;
+    }
+  `}
 
   @media (max-width: 768px) {
     flex-direction: column;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import t from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
-import { sideEventFormUrl } from "@/public/constant/urls";
+import { sideEventFormUrl, speakerApplyUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import CountdownTimer from "./CountdownTimer";
 import { Video, BrandBgVideo } from "./Video";
@@ -22,9 +22,7 @@ const Banner = () => {
             height={200}
             loading="eager"
           />
-          {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
-          {/* <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title> */}
-          {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_3}</Title> */}
+          <YearTag>2026</YearTag>
         </TitleContainer>
         {/* <SubTitle>{t.homepage.bannerSubTitle}</SubTitle> */}
         <InfoContainer>
@@ -89,6 +87,12 @@ const Banner = () => {
         <CountdownContainer>
           <CountdownTimer />
         </CountdownContainer>
+        <HeroCtaContainer>
+          <HeroCta href={speakerApplyUrl} target="_blank" rel="noreferrer">
+            Apply to Speak
+            <CtaArrow>→</CtaArrow>
+          </HeroCta>
+        </HeroCtaContainer>
       </MainContent>
       <RightSection>
         {/* 右上角文字區塊 */}
@@ -167,10 +171,65 @@ const TitleContainer = styled.div`
   display: flex;
   margin-top: 30px;
   flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
   font-size: 70px;
   @media (max-width: 768px) {
     font-size: 50px;
   }
+`;
+
+const YearTag = styled.div`
+  font-family: "W95fa";
+  font-size: 64px;
+  line-height: 1;
+  color: ${Colors.neonGreen};
+  text-shadow: -2px 0 ${Colors.brightBlue}, 0 2px ${Colors.brightBlue},
+    2px 0 ${Colors.brightBlue}, 0 -2px ${Colors.brightBlue};
+  align-self: flex-end;
+  margin-bottom: 8px;
+  @media (max-width: 1024px) {
+    font-size: 56px;
+  }
+  @media (max-width: 476px) {
+    font-size: 44px;
+  }
+`;
+
+const HeroCtaContainer = styled.div`
+  margin-top: 28px;
+`;
+
+const HeroCta = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "W95fa";
+  font-size: 22px;
+  color: ${Colors.neonGreen};
+  background-color: ${Colors.brightBlue};
+  border: 3px solid white;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(36, 62, 81, 0.2),
+    0 6px 12px 0 rgba(63, 83, 114, 0.19);
+  transition: transform 200ms ease, background-color 200ms ease;
+  &:hover {
+    transform: translateY(-2px);
+    background-color: ${Colors.brightPink};
+    color: black;
+  }
+  @media (max-width: 476px) {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+`;
+
+const CtaArrow = styled.span`
+  font-family: inherit;
+  font-size: inherit;
 `;
 
 const InfoContainer = styled.div`
