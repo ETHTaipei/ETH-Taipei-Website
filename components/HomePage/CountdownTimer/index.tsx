@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useCountdownTime from "@/components/hooks/useCountdownTime";
 import CountdownCard from "./CountdownCard";
 
-const date = "2025-04-01";
+const date = "2026-09-13";
 const Countdown = () => {
   const { current, previous } = useCountdownTime(new Date(date));
 

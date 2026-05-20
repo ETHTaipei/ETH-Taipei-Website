@@ -1,4 +1,5 @@
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import Image from "next/image";
 import styled from "styled-components";
 import { usePartners, useMediaPartners } from "../hooks/usePartners";
@@ -26,33 +27,44 @@ const Partners = () => {
   const { mediaPartners } = useMediaPartners();
   const { partners } = usePartners();
 
+  const showPartners = FLAGS.showPartners && partners.length > 0;
+  const showMediaPartners = FLAGS.showMediaPartners && mediaPartners.length > 0;
+
+  if (!showPartners && !showMediaPartners) {
+    return null;
+  }
+
   return (
     <Container>
       <MainContent>
-        <SectionContainer>
-          <Title>
-            <SmileIcon />
-            {t.homepage.partners}
-          </Title>
-          <Subtitle>{t.homepage.partnersDesc}</Subtitle>
-          <PartnersGrid>
-            {partners.map((partner, index) => (
-              <Partner partner={partner} key={index} />
-            ))}
-          </PartnersGrid>
-        </SectionContainer>
-        <SectionContainer>
-          <Title>
-            <SmileIcon />
-            {t.homepage.mediaPartners}
-          </Title>
-          <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
-          <PartnersGrid>
-            {mediaPartners.map((partner, index) => (
-              <Partner partner={partner} key={index} />
-            ))}
-          </PartnersGrid>
-        </SectionContainer>
+        {showPartners && (
+          <SectionContainer>
+            <Title>
+              <SmileIcon />
+              {t.homepage.partners}
+            </Title>
+            <Subtitle>{t.homepage.partnersDesc}</Subtitle>
+            <PartnersGrid>
+              {partners.map((partner, index) => (
+                <Partner partner={partner} key={index} />
+              ))}
+            </PartnersGrid>
+          </SectionContainer>
+        )}
+        {showMediaPartners && (
+          <SectionContainer>
+            <Title>
+              <SmileIcon />
+              {t.homepage.mediaPartners}
+            </Title>
+            <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>
+            <PartnersGrid>
+              {mediaPartners.map((partner, index) => (
+                <Partner partner={partner} key={index} />
+              ))}
+            </PartnersGrid>
+          </SectionContainer>
+        )}
       </MainContent>
     </Container>
   );

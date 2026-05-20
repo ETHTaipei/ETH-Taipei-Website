@@ -42,7 +42,7 @@ export const CONFERENCE_QUERY = gql`query {
       time
       topic
       duration
-      speaker: speaker2025 {
+      speaker: speaker${year} {
         name
         company
         img

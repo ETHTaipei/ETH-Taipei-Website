@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 import { SpeakerType, useSpeakers } from "@/components/hooks/useSpeakers";
+import { FLAGS } from "@/public/constant/flags";
 import PeopleLink from "./PeopleLink";
 import PeopleSection from "./PeopleSection";
 
 const Speakers = () => {
   const { speakers, keynoteSpeakers } = useSpeakers();
+
+  if (!FLAGS.showSpeakers || (speakers.length === 0 && keynoteSpeakers.length === 0)) {
+    return null;
+  }
 
   return (
     <PeopleSection

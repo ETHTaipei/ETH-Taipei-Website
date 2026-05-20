@@ -1,25 +1,19 @@
 import Image from "next/image";
 import { EventType, dates } from "@/public/constant/agendas";
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import Colors from "@/styles/colors";
 import { useState } from "react";
 import styled from "styled-components";
 import ConferenceTable from "./ConferenceTable";
 import DateSwitcher from "./DateSwitcher";
-import EventSwitcher from "./EventSwitcher";
-// import HackathonTable from "./HackathonTable";
-import SideEventTable from "./SideEventTable";
-import VitalikTable from "./VitalikTable";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 
 const Agendas = () => {
   const [type, setType] = useState<EventType>("conference");
   const [date, setDate] = useState<number>(dates[type][0]);
 
-  // const isTypeHackathon = type === "hackathon";
   const isTypeConference = type === "conference";
-  const isTypeSideEvent = type === "sideEvent";
-  const isShowingVitalik = isTypeConference && date === 1;
 
   return (
     <Container id="info">
@@ -33,12 +27,14 @@ const Agendas = () => {
         />
         {t.navs.agenda}
       </Title>
-      {/* <EventSwitcher type={type} setType={setType} setDate={setDate} /> */}
-      <DateSwitcher type={type} date={date} setDate={setDate} />
-      {/* {isTypeHackathon && <HackathonTable date={date} />} */}
-      {isShowingVitalik && <VitalikTable />}
-      {isTypeConference && <ConferenceTable date={date} />}
-      {/* {isTypeSideEvent && <SideEventTable date={date} />} */}
+      {FLAGS.showAgenda ? (
+        <>
+          <DateSwitcher type={type} date={date} setDate={setDate} />
+          {isTypeConference && <ConferenceTable date={date} />}
+        </>
+      ) : (
+        <Placeholder>The {dates.conference.length}-day agenda will be announced closer to the event. Stay tuned!</Placeholder>
+      )}
     </Container>
   );
 };
@@ -61,4 +57,13 @@ const Title = styled.h2`
   font-weight: bold;
   color: ${Colors.brightBlue};
   margin-bottom: 80px;
+`;
+
+const Placeholder = styled.p`
+  color: white;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
 `;

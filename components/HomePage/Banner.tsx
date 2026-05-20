@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import { sideEventFormUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import CountdownTimer from "./CountdownTimer";
@@ -40,18 +41,6 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_1}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_1}</InfoDescription>
             </InfoWrapper>
-            {/* <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
-            </InfoWrapper> */}
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_2}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2_2}</InfoDescription>
-            </InfoWrapper>
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_3}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2_3}</InfoDescription>
-            </InfoWrapper>
           </Info>
         </InfoContainer>
         <InfoContainer>
@@ -68,22 +57,26 @@ const Banner = () => {
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
             </InfoWrapper>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/SideEvent_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
-              <InfoDescription>
-                <a href={sideEventFormUrl} target="blank">
-                  {t.homepage.bannerInfoDesc_2_1}
-                </a>
-              </InfoDescription>
-            </InfoWrapper>
+            {FLAGS.showSideEvents && (
+              <>
+                <Icon>
+                  <Image
+                    src={"/images/FirstViewBanner/SideEvent_Icon.svg"}
+                    alt="calendar"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </Icon>
+                <InfoWrapper>
+                  <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
+                  <InfoDescription>
+                    <a href={sideEventFormUrl} target="blank">
+                      {t.homepage.bannerInfoDesc_2_1}
+                    </a>
+                  </InfoDescription>
+                </InfoWrapper>
+              </>
+            )}
           </Info>
         </InfoContainer>
         <ScrollingIconsBg>

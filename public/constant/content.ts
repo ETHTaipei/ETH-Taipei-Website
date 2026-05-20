@@ -1,13 +1,11 @@
-export const year = "2025";
-export const month = "April";
-const dayDuration = "1st-2nd";
+export const year = "2026";
+export const month = "September";
+const dayDuration = "13th-15th";
 export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
-  ethTaipeiIntro:
-    // "Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 3-day hackathon and 2-day conference focusing on the application and technology of Ethereum.",
-    `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} has brought together teams from around the world to participate in a 2-day conference focusing on the application and technology of Ethereum.`,
+  ethTaipeiIntro: `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} brings together teams from around the world to participate in a 3-day conference focusing on the application and technology of Ethereum.`,
 };
 
 const homepage = {
@@ -44,14 +42,8 @@ const homepage = {
   bannerSubTitle: "Unleashing a New Era of Blockchain in Taiwan",
   bannerInfoTitle_1: "Conference",
   bannerInfoDesc_1: dateDayMonthYear,
-  // bannerInfoTitle_2: "Hackathon",
-  // bannerInfoDesc_2: dateDayMonthYear,
   bannerInfoTitle_2_1: "Side Events",
-  bannerInfoDesc_2_1: "Click to see 10+ events",
-  bannerInfoTitle_2_2: "ETHGlobal Pragma",
-  bannerInfoDesc_2_2: "3rd April, 2025",
-  bannerInfoTitle_2_3: "ETHGlobal Hackathon",
-  bannerInfoDesc_2_3: "4th-6th April, 2025",
+  bannerInfoDesc_2_1: "Coming soon",
   bannerInfoTitle_3: "POPOP Taipei",
   bannerInfoDesc_3:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City",
@@ -71,7 +63,7 @@ const homepage = {
   eventSubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
   eventName_1: "Conference",
   eventDesc_1:
-    "The ETHTaipei conference is a two-day event offering two distinct tracks: DeFi and Protocol. The DeFi track delves into decentralized finance and security topics, while the Protocol track explores various subjects, including clients, ZK Proofs and Layer 2. This event brings together industry experts and trailblazers to examine the latest advancements in Ethereum. Tickets grant access to both tracks.",
+    "The ETHTaipei conference is a three-day event bringing together industry experts and trailblazers to examine the latest advancements in Ethereum. Detailed tracks and topics will be announced closer to the event.",
   eventDate_1: dateDayMonthYear,
   eventBtn_1: "Ticket",
   // eventName_2: "Hackathon",
@@ -81,7 +73,6 @@ const homepage = {
   // eventBtn_2: "View Now",
   eventName_3: "Side Events",
   eventDesc_3:
-    // "Get ready for an extra dose of fun at ETHTaipei! While the main conference and hackathon take center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
     "Get ready for an extra dose of fun at ETHTaipei! While the main conference takes center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
   eventDate_3: dateDayMonthYear,
   eventBtn_3: "See Events",
@@ -98,8 +89,8 @@ const homepage = {
   eventDate_5: "2nd April, 18:30",
   eventBtn_5: "RSVP !",
 
-  recapTitle: "Recap! 2024 Edition",
-  recapSubTitle: "Highlights from the unforgettable ETHTaipei 2024!!",
+  recapTitle: "Recap!",
+  recapSubTitle: "Highlights from the unforgettable ETHTaipei!!",
   recapViewMore: "Load More",
   recapHide: "Show Less",
 };

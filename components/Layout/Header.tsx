@@ -12,6 +12,7 @@ import { useState, useRef } from "react";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import {
   discordUrl,
   sideEventApplyUrl,
@@ -58,15 +59,15 @@ interface SocialLink {
 
 // undone paths are set to "" to avoid onClick
 const isNonEmptyPath = (path: string) => path !== "";
-const navItems = [
-  { label: t.navs.home, path: "/" },
-  { label: t.navs.agenda, path: "/agenda#info" },
-  { label: t.navs.event, path: "/#events" },
-  { label: t.navs.apply, path: "/#calltoaction" },
-  { label: t.navs.venue, path: "/#venue" },
-  { label: t.navs.visaInfo, path: "/visainfo#info" },
-  // { label: t.navs.brand, path: "" },
+const allNavItems = [
+  { label: t.navs.home, path: "/", show: true },
+  { label: t.navs.agenda, path: "/agenda#info", show: FLAGS.showAgenda },
+  { label: t.navs.event, path: "/#events", show: true },
+  { label: t.navs.apply, path: "/#calltoaction", show: FLAGS.showApplyCTAs },
+  { label: t.navs.venue, path: "/#venue", show: true },
+  { label: t.navs.visaInfo, path: "/visainfo#info", show: true },
 ];
+const navItems = allNavItems.filter((item) => item.show);
 
 const isApply = (label: string) => label === t.navs.apply;
 const applyDropdownItems = [
@@ -199,12 +200,14 @@ const Header = () => {
             <SocialLinks />
           </SocialContainer>
 
-          <TicketButton
-            className="ticket-button"
-            onClick={() => handleOnClickExternalLink(tickSiteUrl)}
-          >
-            {t.navs.ticket}
-          </TicketButton>
+          {FLAGS.showTickets && (
+            <TicketButton
+              className="ticket-button"
+              onClick={() => handleOnClickExternalLink(tickSiteUrl)}
+            >
+              {t.navs.ticket}
+            </TicketButton>
+          )}
         </SocialAndTicketButtonsContainer>
 
         <MenuButtonXOrBars
@@ -246,14 +249,16 @@ const Header = () => {
               )}
             </div>
           ))}
-          <BarsMenuLink
-            onClick={() => {
-              handleOnClickExternalLink(tickSiteUrl);
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            {t.navs.ticket}
-          </BarsMenuLink>
+          {FLAGS.showTickets && (
+            <BarsMenuLink
+              onClick={() => {
+                handleOnClickExternalLink(tickSiteUrl);
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              {t.navs.ticket}
+            </BarsMenuLink>
+          )}
           <SocialContainer>
             <SocialLinks />
           </SocialContainer>
