@@ -44,14 +44,18 @@ const Banner = () => {
         </InfoContainer>
         <InfoContainer>
           <Info>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/Location_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
+            <VenueBlock aria-label={t.homepage.venueName}>
+              <VenueLabel>VENUE</VenueLabel>
+              <VenuePin>
+                <Image
+                  src={"/images/FirstViewBanner/Location_Icon.svg"}
+                  alt="location pin"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </VenuePin>
+              <VenueCity>TPE</VenueCity>
+            </VenueBlock>
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
@@ -311,6 +315,22 @@ const CalendarYear = styled.div`
   padding: 0 0 6px;
   letter-spacing: 1px;
 `;
+
+const VenueBlock = styled(CalendarBlock).attrs({ as: "div" })``;
+
+const VenueLabel = styled(CalendarMonth)``;
+
+const VenuePin = styled.div`
+  flex: 1;
+  position: relative;
+  margin: 4px 14px;
+
+  @media (max-width: 1280px) {
+    margin: 4px 12px;
+  }
+`;
+
+const VenueCity = styled(CalendarYear)``;
 
 const InfoWrapper = styled.div``;
 
