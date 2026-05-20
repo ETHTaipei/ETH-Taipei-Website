@@ -39,7 +39,7 @@ const homepage = {
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
   bannerTitle_3: `${year}`,
-  bannerSubTitle: "Unleashing a New Era of Blockchain in Taiwan",
+  bannerSubTitle: "The annual blockchain event in Taiwan",
   bannerInfoTitle_1: "Conference",
   bannerInfoDesc_1: dateDayMonthYear,
   bannerInfoTitle_2_1: "Side Events",

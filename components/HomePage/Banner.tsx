@@ -1,12 +1,16 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import t, { month, year } from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
 import { sideEventFormUrl, speakerApplyUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 import CountdownTimer from "./CountdownTimer";
 import { Video, BrandBgVideo } from "./Video";
+
+const monthAbbr = month.slice(0, 3).toUpperCase();
+const dayRange = "13–15"; // 13–15 with en dash
 
 const Banner = () => {
   return (
@@ -27,17 +31,14 @@ const Banner = () => {
         {/* <SubTitle>{t.homepage.bannerSubTitle}</SubTitle> */}
         <InfoContainer>
           <Info>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/Date_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
+            <CalendarBlock aria-label={t.homepage.bannerInfoDesc_1}>
+              <CalendarMonth>{monthAbbr}</CalendarMonth>
+              <CalendarDays>{dayRange}</CalendarDays>
+              <CalendarYear>{year}</CalendarYear>
+            </CalendarBlock>
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_1}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_1}</InfoDescription>
+              <InfoDescription>3-day event</InfoDescription>
             </InfoWrapper>
           </Info>
         </InfoContainer>
@@ -255,6 +256,60 @@ const Icon = styled.div`
     width: 45px;
     height: 45px;
   }
+`;
+
+const CalendarBlock = styled.div`
+  width: 84px;
+  min-width: 84px;
+  height: 94px;
+  background-color: white;
+  border: 3px solid ${Colors.brightBlue};
+  ${diagonalSymmetricBorder}
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "W95fa";
+  text-align: center;
+  line-height: 1;
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.18);
+
+  @media (max-width: 1280px) {
+    width: 76px;
+    min-width: 76px;
+    height: 86px;
+  }
+`;
+
+const CalendarMonth = styled.div`
+  background-color: ${Colors.brightBlue};
+  color: ${Colors.neonGreen};
+  font-size: 16px;
+  padding: 5px 0 4px;
+  letter-spacing: 1px;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
+`;
+
+const CalendarDays = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 28px;
+
+  @media (max-width: 1280px) {
+    font-size: 24px;
+  }
+`;
+
+const CalendarYear = styled.div`
+  color: black;
+  font-size: 12px;
+  padding: 0 0 6px;
+  letter-spacing: 1px;
 `;
 
 const InfoWrapper = styled.div``;
