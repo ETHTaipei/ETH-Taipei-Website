@@ -1,11 +1,16 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
-import { sideEventFormUrl } from "@/public/constant/urls";
+import t, { month, year } from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
+import { sideEventFormUrl, speakerApplyUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
+import { diagonalSymmetricBorder } from "@/styles/constants";
 import CountdownTimer from "./CountdownTimer";
 import { Video, BrandBgVideo } from "./Video";
+
+const monthAbbr = month.slice(0, 3).toUpperCase();
+const dayRange = "13–15"; // 13–15 with en dash
 
 const Banner = () => {
   return (
@@ -21,69 +26,60 @@ const Banner = () => {
             height={200}
             loading="eager"
           />
-          {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_1}</Title> */}
-          {/* <Title color={"white"}>{t.homepage.bannerTitle_2}&nbsp;</Title> */}
-          {/* <Title color={Colors.aero}>{t.homepage.bannerTitle_3}</Title> */}
+          <YearTag>2026</YearTag>
         </TitleContainer>
         {/* <SubTitle>{t.homepage.bannerSubTitle}</SubTitle> */}
         <InfoContainer>
           <Info>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/Date_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
+            <CalendarBlock aria-label={t.homepage.bannerInfoDesc_1}>
+              <CalendarMonth>{monthAbbr}</CalendarMonth>
+              <CalendarDays>{dayRange}</CalendarDays>
+              <CalendarYear>{year}</CalendarYear>
+            </CalendarBlock>
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_1}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_1}</InfoDescription>
-            </InfoWrapper>
-            {/* <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2}</InfoDescription>
-            </InfoWrapper> */}
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_2}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2_2}</InfoDescription>
-            </InfoWrapper>
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_3}</InfoTitle>
-              <InfoDescription>{t.homepage.bannerInfoDesc_2_3}</InfoDescription>
+              <InfoDescription>3-day event</InfoDescription>
             </InfoWrapper>
           </Info>
         </InfoContainer>
         <InfoContainer>
           <Info>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/Location_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
+            <VenueBlock aria-label={t.homepage.venueName}>
+              <VenueLabel>VENUE</VenueLabel>
+              <VenuePin>
+                <Image
+                  src={"/images/FirstViewBanner/Location_Icon.svg"}
+                  alt="location pin"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </VenuePin>
+              <VenueCity>TPE</VenueCity>
+            </VenueBlock>
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_3}</InfoTitle>
               <InfoDescription>{t.homepage.bannerInfoDesc_3}</InfoDescription>
             </InfoWrapper>
-            <Icon>
-              <Image
-                src={"/images/FirstViewBanner/SideEvent_Icon.svg"}
-                alt="calendar"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Icon>
-            <InfoWrapper>
-              <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
-              <InfoDescription>
-                <a href={sideEventFormUrl} target="blank">
-                  {t.homepage.bannerInfoDesc_2_1}
-                </a>
-              </InfoDescription>
-            </InfoWrapper>
+            {FLAGS.showSideEvents && (
+              <>
+                <Icon>
+                  <Image
+                    src={"/images/FirstViewBanner/SideEvent_Icon.svg"}
+                    alt="calendar"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </Icon>
+                <InfoWrapper>
+                  <InfoTitle>{t.homepage.bannerInfoTitle_2_1}</InfoTitle>
+                  <InfoDescription>
+                    <a href={sideEventFormUrl} target="blank">
+                      {t.homepage.bannerInfoDesc_2_1}
+                    </a>
+                  </InfoDescription>
+                </InfoWrapper>
+              </>
+            )}
           </Info>
         </InfoContainer>
         <ScrollingIconsBg>
@@ -96,6 +92,12 @@ const Banner = () => {
         <CountdownContainer>
           <CountdownTimer />
         </CountdownContainer>
+        <HeroCtaContainer>
+          <HeroCta href={speakerApplyUrl} target="_blank" rel="noreferrer">
+            Apply to Speak
+            <CtaArrow>→</CtaArrow>
+          </HeroCta>
+        </HeroCtaContainer>
       </MainContent>
       <RightSection>
         {/* 右上角文字區塊 */}
@@ -174,10 +176,65 @@ const TitleContainer = styled.div`
   display: flex;
   margin-top: 30px;
   flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
   font-size: 70px;
   @media (max-width: 768px) {
     font-size: 50px;
   }
+`;
+
+const YearTag = styled.div`
+  font-family: "W95fa";
+  font-size: 64px;
+  line-height: 1;
+  color: ${Colors.neonGreen};
+  text-shadow: -2px 0 ${Colors.brightBlue}, 0 2px ${Colors.brightBlue},
+    2px 0 ${Colors.brightBlue}, 0 -2px ${Colors.brightBlue};
+  align-self: flex-end;
+  margin-bottom: 8px;
+  @media (max-width: 1024px) {
+    font-size: 56px;
+  }
+  @media (max-width: 476px) {
+    font-size: 44px;
+  }
+`;
+
+const HeroCtaContainer = styled.div`
+  margin-top: 28px;
+`;
+
+const HeroCta = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "W95fa";
+  font-size: 22px;
+  color: ${Colors.neonGreen};
+  background-color: ${Colors.brightBlue};
+  border: 3px solid white;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(36, 62, 81, 0.2),
+    0 6px 12px 0 rgba(63, 83, 114, 0.19);
+  transition: transform 200ms ease, background-color 200ms ease;
+  &:hover {
+    transform: translateY(-2px);
+    background-color: ${Colors.brightPink};
+    color: black;
+  }
+  @media (max-width: 476px) {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+`;
+
+const CtaArrow = styled.span`
+  font-family: inherit;
+  font-size: inherit;
 `;
 
 const InfoContainer = styled.div`
@@ -204,6 +261,76 @@ const Icon = styled.div`
     height: 45px;
   }
 `;
+
+const CalendarBlock = styled.div`
+  width: 84px;
+  min-width: 84px;
+  height: 94px;
+  background-color: white;
+  border: 3px solid ${Colors.brightBlue};
+  ${diagonalSymmetricBorder}
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "W95fa";
+  text-align: center;
+  line-height: 1;
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.18);
+
+  @media (max-width: 1280px) {
+    width: 76px;
+    min-width: 76px;
+    height: 86px;
+  }
+`;
+
+const CalendarMonth = styled.div`
+  background-color: ${Colors.brightBlue};
+  color: ${Colors.neonGreen};
+  font-size: 16px;
+  padding: 5px 0 4px;
+  letter-spacing: 1px;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
+`;
+
+const CalendarDays = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 28px;
+
+  @media (max-width: 1280px) {
+    font-size: 24px;
+  }
+`;
+
+const CalendarYear = styled.div`
+  color: black;
+  font-size: 12px;
+  padding: 0 0 6px;
+  letter-spacing: 1px;
+`;
+
+const VenueBlock = styled(CalendarBlock).attrs({ as: "div" })``;
+
+const VenueLabel = styled(CalendarMonth)``;
+
+const VenuePin = styled.div`
+  flex: 1;
+  position: relative;
+  margin: 4px 14px;
+
+  @media (max-width: 1280px) {
+    margin: 4px 12px;
+  }
+`;
+
+const VenueCity = styled(CalendarYear)``;
 
 const InfoWrapper = styled.div``;
 

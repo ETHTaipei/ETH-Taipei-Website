@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import { useSponsors } from "@/components/hooks/useSponsors";
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import {
   BaseContainer,
   BaseMainContent,
@@ -22,6 +23,11 @@ const Sponsors = () => {
     silverSponsors,
     bronzeSponsors,
   ];
+
+  const totalSponsors = sponsors.reduce((sum, tier) => sum + tier.length, 0);
+  if (!FLAGS.showSponsors || totalSponsors === 0) {
+    return null;
+  }
 
   return (
     <Container>

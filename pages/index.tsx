@@ -4,14 +4,17 @@ import Recap from "@/components/HomePage/Recap";
 import Speakers from "@/components/HomePage/Speakers";
 import Layout from "@/components/Layout";
 import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
-import { SPONSOR_QUERY } from "@/components/hooks/useSponsors";
+import { FLAGS } from "@/public/constant/flags";
 import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
 import type { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 
 export const getStaticProps: GetStaticProps = async () => {
-  // only pre-fetch speakers for now for performance
-  const initialApolloState = await getInitialData([SPEAKER_QUERY]);
+  // Only pre-fetch speakers when the section is enabled; otherwise the year-templated
+  // query (e.g. speakers2026) will 400 against Hygraph until the collection is seeded.
+  const initialApolloState = FLAGS.showSpeakers
+    ? await getInitialData([SPEAKER_QUERY])
+    : {};
 
   return {
     props: {

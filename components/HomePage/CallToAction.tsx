@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Image from "next/image";
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventApplyUrl,
   sponsorApplyUrl,
@@ -50,6 +51,9 @@ const ActionButtons = () => {
 };
 
 const CallToAction = () => {
+  if (!FLAGS.showApplyCTAs) {
+    return null;
+  }
   return (
     <Container id="calltoaction">
       <MainContent>

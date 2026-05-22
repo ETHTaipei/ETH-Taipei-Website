@@ -1,20 +1,19 @@
 export const xUrl = "https://twitter.com/EthTaipei";
 export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
-export const lumaUrl = "https://lu.ma/ETHTaipei_2025";
+export const lumaUrl = "https://lu.ma/ETHTaipei_2026";
 export const lumaEmbedUrl =
   "https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark";
-export const closingPartyUrl =
-  "https://app.unlock-protocol.com/event/eth-taipei-2025-closing-party";
+export const closingPartyUrl = "";
 
-export const sponsorApplyUrl = "https://forms.gle/d3b7rjBcQVp468cUA";
-export const speakerApplyUrl = "https://forms.gle/xwFWkYHAoJKj7ek18";
-export const sideEventApplyUrl = "https://forms.gle/vT4QWtZu9kR5ng5d8";
+export const sponsorApplyUrl = "";
+export const speakerApplyUrl =
+  "https://ethtaipei-boost-production.up.railway.app/apply/speaker";
+export const sideEventApplyUrl = "";
 export const mediaPartnerApplyUrl = "";
-export const hackathonUrl = "https://ethglobal.com/events/taipei";
-export const sideEventFormUrl =
-  "https://docs.google.com/spreadsheets/d/1vHw0q1cp-b8gLfF11VkQ0rFM5oFvN1JVmz98vYnzkhY/edit?gid=0#gid=0";
-export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei-2025";
+export const hackathonUrl = "";
+export const sideEventFormUrl = "";
+export const tickSiteUrl = "";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";

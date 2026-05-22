@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventFormUrl,
   tickSiteUrl,
@@ -85,35 +86,28 @@ const Events = () => {
           {t.homepage.eventTitle}
         </Title>
         <Subtitle>{t.homepage.eventSubTitle}</Subtitle>
-        <EventCardWrapper>
+        <EventCardWrapper $singleCard={!FLAGS.showSideEvents}>
           <EventCardComponent
             imageSrc="/images/recap-2024/1.jpg"
             name={t.homepage.eventName_1}
             description={t.homepage.eventDesc_1}
             date={t.homepage.eventDate_1}
             buttonText={t.homepage.eventBtn_1}
-            isActivated={true}
+            isActivated={FLAGS.showTickets}
             linkUrl={tickSiteUrl}
           />
-          {/* <EventCardComponent
-            imageSrc="/images/event-hackathon-bg.png"
-            name={t.homepage.eventName_2}
-            description={t.homepage.eventDesc_2}
-            date={t.homepage.eventDate_2}
-            buttonText={t.homepage.eventBtn_2}
-            isActivated={false}
-            linkUrl={hackathonUrl}
-          /> */}
 
-          <EventCardComponent
-            imageSrc="/images/recap-2024/2.jpg"
-            name={t.homepage.eventName_3}
-            description={t.homepage.eventDesc_3}
-            date={t.homepage.eventDate_3}
-            buttonText={t.homepage.eventBtn_3}
-            isActivated={true}
-            linkUrl={sideEventFormUrl}
-          />
+          {FLAGS.showSideEvents && (
+            <EventCardComponent
+              imageSrc="/images/recap-2024/2.jpg"
+              name={t.homepage.eventName_3}
+              description={t.homepage.eventDesc_3}
+              date={t.homepage.eventDate_3}
+              buttonText={t.homepage.eventBtn_3}
+              isActivated={true}
+              linkUrl={sideEventFormUrl}
+            />
+          )}
         </EventCardWrapper>
         <EventCardWrapper>
           <EventCardComponent
@@ -194,11 +188,20 @@ const Subtitle = styled.div`
   margin-top: 16px;
 `;
 
-const EventCardWrapper = styled.div`
+const EventCardWrapper = styled.div<{ $singleCard?: boolean }>`
   margin-top: 40px;
   display: flex;
   flex-direction: row;
   gap: 24px;
+  ${(p) =>
+    p.$singleCard &&
+    `
+    justify-content: center;
+    & > * {
+      max-width: 520px;
+      width: 100%;
+    }
+  `}
 
   @media (max-width: 768px) {
     flex-direction: column;
