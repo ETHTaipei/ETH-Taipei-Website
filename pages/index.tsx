@@ -1,3 +1,4 @@
+import Banner from "@/components/HomePage/Banner";
 import Events from "@/components/HomePage/Events";
 import Introduction from "@/components/HomePage/Introduction";
 import Recap from "@/components/HomePage/Recap";
@@ -43,6 +44,7 @@ const DynamicCommunitySupport = dynamic(
 const Home = ({ initialApolloState }: any) => {
   return (
     <ApolloWrapper pageProps={{ initialApolloState }}>
+      <Banner />
       <Recap />
       <Introduction />
       <Events />
