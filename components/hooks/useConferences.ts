@@ -197,19 +197,25 @@ class ConferenceAgendaFactory {
   }
 
   getTimeStr(date: Date) {
-    let hours = date.getHours();
-    let unit = "am";
-    if (hours > 12) {
-      hours -= 12;
-      unit = "pm";
-    }
-    if (hours === 12) {
-      unit = "pm";
-    }
-    const str = `${hours.toString()}:${date
-      .getMinutes()
-      .toString()
-      .padStart(2, "0")}${unit}`;
-    return str;
+    return formatAgendaTime(date);
   }
+}
+
+// Exported for unit testing. Renders e.g. 1:30pm, 12:00pm, 11:05am. Midnight
+// (0:00) currently renders as "0:00am" — preserve existing behavior to avoid
+// silently shifting agenda copy; see useConferences.test.ts for the spec.
+export function formatAgendaTime(date: Date): string {
+  let hours = date.getHours();
+  let unit = "am";
+  if (hours > 12) {
+    hours -= 12;
+    unit = "pm";
+  }
+  if (hours === 12) {
+    unit = "pm";
+  }
+  return `${hours.toString()}:${date
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}${unit}`;
 }
