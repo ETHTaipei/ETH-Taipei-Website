@@ -41,27 +41,32 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
     return (
       <Html>
         <Head>
           {/* <link rel="stylesheet" href="/fonts/fonts.css" /> */}
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
+          {gaId && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            gtag('config', '${gaId}', {
               page_path: window.location.pathname,
             });
           `,
-            }}
-          />
+                }}
+              />
+            </>
+          )}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
