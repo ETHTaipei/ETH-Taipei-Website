@@ -1,5 +1,6 @@
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
+import { FLAGS } from "@/public/constant/flags";
 import { PLATINUM, GOLD, SILVER, BRONZE } from "@/public/constant/logo_width";
 
 export type SponsorProps = {
@@ -21,7 +22,12 @@ export const SPONSOR_QUERY = gql`query {
 `;
 
 export const useSponsors = () => {
-  const { data } = useQuery<{ sponsors: SponsorProps[] }>(SPONSOR_QUERY);
+  // The query references the year-templated collection (e.g. sponsors2026)
+  // which Hygraph 400s on until the schema is seeded. Skip until the section
+  // is launched to avoid console errors and wasted requests.
+  const { data } = useQuery<{ sponsors: SponsorProps[] }>(SPONSOR_QUERY, {
+    skip: !FLAGS.showSponsors,
+  });
 
   const all = data?.sponsors || [];
 

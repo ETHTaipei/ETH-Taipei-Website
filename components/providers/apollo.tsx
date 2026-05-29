@@ -11,10 +11,18 @@ import { useMemo } from "react";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 
+// Fallback preserves the existing Hygraph endpoint so deploys without the
+// env var keep working. Set NEXT_PUBLIC_HYGRAPH_ENDPOINT in Vercel to swap
+// CMS environments (e.g. point staging at a different Hygraph project)
+// without a redeploy.
+const HYGRAPH_ENDPOINT =
+  process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT ||
+  "https://us-east-1-shared-usea1-02.cdn.hygraph.com/content/clrhiw5ac1aas01w2yynlhlw9/master";
+
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined", // True on server, false on client
-    uri: "https://us-east-1-shared-usea1-02.cdn.hygraph.com/content/clrhiw5ac1aas01w2yynlhlw9/master",
+    uri: HYGRAPH_ENDPOINT,
     cache: new InMemoryCache(),
   });
 }

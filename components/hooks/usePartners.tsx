@@ -1,5 +1,6 @@
 import { year } from "@/public/constant/content";
 import { gql, useQuery } from "@apollo/client";
+import { FLAGS } from "@/public/constant/flags";
 import { COMMUNITY_PARTNER, PARTNER } from "@/public/constant/logo_width";
 
 export type PartnerType = {
@@ -46,7 +47,10 @@ export const COMMUNITY_QUERY = gql`
 `;
 
 export const usePartners = () => {
-  const { data } = useQuery<{ partners: PartnerType[] }>(PARTNER_QUERY);
+  // Year-templated collection (partners2026) 400s until seeded; skip when off.
+  const { data } = useQuery<{ partners: PartnerType[] }>(PARTNER_QUERY, {
+    skip: !FLAGS.showPartners,
+  });
 
   const partners =
     data?.partners.map((partner) => ({
@@ -59,7 +63,8 @@ export const usePartners = () => {
 
 export const useMediaPartners = () => {
   const { data } = useQuery<{ partners: MediaPartnerType[] }>(
-    MEDIAPARTNER_QUERY
+    MEDIAPARTNER_QUERY,
+    { skip: !FLAGS.showMediaPartners },
   );
 
   const mediaPartners =
