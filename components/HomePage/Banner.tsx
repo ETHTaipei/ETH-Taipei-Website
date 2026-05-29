@@ -7,7 +7,7 @@ import { sideEventFormUrl, speakerApplyUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import { diagonalSymmetricBorder } from "@/styles/constants";
 import CountdownTimer from "./CountdownTimer";
-import { Video, BrandBgVideo } from "./Video";
+import { Video } from "./Video";
 
 const monthAbbr = month.slice(0, 3).toUpperCase();
 const dayRange = "13–15"; // 13–15 with en dash
@@ -129,7 +129,6 @@ const Banner = () => {
         <PixelIconMountain />
       </RightSection>
       <GridOverlay />
-      <BrandBgVideo />
     </Container>
   );
 };
