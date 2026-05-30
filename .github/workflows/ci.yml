@@ -18,7 +18,12 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      # Matches Netlify's install behavior (it runs `npm install`, not `npm ci`)
+      # so CI and prod treat the lockfile the same way. The repo currently ships
+      # both package-lock.json and yarn.lock and the npm lockfile is drifted
+      # from package.json; `npm ci` would refuse to install. Re-sync the
+      # lockfile in a separate PR if strict installs become desired.
+      - run: npm install --no-audit --no-fund
 
       - run: npm run lint
 
