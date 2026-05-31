@@ -16,17 +16,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: yarn
 
-      # Matches Netlify's install behavior (it runs `npm install`, not `npm ci`)
-      # so CI and prod treat the lockfile the same way. The repo currently ships
-      # both package-lock.json and yarn.lock and the npm lockfile is drifted
-      # from package.json; `npm ci` would refuse to install. Re-sync the
-      # lockfile in a separate PR if strict installs become desired.
-      - run: npm install --no-audit --no-fund
+      # Strict install: CI fails the build if yarn.lock and package.json drift.
+      # Netlify (prod build) deliberately runs plain `yarn install` so a
+      # lockfile out-of-sync doesn't block a deploy — CI's job is to catch
+      # that drift before merge.
+      - run: yarn install --frozen-lockfile
 
-      - run: npm run lint
+      - run: yarn lint
 
-      - run: npm run test
+      - run: yarn test
 
-      - run: npm run build
+      - run: yarn build
