@@ -31,7 +31,6 @@
     "next": "^13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-gtm-module": "^2.0.11",
     "react-icons": "^4.8.0",
     "react-transition-group": "^4.4.5",
     "styled-components": "^5.3.6",
@@ -39,7 +38,6 @@
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.7",
-    "@types/react-gtm-module": "^2.0.1",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.0.7",
     "vitest": "^2.1.9"

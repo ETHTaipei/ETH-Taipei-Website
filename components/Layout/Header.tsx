@@ -81,7 +81,7 @@ const applyDropdownItems = [
 
 const PagesNav = () => {
   const [showApplyDropdown, setShowApplyDropdown] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
 
   // 200ms delay before hiding s.t. applyDropdown won't disappear so fast

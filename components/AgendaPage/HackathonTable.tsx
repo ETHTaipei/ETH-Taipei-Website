@@ -1,3 +1,7 @@
+// ARCHIVED — not currently rendered. Two-track hackathon agenda table.
+// ETHTaipei skipped its hackathon track for 2026; the 2026 soft-launch
+// refactor (PR #314, May 2026) dropped this import from Agendas.tsx. Kept
+// as a template — revive when hackathon programming returns.
 import styled from "styled-components";
 
 import { hackathonAgendas } from "@/public/constant/agendas";
