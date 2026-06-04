@@ -1,7 +1,7 @@
 export const xUrl = "https://twitter.com/EthTaipei";
 export const discordUrl = "https://discord.gg/Dqa2nfEsgv";
 export const telegramUrl = "https://t.me/ethtaipei";
-export const lumaUrl = "https://lu.ma/ETHTaipei_2026";
+export const lumaUrl = "https://luma.com/ETHTaipei_2025";
 export const lumaEmbedUrl =
   "https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark";
 export const closingPartyUrl = "";
@@ -117,3 +117,15 @@ export const goldcardVickyHoMailUrl = "mailto:vicky_ho@mail.tca.org.tw";
 export const goldcardKellyChuangMailUrl = "mailto:kelly_chuang@mail.tca.org.tw";
 
 export const invitationLetterUrl = "https://forms.gle/Ms8KGf8K621vyvMG6";
+
+// Community page
+export const temMediumUrl = "https://medium.com/taipei-ethereum-meetup";
+export const coscupUrl = "https://coscup.org/2026/en";
+export const localEthereumTaiwanUrl =
+  "https://localethereum.substack.com/p/taiwan-ethereum-ecosystem-overview";
+export const xueDaoUrl = "https://www.xuedao.xyz/";
+export const geodeLabsUrl = "https://geode.build/";
+export const newsletterUrl = "https://ethtaipeixtem.substack.com/";
+// RSS feeds consumed at build/revalidate time by /community's getStaticProps.
+export const temMediumFeedUrl = "https://medium.com/feed/taipei-ethereum-meetup";
+export const newsletterFeedUrl = "https://ethtaipeixtem.substack.com/feed";

@@ -78,7 +78,7 @@ const homepage = {
   eventBtn_3: "See Events",
   eventName_4: "Community Events",
   eventDesc_4:
-    "At ETHTaipei, we host regular monthly events: Meetups on the first Wed and talks on the third Wed of every month. Wanna hang out with us and the local communities? Click on the event links to sign up and subscribe for more!",
+    "Ethereum in Taipei never stops: we host the TLDR Meetup (1st Wed) and Featured Talk Meetup (3rd Wed) every month, curate the blockchain track at COSCUP, publish technical articles and a newsletter with Taipei Ethereum Meetup, and cheer on student builders at XueDAO. Explore it all on our Community page — and subscribe so you never miss an event!",
   eventDate_4: "every 1st & 3rd Wed",
   eventBtn_4: "Subscribe",
 
@@ -110,6 +110,63 @@ const navs = {
   venue: "Venue",
   brand: "Brand",
   event: "Events",
+  community: "Community",
+};
+
+const community = {
+  title: "Community",
+  subtitle: "Ethereum in Taipei is alive all year round",
+  intro1: `ETHTaipei is the annual flagship gathering, but it is only one chapter of a much bigger story. Taiwan's Ethereum scene is one of the most active in Asia — grassroots, volunteer-driven, and deeply technical. Developers, researchers, students, and enthusiasts meet every month, publish technical writing, curate conference tracks, and onboard the next generation of builders.`,
+  intro2: `This page gathers the communities, events, and publications that keep the ecosystem buzzing between conferences. Come say hi — everyone is welcome.`,
+
+  meetupsTitle: "Monthly Meetups",
+  meetupsIntro: `We host two regular meetups in Taipei every month, free and open to everyone:`,
+  tldrName: "TLDR Meetup",
+  tldrDate: "1st Wednesday of every month",
+  tldrDesc: `Short, digestible sessions where community members break down what they have been reading and building — protocol changes, DeFi mechanisms, security incidents, and fresh research, summarized so you don't have to read everything yourself.`,
+  featuredName: "Featured Talk Meetup",
+  featuredDate: "3rd Wednesday of every month",
+  featuredDesc: `A deeper technical session with invited speakers from the local and international Ethereum community — the same spirit as the talks on the ETHTaipei stage, all year round.`,
+  meetupsOutro1: `Want to join us? `,
+  meetupsSubscribe: "Subscribe on Luma",
+  meetupsOutro2: ` to get notified about every upcoming meetup, and browse the calendar for what we've hosted before.`,
+
+  coscupTitle: "COSCUP — Blockchain & Distributed Ledger Track",
+  coscupDesc1: `Every summer, the community also curates the Blockchain and Distributed Ledger track at `,
+  coscupLink: "COSCUP",
+  coscupDesc2: `, Asia's largest open-source community conference, held annually in Taipei. COSCUP is free to attend and entirely community-organized — a natural home for Ethereum in Taiwan, where the open-source movement and the blockchain community have always grown side by side.`,
+
+  mediumTitle: "Taipei Ethereum Meetup — Medium Column",
+  mediumDesc1: `Running since 2016, Taipei Ethereum Meetup is one of Taiwan's earliest and most enduring Ethereum communities, and its `,
+  mediumLink: "Medium column",
+  mediumDesc2: ` has grown into a library of technical writing in Chinese and English: protocol deep dives, EIP explainers, meetup recaps, and research summaries contributed by the community.`,
+  mediumLatest: "Latest articles",
+
+  newsletterTitle: "Newsletter",
+  newsletterDesc1: `Can't make it in person? The `,
+  newsletterName: "ETHTaipei x TEM newsletter",
+  newsletterDesc2: ` collects the materials shared at each meetup, plus additional technical articles and ecosystem news — a monthly snapshot of what the Taipei community is reading, building, and debating.`,
+  newsletterLatest: "Latest issues",
+  newsletterSubscribe: "Subscribe to the newsletter",
+
+  coverageTitle: "Featured by Local Ethereum",
+  coverageDesc: `Taiwan's ecosystem has also caught international attention — Local Ethereum, the publication mapping Ethereum communities around the world, profiled our scene in depth:`,
+  coverageCardSource: "Local Ethereum · March 2026",
+  coverageCardTitle: "Taiwan Ethereum Ecosystem Overview",
+  coverageCardBody: `A deep dive into Taiwan's grassroots communities, builders, developer talent, and digital-democracy culture — and why its Ethereum scene stands out for its community ownership and volunteer spirit rather than corporate dominance.`,
+  coverageCardCta: "Read the full article →",
+
+  xuedaoTitle: "XueDAO",
+  xuedaoDesc1: `The community here is bigger than any single organization. `,
+  xuedaoLink: "XueDAO",
+  xuedaoDesc2: ` is Taiwan's first student-led developer community, on a mission to show the world that Taiwanese students can BUIDL. With contributors from 12+ universities, XueDAO runs study groups, networking events, and the student-only XueDAO CONNECT hackathon — the on-ramp for the next generation of Taiwanese builders.`,
+
+  thanksTitle: "Thank You",
+  thanksDesc1: `These year-round community programs are made possible by the generous support of the `,
+  thanksEF: "Ethereum Foundation",
+  thanksDesc2: ` and `,
+  thanksGeode: "Geode Labs",
+  thanksDesc3: ` — a spin-out of the Ethereum Foundation dedicated to growing local Ethereum ecosystems around the world, and the team behind Local Ethereum. Thank you for helping the Taipei community thrive.`,
 };
 
 const callToAction = {
@@ -141,6 +198,7 @@ const t = {
   navs,
   callToAction,
   visa,
+  community,
 };
 
 export default t;
