@@ -69,6 +69,7 @@ const navItems = [
     disabled: !FLAGS.showApplyCTAs && !speakerApplyUrl,
   },
   { label: t.navs.venue, path: "/#venue", disabled: false },
+  { label: t.navs.community, path: "/community#info", disabled: false },
   { label: t.navs.visaInfo, path: "/visainfo#info", disabled: false },
 ];
 
