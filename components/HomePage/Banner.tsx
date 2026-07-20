@@ -3,7 +3,12 @@ import styled from "styled-components";
 
 import t, { month, year } from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
-import { sideEventFormUrl, speakerApplyUrl } from "@/public/constant/urls";
+import {
+  sideEventFormUrl,
+  speakerApplyUrl,
+  sponsorApplyUrl,
+  tickSiteUrl,
+} from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import { diagonalSymmetricBorder } from "@/styles/constants";
 import CountdownTimer from "./CountdownTimer";
@@ -93,8 +98,16 @@ const Banner = () => {
           <CountdownTimer />
         </CountdownContainer>
         <HeroCtaContainer>
+          <HeroCta href={tickSiteUrl} target="_blank" rel="noreferrer">
+            Buy Ticket
+            <CtaArrow>→</CtaArrow>
+          </HeroCta>
           <HeroCta href={speakerApplyUrl} target="_blank" rel="noreferrer">
             Apply to Speak
+            <CtaArrow>→</CtaArrow>
+          </HeroCta>
+          <HeroCta href={sponsorApplyUrl} target="_blank" rel="noreferrer">
+            Sponsor Inquiry
             <CtaArrow>→</CtaArrow>
           </HeroCta>
         </HeroCtaContainer>
@@ -202,6 +215,9 @@ const YearTag = styled.div`
 
 const HeroCtaContainer = styled.div`
   margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
 const HeroCta = styled.a`

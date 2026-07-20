@@ -6,14 +6,14 @@ export const lumaEmbedUrl =
   "https://lu.ma/embed/calendar/cal-ZhI6svRCCQYhkqn/events?lt=dark";
 export const closingPartyUrl = "";
 
-export const sponsorApplyUrl = "";
+export const sponsorApplyUrl = "https://boost.ethtaipei.org/sponsor-inquiry";
 export const speakerApplyUrl =
   "https://ethtaipei-boost-production.up.railway.app/apply/speaker";
 export const sideEventApplyUrl = "";
 export const mediaPartnerApplyUrl = "";
 export const hackathonUrl = "";
 export const sideEventFormUrl = "";
-export const tickSiteUrl = "";
+export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei-2026";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
