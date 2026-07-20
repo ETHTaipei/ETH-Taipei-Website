@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 interface VideoProps {
@@ -11,6 +12,9 @@ interface BgVideoProps {
   coverColor?: string;
   coverOpacity?: number;
   isFixed?: boolean;
+  lazy?: boolean;
+  mobileStatic?: boolean;
+  fallbackImage?: string;
 }
 
 export const Video = ({ src, style, id }: VideoProps) => {
@@ -27,19 +31,75 @@ const BgVideo = ({
   coverColor,
   coverOpacity = 0.6,
   isFixed = false,
+  lazy = false,
+  mobileStatic = false,
+  fallbackImage,
 }: BgVideoProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [motionAllowed, setMotionAllowed] = useState(false);
+  const [isNearViewport, setIsNearViewport] = useState(!lazy);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 640px)");
+    const reducedMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    const updateMotionPreference = () => {
+      setMotionAllowed(
+        !reducedMotionQuery.matches && !(mobileStatic && mobileQuery.matches)
+      );
+    };
+
+    updateMotionPreference();
+    mobileQuery.addEventListener("change", updateMotionPreference);
+    reducedMotionQuery.addEventListener("change", updateMotionPreference);
+    return () => {
+      mobileQuery.removeEventListener("change", updateMotionPreference);
+      reducedMotionQuery.removeEventListener("change", updateMotionPreference);
+    };
+  }, [mobileStatic]);
+
+  useEffect(() => {
+    if (!lazy || isNearViewport) return;
+    const container = containerRef.current;
+    if (!container || !("IntersectionObserver" in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "320px 0px" }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [isNearViewport, lazy]);
+
+  const shouldLoadVideo = motionAllowed && isNearViewport;
+
   return (
-    <Container isFixed={isFixed}>
+    <Container ref={containerRef} isFixed={isFixed} $fallbackImage={fallbackImage}>
       <Cover $color={coverColor} $opacity={coverOpacity} />
       <VideoContainer isFixed={isFixed}>
-        <Video src={src} />
+        {shouldLoadVideo && <Video src={src} />}
       </VideoContainer>
     </Container>
   );
 };
 
 export const RecapBgVideo = () => {
-  return <BgVideo src="/videos/2024_recap_bg.webm" coverColor="black" />;
+  return (
+    <BgVideo
+      src="/videos/2024_recap_bg.webm"
+      coverColor="black"
+      lazy
+    />
+  );
 };
 
 export const BrandBgVideo = () => {
@@ -48,17 +108,23 @@ export const BrandBgVideo = () => {
       src="/videos/icon_transform.webm"
       coverOpacity={0.75}
       isFixed={true}
+      mobileStatic
+      fallbackImage="/images/background/brand-static.jpg"
     />
   );
 };
 
-const Container = styled.div<{ isFixed: boolean }>`
+const Container = styled.div<{ isFixed: boolean; $fallbackImage?: string }>`
   position: ${({ isFixed }) => (isFixed ? "fixed" : "absolute")};
   top: 0;
   left: 0;
   width: ${({ isFixed }) => (isFixed ? "100vw" : "100%")};
   height: ${({ isFixed }) => (isFixed ? "100vh" : "100%")};
   overflow: ${({ isFixed }) => (isFixed ? "hidden" : "visible")};
+  background: ${({ $fallbackImage }) =>
+    $fallbackImage
+      ? `#000 url("${$fallbackImage}") center / cover no-repeat`
+      : "#000"};
   z-index: -2;
 `;
 

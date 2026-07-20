@@ -93,11 +93,30 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-display: swap;
 }
+html {
+  scroll-behavior: smooth;
+}
+.home-2026 {
+  --site-nav-height: 76px;
+}
+.home-2026 [id] {
+  scroll-margin-top: var(--site-nav-height);
+}
 body {
    /* overscroll-behavior-y: none; */
   font-family: 'W95fa', 'Inter', Helvetica Neue, Helvetica, Roboto,
     PingFang TC, 微軟雅黑, Microsoft Yahei, sans-serif;
   box-sizing: border-box;
+}
+@media (max-width: 980px) {
+  .home-2026 {
+    --site-nav-height: 70px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 `;
 

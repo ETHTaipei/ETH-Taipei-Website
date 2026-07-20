@@ -86,8 +86,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 120px 40px;
-  background-color: rgba(0, 0, 0, 0.75);
+  padding: 112px 40px;
+  background: linear-gradient(
+    180deg,
+    #101617 0,
+    rgba(8, 12, 14, 0.94) 140px,
+    rgba(0, 0, 0, 0.75) 360px
+  );
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -99,7 +104,11 @@ const MainContent = styled.div`
   max-width: 800px;
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   font-size: 48px;
   letter-spacing: 1.6px;
   color: ${Colors.neonGreen};
@@ -113,12 +122,12 @@ const Title = styled.div`
   }
 `;
 
-const Subtitle = styled.h2`
+const Subtitle = styled.p`
   font-size: 20px;
   text-align: center;
   letter-spacing: 1.6px;
   line-height: 30px;
-  margin-top: 14px;
+  margin-top: 16px;
   color: white;
   @media (max-width: 476px) {
     font-size: 18px;
@@ -127,7 +136,7 @@ const Subtitle = styled.h2`
 `;
 
 const Gallery = styled.div`
-  margin-top: 40px;
+  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -187,13 +196,16 @@ const Controller = styled.div`
 `;
 
 const ViewMoreButton = styled.button`
-  border-radius: 9999px;
-  padding: 16px 40px;
-  width: 320px;
-  margin-top: 60px;
-  background-color: ${Colors.brightBlue};
-  color: ${Colors.neonGreen};
-  font-size: 32px;
+  width: 260px;
+  margin-top: 40px;
+  padding: 13px 24px;
+  border: 1px solid ${Colors.neonGreen};
+  border-radius: 12px;
+  color: #0b1117;
+  background-color: ${Colors.neonGreen};
+  box-shadow: 0 0 18px rgb(203 241 1 / 0.28);
+  font-size: 20px;
+  font-weight: 700;
   font-family: "W95fa";
   cursor: pointer;
   justify-content: center;
@@ -201,16 +213,28 @@ const ViewMoreButton = styled.button`
   display: flex;
 
   z-index: 10;
-  transition: all 300ms ease;
+  transition: color 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease, transform 180ms ease;
   :hover {
-    transform: scale(1.1);
-    background-color: ${Colors.brightPink};
-    color: black;
+    color: ${Colors.neonGreen};
+    background-color: #0b1117;
+    box-shadow: 0 0 0 2px #0b1117, 0 0 0 4px ${Colors.neonGreen},
+      0 8px 24px rgb(203 241 1 / 0.36);
+    transform: translateY(-3px) scale(1.03);
+  }
+  :focus-visible {
+    color: ${Colors.neonGreen};
+    background-color: #0b1117;
+    outline: 3px solid white;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 2px #0b1117, 0 0 0 4px ${Colors.neonGreen},
+      0 8px 24px rgb(203 241 1 / 0.36);
+    transform: translateY(-2px);
   }
   @media (max-width: 476px) {
     padding: 12px 20px;
-    width: 200px;
-    font-size: 20px;
+    width: 100%;
+    font-size: 18px;
     margin-top: 20px;
   }
 `;
