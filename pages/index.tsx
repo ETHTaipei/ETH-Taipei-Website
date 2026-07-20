@@ -1,9 +1,11 @@
-import Banner from "@/components/HomePage/Banner";
-import Events from "@/components/HomePage/Events";
 import Introduction from "@/components/HomePage/Introduction";
 import Recap from "@/components/HomePage/Recap";
 import Speakers from "@/components/HomePage/Speakers";
-import Layout from "@/components/Layout";
+import {
+  Events2026,
+  Home2026Hero,
+} from "@/components/HomePage/Home2026";
+import { BrandBgVideo } from "@/components/HomePage/Video";
 import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
 import { FLAGS } from "@/public/constant/flags";
 import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
@@ -44,22 +46,29 @@ const DynamicCommunitySupport = dynamic(
 const Home = ({ initialApolloState }: any) => {
   return (
     <ApolloWrapper pageProps={{ initialApolloState }}>
-      <Banner />
-      <Recap />
-      <Introduction />
-      <Events />
-      <Speakers />
-      <DynamicVenue />
-      <DynamicSponsors />
-      <DynamicPartners />
-      <DynamicOrganizers />
-      <DynamicPastContributors />
-      <DynamicCallToAction />
-      <DynamicCommunitySupport />
+      <div className="home-2026">
+        <Home2026Hero />
+        <Events2026 />
+        <Recap />
+        <Introduction />
+        <Speakers />
+        <DynamicVenue />
+        <DynamicSponsors />
+        <DynamicPartners />
+        <DynamicOrganizers />
+        <DynamicPastContributors />
+        <DynamicCallToAction />
+        <DynamicCommunitySupport />
+      </div>
     </ApolloWrapper>
   );
 };
 
-Home.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
+Home.getLayout = (page: React.ReactNode) => (
+  <>
+    <BrandBgVideo />
+    {page}
+  </>
+);
 
 export default Home;

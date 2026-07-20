@@ -124,7 +124,7 @@ const IconImg = styled(Image)`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: ${Colors.neonGreen};
   text-align: center;
   letter-spacing: 1.6px;

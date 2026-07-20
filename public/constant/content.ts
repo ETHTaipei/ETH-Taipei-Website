@@ -1,10 +1,9 @@
 export const year = "2026";
 export const month = "September";
-const dayDuration = "13th-15th";
-export const dateDayMonthYear = `${dayDuration} ${month}, ${year}`;
+export const dateDayMonthYear = `SEP 13–15, ${year}`;
 
 const common = {
-  ethTaipei: `ETHTaipei ${year} | ${month} ${dayDuration}`,
+  ethTaipei: `ETHTaipei ${year} | ${dateDayMonthYear}`,
   ethTaipeiIntro: `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} brings together teams from around the world to participate in a 3-day conference focusing on the application and technology of Ethereum.`,
 };
 
@@ -63,7 +62,7 @@ const homepage = {
   eventSubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
   eventName_1: "Conference",
   eventDesc_1:
-    "The ETHTaipei conference is a three-day event bringing together industry experts and trailblazers to examine the latest advancements in Ethereum. Detailed tracks and topics will be announced closer to the event.",
+    "Three days of talks and discussions with Ethereum researchers, builders, and industry leaders. Tracks and session details will be announced soon.",
   eventDate_1: dateDayMonthYear,
   eventBtn_1: "Ticket",
   // eventName_2: "Hackathon",
@@ -78,7 +77,7 @@ const homepage = {
   eventBtn_3: "See Events",
   eventName_4: "Community Events",
   eventDesc_4:
-    "Ethereum in Taipei never stops: we host the TLDR Meetup (1st Wed) and Featured Talk Meetup (3rd Wed) every month, curate the blockchain track at COSCUP, publish technical articles and a newsletter with Taipei Ethereum Meetup, and cheer on student builders at XueDAO. Explore it all on our Community page — and subscribe so you never miss an event!",
+    "Join Taipei’s Ethereum community at our monthly TLDR and Featured Talk meetups. We also support COSCUP, Taipei Ethereum Meetup, and student builders at XueDAO—subscribe to stay updated.",
   eventDate_4: "every 1st & 3rd Wed",
   eventBtn_4: "Subscribe",
 
@@ -89,7 +88,7 @@ const homepage = {
   eventDate_5: "2nd April, 18:30",
   eventBtn_5: "RSVP !",
 
-  recapTitle: "Recap!",
+  recapTitle: "2024 Recap",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei!!",
   recapViewMore: "Load More",
   recapHide: "Show Less",

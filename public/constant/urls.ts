@@ -7,8 +7,7 @@ export const lumaEmbedUrl =
 export const closingPartyUrl = "";
 
 export const sponsorApplyUrl = "https://boost.ethtaipei.org/sponsor-inquiry";
-export const speakerApplyUrl =
-  "https://ethtaipei-boost-production.up.railway.app/apply/speaker";
+export const speakerApplyUrl = "https://boost.ethtaipei.org/apply/speaker";
 export const sideEventApplyUrl = "";
 export const mediaPartnerApplyUrl = "";
 export const hackathonUrl = "";

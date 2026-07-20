@@ -145,7 +145,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background-color: rgba(33, 35, 37, 1);
-  scroll-margin-top: -10px;
 `;
 
 const ImageWrapper = styled.div`
@@ -166,7 +165,7 @@ const MainContent = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: ${Colors.neonGreen};
   text-align: center;
   font-size: 48px;

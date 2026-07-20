@@ -4,13 +4,13 @@ import Image from "next/image";
 import t from "@/public/constant/content";
 import { RecapBgVideo } from "./Video";
 import Colors from "@/styles/colors";
+import DeferredIframe from "./DeferredIframe";
 
 const Container = styled.div`
   position: relative;
   width: 100%;
   padding: 120px 40px;
   background-color: rgba(0, 0, 0, 0.5);
-  scroll-margin-top: -10px;
   @media (max-width: 768px) {
     padding: 60px 24px;
   }
@@ -42,7 +42,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 28px;
   color: ${Colors.neonGreen};
 `;
@@ -54,7 +54,7 @@ const SubTitleContainer = styled.div`
   color: ${Colors.neonGreen};
 `;
 
-const SubTitle = styled.h2`
+const SubTitle = styled.h3`
   font-size: 36px;
 `;
 
@@ -151,12 +151,9 @@ const Venue = () => {
           </AddressContainer>
         </TextContainer>
         <MapContainer>
-          <iframe
+          <DeferredIframe
             title="Venue GMap"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
-            width="100%"
-            height="100%"
-            loading="lazy"
           />
         </MapContainer>
         <ImageContainer>
@@ -165,14 +162,12 @@ const Venue = () => {
             alt="Venue"
             width={2016}
             height={746}
-            priority
           />
           <MobileImage
             src="/images/venue/venue_vertical.jpg"
             alt="Venue"
             width={1073}
             height={1587}
-            priority
           />
         </ImageContainer>
       </MainContent>

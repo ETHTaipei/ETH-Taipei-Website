@@ -88,7 +88,6 @@ const Container = styled.div`
   justify-content: center;
   padding: 120px 40px;
   background-color: rgba(0, 0, 0, 0.5);
-  scroll-margin-top: -10px;
 `;
 
 const MainContent = styled.div`
