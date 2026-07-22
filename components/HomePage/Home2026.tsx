@@ -397,7 +397,7 @@ const Hero2026 = () => {
             <span className={styles.heroYear}>{year}</span>
           </h1>
           <p className={styles.lede}>
-            Three days where Taiwan&apos;s builders meet the global Ethereum stack,
+            Two days where Taiwan&apos;s builders meet the global Ethereum stack,
             from core protocol research to account abstraction and consumer crypto.
           </p>
           <div className={styles.actions} id="apply">

@@ -3,8 +3,8 @@ import { StaticImageData } from "next/image";
 export type EventType = "conference" | "sideEvent";
 
 export const dates = {
-  conference: [13, 14, 15],
-  sideEvent: [13, 14, 15],
+  conference: [13, 14],
+  sideEvent: [13, 14],
 };
 
 export type HackathonItemType = {
