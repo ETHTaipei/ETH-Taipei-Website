@@ -15,7 +15,7 @@ import CountdownTimer from "./CountdownTimer";
 import { Video } from "./Video";
 
 const monthAbbr = month.slice(0, 3).toUpperCase();
-const dayRange = "13–15"; // 13–15 with en dash
+const dayRange = "13–14"; // 13–14 with en dash
 
 const Banner = () => {
   return (
@@ -43,7 +43,7 @@ const Banner = () => {
             </CalendarBlock>
             <InfoWrapper>
               <InfoTitle>{t.homepage.bannerInfoTitle_1}</InfoTitle>
-              <InfoDescription>3-day event</InfoDescription>
+              <InfoDescription>2-day event</InfoDescription>
             </InfoWrapper>
           </Info>
         </InfoContainer>

@@ -1,10 +1,10 @@
 export const year = "2026";
 export const month = "September";
-export const dateDayMonthYear = `SEP 13–15, ${year}`;
+export const dateDayMonthYear = `SEP 13–14, ${year}`;
 
 const common = {
   ethTaipei: `ETHTaipei ${year} | ${dateDayMonthYear}`,
-  ethTaipeiIntro: `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} brings together teams from around the world to participate in a 3-day conference focusing on the application and technology of Ethereum.`,
+  ethTaipeiIntro: `Welcome to ETHTaipei ${year} event held in Taiwan. With a thriving Ethereum and developer community in Taiwan, ETHTaipei ${year} brings together teams from around the world to participate in a 2-day conference focusing on the application and technology of Ethereum.`,
 };
 
 const homepage = {
@@ -62,7 +62,7 @@ const homepage = {
   eventSubTitle: "From Deep Dives to Fun Vibes – Experience It All!",
   eventName_1: "Conference",
   eventDesc_1:
-    "Three days of talks and discussions with Ethereum researchers, builders, and industry leaders. Tracks and session details will be announced soon.",
+    "Two days of talks and discussions with Ethereum researchers, builders, and industry leaders. Tracks and session details will be announced soon.",
   eventDate_1: dateDayMonthYear,
   eventBtn_1: "Ticket",
   // eventName_2: "Hackathon",
