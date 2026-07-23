@@ -88,7 +88,7 @@ const homepage = {
   eventDate_5: "2nd April, 18:30",
   eventBtn_5: "RSVP !",
 
-  recapTitle: "2024 Recap",
+  recapTitle: "2023-2025 Recap",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei!!",
   recapViewMore: "Load More",
   recapHide: "Show Less",
