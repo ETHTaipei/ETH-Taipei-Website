@@ -11,4 +11,5 @@ export const FLAGS = {
   showTickets: false,
   showApplyCTAs: false,
   showSideEvents: false,
+  showCommunityCalendar: false,
 };

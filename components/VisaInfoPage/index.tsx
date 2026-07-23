@@ -1,76 +1,61 @@
+import Header2026 from "@/components/Layout/Header2026";
 import t from "@/public/constant/content";
-import Colors from "@/styles/colors";
-import styled from "styled-components";
 import {
   invitationLetterUrl,
   telegramUrl,
   visaUrl,
 } from "@/public/constant/urls";
-import { useRouting } from "@/public/utils/common";
 
-const VisaInfoPage = () => {
-  const { handleOnClickExternalLink } = useRouting();
+import homeStyles from "@/components/HomePage/Home2026.module.css";
+import styles from "./VisaInfoPage.module.css";
 
-  return (
-    <Container id="info">
-      <Question>{t.visa.visaQuestion1}</Question>
-      <Description>
-        {t.visa.visaAnswer1Part1}
-        <Link onClick={() => handleOnClickExternalLink(visaUrl)}>
-          {t.visa.BureauOfConsularAffairs}
-        </Link>
-        {t.visa.visaAnswer1Part2}
-      </Description>
+const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
+    {children}
+  </a>
+);
 
-      <Question>{t.visa.visaQuestion2}</Question>
-      <Description>
-        {t.visa.visaAnswer2Part1}
-        <br />
-        {t.visa.visaAnswer2Part2}
-        <Link onClick={() => handleOnClickExternalLink(invitationLetterUrl)}>
-          {t.visa.form}
-        </Link>
-        {t.visa.visaAnswer2Part3}
-        <Link onClick={() => handleOnClickExternalLink(telegramUrl)}>
-          {t.visa.telegram}
-        </Link>
-        {t.visa.visaAnswer2Part4}
-      </Description>
-    </Container>
-  );
-};
+const VisaInfoPage = () => (
+  <div className={`${homeStyles.page} ${styles.page}`}>
+    <Header2026 activeHref="/visainfo#info" />
+
+    <main className={styles.main} id="info">
+      <div className={styles.shell}>
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>ETHTAIPEI · TRAVEL INFO</p>
+          <h1 className={styles.title}>
+            Visa <span>Info</span>
+          </h1>
+        </header>
+
+        <section className={styles.cards} aria-label="Taiwan visa information">
+          <article className={styles.card}>
+            <span className={styles.cardNumber} aria-hidden="true">01</span>
+            <h2>{t.visa.visaQuestion1}</h2>
+            <p>
+              {t.visa.visaAnswer1Part1}
+              <ExternalLink href={visaUrl}>{t.visa.BureauOfConsularAffairs}</ExternalLink>
+              {t.visa.visaAnswer1Part2}
+            </p>
+          </article>
+
+          <article className={styles.card}>
+            <span className={styles.cardNumber} aria-hidden="true">02</span>
+            <h2>{t.visa.visaQuestion2}</h2>
+            <p>
+              {t.visa.visaAnswer2Part1}
+              <br />
+              {t.visa.visaAnswer2Part2}
+              <ExternalLink href={invitationLetterUrl}>{t.visa.form}</ExternalLink>
+              {t.visa.visaAnswer2Part3}
+              <ExternalLink href={telegramUrl}>{t.visa.telegram}</ExternalLink>
+              {t.visa.visaAnswer2Part4}
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+);
+
 export default VisaInfoPage;
-
-const Container = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-  padding: 120px 40px;
-  justify-content: center;
-  @media (max-width: 768px) {
-    padding: 60px 24px;
-  }
-`;
-
-const Question = styled.h2`
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 30px;
-  color: ${Colors.brightBlue};
-  margin-bottom: 10px;
-  margin-top: 40px;
-`;
-
-const Description = styled.div`
-  font-size: 18px;
-  line-height: 24px;
-  margin-bottom: 10px;
-  color: black;
-`;
-
-const Link = styled.a`
-  color: ${Colors.brightBlue};
-  :hover {
-    color: ${Colors.neonGreen};
-  }
-`;

@@ -199,36 +199,86 @@
 }
 
 .socialLinks {
-  gap: 9px;
+  position: relative;
+  gap: 3px;
+  padding: 5px;
+  overflow: hidden;
+  border: 1px solid rgb(203 241 1 / 0.34);
+  border-radius: 4px 14px 4px 14px;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(203 241 1 / 0.16),
+      transparent 18% 82%,
+      rgb(57 82 255 / 0.22)
+    ),
+    linear-gradient(180deg, oklch(14% 0.034 255 / 0.82), oklch(8% 0.021 255 / 0.68));
+  box-shadow:
+    inset 0 0 0 1px oklch(0% 0 0 / 0.3),
+    0 0 0 1px oklch(96% 0.018 126 / 0.05),
+    0 16px 34px -24px rgb(203 241 1 / 0.7);
+  backdrop-filter: blur(14px);
+  isolation: isolate;
+}
+
+.socialLinks::before,
+.socialLinks::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.socialLinks::before {
+  inset: 3px;
+  border: 1px solid rgb(203 241 1 / 0.14);
+  border-radius: 2px 10px 2px 10px;
+  background-image:
+    linear-gradient(rgb(203 241 1 / 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(203 241 1 / 0.12) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.72;
+}
+
+.socialLinks::after {
+  inset: -60% auto -60% -38%;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgb(203 241 1 / 0.35), transparent);
+  transform: skewX(-18deg) translateX(-130%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.socialLinks:hover::after {
+  transform: skewX(-18deg) translateX(520%);
 }
 
 .socialLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 2px solid white;
-  border-radius: 50%;
-  background: #303fc7;
-  opacity: 0.82;
-  box-shadow: 0 0 0 rgb(203 241 1 / 0);
-  transition: border-color 0.18s ease, background-color 0.18s ease,
-    box-shadow 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgb(203 241 1 / 0.1);
+  border-radius: 2px 9px 2px 9px;
+  color: oklch(86% 0.026 254);
+  background: oklch(8% 0.022 255 / 0.58);
+  transition: color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease, transform 0.2s ease, filter 0.2s ease;
 }
 
 .socialLink img {
-  width: 58%;
-  height: 58%;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
 }
 
 .socialLink:hover {
-  border-color: var(--acid);
-  background: #4a5cff;
-  opacity: 1;
-  box-shadow: 0 0 18px rgb(203 241 1 / 0.42);
-  transform: translateY(-2px) scale(1.06);
+  border-color: rgb(203 241 1 / 0.28);
+  color: var(--acid);
+  background: rgb(203 241 1 / 0.08);
+  filter: drop-shadow(0 0 12px rgb(203 241 1 / 0.34));
+  transform: translateY(-1px);
 }
 
 .socialLink:focus-visible {
@@ -537,8 +587,9 @@
 
 .countdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
+  width: 100%;
 }
 
 .timebox,
@@ -551,6 +602,10 @@
 }
 
 .timebox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
   padding: 13px 8px 12px;
   border-radius: 14px;
@@ -559,20 +614,25 @@
 
 .timebox strong {
   display: block;
+  width: 100%;
   color: var(--acid);
   font-size: clamp(34px, 4.6vw, 52px);
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
   letter-spacing: 0.06em;
   line-height: 0.9;
+  text-align: center;
   text-shadow: 0 0 18px rgb(203 241 1 / 0.45);
 }
 
 .timebox span {
   display: block;
+  width: 100%;
   margin-top: 7px;
   color: oklch(70% 0.02 255);
   font-size: 11px;
   letter-spacing: 0.18em;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -957,6 +1017,59 @@
   background: #111;
 }
 
+.eventCalendarEmpty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 320px;
+  padding: 32px;
+  overflow: hidden;
+  border: 1px solid rgb(203 241 1 / 0.24);
+  border-radius: 24px 8px 24px 8px;
+  background:
+    linear-gradient(135deg, rgb(203 241 1 / 0.08), transparent 45%, rgb(57 82 255 / 0.1)),
+    #0b1117;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.03),
+    0 2px 4px oklch(0% 0 0 / 0.5),
+    0 14px 30px -10px oklch(0% 0 0 / 0.62),
+    0 42px 100px -42px oklch(1% 0.02 260 / 0.9);
+  isolation: isolate;
+}
+
+.eventCalendarEmpty::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgb(203 241 1 / 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(203 241 1 / 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+.eventCalendarEmptyIcon {
+  width: 48px;
+  height: 48px;
+  color: #cbf101;
+  filter: drop-shadow(0 0 16px rgb(203 241 1 / 0.5));
+}
+
+.eventCalendarEmpty p {
+  max-width: 340px;
+  color: white;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
 .hero [data-depth] {
   will-change: transform;
   transition: transform 0.12s linear;
@@ -1059,6 +1172,7 @@
 
   .dataStack {
     justify-self: stretch;
+    min-width: 0;
     width: 100%;
     max-width: 620px;
   }
@@ -1155,6 +1269,11 @@
 
   .eventRow {
     flex-direction: column;
+  }
+
+  .eventCalendarEmpty {
+    min-height: 240px;
+    padding: 24px;
   }
 
   .eventMedia {
