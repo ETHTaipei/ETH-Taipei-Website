@@ -30,17 +30,14 @@ export const getStaticProps: GetStaticProps = async () => {
 const DynamicVenue = dynamic(() => import("@/components/HomePage/Venue"));
 const DynamicSponsors = dynamic(() => import("@/components/HomePage/Sponsors"));
 const DynamicPartners = dynamic(() => import("@/components/HomePage/Partners"));
-const DynamicOrganizers = dynamic(
-  () => import("@/components/HomePage/Organizers")
-);
-const DynamicPastContributors = dynamic(
-  () => import("@/components/HomePage/PastContributors")
-);
 const DynamicCallToAction = dynamic(
   () => import("@/components/HomePage/CallToAction")
 );
 const DynamicCommunitySupport = dynamic(
   () => import("@/components/HomePage/CommunitySupport")
+);
+const DynamicPartnerSection = dynamic(
+  () => import("@/components/HomePage/PartnerSection")
 );
 
 const Home = ({ initialApolloState }: any) => {
@@ -55,9 +52,8 @@ const Home = ({ initialApolloState }: any) => {
         <DynamicVenue />
         <DynamicSponsors />
         <DynamicPartners />
-        <DynamicOrganizers />
-        <DynamicPastContributors />
         <DynamicCallToAction />
+        <DynamicPartnerSection />
         <DynamicCommunitySupport />
       </div>
     </ApolloWrapper>

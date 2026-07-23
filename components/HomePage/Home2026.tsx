@@ -476,6 +476,17 @@ const Hero2026 = () => {
               </p>
             </div>
           </article>
+          <article className={styles.signalCard}>
+            <DottedStar className={styles.spark} id="signal-institution" />
+            <div>
+              <div className={styles.label}>Institution signal</div>
+              <p>
+                A dedicated day for banks and financial institutions — sessions
+                and panels on custody and RWA, with closed-door discussion.
+                Where enterprise meets the builders.
+              </p>
+            </div>
+          </article>
         </aside>
       </div>
 
