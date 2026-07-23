@@ -1,4 +1,5 @@
 import t, { dateDayMonthYear, year } from "@/public/constant/content";
+import { FLAGS } from "@/public/constant/flags";
 import {
   lumaEmbedUrl,
   lumaUrl,
@@ -49,9 +50,9 @@ const tickerItems = [
 ];
 
 const socialLinks = [
+  { label: "Discord", href: discordUrl, icon: "/images/social-icons/discord_icon.svg" },
   { label: "X", href: xUrl, icon: "/images/social-icons/x_icon.svg" },
   { label: "Telegram", href: telegramUrl, icon: "/images/social-icons/telegram_icon.svg" },
-  { label: "Discord", href: discordUrl, icon: "/images/social-icons/discord_icon.svg" },
 ];
 
 const venueMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
@@ -570,14 +571,21 @@ const Events2026 = () => (
           buttonText={t.homepage.eventBtn_4}
           href={lumaUrl}
         />
-        <DeferredIframe
-          className={styles.eventCalendar}
-          title="Events Calendar"
-          src={lumaEmbedUrl}
-          allowFullScreen
-          aria-hidden="false"
-          tabIndex={0}
-        />
+        {FLAGS.showCommunityCalendar ? (
+          <DeferredIframe
+            className={styles.eventCalendar}
+            title="Events Calendar"
+            src={lumaEmbedUrl}
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex={0}
+          />
+        ) : (
+          <aside className={styles.eventCalendarEmpty} aria-label="Community events status">
+            <Star className={styles.eventCalendarEmptyIcon} />
+            <p>More community events coming soon</p>
+          </aside>
+        )}
       </div>
     </div>
   </section>
