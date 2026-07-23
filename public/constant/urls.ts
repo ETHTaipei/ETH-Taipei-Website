@@ -115,7 +115,7 @@ export const goldcardDanaLiuMailUrl = "mailto:preedanan@mail.tca.org.tw";
 export const goldcardVickyHoMailUrl = "mailto:vicky_ho@mail.tca.org.tw";
 export const goldcardKellyChuangMailUrl = "mailto:kelly_chuang@mail.tca.org.tw";
 
-export const invitationLetterUrl = "https://forms.gle/Ms8KGf8K621vyvMG6";
+export const invitationLetterUrl = "https://forms.gle/uCPEZY8om3CNB7jb7";
 
 // Community page
 export const temMediumUrl = "https://medium.com/taipei-ethereum-meetup";
