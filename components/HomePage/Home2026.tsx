@@ -30,7 +30,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
-  { label: "Agenda", disabled: true },
+  { label: "Agenda", href: "/agenda" },
   { label: "Events", href: "#events" },
   { label: "Apply", href: speakerApplyUrl, external: true },
   { label: "Venue", href: "#venue" },

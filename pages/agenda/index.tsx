@@ -1,15 +1,9 @@
-import Agendas from "@/components/AgendaPage/Agendas";
-import Layout from "@/components/Layout";
-import { ApolloWrapper } from "@/components/providers/apollo";
+import AgendaPage2026 from "@/components/AgendaPage2026";
 
 const Agenda = () => {
-  return (
-    <ApolloWrapper pageProps={{ initialApolloState: null }}>
-      <Agendas />
-    </ApolloWrapper>
-  );
+  return <AgendaPage2026 />;
 };
 
-Agenda.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>;
+Agenda.getLayout = (page: React.ReactNode) => page;
 
 export default Agenda;
