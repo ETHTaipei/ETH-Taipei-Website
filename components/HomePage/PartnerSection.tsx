@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 import t from "@/public/constant/content";
+import { tabeiUrl } from "@/public/constant/urls";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import {
   BaseContainer,
@@ -31,7 +33,12 @@ const PartnerSection = () => {
         </Title>
         <Subtitle>{t.homepage.partnersDesc}</Subtitle>
         <PartnersGrid>
-          <PartnerLogo>
+          <PartnerLogo
+            href={tabeiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit TABEI website"
+          >
             <Image
               src="/images/partners/tabei.png"
               alt="TABEI"
@@ -50,9 +57,14 @@ const Container = styled(BaseContainer)`
   ${GrayGridBackgroundStyles}
 `;
 
-const PartnerLogo = styled.div`
+const PartnerLogo = styled(Link)`
   margin: 10px;
   display: block;
+  transition: transform 300ms ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   > img {
     object-fit: contain;

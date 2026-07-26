@@ -13,3 +13,17 @@ export const FLAGS = {
   showSideEvents: false,
   showCommunityCalendar: false,
 };
+
+export type CfpPhaseOverride = "auto" | "open" | "closed";
+
+/**
+ * CFP closes at Aug 15, 2026 23:59 Anywhere on Earth (UTC-12),
+ * which is Aug 16, 2026 11:59 UTC.
+ *
+ * Keep `phaseOverride` on "auto" for the scheduled transition. Use "open" or
+ * "closed" when the team needs to extend or end the CFP manually.
+ */
+export const CFP_CONFIG = {
+  closesAt: "2026-08-16T11:59:00.000Z",
+  phaseOverride: "auto" as CfpPhaseOverride,
+};
