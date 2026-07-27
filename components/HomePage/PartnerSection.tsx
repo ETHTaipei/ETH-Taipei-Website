@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import {
   BaseContainer,
@@ -22,6 +22,7 @@ const SmileIcon = () => (
 );
 
 const PartnerSection = () => {
+  const t = useT();
   return (
     <Container>
       <BaseMainContent>

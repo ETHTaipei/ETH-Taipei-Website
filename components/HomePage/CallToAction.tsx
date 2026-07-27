@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Image from "next/image";
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventApplyUrl,
@@ -26,6 +26,7 @@ const ActionButton = ({ url, text }: { url: string; text: string }) => (
 );
 
 const ActionButtons = () => {
+  const t = useT();
   const buttons = [
     {
       url: speakerApplyUrl,
@@ -51,6 +52,7 @@ const ActionButtons = () => {
 };
 
 const CallToAction = () => {
+  const t = useT();
   if (!FLAGS.showApplyCTAs) {
     return null;
   }

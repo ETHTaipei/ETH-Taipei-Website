@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import Colors from "@/styles/colors";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
 import { diagonalSymmetricBorder } from "@/styles/constants";
@@ -32,6 +32,7 @@ const GalleryImages = ({
 );
 
 const Recap = () => {
+  const t = useT();
   const [isExpanded, setIsExpanded] = useState(false);
   const handleClick = () => {
     setIsExpanded((prev) => !prev);

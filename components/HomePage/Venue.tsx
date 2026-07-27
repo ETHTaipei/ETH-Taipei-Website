@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { RecapBgVideo } from "./Video";
 import Colors from "@/styles/colors";
 import DeferredIframe from "./DeferredIframe";
@@ -124,6 +124,7 @@ const MobileImage = styled(Image)`
 `;
 
 const Venue = () => {
+  const t = useT();
   return (
     <Container id="venue">
       <MainContent>

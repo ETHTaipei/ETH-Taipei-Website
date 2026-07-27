@@ -1,4 +1,4 @@
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { FLAGS } from "@/public/constant/flags";
 import Image from "next/image";
 import styled from "styled-components";
@@ -24,6 +24,7 @@ const SmileIcon = () => (
 );
 
 const Partners = () => {
+  const t = useT();
   const { mediaPartners } = useMediaPartners();
   const { partners } = usePartners();
 
