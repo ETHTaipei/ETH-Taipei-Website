@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 import { SpeakerType, useSpeakers } from "@/components/hooks/useSpeakers";
+import { useT } from "@/contexts/LanguageContext";
 import { FLAGS } from "@/public/constant/flags";
 import PeopleLink from "./PeopleLink";
 import PeopleSection from "./PeopleSection";
 
 const Speakers = () => {
+  const t = useT();
   const { speakers, keynoteSpeakers } = useSpeakers();
 
   if (!FLAGS.showSpeakers || (speakers.length === 0 && keynoteSpeakers.length === 0)) {
@@ -14,8 +16,8 @@ const Speakers = () => {
 
   return (
     <PeopleSection
-      title="Speakers"
-      subtitle="Get Ready for their expert insights!"
+      title={t.homepage.speakers}
+      subtitle={t.homepage.speakersSubtitle}
       iconSrc="./images/icons/cat.svg"
       iconWidth={138}
       iconHeight={40}

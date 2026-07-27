@@ -1,5 +1,5 @@
 import Image from "next/image";
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import styled from "styled-components";
 import { useCommunityPartners } from "../hooks/usePartners";
@@ -15,6 +15,7 @@ import {
 import Colors from "@/styles/colors";
 
 const CommunitySupport = () => {
+  const t = useT();
   const { communityPartners } = useCommunityPartners();
 
   return (

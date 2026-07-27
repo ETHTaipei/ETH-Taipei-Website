@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import styles from "@/components/HomePage/Home2026.module.css";
+import LanguageToggle from "@/components/Layout/LanguageToggle";
 
 type NavItem = {
   label: string;
@@ -136,6 +137,7 @@ const Header2026 = ({ activeHref }: { activeHref: string }) => {
           <NavLinks activeHref={activeHref} />
         </nav>
         <div className={styles.topbarActions}>
+          <LanguageToggle />
           <SocialLinks />
           <a className={styles.ticket} href={tickSiteUrl} target="_blank" rel="noreferrer">
             Buy Ticket
@@ -167,6 +169,7 @@ const Header2026 = ({ activeHref }: { activeHref: string }) => {
         aria-label="Mobile navigation"
       >
         <NavLinks activeHref={activeHref} onNavigate={() => setMenuOpen(false)} />
+        <LanguageToggle className={styles.mobileLangToggle} />
         <SocialLinks className={styles.mobileSocialLinks} />
       </nav>
     </>

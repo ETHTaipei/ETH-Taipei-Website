@@ -1,5 +1,5 @@
 import Header2026 from "@/components/Layout/Header2026";
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import {
   invitationLetterUrl,
   telegramUrl,
@@ -15,16 +15,18 @@ const ExternalLink = ({ href, children }: { href: string; children: React.ReactN
   </a>
 );
 
-const VisaInfoPage = () => (
+const VisaInfoPage = () => {
+  const t = useT();
+  return (
   <div className={`${homeStyles.page} ${styles.page}`}>
     <Header2026 activeHref="/visainfo#info" />
 
     <main className={styles.main} id="info">
       <div className={styles.shell}>
         <header className={styles.intro}>
-          <p className={styles.eyebrow}>ETHTAIPEI · TRAVEL INFO</p>
+          <p className={styles.eyebrow}>{t.visa.eyebrow}</p>
           <h1 className={styles.title}>
-            Visa <span>Info</span>
+            {t.visa.titleMain} <span>{t.visa.titleAccent}</span>
           </h1>
         </header>
 
@@ -56,6 +58,7 @@ const VisaInfoPage = () => (
       </div>
     </main>
   </div>
-);
+  );
+};
 
 export default VisaInfoPage;

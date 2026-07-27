@@ -1,13 +1,14 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import Colors from "@/styles/colors";
 import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import { CuteBgIconDecoration } from "./BgIconDecoration";
 import { diagonalSymmetricBorder } from "@/styles/constants";
 
 const Introduction = () => {
+  const t = useT();
   return (
     <Container>
       <CuteBgIconDecoration />

@@ -198,6 +198,54 @@
   gap: 14px;
 }
 
+/* Language toggle — literal colors so it works both inside the token-scoped
+   sub-pages and on the homepage topbar (which sits outside .page). */
+.langToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgb(203 241 1 / 0.34);
+  border-radius: 4px 12px 4px 12px;
+  background: linear-gradient(
+    180deg,
+    oklch(14% 0.034 255 / 0.82),
+    oklch(8% 0.021 255 / 0.68)
+  );
+  backdrop-filter: blur(14px);
+}
+
+.langToggle button {
+  min-width: 32px;
+  padding: 5px 9px;
+  border-radius: 3px 8px 3px 8px;
+  color: oklch(76% 0.024 254);
+  font-family: "Menlo", "Monaco", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.langToggle button:hover {
+  color: oklch(95% 0.012 112);
+}
+
+.langToggle .langActive {
+  color: oklch(9% 0.024 255);
+  background: rgb(203 241 1);
+}
+
+.langToggle .langActive:hover {
+  color: oklch(9% 0.024 255);
+}
+
+.mobileLangToggle {
+  margin-top: 8px;
+}
+
 .socialLinks {
   position: relative;
   gap: 3px;

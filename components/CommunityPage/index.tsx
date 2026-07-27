@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import {
   coscupUrl,
   ethereumFoundationUrl,
@@ -47,6 +47,7 @@ const PostList = ({
 };
 
 const CommunityPage = ({ mediumPosts, newsletterPosts }: Props) => {
+  const t = useT();
   const { handleOnClickExternalLink } = useRouting();
 
   return (
