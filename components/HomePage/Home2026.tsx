@@ -1,4 +1,6 @@
-import t, { dateDayMonthYear, year } from "@/public/constant/content";
+import { dateDayMonthYear, year } from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/Layout/LanguageToggle";
 import { FLAGS } from "@/public/constant/flags";
 import { useCfpPhase } from "@/components/hooks/useCfpPhase";
 import {
@@ -17,28 +19,22 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Home2026.module.css";
 import DeferredIframe from "./DeferredIframe";
 
+type NavKey = "home" | "agenda" | "events" | "apply" | "venue" | "community" | "visa";
+
 type NavItem = {
-  label: string;
+  key: NavKey;
   href?: string;
   external?: boolean;
   disabled?: boolean;
 };
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Agenda", href: "/agenda" },
-  { label: "Events", href: "#events" },
-  { label: "Venue", href: "#venue" },
-  { label: "Community", href: "#community" },
-  { label: "Visa", href: "/visainfo#info" },
-];
-
-const tickerItems = [
-  "PROTOCOL RESEARCH",
-  "ZK & PRIVACY",
-  "WALLETS & ACCOUNT ABSTRACTION",
-  "SECURITY",
-  "DEFI & ONCHAIN FINANCE",
+  { key: "home", href: "#home" },
+  { key: "agenda", href: "/agenda" },
+  { key: "events", href: "#events" },
+  { key: "venue", href: "#venue" },
+  { key: "community", href: "#community" },
+  { key: "visa", href: "/visainfo#info" },
 ];
 
 const socialLinks = [
@@ -47,9 +43,10 @@ const socialLinks = [
   { label: "Telegram", href: telegramUrl, icon: "/images/social-icons/telegram_icon.svg" },
 ];
 
-const venueMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-  t.homepage.venueAddress
-)}`;
+const getVenueMapsUrl = (address: string) =>
+  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    address
+  )}`;
 
 type Countdown = {
   days: string;
@@ -124,49 +121,55 @@ const NavLinks = ({
 }: {
   activeHref?: string;
   onNavigate?: () => void;
-}) => (
-  <>
-    {navItems.map((item) => {
-      if (item.disabled) {
-        return (
-          <span
-            key={item.label}
-            className={styles.navDisabled}
-            aria-disabled="true"
-            aria-label={`${item.label}, to be announced`}
+}) => {
+  const t = useT();
+  return (
+    <>
+      {navItems.map((item) => {
+        const label = t.hero.nav[item.key];
+        if (item.disabled) {
+          return (
+            <span
+              key={item.key}
+              className={styles.navDisabled}
+              aria-disabled="true"
+              aria-label={`${label}, to be announced`}
+            >
+              <span>{label}</span>
+              <span className={styles.navTba} aria-hidden="true">
+                {t.hero.nav.tba}
+              </span>
+            </span>
+          );
+        }
+
+        if (!item.href) return null;
+
+        return item.href.startsWith("/") ? (
+          <Link
+            className={activeHref === item.href ? styles.navActive : undefined}
+            key={item.key}
+            href={item.href}
+            onClick={onNavigate}
           >
-            <span>{item.label}</span>
-            <span className={styles.navTba} aria-hidden="true">TBA</span>
-          </span>
+            {label}
+          </Link>
+        ) : (
+          <a
+            className={activeHref === item.href ? styles.navActive : undefined}
+            key={item.key}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+            onClick={onNavigate}
+          >
+            {label}
+          </a>
         );
-      }
-
-      if (!item.href) return null;
-
-      return item.href.startsWith("/") ? (
-        <Link
-          className={activeHref === item.href ? styles.navActive : undefined}
-          key={item.label}
-          href={item.href}
-          onClick={onNavigate}
-        >
-          {item.label}
-        </Link>
-      ) : (
-        <a
-          className={activeHref === item.href ? styles.navActive : undefined}
-          key={item.label}
-          href={item.href}
-          target={item.external ? "_blank" : undefined}
-          rel={item.external ? "noopener noreferrer" : undefined}
-          onClick={onNavigate}
-        >
-          {item.label}
-        </a>
-      );
-    })}
-  </>
-);
+      })}
+    </>
+  );
+};
 
 const SocialLinks = ({ className = "" }: { className?: string }) => (
   <div className={`${styles.socialLinks} ${className}`} aria-label="ETHTaipei social links">
@@ -186,6 +189,8 @@ const SocialLinks = ({ className = "" }: { className?: string }) => (
 );
 
 const Hero2026 = () => {
+  const t = useT();
+  const venueMapsUrl = getVenueMapsUrl(t.homepage.venueAddress);
   const heroRef = useRef<HTMLElement>(null);
   const cfpPhase = useCfpPhase();
   const isCfpOpen = cfpPhase === "open";
@@ -323,6 +328,7 @@ const Hero2026 = () => {
           <NavLinks activeHref={activeHref} />
         </nav>
         <div className={styles.topbarActions}>
+          <LanguageToggle />
           <SocialLinks />
           {isCfpOpen ? (
             <>
@@ -386,6 +392,7 @@ const Hero2026 = () => {
         aria-label="Mobile navigation"
       >
         <NavLinks activeHref={activeHref} onNavigate={() => setMenuOpen(false)} />
+        <LanguageToggle className={styles.mobileLangToggle} />
         <SocialLinks className={styles.mobileSocialLinks} />
       </nav>
 
@@ -412,25 +419,22 @@ const Hero2026 = () => {
 
       <div className={styles.content}>
         <div className={styles.copy}>
-          <p className={styles.eyebrow}>ETHTAIPEI.ORG · TAIWAN</p>
+          <p className={styles.eyebrow}>{t.hero.eyebrow}</p>
           <h1 className={styles.heroTitle}>
             <span className={styles.heroEventName}>ETHTaipei</span>
             <span className={styles.heroYear}>{year}</span>
           </h1>
           {isCfpOpen && (
-            <p className={styles.cfpLabel}>Call for Speakers</p>
+            <p className={styles.cfpLabel}>{t.hero.callForSpeakers}</p>
           )}
-          <p className={styles.lede}>
-            Two days where Taiwan&apos;s builders meet the global Ethereum stack,
-            from core protocol research to account abstraction and consumer crypto.
-          </p>
+          <p className={styles.lede}>{t.hero.lede}</p>
           <div className={styles.actions} id="apply">
             {isCfpOpen && (
               <a
                 className={`${styles.ticket} ${styles.heroCta} ${styles.heroCtaPrimary}`}
                 href={speakerApplyUrl}
               >
-                Apply to Speak
+                {t.hero.applyToSpeak}
               </a>
             )}
             <a
@@ -441,7 +445,7 @@ const Hero2026 = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Buy Ticket
+              {t.hero.buyTicket}
             </a>
             <a
               className={`${styles.ticket} ${styles.heroCta} ${
@@ -451,7 +455,7 @@ const Hero2026 = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Sponsor Inquiry
+              {t.hero.sponsorInquiry}
             </a>
           </div>
         </div>
@@ -460,10 +464,10 @@ const Hero2026 = () => {
           <div className={styles.countdown} aria-label={`Countdown to ETHTaipei ${year}`}>
             {(
               [
-                [countdown.days, "Days"],
-                [countdown.hours, "Hours"],
-                [countdown.mins, "Mins"],
-                [countdown.secs, "Secs"],
+                [countdown.days, t.hero.countdownDays],
+                [countdown.hours, t.hero.countdownHours],
+                [countdown.mins, t.hero.countdownMins],
+                [countdown.secs, t.hero.countdownSecs],
               ] as const
             ).map(([value, label]) => (
               <div className={styles.timebox} key={label}>
@@ -477,7 +481,7 @@ const Hero2026 = () => {
               <time className={styles.venueDate} dateTime="2026-09-13/2026-09-15">
                 {dateDayMonthYear}
               </time>
-              <span className={styles.venueType}>Venue</span>
+              <span className={styles.venueType}>{t.hero.venueTag}</span>
             </div>
             <h2>{t.homepage.venueName}</h2>
             <a
@@ -496,22 +500,15 @@ const Hero2026 = () => {
           <article className={styles.signalCard}>
             <DottedStar className={styles.spark} id="signal" />
             <div>
-              <div className={styles.label}>Builder signal</div>
-              <p>
-                Protocol labs, L2 teams, wallet designers, ZK researchers, app
-                founders, and local Taipei communities in one venue.
-              </p>
+              <div className={styles.label}>{t.hero.builderSignalLabel}</div>
+              <p>{t.hero.builderSignalText}</p>
             </div>
           </article>
           <article className={styles.signalCard}>
             <DottedStar className={styles.spark} id="signal-institution" />
             <div>
-              <div className={styles.label}>Institution signal</div>
-              <p>
-                A dedicated day for banks and financial institutions — sessions
-                and panels on custody and RWA, with closed-door discussion.
-                Where enterprise meets the builders.
-              </p>
+              <div className={styles.label}>{t.hero.institutionSignalLabel}</div>
+              <p>{t.hero.institutionSignalText}</p>
             </div>
           </article>
         </aside>
@@ -519,7 +516,7 @@ const Hero2026 = () => {
 
       <div className={styles.ticker} aria-label="ETHTaipei topics">
         <div className={styles.tickerTrack}>
-          {[...tickerItems, ...tickerItems].map((item, index) => (
+          {[...t.hero.ticker, ...t.hero.ticker].map((item, index) => (
             <span key={`${item}-${index}`}>{item}</span>
           ))}
         </div>
@@ -579,7 +576,9 @@ const EventCard = ({ id, imageSrc, name, description, date, buttonText, href }: 
   </article>
 );
 
-const Events2026 = () => (
+const Events2026 = () => {
+  const t = useT();
+  return (
   <section className={styles.eventsSection} id="events">
     <div className={styles.eventsWrap}>
       <h2 className={styles.eventsTitle}>
@@ -621,13 +620,14 @@ const Events2026 = () => (
         ) : (
           <aside className={styles.eventCalendarEmpty} aria-label="Community events status">
             <Star className={styles.eventCalendarEmptyIcon} />
-            <p>More community events coming soon</p>
+            <p>{t.homepage.moreCommunityEventsSoon}</p>
           </aside>
         )}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const SparkleTrail = () => {
   const layerRef = useRef<HTMLDivElement>(null);

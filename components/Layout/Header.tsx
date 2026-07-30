@@ -11,7 +11,8 @@ import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useLanguage, useT } from "@/contexts/LanguageContext";
+import type { Dictionary } from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
 import {
   discordUrl,
@@ -59,7 +60,9 @@ interface SocialLink {
 
 // undone paths are set to "" to avoid onClick
 const isNonEmptyPath = (path: string) => path !== "";
-const navItems = [
+
+// Built from the active dictionary so labels re-render on a language switch.
+const buildNavItems = (t: Dictionary) => [
   { label: t.navs.home, path: "/", disabled: false },
   { label: t.navs.agenda, path: "/agenda#info", disabled: !FLAGS.showAgenda },
   { label: t.navs.event, path: "/#events", disabled: false },
@@ -73,14 +76,43 @@ const navItems = [
   { label: t.navs.visaInfo, path: "/visainfo#info", disabled: false },
 ];
 
-const isApply = (label: string) => label === t.navs.apply;
-const applyDropdownItems = [
+const buildApplyDropdownItems = (t: Dictionary) => [
   { label: t.navs.toSpeak, url: speakerApplyUrl },
   { label: t.navs.toSponsor, url: sponsorApplyUrl },
   { label: t.navs.sideEvent, url: sideEventApplyUrl },
 ];
 
+const HeaderLangToggle = () => {
+  const { locale, setLocale } = useLanguage();
+  return (
+    <LangSwitch role="group" aria-label="Language / 語言">
+      <button
+        type="button"
+        className={locale === "en" ? "active" : undefined}
+        aria-pressed={locale === "en"}
+        aria-label="Switch to English"
+        onClick={() => setLocale("en")}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        className={locale === "zh-Hant" ? "active" : undefined}
+        aria-pressed={locale === "zh-Hant"}
+        aria-label="切換至繁體中文"
+        onClick={() => setLocale("zh-Hant")}
+      >
+        中
+      </button>
+    </LangSwitch>
+  );
+};
+
 const PagesNav = () => {
+  const t = useT();
+  const navItems = buildNavItems(t);
+  const applyDropdownItems = buildApplyDropdownItems(t);
+  const isApply = (label: string) => label === t.navs.apply;
   const [showApplyDropdown, setShowApplyDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
@@ -170,6 +202,10 @@ const socialLinks: SocialLink[] = [
 ];
 
 const Header = () => {
+  const t = useT();
+  const navItems = buildNavItems(t);
+  const applyDropdownItems = buildApplyDropdownItems(t);
+  const isApply = (label: string) => label === t.navs.apply;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { handleOnClickExternalLink, handleOnClickInternalLink } = useRouting();
 
@@ -214,6 +250,7 @@ const Header = () => {
         <PagesNav />
 
         <SocialAndTicketButtonsContainer>
+          <HeaderLangToggle />
           <SocialContainer className="social-container">
             <SocialLinks />
           </SocialContainer>
@@ -286,6 +323,7 @@ const Header = () => {
               {t.navs.ticket}
             </BarsMenuLink>
           )}
+          <HeaderLangToggle />
           <SocialContainer>
             <SocialLinks />
           </SocialContainer>
@@ -553,6 +591,39 @@ const NavButton = styled.button`
   &:disabled:hover {
     background-color: transparent;
     color: ${Colors.gray3 || "#9aa0a6"};
+  }
+`;
+
+const LangSwitch = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background-color: white;
+  border: 2px solid ${Colors.borderGray};
+  border-radius: 24px;
+
+  button {
+    min-width: 34px;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: ${fontWeight};
+    line-height: 1;
+    color: ${Colors.borderGray};
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background-color: ${Colors.brightBlue};
+    color: white;
+  }
+
+  button.active {
+    background-color: ${Colors.brightBlue};
+    color: white;
   }
 `;
 

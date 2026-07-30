@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 
 import MainLayout from "@/components/Layout";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import t from "@/public/constant/content";
 import { GlobalStyle, ResetStyle } from "@/styles/globalStyle";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -16,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const Layout = getLayout(<Component {...pageProps} />);
 
   return (
-    <div>
+    <LanguageProvider>
       <ResetStyle />
       <GlobalStyle />
       <Head>
@@ -49,6 +50,6 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       {Layout}
-    </div>
+    </LanguageProvider>
   );
 }

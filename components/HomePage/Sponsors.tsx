@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import { useSponsors } from "@/components/hooks/useSponsors";
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { FLAGS } from "@/public/constant/flags";
 import {
   BaseContainer,
@@ -14,6 +14,7 @@ import {
 import styled from "styled-components";
 
 const Sponsors = () => {
+  const t = useT();
   const { platinumSponsors, goldSponsors, silverSponsors, bronzeSponsors } =
     useSponsors();
 

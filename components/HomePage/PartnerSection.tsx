@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-import t from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
 import { tabeiUrl } from "@/public/constant/urls";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import {
@@ -24,6 +24,7 @@ const SmileIcon = () => (
 );
 
 const PartnerSection = () => {
+  const t = useT();
   return (
     <Container>
       <BaseMainContent>
