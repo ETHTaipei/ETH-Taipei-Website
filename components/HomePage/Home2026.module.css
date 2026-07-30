@@ -354,11 +354,51 @@
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .ticket:hover {
   background: rgb(203 241 1 / 0.2);
+}
+
+.headerPrimary {
+  border-color: var(--acid);
+  color: var(--night);
+  background: var(--acid);
+  box-shadow: 0 0 20px rgb(203 241 1 / 0.3);
+}
+
+.headerPrimary:hover,
+.headerPrimary:focus-visible {
+  color: var(--acid);
+  background: var(--night);
+  box-shadow: 0 0 0 2px var(--night), 0 0 0 4px var(--acid);
+}
+
+.headerSecondary {
+  border-color: oklch(95% 0.012 112 / 0.32);
+  color: oklch(88% 0.018 112);
+  background: oklch(9% 0.024 255 / 0.56);
+}
+
+.headerSecondary:hover,
+.headerSecondary:focus-visible {
+  border-color: var(--acid);
+  color: var(--acid);
+  background: rgb(203 241 1 / 0.08);
+}
+
+.headerPrimary:focus-visible,
+.headerSecondary:focus-visible,
+.mobileHeaderCta:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.mobileHeaderCta {
+  display: none;
+  white-space: nowrap;
 }
 
 .menuToggle {
@@ -410,8 +450,8 @@
   pointer-events: auto;
 }
 
-.mobileNav a,
-.mobileNav .navDisabled {
+.mobileNav > a,
+.mobileNav > .navDisabled {
   padding: 13px 14px;
   border-radius: 10px;
   color: oklch(85% 0.02 254);
@@ -419,7 +459,7 @@
   font-weight: 600;
 }
 
-.mobileNav a:not(:first-child):hover {
+.mobileNav > a:not(:first-child):hover {
   color: var(--acid);
   background: rgb(203 241 1 / 0.08);
 }
@@ -428,22 +468,6 @@
 .mobileNav .navActive:hover {
   color: var(--night);
   background: var(--acid);
-}
-
-.mobileNav .socialLinks .socialLink {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 2px solid white;
-  border-radius: 50%;
-  color: white;
-  background: #3952ff;
-}
-
-.mobileNav .socialLinks .socialLink:hover {
-  color: white;
-  border-color: var(--acid);
-  background: #4a5cff;
 }
 
 .content {
@@ -514,6 +538,21 @@
   text-shadow: 0 0 34px rgb(203 241 1 / 0.54),
     0 10px 26px oklch(0% 0 0 / 0.5),
     0 22px 52px oklch(0% 0 0 / 0.4);
+}
+
+.cfpLabel {
+  width: fit-content;
+  margin: 28px 0 0;
+  padding: 6px 10px;
+  border: 1px solid rgb(203 241 1 / 0.48);
+  border-radius: 5px 14px 5px 14px;
+  color: var(--acid);
+  background: rgb(203 241 1 / 0.08);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .lede {
@@ -1192,6 +1231,24 @@
     display: none;
   }
 
+  .topbarActions {
+    display: none;
+  }
+
+  .mobileHeaderCta {
+    display: inline-flex;
+    border-color: var(--acid);
+    color: var(--night);
+    background: var(--acid);
+  }
+
+  .mobileHeaderCta:hover,
+  .mobileHeaderCta:focus-visible {
+    color: var(--acid);
+    background: var(--night);
+    box-shadow: 0 0 0 2px var(--night), 0 0 0 4px var(--acid);
+  }
+
   .menuToggle {
     display: inline-flex;
   }
@@ -1202,9 +1259,8 @@
 
   .mobileSocialLinks {
     display: flex;
+    align-self: flex-start;
     margin-top: 8px;
-    padding-top: 14px;
-    border-top: 1px solid oklch(96% 0.018 126 / 0.12);
   }
 
   .content {
@@ -1258,6 +1314,10 @@
 
   .heroTitle {
     font-size: clamp(54px, 17vw, 96px);
+  }
+
+  .cfpLabel {
+    margin-top: 24px;
   }
 
   .actions {

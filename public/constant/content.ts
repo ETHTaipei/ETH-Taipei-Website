@@ -95,6 +95,7 @@ const enHomepage = {
 // Strings baked into the 2026 hero (components/HomePage/Home2026.tsx).
 const enHero = {
   eyebrow: "ETHTAIPEI.ORG · TAIWAN",
+  callForSpeakers: "Call for Speakers",
   lede: "Two days where Taiwan's builders meet the global Ethereum stack, from core protocol research to account abstraction and consumer crypto.",
   applyToSpeak: "Apply to Speak",
   buyTicket: "Buy Ticket",
@@ -112,13 +113,10 @@ const enHero = {
     "A dedicated day for banks and financial institutions — sessions and panels on custody and RWA, with closed-door discussion. Where enterprise meets the builders.",
   ticker: [
     "PROTOCOL RESEARCH",
-    "ACCOUNT ABSTRACTION",
-    "ZERO KNOWLEDGE",
-    "LAYER 2",
-    "WALLETS",
+    "ZK & PRIVACY",
+    "WALLETS & ACCOUNT ABSTRACTION",
     "SECURITY",
-    "CONSUMER CRYPTO",
-    "TAIPEI BUILDERS",
+    "DEFI & ONCHAIN FINANCE",
   ],
   nav: {
     home: "Home",
@@ -334,6 +332,7 @@ const zhHomepage: Dictionary["homepage"] = {
 
 const zhHero: Dictionary["hero"] = {
   eyebrow: "ETHTAIPEI.ORG · 台灣",
+  callForSpeakers: "講者徵求",
   lede: "兩天，台灣的開發者與全球以太坊技術棧交會——從核心協議研究，到帳戶抽象與消費級加密應用。",
   applyToSpeak: "申請演講",
   buyTicket: "購票",
@@ -351,13 +350,10 @@ const zhHero: Dictionary["hero"] = {
     "為銀行與金融機構打造的專屬一天——保管與 RWA 的演講與座談，以及閉門討論。企業與開發者交會之處。",
   ticker: [
     "協議研究",
-    "帳戶抽象",
-    "零知識證明",
-    "LAYER 2",
-    "錢包",
+    "ZK 與隱私",
+    "錢包與帳戶抽象",
     "資安",
-    "消費級加密",
-    "台北開發者",
+    "DeFi 與鏈上金融",
   ],
   nav: {
     home: "首頁",

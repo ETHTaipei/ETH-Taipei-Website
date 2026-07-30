@@ -1,4 +1,7 @@
 .page {
+  /* Header2026 reads its fixed height from --site-nav-height. This page is not
+     wrapped in .home-2026, so keep the offset local just like the agenda page. */
+  --site-nav-height: 76px;
   position: relative;
   min-height: 100svh;
   overflow: hidden;
@@ -176,6 +179,12 @@
   border-radius: 3px;
   outline: 2px solid var(--acid);
   outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .page {
+    --site-nav-height: 70px;
+  }
 }
 
 @media (max-width: 760px) {

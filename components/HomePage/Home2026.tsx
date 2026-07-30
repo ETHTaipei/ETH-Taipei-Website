@@ -2,6 +2,7 @@ import { dateDayMonthYear, year } from "@/public/constant/content";
 import { useT } from "@/contexts/LanguageContext";
 import LanguageToggle from "@/components/Layout/LanguageToggle";
 import { FLAGS } from "@/public/constant/flags";
+import { useCfpPhase } from "@/components/hooks/useCfpPhase";
 import {
   lumaEmbedUrl,
   lumaUrl,
@@ -14,12 +15,7 @@ import {
 } from "@/public/constant/urls";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  PointerEvent as ReactPointerEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Home2026.module.css";
 import DeferredIframe from "./DeferredIframe";
 
@@ -36,7 +32,6 @@ const navItems: NavItem[] = [
   { key: "home", href: "#home" },
   { key: "agenda", href: "/agenda" },
   { key: "events", href: "#events" },
-  { key: "apply", href: speakerApplyUrl, external: true },
   { key: "venue", href: "#venue" },
   { key: "community", href: "#community" },
   { key: "visa", href: "/visainfo#info" },
@@ -197,9 +192,23 @@ const Hero2026 = () => {
   const t = useT();
   const venueMapsUrl = getVenueMapsUrl(t.homepage.venueAddress);
   const heroRef = useRef<HTMLElement>(null);
+  const cfpPhase = useCfpPhase();
+  const isCfpOpen = cfpPhase === "open";
   const [menuOpen, setMenuOpen] = useState(false);
   const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
   const [activeHref, setActiveHref] = useState("#home");
+  const [shouldPlayHeroVideo, setShouldPlayHeroVideo] = useState(false);
+
+  useEffect(() => {
+    const videoQuery = window.matchMedia(
+      "(min-width: 769px) and (prefers-reduced-motion: no-preference)"
+    );
+    const syncVideo = () => setShouldPlayHeroVideo(videoQuery.matches);
+
+    syncVideo();
+    videoQuery.addEventListener("change", syncVideo);
+    return () => videoQuery.removeEventListener("change", syncVideo);
+  }, []);
 
   useEffect(() => {
     const tick = () => setCountdown(getCountdown());
@@ -308,16 +317,6 @@ const Hero2026 = () => {
     };
   }, []);
 
-  const magnetize = (event: ReactPointerEvent<HTMLElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left - rect.width / 2;
-    const y = event.clientY - rect.top - rect.height / 2;
-    event.currentTarget.style.transform = `translate(${x * 0.06}px, ${y * 0.08}px)`;
-  };
-  const resetMagnet = (event: ReactPointerEvent<HTMLElement>) => {
-    event.currentTarget.style.transform = "";
-  };
-
   return (
     <>
       <header className={styles.topbar}>
@@ -331,17 +330,42 @@ const Hero2026 = () => {
         <div className={styles.topbarActions}>
           <LanguageToggle />
           <SocialLinks />
-          <a
-            className={styles.ticket}
-            href={tickSiteUrl}
-            target="_blank"
-            rel="noreferrer"
-            onPointerMove={magnetize}
-            onPointerLeave={resetMagnet}
-          >
-            Buy Ticket
-          </a>
+          {isCfpOpen ? (
+            <>
+              <a
+                className={`${styles.ticket} ${styles.headerSecondary}`}
+                href={tickSiteUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Buy Ticket
+              </a>
+              <a
+                className={`${styles.ticket} ${styles.headerPrimary}`}
+                href={speakerApplyUrl}
+              >
+                Apply to Speak
+              </a>
+            </>
+          ) : (
+            <a
+              className={`${styles.ticket} ${styles.headerPrimary}`}
+              href={tickSiteUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Buy Ticket
+            </a>
+          )}
         </div>
+        <a
+          className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+          href={isCfpOpen ? speakerApplyUrl : tickSiteUrl}
+          target={isCfpOpen ? undefined : "_blank"}
+          rel={isCfpOpen ? undefined : "noreferrer"}
+        >
+          {isCfpOpen ? "Apply" : "Tickets"}
+        </a>
         <button
           className={styles.menuToggle}
           type="button"
@@ -380,14 +404,13 @@ const Hero2026 = () => {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload={shouldPlayHeroVideo ? "metadata" : "none"}
           poster="/images/hero-2026/poster.png"
+          aria-hidden="true"
         >
-          <source
-            src="/videos/2026/hero.mp4"
-            type="video/mp4"
-            media="(min-width: 641px)"
-          />
+          {shouldPlayHeroVideo && (
+            <source src="/videos/2026/hero.mp4" type="video/mp4" />
+          )}
         </video>
         <div className={styles.shade} />
         <div className={styles.grid} data-depth="6" data-layer="grid" />
@@ -401,18 +424,23 @@ const Hero2026 = () => {
             <span className={styles.heroEventName}>ETHTaipei</span>
             <span className={styles.heroYear}>{year}</span>
           </h1>
+          {isCfpOpen && (
+            <p className={styles.cfpLabel}>{t.hero.callForSpeakers}</p>
+          )}
           <p className={styles.lede}>{t.hero.lede}</p>
           <div className={styles.actions} id="apply">
+            {isCfpOpen && (
+              <a
+                className={`${styles.ticket} ${styles.heroCta} ${styles.heroCtaPrimary}`}
+                href={speakerApplyUrl}
+              >
+                {t.hero.applyToSpeak}
+              </a>
+            )}
             <a
-              className={`${styles.ticket} ${styles.heroCta} ${styles.heroCtaSecondary}`}
-              href={speakerApplyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t.hero.applyToSpeak}
-            </a>
-            <a
-              className={`${styles.ticket} ${styles.heroCta} ${styles.heroCtaPrimary}`}
+              className={`${styles.ticket} ${styles.heroCta} ${
+                isCfpOpen ? styles.heroCtaSecondary : styles.heroCtaPrimary
+              }`}
               href={tickSiteUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -420,7 +448,9 @@ const Hero2026 = () => {
               {t.hero.buyTicket}
             </a>
             <a
-              className={`${styles.ticket} ${styles.heroCta} ${styles.heroCtaTertiary}`}
+              className={`${styles.ticket} ${styles.heroCta} ${
+                isCfpOpen ? styles.heroCtaTertiary : styles.heroCtaSecondary
+              }`}
               href={sponsorApplyUrl}
               target="_blank"
               rel="noopener noreferrer"

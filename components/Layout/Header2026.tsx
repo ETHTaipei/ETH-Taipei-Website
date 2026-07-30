@@ -5,6 +5,7 @@ import {
   tickSiteUrl,
   xUrl,
 } from "@/public/constant/urls";
+import { useCfpPhase } from "@/components/hooks/useCfpPhase";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -23,7 +24,6 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/#home" },
   { label: "Agenda", href: "/agenda" },
   { label: "Events", href: "/#events" },
-  { label: "Apply", href: speakerApplyUrl, external: true },
   { label: "Venue", href: "/#venue" },
   { label: "Community", href: "/#community" },
   { label: "Visa", href: "/visainfo#info" },
@@ -108,6 +108,8 @@ const NavLinks = ({
 );
 
 const Header2026 = ({ activeHref }: { activeHref: string }) => {
+  const cfpPhase = useCfpPhase();
+  const isCfpOpen = cfpPhase === "open";
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -139,10 +141,42 @@ const Header2026 = ({ activeHref }: { activeHref: string }) => {
         <div className={styles.topbarActions}>
           <LanguageToggle />
           <SocialLinks />
-          <a className={styles.ticket} href={tickSiteUrl} target="_blank" rel="noreferrer">
-            Buy Ticket
-          </a>
+          {isCfpOpen ? (
+            <>
+              <a
+                className={`${styles.ticket} ${styles.headerSecondary}`}
+                href={tickSiteUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Buy Ticket
+              </a>
+              <a
+                className={`${styles.ticket} ${styles.headerPrimary}`}
+                href={speakerApplyUrl}
+              >
+                Apply to Speak
+              </a>
+            </>
+          ) : (
+            <a
+              className={`${styles.ticket} ${styles.headerPrimary}`}
+              href={tickSiteUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Buy Ticket
+            </a>
+          )}
         </div>
+        <a
+          className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+          href={isCfpOpen ? speakerApplyUrl : tickSiteUrl}
+          target={isCfpOpen ? undefined : "_blank"}
+          rel={isCfpOpen ? undefined : "noreferrer"}
+        >
+          {isCfpOpen ? "Apply" : "Tickets"}
+        </a>
         <button
           className={styles.menuToggle}
           type="button"
