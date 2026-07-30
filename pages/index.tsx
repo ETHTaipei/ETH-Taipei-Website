@@ -39,6 +39,9 @@ const DynamicCommunitySupport = dynamic(
 const DynamicPartnerSection = dynamic(
   () => import("@/components/HomePage/PartnerSection")
 );
+const DynamicSpeakerSection = dynamic(
+  () => import("@/components/HomePage/SpeakerSection")
+);
 
 const Home = ({ initialApolloState }: any) => {
   return (
@@ -53,6 +56,7 @@ const Home = ({ initialApolloState }: any) => {
         <DynamicSponsors />
         <DynamicPartners />
         <DynamicCallToAction />
+        <DynamicSpeakerSection />
         <DynamicPartnerSection />
         <DynamicCommunitySupport />
       </div>

@@ -96,7 +96,7 @@ const enHomepage = {
 const enHero = {
   eyebrow: "ETHTAIPEI.ORG · TAIWAN",
   callForSpeakers: "Call for Speakers",
-  lede: "Two days where Taiwan's builders meet the global Ethereum stack, from core protocol research to account abstraction and consumer crypto.",
+  lede: "Two days where Taiwan's builders meet the global Ethereum stack, from core protocol research and DeFi to custody, real-world assets (RWA), and institutional-grade applications.",
   applyToSpeak: "Apply to Speak",
   buyTicket: "Buy Ticket",
   sponsorInquiry: "Sponsor Inquiry",
@@ -333,7 +333,7 @@ const zhHomepage: Dictionary["homepage"] = {
 const zhHero: Dictionary["hero"] = {
   eyebrow: "ETHTAIPEI.ORG · 台灣",
   callForSpeakers: "講者徵求",
-  lede: "兩天，台灣的開發者與全球以太坊技術棧交會——從核心協議研究，到帳戶抽象與消費級加密應用。",
+  lede: "為期兩天，台灣開發者與全球以太坊技術棧接軌——從核心協議研究、DeFi，到資產託管、真實世界資產（RWA）與機構級應用。",
   applyToSpeak: "申請演講",
   buyTicket: "購票",
   sponsorInquiry: "贊助洽詢",
