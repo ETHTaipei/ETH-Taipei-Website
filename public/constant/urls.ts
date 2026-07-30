@@ -33,6 +33,7 @@ export const dedaubUrl = "https://dedaub.com/";
 export const thunderCoreUrl = "https://www.thundercore.com/";
 export const teaHouseUrl = "https://teahouse.finance/";
 export const tabeiUrl = "https://www.chain.tw/";
+export const miraUrl = "https://miragather.com/";
 export const mattersLabUrl = "https://matters-lab.io/";
 export const proticoUrl = "https://protico.io/";
 export const zombitUrl = "https://zombit.info/";

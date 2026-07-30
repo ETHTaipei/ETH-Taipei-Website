@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { useT } from "@/contexts/LanguageContext";
-import { tabeiUrl } from "@/public/constant/urls";
+import { miraUrl, tabeiUrl } from "@/public/constant/urls";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
 import {
   BaseContainer,
@@ -45,6 +45,20 @@ const PartnerSection = () => {
               alt="TABEI"
               width={220}
               height={88}
+              style={{ height: "auto" }}
+            />
+          </PartnerLogo>
+          <PartnerLogo
+            href={miraUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Mira website"
+          >
+            <Image
+              src="/images/partners/mira.png"
+              alt="Mira"
+              width={250}
+              height={80}
               style={{ height: "auto" }}
             />
           </PartnerLogo>
