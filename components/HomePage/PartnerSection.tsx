@@ -5,18 +5,32 @@ import styled from "styled-components";
 import { useT } from "@/contexts/LanguageContext";
 import {
   abmediaUrl,
+  bermuDaoUrl,
   blockbeatsUrl,
   blocktempoUrl,
+  blockTrendUrl,
+  cryptoBarUrl,
   cryptoCityUrl,
   cryptokenMediaUrl,
   cryptoWesearchUrl,
   daCapitalUrl,
+  desciTaiwanUrl,
+  ethHubHkUrl,
+  ethTaoUrl,
   foresightNewsUrl,
   miraUrl,
   monsterBlockUrl,
+  nchuBlockchainUrl,
+  ncuBlockchainClubUrl,
+  ntufcUrl,
+  ntustBlockchainUrl,
+  ntutBlockchainUrl,
+  openBuildUrl,
   pukecastUrl,
   tabeiUrl,
   techFlowUrl,
+  vyperUrl,
+  xueDaoUrl,
   zombitUrl,
 } from "@/public/constant/urls";
 import { GrayGridBackgroundStyles } from "@/styles/gridBackground";
@@ -38,6 +52,10 @@ type LogoEntry = {
   tier?: number;
 };
 
+// Student clubs, DAOs and regional Ethereum communities all sit here rather
+// than under Community Support — that's how Hygraph classified them for 2025,
+// where isCommunitySupport was reserved for Taipei Ethereum Meetup, the
+// Ethereum Foundation and Geode Labs.
 const PARTNERS: LogoEntry[] = [
   {
     name: "TABEI",
@@ -45,6 +63,7 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/tabei.png",
     width: 220,
     height: 88,
+    tier: 1,
   },
   {
     name: "Mira",
@@ -52,6 +71,107 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/mira.png",
     width: 250,
     height: 80,
+    tier: 1,
+  },
+  {
+    name: "BermuDAO",
+    url: bermuDaoUrl,
+    img: "/images/partners/bermudao.png",
+    width: 125,
+    height: 51,
+  },
+  {
+    name: "BlockTrend 區塊勢",
+    url: blockTrendUrl,
+    img: "/images/partners/blocktrend.png",
+    width: 57,
+    height: 62,
+  },
+  {
+    // Illustrated mark rather than a wordmark, so it gets a little more room
+    // than the equal-area rule would give it.
+    name: "CryptoBar 流動吧",
+    url: cryptoBarUrl,
+    img: "/images/partners/cryptobar.png",
+    width: 66,
+    height: 72,
+  },
+  {
+    name: "DeSci Taiwan",
+    url: desciTaiwanUrl,
+    img: "/images/partners/descitaiwan.png",
+    width: 74,
+    height: 62,
+  },
+  {
+    name: "ETH Hub Hong Kong",
+    url: ethHubHkUrl,
+    img: "/images/partners/ethhub.png",
+    width: 123,
+    height: 52,
+  },
+  {
+    name: "ETHTao",
+    url: ethTaoUrl,
+    img: "/images/partners/ethtao.png",
+    width: 142,
+    height: 45,
+  },
+  {
+    name: "NCHU Blockchain",
+    url: nchuBlockchainUrl,
+    img: "/images/partners/nchubc.png",
+    width: 83,
+    height: 62,
+  },
+  {
+    name: "NCU Blockchain Club",
+    url: ncuBlockchainClubUrl,
+    img: "/images/partners/ncubc.png",
+    width: 160,
+    height: 40,
+  },
+  {
+    name: "NTU Fintech Club",
+    url: ntufcUrl,
+    img: "/images/partners/ntufc.png",
+    width: 296,
+    height: 30,
+  },
+  {
+    name: "NTUST Blockchain",
+    url: ntustBlockchainUrl,
+    img: "/images/partners/ntustbc.png",
+    width: 74,
+    height: 62,
+  },
+  {
+    name: "NTUT Blockchain",
+    url: ntutBlockchainUrl,
+    img: "/images/partners/ntutbc.png",
+    width: 129,
+    height: 50,
+  },
+  {
+    name: "OpenBuild",
+    url: openBuildUrl,
+    img: "/images/partners/openbuild.png",
+    width: 173,
+    height: 37,
+  },
+  {
+    name: "Vyper",
+    url: vyperUrl,
+    img: "/images/partners/vyper.png",
+    width: 55,
+    height: 62,
+  },
+  {
+    name: "XueDAO",
+    url: xueDaoUrl,
+    img: "/images/partners/xuedao.png",
+    width: 185,
+    height: 35,
   },
 ];
 
@@ -184,12 +304,14 @@ const Logo = ({ logo }: { logo: LogoEntry }) => {
   );
 };
 
+const byTier = (list: LogoEntry[]) =>
+  [...list].sort((a, b) => (a.tier ?? 3) - (b.tier ?? 3));
+
 const PartnerSection = () => {
   const t = useT();
 
-  const mediaPartners = [...MEDIA_PARTNERS].sort(
-    (a, b) => (a.tier ?? 3) - (b.tier ?? 3)
-  );
+  const partners = byTier(PARTNERS);
+  const mediaPartners = byTier(MEDIA_PARTNERS);
 
   return (
     <Container>
@@ -201,7 +323,7 @@ const PartnerSection = () => {
           </Title>
           <Subtitle>{t.homepage.partnersDesc}</Subtitle>
           <PartnersGrid>
-            {PARTNERS.map((partner) => (
+            {partners.map((partner) => (
               <Logo logo={partner} key={partner.name} />
             ))}
           </PartnersGrid>

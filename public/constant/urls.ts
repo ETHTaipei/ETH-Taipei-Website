@@ -72,15 +72,37 @@ export const representUrl = "https://www.powerforpoint.com/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
-// 2026 media partners. Blank ones still need an official URL from the partner —
-// PartnerSection renders those logos unlinked until a URL is filled in.
-export const cryptoWesearchUrl = "";
-export const daCapitalUrl = "";
-export const foresightNewsUrl = "";
-export const cryptokenMediaUrl = "";
-export const monsterBlockUrl = "";
-export const pukecastUrl = "";
-export const techFlowUrl = "";
+// 2026 media partners, carried over from the mediaPartners2025 collection in
+// Hygraph except where noted.
+export const cryptoWesearchUrl = "https://cryptowesearch.com/";
+export const foresightNewsUrl = "https://foresightnews.pro";
+export const cryptokenMediaUrl = "https://cryptoken.media";
+export const monsterBlockUrl = "https://monsterblockhk.com/";
+// The r3achntwrk.com/pukecast page we linked in 2025 now 404s.
+export const pukecastUrl = "https://x.com/pukecast";
+export const techFlowUrl = "https://www.techflowpost.com/index.aspx";
+// New for 2026. Links to DA Labs, the group's public-facing media site.
+export const daCapitalUrl = "https://dalabs.org/";
+
+// 2026 community / ecosystem partners — student clubs, DAOs and regional
+// Ethereum communities. ncu-blockchain-club and blocktrend are carried over
+// from Hygraph; the rest are the accounts each group publishes itself.
+export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
+export const blockTrendUrl = "https://www.blocktrend.today/";
+export const bermuDaoUrl = "https://x.com/bermudao_ch";
+export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
+export const openBuildUrl = "https://linktr.ee/openbuild";
+export const vyperUrl = "https://linktr.ee/vyperlang";
+// @cryptobarnospam is a Telegram group, not an X handle — x.com/cryptobarnospam 404s.
+export const cryptoBarUrl = "https://t.me/cryptobarnospam";
+// These five had no URL in Hygraph either, so they're the accounts each group
+// links from its own public profile.
+export const ethHubHkUrl = "https://x.com/ethereumhkhub";
+export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
+export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
+export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
+export const ntutBlockchainUrl = "https://ntutblockchain.com/";
 
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
