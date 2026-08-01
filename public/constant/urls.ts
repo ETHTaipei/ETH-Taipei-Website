@@ -99,6 +99,7 @@ export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // links from its own public profile.
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
 export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";

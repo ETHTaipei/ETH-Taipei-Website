@@ -20,6 +20,7 @@ import {
   foresightNewsUrl,
   miraUrl,
   monsterBlockUrl,
+  nccuBlockchainUrl,
   nchuBlockchainUrl,
   ncuBlockchainClubUrl,
   ntufcUrl,
@@ -56,6 +57,11 @@ type LogoEntry = {
 // than under Community Support — that's how Hygraph classified them for 2025,
 // where isCommunitySupport was reserved for Taipei Ethereum Meetup, the
 // Ethereum Foundation and Geode Labs.
+//
+// Sizes in both lists below are normalised for roughly equal optical area
+// rather than equal width, so a 10:1 wordmark (TechFlow) and a square badge
+// (Zombit) carry the same weight in the grid: height = sqrt(6400 / aspect),
+// clamped to 30..78. TABEI and Mira are hand-sized — they lead the section.
 const PARTNERS: LogoEntry[] = [
   {
     name: "TABEI",
@@ -84,24 +90,22 @@ const PARTNERS: LogoEntry[] = [
     name: "BlockTrend 區塊勢",
     url: blockTrendUrl,
     img: "/images/partners/blocktrend.png",
-    width: 57,
-    height: 62,
+    width: 72,
+    height: 78,
   },
   {
-    // Illustrated mark rather than a wordmark, so it gets a little more room
-    // than the equal-area rule would give it.
     name: "CryptoBar 流動吧",
     url: cryptoBarUrl,
     img: "/images/partners/cryptobar.png",
-    width: 66,
-    height: 72,
+    width: 71,
+    height: 78,
   },
   {
     name: "DeSci Taiwan",
     url: desciTaiwanUrl,
     img: "/images/partners/descitaiwan.png",
-    width: 74,
-    height: 62,
+    width: 87,
+    height: 73,
   },
   {
     name: "ETH Hub Hong Kong",
@@ -118,11 +122,18 @@ const PARTNERS: LogoEntry[] = [
     height: 45,
   },
   {
+    name: "NCCU Blockchain",
+    url: nccuBlockchainUrl,
+    img: "/images/partners/nccubc.png",
+    width: 107,
+    height: 60,
+  },
+  {
     name: "NCHU Blockchain",
     url: nchuBlockchainUrl,
     img: "/images/partners/nchubc.png",
-    width: 83,
-    height: 62,
+    width: 93,
+    height: 69,
   },
   {
     name: "NCU Blockchain Club",
@@ -142,8 +153,8 @@ const PARTNERS: LogoEntry[] = [
     name: "NTUST Blockchain",
     url: ntustBlockchainUrl,
     img: "/images/partners/ntustbc.png",
-    width: 74,
-    height: 62,
+    width: 88,
+    height: 73,
   },
   {
     name: "NTUT Blockchain",
@@ -163,8 +174,8 @@ const PARTNERS: LogoEntry[] = [
     name: "Vyper",
     url: vyperUrl,
     img: "/images/partners/vyper.png",
-    width: 55,
-    height: 62,
+    width: 70,
+    height: 78,
   },
   {
     name: "XueDAO",
@@ -175,9 +186,6 @@ const PARTNERS: LogoEntry[] = [
   },
 ];
 
-// Sizes below are normalised for roughly equal optical area rather than equal
-// width, so a wide wordmark (DA Capital) and a near-square mark (Zombit) carry
-// the same visual weight in the grid.
 const MEDIA_PARTNERS: LogoEntry[] = [
   {
     name: "ABMedia",
@@ -197,8 +205,8 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     name: "BlockTempo",
     url: blocktempoUrl,
     img: "/images/media-partners/blocktempo.png",
-    width: 89,
-    height: 62,
+    width: 96,
+    height: 67,
   },
   {
     name: "Crypto City",
@@ -261,8 +269,8 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     name: "Zombit",
     url: zombitUrl,
     img: "/images/media-partners/zombit.png",
-    width: 72,
-    height: 72,
+    width: 78,
+    height: 78,
   },
 ];
 
