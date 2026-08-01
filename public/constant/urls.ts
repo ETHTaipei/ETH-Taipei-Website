@@ -72,6 +72,16 @@ export const representUrl = "https://www.powerforpoint.com/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
+// 2026 media partners. Blank ones still need an official URL from the partner —
+// PartnerSection renders those logos unlinked until a URL is filled in.
+export const cryptoWesearchUrl = "";
+export const daCapitalUrl = "";
+export const foresightNewsUrl = "";
+export const cryptokenMediaUrl = "";
+export const monsterBlockUrl = "";
+export const pukecastUrl = "";
+export const techFlowUrl = "";
+
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
 export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
