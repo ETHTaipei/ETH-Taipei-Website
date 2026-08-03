@@ -1,5 +1,6 @@
 import { useT } from "@/contexts/LanguageContext";
 import Link from "next/link";
+import type { MouseEvent } from "react";
 
 import styles from "@/components/HomePage/Home2026.module.css";
 
@@ -29,19 +30,44 @@ const NavigationLink = ({
   const sharedProps = {
     "aria-haspopup": ariaHasPopup ? ("true" as const) : undefined,
     className,
-    onClick: onNavigate,
   };
 
   if (isHomepage && href.startsWith("#")) {
+    const handleSamePageNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
+      if (!onNavigate) return;
+
+      const target = document.getElementById(href.slice(1));
+      if (!target) {
+        onNavigate();
+        return;
+      }
+
+      event.preventDefault();
+      onNavigate();
+      window.history.pushState(null, "", href);
+
+      window.requestAnimationFrame(() => {
+        const alignTarget = () => target.scrollIntoView({ block: "start" });
+
+        if ("onscrollend" in window) {
+          window.addEventListener("scrollend", alignTarget, { once: true });
+        } else {
+          window.setTimeout(alignTarget, 1200);
+        }
+
+        alignTarget();
+      });
+    };
+
     return (
-      <a href={href} {...sharedProps}>
+      <a href={href} onClick={handleSamePageNavigation} {...sharedProps}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link href={href} {...sharedProps}>
+    <Link href={href} onClick={onNavigate} {...sharedProps}>
       {children}
     </Link>
   );
