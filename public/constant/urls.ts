@@ -73,6 +73,46 @@ export const representUrl = "https://www.powerforpoint.com/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
+// 2026 media partners, carried over from the mediaPartners2025 collection in
+// Hygraph except where noted.
+export const cryptoWesearchUrl = "https://cryptowesearch.com/";
+export const foresightNewsUrl = "https://foresightnews.pro";
+export const cryptokenMediaUrl = "https://cryptoken.media";
+export const monsterBlockUrl = "https://monsterblockhk.com/";
+// The r3achntwrk.com/pukecast page we linked in 2025 now 404s.
+export const pukecastUrl = "https://x.com/pukecast";
+export const techFlowUrl = "https://www.techflowpost.com/index.aspx";
+// New for 2026. Links to DA Labs, the group's public-facing media site.
+export const daCapitalUrl = "https://dalabs.org/";
+
+// 2026 community / ecosystem partners — student clubs, DAOs and regional
+// Ethereum communities. ncu-blockchain-club and blocktrend are carried over
+// from Hygraph; the rest are the accounts each group publishes itself.
+export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
+export const blockTrendUrl = "https://www.blocktrend.today/";
+export const bermuDaoUrl = "https://x.com/bermudao_ch";
+// BOBA DAO has no website; @bobadao.lfg on Instagram is the public-facing one,
+// t.me/bobadaolfg is the group chat.
+export const bobaDaoUrl = "https://www.instagram.com/bobadao.lfg/";
+export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
+export const desciAsiaUrl = "https://x.com/DeSciAsia";
+export const openBuildUrl = "https://linktr.ee/openbuild";
+export const vyperUrl = "https://linktr.ee/vyperlang";
+// @cryptobarnospam is a Telegram group, not an X handle — x.com/cryptobarnospam 404s.
+export const cryptoBarUrl = "https://t.me/cryptobarnospam";
+// These five had no URL in Hygraph either, so they're the accounts each group
+// links from its own public profile.
+export const ethHubHkUrl = "https://x.com/ethereumhkhub";
+export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
+export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
+// NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the
+// one link that covers all of it.
+export const nodeZUrl = "https://www.nodezblockchain.com";
+export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
+export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
+export const ntutBlockchainUrl = "https://ntutblockchain.com/";
+
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
 export const tbaUrl = "https://www.facebook.com/TaiwanBlockchainAcademia/";
