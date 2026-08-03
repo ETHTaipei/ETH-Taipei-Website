@@ -1,27 +1,28 @@
 import Introduction from "@/components/HomePage/Introduction";
 import Recap from "@/components/HomePage/Recap";
-import Speakers from "@/components/HomePage/Speakers";
 import {
   Events2026,
   Home2026Hero,
 } from "@/components/HomePage/Home2026";
 import { BrandBgVideo } from "@/components/HomePage/Video";
-import { SPEAKER_QUERY } from "@/components/hooks/useSpeakers";
-import { FLAGS } from "@/public/constant/flags";
-import { ApolloWrapper, getInitialData } from "@/components/providers/apollo";
+import {
+  type CfpPhase,
+  resolveCfpPhase,
+} from "@/components/hooks/useCfpPhase";
+import { ApolloWrapper } from "@/components/providers/apollo";
 import type { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 
-export const getStaticProps: GetStaticProps = async () => {
-  // Only pre-fetch speakers when the section is enabled; otherwise the year-templated
-  // query (e.g. speakers2026) will 400 against Hygraph until the collection is seeded.
-  const initialApolloState = FLAGS.showSpeakers
-    ? await getInitialData([SPEAKER_QUERY])
-    : {};
+type HomeProps = {
+  initialApolloState: Record<string, unknown>;
+  initialCfpPhase: CfpPhase;
+};
 
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
-      initialApolloState,
+      initialApolloState: {},
+      initialCfpPhase: resolveCfpPhase(),
     },
     revalidate: 3600, // revalidate every hour
   };
@@ -43,22 +44,21 @@ const DynamicSpeakerSection = dynamic(
   () => import("@/components/HomePage/SpeakerSection")
 );
 
-const Home = ({ initialApolloState }: any) => {
+const Home = ({ initialApolloState, initialCfpPhase }: HomeProps) => {
   return (
     <ApolloWrapper pageProps={{ initialApolloState }}>
       <div className="home-2026">
-        <Home2026Hero />
+        <Home2026Hero initialCfpPhase={initialCfpPhase} />
+        <DynamicSpeakerSection />
+        <DynamicVenue />
+        <Introduction />
         <Events2026 />
         <Recap />
-        <Introduction />
-        <Speakers />
-        <DynamicVenue />
         <DynamicSponsors />
         <DynamicPartners />
-        <DynamicCallToAction />
-        <DynamicSpeakerSection />
         <DynamicPartnerSection />
         <DynamicCommunitySupport />
+        <DynamicCallToAction />
       </div>
     </ApolloWrapper>
   );

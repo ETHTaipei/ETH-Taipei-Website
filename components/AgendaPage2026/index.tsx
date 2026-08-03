@@ -1,4 +1,5 @@
 import Header2026 from "@/components/Layout/Header2026";
+import type { CfpPhase } from "@/components/hooks/useCfpPhase";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Locale } from "@/public/constant/content";
 import { type ReactNode, useState } from "react";
@@ -375,14 +376,18 @@ const COPY: Record<Locale, AgendaCopy> = {
   },
 };
 
-const AgendaPage2026 = () => {
+const AgendaPage2026 = ({
+  initialCfpPhase,
+}: {
+  initialCfpPhase: CfpPhase;
+}) => {
   const { locale } = useLanguage();
   const copy = COPY[locale];
   const [activeDay, setActiveDay] = useState<DayId>("day1");
 
   return (
     <div className={`${homeStyles.page} ${styles.page}`} data-day={activeDay}>
-      <Header2026 activeHref="/agenda" />
+      <Header2026 activeHref="/agenda" initialCfpPhase={initialCfpPhase} />
 
       <main className={styles.main} id="agenda">
         <div className={styles.shell}>

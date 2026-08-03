@@ -1,4 +1,5 @@
 import Header2026 from "@/components/Layout/Header2026";
+import type { CfpPhase } from "@/components/hooks/useCfpPhase";
 import { useT } from "@/contexts/LanguageContext";
 import {
   invitationLetterUrl,
@@ -15,11 +16,18 @@ const ExternalLink = ({ href, children }: { href: string; children: React.ReactN
   </a>
 );
 
-const VisaInfoPage = () => {
+const VisaInfoPage = ({
+  initialCfpPhase,
+}: {
+  initialCfpPhase: CfpPhase;
+}) => {
   const t = useT();
   return (
   <div className={`${homeStyles.page} ${styles.page}`}>
-    <Header2026 activeHref="/visainfo#info" />
+    <Header2026
+      activeHref="/visainfo#info"
+      initialCfpPhase={initialCfpPhase}
+    />
 
     <main className={styles.main} id="info">
       <div className={styles.shell}>

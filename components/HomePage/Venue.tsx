@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useT } from "@/contexts/LanguageContext";
 import { RecapBgVideo } from "./Video";
 import Colors from "@/styles/colors";
+import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import DeferredIframe from "./DeferredIframe";
 
 const Container = styled.div`
@@ -16,10 +17,74 @@ const Container = styled.div`
   }
 `;
 
-const MainContent = styled.div`
+const SectionAnchor = styled.span`
+  display: block;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--site-nav-height, 76px) + 16px);
+`;
+
+const VenueBlock = styled.div`
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 880px;
   margin: auto;
+  overflow: hidden;
+`;
+
+const HeadingBand = styled.header`
+  ${BlueGridBackgroundStyles}
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 54px 40px 50px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 42px 24px 38px;
+  }
+`;
+
+const HeadingTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  color: ${Colors.neonGreen};
+  font-size: 48px;
+  line-height: 1.1;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+    font-size: 36px;
+
+    img {
+      width: 42px;
+      height: auto;
+    }
+  }
+`;
+
+const HeadingSubtitle = styled.p`
+  margin: 14px 0 0;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1.6px;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+`;
+
+const MainContent = styled.div`
+  position: relative;
+  z-index: 1;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -40,11 +105,6 @@ const TextContainer = styled.div`
   @media (max-width: 996px) {
     gap: 24px;
   }
-`;
-
-const Title = styled.h2`
-  font-size: 28px;
-  color: ${Colors.neonGreen};
 `;
 
 const SubTitleContainer = styled.div`
@@ -126,52 +186,66 @@ const MobileImage = styled(Image)`
 const Venue = () => {
   const t = useT();
   return (
-    <Container id="venue">
-      <MainContent>
-        <TextContainer>
-          <Title>{t.homepage.venue}</Title>
-          <SubTitleContainer>
-            <SubTitle>{t.homepage.venueName}</SubTitle>
-          </SubTitleContainer>
-          <Description>{t.homepage.venueDescription}</Description>
-          <AddressContainer>
-            <Address
-              href="https://goo.gl/maps/CCXUtykxqYjyp9wVA"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Image
-                src="/images/icons/location.svg"
-                alt="location"
-                width={24}
-                height={24}
-                style={{ marginRight: 4 }}
-              />
-              <AddressDetail>{t.homepage.venueAddress}</AddressDetail>
-            </Address>
-          </AddressContainer>
-        </TextContainer>
-        <MapContainer>
-          <DeferredIframe
-            title="Venue GMap"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
-          />
-        </MapContainer>
-        <ImageContainer>
-          <DesktopImage
-            src="/images/venue/venue_horizontal.jpg"
-            alt="Venue"
-            width={2016}
-            height={746}
-          />
-          <MobileImage
-            src="/images/venue/venue_vertical.jpg"
-            alt="Venue"
-            width={1073}
-            height={1587}
-          />
-        </ImageContainer>
-      </MainContent>
+    <Container>
+      <VenueBlock>
+        <SectionAnchor id="venue" aria-hidden="true" />
+        <HeadingBand>
+          <HeadingTitle>
+            <Image
+              src="/images/icons/venue-pin.svg"
+              alt=""
+              width={60}
+              height={49}
+            />
+            {t.homepage.venue}
+          </HeadingTitle>
+          <HeadingSubtitle>{t.homepage.venueSubtitle}</HeadingSubtitle>
+        </HeadingBand>
+        <MainContent>
+          <TextContainer>
+            <SubTitleContainer>
+              <SubTitle>{t.homepage.venueName}</SubTitle>
+            </SubTitleContainer>
+            <Description>{t.homepage.venueDescription}</Description>
+            <AddressContainer>
+              <Address
+                href="https://goo.gl/maps/CCXUtykxqYjyp9wVA"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Image
+                  src="/images/icons/location.svg"
+                  alt="location"
+                  width={24}
+                  height={24}
+                  style={{ marginRight: 4 }}
+                />
+                <AddressDetail>{t.homepage.venueAddress}</AddressDetail>
+              </Address>
+            </AddressContainer>
+          </TextContainer>
+          <MapContainer>
+            <DeferredIframe
+              title="Venue GMap"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4235963977653!2d121.6013444758816!3d25.053628077803722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab6736d1d707%3A0x752127c88348688b!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5Y2X5riv6Lev5LqM5q61MTPomZ8!5e0!3m2!1szh-TW!2stw!4v1708771348975!5m2!1szh-TW!2stw"
+            />
+          </MapContainer>
+          <ImageContainer>
+            <DesktopImage
+              src="/images/venue/venue_horizontal.jpg"
+              alt="Venue"
+              width={2016}
+              height={746}
+            />
+            <MobileImage
+              src="/images/venue/venue_vertical.jpg"
+              alt="Venue"
+              width={1073}
+              height={1587}
+            />
+          </ImageContainer>
+        </MainContent>
+      </VenueBlock>
       <RecapBgVideo />
     </Container>
   );

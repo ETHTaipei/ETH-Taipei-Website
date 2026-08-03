@@ -4,6 +4,7 @@ import { BlueGridBackgroundStyles } from "@/styles/gridBackground";
 import Image from "next/image";
 
 interface PeopleSectionProps {
+  id?: string;
   title: string;
   subtitle: string;
   iconSrc: string;
@@ -18,6 +19,7 @@ interface PeopleSectionProps {
 }
 
 const PeopleSection = ({
+  id,
   title,
   subtitle,
   iconSrc,
@@ -31,6 +33,7 @@ const PeopleSection = ({
     <Container $paddingStyle={paddingStyle}>
       <MainContent $maxWidth={maxWidth}>
         <ContentCenter>
+          {id && <SectionAnchor id={id} aria-hidden="true" />}
           <Title>
             <Image
               src={iconSrc}
@@ -65,6 +68,13 @@ const Container = styled.div<{
   @media (max-width: 992px) {
     padding: ${(props) => props.$paddingStyle.mobile};
   }
+`;
+
+const SectionAnchor = styled.span`
+  display: block;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--site-nav-height, 76px) + 16px);
 `;
 
 const MainContent = styled.div<{

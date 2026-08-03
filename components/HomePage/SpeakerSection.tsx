@@ -22,6 +22,7 @@ const SpeakerSection = () => {
 
   return (
     <PeopleSection
+      id="speakers"
       title={t.homepage.speakers}
       subtitle={t.homepage.speakersSubtitle}
       iconSrc="./images/icons/cat.svg"

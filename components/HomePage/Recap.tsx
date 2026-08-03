@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useState } from "react";
 import styled from "styled-components";
 
 import { useT } from "@/contexts/LanguageContext";
+import { youtubeUrl } from "@/public/constant/urls";
 import Colors from "@/styles/colors";
 import { LogoBgIconDecoration } from "./BgIconDecoration";
 import { diagonalSymmetricBorder } from "@/styles/constants";
@@ -33,15 +33,12 @@ const GalleryImages = ({
 
 const Recap = () => {
   const t = useT();
-  const [isExpanded, setIsExpanded] = useState(false);
-  const handleClick = () => {
-    setIsExpanded((prev) => !prev);
-  };
 
   return (
     <Container>
       <LogoBgIconDecoration />
       <MainContent>
+        <SectionAnchor id="recap" aria-hidden="true" />
         <Title>
           <Image
             src={"/images/icons/boba.svg"}
@@ -61,21 +58,16 @@ const Recap = () => {
               fill
             />
           </HighlightContainer>
-          <GalleryImages year={2024} startIndex={2} count={5} extension="jpg" />
-          {isExpanded && (
-            <GalleryImages
-              year={2023}
-              startIndex={6}
-              count={9}
-              extension="png"
-            />
-          )}
+          <GalleryImages year={2024} startIndex={2} count={2} extension="jpg" />
         </Gallery>
-        <Controller>
-          <ViewMoreButton onClick={handleClick}>
-            {isExpanded ? t.homepage.recapHide : t.homepage.recapViewMore}
-          </ViewMoreButton>
-        </Controller>
+        <YoutubeLink
+          href={youtubeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t.homepage.recapYoutubeCta}
+          <span aria-hidden="true">→</span>
+        </YoutubeLink>
       </MainContent>
     </Container>
   );
@@ -87,7 +79,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 112px 40px;
+  padding: 84px 40px;
   background: linear-gradient(
     180deg,
     #101617 0,
@@ -100,9 +92,16 @@ const Container = styled.div`
   position: relative;
 `;
 
+const SectionAnchor = styled.span`
+  display: block;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--site-nav-height, 76px) + 16px);
+`;
+
 const MainContent = styled.div`
-  width: 85vw;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1040px;
 `;
 
 const Title = styled.h2`
@@ -137,9 +136,9 @@ const Subtitle = styled.p`
 `;
 
 const Gallery = styled.div`
-  margin-top: 48px;
+  margin-top: 36px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 20px;
   @media (max-width: 834px) {
     grid-template-columns: repeat(2, 1fr);
@@ -149,19 +148,11 @@ const Gallery = styled.div`
 const HighlightContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
-
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  aspect-ratio: 16 / 9;
 
   @media (max-width: 834px) {
     aspect-ratio: 582 / 329;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-column: 1 / 3;
   }
   z-index: 10;
 `;
@@ -185,57 +176,47 @@ const GalleryImg = styled(Image)`
 
 const ImgContainer = styled.div`
   position: relative;
-  aspect-ratio: 272 / 180;
+  height: 100%;
   z-index: 10;
   overflow: hidden;
+  @media (max-width: 834px) {
+    aspect-ratio: 272 / 180;
+  }
 `;
 
-const Controller = styled.div`
+const YoutubeLink = styled.a`
   display: flex;
+  width: fit-content;
+  align-items: center;
   justify-content: center;
-  margin-top: 40px;
-`;
-
-const ViewMoreButton = styled.button`
-  width: 260px;
-  margin-top: 40px;
+  gap: 10px;
+  margin: 34px auto 0;
   padding: 13px 24px;
   border: 1px solid ${Colors.neonGreen};
   border-radius: 12px;
   color: #0b1117;
-  background-color: ${Colors.neonGreen};
+  background: ${Colors.neonGreen};
   box-shadow: 0 0 18px rgb(203 241 1 / 0.28);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  font-family: "W95fa";
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-
-  z-index: 10;
-  transition: color 180ms ease, background-color 180ms ease,
+  transition: color 180ms ease, background 180ms ease,
     box-shadow 180ms ease, transform 180ms ease;
-  :hover {
+
+  &:hover,
+  &:focus-visible {
     color: ${Colors.neonGreen};
-    background-color: #0b1117;
-    box-shadow: 0 0 0 2px #0b1117, 0 0 0 4px ${Colors.neonGreen},
-      0 8px 24px rgb(203 241 1 / 0.36);
-    transform: translateY(-3px) scale(1.03);
-  }
-  :focus-visible {
-    color: ${Colors.neonGreen};
-    background-color: #0b1117;
-    outline: 3px solid white;
-    outline-offset: 4px;
+    background: #0b1117;
     box-shadow: 0 0 0 2px #0b1117, 0 0 0 4px ${Colors.neonGreen},
       0 8px 24px rgb(203 241 1 / 0.36);
     transform: translateY(-2px);
   }
+
+  &:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+  }
+
   @media (max-width: 476px) {
-    padding: 12px 20px;
     width: 100%;
-    font-size: 18px;
-    margin-top: 20px;
   }
 `;
