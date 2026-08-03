@@ -17,6 +17,12 @@ import Colors from "@/styles/colors";
 const CommunitySupport = () => {
   const t = useT();
   const { communityPartners } = useCommunityPartners();
+  const visibleCommunityPartners = communityPartners.filter(
+    // Keep the CMS entry intact; only hide the Ethereum Foundation logo here.
+    (partner) =>
+      !partner.name.toLowerCase().includes("ethereum foundation") &&
+      !partner.url.toLowerCase().includes("ethereum.foundation"),
+  );
 
   return (
     <Container>
@@ -34,7 +40,7 @@ const CommunitySupport = () => {
         </StyledTitle>
         <StyledSubtitle>{t.homepage.communitySupportSubtitle}</StyledSubtitle>
         <PartnersGrid>
-          {communityPartners.map((partner) => (
+          {visibleCommunityPartners.map((partner) => (
             <Partner key={partner.name} partner={partner} />
           ))}
         </PartnersGrid>

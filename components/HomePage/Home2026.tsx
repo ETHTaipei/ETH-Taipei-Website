@@ -1,8 +1,12 @@
 import { dateDayMonthYear, year } from "@/public/constant/content";
 import { useT } from "@/contexts/LanguageContext";
+import HeaderNavLinks from "@/components/Layout/HeaderNavLinks";
 import LanguageToggle from "@/components/Layout/LanguageToggle";
 import { FLAGS } from "@/public/constant/flags";
-import { useCfpPhase } from "@/components/hooks/useCfpPhase";
+import {
+  type CfpPhase,
+  useCfpPhase,
+} from "@/components/hooks/useCfpPhase";
 import {
   lumaEmbedUrl,
   lumaUrl,
@@ -18,24 +22,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Home2026.module.css";
 import DeferredIframe from "./DeferredIframe";
-
-type NavKey = "home" | "agenda" | "events" | "apply" | "venue" | "community" | "visa";
-
-type NavItem = {
-  key: NavKey;
-  href?: string;
-  external?: boolean;
-  disabled?: boolean;
-};
-
-const navItems: NavItem[] = [
-  { key: "home", href: "#home" },
-  { key: "agenda", href: "/agenda" },
-  { key: "events", href: "#events" },
-  { key: "venue", href: "#venue" },
-  { key: "community", href: "#community" },
-  { key: "visa", href: "/visainfo#info" },
-];
 
 const socialLinks = [
   { label: "Discord", href: discordUrl, icon: "/images/social-icons/discord_icon.svg" },
@@ -115,62 +101,6 @@ const DottedStar = ({ className, id }: { className: string; id: string }) => (
   </svg>
 );
 
-const NavLinks = ({
-  activeHref,
-  onNavigate,
-}: {
-  activeHref?: string;
-  onNavigate?: () => void;
-}) => {
-  const t = useT();
-  return (
-    <>
-      {navItems.map((item) => {
-        const label = t.hero.nav[item.key];
-        if (item.disabled) {
-          return (
-            <span
-              key={item.key}
-              className={styles.navDisabled}
-              aria-disabled="true"
-              aria-label={`${label}, to be announced`}
-            >
-              <span>{label}</span>
-              <span className={styles.navTba} aria-hidden="true">
-                {t.hero.nav.tba}
-              </span>
-            </span>
-          );
-        }
-
-        if (!item.href) return null;
-
-        return item.href.startsWith("/") ? (
-          <Link
-            className={activeHref === item.href ? styles.navActive : undefined}
-            key={item.key}
-            href={item.href}
-            onClick={onNavigate}
-          >
-            {label}
-          </Link>
-        ) : (
-          <a
-            className={activeHref === item.href ? styles.navActive : undefined}
-            key={item.key}
-            href={item.href}
-            target={item.external ? "_blank" : undefined}
-            rel={item.external ? "noopener noreferrer" : undefined}
-            onClick={onNavigate}
-          >
-            {label}
-          </a>
-        );
-      })}
-    </>
-  );
-};
-
 const SocialLinks = ({ className = "" }: { className?: string }) => (
   <div className={`${styles.socialLinks} ${className}`} aria-label="ETHTaipei social links">
     {socialLinks.map((item) => (
@@ -188,11 +118,11 @@ const SocialLinks = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-const Hero2026 = () => {
+const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
   const t = useT();
   const venueMapsUrl = getVenueMapsUrl(t.homepage.venueAddress);
   const heroRef = useRef<HTMLElement>(null);
-  const cfpPhase = useCfpPhase();
+  const cfpPhase = useCfpPhase(initialCfpPhase);
   const isCfpOpen = cfpPhase === "open";
   const [menuOpen, setMenuOpen] = useState(false);
   const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
@@ -218,7 +148,15 @@ const Hero2026 = () => {
   }, []);
 
   useEffect(() => {
-    const targets = ["#home", "#events", "#community", "#venue"];
+    const targets = [
+      "#home",
+      "#speakers",
+      "#venue",
+      "#about",
+      "#events",
+      "#recap",
+      "#partners",
+    ];
     let frame = 0;
 
     const updateActiveSection = () => {
@@ -325,7 +263,7 @@ const Hero2026 = () => {
           <span>ETHTaipei</span>
         </Link>
         <nav className={styles.nav} aria-label="Primary navigation">
-          <NavLinks activeHref={activeHref} />
+          <HeaderNavLinks activeHref={activeHref} isHomepage />
         </nav>
         <div className={styles.topbarActions}>
           <LanguageToggle />
@@ -391,7 +329,11 @@ const Hero2026 = () => {
         id="mobile-nav"
         aria-label="Mobile navigation"
       >
-        <NavLinks activeHref={activeHref} onNavigate={() => setMenuOpen(false)} />
+        <HeaderNavLinks
+          activeHref={activeHref}
+          isHomepage
+          onNavigate={() => setMenuOpen(false)}
+        />
         <LanguageToggle className={styles.mobileLangToggle} />
         <SocialLinks className={styles.mobileSocialLinks} />
       </nav>
@@ -425,7 +367,10 @@ const Hero2026 = () => {
             <span className={styles.heroYear}>{year}</span>
           </h1>
           {isCfpOpen && (
-            <p className={styles.cfpLabel}>{t.hero.callForSpeakers}</p>
+            <p className={styles.cfpLabel}>
+              <span>{t.hero.callForSpeakers}</span>
+              <small>{t.hero.callForSpeakersDeadline}</small>
+            </p>
           )}
           <p className={styles.lede}>{t.hero.lede}</p>
           <div className={styles.actions} id="apply">
@@ -579,15 +524,16 @@ const EventCard = ({ id, imageSrc, name, description, date, buttonText, href }: 
 const Events2026 = () => {
   const t = useT();
   return (
-  <section className={styles.eventsSection} id="events">
+  <section className={styles.eventsSection}>
     <div className={styles.eventsWrap}>
+      <span className={styles.sectionAnchor} id="events" aria-hidden="true" />
       <h2 className={styles.eventsTitle}>
         <Star className={styles.eventsIcon} />
         {t.homepage.eventTitle}
       </h2>
       <p className={styles.eventsSubtitle}>{t.homepage.eventSubTitle}</p>
 
-      <div className={`${styles.eventRow} ${styles.singleEventRow}`}>
+      <div className={styles.eventRow}>
         <EventCard
           imageSrc="/images/recap-2024/1.jpg"
           name={t.homepage.eventName_1}
@@ -596,9 +542,6 @@ const Events2026 = () => {
           buttonText={t.homepage.eventBtn_1}
           href={tickSiteUrl}
         />
-      </div>
-
-      <div className={styles.eventRow}>
         <EventCard
           id="community"
           imageSrc="/images/recap-2024/8.jpg"
@@ -608,7 +551,9 @@ const Events2026 = () => {
           buttonText={t.homepage.eventBtn_4}
           href={lumaUrl}
         />
-        {FLAGS.showCommunityCalendar ? (
+      </div>
+      {FLAGS.showCommunityCalendar && (
+        <div className={styles.eventRow}>
           <DeferredIframe
             className={styles.eventCalendar}
             title="Events Calendar"
@@ -617,13 +562,8 @@ const Events2026 = () => {
             aria-hidden="false"
             tabIndex={0}
           />
-        ) : (
-          <aside className={styles.eventCalendarEmpty} aria-label="Community events status">
-            <Star className={styles.eventCalendarEmptyIcon} />
-            <p>{t.homepage.moreCommunityEventsSoon}</p>
-          </aside>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   </section>
   );
@@ -700,9 +640,13 @@ const SparkleTrail = () => {
   return <div ref={layerRef} className={styles.sparkleLayer} aria-hidden="true" />;
 };
 
-export const Home2026Hero = () => (
+export const Home2026Hero = ({
+  initialCfpPhase,
+}: {
+  initialCfpPhase: CfpPhase;
+}) => (
   <div className={styles.page}>
-    <Hero2026 />
+    <Hero2026 initialCfpPhase={initialCfpPhase} />
     <SparkleTrail />
   </div>
 );

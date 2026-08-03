@@ -5,29 +5,17 @@ import {
   tickSiteUrl,
   xUrl,
 } from "@/public/constant/urls";
-import { useCfpPhase } from "@/components/hooks/useCfpPhase";
+import {
+  type CfpPhase,
+  useCfpPhase,
+} from "@/components/hooks/useCfpPhase";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import styles from "@/components/HomePage/Home2026.module.css";
+import HeaderNavLinks from "@/components/Layout/HeaderNavLinks";
 import LanguageToggle from "@/components/Layout/LanguageToggle";
-
-type NavItem = {
-  label: string;
-  href?: string;
-  external?: boolean;
-  disabled?: boolean;
-};
-
-const navItems: NavItem[] = [
-  { label: "Home", href: "/#home" },
-  { label: "Agenda", href: "/agenda" },
-  { label: "Events", href: "/#events" },
-  { label: "Venue", href: "/#venue" },
-  { label: "Community", href: "/#community" },
-  { label: "Visa", href: "/visainfo#info" },
-];
 
 const socialLinks = [
   { label: "Discord", href: discordUrl, icon: "/images/social-icons/discord_icon.svg" },
@@ -61,54 +49,14 @@ const SocialLinks = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-const NavLinks = ({
+const Header2026 = ({
   activeHref,
-  onNavigate,
+  initialCfpPhase,
 }: {
   activeHref: string;
-  onNavigate?: () => void;
-}) => (
-  <>
-    {navItems.map((item) => {
-      if (item.disabled) {
-        return (
-          <span
-            key={item.label}
-            className={styles.navDisabled}
-            aria-disabled="true"
-            aria-label={`${item.label}, to be announced`}
-          >
-            <span>{item.label}</span>
-            <span className={styles.navTba} aria-hidden="true">TBA</span>
-          </span>
-        );
-      }
-
-      if (!item.href) return null;
-      const className = activeHref === item.href ? styles.navActive : undefined;
-
-      return item.external ? (
-        <a
-          className={className}
-          key={item.label}
-          href={item.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onNavigate}
-        >
-          {item.label}
-        </a>
-      ) : (
-        <Link className={className} key={item.label} href={item.href} onClick={onNavigate}>
-          {item.label}
-        </Link>
-      );
-    })}
-  </>
-);
-
-const Header2026 = ({ activeHref }: { activeHref: string }) => {
-  const cfpPhase = useCfpPhase();
+  initialCfpPhase: CfpPhase;
+}) => {
+  const cfpPhase = useCfpPhase(initialCfpPhase);
   const isCfpOpen = cfpPhase === "open";
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -136,7 +84,7 @@ const Header2026 = ({ activeHref }: { activeHref: string }) => {
           <span>ETHTaipei</span>
         </Link>
         <nav className={styles.nav} aria-label="Primary navigation">
-          <NavLinks activeHref={activeHref} />
+          <HeaderNavLinks activeHref={activeHref} />
         </nav>
         <div className={styles.topbarActions}>
           <LanguageToggle />
@@ -202,7 +150,10 @@ const Header2026 = ({ activeHref }: { activeHref: string }) => {
         id="mobile-nav"
         aria-label="Mobile navigation"
       >
-        <NavLinks activeHref={activeHref} onNavigate={() => setMenuOpen(false)} />
+        <HeaderNavLinks
+          activeHref={activeHref}
+          onNavigate={() => setMenuOpen(false)}
+        />
         <LanguageToggle className={styles.mobileLangToggle} />
         <SocialLinks className={styles.mobileSocialLinks} />
       </nav>

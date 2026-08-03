@@ -20,6 +20,7 @@ const enHomepage = {
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
   venue: "The Venue",
+  venueSubtitle: "POPOP Taipei · Nangang, Taipei",
   venueName: "POPOP Taipei",
   venueDescription:
     "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
@@ -30,7 +31,7 @@ const enHomepage = {
   organizers: "Organizers",
   organizerSubtitle: "The team that makes ETHTaipei happen!",
   communitySupport: "Community Support",
-  communitySupportSubtitle: "Support from ETH Organizations!",
+  communitySupportSubtitle: "Support from ETH Community!",
   openingAndKeynote: "Opening / Keynote Speaker",
   mediaPartners: "Media Partners",
   mediaPartnersDesc: "Bringing Web3 Stories to the World!",
@@ -86,6 +87,7 @@ const enHomepage = {
 
   recapTitle: "2023-2025 Recap",
   recapSubTitle: "Highlights from the unforgettable ETHTaipei!!",
+  recapYoutubeCta: "Watch more on YouTube",
   recapViewMore: "Load More",
   recapHide: "Show Less",
 
@@ -96,6 +98,7 @@ const enHomepage = {
 const enHero = {
   eyebrow: "ETHTAIPEI.ORG · TAIWAN",
   callForSpeakers: "Call for Speakers",
+  callForSpeakersDeadline: "Applications close Aug 20, 23:59 AoE",
   lede: "Two days where Taiwan's builders meet the global Ethereum stack, from core protocol research and DeFi to custody, real-world assets (RWA), and institutional-grade applications.",
   applyToSpeak: "Apply to Speak",
   buyTicket: "Buy Ticket",
@@ -121,11 +124,16 @@ const enHero = {
   nav: {
     home: "Home",
     agenda: "Agenda",
+    speakers: "Speakers",
     events: "Events",
     apply: "Apply",
     venue: "Venue",
     community: "Community",
     visa: "Visa",
+    about: "About",
+    what: "What is ETHTaipei",
+    recap: "Recap",
+    partners: "Partners",
     tba: "TBA",
   },
 };
@@ -259,6 +267,7 @@ const zhHomepage: Dictionary["homepage"] = {
   beASpeaker: "成為講者",
   beASponsor: "成為贊助商",
   venue: "活動場地",
+  venueSubtitle: "POPOP Taipei・台北南港",
   venueName: "POPOP Taipei",
   venueDescription:
     "POPOP Taipei 是備受矚目的活動空間，以獨特的氛圍聞名。場地寬敞、設備現代，是舉辦大會、工作坊與社交聚會的理想選擇。",
@@ -268,7 +277,7 @@ const zhHomepage: Dictionary["homepage"] = {
   organizers: "主辦團隊",
   organizerSubtitle: "讓 ETHTaipei 成真的團隊！",
   communitySupport: "社群支持",
-  communitySupportSubtitle: "來自以太坊組織的支持！",
+  communitySupportSubtitle: "來自以太坊社群的支持！",
   openingAndKeynote: "開場 / 主題演講",
   mediaPartners: "媒體夥伴",
   mediaPartnersDesc: "把 Web3 的故事帶向世界！",
@@ -324,6 +333,7 @@ const zhHomepage: Dictionary["homepage"] = {
 
   recapTitle: "2023-2025 回顧",
   recapSubTitle: "難忘 ETHTaipei 的精彩回顧！！",
+  recapYoutubeCta: "到 YouTube 看更多回顧",
   recapViewMore: "載入更多",
   recapHide: "收合",
 
@@ -333,6 +343,7 @@ const zhHomepage: Dictionary["homepage"] = {
 const zhHero: Dictionary["hero"] = {
   eyebrow: "ETHTAIPEI.ORG · 台灣",
   callForSpeakers: "講者徵求",
+  callForSpeakersDeadline: "申請截止：8 月 20 日 23:59 AoE",
   lede: "為期兩天，台灣開發者與全球以太坊技術棧接軌——從核心協議研究、DeFi，到資產託管、真實世界資產（RWA）與機構級應用。",
   applyToSpeak: "申請演講",
   buyTicket: "購票",
@@ -358,11 +369,16 @@ const zhHero: Dictionary["hero"] = {
   nav: {
     home: "首頁",
     agenda: "議程",
+    speakers: "講者",
     events: "活動",
     apply: "申請",
     venue: "場地",
     community: "社群",
     visa: "簽證",
+    about: "關於",
+    what: "什麼是 ETHTaipei",
+    recap: "活動回顧",
+    partners: "合作夥伴",
     tba: "即將公布",
   },
 };

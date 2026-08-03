@@ -26,8 +26,8 @@ export const resolveCfpPhase = (
   return now < closesAt ? "open" : "closed";
 };
 
-export const useCfpPhase = (): CfpPhase => {
-  const [phase, setPhase] = useState<CfpPhase>(() => resolveCfpPhase());
+export const useCfpPhase = (initialPhase: CfpPhase): CfpPhase => {
+  const [phase, setPhase] = useState<CfpPhase>(initialPhase);
 
   useEffect(() => {
     if (CFP_CONFIG.phaseOverride !== "auto") {

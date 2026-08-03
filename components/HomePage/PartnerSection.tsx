@@ -348,6 +348,7 @@ const PartnerSection = () => {
   return (
     <Container>
       <MainContent>
+        <SectionAnchor id="partners" aria-hidden="true" />
         <SectionContainer>
           <Title>
             <SmileIcon />
@@ -381,6 +382,13 @@ const PartnerSection = () => {
 
 const Container = styled(BaseContainer)`
   ${GrayGridBackgroundStyles}
+`;
+
+const SectionAnchor = styled.span`
+  display: block;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--site-nav-height, 76px) + 16px);
 `;
 
 const MainContent = styled(BaseMainContent)`

@@ -9,10 +9,26 @@ import { diagonalSymmetricBorder } from "@/styles/constants";
 
 const Introduction = () => {
   const t = useT();
+  const cards = [
+    {
+      title: t.homepage.introductionCardTitle_1,
+      description: t.homepage.introductionCardDesc_1,
+    },
+    {
+      title: t.homepage.introductionCardTitle_2,
+      description: t.homepage.introductionCardDesc_2,
+    },
+    {
+      title: t.homepage.introductionCardTitle_3,
+      description: t.homepage.introductionCardDesc_3_1,
+    },
+  ];
+
   return (
     <Container>
       <CuteBgIconDecoration />
       <MainContent>
+        <SectionAnchor id="about" aria-hidden="true" />
         <TitleContainer>
           <IconImg
             src={"/images/icons/temple.svg"}
@@ -24,48 +40,13 @@ const Introduction = () => {
         </TitleContainer>
         <Subtitle>{t.homepage.introductionSubtitle}</Subtitle>
         <CardContainer>
-          <Card>
-            <CardImg>
-              <Image
-                src="/images/recap-2024/7.jpg"
-                alt={t.homepage.introductionCardTitle_1}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </CardImg>
-            <CardImgDesc>{t.homepage.introductionCardTitle_1}</CardImgDesc>
-            <CarInfo>{t.homepage.introductionCardDesc_1}</CarInfo>
-          </Card>
-          <RightCardContainer>
-            <RightCard>
-              <CardImg>
-                <Image
-                  src="/images/recap-2024/3.jpg"
-                  alt={t.homepage.introductionCardTitle_2}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </CardImg>
-              <CardContent>
-                <CardImgDesc>{t.homepage.introductionCardTitle_2}</CardImgDesc>
-                <CarInfo>{t.homepage.introductionCardDesc_2}</CarInfo>
-              </CardContent>
-            </RightCard>
-            <RightCard>
-              <CardImg>
-                <Image
-                  src="/images/recap-2024/4.jpg"
-                  alt={t.homepage.introductionCardTitle_3}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </CardImg>
-              <CardContent>
-                <CardImgDesc>{t.homepage.introductionCardTitle_3}</CardImgDesc>
-                <CarInfo>{t.homepage.introductionCardDesc_3_1}</CarInfo>
-              </CardContent>
-            </RightCard>
-          </RightCardContainer>
+          {cards.map(({ title, description }, index) => (
+            <Card key={title}>
+              <CardNumber aria-hidden="true">0{index + 1}</CardNumber>
+              <CardImgDesc>{title}</CardImgDesc>
+              <CarInfo>{description}</CarInfo>
+            </Card>
+          ))}
         </CardContainer>
       </MainContent>
     </Container>
@@ -80,22 +61,25 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 120px 40px;
+  padding: 84px 40px;
 
   @media (max-width: 768px) {
     padding: 60px 24px 120px 24px;
   }
 `;
 
+const SectionAnchor = styled.span`
+  display: block;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--site-nav-height, 76px) + 16px);
+`;
+
 const MainContent = styled.div`
   width: 90vw;
   max-width: 1200px;
   margin: auto;
-  /* add margin-bottom for BgIconDecoration */
-  margin-bottom: 80px;
-  @media (max-width: 768px) {
-    margin-bottom: 0px;
-  }
+  margin-bottom: 0;
 `;
 
 const TitleContainer = styled.div`
@@ -146,7 +130,7 @@ const Subtitle = styled.div`
 
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: 4fr 6fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   color: white;
   margin-top: 40px;
@@ -160,55 +144,31 @@ const CardContainer = styled.div`
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
-`;
-
-const RightCard = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-
-  @media (max-width: 992px) {
-    flex-direction: column;
-  }
-`;
-
-const RightCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-const CardImg = styled.div`
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 306 / 180;
-  border: 3px solid ${Colors.neonGreen};
+  gap: 14px;
+  min-height: 260px;
+  padding: 26px;
+  border: 1px solid rgb(203 241 1 / 0.3);
+  background: linear-gradient(145deg, rgb(203 241 1 / 0.08), rgb(57 82 255 / 0.12));
   ${diagonalSymmetricBorder}
-  min-width: 230px;
-  min-height: 210px;
-  @media (max-width: 992px) {
-    min-width: 0;
-    min-height: 0;
-  }
+`;
+
+const CardNumber = styled.span`
+  color: rgb(203 241 1 / 0.7);
+  font-family: "Menlo", "Monaco", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
 `;
 
 const CardImgDesc = styled.div`
-  font-size: 24px;
+  font-size: 22px;
   color: ${Colors.neonGreen};
   line-height: 28px;
-  margin-top: 8px;
 `;
 
 const CarInfo = styled.div`
   font-family: "Inter";
   font-size: 14px;
-  line-height: 21px;
+  line-height: 22px;
   letter-spacing: 0.5px;
 `;
