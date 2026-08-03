@@ -102,6 +102,9 @@ export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
+// NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the
+// one link that covers all of it.
+export const nodeZUrl = "https://www.nodezblockchain.com";
 export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";

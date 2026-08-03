@@ -24,6 +24,7 @@ import {
   nccuBlockchainUrl,
   nchuBlockchainUrl,
   ncuBlockchainClubUrl,
+  nodeZUrl,
   ntufcUrl,
   ntustBlockchainUrl,
   ntutBlockchainUrl,
@@ -149,6 +150,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/ncubc.png",
     width: 160,
     height: 40,
+  },
+  {
+    name: "NodeZ",
+    url: nodeZUrl,
+    img: "/images/partners/nodez.png",
+    width: 70,
+    height: 78,
   },
   {
     name: "NTU Fintech Club",
