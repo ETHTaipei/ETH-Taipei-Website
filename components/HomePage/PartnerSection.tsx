@@ -9,6 +9,7 @@ import {
   blockbeatsUrl,
   blocktempoUrl,
   blockTrendUrl,
+  bobaDaoUrl,
   cryptoBarUrl,
   cryptoCityUrl,
   cryptokenMediaUrl,
@@ -94,6 +95,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/blocktrend.png",
     width: 72,
     height: 78,
+  },
+  {
+    name: "BOBA DAO",
+    url: bobaDaoUrl,
+    img: "/images/partners/bobadao.svg",
+    width: 198,
+    height: 33,
   },
   {
     name: "CryptoBar 流動吧",

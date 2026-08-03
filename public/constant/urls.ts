@@ -90,6 +90,9 @@ export const daCapitalUrl = "https://dalabs.org/";
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
 export const blockTrendUrl = "https://www.blocktrend.today/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";
+// BOBA DAO has no website; @bobadao.lfg on Instagram is the public-facing one,
+// t.me/bobadaolfg is the group chat.
+export const bobaDaoUrl = "https://www.instagram.com/bobadao.lfg/";
 export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
 export const desciAsiaUrl = "https://x.com/DeSciAsia";
 export const openBuildUrl = "https://linktr.ee/openbuild";
