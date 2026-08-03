@@ -91,6 +91,7 @@ export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
 export const blockTrendUrl = "https://www.blocktrend.today/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";
 export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
+export const desciAsiaUrl = "https://x.com/DeSciAsia";
 export const openBuildUrl = "https://linktr.ee/openbuild";
 export const vyperUrl = "https://linktr.ee/vyperlang";
 // @cryptobarnospam is a Telegram group, not an X handle — x.com/cryptobarnospam 404s.

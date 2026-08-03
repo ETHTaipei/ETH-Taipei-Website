@@ -14,6 +14,7 @@ import {
   cryptokenMediaUrl,
   cryptoWesearchUrl,
   daCapitalUrl,
+  desciAsiaUrl,
   desciTaiwanUrl,
   ethHubHkUrl,
   ethTaoUrl,
@@ -98,6 +99,13 @@ const PARTNERS: LogoEntry[] = [
     url: cryptoBarUrl,
     img: "/images/partners/cryptobar.png",
     width: 71,
+    height: 78,
+  },
+  {
+    name: "DeSci Asia",
+    url: desciAsiaUrl,
+    img: "/images/partners/desciasia.png",
+    width: 68,
     height: 78,
   },
   {
