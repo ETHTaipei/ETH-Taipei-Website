@@ -550,7 +550,11 @@
   opacity: 1;
   visibility: visible;
   transform: none;
-  pointer-events: auto;
+  /* Inherit pointer-events from .mobileNav so the submenu is only clickable
+     when the menu is open. Hardcoding `auto` here left these links hit-testable
+     while the menu was closed (display:flex + opacity:0), so taps on page
+     content behind the invisible overlay hit homepage anchor links instead. */
+  pointer-events: inherit;
 }
 
 .mobileNav .navDropdown::before {
