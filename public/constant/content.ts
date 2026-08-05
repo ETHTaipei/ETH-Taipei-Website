@@ -36,7 +36,7 @@ const enHomepage = {
   mediaPartners: "Media Partners",
   mediaPartnersDesc: "Bringing Web3 Stories to the World!",
   sponsors: `Sponsors`,
-  sponsorSubtitle: "These Sponsors Make ETHTaipei Possible!",
+  sponsorSubtitle: "Backing the builders shaping Ethereum in Taiwan.",
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
@@ -282,7 +282,7 @@ const zhHomepage: Dictionary["homepage"] = {
   mediaPartners: "媒體夥伴",
   mediaPartnersDesc: "把 Web3 的故事帶向世界！",
   sponsors: "贊助商",
-  sponsorSubtitle: "這些贊助商讓 ETHTaipei 成為可能！",
+  sponsorSubtitle: "支持台灣 Ethereum 生態持續成長的夥伴。",
 
   bannerTitle_1: "ETH",
   bannerTitle_2: "Taipei",
