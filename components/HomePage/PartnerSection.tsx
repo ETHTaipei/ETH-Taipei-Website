@@ -300,8 +300,18 @@ const MEDIA_PARTNERS: LogoEntry[] = [
 
 const SmileIcon = () => (
   <Image
-    src="./images/icons/smile.svg"
-    alt="Smile icon"
+    src="/images/icons/smile.svg"
+    alt=""
+    width={36}
+    height={36}
+    style={{ marginRight: 16 }}
+  />
+);
+
+const MediaIcon = () => (
+  <Image
+    src="/images/icons/media.svg"
+    alt=""
     width={36}
     height={36}
     style={{ marginRight: 16 }}
@@ -364,7 +374,7 @@ const PartnerSection = () => {
         {mediaPartners.length > 0 && (
           <SectionContainer>
             <Title>
-              <SmileIcon />
+              <MediaIcon />
               {t.homepage.mediaPartners}
             </Title>
             <Subtitle>{t.homepage.mediaPartnersDesc}</Subtitle>

@@ -4,7 +4,7 @@
  */
 export const FLAGS = {
   showSpeakers: false,
-  showSponsors: false,
+  showSponsors: true,
   showPartners: false,
   showMediaPartners: false,
   showAgenda: false,
