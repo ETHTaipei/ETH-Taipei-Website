@@ -227,6 +227,14 @@
   transition: opacity 180ms ease;
 }
 
+.sponsorCard[data-surface="light"] {
+  background: #fff;
+}
+
+.sponsorCard[data-surface="light"]::before {
+  background: none;
+}
+
 .sponsorCard::after {
   position: absolute;
   top: 12px;
@@ -256,6 +264,10 @@
   object-fit: contain;
   filter: drop-shadow(0 7px 22px rgb(0 0 0 / 0.32));
   transition: transform 180ms ease;
+}
+
+.sponsorCard[data-surface="light"] .sponsorLogo {
+  filter: none;
 }
 
 .visit {
