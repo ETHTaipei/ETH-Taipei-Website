@@ -75,12 +75,7 @@ export const PartnerLink = styled(Link)`
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  transition: all 300ms ease;
   display: block;
-
-  :hover {
-    transform: scale(1.1);
-  }
 
   > img {
     object-fit: contain;

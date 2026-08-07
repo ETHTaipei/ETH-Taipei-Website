@@ -93,6 +93,7 @@ const HeaderNavLinks = ({
     { label: t.hero.nav.what, href: homeHref("about") },
     { label: t.hero.nav.events, href: homeHref("events") },
     { label: t.hero.nav.recap, href: homeHref("recap") },
+    { label: t.hero.nav.sponsors, href: homeHref("sponsors") },
     { label: t.hero.nav.partners, href: homeHref("partners") },
   ];
   const aboutIsActive = aboutLinks.some(({ href }) => activeHref === href);

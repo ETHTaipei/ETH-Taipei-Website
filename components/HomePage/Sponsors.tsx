@@ -9,7 +9,10 @@ type Sponsor = {
   name: string;
   logo: string;
   tier: SponsorTier;
+  width: number;
+  height: number;
   url?: string;
+  surface?: "dark" | "light";
 };
 
 const SPONSORS: Sponsor[] = [
@@ -17,7 +20,18 @@ const SPONSORS: Sponsor[] = [
     name: "BSOS",
     logo: "/images/sponsors/bsos-white.png",
     tier: "gold",
+    width: 2544,
+    height: 673,
     url: "http://bsos.co/",
+  },
+  {
+    name: "TS Holdings",
+    logo: "/images/sponsors/ts-holdings.svg",
+    tier: "silver",
+    width: 220.353,
+    height: 66,
+    url: "https://www.tsholdings.com.tw/tsh/",
+    surface: "light",
   },
 ];
 
@@ -28,9 +42,7 @@ const TIERS: Array<{ id: SponsorTier; label: string }> = [
   { id: "bronze", label: "Bronze" },
 ];
 
-// Keep tier-based sizing and grouping active without publishing the labels yet.
-// Flip this once the final sponsor lineup and tier naming are confirmed.
-const SHOW_SPONSOR_TIER_LABELS = false;
+const SHOW_SPONSOR_TIER_LABELS = true;
 
 const Sponsors = () => {
   const t = useT();
@@ -85,6 +97,7 @@ const Sponsors = () => {
                   return (
                     <a
                       className={styles.sponsorCard}
+                      data-surface={sponsor.surface || "dark"}
                       href={href}
                       target={isExternal ? "_blank" : undefined}
                       rel={isExternal ? "noopener noreferrer" : undefined}
@@ -96,8 +109,8 @@ const Sponsors = () => {
                         className={styles.sponsorLogo}
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}
-                        width={2544}
-                        height={673}
+                        width={sponsor.width}
+                        height={sponsor.height}
                         sizes="(max-width: 768px) 70vw, 320px"
                       />
                       <span className={styles.visit} aria-hidden="true">

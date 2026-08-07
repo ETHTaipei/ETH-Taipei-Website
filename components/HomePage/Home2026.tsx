@@ -155,6 +155,7 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
       "#about",
       "#events",
       "#recap",
+      "#sponsors",
       "#partners",
     ];
     let frame = 0;
