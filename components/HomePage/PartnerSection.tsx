@@ -421,11 +421,6 @@ const logoStyles = `
 
 const PartnerLogo = styled(Link)`
   ${logoStyles}
-  transition: transform 300ms ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
 const PartnerLogoStatic = styled.div`
