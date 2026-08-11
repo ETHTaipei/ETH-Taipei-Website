@@ -147,34 +147,18 @@
 
 .tier[data-tier="platinum"] {
   --tier-color: #dce6ef;
-  --card-width: 500px;
-  --card-min-height: 220px;
-  --logo-max-width: 420px;
-  --logo-max-height: 104px;
 }
 
 .tier[data-tier="gold"] {
   --tier-color: #f0ca62;
-  --card-width: 320px;
-  --card-min-height: 176px;
-  --logo-max-width: 320px;
-  --logo-max-height: 82px;
 }
 
 .tier[data-tier="silver"] {
   --tier-color: #bbc3ce;
-  --card-width: 235px;
-  --card-min-height: 148px;
-  --logo-max-width: 225px;
-  --logo-max-height: 64px;
 }
 
 .tier[data-tier="bronze"] {
   --tier-color: #bf835d;
-  --card-width: 184px;
-  --card-min-height: 124px;
-  --logo-max-width: 165px;
-  --logo-max-height: 50px;
 }
 
 .sponsorGrid {
@@ -191,6 +175,10 @@
 }
 
 .tier {
+  --card-width: 320px;
+  --card-min-height: 176px;
+  --logo-max-width: 320px;
+  --logo-max-height: 82px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,8 +187,9 @@
 .sponsorCard {
   position: relative;
   display: flex;
-  flex: 0 1 var(--card-width);
-  width: min(100%, var(--card-width));
+  flex: 0 0 var(--card-width);
+  width: var(--card-width);
+  max-width: 100%;
   min-height: var(--card-min-height);
   align-items: center;
   justify-content: center;
@@ -257,10 +246,36 @@
 }
 
 .sponsorLogo {
-  width: min(100%, var(--logo-max-width));
-  max-height: var(--logo-max-height);
+  width: 100%;
+  max-width: var(--logo-max-width);
+  height: var(--logo-max-height);
   object-fit: contain;
   filter: none;
+}
+
+.sponsorWordmark {
+  display: flex;
+  width: 100%;
+  max-width: var(--logo-max-width);
+  height: var(--logo-max-height);
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--sponsor-ink);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.sponsorWordmark img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.sponsorCard[data-surface="light"] .sponsorWordmark {
+  color: #111827;
 }
 
 .visit {
