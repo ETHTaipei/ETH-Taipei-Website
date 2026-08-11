@@ -11,6 +11,7 @@ type Sponsor = {
   tier: SponsorTier;
   width: number;
   height: number;
+  wordmark?: string;
   url?: string;
   surface?: "dark" | "light";
 };
@@ -25,12 +26,39 @@ const SPONSORS: Sponsor[] = [
     url: "http://bsos.co/",
   },
   {
+    name: "Sigmarket",
+    logo: "/images/sponsors/sigmarket-mark.png",
+    tier: "gold",
+    width: 512,
+    height: 512,
+    wordmark: "Sigmarket",
+    url: "https://sigmarket.io/",
+    surface: "light",
+  },
+  {
     name: "TS Holdings",
     logo: "/images/sponsors/ts-holdings.svg",
     tier: "silver",
     width: 220.353,
     height: 66,
     url: "https://www.tsholdings.com.tw/tsh/",
+    surface: "light",
+  },
+  {
+    name: "Quantstamp",
+    logo: "/images/sponsors/quantstamp.svg",
+    tier: "silver",
+    width: 162,
+    height: 28,
+    url: "https://quantstamp.com/",
+  },
+  {
+    name: "KlickKlack",
+    logo: "/images/sponsors/klickklack.svg",
+    tier: "silver",
+    width: 577.29,
+    height: 120.49,
+    url: "https://www.kkco.com.tw/",
     surface: "light",
   },
 ];
@@ -105,14 +133,30 @@ const Sponsors = () => {
                       key={sponsor.name}
                     >
                       <span className={styles.corner} aria-hidden="true" />
-                      <Image
-                        className={styles.sponsorLogo}
-                        src={sponsor.logo}
-                        alt={`${sponsor.name} logo`}
-                        width={sponsor.width}
-                        height={sponsor.height}
-                        sizes="(max-width: 768px) 70vw, 320px"
-                      />
+                      {sponsor.wordmark ? (
+                        <span
+                          className={styles.sponsorWordmark}
+                          aria-label={`${sponsor.name} logo`}
+                        >
+                          <Image
+                            src={sponsor.logo}
+                            alt=""
+                            width={sponsor.width}
+                            height={sponsor.height}
+                            sizes="72px"
+                          />
+                          <span>{sponsor.wordmark}</span>
+                        </span>
+                      ) : (
+                        <Image
+                          className={styles.sponsorLogo}
+                          src={sponsor.logo}
+                          alt={`${sponsor.name} logo`}
+                          width={sponsor.width}
+                          height={sponsor.height}
+                          sizes="(max-width: 768px) 70vw, 320px"
+                        />
+                      )}
                       <span className={styles.visit} aria-hidden="true">
                         VISIT <span>↗</span>
                       </span>
