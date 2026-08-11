@@ -13,7 +13,7 @@ export const sideEventApplyUrl = "";
 export const mediaPartnerApplyUrl = "";
 export const hackathonUrl = "";
 export const sideEventFormUrl = "";
-export const tickSiteUrl = "https://app.moongate.id/e/eth-taipei-2026";
+export const tickSiteUrl = "https://luma.com/8z5ys4rl";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";
