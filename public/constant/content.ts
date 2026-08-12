@@ -346,7 +346,7 @@ const zhHero: Dictionary["hero"] = {
   callForSpeakers: "講者徵求",
   callForSpeakersDeadline: "申請截止：8 月 20 日 23:59 AoE",
   lede: "為期兩天，台灣開發者與全球以太坊技術棧接軌——從核心協議研究、DeFi，到資產託管、真實世界資產（RWA）與機構級應用。",
-  applyToSpeak: "申請演講",
+  applyToSpeak: "講者申請",
   requestTicket: "申請票券",
   sponsorInquiry: "贊助洽詢",
   countdownDays: "天",
@@ -472,7 +472,7 @@ const zhCommunity: Dictionary["community"] = {
 };
 
 const zhCallToAction: Dictionary["callToAction"] = {
-  applyToSpeak: "申請演講",
+  applyToSpeak: "講者申請",
   applyToSponsor: "申請贊助",
   addSideEvent: "新增周邊活動",
 };
