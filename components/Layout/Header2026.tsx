@@ -97,7 +97,7 @@ const Header2026 = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                Buy Ticket
+                Request Ticket
               </a>
               <a
                 className={`${styles.ticket} ${styles.headerPrimary}`}
@@ -113,7 +113,7 @@ const Header2026 = ({
               target="_blank"
               rel="noreferrer"
             >
-              Buy Ticket
+              Request Ticket
             </a>
           )}
         </div>
@@ -123,7 +123,7 @@ const Header2026 = ({
           target={isCfpOpen ? undefined : "_blank"}
           rel={isCfpOpen ? undefined : "noreferrer"}
         >
-          {isCfpOpen ? "Apply" : "Tickets"}
+          {isCfpOpen ? "Apply" : "Ticket"}
         </a>
         <button
           className={styles.menuToggle}

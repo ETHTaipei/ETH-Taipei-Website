@@ -67,7 +67,7 @@ const enHomepage = {
   eventDesc_1:
     "Two days of talks and discussions with Ethereum researchers, builders, and industry leaders. Tracks and session details will be announced soon.",
   eventDate_1: dateDayMonthYear,
-  eventBtn_1: "Ticket",
+  eventBtn_1: "Request Ticket",
   eventName_3: "Side Events",
   eventDesc_3:
     "Get ready for an extra dose of fun at ETHTaipei! While the main conference takes center stage, don't forget to dive into our amazing side events! Join us for a relaxed and enjoyable time, where you can connect with fellow enthusiasts, learn cool new things, and make memories that'll last a lifetime. Don't miss out on the good vibes – come and be a part of the excitement at our side events! See you there!",
@@ -101,7 +101,7 @@ const enHero = {
   callForSpeakersDeadline: "Applications close Aug 20, 23:59 AoE",
   lede: "Two days where Taiwan's builders meet the global Ethereum stack, from core protocol research and DeFi to custody, real-world assets (RWA), and institutional-grade applications.",
   applyToSpeak: "Apply to Speak",
-  buyTicket: "Buy Ticket",
+  requestTicket: "Request Ticket",
   sponsorInquiry: "Sponsor Inquiry",
   countdownDays: "Days",
   countdownHours: "Hours",
@@ -314,7 +314,7 @@ const zhHomepage: Dictionary["homepage"] = {
   eventDesc_1:
     "兩天與以太坊研究者、開發者與產業領袖的演講與討論。議程與場次細節將盡快公布。",
   eventDate_1: dateDayMonthYear,
-  eventBtn_1: "購票",
+  eventBtn_1: "申請票券",
   eventName_3: "周邊活動",
   eventDesc_3:
     "在 ETHTaipei，準備好迎接更多樂趣！主會議是舞台焦點，但別忘了投入我們精彩的周邊活動！和同好們一起輕鬆同樂、學習新知，留下難忘回憶。別錯過這份好氛圍——快來一起加入周邊活動的熱鬧！我們在那裡見！",
@@ -347,7 +347,7 @@ const zhHero: Dictionary["hero"] = {
   callForSpeakersDeadline: "申請截止：8 月 20 日 23:59 AoE",
   lede: "為期兩天，台灣開發者與全球以太坊技術棧接軌——從核心協議研究、DeFi，到資產託管、真實世界資產（RWA）與機構級應用。",
   applyToSpeak: "申請演講",
-  buyTicket: "購票",
+  requestTicket: "申請票券",
   sponsorInquiry: "贊助洽詢",
   countdownDays: "天",
   countdownHours: "時",
@@ -387,7 +387,7 @@ const zhHero: Dictionary["hero"] = {
 
 const zhNavs: Dictionary["navs"] = {
   home: "首頁",
-  ticket: "購票",
+  ticket: "票券",
   agenda: "議程",
   apply: "申請",
   toSpeak: "演講",
