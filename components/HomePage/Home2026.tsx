@@ -277,7 +277,7 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Buy Ticket
+                Request Ticket
               </a>
               <a
                 className={`${styles.ticket} ${styles.headerPrimary}`}
@@ -293,7 +293,7 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Buy Ticket
+              Request Ticket
             </a>
           )}
         </div>
@@ -303,7 +303,7 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
           target={isCfpOpen ? undefined : "_blank"}
           rel={isCfpOpen ? undefined : "noreferrer"}
         >
-          {isCfpOpen ? "Apply" : "Tickets"}
+          {isCfpOpen ? "Apply" : "Ticket"}
         </a>
         <button
           className={styles.menuToggle}
@@ -391,7 +391,7 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t.hero.buyTicket}
+              {t.hero.requestTicket}
             </a>
             <a
               className={`${styles.ticket} ${styles.heroCta} ${
