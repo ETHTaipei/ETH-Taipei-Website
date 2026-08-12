@@ -31,7 +31,7 @@ const SPONSORS: Sponsor[] = [
     tier: "gold",
     width: 382.677,
     height: 99.2126,
-    url: "#",
+    url: "https://dadrc.org/",
   },
   {
     name: "Sigmarket",
