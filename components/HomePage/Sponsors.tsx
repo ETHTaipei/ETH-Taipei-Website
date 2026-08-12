@@ -26,6 +26,14 @@ const SPONSORS: Sponsor[] = [
     url: "http://bsos.co/",
   },
   {
+    name: "DADRC",
+    logo: "/images/sponsors/dadrc.svg",
+    tier: "gold",
+    width: 382.677,
+    height: 99.2126,
+    url: "https://dadrc.org/",
+  },
+  {
     name: "Sigmarket",
     logo: "/images/sponsors/sigmarket-mark.png",
     tier: "gold",
