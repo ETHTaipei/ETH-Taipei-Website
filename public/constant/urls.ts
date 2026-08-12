@@ -96,6 +96,7 @@ export const bermuDaoUrl = "https://x.com/bermudao_ch";
 export const bobaDaoUrl = "https://www.instagram.com/bobadao.lfg/";
 export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
 export const desciAsiaUrl = "https://x.com/DeSciAsia";
+export const ethPandaUrl = "https://ethpanda.org";
 export const openBuildUrl = "https://linktr.ee/openbuild";
 export const vyperUrl = "https://linktr.ee/vyperlang";
 // @cryptobarnospam is a Telegram group, not an X handle — x.com/cryptobarnospam 404s.
@@ -110,8 +111,10 @@ export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/"
 // one link that covers all of it.
 export const nodeZUrl = "https://www.nodezblockchain.com";
 export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
+export const ntouBlockchainUrl = "https://www.instagram.com/ntou_blockchain/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";
+export const scuBlockchainUrl = "https://www.instagram.com/blockchain_scu/";
 
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
