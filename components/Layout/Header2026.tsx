@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import styles from "@/components/HomePage/Home2026.module.css";
 import HeaderNavLinks from "@/components/Layout/HeaderNavLinks";
 import LanguageToggle from "@/components/Layout/LanguageToggle";
+import { useT } from "@/contexts/LanguageContext";
 
 const socialLinks = [
   { label: "Discord", href: discordUrl, icon: "/images/social-icons/discord_icon.svg" },
@@ -58,6 +59,7 @@ const Header2026 = ({
 }) => {
   const cfpPhase = useCfpPhase(initialCfpPhase);
   const isCfpOpen = cfpPhase === "open";
+  const t = useT();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -97,13 +99,13 @@ const Header2026 = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                Request Ticket
+                {t.hero.requestTicket}
               </a>
               <a
                 className={`${styles.ticket} ${styles.headerPrimary}`}
                 href={speakerApplyUrl}
               >
-                Apply to Speak
+                {t.hero.applyToSpeak}
               </a>
             </>
           ) : (
@@ -113,18 +115,28 @@ const Header2026 = ({
               target="_blank"
               rel="noreferrer"
             >
-              Request Ticket
+              {t.hero.requestTicket}
             </a>
           )}
         </div>
-        <a
-          className={`${styles.ticket} ${styles.mobileHeaderCta}`}
-          href={isCfpOpen ? speakerApplyUrl : tickSiteUrl}
-          target={isCfpOpen ? undefined : "_blank"}
-          rel={isCfpOpen ? undefined : "noreferrer"}
-        >
-          {isCfpOpen ? "Apply" : "Ticket"}
-        </a>
+        <div className={styles.mobileHeaderActions}>
+          {isCfpOpen && (
+            <a
+              className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+              href={speakerApplyUrl}
+            >
+              {t.hero.applyToSpeak}
+            </a>
+          )}
+          <a
+            className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+            href={tickSiteUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.hero.requestTicket}
+          </a>
+        </div>
         <button
           className={styles.menuToggle}
           type="button"

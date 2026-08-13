@@ -462,8 +462,13 @@
   outline-offset: 3px;
 }
 
-.mobileHeaderCta {
+.mobileHeaderActions {
   display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobileHeaderCta {
   white-space: nowrap;
 }
 
@@ -1358,8 +1363,11 @@
     display: none;
   }
 
+  .mobileHeaderActions {
+    display: flex;
+  }
+
   .mobileHeaderCta {
-    display: inline-flex;
     border-color: var(--acid);
     color: var(--night);
     background: var(--acid);
@@ -1518,6 +1526,26 @@
 
   .eventButton {
     width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .mobileHeaderActions {
+    gap: 6px;
+  }
+
+  .mobileHeaderCta {
+    padding: 8px 9px;
+    font-size: 12px;
   }
 }
 

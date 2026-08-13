@@ -32,6 +32,7 @@ const SPONSORS: Sponsor[] = [
     width: 382.677,
     height: 99.2126,
     url: "https://dadrc.org/",
+    surface: "light",
   },
   {
     name: "Sigmarket",

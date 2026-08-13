@@ -277,13 +277,13 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Request Ticket
+                {t.hero.requestTicket}
               </a>
               <a
                 className={`${styles.ticket} ${styles.headerPrimary}`}
                 href={speakerApplyUrl}
               >
-                Apply to Speak
+                {t.hero.applyToSpeak}
               </a>
             </>
           ) : (
@@ -293,18 +293,28 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Request Ticket
+              {t.hero.requestTicket}
             </a>
           )}
         </div>
-        <a
-          className={`${styles.ticket} ${styles.mobileHeaderCta}`}
-          href={isCfpOpen ? speakerApplyUrl : tickSiteUrl}
-          target={isCfpOpen ? undefined : "_blank"}
-          rel={isCfpOpen ? undefined : "noreferrer"}
-        >
-          {isCfpOpen ? "Apply" : "Ticket"}
-        </a>
+        <div className={styles.mobileHeaderActions}>
+          {isCfpOpen && (
+            <a
+              className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+              href={speakerApplyUrl}
+            >
+              {t.hero.applyToSpeak}
+            </a>
+          )}
+          <a
+            className={`${styles.ticket} ${styles.mobileHeaderCta}`}
+            href={tickSiteUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.hero.requestTicket}
+          </a>
+        </div>
         <button
           className={styles.menuToggle}
           type="button"

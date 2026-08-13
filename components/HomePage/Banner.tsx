@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import t, { month, year } from "@/public/constant/content";
+import { useT } from "@/contexts/LanguageContext";
+import { month, year } from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventFormUrl,
@@ -18,6 +19,8 @@ const monthAbbr = month.slice(0, 3).toUpperCase();
 const dayRange = "13–14"; // 13–14 with en dash
 
 const Banner = () => {
+  const t = useT();
+
   return (
     <Container>
       <MainContent>
@@ -99,15 +102,15 @@ const Banner = () => {
         </CountdownContainer>
         <HeroCtaContainer>
           <HeroCta href={tickSiteUrl} target="_blank" rel="noreferrer">
-            Buy Ticket
+            {t.hero.requestTicket}
             <CtaArrow>→</CtaArrow>
           </HeroCta>
           <HeroCta href={speakerApplyUrl} target="_blank" rel="noreferrer">
-            Apply to Speak
+            {t.hero.applyToSpeak}
             <CtaArrow>→</CtaArrow>
           </HeroCta>
           <HeroCta href={sponsorApplyUrl} target="_blank" rel="noreferrer">
-            Sponsor Inquiry
+            {t.hero.sponsorInquiry}
             <CtaArrow>→</CtaArrow>
           </HeroCta>
         </HeroCtaContainer>
