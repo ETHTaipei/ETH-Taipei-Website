@@ -99,6 +99,7 @@ export const desciAsiaUrl = "https://x.com/DeSciAsia";
 export const ethPandaUrl = "https://ethpanda.org";
 export const openBuildUrl = "https://linktr.ee/openbuild";
 export const vyperUrl = "https://linktr.ee/vyperlang";
+export const wprcUrl = "https://www.wprc.club/";
 // @cryptobarnospam is a Telegram group, not an X handle — x.com/cryptobarnospam 404s.
 export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // These five had no URL in Hygraph either, so they're the accounts each group
