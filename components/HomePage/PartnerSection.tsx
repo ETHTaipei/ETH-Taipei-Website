@@ -38,6 +38,7 @@ import {
   tabeiUrl,
   techFlowUrl,
   vyperUrl,
+  wprcUrl,
   xueDaoUrl,
   zombitUrl,
 } from "@/public/constant/urls";
@@ -224,6 +225,13 @@ const PARTNERS: LogoEntry[] = [
     url: vyperUrl,
     img: "/images/partners/vyper.png",
     width: 70,
+    height: 78,
+  },
+  {
+    name: "WPRC",
+    url: wprcUrl,
+    img: "/images/partners/wprc.png",
+    width: 78,
     height: 78,
   },
   {
