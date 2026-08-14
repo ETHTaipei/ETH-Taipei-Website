@@ -99,13 +99,6 @@ const PARTNERS: LogoEntry[] = [
     height: 51,
   },
   {
-    name: "BlockTrend 區塊勢",
-    url: blockTrendUrl,
-    img: "/images/partners/blocktrend.png",
-    width: 72,
-    height: 78,
-  },
-  {
     name: "BOBA DAO",
     url: bobaDaoUrl,
     img: "/images/partners/bobadao.svg",
@@ -304,6 +297,14 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/cryptocity.png",
     width: 190,
     height: 34,
+  },
+  {
+    // Placed after Crypto City (動區) per changwu, not alphabetical.
+    name: "BlockTrend 區塊勢",
+    url: blockTrendUrl,
+    img: "/images/media-partners/blocktrend.png",
+    width: 72,
+    height: 78,
   },
   {
     name: "Cryptoken Media",
