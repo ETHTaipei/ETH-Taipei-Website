@@ -116,6 +116,9 @@ export const ntouBlockchainUrl = "https://www.instagram.com/ntou_blockchain/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";
 export const scuBlockchainUrl = "https://www.instagram.com/blockchain_scu/";
+export const gccUrl = "https://www.gccofficial.org/";
+export const snzUrl = "https://snzholding.com/";
+export const taasUrl = "https://taas.com.tw/";
 
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
