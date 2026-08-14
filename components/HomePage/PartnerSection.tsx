@@ -18,6 +18,7 @@ import {
   daCapitalUrl,
   desciAsiaUrl,
   desciTaiwanUrl,
+  emmaInternationalUrl,
   ethHubHkUrl,
   ethPandaUrl,
   ethTaoUrl,
@@ -77,6 +78,14 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/tabei.png",
     width: 220,
     height: 88,
+    tier: 1,
+  },
+  {
+    name: "艾瑪國際管理顧問有限公司",
+    url: emmaInternationalUrl,
+    img: "/images/partners/emma-international.png",
+    width: 95,
+    height: 67,
     tier: 1,
   },
   {
