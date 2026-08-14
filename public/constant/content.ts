@@ -277,7 +277,7 @@ const zhHomepage: Dictionary["homepage"] = {
   venueAddress: "115 台北市南港區南港路二段 13 號",
   partners: "合作夥伴",
   partnersDesc: "在以太坊生態中攜手同行，一起更強大！",
-  studentClubs: "學生社團",
+  studentClubs: "社團夥伴",
   studentClubsDesc: "以太坊的下一代 builder，正在校園裡養成！",
   organizers: "主辦團隊",
   organizerSubtitle: "讓 ETHTaipei 成真的團隊！",
