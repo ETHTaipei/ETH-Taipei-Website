@@ -119,6 +119,8 @@ export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/"
 export const nodeZUrl = "https://www.nodezblockchain.com";
 export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
 export const ntouBlockchainUrl = "https://www.instagram.com/ntou_blockchain/";
+// URL from Hana (Discord #website); verified HTTPS 200.
+export const ntpufcUrl = "https://www.instagram.com/ntpufc/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";
 export const scuBlockchainUrl = "https://www.instagram.com/blockchain_scu/";
