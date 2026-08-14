@@ -28,6 +28,9 @@ const enHomepage = {
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
   partners: "Partners",
   partnersDesc: "Stronger Together in the Ethereum Ecosystem!",
+  studentClubs: "University Clubs",
+  studentClubsDesc:
+    "Connecting Campuses and Growing the Next Generation of Ethereum Builders.",
   organizers: "Organizers",
   organizerSubtitle: "The team that makes ETHTaipei happen!",
   communitySupport: "Community Support",
@@ -275,6 +278,8 @@ const zhHomepage: Dictionary["homepage"] = {
   venueAddress: "115 台北市南港區南港路二段 13 號",
   partners: "合作夥伴",
   partnersDesc: "在以太坊生態中攜手同行，一起更強大！",
+  studentClubs: "校園社團",
+  studentClubsDesc: "串連校園社群，培育下一代以太坊 Builder！",
   organizers: "主辦團隊",
   organizerSubtitle: "讓 ETHTaipei 成真的團隊！",
   communitySupport: "社群支持",
