@@ -23,6 +23,7 @@ import {
   ethTaoUrl,
   foresightNewsUrl,
   gccUrl,
+  grenadeUrl,
   miraUrl,
   monsterBlockUrl,
   nccuBlockchainUrl,
@@ -331,6 +332,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/foresightnews.svg",
     width: 203,
     height: 32,
+  },
+  {
+    name: "Grenade 手榴彈",
+    url: grenadeUrl,
+    img: "/images/media-partners/grenade.png",
+    width: 159,
+    height: 40,
   },
   {
     name: "MonsterBlock HK",
