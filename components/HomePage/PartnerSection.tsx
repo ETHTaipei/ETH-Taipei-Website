@@ -161,27 +161,6 @@ const PARTNERS: LogoEntry[] = [
     height: 38,
   },
   {
-    name: "NCCU Blockchain",
-    url: nccuBlockchainUrl,
-    img: "/images/partners/nccubc.png",
-    width: 107,
-    height: 60,
-  },
-  {
-    name: "NCHU Blockchain",
-    url: nchuBlockchainUrl,
-    img: "/images/partners/nchubc.png",
-    width: 93,
-    height: 69,
-  },
-  {
-    name: "NCU Blockchain Club",
-    url: ncuBlockchainClubUrl,
-    img: "/images/partners/ncubc.png",
-    width: 160,
-    height: 40,
-  },
-  {
     name: "NodeZ",
     url: nodeZUrl,
     img: "/images/partners/nodez.png",
@@ -189,46 +168,11 @@ const PARTNERS: LogoEntry[] = [
     height: 78,
   },
   {
-    name: "NTU Fintech Club",
-    url: ntufcUrl,
-    img: "/images/partners/ntufc.png",
-    width: 296,
-    height: 30,
-  },
-  {
-    name: "NTOU Blockchain",
-    url: ntouBlockchainUrl,
-    img: "/images/partners/ntoubc.png",
-    width: 60,
-    height: 78,
-  },
-  {
-    name: "NTUST Blockchain",
-    url: ntustBlockchainUrl,
-    img: "/images/partners/ntustbc.png",
-    width: 88,
-    height: 73,
-  },
-  {
-    name: "NTUT Blockchain",
-    url: ntutBlockchainUrl,
-    img: "/images/partners/ntutbc.png",
-    width: 129,
-    height: 50,
-  },
-  {
     name: "OpenBuild",
     url: openBuildUrl,
     img: "/images/partners/openbuild.png",
     width: 173,
     height: 37,
-  },
-  {
-    name: "SCU Blockchain",
-    url: scuBlockchainUrl,
-    img: "/images/partners/scubc.png",
-    width: 199,
-    height: 33,
   },
   {
     name: "SNZ",
@@ -264,6 +208,69 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/xuedao.png",
     width: 185,
     height: 35,
+  },
+];
+
+// University clubs get their own section rather than sitting in Partners.
+// There are eight of them now — enough that they crowded the Partners grid,
+// and enough to fill a section of their own. XueDAO stays under Partners: it's
+// student-run but cross-campus, so it doesn't belong to any one school.
+const SCHOOL_CLUBS: LogoEntry[] = [
+  {
+    name: "NCCU Blockchain",
+    url: nccuBlockchainUrl,
+    img: "/images/partners/nccubc.png",
+    width: 107,
+    height: 60,
+  },
+  {
+    name: "NCHU Blockchain",
+    url: nchuBlockchainUrl,
+    img: "/images/partners/nchubc.png",
+    width: 93,
+    height: 69,
+  },
+  {
+    name: "NCU Blockchain Club",
+    url: ncuBlockchainClubUrl,
+    img: "/images/partners/ncubc.png",
+    width: 160,
+    height: 40,
+  },
+  {
+    name: "NTU Fintech Club",
+    url: ntufcUrl,
+    img: "/images/partners/ntufc.png",
+    width: 296,
+    height: 30,
+  },
+  {
+    name: "NTOU Blockchain",
+    url: ntouBlockchainUrl,
+    img: "/images/partners/ntoubc.png",
+    width: 60,
+    height: 78,
+  },
+  {
+    name: "NTUST Blockchain",
+    url: ntustBlockchainUrl,
+    img: "/images/partners/ntustbc.png",
+    width: 88,
+    height: 73,
+  },
+  {
+    name: "NTUT Blockchain",
+    url: ntutBlockchainUrl,
+    img: "/images/partners/ntutbc.png",
+    width: 129,
+    height: 50,
+  },
+  {
+    name: "SCU Blockchain",
+    url: scuBlockchainUrl,
+    img: "/images/partners/scubc.png",
+    width: 199,
+    height: 33,
   },
 ];
 
@@ -373,6 +380,20 @@ const SmileIcon = () => (
   />
 );
 
+// The blue twin of temple.svg. The original is the lime version Community
+// Support uses on its blue panel; that colour has no contrast on this section's
+// light grey. Named the other way round from butterfly/butterfly-green because
+// renaming the existing file would churn a component this change doesn't touch.
+const SchoolIcon = () => (
+  <Image
+    src="/images/icons/temple-blue.svg"
+    alt=""
+    width={36}
+    height={36}
+    style={{ marginRight: 16 }}
+  />
+);
+
 const MediaIcon = () => (
   <Image
     src="/images/icons/media.svg"
@@ -418,6 +439,7 @@ const PartnerSection = () => {
   const t = useT();
 
   const partners = byTier(PARTNERS);
+  const schoolClubs = byTier(SCHOOL_CLUBS);
   const mediaPartners = byTier(MEDIA_PARTNERS);
 
   return (
@@ -436,6 +458,20 @@ const PartnerSection = () => {
             ))}
           </PartnersGrid>
         </SectionContainer>
+        {schoolClubs.length > 0 && (
+          <SectionContainer>
+            <Title>
+              <SchoolIcon />
+              {t.homepage.studentClubs}
+            </Title>
+            <Subtitle>{t.homepage.studentClubsDesc}</Subtitle>
+            <PartnersGrid>
+              {schoolClubs.map((club) => (
+                <Logo logo={club} key={club.name} />
+              ))}
+            </PartnersGrid>
+          </SectionContainer>
+        )}
         {mediaPartners.length > 0 && (
           <SectionContainer>
             <Title>
