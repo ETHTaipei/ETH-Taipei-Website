@@ -50,7 +50,6 @@ export const coinspeakerUrl = "https://www.coinspeaker.com/";
 export const taikaiUrl = "https://taikai.network/";
 export const unlockUrl = "https://unlock-protocol.com/";
 
-export const grenadeUrl = "https://www.grenade.tw/";
 export const abmediaUrl = "https://abmedia.io/";
 export const blocktempoUrl = "https://www.blocktempo.com/";
 export const gen3Url = "https://www.gen3.network/";
@@ -84,6 +83,8 @@ export const pukecastUrl = "https://x.com/pukecast";
 export const techFlowUrl = "https://www.techflowpost.com/index.aspx";
 // New for 2026. Links to DA Labs, the group's public-facing media site.
 export const daCapitalUrl = "https://dalabs.org/";
+// New for 2026. URL from Hana (Discord #website); verified https://grenade.tw/ 200, title Grenade 手榴彈.
+export const grenadeUrl = "https://grenade.tw/";
 
 // 2026 community / ecosystem partners — student clubs, DAOs and regional
 // Ethereum communities. ncu-blockchain-club and blocktrend are carried over
