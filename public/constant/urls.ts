@@ -110,6 +110,8 @@ export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // links from its own public profile.
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+// URL from Hana (Discord #website); verified HTTPS 200.
+export const cmuFinanceUrl = "https://www.instagram.com/cmu_financial/";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
 // NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the
@@ -117,6 +119,8 @@ export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/"
 export const nodeZUrl = "https://www.nodezblockchain.com";
 export const ntufcUrl = "https://www.instagram.com/ntu_fc/";
 export const ntouBlockchainUrl = "https://www.instagram.com/ntou_blockchain/";
+// URL from Hana (Discord #website); verified HTTPS 200.
+export const ntpufcUrl = "https://www.instagram.com/ntpufc/";
 export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";
 export const scuBlockchainUrl = "https://www.instagram.com/blockchain_scu/";
