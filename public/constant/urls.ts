@@ -96,6 +96,8 @@ export const bermuDaoUrl = "https://x.com/bermudao_ch";
 export const bobaDaoUrl = "https://www.instagram.com/bobadao.lfg/";
 export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
 export const desciAsiaUrl = "https://x.com/DeSciAsia";
+export const emmaInternationalUrl =
+  "https://info.technews.tw/company/83118949-%E8%89%BE%E7%91%AA%E5%9C%8B%E9%9A%9B%E7%AE%A1%E7%90%86%E9%A1%A7%E5%95%8F%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8";
 export const ethPandaUrl = "https://ethpanda.org";
 export const openBuildUrl = "https://linktr.ee/openbuild";
 export const vyperUrl = "https://linktr.ee/vyperlang";
