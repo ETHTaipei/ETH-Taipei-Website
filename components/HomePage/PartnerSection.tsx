@@ -24,6 +24,7 @@ import {
   ethTaoUrl,
   foresightNewsUrl,
   gccUrl,
+  grenadeUrl,
   miraUrl,
   monsterBlockUrl,
   nccuBlockchainUrl,
@@ -105,13 +106,6 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/bermudao.png",
     width: 125,
     height: 51,
-  },
-  {
-    name: "BlockTrend 區塊勢",
-    url: blockTrendUrl,
-    img: "/images/partners/blocktrend.png",
-    width: 72,
-    height: 78,
   },
   {
     name: "BOBA DAO",
@@ -314,6 +308,14 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     height: 34,
   },
   {
+    // Placed after Crypto City (動區) per changwu, not alphabetical.
+    name: "BlockTrend 區塊勢",
+    url: blockTrendUrl,
+    img: "/images/media-partners/blocktrend.png",
+    width: 72,
+    height: 78,
+  },
+  {
     name: "Cryptoken Media",
     url: cryptokenMediaUrl,
     img: "/images/media-partners/cryptokenmedia.svg",
@@ -340,6 +342,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/foresightnews.svg",
     width: 203,
     height: 32,
+  },
+  {
+    name: "Grenade 手榴彈",
+    url: grenadeUrl,
+    img: "/images/media-partners/grenade.png",
+    width: 159,
+    height: 40,
   },
   {
     name: "MonsterBlock HK",
