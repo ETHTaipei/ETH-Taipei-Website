@@ -388,7 +388,7 @@ const SchoolIcon = () => (
   <Image
     src="/images/icons/temple-blue.svg"
     alt=""
-    width={36}
+    width={44}
     height={36}
     style={{ marginRight: 16 }}
   />
