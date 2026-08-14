@@ -85,12 +85,13 @@ export const techFlowUrl = "https://www.techflowpost.com/index.aspx";
 export const daCapitalUrl = "https://dalabs.org/";
 // New for 2026. URL from Hana (Discord #website); verified https://grenade.tw/ 200, title Grenade 手榴彈.
 export const grenadeUrl = "https://grenade.tw/";
+// Moved from community partners for 2026. URL from changwu (Discord #website).
+export const blockTrendUrl = "https://www.blocktrend.today/";
 
 // 2026 community / ecosystem partners — student clubs, DAOs and regional
-// Ethereum communities. ncu-blockchain-club and blocktrend are carried over
-// from Hygraph; the rest are the accounts each group publishes itself.
+// Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
+// the rest are the accounts each group publishes itself.
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
-export const blockTrendUrl = "https://www.blocktrend.today/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";
 // BOBA DAO has no website; @bobadao.lfg on Instagram is the public-facing one,
 // t.me/bobadaolfg is the group chat.
