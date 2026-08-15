@@ -274,8 +274,8 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     name: "NTUST Blockchain",
     url: ntustBlockchainUrl,
     img: "/images/partners/ntustbc.png",
-    width: 88,
-    height: 73,
+    width: 185,
+    height: 34,
   },
   {
     name: "NTUT Blockchain",
