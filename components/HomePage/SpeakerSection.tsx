@@ -7,10 +7,13 @@ import { speakers2026, Speaker2026 } from "@/public/constant/speakers2026";
 import PeopleSection from "./PeopleSection";
 
 // Initials for the avatar fallback: first letter of the first two words.
+// Connector words like the "&" in "Koss & Alaska" are skipped so a duo card
+// reads "KA" rather than "K&".
 const initials = (name: string) =>
   name
     .trim()
     .split(/\s+/)
+    .filter((w) => /^[\p{L}\p{N}]/u.test(w))
     .slice(0, 2)
     .map((w) => w[0]?.toUpperCase() ?? "")
     .join("");
