@@ -92,6 +92,9 @@ export const blockTrendUrl = "https://www.blocktrend.today/";
 // Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
 // the rest are the accounts each group publishes itself.
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
+// URL from Discord #website; verified https://ndhublockchain.club/ 200,
+// title 東華區塊鏈研究社 NDHU Blockchain Club.
+export const ndhuBlockchainUrl = "https://ndhublockchain.club/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";
 // BOBA DAO has no website; @bobadao.lfg on Instagram is the public-facing one,
 // t.me/bobadaolfg is the group chat.
