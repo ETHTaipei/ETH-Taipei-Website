@@ -1,9 +1,10 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
 import { useT } from "@/contexts/LanguageContext";
 import Colors from "@/styles/colors";
-import { speakers2026, Speaker2026 } from "@/public/constant/speakers2026";
+import { speakers2026ByDay, Speaker2026 } from "@/public/constant/speakers2026";
 import PeopleSection from "./PeopleSection";
 
 // Initials for the avatar fallback: first letter of the first two words.
@@ -21,7 +22,7 @@ const initials = (name: string) =>
 const SpeakerSection = () => {
   const t = useT();
 
-  if (speakers2026.length === 0) return null;
+  if (speakers2026ByDay.every((day) => day.speakers.length === 0)) return null;
 
   return (
     <PeopleSection
@@ -34,8 +35,19 @@ const SpeakerSection = () => {
       paddingStyle={{ default: "120px 40px", mobile: "60px 24px" }}
       maxWidth="1200px"
     >
-      {speakers2026.map((speaker) => (
-        <SpeakerCard key={speaker.name} speaker={speaker} />
+      {/* One flat grid, with each day's heading spanning every column, so the
+          cards of both days stay on the same column rhythm. */}
+      {speakers2026ByDay.map((day) => (
+        <Fragment key={day.id}>
+          <DayHeading>{t.homepage.speakersDays[day.id]}</DayHeading>
+          {day.speakers.length > 0 ? (
+            day.speakers.map((speaker) => (
+              <SpeakerCard key={speaker.name} speaker={speaker} />
+            ))
+          ) : (
+            <DayPlaceholder>{t.homepage.speakersLineupComingSoon}</DayPlaceholder>
+          )}
+        </Fragment>
       ))}
     </PeopleSection>
   );
@@ -70,6 +82,48 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker2026 }) => (
 );
 
 export default SpeakerSection;
+
+// Full-width row inside the card grid: the day label with a hairline rule on
+// either side. `1 / -1` spans however many columns the grid currently has, so
+// this survives the responsive column changes in PeopleSection.
+const DayHeading = styled.h3`
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: ${Colors.neonGreen};
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(203, 241, 1, 0.35);
+  }
+
+  /* The first day sits directly under the section subtitle, which already has
+     the grid's top padding; later days need their own breathing room. */
+  &:not(:first-child) {
+    margin-top: 48px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+    gap: 12px;
+  }
+`;
+
+const DayPlaceholder = styled.p`
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+`;
 
 const Card = styled.div`
   display: flex;

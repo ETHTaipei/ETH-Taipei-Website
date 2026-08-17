@@ -17,6 +17,12 @@ const enHomepage = {
     "ETHTaipei is hosted by the local ETH community, and we'd love to see more participants and different parties getting involved! If you have great ideas, resources, wanna host cool side events, make sure to click the Apply buttons and reach out to us through social links!",
   speakers: `${year} Speakers`,
   speakersSubtitle: "Get Ready for their expert insights!",
+  // Day names must stay in sync with the agenda page (AgendaPage2026).
+  speakersDays: {
+    cryptonative: "Sep 13 · Cryptonative Day",
+    institution: "Sep 14 · Institution Day",
+  },
+  speakersLineupComingSoon: "Lineup coming soon — stay tuned!",
   beASpeaker: "Be a Speaker",
   beASponsor: "Be a Sponsor",
   venue: "The Venue",
@@ -268,6 +274,11 @@ const zhHomepage: Dictionary["homepage"] = {
     "ETHTaipei 由在地以太坊社群共同舉辦，我們期待更多夥伴與不同角色一同參與！如果你有很棒的點子、資源，或想舉辦有趣的周邊活動，記得點擊 Apply 按鈕，並透過社群連結與我們聯繫！",
   speakers: `${year} 講者`,
   speakersSubtitle: "準備好迎接他們的專業洞見！",
+  speakersDays: {
+    cryptonative: "9/13 · 開發者日",
+    institution: "9/14 · 機構日",
+  },
+  speakersLineupComingSoon: "講者陣容即將公布，敬請期待！",
   beASpeaker: "成為講者",
   beASponsor: "成為贊助商",
   venue: "活動場地",
