@@ -6,9 +6,15 @@
 // human curation before it goes public. To refresh, re-pull from Boost and edit
 // this list.
 //
-// The Boost API does not expose speaker headshots or company logos, so cards
-// fall back to initials avatars. Fill `avatar` / `companyLogo` (paths under
-// /public/images/speakers/...) once real assets are available.
+// Company logos are not in Boost either, and not every speaker has a headshot;
+// cards fall back to an initials avatar. Fill `avatar` / `companyLogo` (paths
+// under /public/images/speakers/...) once real assets are available.
+//
+// Speakers are grouped by conference day. Boost can't tell us the day yet — its
+// sessions are still DRAFT with no start time or track — so day membership is
+// curated here by hand. The day names must match the agenda page
+// (components/AgendaPage2026/index.tsx): Sep 13 is Cryptonative Day, Sep 14 is
+// Institution Day.
 
 export type Speaker2026 = {
   name: string;
@@ -20,7 +26,15 @@ export type Speaker2026 = {
   companyLogo?: string;
 };
 
-export const speakers2026: Speaker2026[] = [
+/** Day a speaker appears on. Keys into the `speakersDays` copy in content.ts. */
+export type SpeakerDayId = "cryptonative" | "institution";
+
+export type SpeakerDay = {
+  id: SpeakerDayId;
+  speakers: Speaker2026[];
+};
+
+const cryptonativeDay: Speaker2026[] = [
   {
     name: "Aditya",
     title: "Senior Protocol Eng",
@@ -108,4 +122,13 @@ export const speakers2026: Speaker2026[] = [
   },
   // Denken Chen (ACCEPTED) — company/title are "N/A" in Boost; add once filled in.
   { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
+];
+
+// Sep 14. Nobody announced yet — the section renders a "coming soon" note while
+// this is empty, and switches to cards as soon as entries are added.
+const institutionDay: Speaker2026[] = [];
+
+export const speakers2026ByDay: SpeakerDay[] = [
+  { id: "cryptonative", speakers: cryptonativeDay },
+  { id: "institution", speakers: institutionDay },
 ];
