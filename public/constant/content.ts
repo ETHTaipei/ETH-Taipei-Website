@@ -125,7 +125,7 @@ const enHero = {
     "A dedicated day for banks and financial institutions — sessions and panels on custody and RWA, with closed-door discussion. Where enterprise meets the builders.",
   boothSignalLabel: "Booth Highlights",
   boothSignalText:
-    "Leading enterprises and active communities across the Ethereum ecosystem showcase the latest technology, products, and community achievements — a space where developers, industry partners, and communities connect and forge more cross-domain collaborations.",
+    "Leading Ethereum companies and communities showcase their latest technologies, products, and initiatives—connecting developers, industry partners, and ecosystem builders.",
   ticker: [
     "PROTOCOL RESEARCH",
     "ZK & PRIVACY",
@@ -381,7 +381,7 @@ const zhHero: Dictionary["hero"] = {
     "為銀行與金融機構打造的專屬一天——保管與 RWA 的演講與座談，以及閉門討論。企業與開發者交會之處。",
   boothSignalLabel: "展位亮點",
   boothSignalText:
-    "匯聚以太坊生態指標企業與活躍社群，呈現最新技術、產品與社群成果，打造開發者、產業夥伴與社群之間的交流場域，促成更多跨域連結與合作。",
+    "匯聚以太坊生態企業與活躍社群，展示最新技術、產品與社群成果，促進開發者、產業夥伴與社群交流合作",
   ticker: [
     "協議研究",
     "ZK 與隱私",
