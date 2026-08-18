@@ -467,6 +467,13 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
               <p>{t.hero.institutionSignalText}</p>
             </div>
           </article>
+          <article className={styles.signalCard}>
+            <DottedStar className={styles.spark} id="signal-booth" />
+            <div>
+              <div className={styles.label}>{t.hero.boothSignalLabel}</div>
+              <p>{t.hero.boothSignalText}</p>
+            </div>
+          </article>
         </aside>
       </div>
 
