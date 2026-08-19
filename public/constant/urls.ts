@@ -115,6 +115,8 @@ export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
 // URL from Hana (Discord #website); verified HTTPS 200.
 export const cmuFinanceUrl = "https://www.instagram.com/cmu_financial/";
+// URL from Discord #website; verified HTTPS 200.
+export const hackersInTunghaiUrl = "https://www.instagram.com/thuhc2021/";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
 // NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the

@@ -26,6 +26,7 @@ import {
   foresightNewsUrl,
   gccUrl,
   grenadeUrl,
+  hackersInTunghaiUrl,
   miraUrl,
   monsterBlockUrl,
   nccuBlockchainUrl,
@@ -218,7 +219,7 @@ const PARTNERS: LogoEntry[] = [
 ];
 
 // University clubs get their own section rather than sitting in Partners.
-// There are eleven of them now — enough that they crowded the Partners grid,
+// There are twelve of them now — enough that they crowded the Partners grid,
 // and enough to fill a section of their own. XueDAO stays under Partners: it's
 // student-run but cross-campus, so it doesn't belong to any one school.
 const SCHOOL_CLUBS: LogoEntry[] = [
@@ -227,6 +228,13 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     url: cmuFinanceUrl,
     img: "/images/partners/cmufinance.png",
     width: 78,
+    height: 78,
+  },
+  {
+    name: "Hackers in Tunghai",
+    url: hackersInTunghaiUrl,
+    img: "/images/partners/thuhc.png",
+    width: 54,
     height: 78,
   },
   {
