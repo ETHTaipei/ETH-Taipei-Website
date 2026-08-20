@@ -87,6 +87,8 @@ export const daCapitalUrl = "https://dalabs.org/";
 export const grenadeUrl = "https://grenade.tw/";
 // Moved from community partners for 2026. URL from changwu (Discord #website).
 export const blockTrendUrl = "https://www.blocktrend.today/";
+// New for 2026. URL from Discord #website; verified HTTPS 200.
+export const coingabbarUrl = "https://www.coingabbar.com/";
 
 // 2026 community / ecosystem partners — student clubs, DAOs and regional
 // Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
