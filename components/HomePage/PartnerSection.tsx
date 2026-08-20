@@ -12,6 +12,7 @@ import {
   bobaDaoUrl,
   brainCryptoUrl,
   cmuFinanceUrl,
+  coingabbarUrl,
   cryptoBarUrl,
   cryptoCityUrl,
   cryptokenMediaUrl,
@@ -338,6 +339,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/braincrypto.png",
     width: 122,
     height: 52,
+  },
+  {
+    name: "CoinGabbar",
+    url: coingabbarUrl,
+    img: "/images/media-partners/coingabbar.png",
+    width: 135,
+    height: 47,
   },
   {
     name: "Crypto City 加密城市",
