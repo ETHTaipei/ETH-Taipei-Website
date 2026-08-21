@@ -45,6 +45,15 @@ const SPONSORS: Sponsor[] = [
     surface: "light",
   },
   {
+    name: "Taiwan Mobile",
+    logo: "/images/sponsors/taiwan-mobile.svg",
+    tier: "gold",
+    width: 1042.83,
+    height: 419.198,
+    url: "https://www.taiwanmobile.com/",
+    surface: "light",
+  },
+  {
     name: "TS Holdings",
     logo: "/images/sponsors/ts-holdings.svg",
     tier: "silver",
