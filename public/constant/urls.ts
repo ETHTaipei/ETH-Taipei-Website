@@ -115,6 +115,8 @@ export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // links from its own public profile.
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+// URL from Community Sign-Up (FAB DAO); verified https://fabdao.world/ 200, title 首頁 | FAB DAO.
+export const fabDaoUrl = "https://fabdao.world/";
 // URL from Hana (Discord #website); verified HTTPS 200.
 export const cmuFinanceUrl = "https://www.instagram.com/cmu_financial/";
 // URL from Discord #website; verified HTTPS 200.

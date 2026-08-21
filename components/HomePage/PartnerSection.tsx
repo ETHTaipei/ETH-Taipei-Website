@@ -24,6 +24,7 @@ import {
   ethHubHkUrl,
   ethPandaUrl,
   ethTaoUrl,
+  fabDaoUrl,
   foresightNewsUrl,
   gccUrl,
   grenadeUrl,
@@ -160,6 +161,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/ethtao.png",
     width: 142,
     height: 45,
+  },
+  {
+    name: "FAB DAO",
+    url: fabDaoUrl,
+    img: "/images/partners/fabdao.png",
+    width: 209,
+    height: 31,
   },
   {
     name: "GCC",
