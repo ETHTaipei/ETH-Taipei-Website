@@ -10,14 +10,23 @@ import PeopleSection from "./PeopleSection";
 // Initials for the avatar fallback: first letter of the first two words.
 // Connector words like the "&" in "Koss & Alaska" are skipped so a duo card
 // reads "KA" rather than "K&".
-const initials = (name: string) =>
-  name
+const initials = (name: string) => {
+  const words = name
     .trim()
     .split(/\s+/)
-    .filter((w) => /^[\p{L}\p{N}]/u.test(w))
+    .filter((w) => /^[\p{L}\p{N}]/u.test(w));
+
+  // A Han-script name has no per-word initials to take: two characters of the
+  // name itself read the way "JL" does for a Latin one. Without this,
+  // "黃耀文 Wayne Huang" renders "黃W" and a bare "陳念平" renders a lone "陳".
+  const first = words[0] ?? "";
+  if (/\p{Script=Han}/u.test(first[0] ?? "")) return first.slice(0, 2);
+
+  return words
     .slice(0, 2)
     .map((w) => w[0]?.toUpperCase() ?? "")
     .join("");
+};
 
 const SpeakerSection = () => {
   const t = useT();

@@ -54,12 +54,6 @@ const cryptonativeDay: Speaker2026[] = [
     avatar: "/images/speakers/matthew-keil.png",
   },
   {
-    name: "Benji",
-    title: "Head of Asset Strategy / Head of Partnerships",
-    company: "LINE NEXT",
-    avatar: "/images/speakers/benji.jpg",
-  },
-  {
     name: "Hao Chen",
     title: "Staff Scientist",
     company: "CertiK",
@@ -139,9 +133,65 @@ const cryptonativeDay: Speaker2026[] = [
   { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
 ];
 
-// Sep 14. Nobody announced yet — the section renders a "coming soon" note while
-// this is empty, and switches to cards as soon as entries are added.
-const institutionDay: Speaker2026[] = [];
+// Sep 14.
+const institutionDay: Speaker2026[] = [
+  {
+    name: "Benji",
+    title: "Head of Asset Strategy / Head of Partnerships",
+    company: "LINE NEXT",
+    avatar: "/images/speakers/benji.jpg",
+  },
+  {
+    name: "Jatin Pandya",
+    title: "Developer Relations Manager",
+    company: "Canton Foundation",
+    avatar: "/images/speakers/jatin-pandya.jpg",
+  },
+  {
+    name: "KOWEI TSENG",
+    title: "APAC Lead",
+    company: "IOTA Foundation",
+    avatar: "/images/speakers/kowei-tseng.jpg",
+  },
+  {
+    name: "Oskar",
+    title: "Co-Founder",
+    company: "EthSystems",
+    avatar: "/images/speakers/oskar.jpg",
+  },
+  {
+    name: "Jeff Wen",
+    title: "Co-founder and CBO",
+    company: "Hayek Technology",
+    avatar: "/images/speakers/jeff-wen.jpg",
+  },
+  // No headshot in Boost — initials fallback.
+  {
+    name: "Nicholas Yang 楊俊書",
+    title: "Head of Digital Strategy Department",
+    company: "O-Bank",
+  },
+  {
+    name: "黃耀文 Wayne Huang",
+    title: "Co-founder and Group CEO",
+    company: "XREX Group",
+  },
+  // The three below are still SUBMITTED in Boost, not CONFIRMED — listed at the
+  // organizers' request ahead of the stage change. Boost only serves headshots
+  // for publicly eligible stages, so theirs can't be pulled until then.
+  {
+    name: "Jason Kuo",
+    title: "Deputy CEO",
+    company: "DADRC / Zodia Custody",
+  },
+  {
+    name: "陳念平",
+    title: "執行董事 (Partner / Managing Director)",
+    company: "資誠 (PwC Taiwan)",
+  },
+  // Stamford Hwang — Boost has no title or company for him yet.
+  { name: "Stamford Hwang" },
+];
 
 export const speakers2026ByDay: SpeakerDay[] = [
   { id: "cryptonative", speakers: cryptonativeDay },
