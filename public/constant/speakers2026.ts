@@ -165,6 +165,17 @@ const institutionDay: Speaker2026[] = [
     company: "Hayek Technology",
     avatar: "/images/speakers/jeff-wen.jpg",
   },
+  {
+    name: "Jason Kuo",
+    title: "Deputy CEO",
+    company: "DADRC / Zodia Custody",
+    avatar: "/images/speakers/jason-kuo.jpg",
+  },
+  // Stamford Hwang — Boost still has no title or company for him.
+  {
+    name: "Stamford Hwang",
+    avatar: "/images/speakers/stamford-hwang.jpg",
+  },
   // No headshot in Boost — initials fallback.
   {
     name: "Nicholas Yang 楊俊書",
@@ -176,21 +187,11 @@ const institutionDay: Speaker2026[] = [
     title: "Co-founder and Group CEO",
     company: "XREX Group",
   },
-  // The three below are still SUBMITTED in Boost, not CONFIRMED — listed at the
-  // organizers' request ahead of the stage change. Boost only serves headshots
-  // for publicly eligible stages, so theirs can't be pulled until then.
-  {
-    name: "Jason Kuo",
-    title: "Deputy CEO",
-    company: "DADRC / Zodia Custody",
-  },
   {
     name: "陳念平",
     title: "執行董事 (Partner / Managing Director)",
     company: "資誠 (PwC Taiwan)",
   },
-  // Stamford Hwang — Boost has no title or company for him yet.
-  { name: "Stamford Hwang" },
 ];
 
 export const speakers2026ByDay: SpeakerDay[] = [
