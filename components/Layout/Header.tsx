@@ -17,7 +17,6 @@ import { FLAGS } from "@/public/constant/flags";
 import {
   discordUrl,
   sideEventApplyUrl,
-  speakerApplyUrl,
   sponsorApplyUrl,
   telegramUrl,
   tickSiteUrl,
@@ -69,7 +68,7 @@ const buildNavItems = (t: Dictionary) => [
   {
     label: t.navs.apply,
     path: "/#calltoaction",
-    disabled: !FLAGS.showApplyCTAs && !speakerApplyUrl,
+    disabled: !FLAGS.showApplyCTAs,
   },
   { label: t.navs.venue, path: "/#venue", disabled: false },
   { label: t.navs.community, path: "/community#info", disabled: false },
@@ -77,7 +76,6 @@ const buildNavItems = (t: Dictionary) => [
 ];
 
 const buildApplyDropdownItems = (t: Dictionary) => [
-  { label: t.navs.toSpeak, url: speakerApplyUrl },
   { label: t.navs.toSponsor, url: sponsorApplyUrl },
   { label: t.navs.sideEvent, url: sideEventApplyUrl },
 ];

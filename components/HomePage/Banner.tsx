@@ -6,7 +6,6 @@ import { month, year } from "@/public/constant/content";
 import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventFormUrl,
-  speakerApplyUrl,
   sponsorApplyUrl,
   tickSiteUrl,
 } from "@/public/constant/urls";
@@ -103,10 +102,6 @@ const Banner = () => {
         <HeroCtaContainer>
           <HeroCta href={tickSiteUrl} target="_blank" rel="noreferrer">
             {t.hero.requestTicket}
-            <CtaArrow>→</CtaArrow>
-          </HeroCta>
-          <HeroCta href={speakerApplyUrl} target="_blank" rel="noreferrer">
-            {t.hero.applyToSpeak}
             <CtaArrow>→</CtaArrow>
           </HeroCta>
           <HeroCta href={sponsorApplyUrl} target="_blank" rel="noreferrer">

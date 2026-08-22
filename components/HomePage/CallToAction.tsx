@@ -6,7 +6,6 @@ import { FLAGS } from "@/public/constant/flags";
 import {
   sideEventApplyUrl,
   sponsorApplyUrl,
-  speakerApplyUrl,
 } from "@/public/constant/urls";
 import { openNewTab } from "@/public/utils/common";
 import Colors from "@/styles/colors";
@@ -28,10 +27,6 @@ const ActionButton = ({ url, text }: { url: string; text: string }) => (
 const ActionButtons = () => {
   const t = useT();
   const buttons = [
-    {
-      url: speakerApplyUrl,
-      text: t.callToAction.applyToSpeak,
-    },
     {
       url: sponsorApplyUrl,
       text: t.callToAction.applyToSponsor,
