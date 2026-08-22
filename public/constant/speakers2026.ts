@@ -129,6 +129,7 @@ const cryptonativeDay: Speaker2026[] = [
   // No headshot in Boost — initials fallback.
   { name: "Jason Lai", title: "Founder", company: "PIF12" },
   { name: "CC Liang", title: "Researcher", company: "Independent" },
+  { name: "Miles NG", title: "Founder", company: "Laplace lab" },
   {
     name: "Koss & Alaska",
     title: "Founder (Alaska @ Subcult) & Community Architect (Koss @ Swarm)",
