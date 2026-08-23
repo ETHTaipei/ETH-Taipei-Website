@@ -25,6 +25,7 @@ import {
   ethPandaUrl,
   ethTaoUrl,
   fabDaoUrl,
+  feixiaohaoUrl,
   foresightNewsUrl,
   gccUrl,
   grenadeUrl,
@@ -389,6 +390,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     url: daCapitalUrl,
     img: "/images/media-partners/dacapital.svg",
     width: 170,
+    height: 38,
+  },
+  {
+    name: "Feixiaohao 非小號",
+    url: feixiaohaoUrl,
+    img: "/images/media-partners/feixiaohao.svg",
+    width: 167,
     height: 38,
   },
   {
