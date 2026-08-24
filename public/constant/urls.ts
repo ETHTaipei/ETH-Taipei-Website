@@ -89,6 +89,8 @@ export const grenadeUrl = "https://grenade.tw/";
 export const blockTrendUrl = "https://www.blocktrend.today/";
 // New for 2026. URL from Discord #website; verified HTTPS 200.
 export const coingabbarUrl = "https://www.coingabbar.com/";
+// New for 2026. URL from 馬鈴薯 (Discord #website); verified https://web3matters.substack.com 200, title Web3Matters 馬特週報.
+export const web3MattersUrl = "https://web3matters.substack.com/";
 
 // 2026 community / ecosystem partners — student clubs, DAOs and regional
 // Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
