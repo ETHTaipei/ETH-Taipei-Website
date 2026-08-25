@@ -53,6 +53,7 @@ import {
   tabeiUrl,
   techFlowUrl,
   vyperUrl,
+  web3MattersUrl,
   wprcUrl,
   xueDaoUrl,
   zombitUrl,
@@ -457,6 +458,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/techflow.svg",
     width: 298,
     height: 30,
+  },
+  {
+    name: "Web3Matters",
+    url: web3MattersUrl,
+    img: "/images/media-partners/web3matters.png",
+    width: 144,
+    height: 48,
   },
   {
     // Same square badge the 2025 site used.
