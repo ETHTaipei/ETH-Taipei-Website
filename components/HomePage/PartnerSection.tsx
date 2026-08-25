@@ -463,8 +463,8 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     name: "Web3Matters",
     url: web3MattersUrl,
     img: "/images/media-partners/web3matters.png",
-    width: 87,
-    height: 73,
+    width: 144,
+    height: 48,
   },
   {
     // Same square badge the 2025 site used.
