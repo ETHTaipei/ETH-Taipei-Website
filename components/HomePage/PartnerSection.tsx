@@ -14,6 +14,7 @@ import {
   brainCryptoUrl,
   cmuFinanceUrl,
   coingabbarUrl,
+  coingapeUrl,
   cryptoBarUrl,
   cryptoCityUrl,
   cryptokenMediaUrl,
@@ -371,6 +372,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     img: "/images/media-partners/coingabbar.png",
     width: 135,
     height: 47,
+  },
+  {
+    name: "CoinGape",
+    url: coingapeUrl,
+    img: "/images/media-partners/coingape.png",
+    width: 152,
+    height: 42,
   },
   {
     name: "Crypto City 加密城市",

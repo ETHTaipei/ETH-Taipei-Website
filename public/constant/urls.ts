@@ -89,6 +89,8 @@ export const grenadeUrl = "https://grenade.tw/";
 export const blockTrendUrl = "https://www.blocktrend.today/";
 // New for 2026. URL from Discord #website; verified HTTPS 200.
 export const coingabbarUrl = "https://www.coingabbar.com/";
+// New for 2026. URL from Hana (Discord #website); verified https://coingape.com/ 200, title CoinGape.
+export const coingapeUrl = "https://coingape.com/";
 // New for 2026. URL from 馬鈴薯 (Discord #website); verified https://www.feixiaohao.ai/ 200, title 非小号.
 export const feixiaohaoUrl = "https://www.feixiaohao.ai/";
 
