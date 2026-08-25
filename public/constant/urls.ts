@@ -119,6 +119,9 @@ export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // links from its own public profile.
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+// New for 2026. URL from Jennifer Hsu (Discord #website); verified
+// https://www.ethtokyo.org/ 200, title ETHTokyo '26.
+export const ethTokyoUrl = "https://www.ethtokyo.org/";
 // URL from Community Sign-Up (FAB DAO); verified https://fabdao.world/ 200, title 首頁 | FAB DAO.
 export const fabDaoUrl = "https://fabdao.world/";
 // URL from Hana (Discord #website); verified HTTPS 200.

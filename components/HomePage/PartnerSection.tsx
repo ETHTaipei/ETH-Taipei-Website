@@ -25,6 +25,7 @@ import {
   ethHubHkUrl,
   ethPandaUrl,
   ethTaoUrl,
+  ethTokyoUrl,
   fabDaoUrl,
   feixiaohaoUrl,
   foresightNewsUrl,
@@ -170,6 +171,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/ethtao.png",
     width: 142,
     height: 45,
+  },
+  {
+    name: "ETHTokyo",
+    url: ethTokyoUrl,
+    img: "/images/partners/ethtokyo.png",
+    width: 93,
+    height: 69,
   },
   {
     name: "FAB DAO",
