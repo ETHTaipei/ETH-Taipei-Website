@@ -91,11 +91,15 @@ export const blockTrendUrl = "https://www.blocktrend.today/";
 export const coingabbarUrl = "https://www.coingabbar.com/";
 // New for 2026. URL from Hana (Discord #website); verified https://coingape.com/ 200, title CoinGape.
 export const coingapeUrl = "https://coingape.com/";
+// New for 2026. URL from 馬鈴薯 (Discord #website); verified https://www.feixiaohao.ai/ 200, title 非小号.
+export const feixiaohaoUrl = "https://www.feixiaohao.ai/";
 
 // 2026 community / ecosystem partners — student clubs, DAOs and regional
 // Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
 // the rest are the accounts each group publishes itself.
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
+// New for 2026. Docs site is the group's public-facing entry point; verified HTTPS 200.
+export const anoniUrl = "https://anoni.net/docs/";
 // URL from Discord #website; verified https://ndhublockchain.club/ 200,
 // title 東華區塊鏈研究社 NDHU Blockchain Club.
 export const ndhuBlockchainUrl = "https://ndhublockchain.club/";
@@ -117,6 +121,9 @@ export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // links from its own public profile.
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
+// New for 2026. URL from Jennifer Hsu (Discord #website); verified
+// https://www.ethtokyo.org/ 200, title ETHTokyo '26.
+export const ethTokyoUrl = "https://www.ethtokyo.org/";
 // URL from Community Sign-Up (FAB DAO); verified https://fabdao.world/ 200, title 首頁 | FAB DAO.
 export const fabDaoUrl = "https://fabdao.world/";
 // URL from Hana (Discord #website); verified HTTPS 200.
