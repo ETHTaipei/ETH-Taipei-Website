@@ -1,5 +1,5 @@
 // Snapshot of ACCEPTED / CONFIRMED speakers pulled from the ETHTaipei Boost CRM
-// (boost.ethtaipei.org, /api/v1/speakers/applications) on 2026-08-17.
+// (boost.ethtaipei.org, /api/v1/speakers/applications) on 2026-08-22.
 //
 // This is a curated static snapshot rather than a live fetch: the Boost API key
 // is a server secret that can't ship to the public client, and the roster needs
@@ -113,8 +113,23 @@ const cryptonativeDay: Speaker2026[] = [
     company: "imToken Labs",
     avatar: "/images/speakers/alfred-lu.png",
   },
+  {
+    name: "Clément Lesaege",
+    // Boost has "Founder / Founder" for the two orgs; one word covers both.
+    title: "Founder",
+    company: "Seer / Kleros",
+    avatar: "/images/speakers/clement-lesaege.jpg",
+  },
+  {
+    name: "Benny_lada",
+    title: "Vyper Core Contributor",
+    company: "Vyper",
+    avatar: "/images/speakers/benny-lada.png",
+  },
   // No headshot in Boost — initials fallback.
   { name: "Jason Lai", title: "Founder", company: "PIF12" },
+  { name: "CC Liang", title: "Researcher", company: "Independent" },
+  { name: "Miles NG", title: "Founder", company: "Laplace lab" },
   {
     name: "Koss & Alaska",
     title: "Founder (Alaska @ Subcult) & Community Architect (Koss @ Swarm)",

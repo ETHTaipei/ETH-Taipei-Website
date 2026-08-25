@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useT } from "@/contexts/LanguageContext";
 import {
   abmediaUrl,
+  anoniUrl,
   bermuDaoUrl,
   blockbeatsUrl,
   blocktempoUrl,
@@ -13,6 +14,7 @@ import {
   brainCryptoUrl,
   cmuFinanceUrl,
   coingabbarUrl,
+  coingapeUrl,
   cryptoBarUrl,
   cryptoCityUrl,
   cryptokenMediaUrl,
@@ -24,7 +26,9 @@ import {
   ethHubHkUrl,
   ethPandaUrl,
   ethTaoUrl,
+  ethTokyoUrl,
   fabDaoUrl,
+  feixiaohaoUrl,
   foresightNewsUrl,
   gccUrl,
   grenadeUrl,
@@ -108,6 +112,13 @@ const PARTNERS: LogoEntry[] = [
     tier: 1,
   },
   {
+    name: "Anoni 匿名網路社群",
+    url: anoniUrl,
+    img: "/images/partners/anoni.svg",
+    width: 75,
+    height: 78,
+  },
+  {
     name: "BermuDAO",
     url: bermuDaoUrl,
     img: "/images/partners/bermudao.png",
@@ -162,6 +173,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/ethtao.png",
     width: 142,
     height: 45,
+  },
+  {
+    name: "ETHTokyo",
+    url: ethTokyoUrl,
+    img: "/images/partners/ethtokyo.png",
+    width: 93,
+    height: 69,
   },
   {
     name: "FAB DAO",
@@ -357,6 +375,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     height: 47,
   },
   {
+    name: "CoinGape",
+    url: coingapeUrl,
+    img: "/images/media-partners/coingape.png",
+    width: 152,
+    height: 42,
+  },
+  {
     name: "Crypto City 加密城市",
     url: cryptoCityUrl,
     img: "/images/media-partners/cryptocity.png",
@@ -390,6 +415,13 @@ const MEDIA_PARTNERS: LogoEntry[] = [
     url: daCapitalUrl,
     img: "/images/media-partners/dacapital.svg",
     width: 170,
+    height: 38,
+  },
+  {
+    name: "Feixiaohao 非小號",
+    url: feixiaohaoUrl,
+    img: "/images/media-partners/feixiaohao.svg",
+    width: 167,
     height: 38,
   },
   {
