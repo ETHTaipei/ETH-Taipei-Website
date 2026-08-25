@@ -96,6 +96,8 @@ export const feixiaohaoUrl = "https://www.feixiaohao.ai/";
 // Ethereum communities. ncu-blockchain-club is carried over from Hygraph;
 // the rest are the accounts each group publishes itself.
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
+// New for 2026. Docs site is the group's public-facing entry point; verified HTTPS 200.
+export const anoniUrl = "https://anoni.net/docs/";
 // URL from Discord #website; verified https://ndhublockchain.club/ 200,
 // title 東華區塊鏈研究社 NDHU Blockchain Club.
 export const ndhuBlockchainUrl = "https://ndhublockchain.club/";

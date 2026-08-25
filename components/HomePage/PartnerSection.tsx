@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useT } from "@/contexts/LanguageContext";
 import {
   abmediaUrl,
+  anoniUrl,
   bermuDaoUrl,
   blockbeatsUrl,
   blocktempoUrl,
@@ -106,6 +107,13 @@ const PARTNERS: LogoEntry[] = [
     width: 250,
     height: 80,
     tier: 1,
+  },
+  {
+    name: "Anoni 匿名網路社群",
+    url: anoniUrl,
+    img: "/images/partners/anoni.svg",
+    width: 75,
+    height: 78,
   },
   {
     name: "BermuDAO",
