@@ -115,8 +115,8 @@ const PARTNERS: LogoEntry[] = [
     name: "Anoni 匿名網路社群",
     url: anoniUrl,
     img: "/images/partners/anoni.svg",
-    width: 75,
-    height: 78,
+    width: 93,
+    height: 69,
   },
   {
     name: "BermuDAO",
