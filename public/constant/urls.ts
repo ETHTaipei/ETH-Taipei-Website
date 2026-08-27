@@ -151,6 +151,8 @@ export const likeCoinDaoUrl = "https://like.co";
 export const sitconUrl = "https://sitcon.org/2027/";
 export const snzUrl = "https://snzholding.com/";
 export const taasUrl = "https://taas.com.tw/";
+// URL from 馬鈴薯 (Discord #website); verified X profile for The AI Collective.
+export const theAiCollectiveUrl = "https://x.com/AICollectiveCo";
 
 export const web3plusUrl = "https://web3plus.bnext.com.tw/";
 export const cryptoCityUrl = "https://www.cryptocity.tw/";
