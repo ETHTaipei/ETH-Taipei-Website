@@ -130,6 +130,8 @@ export const ethTokyoUrl = "https://www.ethtokyo.org/";
 export const fabDaoUrl = "https://fabdao.world/";
 // URL from Hana (Discord #website); verified HTTPS 200.
 export const cmuFinanceUrl = "https://www.instagram.com/cmu_financial/";
+// URL from 馬鈴薯 (Discord #website); verified HTTPS 200, title 逢甲大學金融研究社.
+export const fcuFinancialUrl = "https://www.instagram.com/fcu_financial/";
 // URL from Discord #website; verified HTTPS 200.
 export const hackersInTunghaiUrl = "https://www.instagram.com/thuhc2021/";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";

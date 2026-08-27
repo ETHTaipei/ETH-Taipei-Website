@@ -28,6 +28,7 @@ import {
   ethTaoUrl,
   ethTokyoUrl,
   fabDaoUrl,
+  fcuFinancialUrl,
   feixiaohaoUrl,
   foresightNewsUrl,
   gccUrl,
@@ -271,7 +272,7 @@ const PARTNERS: LogoEntry[] = [
 ];
 
 // University clubs get their own section rather than sitting in Partners.
-// There are twelve of them now — enough that they crowded the Partners grid,
+// There are thirteen of them now — enough that they crowded the Partners grid,
 // and enough to fill a section of their own. XueDAO stays under Partners: it's
 // student-run but cross-campus, so it doesn't belong to any one school.
 const SCHOOL_CLUBS: LogoEntry[] = [
@@ -280,6 +281,13 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     url: cmuFinanceUrl,
     img: "/images/partners/cmufinance.png",
     width: 78,
+    height: 78,
+  },
+  {
+    name: "FCU Financial",
+    url: fcuFinancialUrl,
+    img: "/images/partners/fcu-financial.png",
+    width: 76,
     height: 78,
   },
   {
