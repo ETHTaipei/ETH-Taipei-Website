@@ -2,378 +2,487 @@ import Header2026 from "@/components/Layout/Header2026";
 import type { CfpPhase } from "@/components/hooks/useCfpPhase";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Locale } from "@/public/constant/content";
-import { type ReactNode, useState } from "react";
+import Head from "next/head";
 
 import homeStyles from "@/components/HomePage/Home2026.module.css";
 import styles from "./AgendaPage2026.module.css";
 
-type DayId = "day1" | "day2";
+type AgendaText = Record<Locale, string>;
 
-type Pillar = {
-  n: string;
-  title: string;
-  desc: string;
-};
+const text = (en: string, zhHant: string): AgendaText => ({
+  en,
+  "zh-Hant": zhHant,
+});
 
-type Slot = {
-  time: string;
-  dur: string;
-  title: string;
-  desc: string;
-  format: "talk" | "panel";
-  tag: string;
+const localize = (value: AgendaText | string, locale: Locale) =>
+  typeof value === "string" ? value : value[locale];
+
+type Speaker = {
+  name?: string;
+  alias?: string;
+  jobTitle?: AgendaText;
+  organization?: AgendaText;
+  role?: AgendaText;
+  status?: "confirmed" | "pending";
 };
 
 type Session = {
-  heading: string;
-  range: string;
-  slots: Slot[];
+  format: AgendaText;
+  title: AgendaText;
+  speakers?: Speaker[];
 };
 
-type AgendaCopy = {
-  eyebrow: string;
-  title: string;
-  lede: ReactNode;
-  fmtTalk: string;
-  fmtPanel: string;
-  days: { id: DayId; date: string; name: string }[];
-  day1: {
-    bandTag: string;
-    bandName: string;
-    bandSub: string;
+type AgendaRow = {
+  time: AgendaText | string;
+  dateTime: string;
+  main?: Session;
+  forum?: Session;
+  shared?: Session;
+  intermission?: {
+    icon: string;
+    title: AgendaText;
+  };
+  transition?: AgendaText;
+};
+
+const UI_COPY: Record<
+  Locale,
+  {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    eventDate: string;
+    scheduleLabel: string;
     sectionLabel: string;
-    pillars: Pillar[];
-    note: ReactNode;
-  };
-  day2: {
-    bandTag: string;
-    bandName: string;
-    bandSub: string;
-    breakLabel: string;
-    sessions: Session[];
-    note: ReactNode;
-  };
+    caption: string;
+    timeHeader: string;
+    mainStage: string;
+    forumStage: string;
+    sharedStage: string;
+    pendingSpeaker: string;
+    moreSpeakersPending: string;
+    detailSeparator: string;
+    openParen: string;
+    closeParen: string;
+    labelSeparator: string;
+  }
+> = {
+  en: {
+    metaTitle: "ETHTaipei 2026 | Institution Day",
+    metaDescription: "ETHTaipei 2026 Institution Day schedule",
+    eyebrow: "ETHTAIPEI 2026",
+    title: "Institution Day",
+    eventDate: "September 14, 2026",
+    scheduleLabel: "Schedule",
+    sectionLabel: "Institution Day schedule",
+    caption: "ETHTaipei 2026 Institution Day schedule",
+    timeHeader: "Time",
+    mainStage: "Main Hall (Building M)",
+    forumStage: "Forum Hall (Building A2)",
+    sharedStage: "Joint session",
+    pendingSpeaker: "Speaker to be announced",
+    moreSpeakersPending: "More speakers to be announced",
+    detailSeparator: ", ",
+    openParen: " (",
+    closeParen: ")",
+    labelSeparator: " | ",
+  },
+  "zh-Hant": {
+    metaTitle: "ETHTaipei 2026｜機構日",
+    metaDescription: "ETHTaipei 2026 機構日議程",
+    eyebrow: "ETHTAIPEI 2026",
+    title: "機構日",
+    eventDate: "2026 年 9 月 14 日",
+    scheduleLabel: "當日議程",
+    sectionLabel: "機構日議程",
+    caption: "ETHTaipei 2026 機構日議程",
+    timeHeader: "時間",
+    mainStage: "主舞台（M 棟）",
+    forumStage: "論壇舞台（A2 棟）",
+    sharedStage: "共同議程",
+    pendingSpeaker: "講者即將公布",
+    moreSpeakersPending: "更多講者即將公布",
+    detailSeparator: "・",
+    openParen: "（",
+    closeParen: "）",
+    labelSeparator: "｜",
+  },
 };
 
-const MORNING_RANGE = "10:00 – 12:00";
-
-const COPY: Record<Locale, AgendaCopy> = {
-  en: {
-    eyebrow: "ETHTAIPEI 2026 · AGENDA",
-    title: "Agenda",
-    lede: (
-      <>
-        Two days at ETHTaipei 2026: <b>Sep 13 — Cryptonative Day</b> belongs to
-        the Ethereum builder community; <b>Sep 14 — Institution Day</b> is built
-        for banks and financial institutions. This is a draft — topics and timing
-        may change.
-      </>
-    ),
-    fmtTalk: "Talk",
-    fmtPanel: "Panel",
-    days: [
-      { id: "day1", date: "SEP 13", name: "Cryptonative Day" },
-      { id: "day2", date: "SEP 14", name: "Institution Day" },
-    ],
-    day1: {
-      bandTag: "Day 01 · Sep 13 · Main Stage",
-      bandName: "Cryptonative Day",
-      bandSub:
-        "A day for the Ethereum builder community — from core protocol to consumer apps. Full schedule and speaker lineup in progress.",
-      sectionLabel: "What to Expect",
-      pillars: [
+const AGENDA_ROWS: AgendaRow[] = [
+  {
+    time: "10:00–10:30",
+    dateTime: "2026-09-14T10:00:00+08:00",
+    shared: {
+      format: text("Keynote", "主題演講"),
+      title: text("Taiwan's Crypto Adoption Vision", "台灣加密產業的下一步"),
+      speakers: [
         {
-          n: "01",
-          title: "Protocol & Core Dev",
-          desc: "Consensus, execution- and consensus-layer clients, EIPs, and the road to the next hard fork.",
-        },
-        {
-          n: "02",
-          title: "L2s & Scaling",
-          desc: "Rollups, shared sequencing, interop, data availability, and seamless cross-L2 UX.",
-        },
-        {
-          n: "03",
-          title: "ZK & Privacy",
-          desc: "Proving systems, zkEVMs, coprocessors, and privacy-preserving applications.",
-        },
-        {
-          n: "04",
-          title: "Wallets & Account Abstraction",
-          desc: "Smart accounts, ERC-4337 / 7702, passkeys, and gasless UX.",
-        },
-        {
-          n: "05",
-          title: "DeFi",
-          desc: "AMMs, lending, stablecoins, intents, and on-chain risk management.",
-        },
-        {
-          n: "06",
-          title: "Consumer & Social",
-          desc: "On-chain social, gaming, payments, and apps built for everyday users.",
-        },
-        {
-          n: "07",
-          title: "Security",
-          desc: "Auditing, formal verification, MEV, and keeping users and protocols safe.",
-        },
-        {
-          n: "08",
-          title: "Infra & Tooling",
-          desc: "RPC, indexing, dev frameworks, and oracles — the plumbing builders rely on.",
+          name: "Jamie Lin",
+          organization: text("Taiwan Mobile", "台灣大哥大"),
         },
       ],
-      note: (
-        <>
-          <b>Schedule in progress.</b> The full timetable, talk titles, and
-          speakers will be announced once the lineup is confirmed. Above are the
-          themes this day is expected to cover.
-        </>
-      ),
-    },
-    day2: {
-      bandTag: "Day 02 · Sep 14 · Main Stage",
-      bandName: "Institution Day",
-      bandSub:
-        "A one-day track built for banks and financial institutions — the morning on institutional-grade custody and wallet architecture, the afternoon on RWA and tokenized-equity practice and chain selection. Single track · Main Stage.",
-      breakLabel: "Lunch & Networking",
-      sessions: [
-        {
-          heading: "Morning · Custody / Wallet",
-          range: MORNING_RANGE,
-          slots: [
-            {
-              time: "10:00",
-              dur: "30 min",
-              title:
-                "From Smart Accounts to Compliant Accounts: The Future of Institutional Wallets",
-              desc: "How the wallet stack is evolving — authentication, roles and permissions, transaction policy, real-time risk checks, audit trails, and compliance modules — into the next generation of institutional wallets.",
-              format: "talk",
-              tag: "Custody / Wallets",
-            },
-            {
-              time: "10:30",
-              dur: "30 min",
-              title: "Security in Digital Assets & Smart Contracts",
-              desc: "Web3 security across the stack — from safeguarding assets and hardening smart contracts to securing surrounding infrastructure and protecting staff from social engineering.",
-              format: "talk",
-              tag: "Security",
-            },
-            {
-              time: "11:00",
-              dur: "60 min",
-              title:
-                "Panel — Stablecoin Types & Risk Management: USDC / USDT / OUSD / DAI / USDe",
-              desc: "Perspectives on the major stablecoins in the market, their stability mechanisms, and how to classify their risks.",
-              format: "panel",
-              tag: "Stablecoins",
-            },
-          ],
-        },
-        {
-          heading: "Afternoon · RWA / Tokenized Stocks",
-          range: "13:00 – 16:00",
-          slots: [
-            {
-              time: "13:00",
-              dur: "30 min",
-              title:
-                "How Are Tokenized US Stocks Issued? Three Models, from Ondo to xStocks",
-              desc: "Using Ondo Global Markets as the anchor case — compared with Backed Finance (xStocks) and Dinari — we break down three key differences behind tokenized US equities: collateral & custody architecture, regulatory jurisdiction, and investor eligibility & liquidity design.",
-              format: "talk",
-              tag: "RWA / Stocks",
-            },
-            {
-              time: "13:30",
-              dur: "30 min",
-              title:
-                "Positioning for the Trillion-Dollar “Machine Finance” Market of Autonomous AI Agents",
-              desc: "Starting from x402 (backed by the Linux Foundation and others), how autonomous AI agents pay and transact on-chain — and what this “machine finance” market means for financial institutions.",
-              format: "talk",
-              tag: "AI / Machine Finance",
-            },
-            {
-              time: "14:00",
-              dur: "60 min",
-              title: "Panel — Tokenization Progress at Traditional Finance Giants",
-              desc: "Representatives from traditional financial infrastructure — NYSE, Nasdaq, SWIFT and others — share where they are on tokenization, the regulatory and technical challenges they face, and their outlook for the next 3–5 years.",
-              format: "panel",
-              tag: "Tokenization",
-            },
-            {
-              time: "15:00",
-              dur: "60 min",
-              title:
-                "Panel — Private vs. Public Chains: The Real Decision Axes for Institutions",
-              desc: "Breaking the debate into the axes that actually matter — data privacy, regulatory control, finality guarantees, liquidity access, and vendor lock-in — rather than a vague notion of “security.” Where Besu / Canton / Prividium / public chains each stand.",
-              format: "panel",
-              tag: "Chain Selection",
-            },
-          ],
-        },
-      ],
-      note: (
-        <>
-          <b>Tentative schedule.</b> Topics and timing may change; the speaker
-          lineup will be announced once confirmed.
-        </>
-      ),
     },
   },
-
-  "zh-Hant": {
-    eyebrow: "ETHTAIPEI 2026 · 議程",
-    title: "議程",
-    lede: (
-      <>
-        ETHTaipei 2026 的兩天：<b>9/13 Cryptonative Day</b> 屬於以太坊開發者社群；
-        <b>9/14 Institution Day</b> 為銀行與金融機構打造。以下為草稿，講題與時間可能調整。
-      </>
-    ),
-    fmtTalk: "演講",
-    fmtPanel: "座談",
-    days: [
-      { id: "day1", date: "SEP 13", name: "開發者日" },
-      { id: "day2", date: "SEP 14", name: "機構日" },
-    ],
-    day1: {
-      bandTag: "Day 01 · 9/13 · 主舞台",
-      bandName: "Cryptonative Day · 開發者的一天",
-      bandSub:
-        "屬於以太坊開發者社群的一天——從核心協議到消費級應用。完整時間表與講者陣容建構中，陸續公布。",
-      sectionLabel: "主題方向",
-      pillars: [
-        {
-          n: "01",
-          title: "協議與核心開發",
-          desc: "共識、執行層與共識層客戶端、EIP，以及邁向下一個硬分叉的路線圖。",
-        },
-        {
-          n: "02",
-          title: "L2 與擴容",
-          desc: "Rollups、共享排序、跨鏈互通、資料可用性，以及無縫跨 L2 的使用體驗。",
-        },
-        {
-          n: "03",
-          title: "零知識證明與隱私",
-          desc: "證明系統、zkEVM、coprocessor，以及保護隱私的鏈上應用。",
-        },
-        {
-          n: "04",
-          title: "錢包與帳戶抽象",
-          desc: "智能帳戶、ERC-4337 / 7702、passkey，以及無 gas 的使用體驗。",
-        },
-        {
-          n: "05",
-          title: "去中心化金融 DeFi",
-          desc: "AMM、借貸、穩定幣、intent 交易，以及鏈上風險管理。",
-        },
-        {
-          n: "06",
-          title: "消費級與社交應用",
-          desc: "鏈上社交、遊戲、支付，以及為日常用戶打造的應用。",
-        },
-        {
-          n: "07",
-          title: "資安",
-          desc: "稽核、形式化驗證、MEV，以及如何守護用戶與協議的安全。",
-        },
-        {
-          n: "08",
-          title: "基礎設施與工具",
-          desc: "RPC、索引、開發框架、預言機——開發者仰賴的底層管線。",
-        },
-      ],
-      note: (
-        <>
-          <b>議程建構中。</b> 完整時間表、講題與講者將於陣容確認後公布。以上為這一天預計涵蓋的主題方向。
-        </>
+  {
+    time: "10:30–10:35",
+    dateTime: "2026-09-14T10:30:00+08:00",
+    transition: text("Break", "休息時間"),
+  },
+  {
+    time: "10:35–11:05",
+    dateTime: "2026-09-14T10:35:00+08:00",
+    main: {
+      format: text("Talk", "專題演講"),
+      title: text(
+        "Stablecoin Risk Classification and Accounting Recognition",
+        "穩定幣有哪些風險？會計上怎麼認列？",
       ),
+      speakers: [{ name: "陳念平", organization: text("PwC", "PwC") }],
     },
-    day2: {
-      bandTag: "Day 02 · 9/14 · 主舞台",
-      bandName: "Institution Day · 機構日",
-      bandSub:
-        "為金融機構與從業者打造的一日議程——上半天聚焦機構級的保管與錢包架構，下半天走進 RWA 與美股代幣化的實務與選型。單軌 · 主舞台。",
-      breakLabel: "午餐 · 自由交流 Lunch & Networking",
-      sessions: [
-        {
-          heading: "上半天 · 保管與錢包 Custody / Wallet",
-          range: MORNING_RANGE,
-          slots: [
-            {
-              time: "10:00",
-              dur: "30 min",
-              title:
-                "From Smart Accounts to Compliant Accounts：下一代機構錢包",
-              desc: "從錢包的技術演進出發，探討身份驗證、角色與權限、交易政策、即時風險檢查、稽核軌跡與合規模組，如何共同構成下一代機構錢包。",
-              format: "talk",
-              tag: "保管 / 錢包",
-            },
-            {
-              time: "10:30",
-              dur: "30 min",
-              title: "虛擬資產與智能合約之資安議題",
-              desc: "Web3 相關的資安議題，從如何保管資產、確保智能合約安全、周邊伺服器之安全性，到保護職員遭受社交工程。",
-              format: "talk",
-              tag: "資安",
-            },
-            {
-              time: "11:00",
-              dur: "60 min",
-              title: "座談 — 穩定幣種類與風險管理：USDC / USDT / OUSD / DAI / USDe",
-              desc: "分享針對市面上主要穩定幣及其穩定機制、風險分類的看法。",
-              format: "panel",
-              tag: "穩定幣",
-            },
-          ],
-        },
-        {
-          heading: "下半天 · RWA / 美股代幣",
-          range: "13:00 – 16:00",
-          slots: [
-            {
-              time: "13:00",
-              dur: "30 min",
-              title: "美股代幣化怎麼發？從 Ondo 到 xStocks 的三種模式拆解",
-              desc: "以 Ondo Global Markets 為核心案例，對照 Backed Finance（xStocks）、Dinari 等主流發行方，拆解美股代幣化背後三個關鍵差異：擔保與託管架構、監管司法管轄、以及投資人資格與流動性設計。",
-              format: "talk",
-              tag: "RWA / 美股",
-            },
-            {
-              time: "13:30",
-              dur: "30 min",
-              title: "佈局自主 AI 代理的兆級美元「機器金融」新市場",
-              desc: "從 x402（由 Linux Foundation 等支持）出發，談自主 AI 代理如何在鏈上支付與交易，以及這個「機器金融」市場對金融機構的意義與機會。",
-              format: "talk",
-              tag: "AI / 機器金融",
-            },
-            {
-              time: "14:00",
-              dur: "60 min",
-              title: "座談 — 傳統金融巨頭的代幣化進程",
-              desc: "邀請 NYSE、Nasdaq、SWIFT 等傳統金融基礎設施代表，分享各自在代幣化上的布局進度、遇到的監理與技術挑戰，以及對未來 3–5 年的展望。",
-              format: "panel",
-              tag: "代幣化",
-            },
-            {
-              time: "15:00",
-              dur: "60 min",
-              title: "座談 — 私有鏈 vs. 公有鏈：機構選鏈的關鍵決策軸",
-              desc: "把爭論拆成幾個真正的決策軸——資料隱私、監理可控性、最終性保證、流動性可及性、廠商鎖定——而不是籠統的「安全」。點名 Besu / Canton / Prividium / 公鏈各自站在哪一軸。",
-              format: "panel",
-              tag: "選鏈",
-            },
-          ],
-        },
-      ],
-      note: (
-        <>
-          <b>暫定議程。</b> 講題與時間可能調整，講者陣容確認後公布。
-        </>
+    forum: {
+      format: text("Talk", "專題演講"),
+      title: text(
+        "What Ethereum Must Build for Global Finance",
+        "以太坊要如何支撐全球金融？",
       ),
+      speakers: [
+        { name: "Changwu", organization: text("imToken", "imToken") },
+      ],
     },
   },
+  {
+    time: "11:05–11:10",
+    dateTime: "2026-09-14T11:05:00+08:00",
+    transition: text("Break", "休息時間"),
+  },
+  {
+    time: "11:10–11:55",
+    dateTime: "2026-09-14T11:10:00+08:00",
+    main: {
+      format: text("Fireside Chat", "爐邊對談"),
+      title: text("The Future of Stablecoins", "穩定幣接下來會怎麼發展？"),
+      speakers: [
+        {
+          name: "温宏駿",
+          organization: text("Hayek Technology", "海耶克科技"),
+        },
+        { name: "Wayne", organization: text("XREX", "XREX") },
+      ],
+    },
+    forum: {
+      format: text("Introduction + Panel", "主題介紹＋座談"),
+      title: text(
+        "Programmable Compliance: Bringing Institutional Policy Onchain",
+        "可程式化合規：如何把機構政策帶上鏈？",
+      ),
+      speakers: [
+        { name: "Taka" },
+        { name: "Changwu", organization: text("imToken", "imToken") },
+        { name: "Jason Kuo", organization: text("Zodia", "Zodia") },
+      ],
+    },
+  },
+  {
+    time: "11:55–13:30",
+    dateTime: "2026-09-14T11:55:00+08:00",
+    intermission: {
+      icon: "🍽️",
+      title: text("Lunch", "午餐時間"),
+    },
+  },
+  {
+    time: "13:30–14:00",
+    dateTime: "2026-09-14T13:30:00+08:00",
+    main: {
+      format: text("Talk", "專題演講"),
+      title: text(
+        "Cybersecurity Risks in Virtual Assets and Smart Contracts",
+        "虛擬資產與智能合約有哪些資安風險？",
+      ),
+      speakers: [
+        { name: "Martinet", organization: text("Quantstamp", "Quantstamp") },
+      ],
+    },
+    forum: {
+      format: text("Talk", "專題演講"),
+      title: text("Topic to be announced", "議題即將公布"),
+      speakers: [
+        { organization: text("O-Bank", "王道銀行"), status: "pending" },
+      ],
+    },
+  },
+  {
+    time: "14:00–14:05",
+    dateTime: "2026-09-14T14:00:00+08:00",
+    transition: text("Break", "休息時間"),
+  },
+  {
+    time: "14:05–14:35",
+    dateTime: "2026-09-14T14:05:00+08:00",
+    main: {
+      format: text("Talk", "專題演講"),
+      title: text(
+        "ETHSystem: An Introduction to Institutional-Grade Ethereum Infrastructure",
+        "認識 ETHSystem：機構級 Ethereum 基礎設施",
+      ),
+      speakers: [
+        { name: "Oskar", organization: text("ETHSystem", "ETHSystem") },
+      ],
+    },
+    forum: {
+      format: text("Talk", "專題演講"),
+      title: text("An RWA Risk-Control Framework", "RWA 的風險該怎麼管？"),
+      speakers: [
+        { name: "陳鴻祺", organization: text("Deloitte", "Deloitte") },
+      ],
+    },
+  },
+  {
+    time: "14:35–14:40",
+    dateTime: "2026-09-14T14:35:00+08:00",
+    transition: text("Break", "休息時間"),
+  },
+  {
+    time: "14:40–15:25",
+    dateTime: "2026-09-14T14:40:00+08:00",
+    main: {
+      format: text("Panel", "座談"),
+      title: text(
+        "Public, Private, or Hybrid Chains: How Institutions Should Choose",
+        "公鏈、私有鏈還是混合架構？機構該怎麼選？",
+      ),
+      speakers: [
+        { name: "Martinet", organization: text("Quantstamp", "Quantstamp") },
+        { name: "Ko-Wei", organization: text("IOTA", "IOTA") },
+        { name: "Benji", organization: text("LINE NEXT", "LINE NEXT") },
+        { name: "Teagan", organization: text("Canton", "Canton") },
+      ],
+    },
+    forum: {
+      format: text("Panel", "座談"),
+      title: text(
+        "Digital Asset Custody: Governance, Security, and Accountability",
+        "虛擬資產該怎麼保管？治理、資安與責任怎麼分？",
+      ),
+      speakers: [
+        { name: "Danny", organization: text("TAAS", "TAAS") },
+        { organization: text("BitGo", "BitGo"), status: "pending" },
+        { organization: text("KPMG", "KPMG"), status: "pending" },
+        { name: "Stamford", organization: text("Taishin", "Taishin") },
+      ],
+    },
+  },
+  {
+    time: "15:25–15:30",
+    dateTime: "2026-09-14T15:25:00+08:00",
+    transition: text("Break", "休息時間"),
+  },
+  {
+    time: "15:30–16:15",
+    dateTime: "2026-09-14T15:30:00+08:00",
+    main: {
+      format: text("Panel", "座談"),
+      title: text(
+        "Tokenization at Traditional Financial Institutions: From Pilots to Market Adoption",
+        "傳統金融如何推動代幣化？從試辦走向市場",
+      ),
+      speakers: [
+        { name: "Daniel", organization: text("BSOS", "BSOS") },
+        { name: "陳品", organization: text("BSOS", "BSOS") },
+        { status: "pending" },
+      ],
+    },
+    forum: {
+      format: text("Panel", "座談"),
+      title: text(
+        "Virtual Asset Regulatory Readiness: What's Still Missing?",
+        "虛擬資產法規準備好了嗎？市場還缺哪一塊？",
+      ),
+      speakers: [
+        { name: "Liying" },
+        { name: "Jason Lai" },
+        { name: "Ernie" },
+        { status: "pending" },
+      ],
+    },
+  },
+  {
+    time: text("From 16:15", "16:15 起"),
+    dateTime: "2026-09-14T16:15:00+08:00",
+    intermission: {
+      icon: "🤝",
+      title: text("Networking", "自由交流"),
+    },
+  },
+];
+
+const SpeakerList = ({
+  speakers,
+  locale,
+  copy,
+}: {
+  speakers?: Speaker[];
+  locale: Locale;
+  copy: (typeof UI_COPY)[Locale];
+}) => {
+  if (!speakers?.length) return null;
+
+  return (
+    <p className={styles.speakers}>
+      {speakers.map((speaker, index) => (
+        <span
+          className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
+          key={`${speaker.name ?? "pending"}-${
+            speaker.organization
+              ? localize(speaker.organization, locale)
+              : index
+          }`}
+        >
+          {index > 0 && " · "}
+          {speaker.status === "pending" ? (
+            <>
+              {speaker.organization
+                ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
+                : copy.moreSpeakersPending}
+            </>
+          ) : (
+            <>
+              {speaker.role && (
+                <span className={styles.speakerRole}>
+                  {localize(speaker.role, locale)}
+                  {copy.labelSeparator}
+                </span>
+              )}
+              {speaker.name}
+              {speaker.alias &&
+                `${copy.openParen}${speaker.alias}${copy.closeParen}`}
+              {(speaker.jobTitle || speaker.organization) && (
+                <span className={styles.organization}>
+                  {copy.openParen}
+                  {[
+                    speaker.jobTitle && localize(speaker.jobTitle, locale),
+                    speaker.organization && localize(speaker.organization, locale),
+                  ]
+                    .filter(Boolean)
+                    .join(copy.detailSeparator)}
+                  {copy.closeParen}
+                </span>
+              )}
+            </>
+          )}
+        </span>
+      ))}
+    </p>
+  );
+};
+
+const SessionCard = ({
+  session,
+  stage,
+  locale,
+  copy,
+}: {
+  session: Session;
+  stage: "main" | "forum" | "shared";
+  locale: Locale;
+  copy: (typeof UI_COPY)[Locale];
+}) => (
+  <article
+    className={`${styles.session} ${
+      stage === "forum" ? styles.forumSession : ""
+    } ${stage === "shared" ? styles.sharedSession : ""}`}
+  >
+    <div className={styles.sessionMeta}>
+      <span>{localize(session.format, locale)}</span>
+    </div>
+    <h3>{localize(session.title, locale)}</h3>
+    <SpeakerList speakers={session.speakers} locale={locale} copy={copy} />
+  </article>
+);
+
+const ScheduleRow = ({
+  row,
+  locale,
+  copy,
+}: {
+  row: AgendaRow;
+  locale: Locale;
+  copy: (typeof UI_COPY)[Locale];
+}) => {
+  const isTransition = Boolean(row.transition);
+
+  return (
+    <tr
+      className={`${styles.agendaRow} ${
+        isTransition ? styles.transitionRow : ""
+      }`}
+    >
+      <th className={styles.time} scope="row">
+        <time dateTime={row.dateTime}>
+          <strong>{localize(row.time, locale)}</strong>
+        </time>
+      </th>
+
+      {row.transition && (
+        <td className={styles.transition} colSpan={2}>
+          <span className={styles.transitionIcon} aria-hidden="true">
+            ⏳
+          </span>
+          {localize(row.transition, locale)}
+        </td>
+      )}
+
+      {row.intermission && (
+        <td className={styles.intermission} colSpan={2}>
+          <div className={styles.intermissionCopy}>
+            <span className={styles.intermissionIcon} aria-hidden="true">
+              {row.intermission.icon}
+            </span>
+            <div>
+              <h3>{localize(row.intermission.title, locale)}</h3>
+            </div>
+          </div>
+        </td>
+      )}
+
+      {row.shared && (
+        <td
+          className={`${styles.sessionCell} ${styles.wideCell}`}
+          colSpan={2}
+          data-stage-label={copy.sharedStage}
+        >
+          <SessionCard
+            session={row.shared}
+            stage="shared"
+            locale={locale}
+            copy={copy}
+          />
+        </td>
+      )}
+      {row.main && (
+        <td className={styles.sessionCell} data-stage-label={copy.mainStage}>
+          <SessionCard
+            session={row.main}
+            stage="main"
+            locale={locale}
+            copy={copy}
+          />
+        </td>
+      )}
+      {row.forum && (
+        <td className={styles.sessionCell} data-stage-label={copy.forumStage}>
+          <SessionCard
+            session={row.forum}
+            stage="forum"
+            locale={locale}
+            copy={copy}
+          />
+        </td>
+      )}
+    </tr>
+  );
 };
 
 const AgendaPage2026 = ({
@@ -382,116 +491,72 @@ const AgendaPage2026 = ({
   initialCfpPhase: CfpPhase;
 }) => {
   const { locale } = useLanguage();
-  const copy = COPY[locale];
-  const [activeDay, setActiveDay] = useState<DayId>("day1");
+  const copy = UI_COPY[locale];
 
   return (
-    <div className={`${homeStyles.page} ${styles.page}`} data-day={activeDay}>
+    <div
+      className={`${homeStyles.page} ${styles.page}`}
+      data-locale={locale}
+    >
+      <Head>
+        <title>{copy.metaTitle}</title>
+        <meta name="description" content={copy.metaDescription} />
+      </Head>
+
       <Header2026 activeHref="/agenda" initialCfpPhase={initialCfpPhase} />
 
-      <main className={styles.main} id="agenda">
+      <main
+        className={styles.main}
+        id="agenda"
+        lang={locale === "en" ? "en" : "zh-Hant"}
+      >
         <div className={styles.shell}>
-          <header className={styles.intro}>
-            <p className={styles.eyebrow}>{copy.eyebrow}</p>
-            <h1 className={styles.title}>
-              {copy.title}
-              <span>.</span>
-            </h1>
-            <p className={styles.lede}>{copy.lede}</p>
-          </header>
+          <section className={styles.hero} aria-labelledby="page-title">
+            <div>
+              <p className={styles.eyebrow}>{copy.eyebrow}</p>
+              <h1 id="page-title" className={styles.title}>
+                {copy.title}
+              </h1>
+              <time className={styles.eventDate} dateTime="2026-09-14">
+                {copy.eventDate}
+              </time>
+            </div>
+          </section>
 
-          <div className={styles.dayTabs} role="tablist" aria-label="Agenda days">
-            {copy.days.map((day) => (
-              <button
-                key={day.id}
-                className={styles.dayTab}
-                type="button"
-                role="tab"
-                aria-selected={activeDay === day.id}
-                onClick={() => setActiveDay(day.id)}
-              >
-                <span className={styles.dayTabDate}>{day.date}</span>
-                <span className={styles.dayTabName}>{day.name}</span>
-              </button>
-            ))}
-          </div>
-
-          {activeDay === "day1" ? (
-            <section className={styles.panel} aria-label={copy.day1.bandName}>
-              <div className={styles.bandCard}>
-                <span className={styles.bandTag}>{copy.day1.bandTag}</span>
-                <h2 className={styles.bandName}>{copy.day1.bandName}</h2>
-                <p className={styles.bandSub}>{copy.day1.bandSub}</p>
+          <section className={styles.agendaSection} aria-label={copy.sectionLabel}>
+            <div className={styles.sectionHeading}>
+              <div>
+                <p className={styles.sectionKicker}>{copy.scheduleLabel}</p>
               </div>
+            </div>
 
-              <p className={styles.sectionLabel}>{copy.day1.sectionLabel}</p>
-              <div className={styles.pillars}>
-                {copy.day1.pillars.map((pillar) => (
-                  <article className={styles.pillar} key={pillar.n}>
-                    <span className={styles.pillarNum} aria-hidden="true">
-                      {pillar.n}
-                    </span>
-                    <h3 className={styles.pillarTitle}>{pillar.title}</h3>
-                    <p className={styles.pillarDesc}>{pillar.desc}</p>
-                  </article>
+            <table className={styles.agendaTable}>
+              <caption className={styles.visuallyHidden}>{copy.caption}</caption>
+              <thead className={styles.agendaHead}>
+                <tr className={styles.agendaHeadRow}>
+                  <th className={styles.headCell} scope="col">
+                    {copy.timeHeader}
+                  </th>
+                  <th className={styles.headCell} scope="col">
+                    {copy.mainStage}
+                  </th>
+                  <th className={styles.headCell} scope="col">
+                    {copy.forumStage}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className={styles.agendaBody}>
+                {AGENDA_ROWS.map((row) => (
+                  <ScheduleRow
+                    row={row}
+                    locale={locale}
+                    copy={copy}
+                    key={row.dateTime}
+                  />
                 ))}
-              </div>
-
-              <p className={styles.note}>{copy.day1.note}</p>
-            </section>
-          ) : (
-            <section className={styles.panel} aria-label={copy.day2.bandName}>
-              <div className={`${styles.bandCard} ${styles.bandCardAlt}`}>
-                <span className={styles.bandTag}>{copy.day2.bandTag}</span>
-                <h2 className={styles.bandName}>{copy.day2.bandName}</h2>
-                <p className={styles.bandSub}>{copy.day2.bandSub}</p>
-              </div>
-
-              {copy.day2.sessions.map((session) => (
-                <div className={styles.session} key={session.heading}>
-                  <div className={styles.sessionHead}>
-                    <h2>{session.heading}</h2>
-                    <span className={styles.sessionRange}>{session.range}</span>
-                  </div>
-                  {session.slots.map((slot) => (
-                    <div
-                      className={`${styles.slot} ${
-                        slot.format === "panel" ? styles.slotPanel : ""
-                      }`}
-                      key={slot.time + slot.title}
-                    >
-                      <div className={styles.slotTime}>
-                        {slot.time}
-                        <span className={styles.slotDur}>{slot.dur}</span>
-                      </div>
-                      <div>
-                        <p className={styles.slotTitle}>{slot.title}</p>
-                        <p className={styles.slotDesc}>{slot.desc}</p>
-                        <div className={styles.slotFooter}>
-                          <span
-                            className={`${styles.fmt} ${
-                              slot.format === "panel" ? styles.fmtPanel : styles.fmtTalk
-                            }`}
-                          >
-                            {slot.format === "panel" ? copy.fmtPanel : copy.fmtTalk}
-                          </span>
-                          <span className={styles.tag}>{slot.tag}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  {session.range === MORNING_RANGE && (
-                    <div className={styles.break}>
-                      <div className={styles.slotTime}>12:00</div>
-                      <div className={styles.breakLabel}>{copy.day2.breakLabel}</div>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              <p className={styles.note}>{copy.day2.note}</p>
-            </section>
-          )}
+              </tbody>
+            </table>
+          </section>
         </div>
       </main>
     </div>
