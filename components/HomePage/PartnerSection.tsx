@@ -28,12 +28,14 @@ import {
   ethTaoUrl,
   ethTokyoUrl,
   fabDaoUrl,
+  fcuFinancialUrl,
   feixiaohaoUrl,
   fjcuFinanceLabUrl,
   foresightNewsUrl,
   gccUrl,
   grenadeUrl,
   hackersInTunghaiUrl,
+  likeCoinDaoUrl,
   miraUrl,
   monsterBlockUrl,
   nccuBlockchainUrl,
@@ -49,10 +51,12 @@ import {
   openBuildUrl,
   pukecastUrl,
   scuBlockchainUrl,
+  sitconUrl,
   snzUrl,
   taasUrl,
   tabeiUrl,
   techFlowUrl,
+  theAiCollectiveUrl,
   vyperUrl,
   web3MattersUrl,
   wprcUrl,
@@ -116,8 +120,8 @@ const PARTNERS: LogoEntry[] = [
     name: "Anoni 匿名網路社群",
     url: anoniUrl,
     img: "/images/partners/anoni.svg",
-    width: 75,
-    height: 78,
+    width: 93,
+    height: 69,
   },
   {
     name: "BermuDAO",
@@ -197,6 +201,13 @@ const PARTNERS: LogoEntry[] = [
     height: 38,
   },
   {
+    name: "LikeCoin DAO",
+    url: likeCoinDaoUrl,
+    img: "/images/partners/likecoin-dao.svg",
+    width: 123,
+    height: 52,
+  },
+  {
     name: "NodeZ",
     url: nodeZUrl,
     img: "/images/partners/nodez.png",
@@ -211,6 +222,13 @@ const PARTNERS: LogoEntry[] = [
     height: 37,
   },
   {
+    name: "SITCON",
+    url: sitconUrl,
+    img: "/images/partners/sitcon.svg",
+    width: 150,
+    height: 43,
+  },
+  {
     name: "SNZ",
     url: snzUrl,
     img: "/images/partners/snz.png",
@@ -223,6 +241,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/taas.png",
     width: 135,
     height: 47,
+  },
+  {
+    name: "The AI Collective",
+    url: theAiCollectiveUrl,
+    img: "/images/partners/the-ai-collective.png",
+    width: 115,
+    height: 56,
   },
   {
     name: "Vyper",
@@ -248,7 +273,7 @@ const PARTNERS: LogoEntry[] = [
 ];
 
 // University clubs get their own section rather than sitting in Partners.
-// There are thirteen of them now — enough that they crowded the Partners grid,
+// There are fourteen of them now — enough that they crowded the Partners grid,
 // and enough to fill a section of their own. XueDAO stays under Partners: it's
 // student-run but cross-campus, so it doesn't belong to any one school.
 const SCHOOL_CLUBS: LogoEntry[] = [
@@ -257,6 +282,13 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     url: cmuFinanceUrl,
     img: "/images/partners/cmufinance.png",
     width: 78,
+    height: 78,
+  },
+  {
+    name: "FCU Financial",
+    url: fcuFinancialUrl,
+    img: "/images/partners/fcu-financial.png",
+    width: 76,
     height: 78,
   },
   {
