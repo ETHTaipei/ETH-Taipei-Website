@@ -33,6 +33,7 @@ import {
   gccUrl,
   grenadeUrl,
   hackersInTunghaiUrl,
+  likeCoinDaoUrl,
   miraUrl,
   monsterBlockUrl,
   nccuBlockchainUrl,
@@ -48,6 +49,7 @@ import {
   openBuildUrl,
   pukecastUrl,
   scuBlockchainUrl,
+  sitconUrl,
   snzUrl,
   taasUrl,
   tabeiUrl,
@@ -196,6 +198,13 @@ const PARTNERS: LogoEntry[] = [
     height: 38,
   },
   {
+    name: "LikeCoin DAO",
+    url: likeCoinDaoUrl,
+    img: "/images/partners/likecoin-dao.svg",
+    width: 123,
+    height: 52,
+  },
+  {
     name: "NodeZ",
     url: nodeZUrl,
     img: "/images/partners/nodez.png",
@@ -208,6 +217,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/openbuild.png",
     width: 173,
     height: 37,
+  },
+  {
+    name: "SITCON",
+    url: sitconUrl,
+    img: "/images/partners/sitcon.svg",
+    width: 150,
+    height: 43,
   },
   {
     name: "SNZ",
