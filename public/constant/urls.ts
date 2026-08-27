@@ -145,6 +145,10 @@ export const ntustBlockchainUrl = "https://www.facebook.com/NTUSTBlockchain/";
 export const ntutBlockchainUrl = "https://ntutblockchain.com/";
 export const scuBlockchainUrl = "https://www.instagram.com/blockchain_scu/";
 export const gccUrl = "https://www.gccofficial.org/";
+// URLs from 馬鈴薯 (Discord #website). like.co redirects to the LikeCoin DAO site;
+// SITCON 2027 returned HTTPS 200 with the official event title.
+export const likeCoinDaoUrl = "https://like.co";
+export const sitconUrl = "https://sitcon.org/2027/";
 export const snzUrl = "https://snzholding.com/";
 export const taasUrl = "https://taas.com.tw/";
 
