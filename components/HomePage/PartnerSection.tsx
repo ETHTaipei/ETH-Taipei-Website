@@ -54,6 +54,7 @@ import {
   taasUrl,
   tabeiUrl,
   techFlowUrl,
+  theAiCollectiveUrl,
   vyperUrl,
   web3MattersUrl,
   wprcUrl,
@@ -238,6 +239,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/taas.png",
     width: 135,
     height: 47,
+  },
+  {
+    name: "The AI Collective",
+    url: theAiCollectiveUrl,
+    img: "/images/partners/the-ai-collective.png",
+    width: 115,
+    height: 56,
   },
   {
     name: "Vyper",
