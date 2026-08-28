@@ -35,6 +35,7 @@ import {
   gccUrl,
   grenadeUrl,
   hackersInTunghaiUrl,
+  kpmgUrl,
   likeCoinDaoUrl,
   miraUrl,
   monsterBlockUrl,
@@ -91,6 +92,16 @@ type LogoEntry = {
 // rather than equal width, so a 10:1 wordmark (TechFlow) and a square badge
 // (Zombit) carry the same weight in the grid: height = sqrt(6400 / aspect),
 // clamped to 30..78. TABEI and Mira are hand-sized — they lead the section.
+const PROFESSIONAL_SERVICES: LogoEntry[] = [
+  {
+    name: "KPMG",
+    url: kpmgUrl,
+    img: "/images/partners/kpmg.svg",
+    width: 128,
+    height: 50,
+  },
+];
+
 const PARTNERS: LogoEntry[] = [
   {
     name: "TABEI",
@@ -584,6 +595,7 @@ const byTier = (list: LogoEntry[]) =>
 const PartnerSection = () => {
   const t = useT();
 
+  const professionalServices = byTier(PROFESSIONAL_SERVICES);
   const partners = byTier(PARTNERS);
   const schoolClubs = byTier(SCHOOL_CLUBS);
   const mediaPartners = byTier(MEDIA_PARTNERS);
@@ -591,6 +603,16 @@ const PartnerSection = () => {
   return (
     <Container>
       <MainContent>
+        <SectionContainer>
+          <Title>{t.homepage.professionalServices}</Title>
+          <PartnersGrid>
+            {professionalServices.map((service) => (
+              <BrandClearSpace key={service.name}>
+                <Logo logo={service} />
+              </BrandClearSpace>
+            ))}
+          </PartnersGrid>
+        </SectionContainer>
         <SectionAnchor id="partners" aria-hidden="true" />
         <SectionContainer>
           <Title>
@@ -654,6 +676,12 @@ const MainContent = styled(BaseMainContent)`
 
 const SectionContainer = styled.div`
   width: 100%;
+`;
+
+// KPMG's usage rules require clear space equal to one full logo height on
+// every side. The logo renders at 50px high, so this wrapper reserves 50px.
+const BrandClearSpace = styled.div`
+  padding: 50px;
 `;
 
 const logoStyles = `
