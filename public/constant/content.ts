@@ -32,6 +32,7 @@ const enHomepage = {
     "Popop Taipei is a trending event space known for its unique atmosphere. The venue features a spacious layout and modern amenities, making it an ideal choice for hosting conferences, workshops, and social gatherings.",
   venueAddress:
     "No. 13, Section 2, Nangang Rd, Nangang District, Taipei City, 115",
+  professionalServices: "Professional Services",
   partners: "Partners",
   partnersDesc: "Stronger Together in the Ethereum Ecosystem!",
   studentClubs: "University Clubs",
@@ -290,6 +291,7 @@ const zhHomepage: Dictionary["homepage"] = {
   venueDescription:
     "POPOP Taipei 是備受矚目的活動空間，以獨特的氛圍聞名。場地寬敞、設備現代，是舉辦大會、工作坊與社交聚會的理想選擇。",
   venueAddress: "115 台北市南港區南港路二段 13 號",
+  professionalServices: "專業服務",
   partners: "合作夥伴",
   partnersDesc: "在以太坊生態中攜手同行，一起更強大！",
   studentClubs: "校園社團",
