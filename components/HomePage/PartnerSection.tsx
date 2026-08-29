@@ -678,10 +678,11 @@ const SectionContainer = styled.div`
   width: 100%;
 `;
 
-// KPMG's usage rules require clear space equal to one full logo height on
-// every side. The logo renders at 50px high, so this wrapper reserves 50px.
+// KPMG's usage rules require clear space around the logo (one logo height,
+// or half a height in cramped layouts). The logo renders at 50px high; we use
+// 24px (~ half a height) so the section doesn't get an oversized empty gap.
 const BrandClearSpace = styled.div`
-  padding: 50px;
+  padding: 24px;
 `;
 
 const logoStyles = `
