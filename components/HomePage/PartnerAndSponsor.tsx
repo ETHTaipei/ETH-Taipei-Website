@@ -53,6 +53,9 @@ export const Title = styled.h2`
   font-size: 48px;
   text-align: center;
   color: ${Colors.brightBlue};
+  // CJK glyphs clip when line-height equals font-size, so titles without an
+  // inline icon (e.g. Professional Services) look vertically squeezed.
+  line-height: 1.2;
 
   @media (max-width: 768px) {
     font-size: 36px;
