@@ -23,6 +23,7 @@ import {
   desciAsiaUrl,
   desciTaiwanUrl,
   emmaInternationalUrl,
+  ethGlobalUrl,
   ethHubHkUrl,
   ethPandaUrl,
   ethTaoUrl,
@@ -168,6 +169,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/descitaiwan.png",
     width: 87,
     height: 73,
+  },
+  {
+    name: "ETHGlobal",
+    url: ethGlobalUrl,
+    img: "/images/partners/ethglobal.png",
+    width: 174,
+    height: 37,
   },
   {
     name: "ETH Hub Hong Kong",
