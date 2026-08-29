@@ -72,6 +72,10 @@ export const representUrl = "https://www.powerforpoint.com/";
 
 export const bloctoUrl = "https://twitter.com/BloctoApp";
 
+// 2026 professional services. URL from Discord #website; verified HTTPS 200,
+// title KPMG 安侯建業聯合會計師事務所.
+export const kpmgUrl = "https://kpmg.com/tw/zh.html";
+
 // 2026 media partners, carried over from the mediaPartners2025 collection in
 // Hygraph except where noted.
 export const cryptoWesearchUrl = "https://cryptowesearch.com/";
