@@ -125,6 +125,9 @@ export const wprcUrl = "https://www.wprc.club/";
 export const cryptoBarUrl = "https://t.me/cryptobarnospam";
 // These five had no URL in Hygraph either, so they're the accounts each group
 // links from its own public profile.
+// New for 2026. URL from Jennifer Hsu (Discord #website); verified
+// https://ethglobal.com/ 200, title ETHGlobal.
+export const ethGlobalUrl = "https://ethglobal.com/";
 export const ethHubHkUrl = "https://x.com/ethereumhkhub";
 export const ethTaoUrl = "https://x.com/Ethtao_Ethtao";
 // New for 2026. URL from Jennifer Hsu (Discord #website); verified
