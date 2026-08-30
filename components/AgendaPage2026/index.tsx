@@ -54,6 +54,7 @@ const UI_COPY: Record<
     title: string;
     eventDate: string;
     scheduleLabel: string;
+    scheduleNotice: string;
     sectionLabel: string;
     caption: string;
     timeHeader: string;
@@ -75,6 +76,8 @@ const UI_COPY: Record<
     title: "Institution Day",
     eventDate: "September 14, 2026",
     scheduleLabel: "Schedule",
+    scheduleNotice:
+      "Schedule times are tentative and subject to change. Please refer to the latest announcement.",
     sectionLabel: "Institution Day schedule",
     caption: "ETHTaipei 2026 Institution Day schedule",
     timeHeader: "Time",
@@ -95,6 +98,8 @@ const UI_COPY: Record<
     title: "機構日",
     eventDate: "2026 年 9 月 14 日",
     scheduleLabel: "當日議程",
+    scheduleNotice:
+      "議程時間暫定，主辦單位將視實際情況調整，請以最新公告為準。",
     sectionLabel: "機構日議程",
     caption: "ETHTaipei 2026 機構日議程",
     timeHeader: "時間",
@@ -528,6 +533,7 @@ const AgendaPage2026 = ({
               <div>
                 <p className={styles.sectionKicker}>{copy.scheduleLabel}</p>
               </div>
+              <p className={styles.scheduleNotice}>{copy.scheduleNotice}</p>
             </div>
 
             <table className={styles.agendaTable}>
