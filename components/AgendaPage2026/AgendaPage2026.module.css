@@ -106,10 +106,24 @@
 
 .sectionHeading {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 18px;
+}
+
+.scheduleNotice {
+  flex: 1 1 320px;
+  min-width: 0;
+  max-width: 560px;
+  margin: 0 0 0 auto;
+  color: var(--muted);
+  font-family: "Inter", "PingFang TC", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .agendaTable {
@@ -469,6 +483,17 @@
 
   .title {
     font-size: clamp(44px, 16vw, 64px);
+  }
+
+  .sectionHeading {
+    gap: 8px;
+  }
+
+  .scheduleNotice {
+    flex-basis: 100%;
+    max-width: none;
+    margin-left: 0;
+    text-align: left;
   }
 
 }
