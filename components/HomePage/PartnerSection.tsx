@@ -611,16 +611,6 @@ const PartnerSection = () => {
   return (
     <Container>
       <MainContent>
-        <SectionContainer>
-          <Title>{t.homepage.professionalServices}</Title>
-          <PartnersGrid>
-            {professionalServices.map((service) => (
-              <BrandClearSpace key={service.name}>
-                <Logo logo={service} />
-              </BrandClearSpace>
-            ))}
-          </PartnersGrid>
-        </SectionContainer>
         <SectionAnchor id="partners" aria-hidden="true" />
         <SectionContainer>
           <Title>
@@ -648,6 +638,16 @@ const PartnerSection = () => {
             </PartnersGrid>
           </SectionContainer>
         )}
+        <SectionContainer>
+          <Title>{t.homepage.professionalServices}</Title>
+          <PartnersGrid>
+            {professionalServices.map((service) => (
+              <BrandClearSpace key={service.name}>
+                <Logo logo={service} />
+              </BrandClearSpace>
+            ))}
+          </PartnersGrid>
+        </SectionContainer>
         {mediaPartners.length > 0 && (
           <SectionContainer>
             <Title>
