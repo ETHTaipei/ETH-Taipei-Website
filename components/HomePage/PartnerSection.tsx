@@ -43,6 +43,7 @@ import {
   nccuBlockchainUrl,
   nchuBlockchainUrl,
   ncuBlockchainClubUrl,
+  ncueBlockchainUrl,
   ndhuBlockchainUrl,
   nodeZUrl,
   ntouBlockchainUrl,
@@ -292,7 +293,7 @@ const PARTNERS: LogoEntry[] = [
 ];
 
 // University clubs get their own section rather than sitting in Partners.
-// There are fourteen of them now — enough that they crowded the Partners grid,
+// There are fifteen of them now — enough that they crowded the Partners grid,
 // and enough to fill a section of their own. XueDAO stays under Partners: it's
 // student-run but cross-campus, so it doesn't belong to any one school.
 const SCHOOL_CLUBS: LogoEntry[] = [
@@ -344,6 +345,13 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     img: "/images/partners/ncubc.png",
     width: 160,
     height: 40,
+  },
+  {
+    name: "NCUE Blockchain",
+    url: ncueBlockchainUrl,
+    img: "/images/partners/ncue-blockchain.png",
+    width: 78,
+    height: 78,
   },
   {
     name: "NDHU Blockchain Club",
