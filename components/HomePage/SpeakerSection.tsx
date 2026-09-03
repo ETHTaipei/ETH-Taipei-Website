@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
-import { useT } from "@/contexts/LanguageContext";
+import { useLanguage, useT } from "@/contexts/LanguageContext";
 import Colors from "@/styles/colors";
 import { speakers2026ByDay, Speaker2026 } from "@/public/constant/speakers2026";
 import PeopleSection from "./PeopleSection";
@@ -24,13 +24,15 @@ const sortSpeakersByName = (speakers: Speaker2026[]) =>
     a.name.localeCompare(b.name, "en", { sensitivity: "base" }),
   );
 
-const FEATURED_SPEAKER_NAME = "Vitalik Buterin";
+const FEATURED_SPEAKER_NAMES = ["Vitalik Buterin", "Jamie Lin"];
 
 const SpeakerSection = () => {
   const t = useT();
-  const featuredSpeaker = speakers2026ByDay
-    .flatMap((day) => day.speakers)
-    .find((speaker) => speaker.name === FEATURED_SPEAKER_NAME);
+  const { locale } = useLanguage();
+  const allSpeakers = speakers2026ByDay.flatMap((day) => day.speakers);
+  const featuredSpeakers = FEATURED_SPEAKER_NAMES.map((name) =>
+    allSpeakers.find((speaker) => speaker.name === name),
+  ).filter((speaker): speaker is Speaker2026 => Boolean(speaker));
 
   if (speakers2026ByDay.every((day) => day.speakers.length === 0)) return null;
 
@@ -47,17 +49,49 @@ const SpeakerSection = () => {
     >
       {/* One flat grid, with each day's heading spanning every column, so the
           cards of both days stay on the same column rhythm. */}
-      {featuredSpeaker && <FeaturedSpeakerCard speaker={featuredSpeaker} />}
+      {featuredSpeakers.length > 0 && (
+        <FeaturedSpeakerRow>
+          {featuredSpeakers.map((speaker) => (
+            <FeaturedSpeakerCard
+              key={speaker.name}
+              speaker={speaker}
+              displayName={
+                locale === "zh-Hant"
+                  ? (speaker.nameZhHant ?? speaker.name)
+                  : speaker.name
+              }
+              displayCompany={
+                locale === "zh-Hant"
+                  ? (speaker.companyZhHant ?? speaker.company)
+                  : speaker.company
+              }
+            />
+          ))}
+        </FeaturedSpeakerRow>
+      )}
       {speakers2026ByDay.map((day) => (
         <Fragment key={day.id}>
           <DayHeading>{t.homepage.speakersDays[day.id]}</DayHeading>
           {day.speakers.length > 0 ? (
             sortSpeakersByName(
               day.speakers.filter(
-                (speaker) => speaker.name !== FEATURED_SPEAKER_NAME,
+                (speaker) => !FEATURED_SPEAKER_NAMES.includes(speaker.name),
               ),
             ).map((speaker) => (
-              <SpeakerCard key={speaker.name} speaker={speaker} />
+              <SpeakerCard
+                key={speaker.name}
+                speaker={speaker}
+                displayName={
+                  locale === "zh-Hant"
+                    ? (speaker.nameZhHant ?? speaker.name)
+                    : speaker.name
+                }
+                displayCompany={
+                  locale === "zh-Hant"
+                    ? (speaker.companyZhHant ?? speaker.company)
+                    : speaker.company
+                }
+              />
             ))
           ) : (
             <DayPlaceholder>{t.homepage.speakersLineupComingSoon}</DayPlaceholder>
@@ -68,43 +102,75 @@ const SpeakerSection = () => {
   );
 };
 
-const FeaturedSpeakerCard = ({ speaker }: { speaker: Speaker2026 }) => (
+const FeaturedSpeakerCard = ({
+  speaker,
+  displayName,
+  displayCompany,
+}: {
+  speaker: Speaker2026;
+  displayName: string;
+  displayCompany?: string;
+}) => (
   <FeaturedCard>
     <FeaturedAvatar>
       {speaker.avatar ? (
-        <Image src={speaker.avatar} alt={speaker.name} width={176} height={176} />
+        <Image
+          src={speaker.avatar}
+          alt={displayName}
+          width={176}
+          height={176}
+          sizes="(max-width: 768px) 140px, 176px"
+          quality={72}
+          loading="lazy"
+        />
       ) : (
-        <span>{initials(speaker.name)}</span>
+        <span>{initials(displayName)}</span>
       )}
     </FeaturedAvatar>
-    <FeaturedName>{speaker.name}</FeaturedName>
-    {speaker.company && <FeaturedCompany>{speaker.company}</FeaturedCompany>}
+    <FeaturedName>{displayName}</FeaturedName>
+    {displayCompany && <FeaturedCompany>{displayCompany}</FeaturedCompany>}
   </FeaturedCard>
 );
 
-const SpeakerCard = ({ speaker }: { speaker: Speaker2026 }) => (
+const SpeakerCard = ({
+  speaker,
+  displayName,
+  displayCompany,
+}: {
+  speaker: Speaker2026;
+  displayName: string;
+  displayCompany?: string;
+}) => (
   <Card>
     <Avatar>
       {speaker.avatar ? (
-        <Image src={speaker.avatar} alt={speaker.name} width={128} height={128} />
+        <Image
+          src={speaker.avatar}
+          alt={displayName}
+          width={128}
+          height={128}
+          sizes="(max-width: 768px) 112px, 128px"
+          quality={72}
+          loading="lazy"
+        />
       ) : (
-        <span>{initials(speaker.name)}</span>
+        <span>{initials(displayName)}</span>
       )}
     </Avatar>
-    <Name>{speaker.name}</Name>
+    <Name>{displayName}</Name>
     {speaker.title && <Title>{speaker.title}</Title>}
-    {speaker.company && (
+    {displayCompany && (
       <CompanyRow>
         {speaker.companyLogo && (
           <Image
             src={speaker.companyLogo}
-            alt={speaker.company}
+            alt={displayCompany}
             width={18}
             height={18}
             style={{ objectFit: "contain" }}
           />
         )}
-        <Company>{speaker.company}</Company>
+        <Company>{displayCompany}</Company>
       </CompanyRow>
     )}
   </Card>
@@ -154,8 +220,15 @@ const DayPlaceholder = styled.p`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-const FeaturedCard = styled.div`
+const FeaturedSpeakerRow = styled.div`
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 5vw, 64px);
+  width: 100%;
+`;
+
+const FeaturedCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

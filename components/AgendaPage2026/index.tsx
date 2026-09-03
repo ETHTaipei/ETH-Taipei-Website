@@ -42,6 +42,7 @@ const getSlotDurationMinutes = (
 
 type Speaker = {
   name?: string;
+  localizedName?: AgendaText;
   alias?: string;
   avatar?: string;
   jobTitle?: AgendaText;
@@ -214,7 +215,7 @@ const DAY_COPY: Record<
 type AgendaCopy = (typeof UI_COPY)[Locale] &
   (typeof DAY_COPY)[DayId][Locale];
 
-const DAY_1_SPEAKER_AVATARS: Record<string, string> = {
+const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   Aditya: "/images/speakers/aditya.jpg",
   "Alan Wu": "/images/speakers/alan-wu.jpg",
   "Alex Kuzmin": "/images/speakers/alex-kuzmin.jpg",
@@ -230,7 +231,29 @@ const DAY_1_SPEAKER_AVATARS: Record<string, string> = {
   Martinet: "/images/speakers/martinet.jpg",
   "Matthew Keil": "/images/speakers/matthew-keil.png",
   Pol: "/images/speakers/pol-lanski.png",
-  "Vitalik Buterin": "/images/speakers/vitalik.png",
+  "Vitalik Buterin": "/images/speakers/vitalik.jpg",
+  "Jamie Lin": "/images/speakers/jamie-lin.jpg",
+  "陳念平 Neptune Chen": "/images/speakers/neptune-chen.jpg",
+  Changwu: "/images/speakers/changwu.jpg",
+  "Jeff Wen": "/images/speakers/jeff.jpg",
+  Wayne: "/images/speakers/wayne.jpg",
+  Taka: "/images/speakers/taka.jpg",
+  "Reyer Chu": "/images/speakers/reyer-chu.jpg",
+  "Ko-Wei (IOTA)": "/images/speakers/ko-wei.jpg",
+  Benji: "/images/speakers/benji.jpg",
+  Daniel: "/images/speakers/daniel.jpg",
+  "Jason Kuo": "/images/speakers/jason-kuo.jpg",
+  "陳鴻祺 Chris Chen": "/images/speakers/chris-chen.jpg",
+  Oskar: "/images/speakers/oskar.jpg",
+  Teagan: "/images/speakers/teagan.jpg",
+  Ivan: "/images/speakers/ivan.jpg",
+  "Jon Lin": "/images/speakers/jon-lin.jpg",
+  Stamford: "/images/speakers/stamford.jpg",
+  "Jason Lai": "/images/speakers/jason-lai.jpg",
+  殷玉龍律師: "/images/speakers/alex-yin.jpg",
+  "Ernie Ho": "/images/speakers/ernie-ho.jpg",
+  "Andrew Wu 律師": "/images/speakers/andrew-wu.jpg",
+  黃子庭律師: "/images/speakers/huang-tzu-ting.jpg",
 };
 
 const speakerSession = (
@@ -249,7 +272,7 @@ const speakerSession = (
     {
       name,
       alias,
-      avatar: DAY_1_SPEAKER_AVATARS[name],
+      avatar: AGENDA_SPEAKER_AVATARS[name],
       ...(organization
         ? { organization: text(organization, organization) }
         : {}),
@@ -472,7 +495,15 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
 
 const DAY_2_AGENDA_ROWS: AgendaRow[] = [
   {
-    time: "10:05–10:25",
+    time: "10:00–10:05",
+    dateTime: "2026-09-14T10:00:00+08:00",
+    mainColSpan: true,
+    main: {
+      title: text("Opening", "開幕"),
+    },
+  },
+  {
+    time: "10:05–10:30",
     dateTime: "2026-09-14T10:05:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -480,22 +511,17 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
       speakers: [
         {
           name: "Jamie Lin",
+          localizedName: text("Jamie Lin", "林之晨"),
           organization: text("Taiwan Mobile", "台灣大哥大"),
         },
       ],
     },
     forum: {
-      format: text("Live", "直播"),
       title: text("Live from Genesis Stage", "同步轉播 Genesis Stage"),
     },
   },
   {
-    time: "10:25–10:30",
-    dateTime: "2026-09-14T10:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "10:30–10:55",
+    time: "10:30–11:00",
     dateTime: "2026-09-14T10:30:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -519,20 +545,22 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "10:55–11:00",
-    dateTime: "2026-09-14T10:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
     time: "11:00–11:45",
     dateTime: "2026-09-14T11:00:00+08:00",
     main: {
       format: text("Panel", "座談"),
-      title: text("Stablecoins: Fireside Chat", "穩定幣：爐邊對談"),
+      title: text("The Future of Stablecoins", "穩定幣的未來發展"),
       speakers: [
         {
-          name: "派大星",
-          alias: "Jeff",
+          name: "Reyer Chu",
+          localizedName: text("Reyer Chu", "瞿孝洋"),
+          role: text("Moderator", "主持人"),
+          isModerator: true,
+          organization: text("RWA Nexus", "睿亦富"),
+        },
+        {
+          name: "Jeff Wen",
+          organization: text("Hayek Technology", "Hayek Technology"),
         },
         {
           name: "Wayne",
@@ -573,8 +601,9 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:00–13:25",
+    time: "13:00–13:30",
     dateTime: "2026-09-14T13:00:00+08:00",
+    mainColSpan: true,
     main: {
       format: text("Talk", "演講"),
       title: text(
@@ -587,12 +616,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:25–13:30",
-    dateTime: "2026-09-14T13:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "13:30–13:55",
+    time: "13:30–14:00",
     dateTime: "2026-09-14T13:30:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -616,12 +640,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:55–14:00",
-    dateTime: "2026-09-14T13:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "14:00–14:40",
+    time: "14:00–14:45",
     dateTime: "2026-09-14T14:00:00+08:00",
     main: {
       format: text("Panel", "座談"),
@@ -637,8 +656,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("Quantstamp", "Quantstamp"),
         },
         {
-          name: "Ko-wei",
-          organization: text("IOTA", "IOTA"),
+          name: "Ko-Wei (IOTA)",
         },
         {
           name: "Benji",
@@ -677,11 +695,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
       ],
     },
-  },
-  {
-    time: "14:40–14:45",
-    dateTime: "2026-09-14T14:40:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
   },
   {
     time: "14:45–15:30",
@@ -752,14 +765,106 @@ const SpeakerList = ({
   copy,
   stacked = false,
   prominentAvatar = false,
+  panelLayout = false,
 }: {
   speakers?: Speaker[];
   locale: Locale;
   copy: (typeof UI_COPY)[Locale];
   stacked?: boolean;
   prominentAvatar?: boolean;
+  panelLayout?: boolean;
 }) => {
   if (!speakers?.length) return null;
+
+  const renderSpeakerCopy = (speaker: Speaker) => (
+    <span className={styles.speakerCopy}>
+      {speaker.status === "pending" ? (
+        <>
+          {speaker.organization
+            ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
+            : copy.moreSpeakersPending}
+        </>
+      ) : (
+        <>
+          {speaker.role && (
+            <span className={styles.speakerRole}>
+              {localize(speaker.role, locale)}
+              {copy.labelSeparator}
+            </span>
+          )}
+          <span className={speaker.isModerator ? styles.moderatorName : ""}>
+            {speaker.localizedName
+              ? localize(speaker.localizedName, locale)
+              : speaker.name}
+            {speaker.alias &&
+              `${copy.openParen}${speaker.alias}${copy.closeParen}`}
+          </span>
+          {(speaker.jobTitle || speaker.organization) && (
+            <span className={styles.organization}>
+              {copy.openParen}
+              {[
+                speaker.jobTitle && localize(speaker.jobTitle, locale),
+                speaker.organization && localize(speaker.organization, locale),
+              ]
+                .filter(Boolean)
+                .join(copy.detailSeparator)}
+              {copy.closeParen}
+            </span>
+          )}
+        </>
+      )}
+    </span>
+  );
+
+  const renderSpeakerAvatar = (speaker: Speaker) => {
+    const avatar =
+      speaker.avatar ??
+      (speaker.name ? AGENDA_SPEAKER_AVATARS[speaker.name] : undefined);
+
+    return avatar ? (
+      <Image
+        className={styles.speakerAvatar}
+        src={avatar}
+        alt=""
+        width={68}
+        height={68}
+        sizes="68px"
+        quality={72}
+        loading="lazy"
+      />
+    ) : (
+      <span className={styles.speakerAvatarPlaceholder} aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="3.25" />
+          <path d="M5.75 19c.55-3.55 2.65-5.5 6.25-5.5s5.7 1.95 6.25 5.5" />
+        </svg>
+      </span>
+    );
+  };
+
+  if (panelLayout) {
+    return (
+      <div className={`${styles.speakers} ${styles.panelSpeakerList}`}>
+        <div className={styles.panelSpeakerCopies}>
+          {speakers.map((speaker, index) => (
+            <span
+              className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
+              key={`${speaker.name ?? "pending"}-copy-${index}`}
+            >
+              {renderSpeakerCopy(speaker)}
+            </span>
+          ))}
+        </div>
+        <div className={styles.panelSpeakerAvatars}>
+          {speakers.map((speaker, index) => (
+            <span key={`${speaker.name ?? "pending"}-avatar-${index}`}>
+              {renderSpeakerAvatar(speaker)}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <p
@@ -767,74 +872,24 @@ const SpeakerList = ({
         prominentAvatar ? styles.prominentSpeakerList : ""
       }`}
     >
-      {speakers.map((speaker, index) => (
-        <span
-          className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
-          key={`${speaker.name ?? "pending"}-${
-            speaker.organization
-              ? localize(speaker.organization, locale)
-              : index
-          }`}
-        >
-          {index > 0 && (stacked ? <br /> : " · ")}
-          <span className={styles.speakerIdentity}>
-            {speaker.avatar ? (
-              <Image
-                className={styles.speakerAvatar}
-                src={speaker.avatar}
-                alt=""
-                width={28}
-                height={28}
-              />
-            ) : (
-              <span className={styles.speakerAvatarPlaceholder} aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="8" r="3.25" />
-                  <path d="M5.75 19c.55-3.55 2.65-5.5 6.25-5.5s5.7 1.95 6.25 5.5" />
-                </svg>
-              </span>
-            )}
-            <span className={styles.speakerCopy}>
-              {speaker.status === "pending" ? (
-                <>
-                  {speaker.organization
-                    ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
-                    : copy.moreSpeakersPending}
-                </>
-              ) : (
-                <>
-                  {speaker.role && (
-                    <span className={styles.speakerRole}>
-                      {localize(speaker.role, locale)}
-                      {copy.labelSeparator}
-                    </span>
-                  )}
-                  <span
-                    className={speaker.isModerator ? styles.moderatorName : ""}
-                  >
-                    {speaker.name}
-                    {speaker.alias &&
-                      `${copy.openParen}${speaker.alias}${copy.closeParen}`}
-                  </span>
-                  {(speaker.jobTitle || speaker.organization) && (
-                    <span className={styles.organization}>
-                      {copy.openParen}
-                      {[
-                        speaker.jobTitle && localize(speaker.jobTitle, locale),
-                        speaker.organization &&
-                          localize(speaker.organization, locale),
-                      ]
-                        .filter(Boolean)
-                        .join(copy.detailSeparator)}
-                      {copy.closeParen}
-                    </span>
-                  )}
-                </>
-              )}
+      {speakers.map((speaker, index) => {
+        return (
+          <span
+            className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
+            key={`${speaker.name ?? "pending"}-${
+              speaker.organization
+                ? localize(speaker.organization, locale)
+                : index
+            }`}
+          >
+            {index > 0 && !prominentAvatar && (stacked ? <br /> : " · ")}
+            <span className={styles.speakerIdentity}>
+              {renderSpeakerAvatar(speaker)}
+              {renderSpeakerCopy(speaker)}
             </span>
           </span>
-        </span>
-      ))}
+        );
+      })}
     </p>
   );
 };
@@ -871,8 +926,9 @@ const SessionCard = ({
       copy={copy}
       stacked={session.format?.en === "Panel"}
       prominentAvatar={
-        session.format?.en !== "Panel" && session.speakers?.length === 1
+        Boolean(session.speakers?.length) && session.format?.en !== "Panel"
       }
+      panelLayout={session.format?.en === "Panel"}
     />
   </article>
 );
@@ -1089,6 +1145,7 @@ const AgendaPage2026 = ({
               alt={copy.taiwanLogoAlt}
               width={320}
               height={476}
+              sizes="(max-width: 640px) 72px, 116px"
               priority
             />
           </section>

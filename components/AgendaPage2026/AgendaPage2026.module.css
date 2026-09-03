@@ -19,6 +19,10 @@
   --day-accent: var(--institution-amber);
 }
 
+.page::after {
+  display: none;
+}
+
 .page[data-locale="en"] {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
     Arial, sans-serif;
@@ -496,6 +500,57 @@
 }
 
 .prominentSpeakerList .speakerAvatarPlaceholder svg {
+  width: 26px;
+  height: 26px;
+}
+
+.panelSpeakerList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.panelSpeakerCopies {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  line-height: 1.25;
+}
+
+.panelSpeakerCopies > span {
+  display: block;
+}
+
+.panelSpeakerAvatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.page[data-day="day2"] .panelSpeakerAvatars {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.panelSpeakerAvatars > span {
+  display: block;
+  width: 68px;
+  height: 68px;
+}
+
+.panelSpeakerAvatars .speakerAvatar,
+.panelSpeakerAvatars .speakerAvatarPlaceholder {
+  width: 68px;
+  height: 68px;
+  border-color: rgb(174 184 201 / 0.36);
+  background: rgb(174 184 201 / 0.06);
+}
+
+.panelSpeakerAvatars .speakerAvatarPlaceholder svg {
   width: 26px;
   height: 26px;
 }

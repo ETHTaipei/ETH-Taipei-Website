@@ -236,12 +236,18 @@ const Venue = () => {
               alt="Venue"
               width={2016}
               height={746}
+              sizes="(max-width: 996px) 16px, 880px"
+              quality={72}
+              loading="lazy"
             />
             <MobileImage
               src="/images/venue/venue_vertical.jpg"
               alt="Venue"
               width={1073}
               height={1587}
+              sizes="(max-width: 996px) calc(100vw - 48px), 16px"
+              quality={72}
+              loading="lazy"
             />
           </ImageContainer>
         </MainContent>
