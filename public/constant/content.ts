@@ -141,7 +141,7 @@ const enHero = {
     events: "Events",
     apply: "Apply",
     venue: "Venue",
-    communityHub: "Community Hub",
+    communityHub: "Community Space",
     community: "Community",
     visa: "Visa",
     about: "About",
