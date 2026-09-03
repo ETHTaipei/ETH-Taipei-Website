@@ -150,6 +150,9 @@ export const fjcuFinanceLabUrl = "https://www.instagram.com/fjcu_finlab/";
 export const hackersInTunghaiUrl = "https://www.instagram.com/thuhc2021/";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
+// URL from 馬鈴薯 (Discord #website); verified HTTPS 200,
+// title 彰師大區塊鏈研究社 (@ncue.blockchain).
+export const ncueBlockchainUrl = "https://www.instagram.com/ncue.blockchain/";
 // NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the
 // one link that covers all of it.
 export const nodeZUrl = "https://www.nodezblockchain.com";
