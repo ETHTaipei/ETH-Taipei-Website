@@ -24,6 +24,7 @@ import {
   desciAsiaUrl,
   desciTaiwanUrl,
   emmaInternationalUrl,
+  ethereumKoreaUrl,
   ethGlobalUrl,
   ethHubHkUrl,
   ethPandaUrl,
@@ -178,6 +179,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/descitaiwan.png",
     width: 87,
     height: 73,
+  },
+  {
+    name: "Ethereum Korea",
+    url: ethereumKoreaUrl,
+    img: "/images/partners/ethereumkorea.png",
+    width: 265,
+    height: 30,
   },
   {
     name: "ETHGlobal",
