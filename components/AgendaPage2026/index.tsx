@@ -709,7 +709,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
         {
           name: "Ernie Ho",
-          jobTitle: text("Former Senior Legal Counsel at MaiCoin", "前 MaiCoin 資深法務"),
+          jobTitle: text("Former Senior Legal Advisor at MaiCoin", "前 MaiCoin 資深法務"),
         },
         {
           name: "Andrew Wu 律師",
