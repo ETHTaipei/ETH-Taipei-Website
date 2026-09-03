@@ -1,4 +1,5 @@
 import { useT } from "@/contexts/LanguageContext";
+import { communityHubUrl } from "@/public/constant/urls";
 import Link from "next/link";
 import type { MouseEvent } from "react";
 
@@ -14,6 +15,7 @@ type NavigationLinkProps = {
   ariaHasPopup?: boolean;
   children: React.ReactNode;
   className?: string;
+  external?: boolean;
   href: string;
   isHomepage: boolean;
   onNavigate?: () => void;
@@ -23,6 +25,7 @@ const NavigationLink = ({
   ariaHasPopup,
   children,
   className,
+  external = false,
   href,
   isHomepage,
   onNavigate,
@@ -31,6 +34,20 @@ const NavigationLink = ({
     "aria-haspopup": ariaHasPopup ? ("true" as const) : undefined,
     className,
   };
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        onClick={onNavigate}
+        rel="noopener noreferrer"
+        target="_blank"
+        {...sharedProps}
+      >
+        {children}
+      </a>
+    );
+  }
 
   if (isHomepage && href.startsWith("#")) {
     const handleSamePageNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -87,6 +104,11 @@ const HeaderNavLinks = ({
     { label: t.hero.nav.agenda, href: "/agenda" },
     { label: t.hero.nav.speakers, href: homeHref("speakers") },
     { label: t.hero.nav.venue, href: homeHref("venue") },
+    {
+      label: t.hero.nav.communityHub,
+      href: communityHubUrl,
+      external: true,
+    },
     { label: t.hero.nav.visa, href: "/visainfo#info" },
   ];
   const aboutLinks = [
@@ -100,9 +122,10 @@ const HeaderNavLinks = ({
 
   return (
     <>
-      {links.map(({ label, href }) => (
+      {links.map(({ label, href, external }) => (
         <NavigationLink
           className={activeHref === href ? styles.navActive : undefined}
+          external={external}
           href={href}
           isHomepage={isHomepage}
           key={href}
