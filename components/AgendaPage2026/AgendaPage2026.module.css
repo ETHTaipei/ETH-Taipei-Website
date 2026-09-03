@@ -414,6 +414,17 @@
   border-color: rgb(95 124 255 / 0.4);
 }
 
+.sessionMeta span.sessionSpan {
+  border-color: rgb(203 241 1 / 0.2);
+  color: rgb(203 241 1 / 0.66);
+  font-weight: 600;
+}
+
+.forumSession .sessionMeta span.sessionSpan {
+  border-color: rgb(95 124 255 / 0.28);
+  color: rgb(174 187 255 / 0.72);
+}
+
 .session h3 {
   max-width: 520px;
   margin: 0;

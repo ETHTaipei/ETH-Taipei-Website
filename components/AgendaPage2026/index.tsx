@@ -40,6 +40,29 @@ const getSlotDurationMinutes = (
   return end >= start ? end - start : end + 24 * 60 - start;
 };
 
+// Label for a session that runs across two rows: the start of its own slot to
+// the end of the slot below, plus the real total. "11:30–11:45" + "11:45–12:00"
+// becomes "11:30–12:00 · 30 mins".
+const getSpanLabel = (
+  time: AgendaText | string,
+  nextTime: AgendaText | string | undefined,
+  locale: Locale,
+) => {
+  const range = /^(\d{1,2}:\d{2})[–-](\d{1,2}:\d{2})$/;
+  const start = localize(time, locale).match(range);
+  const next = nextTime ? localize(nextTime, locale).match(range) : null;
+  if (!start) return undefined;
+
+  const end = next ? next[2] : start[2];
+  const minutes =
+    (getSlotDurationMinutes(time, locale) ?? 0) +
+    (next ? (getSlotDurationMinutes(nextTime!, locale) ?? 0) : 0);
+  if (!minutes) return undefined;
+
+  const unit = locale === "zh-Hant" ? "分鐘" : "mins";
+  return `${start[1]}–${end} · ${minutes} ${unit}`;
+};
+
 type Speaker = {
   name?: string;
   localizedName?: AgendaText;
@@ -65,6 +88,10 @@ type AgendaRow = {
   main?: Session;
   mainColSpan?: boolean;
   forum?: Session;
+  /**
+   * This forum session runs across two rows. Pair it with `forumContinuation`
+   * on the next row, which must not set `forum` of its own.
+   */
   forumContinues?: boolean;
   shared?: Session;
   intermission?: {
@@ -80,6 +107,12 @@ type AgendaRow = {
   transition?: AgendaText;
   mainTransition?: AgendaText;
   forumTransition?: AgendaText;
+  /**
+   * Set on the row a `forumContinues` session extends into. Each `.agendaRow`
+   * is its own CSS grid, so a cell cannot span rows the way rowSpan would in a
+   * real table: the span is drawn as a borderless cell here plus this empty
+   * twin below it. Must be paired with `forumContinues` on the row above.
+   */
   forumContinuation?: boolean;
 };
 
@@ -465,13 +498,24 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       "Derive, don't store: rebuilding Polymarket's protocol from the conditional tokens up",
     ),
     forum: speakerSession("Ryan", "Independent", undefined, undefined, "TBA"),
-    forumContinues: true,
   },
   {
     time: "15:15–15:30",
     dateTime: "2026-09-13T15:15:00+08:00",
-    main: speakerSession("Eric Lee", "SigMarket"),
-    forumContinuation: true,
+    main: speakerSession(
+      "Eric Lee",
+      "SigMarket",
+      undefined,
+      undefined,
+      "Beyond x·y = k: Designing an AMM for Decentralized Prediction Markets",
+    ),
+    // Consensus Stage talk for this slot isn't announced yet — a placeholder
+    // session (no speaker) rather than an empty cell.
+    forum: {
+      format: text("Talk", "演講"),
+      title: text("Topic to be announced", "講題即將公布"),
+      titleStatus: "pending",
+    },
   },
   {
     time: "15:30–16:00",
@@ -899,20 +943,29 @@ const SessionCard = ({
   stage,
   locale,
   copy,
+  spanLabel,
 }: {
   session: Session;
   stage: "main" | "forum" | "shared";
   locale: Locale;
   copy: (typeof UI_COPY)[Locale];
+  /**
+   * Set when this session runs longer than its own row. The row's time column
+   * still reads "11:30–11:45 (15 mins)" because the other stage really does
+   * change at 11:45, so the card has to state its own span or a 30-minute talk
+   * looks like a 15-minute one.
+   */
+  spanLabel?: string;
 }) => (
   <article
     className={`${styles.session} ${
       stage === "forum" ? styles.forumSession : ""
     } ${stage === "shared" ? styles.sharedSession : ""}`}
   >
-    {session.format && (
+    {(session.format || spanLabel) && (
       <div className={styles.sessionMeta}>
-        <span>{localize(session.format, locale)}</span>
+        {session.format && <span>{localize(session.format, locale)}</span>}
+        {spanLabel && <span className={styles.sessionSpan}>{spanLabel}</span>}
       </div>
     )}
     {session.title && (
@@ -935,10 +988,12 @@ const SessionCard = ({
 
 const ScheduleRow = ({
   row,
+  nextRow,
   locale,
   copy,
 }: {
   row: AgendaRow;
+  nextRow?: AgendaRow;
   locale: Locale;
   copy: AgendaCopy;
 }) => {
@@ -946,6 +1001,9 @@ const ScheduleRow = ({
     row.transition || row.mainTransition || row.forumTransition,
   );
   const durationMinutes = getSlotDurationMinutes(row.time, locale);
+  const spanLabel = row.forumContinues
+    ? getSpanLabel(row.time, nextRow?.time, locale)
+    : undefined;
 
   return (
     <tr
@@ -1070,6 +1128,7 @@ const ScheduleRow = ({
             stage="forum"
             locale={locale}
             copy={copy}
+            spanLabel={spanLabel}
           />
         </td>
       )}
@@ -1210,9 +1269,10 @@ const AgendaPage2026 = ({
                 className={styles.agendaBody}
                 lang={agendaContentLocale === "en" ? "en" : "zh-Hant"}
               >
-                {agendaRows.map((row) => (
+                {agendaRows.map((row, index) => (
                   <ScheduleRow
                     row={row}
+                    nextRow={agendaRows[index + 1]}
                     locale={agendaContentLocale}
                     copy={agendaContentCopy}
                     key={row.dateTime}
