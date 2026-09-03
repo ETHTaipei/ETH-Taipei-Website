@@ -106,7 +106,11 @@ export const web3MattersUrl = "https://web3matters.substack.com/";
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
 // New for 2026. Docs site is the group's public-facing entry point; verified HTTPS 200.
 export const anoniUrl = "https://anoni.net/docs/";
-// URL from Discord #website; verified https://ndhublockchain.club/ 200,
+// New for 2026. URL from 馬鈴薯 (Discord #website); verified HTTPS 200,
+// title AYAD | PHOENIX | Substack.
+export const ayadUrl =
+  "https://oxo816phoenix.substack.com/?utm_campaign=profile_chips";
+// URL from Discord #website; verified https://ndhubblockchain.club/ 200,
 // title 東華區塊鏈研究社 NDHU Blockchain Club.
 export const ndhuBlockchainUrl = "https://ndhublockchain.club/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";

@@ -6,6 +6,7 @@ import { useT } from "@/contexts/LanguageContext";
 import {
   abmediaUrl,
   anoniUrl,
+  ayadUrl,
   bermuDaoUrl,
   blockbeatsUrl,
   blocktempoUrl,
@@ -134,6 +135,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/anoni.svg",
     width: 93,
     height: 69,
+  },
+  {
+    name: "AYAD",
+    url: ayadUrl,
+    img: "/images/partners/ayad.png",
+    width: 79,
+    height: 78,
   },
   {
     name: "BermuDAO",
