@@ -7,11 +7,16 @@
   --institution-amber: #e7af45;
   --institution-line: rgb(235 241 255 / 0.14);
   --institution-raised: #0e1321;
+  --day-accent: var(--acid);
   min-height: 100svh;
   background:
     radial-gradient(circle at 12% 4%, rgb(203 241 1 / 0.1), transparent 27rem),
     radial-gradient(circle at 88% 12%, rgb(83 109 255 / 0.17), transparent 31rem),
     var(--night);
+}
+
+.page[data-day="day2"] {
+  --day-accent: var(--institution-amber);
 }
 
 .page[data-locale="en"] {
@@ -63,7 +68,21 @@
 }
 
 .hero {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(24px, 6vw, 80px);
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.taiwanMark {
+  width: clamp(72px, 9vw, 116px);
+  height: auto;
+  margin-top: 4px;
+  opacity: 0.92;
 }
 
 .eyebrow,
@@ -75,6 +94,10 @@
   font-weight: 800;
   letter-spacing: 0.17em;
   text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--day-accent);
 }
 
 .title {
@@ -100,8 +123,91 @@
   letter-spacing: 0.08em;
 }
 
+.dayTabs {
+  position: relative;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 48px;
+  padding: 12px 0;
+}
+
+.dayTab {
+  min-width: 0;
+  padding: 15px 18px;
+  border: 1px solid var(--institution-line);
+  border-radius: 4px 16px 4px 16px;
+  color: var(--muted);
+  background: rgb(16 23 39 / 0.88);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.dayTab:hover {
+  color: var(--ink);
+  border-color: rgb(235 241 255 / 0.34);
+  transform: translateY(-2px);
+}
+
+.dayTab[aria-selected="true"] {
+  color: var(--night);
+  border-color: var(--acid);
+  background: var(--acid);
+}
+
+.dayTab[aria-selected="true"]:nth-child(2) {
+  border-color: var(--institution-amber);
+  background: var(--institution-amber);
+}
+
+.dayTab:focus-visible {
+  outline: 2px solid var(--day-accent);
+  outline-offset: 3px;
+}
+
+.dayTabDate,
+.dayTabName {
+  display: block;
+}
+
+.dayTabDate {
+  font-family: "Menlo", ui-monospace, monospace;
+  font-size: clamp(15px, 2vw, 20px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.dayTabName {
+  margin-top: 5px;
+  font-family: "Inter", "PingFang TC", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 .agendaSection {
-  margin-top: 64px;
+  margin-top: 28px;
+  animation: revealAgenda 220ms ease-out;
+}
+
+@keyframes revealAgenda {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .sectionHeading {
@@ -244,6 +350,16 @@
   background: var(--institution-blue);
 }
 
+.continuationSession {
+  min-height: 100%;
+}
+
+.continuationCell {
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
+}
+
 .sharedSession {
   background:
     linear-gradient(110deg, rgb(231 175 69 / 0.12), transparent 46%),
@@ -289,6 +405,11 @@
   line-height: 1.3;
 }
 
+.session h3.pendingTitle {
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .speakers {
   margin: 12px 0 0;
   color: var(--ink);
@@ -305,6 +426,10 @@
   color: var(--institution-amber);
 }
 
+.moderatorName {
+  color: var(--institution-amber);
+}
+
 .pendingSpeaker {
   color: var(--muted);
 }
@@ -312,6 +437,14 @@
 .sessionCell {
   min-width: 0;
   padding: 0;
+}
+
+.mainCell {
+  grid-column: 2;
+}
+
+.forumCell {
+  grid-column: 3;
 }
 
 .wideCell {
@@ -333,7 +466,6 @@
 }
 
 .transition {
-  grid-column: 2 / 4;
   position: relative;
   display: flex;
   align-items: center;
@@ -354,6 +486,10 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.wideTransition {
+  grid-column: 2 / 4;
 }
 
 .transition::before {
@@ -447,7 +583,10 @@
   }
 
   .sessionCell,
+  .mainCell,
+  .forumCell,
   .wideCell,
+  .wideTransition,
   .transition,
   .intermission {
     grid-column: 1;
@@ -471,6 +610,10 @@
     border-top: 1px solid var(--institution-line);
   }
 
+  .continuationCell {
+    display: none;
+  }
+
   .session {
     border-left: 0;
   }
@@ -483,6 +626,36 @@
 
   .title {
     font-size: clamp(44px, 16vw, 64px);
+  }
+
+  .hero {
+    gap: 16px;
+  }
+
+  .taiwanMark {
+    width: clamp(54px, 17vw, 72px);
+  }
+
+  .page[data-locale="en"] .title {
+    white-space: normal;
+  }
+
+  .dayTabs {
+    gap: 8px;
+    margin-top: 34px;
+  }
+
+  .dayTab {
+    padding: 12px;
+  }
+
+  .dayTabDate {
+    font-size: 13px;
+  }
+
+  .dayTabName {
+    font-size: 11px;
+    letter-spacing: 0.03em;
   }
 
   .sectionHeading {
