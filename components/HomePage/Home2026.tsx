@@ -513,9 +513,14 @@ const CalendarIcon = () => (
 const EventCard = ({ id, imageSrc, name, description, date, buttonText, href }: EventCardProps) => (
   <article className={styles.eventCard} id={id}>
     <div className={styles.eventMedia}>
-      {/* Native img keeps the delivered layout's crop and avoids an extra wrapper. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={imageSrc} alt={name} />
+      <Image
+        src={imageSrc}
+        alt={name}
+        fill
+        sizes="(max-width: 768px) calc(100vw - 48px), 560px"
+        quality={72}
+        loading="lazy"
+      />
       <h3 className={styles.eventName}>{name}</h3>
     </div>
     <div className={styles.eventBody}>

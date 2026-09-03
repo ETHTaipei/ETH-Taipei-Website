@@ -25,6 +25,9 @@ const GalleryImages = ({
           src={`/images/recap-${year}/${startIndex + i}.${extension}`}
           alt={`Recap ${year} Edition`}
           fill
+          sizes="(max-width: 834px) calc((100vw - 68px) / 2), 250px"
+          quality={72}
+          loading="lazy"
         />
       </ImgContainer>
     ))}
@@ -56,6 +59,9 @@ const Recap = () => {
               src={`/images/recap-2024/1.jpg`}
               alt="Recap 2024 Edition"
               fill
+              sizes="(max-width: 834px) calc(100vw - 48px), 520px"
+              quality={72}
+              loading="lazy"
             />
           </HighlightContainer>
           <GalleryImages year={2024} startIndex={2} count={2} extension="jpg" />

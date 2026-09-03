@@ -18,8 +18,10 @@
 
 export type Speaker2026 = {
   name: string;
+  nameZhHant?: string;
   title?: string;
   company?: string;
+  companyZhHant?: string;
   /** Optional local avatar path, e.g. "/images/speakers/aditya.png". */
   avatar?: string;
   /** Optional local company logo path, e.g. "/images/speakers/logos/polymarket.svg". */
@@ -126,9 +128,12 @@ const cryptonativeDay: Speaker2026[] = [
     company: "Vyper",
     avatar: "/images/speakers/benny-lada.png",
   },
-  // No headshot in Boost — initials fallback.
-  { name: "Jason Lai", title: "Founder", company: "PIF12" },
-  { name: "CC Liang", title: "Researcher", company: "Independent" },
+  {
+    name: "CC Liang",
+    title: "Researcher",
+    company: "Independent",
+    avatar: "/images/speakers/cc-liang.png",
+  },
   { name: "Miles NG", title: "Founder", company: "Laplace lab" },
   {
     name: "Koss & Alaska",
@@ -137,11 +142,146 @@ const cryptonativeDay: Speaker2026[] = [
   },
   // Denken Chen (ACCEPTED) — company/title are "N/A" in Boost; add once filled in.
   { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
+  {
+    name: "Vitalik Buterin",
+    company: "Ethereum Foundation",
+    avatar: "/images/speakers/vitalik.jpg",
+  },
+  {
+    name: "Jatin",
+    company: "Canton",
+    avatar: "/images/speakers/jatin.jpg",
+  },
+  { name: "Danger", company: "Today in Defi" },
+  {
+    name: "Pol",
+    company: "Dappnode",
+    avatar: "/images/speakers/pol-lanski.png",
+  },
+  { name: "Ryan", company: "Independent" },
+  { name: "Eric Lee", company: "SigMarket" },
 ];
 
-// Sep 14. Nobody announced yet — the section renders a "coming soon" note while
-// this is empty, and switches to cards as soon as entries are added.
-const institutionDay: Speaker2026[] = [];
+const institutionDay: Speaker2026[] = [
+  {
+    name: "Andrew Wu",
+    company: "Cathay Financial Holding",
+    avatar: "/images/speakers/andrew-wu.jpg",
+  },
+  {
+    name: "Benji",
+    company: "LINE",
+    avatar: "/images/speakers/benji.jpg",
+  },
+  {
+    name: "Changwu",
+    company: "imToken",
+    avatar: "/images/speakers/changwu.jpg",
+  },
+  {
+    name: "Daniel",
+    company: "BSOS",
+    avatar: "/images/speakers/daniel.jpg",
+  },
+  {
+    name: "Ernie Ho",
+    title: "Former Senior Legal Advisor at MaiCoin",
+    avatar: "/images/speakers/ernie-ho.jpg",
+  },
+  {
+    name: "Ivan",
+    company: "TAAS",
+    avatar: "/images/speakers/ivan.jpg",
+  },
+  {
+    name: "Jamie Lin",
+    nameZhHant: "林之晨",
+    company: "Taiwan Mobile",
+    companyZhHant: "台灣大哥大",
+    avatar: "/images/speakers/jamie-lin.jpg",
+  },
+  {
+    name: "Jason Kuo",
+    company: "Zodia",
+    avatar: "/images/speakers/jason-kuo.jpg",
+  },
+  {
+    name: "Jason Lai",
+    avatar: "/images/speakers/jason-lai.jpg",
+  },
+  {
+    name: "Jon Lin",
+    company: "KPMG",
+    avatar: "/images/speakers/jon-lin.jpg",
+  },
+  {
+    name: "Ko-Wei",
+    company: "IOTA",
+    avatar: "/images/speakers/ko-wei.jpg",
+  },
+  {
+    name: "Martinet",
+    company: "Quantstamp",
+    avatar: "/images/speakers/martinet.jpg",
+  },
+  {
+    name: "Oskar",
+    company: "ETHSystem",
+    avatar: "/images/speakers/oskar.jpg",
+  },
+  {
+    name: "Reyer Chu",
+    nameZhHant: "瞿孝洋",
+    company: "RWA Nexus",
+    companyZhHant: "睿亦富",
+    avatar: "/images/speakers/reyer-chu.jpg",
+  },
+  {
+    name: "Stamford",
+    company: "Taishin Shin Kong Financial Holding",
+    avatar: "/images/speakers/stamford.jpg",
+  },
+  {
+    name: "Taka",
+    company: "TABEI",
+    avatar: "/images/speakers/taka.jpg",
+  },
+  {
+    name: "Teagan",
+    company: "Canton",
+    avatar: "/images/speakers/teagan.jpg",
+  },
+  {
+    name: "Wayne",
+    company: "XREX",
+    avatar: "/images/speakers/wayne.jpg",
+  },
+  {
+    name: "殷玉龍",
+    company: "Formosan Brothers Attorneys-at-Law",
+    avatar: "/images/speakers/alex-yin.jpg",
+  },
+  {
+    name: "Jeff Wen",
+    company: "Hayek Technology",
+    avatar: "/images/speakers/jeff.jpg",
+  },
+  {
+    name: "陳念平 Neptune Chen",
+    company: "PwC",
+    avatar: "/images/speakers/neptune-chen.jpg",
+  },
+  {
+    name: "陳鴻祺 Chris Chen",
+    company: "Deloitte",
+    avatar: "/images/speakers/chris-chen.jpg",
+  },
+  {
+    name: "黃子庭",
+    company: "Guoju Law Firm",
+    avatar: "/images/speakers/huang-tzu-ting.jpg",
+  },
+];
 
 export const speakers2026ByDay: SpeakerDay[] = [
   { id: "cryptonative", speakers: cryptonativeDay },

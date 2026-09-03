@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import type { Locale } from "@/public/constant/content";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import homeStyles from "@/components/HomePage/Home2026.module.css";
 import styles from "./AgendaPage2026.module.css";
@@ -13,6 +13,7 @@ type AgendaText = Record<Locale, string>;
 type DayId = "day1" | "day2";
 
 const COMMUNITY_SPACE_URL = "https://luma.com/esvhpmmf?tk=bw2zRv";
+const DAY_2_DEFAULT_FROM = Date.parse("2026-09-13T18:00:00+08:00");
 
 const text = (en: string, zhHant: string): AgendaText => ({
   en,
@@ -22,8 +23,26 @@ const text = (en: string, zhHant: string): AgendaText => ({
 const localize = (value: AgendaText | string, locale: Locale) =>
   typeof value === "string" ? value : value[locale];
 
+const getSlotDurationMinutes = (
+  value: AgendaText | string,
+  locale: Locale,
+) => {
+  const match = localize(value, locale).match(
+    /^(\d{1,2}):(\d{2})[–-](\d{1,2}):(\d{2})$/,
+  );
+
+  if (!match) return null;
+
+  const [, startHour, startMinute, endHour, endMinute] = match;
+  const start = Number(startHour) * 60 + Number(startMinute);
+  const end = Number(endHour) * 60 + Number(endMinute);
+
+  return end >= start ? end - start : end + 24 * 60 - start;
+};
+
 type Speaker = {
   name?: string;
+  localizedName?: AgendaText;
   alias?: string;
   avatar?: string;
   jobTitle?: AgendaText;
@@ -34,7 +53,7 @@ type Speaker = {
 };
 
 type Session = {
-  format: AgendaText;
+  format?: AgendaText;
   title?: AgendaText;
   titleStatus?: "pending";
   speakers?: Speaker[];
@@ -44,7 +63,9 @@ type AgendaRow = {
   time: AgendaText | string;
   dateTime: string;
   main?: Session;
+  mainColSpan?: boolean;
   forum?: Session;
+  forumContinues?: boolean;
   shared?: Session;
   intermission?: {
     icon: string;
@@ -194,19 +215,64 @@ const DAY_COPY: Record<
 type AgendaCopy = (typeof UI_COPY)[Locale] &
   (typeof DAY_COPY)[DayId][Locale];
 
+const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
+  Aditya: "/images/speakers/aditya.jpg",
+  "Alan Wu": "/images/speakers/alan-wu.jpg",
+  "Alex Kuzmin": "/images/speakers/alex-kuzmin.jpg",
+  "Alfred Lu": "/images/speakers/alfred-lu.png",
+  Alice: "/images/speakers/alice.jpg",
+  "Anton Cheng": "/images/speakers/anton-cheng.jpg",
+  "Antonio Seveso": "/images/speakers/antonio-seveso.png",
+  "CC Liang": "/images/speakers/cc-liang.png",
+  "Clément Lesaege": "/images/speakers/clement-lesaege.jpg",
+  "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
+  "Hao Chen": "/images/speakers/hao-chen.jpg",
+  Jatin: "/images/speakers/jatin.jpg",
+  Martinet: "/images/speakers/martinet.jpg",
+  "Matthew Keil": "/images/speakers/matthew-keil.png",
+  Pol: "/images/speakers/pol-lanski.png",
+  "Vitalik Buterin": "/images/speakers/vitalik.jpg",
+  "Jamie Lin": "/images/speakers/jamie-lin.jpg",
+  "陳念平 Neptune Chen": "/images/speakers/neptune-chen.jpg",
+  Changwu: "/images/speakers/changwu.jpg",
+  "Jeff Wen": "/images/speakers/jeff.jpg",
+  Wayne: "/images/speakers/wayne.jpg",
+  Taka: "/images/speakers/taka.jpg",
+  "Reyer Chu": "/images/speakers/reyer-chu.jpg",
+  "Ko-Wei (IOTA)": "/images/speakers/ko-wei.jpg",
+  Benji: "/images/speakers/benji.jpg",
+  Daniel: "/images/speakers/daniel.jpg",
+  "Jason Kuo": "/images/speakers/jason-kuo.jpg",
+  "陳鴻祺 Chris Chen": "/images/speakers/chris-chen.jpg",
+  Oskar: "/images/speakers/oskar.jpg",
+  Teagan: "/images/speakers/teagan.jpg",
+  Ivan: "/images/speakers/ivan.jpg",
+  "Jon Lin": "/images/speakers/jon-lin.jpg",
+  Stamford: "/images/speakers/stamford.jpg",
+  "Jason Lai": "/images/speakers/jason-lai.jpg",
+  殷玉龍律師: "/images/speakers/alex-yin.jpg",
+  "Ernie Ho": "/images/speakers/ernie-ho.jpg",
+  "Andrew Wu 律師": "/images/speakers/andrew-wu.jpg",
+  黃子庭律師: "/images/speakers/huang-tzu-ting.jpg",
+};
+
 const speakerSession = (
   name: string,
   organization?: string,
   alias?: string,
   format = text("Talk", "演講"),
+  sessionTitle?: string,
 ): Session => ({
   format,
-  title: text("Topic to be announced", "講題即將公布"),
-  titleStatus: "pending",
+  title: sessionTitle
+    ? text(sessionTitle, sessionTitle)
+    : text("Topic to be announced", "講題即將公布"),
+  ...(sessionTitle ? {} : { titleStatus: "pending" as const }),
   speakers: [
     {
       name,
       alias,
+      avatar: AGENDA_SPEAKER_AVATARS[name],
       ...(organization
         ? { organization: text(organization, organization) }
         : {}),
@@ -216,14 +282,12 @@ const speakerSession = (
 
 const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
-    time: "10:00–10:10",
+    time: "10:00–10:20",
     dateTime: "2026-09-13T10:00:00+08:00",
     main: {
-      format: text("Program", "大會流程"),
       title: text("Opening", "開幕"),
     },
     forum: {
-      format: text("Live", "直播"),
       title: text(
         "Live from Genesis Stage",
         "同步轉播 Genesis Stage",
@@ -231,75 +295,64 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "10:10–10:20",
-    dateTime: "2026-09-13T10:10:00+08:00",
-    mainTransition: text("Stage transition", "舞台轉場"),
-    forumContinuation: true,
-  },
-  {
-    time: "10:20–10:55",
+    time: "10:20–11:00",
     dateTime: "2026-09-13T10:20:00+08:00",
-    forumContinuation: true,
+    mainColSpan: true,
     main: speakerSession(
-      "Vitalik",
+      "Vitalik Buterin",
       "Ethereum Foundation",
       undefined,
-      text("Keynote", "主題演講"),
+      text("Talk", "演講"),
     ),
   },
   {
-    time: "10:55–11:00",
-    dateTime: "2026-09-13T10:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "11:00–11:25",
+    time: "11:00–11:30",
     dateTime: "2026-09-13T11:00:00+08:00",
     main: speakerSession(
       "Martinet",
       "Quantstamp",
       undefined,
       text("Talk", "演講"),
+      "Operational Security Workshop",
     ),
     forum: speakerSession(
       "Devansh Mehta",
       "Independent",
       undefined,
       text("Talk", "演講"),
+      "Prediction Markets for Participatory Budgeting",
     ),
   },
   {
-    time: "11:25–11:30",
-    dateTime: "2026-09-13T11:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "11:30–11:40",
+    time: "11:30–11:45",
     dateTime: "2026-09-13T11:30:00+08:00",
-    main: speakerSession("Matthew Keil", "ChainSafe"),
+    main: speakerSession(
+      "Matthew Keil",
+      "ChainSafe",
+      undefined,
+      undefined,
+      "The Root of Trust: A Case for Optimism in Ethereum's Future",
+    ),
     forum: speakerSession(
       "CC Liang",
       "Independent",
       undefined,
-      text("Talk · 11:30–11:55", "演講 · 11:30–11:55"),
+      undefined,
+      "The Weird Nature of Crypto Projects",
     ),
+    forumContinues: true,
   },
   {
-    time: "11:40–11:45",
-    dateTime: "2026-09-13T11:40:00+08:00",
-    mainTransition: text("Stage transition", "舞台轉場"),
-    forumContinuation: true,
-  },
-  {
-    time: "11:45–11:55",
+    time: "11:45–12:00",
     dateTime: "2026-09-13T11:45:00+08:00",
-    main: speakerSession("Hao Chen", "CertiK"),
+    main: speakerSession(
+      "Hao Chen",
+      "CertiK",
+      undefined,
+      undefined,
+      "Beyond Finding Bugs: Proving DeFi Safe",
+    ),
     forumContinuation: true,
-  },
-  {
-    time: "11:55–12:00",
-    dateTime: "2026-09-13T11:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
   },
   {
     time: "12:00–13:00",
@@ -319,138 +372,138 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:00–13:25",
+    time: "13:00–13:30",
     dateTime: "2026-09-13T13:00:00+08:00",
+    mainColSpan: true,
     main: speakerSession(
-      "Vitalik",
+      "Vitalik Buterin",
       "Ethereum Foundation",
       undefined,
       text("Talk", "演講"),
     ),
   },
   {
-    time: "13:25–13:30",
-    dateTime: "2026-09-13T13:25:00+08:00",
-    mainTransition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "13:30–13:55",
+    time: "13:30–14:00",
     dateTime: "2026-09-13T13:30:00+08:00",
     main: speakerSession(
       "Alan Wu",
       "Uniswap",
       undefined,
       text("Talk", "演講"),
+      "Life of a Fill: How Market Makers Work on UniswapX",
     ),
     forum: speakerSession(
       "Alex Kuzmin",
       "Ethereum Foundation",
       undefined,
       text("Talk", "演講"),
+      "The Other Post-Quantum Migration: Ethereum's ZK Application Layer",
     ),
   },
   {
-    time: "13:55–14:00",
-    dateTime: "2026-09-13T13:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "14:00–14:10",
+    time: "14:00–14:15",
     dateTime: "2026-09-13T14:00:00+08:00",
-    main: speakerSession("Anton Cheng", "Morpho"),
-    forum: speakerSession("Jatin", "Canton"),
+    main: speakerSession(
+      "Anton Cheng",
+      "Morpho",
+      undefined,
+      undefined,
+      "How to design contracts that institutions want",
+    ),
+    forum: speakerSession(
+      "Jatin",
+      "Canton",
+      undefined,
+      undefined,
+      "Selective Disclosure Is the Missing Primitive for Global State Chains: The Quadrillion Dollar Unlock",
+    ),
   },
   {
-    time: "14:10–14:15",
-    dateTime: "2026-09-13T14:10:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "14:15–14:25",
+    time: "14:15–14:30",
     dateTime: "2026-09-13T14:15:00+08:00",
-    main: speakerSession("Danger", "Today in Defi"),
-    forum: speakerSession("Pol", "Dappnode"),
+    main: speakerSession(
+      "Danger",
+      "Today in Defi",
+      undefined,
+      undefined,
+      "Catching the Rug Before It Pulls: Using AI Proactively to Mitigate Risk for DeFi",
+    ),
+    forum: speakerSession(
+      "Pol",
+      "Dappnode",
+      undefined,
+      undefined,
+      "The hack that broke Ethereum comes back to save it - The DAO Returns",
+    ),
   },
   {
-    time: "14:25–14:30",
-    dateTime: "2026-09-13T14:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "14:30–14:55",
+    time: "14:30–15:00",
     dateTime: "2026-09-13T14:30:00+08:00",
     main: speakerSession(
       "Antonio Seveso",
       "Fluidkey",
       undefined,
       text("Talk", "演講"),
+      "Privacy on Chain: What Stealth Addresses Solve, and What’s Still Ahead",
     ),
     forum: speakerSession(
       "Clément Lesaege",
       "Seer/Kleros",
       undefined,
       text("Talk", "演講"),
+      "From Event Markets to Information Finance",
     ),
   },
   {
-    time: "14:55–15:00",
-    dateTime: "2026-09-13T14:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "15:00–15:10",
+    time: "15:00–15:15",
     dateTime: "2026-09-13T15:00:00+08:00",
-    main: speakerSession("Aditya", "Polymarket"),
-    forum: speakerSession(
-      "Ryan",
+    main: speakerSession(
+      "Aditya",
+      "Polymarket",
       undefined,
       undefined,
-      text("Talk · 15:00–15:25", "演講 · 15:00–15:25"),
+      "Derive, don't store: rebuilding Polymarket's protocol from the conditional tokens up",
     ),
+    forum: speakerSession("Ryan", "Independent", undefined, undefined, "TBA"),
+    forumContinues: true,
   },
   {
-    time: "15:10–15:15",
-    dateTime: "2026-09-13T15:10:00+08:00",
-    mainTransition: text("Stage transition", "舞台轉場"),
-    forumContinuation: true,
-  },
-  {
-    time: "15:15–15:25",
+    time: "15:15–15:30",
     dateTime: "2026-09-13T15:15:00+08:00",
     main: speakerSession("Eric Lee", "SigMarket"),
     forumContinuation: true,
   },
   {
-    time: "15:25–15:30",
-    dateTime: "2026-09-13T15:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "15:30–15:55",
+    time: "15:30–16:00",
     dateTime: "2026-09-13T15:30:00+08:00",
     main: speakerSession(
       "Alfred Lu",
       "imToken Labs",
       undefined,
       text("Talk", "演講"),
+      "Assets First, Proofs Later: Building Verifiable Cross-Chain Intents with OIF",
     ),
     forum: speakerSession(
       "Alice",
       "OneSavie Labs",
       undefined,
       text("Talk", "演講"),
+      "Evaluating LLM Tools for Smart Contract Vulnerability Identification in Web3",
     ),
-  },
-  {
-    time: "15:55–16:00",
-    dateTime: "2026-09-13T15:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
   },
 ];
 
 const DAY_2_AGENDA_ROWS: AgendaRow[] = [
   {
-    time: "10:05–10:25",
+    time: "10:00–10:05",
+    dateTime: "2026-09-14T10:00:00+08:00",
+    mainColSpan: true,
+    main: {
+      title: text("Opening", "開幕"),
+    },
+  },
+  {
+    time: "10:05–10:30",
     dateTime: "2026-09-14T10:05:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -458,22 +511,17 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
       speakers: [
         {
           name: "Jamie Lin",
+          localizedName: text("Jamie Lin", "林之晨"),
           organization: text("Taiwan Mobile", "台灣大哥大"),
         },
       ],
     },
     forum: {
-      format: text("Live", "直播"),
       title: text("Live from Genesis Stage", "同步轉播 Genesis Stage"),
     },
   },
   {
-    time: "10:25–10:30",
-    dateTime: "2026-09-14T10:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "10:30–10:55",
+    time: "10:30–11:00",
     dateTime: "2026-09-14T10:30:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -497,20 +545,22 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "10:55–11:00",
-    dateTime: "2026-09-14T10:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
     time: "11:00–11:45",
     dateTime: "2026-09-14T11:00:00+08:00",
     main: {
       format: text("Panel", "座談"),
-      title: text("Stablecoins: Fireside Chat", "穩定幣：爐邊對談"),
+      title: text("The Future of Stablecoins", "穩定幣的未來發展"),
       speakers: [
         {
-          name: "派大星",
-          alias: "Jeff",
+          name: "Reyer Chu",
+          localizedName: text("Reyer Chu", "瞿孝洋"),
+          role: text("Moderator", "主持人"),
+          isModerator: true,
+          organization: text("RWA Nexus", "睿亦富"),
+        },
+        {
+          name: "Jeff Wen",
+          organization: text("Hayek Technology", "Hayek Technology"),
         },
         {
           name: "Wayne",
@@ -551,8 +601,9 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:00–13:25",
+    time: "13:00–13:30",
     dateTime: "2026-09-14T13:00:00+08:00",
+    mainColSpan: true,
     main: {
       format: text("Talk", "演講"),
       title: text(
@@ -565,12 +616,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:25–13:30",
-    dateTime: "2026-09-14T13:25:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "13:30–13:55",
+    time: "13:30–14:00",
     dateTime: "2026-09-14T13:30:00+08:00",
     main: {
       format: text("Talk", "演講"),
@@ -594,12 +640,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "13:55–14:00",
-    dateTime: "2026-09-14T13:55:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
-  },
-  {
-    time: "14:00–14:40",
+    time: "14:00–14:45",
     dateTime: "2026-09-14T14:00:00+08:00",
     main: {
       format: text("Panel", "座談"),
@@ -615,8 +656,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("Quantstamp", "Quantstamp"),
         },
         {
-          name: "Ko-wei",
-          organization: text("IOTA", "IOTA"),
+          name: "Ko-Wei (IOTA)",
         },
         {
           name: "Benji",
@@ -655,11 +695,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
       ],
     },
-  },
-  {
-    time: "14:40–14:45",
-    dateTime: "2026-09-14T14:40:00+08:00",
-    transition: text("Stage transition", "舞台轉場"),
   },
   {
     time: "14:45–15:30",
@@ -730,14 +765,106 @@ const SpeakerList = ({
   copy,
   stacked = false,
   prominentAvatar = false,
+  panelLayout = false,
 }: {
   speakers?: Speaker[];
   locale: Locale;
   copy: (typeof UI_COPY)[Locale];
   stacked?: boolean;
   prominentAvatar?: boolean;
+  panelLayout?: boolean;
 }) => {
   if (!speakers?.length) return null;
+
+  const renderSpeakerCopy = (speaker: Speaker) => (
+    <span className={styles.speakerCopy}>
+      {speaker.status === "pending" ? (
+        <>
+          {speaker.organization
+            ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
+            : copy.moreSpeakersPending}
+        </>
+      ) : (
+        <>
+          {speaker.role && (
+            <span className={styles.speakerRole}>
+              {localize(speaker.role, locale)}
+              {copy.labelSeparator}
+            </span>
+          )}
+          <span className={speaker.isModerator ? styles.moderatorName : ""}>
+            {speaker.localizedName
+              ? localize(speaker.localizedName, locale)
+              : speaker.name}
+            {speaker.alias &&
+              `${copy.openParen}${speaker.alias}${copy.closeParen}`}
+          </span>
+          {(speaker.jobTitle || speaker.organization) && (
+            <span className={styles.organization}>
+              {copy.openParen}
+              {[
+                speaker.jobTitle && localize(speaker.jobTitle, locale),
+                speaker.organization && localize(speaker.organization, locale),
+              ]
+                .filter(Boolean)
+                .join(copy.detailSeparator)}
+              {copy.closeParen}
+            </span>
+          )}
+        </>
+      )}
+    </span>
+  );
+
+  const renderSpeakerAvatar = (speaker: Speaker) => {
+    const avatar =
+      speaker.avatar ??
+      (speaker.name ? AGENDA_SPEAKER_AVATARS[speaker.name] : undefined);
+
+    return avatar ? (
+      <Image
+        className={styles.speakerAvatar}
+        src={avatar}
+        alt=""
+        width={68}
+        height={68}
+        sizes="68px"
+        quality={72}
+        loading="lazy"
+      />
+    ) : (
+      <span className={styles.speakerAvatarPlaceholder} aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="3.25" />
+          <path d="M5.75 19c.55-3.55 2.65-5.5 6.25-5.5s5.7 1.95 6.25 5.5" />
+        </svg>
+      </span>
+    );
+  };
+
+  if (panelLayout) {
+    return (
+      <div className={`${styles.speakers} ${styles.panelSpeakerList}`}>
+        <div className={styles.panelSpeakerCopies}>
+          {speakers.map((speaker, index) => (
+            <span
+              className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
+              key={`${speaker.name ?? "pending"}-copy-${index}`}
+            >
+              {renderSpeakerCopy(speaker)}
+            </span>
+          ))}
+        </div>
+        <div className={styles.panelSpeakerAvatars}>
+          {speakers.map((speaker, index) => (
+            <span key={`${speaker.name ?? "pending"}-avatar-${index}`}>
+              {renderSpeakerAvatar(speaker)}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <p
@@ -745,74 +872,24 @@ const SpeakerList = ({
         prominentAvatar ? styles.prominentSpeakerList : ""
       }`}
     >
-      {speakers.map((speaker, index) => (
-        <span
-          className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
-          key={`${speaker.name ?? "pending"}-${
-            speaker.organization
-              ? localize(speaker.organization, locale)
-              : index
-          }`}
-        >
-          {index > 0 && (stacked ? <br /> : " · ")}
-          <span className={styles.speakerIdentity}>
-            {speaker.avatar ? (
-              <Image
-                className={styles.speakerAvatar}
-                src={speaker.avatar}
-                alt=""
-                width={28}
-                height={28}
-              />
-            ) : (
-              <span className={styles.speakerAvatarPlaceholder} aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="8" r="3.25" />
-                  <path d="M5.75 19c.55-3.55 2.65-5.5 6.25-5.5s5.7 1.95 6.25 5.5" />
-                </svg>
-              </span>
-            )}
-            <span className={styles.speakerCopy}>
-              {speaker.status === "pending" ? (
-                <>
-                  {speaker.organization
-                    ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
-                    : copy.moreSpeakersPending}
-                </>
-              ) : (
-                <>
-                  {speaker.role && (
-                    <span className={styles.speakerRole}>
-                      {localize(speaker.role, locale)}
-                      {copy.labelSeparator}
-                    </span>
-                  )}
-                  <span
-                    className={speaker.isModerator ? styles.moderatorName : ""}
-                  >
-                    {speaker.name}
-                    {speaker.alias &&
-                      `${copy.openParen}${speaker.alias}${copy.closeParen}`}
-                  </span>
-                  {(speaker.jobTitle || speaker.organization) && (
-                    <span className={styles.organization}>
-                      {copy.openParen}
-                      {[
-                        speaker.jobTitle && localize(speaker.jobTitle, locale),
-                        speaker.organization &&
-                          localize(speaker.organization, locale),
-                      ]
-                        .filter(Boolean)
-                        .join(copy.detailSeparator)}
-                      {copy.closeParen}
-                    </span>
-                  )}
-                </>
-              )}
+      {speakers.map((speaker, index) => {
+        return (
+          <span
+            className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
+            key={`${speaker.name ?? "pending"}-${
+              speaker.organization
+                ? localize(speaker.organization, locale)
+                : index
+            }`}
+          >
+            {index > 0 && !prominentAvatar && (stacked ? <br /> : " · ")}
+            <span className={styles.speakerIdentity}>
+              {renderSpeakerAvatar(speaker)}
+              {renderSpeakerCopy(speaker)}
             </span>
           </span>
-        </span>
-      ))}
+        );
+      })}
     </p>
   );
 };
@@ -833,9 +910,11 @@ const SessionCard = ({
       stage === "forum" ? styles.forumSession : ""
     } ${stage === "shared" ? styles.sharedSession : ""}`}
   >
-    <div className={styles.sessionMeta}>
-      <span>{localize(session.format, locale)}</span>
-    </div>
+    {session.format && (
+      <div className={styles.sessionMeta}>
+        <span>{localize(session.format, locale)}</span>
+      </div>
+    )}
     {session.title && (
       <h3 className={session.titleStatus === "pending" ? styles.pendingTitle : ""}>
         {localize(session.title, locale)}
@@ -845,10 +924,11 @@ const SessionCard = ({
       speakers={session.speakers}
       locale={locale}
       copy={copy}
-      stacked={session.format.en === "Panel"}
+      stacked={session.format?.en === "Panel"}
       prominentAvatar={
-        session.format.en !== "Panel" && session.speakers?.length === 1
+        Boolean(session.speakers?.length) && session.format?.en !== "Panel"
       }
+      panelLayout={session.format?.en === "Panel"}
     />
   </article>
 );
@@ -865,6 +945,7 @@ const ScheduleRow = ({
   const isTransition = Boolean(
     row.transition || row.mainTransition || row.forumTransition,
   );
+  const durationMinutes = getSlotDurationMinutes(row.time, locale);
 
   return (
     <tr
@@ -875,6 +956,11 @@ const ScheduleRow = ({
       <th className={styles.time} scope="row">
         <time dateTime={row.dateTime}>
           <strong>{localize(row.time, locale)}</strong>
+          {durationMinutes !== null && (
+            <span className={styles.timeDuration}>
+              ({durationMinutes} {locale === "zh-Hant" ? "分鐘" : "mins"})
+            </span>
+          )}
         </time>
       </th>
 
@@ -958,8 +1044,11 @@ const ScheduleRow = ({
       )}
       {row.main && (
         <td
-          className={`${styles.sessionCell} ${styles.mainCell}`}
-          data-stage-label={copy.mainStage}
+          className={`${styles.sessionCell} ${styles.mainCell} ${
+            row.mainColSpan ? styles.wideCell : ""
+          }`}
+          colSpan={row.mainColSpan ? 2 : undefined}
+          data-stage-label={row.mainColSpan ? copy.sharedStage : copy.mainStage}
         >
           <SessionCard
             session={row.main}
@@ -971,7 +1060,9 @@ const ScheduleRow = ({
       )}
       {row.forum && (
         <td
-          className={`${styles.sessionCell} ${styles.forumCell}`}
+          className={`${styles.sessionCell} ${styles.forumCell} ${
+            row.forumContinues ? styles.continuesBelow : ""
+          }`}
           data-stage-label={copy.forumStage}
         >
           <SessionCard
@@ -1002,8 +1093,20 @@ const AgendaPage2026 = ({
   initialCfpPhase: CfpPhase;
 }) => {
   const { locale } = useLanguage();
-  const [activeDay, setActiveDay] = useState<DayId>("day2");
+  const [activeDay, setActiveDay] = useState<DayId>("day1");
+
+  useEffect(() => {
+    if (Date.now() >= DAY_2_DEFAULT_FROM) {
+      setActiveDay("day2");
+    }
+  }, []);
+
+  const agendaContentLocale: Locale = activeDay === "day1" ? "en" : locale;
   const copy = { ...UI_COPY[locale], ...DAY_COPY[activeDay][locale] };
+  const agendaContentCopy = {
+    ...UI_COPY[agendaContentLocale],
+    ...DAY_COPY[activeDay][agendaContentLocale],
+  };
   const agendaRows =
     activeDay === "day1" ? DAY_1_AGENDA_ROWS : DAY_2_AGENDA_ROWS;
 
@@ -1042,6 +1145,7 @@ const AgendaPage2026 = ({
               alt={copy.taiwanLogoAlt}
               width={320}
               height={476}
+              sizes="(max-width: 640px) 72px, 116px"
               priority
             />
           </section>
@@ -1102,12 +1206,15 @@ const AgendaPage2026 = ({
                   </th>
                 </tr>
               </thead>
-              <tbody className={styles.agendaBody}>
+              <tbody
+                className={styles.agendaBody}
+                lang={agendaContentLocale === "en" ? "en" : "zh-Hant"}
+              >
                 {agendaRows.map((row) => (
                   <ScheduleRow
                     row={row}
-                    locale={locale}
-                    copy={copy}
+                    locale={agendaContentLocale}
+                    copy={agendaContentCopy}
                     key={row.dateTime}
                   />
                 ))}
