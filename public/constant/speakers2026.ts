@@ -128,7 +128,12 @@ const cryptonativeDay: Speaker2026[] = [
   },
   // No headshot in Boost — initials fallback.
   { name: "Jason Lai", title: "Founder", company: "PIF12" },
-  { name: "CC Liang", title: "Researcher", company: "Independent" },
+  {
+    name: "CC Liang",
+    title: "Researcher",
+    company: "Independent",
+    avatar: "/images/speakers/cc-liang.png",
+  },
   { name: "Miles NG", title: "Founder", company: "Laplace lab" },
   {
     name: "Koss & Alaska",
@@ -137,6 +142,24 @@ const cryptonativeDay: Speaker2026[] = [
   },
   // Denken Chen (ACCEPTED) — company/title are "N/A" in Boost; add once filled in.
   { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
+  {
+    name: "Vitalik Buterin",
+    company: "Ethereum Foundation",
+    avatar: "/images/speakers/vitalik.png",
+  },
+  {
+    name: "Jatin",
+    company: "Canton",
+    avatar: "/images/speakers/jatin.jpg",
+  },
+  { name: "Danger", company: "Today in Defi" },
+  {
+    name: "Pol",
+    company: "Dappnode",
+    avatar: "/images/speakers/pol-lanski.png",
+  },
+  { name: "Ryan", company: "Independent" },
+  { name: "Eric Lee", company: "SigMarket" },
 ];
 
 // Sep 14. Nobody announced yet — the section renders a "coming soon" note while

@@ -19,8 +19,18 @@ const initials = (name: string) =>
     .map((w) => w[0]?.toUpperCase() ?? "")
     .join("");
 
+const sortSpeakersByName = (speakers: Speaker2026[]) =>
+  [...speakers].sort((a, b) =>
+    a.name.localeCompare(b.name, "en", { sensitivity: "base" }),
+  );
+
+const FEATURED_SPEAKER_NAME = "Vitalik Buterin";
+
 const SpeakerSection = () => {
   const t = useT();
+  const featuredSpeaker = speakers2026ByDay
+    .flatMap((day) => day.speakers)
+    .find((speaker) => speaker.name === FEATURED_SPEAKER_NAME);
 
   if (speakers2026ByDay.every((day) => day.speakers.length === 0)) return null;
 
@@ -37,11 +47,16 @@ const SpeakerSection = () => {
     >
       {/* One flat grid, with each day's heading spanning every column, so the
           cards of both days stay on the same column rhythm. */}
+      {featuredSpeaker && <FeaturedSpeakerCard speaker={featuredSpeaker} />}
       {speakers2026ByDay.map((day) => (
         <Fragment key={day.id}>
           <DayHeading>{t.homepage.speakersDays[day.id]}</DayHeading>
           {day.speakers.length > 0 ? (
-            day.speakers.map((speaker) => (
+            sortSpeakersByName(
+              day.speakers.filter(
+                (speaker) => speaker.name !== FEATURED_SPEAKER_NAME,
+              ),
+            ).map((speaker) => (
               <SpeakerCard key={speaker.name} speaker={speaker} />
             ))
           ) : (
@@ -53,11 +68,25 @@ const SpeakerSection = () => {
   );
 };
 
+const FeaturedSpeakerCard = ({ speaker }: { speaker: Speaker2026 }) => (
+  <FeaturedCard>
+    <FeaturedAvatar>
+      {speaker.avatar ? (
+        <Image src={speaker.avatar} alt={speaker.name} width={176} height={176} />
+      ) : (
+        <span>{initials(speaker.name)}</span>
+      )}
+    </FeaturedAvatar>
+    <FeaturedName>{speaker.name}</FeaturedName>
+    {speaker.company && <FeaturedCompany>{speaker.company}</FeaturedCompany>}
+  </FeaturedCard>
+);
+
 const SpeakerCard = ({ speaker }: { speaker: Speaker2026 }) => (
   <Card>
     <Avatar>
       {speaker.avatar ? (
-        <Image src={speaker.avatar} alt={speaker.name} width={96} height={96} />
+        <Image src={speaker.avatar} alt={speaker.name} width={128} height={128} />
       ) : (
         <span>{initials(speaker.name)}</span>
       )}
@@ -105,8 +134,8 @@ const DayHeading = styled.h3`
     background-color: rgba(203, 241, 1, 0.35);
   }
 
-  /* The first day sits directly under the section subtitle, which already has
-     the grid's top padding; later days need their own breathing room. */
+  /* The featured speaker sits before the first day; each day heading needs
+     breathing room from the content above it. */
   &:not(:first-child) {
     margin-top: 48px;
   }
@@ -125,6 +154,63 @@ const DayPlaceholder = styled.p`
   color: rgba(255, 255, 255, 0.7);
 `;
 
+const FeaturedCard = styled.div`
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px 6px;
+  text-align: center;
+`;
+
+const FeaturedAvatar = styled.div`
+  display: flex;
+  width: 176px;
+  height: 176px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid ${Colors.neonGreen};
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 8px rgba(203, 241, 1, 0.08),
+    0 0 42px rgba(203, 241, 1, 0.28);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  span {
+    color: ${Colors.neonGreen};
+    font-size: 52px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    width: 140px;
+    height: 140px;
+  }
+`;
+
+const FeaturedName = styled.p`
+  margin-top: 24px;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+`;
+
+const FeaturedCompany = styled.p`
+  margin-top: 8px;
+  color: ${Colors.neonGreen};
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+`;
+
 const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -134,8 +220,8 @@ const Card = styled.div`
 `;
 
 const Avatar = styled.div`
-  width: 96px;
-  height: 96px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -155,6 +241,11 @@ const Avatar = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 112px;
+    height: 112px;
   }
 `;
 

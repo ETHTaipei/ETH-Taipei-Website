@@ -40,7 +40,7 @@ const VitalikTable = () => {
           <TrackContainer style={{ borderBottom: 0, backgroundColor: "white" }}>
             <TrackMainContent>
               <TopicContainer>
-                <ScheduleText>{"Vitalik Keynote"}</ScheduleText>
+                <ScheduleText>{"Vitalik Buterin Keynote"}</ScheduleText>
               </TopicContainer>
               <Duration>30 mins</Duration>
               <SpeakerInfo

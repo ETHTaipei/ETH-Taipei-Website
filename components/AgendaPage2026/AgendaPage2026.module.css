@@ -299,10 +299,15 @@
 }
 
 .agendaRow {
+  border-bottom: 0;
+}
+
+.agendaRow > * {
   border-bottom: 1px solid var(--institution-line);
 }
 
-.agendaRow:last-child {
+.agendaRow:last-child > *,
+.agendaRow > .continuesBelow {
   border-bottom: 0;
 }
 
@@ -319,6 +324,15 @@
   display: block;
   color: var(--ink);
   font-size: 16px;
+  white-space: nowrap;
+}
+
+.timeDuration {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.3;
   white-space: nowrap;
 }
 
