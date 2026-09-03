@@ -107,7 +107,11 @@ export const web3MattersUrl = "https://web3matters.substack.com/";
 export const ncuBlockchainClubUrl = "https://linktr.ee/ncublockchainclub";
 // New for 2026. Docs site is the group's public-facing entry point; verified HTTPS 200.
 export const anoniUrl = "https://anoni.net/docs/";
-// URL from Discord #website; verified https://ndhublockchain.club/ 200,
+// New for 2026. URL from 馬鈴薯 (Discord #website); verified HTTPS 200,
+// title AYAD | PHOENIX | Substack.
+export const ayadUrl =
+  "https://oxo816phoenix.substack.com/?utm_campaign=profile_chips";
+// URL from Discord #website; verified https://ndhubblockchain.club/ 200,
 // title 東華區塊鏈研究社 NDHU Blockchain Club.
 export const ndhuBlockchainUrl = "https://ndhublockchain.club/";
 export const bermuDaoUrl = "https://x.com/bermudao_ch";
@@ -119,6 +123,8 @@ export const desciAsiaUrl = "https://x.com/DeSciAsia";
 export const emmaInternationalUrl =
   "https://info.technews.tw/company/83118949-%E8%89%BE%E7%91%AA%E5%9C%8B%E9%9A%9B%E7%AE%A1%E7%90%86%E9%A1%A7%E5%95%8F%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8";
 export const ethPandaUrl = "https://ethpanda.org";
+// New for 2026. Brand assets from the Ethereum Korea brand kit; verified HTTPS 200.
+export const ethereumKoreaUrl = "https://ethereumkorea.io/";
 export const openBuildUrl = "https://linktr.ee/openbuild";
 export const vyperUrl = "https://linktr.ee/vyperlang";
 export const wprcUrl = "https://www.wprc.club/";
@@ -147,6 +153,9 @@ export const fjcuFinanceLabUrl = "https://www.instagram.com/fjcu_finlab/";
 export const hackersInTunghaiUrl = "https://www.instagram.com/thuhc2021/";
 export const nccuBlockchainUrl = "https://www.instagram.com/nccu__blockchain/";
 export const nchuBlockchainUrl = "https://www.instagram.com/nchublockchainclub/";
+// URL from 馬鈴薯 (Discord #website); verified HTTPS 200,
+// title 彰師大區塊鏈研究社 (@ncue.blockchain).
+export const ncueBlockchainUrl = "https://www.instagram.com/ncue.blockchain/";
 // NodeZ also runs @node_z on X and node.z_ on Instagram/Threads; the site is the
 // one link that covers all of it.
 export const nodeZUrl = "https://www.nodezblockchain.com";

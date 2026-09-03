@@ -7,6 +7,7 @@ import { useT } from "@/contexts/LanguageContext";
 import {
   abmediaUrl,
   anoniUrl,
+  ayadUrl,
   bermuDaoUrl,
   blockbeatsUrl,
   blocktempoUrl,
@@ -24,6 +25,7 @@ import {
   desciAsiaUrl,
   desciTaiwanUrl,
   emmaInternationalUrl,
+  ethereumKoreaUrl,
   ethGlobalUrl,
   ethHubHkUrl,
   ethPandaUrl,
@@ -44,6 +46,7 @@ import {
   nccuBlockchainUrl,
   nchuBlockchainUrl,
   ncuBlockchainClubUrl,
+  ncueBlockchainUrl,
   ndhuBlockchainUrl,
   nodeZUrl,
   ntouBlockchainUrl,
@@ -141,6 +144,13 @@ const PARTNERS: LogoEntry[] = [
     height: 69,
   },
   {
+    name: "AYAD",
+    url: ayadUrl,
+    img: "/images/partners/ayad.png",
+    width: 79,
+    height: 78,
+  },
+  {
     name: "BermuDAO",
     url: bermuDaoUrl,
     img: "/images/partners/bermudao.png",
@@ -174,6 +184,13 @@ const PARTNERS: LogoEntry[] = [
     img: "/images/partners/descitaiwan.png",
     width: 87,
     height: 73,
+  },
+  {
+    name: "Ethereum Korea",
+    url: ethereumKoreaUrl,
+    img: "/images/partners/ethereumkorea.png",
+    width: 265,
+    height: 30,
   },
   {
     name: "ETHGlobal",
@@ -297,7 +314,7 @@ const PARTNERS: LogoEntry[] = [
 ];
 
 // University clubs get their own section rather than sitting in Partners.
-// There are fourteen of them now — enough that they crowded the Partners grid,
+// There are fifteen of them now — enough that they crowded the Partners grid,
 // and enough to fill a section of their own. XueDAO stays under Partners: it's
 // student-run but cross-campus, so it doesn't belong to any one school.
 const SCHOOL_CLUBS: LogoEntry[] = [
@@ -349,6 +366,13 @@ const SCHOOL_CLUBS: LogoEntry[] = [
     img: "/images/partners/ncubc.png",
     width: 160,
     height: 40,
+  },
+  {
+    name: "NCUE Blockchain",
+    url: ncueBlockchainUrl,
+    img: "/images/partners/ncue-blockchain.png",
+    width: 78,
+    height: 78,
   },
   {
     name: "NDHU Blockchain Club",
