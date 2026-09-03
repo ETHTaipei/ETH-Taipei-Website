@@ -418,6 +418,74 @@
   line-height: 1.55;
 }
 
+.speakerIdentity {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0;
+  vertical-align: middle;
+}
+
+.speakerAvatar,
+.speakerAvatarPlaceholder {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border: 1px solid rgb(174 184 201 / 0.28);
+  border-radius: 50%;
+  background: rgb(174 184 201 / 0.08);
+  object-fit: cover;
+}
+
+.speakerAvatarPlaceholder {
+  display: inline-grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.speakerAvatarPlaceholder svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.speakerCopy {
+  min-width: 0;
+}
+
+.prominentSpeakerList > span {
+  display: block;
+}
+
+.prominentSpeakerList .speakerIdentity {
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.prominentSpeakerList .speakerCopy {
+  order: 1;
+}
+
+.prominentSpeakerList .speakerAvatar,
+.prominentSpeakerList .speakerAvatarPlaceholder {
+  width: 68px;
+  height: 68px;
+  flex-basis: 68px;
+  order: 2;
+  border-color: rgb(174 184 201 / 0.36);
+  background: rgb(174 184 201 / 0.06);
+}
+
+.prominentSpeakerList .speakerAvatarPlaceholder svg {
+  width: 26px;
+  height: 26px;
+}
+
 .organization {
   color: var(--muted);
 }
@@ -563,6 +631,78 @@
   font-size: 18px;
 }
 
+.intermissionCommunity {
+  display: flex;
+  width: min(100%, 520px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-left: auto;
+  padding: 13px 15px;
+  border: 1px solid rgb(207 211 205 / 0.42);
+  border-radius: 5px 14px 5px 14px;
+  color: var(--ink);
+  background:
+    linear-gradient(130deg, rgb(218 220 216 / 0.14), transparent 38%),
+    linear-gradient(110deg, #182326, #30372d 58%, #49483f);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 12px 30px rgb(0 0 0 / 0.2);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.intermissionCommunity:hover {
+  border-color: rgb(226 229 223 / 0.72);
+  background:
+    linear-gradient(130deg, rgb(231 233 229 / 0.18), transparent 38%),
+    linear-gradient(110deg, #1c292b, #394034 58%, #555247);
+}
+
+.intermissionCommunity:focus-visible {
+  outline: 2px solid #d9dcd7;
+  outline-offset: 3px;
+}
+
+.intermissionCommunityCopy {
+  min-width: 0;
+}
+
+.intermissionCommunityLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #c3c9bd;
+  font-family: "Menlo", ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.intermissionCommunity strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.intermissionCommunityCta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  color: #1b211d;
+  background: #d9dcd7;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.72),
+    0 0 22px rgb(217 220 215 / 0.16);
+  font-family: "Menlo", ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .agendaHead {
     display: none;
@@ -667,6 +807,17 @@
     max-width: none;
     margin-left: 0;
     text-align: left;
+  }
+
+  .intermission {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .intermissionCommunity {
+    width: 100%;
+    margin-left: 0;
   }
 
 }

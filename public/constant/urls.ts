@@ -14,6 +14,7 @@ export const mediaPartnerApplyUrl = "";
 export const hackathonUrl = "";
 export const sideEventFormUrl = "";
 export const tickSiteUrl = "https://luma.com/8z5ys4rl";
+export const communityHubUrl = "https://luma.com/esvhpmmf";
 
 export const code4renaUrl = "https://code4rena.com/";
 export const diamondUrl = "https://dmo.finance/";

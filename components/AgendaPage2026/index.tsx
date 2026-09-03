@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import type { Locale } from "@/public/constant/content";
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import homeStyles from "@/components/HomePage/Home2026.module.css";
 import styles from "./AgendaPage2026.module.css";
@@ -12,10 +12,7 @@ import styles from "./AgendaPage2026.module.css";
 type AgendaText = Record<Locale, string>;
 type DayId = "day1" | "day2";
 
-const DAY_2_DEFAULT_FROM = new Date("2026-09-13T18:00:00+08:00").getTime();
-
-const getDefaultAgendaDay = (now = Date.now()): DayId =>
-  now >= DAY_2_DEFAULT_FROM ? "day2" : "day1";
+const COMMUNITY_SPACE_URL = "https://luma.com/esvhpmmf?tk=bw2zRv";
 
 const text = (en: string, zhHant: string): AgendaText => ({
   en,
@@ -28,6 +25,7 @@ const localize = (value: AgendaText | string, locale: Locale) =>
 type Speaker = {
   name?: string;
   alias?: string;
+  avatar?: string;
   jobTitle?: AgendaText;
   organization?: AgendaText;
   role?: AgendaText;
@@ -51,6 +49,12 @@ type AgendaRow = {
   intermission?: {
     icon: string;
     title: AgendaText;
+    activity?: {
+      label: AgendaText;
+      title: AgendaText;
+      cta: AgendaText;
+      href: string;
+    };
   };
   transition?: AgendaText;
   mainTransition?: AgendaText;
@@ -303,6 +307,15 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     intermission: {
       icon: "🍽️",
       title: text("Lunch", "午餐時間"),
+      activity: {
+        label: text("Community Space", "COMMUNITY SPACE"),
+        title: text(
+          "Community meetups and networking (Building B)",
+          "社群小聚與交流活動（B 棟）",
+        ),
+        cta: text("View details", "查看詳情"),
+        href: COMMUNITY_SPACE_URL,
+      },
     },
   },
   {
@@ -716,16 +729,22 @@ const SpeakerList = ({
   locale,
   copy,
   stacked = false,
+  prominentAvatar = false,
 }: {
   speakers?: Speaker[];
   locale: Locale;
   copy: (typeof UI_COPY)[Locale];
   stacked?: boolean;
+  prominentAvatar?: boolean;
 }) => {
   if (!speakers?.length) return null;
 
   return (
-    <p className={styles.speakers}>
+    <p
+      className={`${styles.speakers} ${
+        prominentAvatar ? styles.prominentSpeakerList : ""
+      }`}
+    >
       {speakers.map((speaker, index) => (
         <span
           className={speaker.status === "pending" ? styles.pendingSpeaker : ""}
@@ -736,39 +755,62 @@ const SpeakerList = ({
           }`}
         >
           {index > 0 && (stacked ? <br /> : " · ")}
-          {speaker.status === "pending" ? (
-            <>
-              {speaker.organization
-                ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
-                : copy.moreSpeakersPending}
-            </>
-          ) : (
-            <>
-              {speaker.role && (
-                <span className={styles.speakerRole}>
-                  {localize(speaker.role, locale)}
-                  {copy.labelSeparator}
-                </span>
-              )}
-              <span className={speaker.isModerator ? styles.moderatorName : ""}>
-                {speaker.name}
-                {speaker.alias &&
-                  `${copy.openParen}${speaker.alias}${copy.closeParen}`}
+          <span className={styles.speakerIdentity}>
+            {speaker.avatar ? (
+              <Image
+                className={styles.speakerAvatar}
+                src={speaker.avatar}
+                alt=""
+                width={28}
+                height={28}
+              />
+            ) : (
+              <span className={styles.speakerAvatarPlaceholder} aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="8" r="3.25" />
+                  <path d="M5.75 19c.55-3.55 2.65-5.5 6.25-5.5s5.7 1.95 6.25 5.5" />
+                </svg>
               </span>
-              {(speaker.jobTitle || speaker.organization) && (
-                <span className={styles.organization}>
-                  {copy.openParen}
-                  {[
-                    speaker.jobTitle && localize(speaker.jobTitle, locale),
-                    speaker.organization && localize(speaker.organization, locale),
-                  ]
-                    .filter(Boolean)
-                    .join(copy.detailSeparator)}
-                  {copy.closeParen}
-                </span>
+            )}
+            <span className={styles.speakerCopy}>
+              {speaker.status === "pending" ? (
+                <>
+                  {speaker.organization
+                    ? `${localize(speaker.organization, locale)}${copy.labelSeparator}${copy.pendingSpeaker}`
+                    : copy.moreSpeakersPending}
+                </>
+              ) : (
+                <>
+                  {speaker.role && (
+                    <span className={styles.speakerRole}>
+                      {localize(speaker.role, locale)}
+                      {copy.labelSeparator}
+                    </span>
+                  )}
+                  <span
+                    className={speaker.isModerator ? styles.moderatorName : ""}
+                  >
+                    {speaker.name}
+                    {speaker.alias &&
+                      `${copy.openParen}${speaker.alias}${copy.closeParen}`}
+                  </span>
+                  {(speaker.jobTitle || speaker.organization) && (
+                    <span className={styles.organization}>
+                      {copy.openParen}
+                      {[
+                        speaker.jobTitle && localize(speaker.jobTitle, locale),
+                        speaker.organization &&
+                          localize(speaker.organization, locale),
+                      ]
+                        .filter(Boolean)
+                        .join(copy.detailSeparator)}
+                      {copy.closeParen}
+                    </span>
+                  )}
+                </>
               )}
-            </>
-          )}
+            </span>
+          </span>
         </span>
       ))}
     </p>
@@ -804,6 +846,9 @@ const SessionCard = ({
       locale={locale}
       copy={copy}
       stacked={session.format.en === "Panel"}
+      prominentAvatar={
+        session.format.en !== "Panel" && session.speakers?.length === 1
+      }
     />
   </article>
 );
@@ -873,6 +918,27 @@ const ScheduleRow = ({
               <h3>{localize(row.intermission.title, locale)}</h3>
             </div>
           </div>
+          {row.intermission.activity && (
+            <a
+              className={styles.intermissionCommunity}
+              href={row.intermission.activity.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.intermissionCommunityCopy}>
+                <span className={styles.intermissionCommunityLabel}>
+                  {localize(row.intermission.activity.label, locale)}
+                </span>
+                <strong>
+                  {localize(row.intermission.activity.title, locale)}
+                </strong>
+              </span>
+              <span className={styles.intermissionCommunityCta}>
+                {localize(row.intermission.activity.cta, locale)}
+                <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          )}
         </td>
       )}
 
@@ -936,14 +1002,10 @@ const AgendaPage2026 = ({
   initialCfpPhase: CfpPhase;
 }) => {
   const { locale } = useLanguage();
-  const [activeDay, setActiveDay] = useState<DayId>("day1");
+  const [activeDay, setActiveDay] = useState<DayId>("day2");
   const copy = { ...UI_COPY[locale], ...DAY_COPY[activeDay][locale] };
   const agendaRows =
     activeDay === "day1" ? DAY_1_AGENDA_ROWS : DAY_2_AGENDA_ROWS;
-
-  useEffect(() => {
-    setActiveDay(getDefaultAgendaDay());
-  }, []);
 
   return (
     <div
