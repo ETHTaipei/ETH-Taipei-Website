@@ -128,8 +128,12 @@ const cryptonativeDay: Speaker2026[] = [
     company: "Independent",
     avatar: "/images/speakers/cc-liang.png",
   },
-  // Denken Chen (ACCEPTED) — company/title are "N/A" in Boost; add once filled in.
-  { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
+  {
+    name: "Denken Chen",
+    title: "Researcher",
+    company: "Independent",
+    avatar: "/images/speakers/denken-chen.png",
+  },
   {
     name: "Vitalik Buterin",
     company: "Ethereum Foundation",
