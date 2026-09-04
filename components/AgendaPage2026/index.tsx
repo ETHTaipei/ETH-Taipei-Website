@@ -793,7 +793,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
         {
           name: "Andrew Wu 律師",
-          organization: text("Cathay Financial Holding", "國泰金控"),
+          organization: text("Cathay Financial Holdings", "國泰金控"),
         },
         {
           name: "黃子庭律師",
