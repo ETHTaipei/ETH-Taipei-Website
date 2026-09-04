@@ -345,7 +345,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     dateTime: "2026-09-13T11:00:00+08:00",
     main: speakerSession(
       "Alex Murashkin",
-      "Common Defense AI Security, Inc",
+      "Common Defense AI",
       undefined,
       text("Talk", "演講"),
       "Trust No Message: Scam Detection and Defense in the Age of AI",

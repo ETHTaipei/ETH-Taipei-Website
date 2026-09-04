@@ -76,7 +76,7 @@ const cryptonativeDay: Speaker2026[] = [
   {
     name: "Alex Murashkin",
     title: "Founding Engineer",
-    company: "Common Defense AI Security, Inc",
+    company: "Common Defense AI",
     avatar: "/images/speakers/alex-murashkin.jpg",
   },
   {
