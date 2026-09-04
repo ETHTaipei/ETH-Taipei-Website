@@ -206,6 +206,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "Jason Lai",
+    company: "PIF12 | Legal Builder",
     avatar: "/images/speakers/jason-lai.jpg",
   },
   {
@@ -257,7 +258,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "殷玉龍",
-    company: "Formosan Brothers Attorneys-at-Law",
+    company: "Tsar & Tsai Law Firm",
     avatar: "/images/speakers/alex-yin.jpg",
   },
   {
