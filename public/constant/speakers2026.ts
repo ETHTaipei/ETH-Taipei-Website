@@ -258,7 +258,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "殷玉龍",
-    company: "Formosan Brothers Attorneys-at-Law",
+    company: "Tsar & Tsai Law Firm",
     avatar: "/images/speakers/alex-yin.jpg",
   },
   {
