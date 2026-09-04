@@ -252,6 +252,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   Aditya: "/images/speakers/aditya.jpg",
   "Alan Wu": "/images/speakers/alan-wu.jpg",
   "Alex Kuzmin": "/images/speakers/alex-kuzmin.jpg",
+  "Alex Murashkin": "/images/speakers/alex-murashkin.jpg",
   "Alfred Lu": "/images/speakers/alfred-lu.png",
   Alice: "/images/speakers/alice.jpg",
   "Anton Cheng": "/images/speakers/anton-cheng.jpg",
@@ -261,6 +262,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
   "Hao Chen": "/images/speakers/hao-chen.jpg",
   Jatin: "/images/speakers/jatin.jpg",
+  "Kai Jun Eer": "/images/speakers/kai-jun-eer.png",
   Martinet: "/images/speakers/martinet.jpg",
   "Matthew Keil": "/images/speakers/matthew-keil.png",
   Pol: "/images/speakers/pol-lanski.png",
@@ -342,11 +344,11 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     time: "11:00–11:30",
     dateTime: "2026-09-13T11:00:00+08:00",
     main: speakerSession(
-      "Martinet",
-      "Quantstamp",
+      "Alex Murashkin",
+      "Common Defense AI Security, Inc",
       undefined,
       text("Talk", "演講"),
-      "Operational Security Workshop",
+      "Trust No Message: Scam Detection and Defense in the Age of AI",
     ),
     forum: speakerSession(
       "Devansh Mehta",
@@ -509,13 +511,13 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       undefined,
       "Beyond x·y = k: Designing an AMM for Decentralized Prediction Markets",
     ),
-    // Consensus Stage talk for this slot isn't announced yet — a placeholder
-    // session (no speaker) rather than an empty cell.
-    forum: {
-      format: text("Talk", "演講"),
-      title: text("Topic to be announced", "講題即將公布"),
-      titleStatus: "pending",
-    },
+    forum: speakerSession(
+      "Kai Jun Eer",
+      "Category Labs",
+      undefined,
+      text("Talk", "演講"),
+      "Raptorcast: Practical Challenges of Block Propagation",
+    ),
   },
   {
     time: "15:30–16:00",
