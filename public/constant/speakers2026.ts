@@ -74,10 +74,16 @@ const cryptonativeDay: Speaker2026[] = [
     avatar: "/images/speakers/devansh-mehta.jpg",
   },
   {
-    name: "Martinet",
-    title: "Head of Developer Relations",
-    company: "Quantstamp",
-    avatar: "/images/speakers/martinet.jpg",
+    name: "Alex Murashkin",
+    title: "Founding Engineer",
+    company: "Common Defense AI",
+    avatar: "/images/speakers/alex-murashkin.jpg",
+  },
+  {
+    name: "Kai Jun Eer",
+    title: "Engineer",
+    company: "Category Labs",
+    avatar: "/images/speakers/kai-jun-eer.png",
   },
   {
     name: "Antonio Seveso",
