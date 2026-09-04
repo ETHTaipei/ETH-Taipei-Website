@@ -164,7 +164,7 @@ const cryptonativeDay: Speaker2026[] = [
 const institutionDay: Speaker2026[] = [
   {
     name: "Andrew Wu",
-    company: "Cathay Financial Holding",
+    company: "Cathay Financial Holdings",
     avatar: "/images/speakers/andrew-wu.jpg",
   },
   {
