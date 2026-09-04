@@ -206,7 +206,6 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "Jason Lai",
-    company: "PIF12 | Legal Builder",
     avatar: "/images/speakers/jason-lai.jpg",
   },
   {
