@@ -431,8 +431,10 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     // workshopContinuation so this cell reads as one block.
     workshop: {
       format: text("Workshop", "工作坊"),
-      title: text("Topic to be announced", "講題即將公布"),
-      titleStatus: "pending",
+      title: text(
+        "National Decentralized Identity, Ethereum and Zero Knowledge Proofs",
+        "National Decentralized Identity, Ethereum and Zero Knowledge Proofs",
+      ),
       speakers: [
         { name: "Vivi Jeng", organization: text("Independent", "獨立") },
         { name: "Denken Chen", organization: text("Independent", "獨立") },
@@ -529,8 +531,10 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     // Runs to 17:00, past the last stage session at 16:00.
     workshop: {
       format: text("Workshop", "工作坊"),
-      title: text("Topic to be announced", "講題即將公布"),
-      titleStatus: "pending",
+      title: text(
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+      ),
       speakers: [
         { name: "Benny_lada", organization: text("Vyper", "Vyper") },
       ],
