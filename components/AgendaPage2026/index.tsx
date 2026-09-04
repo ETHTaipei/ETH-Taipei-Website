@@ -778,12 +778,13 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           name: "Jason Lai",
           role: text("Moderator", "主持人"),
           isModerator: true,
+          organization: text("PIF12 | Legal Builder", "PIF12 | Legal Builder"),
         },
         {
           name: "殷玉龍律師",
           organization: text(
-            "Formosan Brothers Attorneys-at-Law",
-            "常在國際法律事務所",
+            "Tsar & Tsai Law Firm",
+            "Tsar & Tsai Law Firm",
           ),
         },
         {
