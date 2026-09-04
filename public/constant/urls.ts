@@ -118,6 +118,9 @@ export const bermuDaoUrl = "https://x.com/bermudao_ch";
 // BOBA DAO has no website; @bobadao.lfg on Instagram is the public-facing one,
 // t.me/bobadaolfg is the group chat.
 export const bobaDaoUrl = "https://www.instagram.com/bobadao.lfg/";
+// New for 2026. URL from Hana (Discord #website); verified HTTPS 200,
+// title DeFi Hack Incidents Explorer.
+export const defiHackLabsUrl = "https://defihacklabs.io/explorer/index.html";
 export const desciTaiwanUrl = "https://x.com/DeSci_Taiwan";
 export const desciAsiaUrl = "https://x.com/DeSciAsia";
 export const emmaInternationalUrl =
