@@ -4,6 +4,7 @@
   --muted: #aeb8c9;
   --panel: rgb(21 29 47 / 0.86);
   --institution-blue: #5f7cff;
+  --institution-teal: #4fd1c5;
   --institution-amber: #e7af45;
   --institution-line: rgb(235 241 255 / 0.14);
   --institution-raised: #0e1321;
@@ -277,6 +278,12 @@
   grid-template-columns: 164px minmax(0, 1fr) minmax(0, 1fr);
 }
 
+/* Days with a workshop stage. Applied to the head row and every body row so
+   the columns line up. */
+.threeStage {
+  grid-template-columns: 164px repeat(3, minmax(0, 1fr));
+}
+
 .headCell {
   display: flex;
   min-height: 80px;
@@ -368,6 +375,10 @@
   background: var(--institution-blue);
 }
 
+.workshopSession::before {
+  background: var(--institution-teal);
+}
+
 .continuationSession {
   min-height: 100%;
 }
@@ -414,6 +425,11 @@
   border-color: rgb(95 124 255 / 0.4);
 }
 
+.workshopSession .sessionMeta span {
+  color: #9ae6da;
+  border-color: rgb(79 209 197 / 0.4);
+}
+
 .sessionMeta span.sessionSpan {
   border-color: rgb(203 241 1 / 0.2);
   color: rgb(203 241 1 / 0.66);
@@ -423,6 +439,11 @@
 .forumSession .sessionMeta span.sessionSpan {
   border-color: rgb(95 124 255 / 0.28);
   color: rgb(174 187 255 / 0.72);
+}
+
+.workshopSession .sessionMeta span.sessionSpan {
+  border-color: rgb(79 209 197 / 0.28);
+  color: rgb(154 230 218 / 0.75);
 }
 
 .session h3 {
@@ -595,8 +616,17 @@
   grid-column: 3;
 }
 
+.workshopCell {
+  grid-column: 4;
+}
+
 .wideCell {
   grid-column: 2 / 4;
+}
+
+.threeStage .intermission,
+.threeStage .wideTransition {
+  grid-column: 2 / 5;
 }
 
 .transitionRow {
@@ -788,7 +818,8 @@
     display: none;
   }
 
-  .agendaRow {
+  .agendaRow,
+  .threeStage {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -805,10 +836,13 @@
   .sessionCell,
   .mainCell,
   .forumCell,
+  .workshopCell,
   .wideCell,
   .wideTransition,
   .transition,
-  .intermission {
+  .intermission,
+  .threeStage .intermission,
+  .threeStage .wideTransition {
     grid-column: 1;
     border-left: 0;
   }
