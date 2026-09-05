@@ -259,6 +259,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "CC Liang": "/images/speakers/cc-liang.png",
   "Clément Lesaege": "/images/speakers/clement-lesaege.jpg",
   "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
+  "Eric Lee": "/images/speakers/eric-lee.jpg",
   "Hao Chen": "/images/speakers/hao-chen.jpg",
   Jatin: "/images/speakers/jatin.jpg",
   Martinet: "/images/speakers/martinet.jpg",
