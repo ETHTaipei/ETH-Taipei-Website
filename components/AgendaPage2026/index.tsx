@@ -23,44 +23,52 @@ const text = (en: string, zhHant: string): AgendaText => ({
 const localize = (value: AgendaText | string, locale: Locale) =>
   typeof value === "string" ? value : value[locale];
 
+const TIME_RANGE = /^(\d{1,2}:\d{2})[–-](\d{1,2}:\d{2})$/;
+
 const getSlotDurationMinutes = (
   value: AgendaText | string,
   locale: Locale,
 ) => {
-  const match = localize(value, locale).match(
-    /^(\d{1,2}):(\d{2})[–-](\d{1,2}):(\d{2})$/,
-  );
+  const match = localize(value, locale).match(TIME_RANGE);
 
   if (!match) return null;
 
-  const [, startHour, startMinute, endHour, endMinute] = match;
+  const [startHour, startMinute] = match[1].split(":");
+  const [endHour, endMinute] = match[2].split(":");
   const start = Number(startHour) * 60 + Number(startMinute);
   const end = Number(endHour) * 60 + Number(endMinute);
 
   return end >= start ? end - start : end + 24 * 60 - start;
 };
 
-// Label for a session that runs across two rows: the start of its own slot to
-// the end of the slot below, plus the real total. "11:30–11:45" + "11:45–12:00"
-// becomes "11:30–12:00 · 30 mins".
+// Label for a session that runs past its own row: its own start to the end of
+// the last row it covers, plus the real total. A forum talk over two 15-minute
+// rows becomes "11:30–12:00 · 30 mins"; a workshop over five rows becomes
+// "13:00–15:00 · 120 mins".
+//
+// The rows it covers are the consecutive ones flagged as continuations of the
+// same column, which is what the renderer uses to leave those cells empty — so
+// the label and the drawn block can't disagree.
 const getSpanLabel = (
-  time: AgendaText | string,
-  nextTime: AgendaText | string | undefined,
+  rows: AgendaRow[],
+  index: number,
+  continuationKey: "forumContinuation" | "workshopContinuation",
   locale: Locale,
 ) => {
-  const range = /^(\d{1,2}:\d{2})[–-](\d{1,2}:\d{2})$/;
-  const start = localize(time, locale).match(range);
-  const next = nextTime ? localize(nextTime, locale).match(range) : null;
+  const start = localize(rows[index].time, locale).match(TIME_RANGE);
   if (!start) return undefined;
 
-  const end = next ? next[2] : start[2];
-  const minutes =
-    (getSlotDurationMinutes(time, locale) ?? 0) +
-    (next ? (getSlotDurationMinutes(nextTime!, locale) ?? 0) : 0);
+  let last = index;
+  let minutes = getSlotDurationMinutes(rows[index].time, locale) ?? 0;
+  while (rows[last + 1]?.[continuationKey]) {
+    last += 1;
+    minutes += getSlotDurationMinutes(rows[last].time, locale) ?? 0;
+  }
   if (!minutes) return undefined;
 
+  const end = localize(rows[last].time, locale).match(TIME_RANGE)?.[2];
   const unit = locale === "zh-Hant" ? "分鐘" : "mins";
-  return `${start[1]}–${end} · ${minutes} ${unit}`;
+  return `${start[1]}–${end ?? start[2]} · ${minutes} ${unit}`;
 };
 
 type Speaker = {
@@ -114,6 +122,11 @@ type AgendaRow = {
    * twin below it. Must be paired with `forumContinues` on the row above.
    */
   forumContinuation?: boolean;
+  /** Third stage column. Its presence anywhere in a day adds the column. */
+  workshop?: Session;
+  /** Same span mechanism as `forumContinues`, but over any number of rows. */
+  workshopContinues?: boolean;
+  workshopContinuation?: boolean;
 };
 
 const UI_COPY: Record<
@@ -183,6 +196,8 @@ const DAY_COPY: Record<
       caption: string;
       mainStage: string;
       forumStage: string;
+      /** Third stage column. Only days that schedule one set this. */
+      workshopStage?: string;
       sharedStage: string;
     }
   >
@@ -199,6 +214,7 @@ const DAY_COPY: Record<
       caption: "ETHTaipei 2026 Cryptonative Day schedule",
       mainStage: "Genesis Stage (Building M)",
       forumStage: "Consensus Stage (Building A2)",
+      workshopStage: "Catalyst Workshop (Building G)",
       sharedStage: "Both stages",
     },
     "zh-Hant": {
@@ -212,6 +228,7 @@ const DAY_COPY: Record<
       caption: "ETHTaipei 2026 開發者日議程",
       mainStage: "Genesis Stage（M 棟）",
       forumStage: "Consensus Stage（A2 棟）",
+      workshopStage: "Catalyst Workshop（G 棟）",
       sharedStage: "雙舞台共同議程",
     },
   },
@@ -258,6 +275,8 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Antonio Seveso": "/images/speakers/antonio-seveso.png",
   "CC Liang": "/images/speakers/cc-liang.png",
   "Clément Lesaege": "/images/speakers/clement-lesaege.jpg",
+  "Benny_lada": "/images/speakers/benny-lada.png",
+  "Denken Chen": "/images/speakers/denken-chen.png",
   "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
   "Hao Chen": "/images/speakers/hao-chen.jpg",
   Jatin: "/images/speakers/jatin.jpg",
@@ -265,6 +284,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Matthew Keil": "/images/speakers/matthew-keil.png",
   Pol: "/images/speakers/pol-lanski.png",
   "Vitalik Buterin": "/images/speakers/vitalik.jpg",
+  "Vivi Jeng": "/images/speakers/vivi-jeng.jpg",
   "Jamie Lin": "/images/speakers/jamie-lin.jpg",
   "陳念平 Neptune Chen": "/images/speakers/neptune-chen.jpg",
   Changwu: "/images/speakers/changwu.jpg",
@@ -407,6 +427,20 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "13:00–13:30",
     dateTime: "2026-09-13T13:00:00+08:00",
+    // Runs to 15:00, i.e. through the four rows below — each of which carries
+    // workshopContinuation so this cell reads as one block.
+    workshop: {
+      format: text("Workshop", "工作坊"),
+      title: text(
+        "How TWDIW and Bhutan NDI adopt Ethereum? / What role should Ethereum play in decentralized identity?",
+        "How TWDIW and Bhutan NDI adopt Ethereum? / What role should Ethereum play in decentralized identity?",
+      ),
+      speakers: [
+        { name: "Vivi Jeng", organization: text("Independent", "獨立") },
+        { name: "Denken Chen", organization: text("Independent", "獨立") },
+      ],
+    },
+    workshopContinues: true,
     mainColSpan: true,
     main: speakerSession(
       "Vitalik Buterin",
@@ -418,6 +452,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "13:30–14:00",
     dateTime: "2026-09-13T13:30:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Alan Wu",
       "Uniswap",
@@ -436,6 +471,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "14:00–14:15",
     dateTime: "2026-09-13T14:00:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Anton Cheng",
       "Morpho",
@@ -454,6 +490,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "14:15–14:30",
     dateTime: "2026-09-13T14:15:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Danger",
       "Today in Defi",
@@ -472,6 +509,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "14:30–15:00",
     dateTime: "2026-09-13T14:30:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Antonio Seveso",
       "Fluidkey",
@@ -490,6 +528,18 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "15:00–15:15",
     dateTime: "2026-09-13T15:00:00+08:00",
+    // Runs to 17:00, past the last stage session at 16:00.
+    workshop: {
+      format: text("Workshop", "工作坊"),
+      title: text(
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+      ),
+      speakers: [
+        { name: "Benny_lada", organization: text("Vyper", "Vyper") },
+      ],
+    },
+    workshopContinues: true,
     main: speakerSession(
       "Aditya",
       "Polymarket",
@@ -502,6 +552,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "15:15–15:30",
     dateTime: "2026-09-13T15:15:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Eric Lee",
       "SigMarket",
@@ -520,6 +571,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "15:30–16:00",
     dateTime: "2026-09-13T15:30:00+08:00",
+    workshopContinuation: true,
     main: speakerSession(
       "Alfred Lu",
       "imToken Labs",
@@ -534,6 +586,13 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       text("Talk", "演講"),
       "Evaluating LLM Tools for Smart Contract Vulnerability Identification in Web3",
     ),
+  },
+  // The stages finish at 16:00; this row exists so workshop #2 can run to its
+  // real 17:00 end rather than being clipped at the table's edge.
+  {
+    time: "16:00–17:00",
+    dateTime: "2026-09-13T16:00:00+08:00",
+    workshopContinuation: true,
   },
 ];
 
@@ -939,6 +998,9 @@ const SpeakerList = ({
   );
 };
 
+const isMultiSpeaker = (session: Session) =>
+  session.format?.en === "Panel" || (session.speakers?.length ?? 0) > 1;
+
 const SessionCard = ({
   session,
   stage,
@@ -947,7 +1009,7 @@ const SessionCard = ({
   spanLabel,
 }: {
   session: Session;
-  stage: "main" | "forum" | "shared";
+  stage: "main" | "forum" | "workshop" | "shared";
   locale: Locale;
   copy: (typeof UI_COPY)[Locale];
   /**
@@ -961,7 +1023,9 @@ const SessionCard = ({
   <article
     className={`${styles.session} ${
       stage === "forum" ? styles.forumSession : ""
-    } ${stage === "shared" ? styles.sharedSession : ""}`}
+    } ${stage === "workshop" ? styles.workshopSession : ""} ${
+      stage === "shared" ? styles.sharedSession : ""
+    }`}
   >
     {(session.format || spanLabel) && (
       <div className={styles.sessionMeta}>
@@ -978,39 +1042,52 @@ const SessionCard = ({
       speakers={session.speakers}
       locale={locale}
       copy={copy}
-      stacked={session.format?.en === "Panel"}
-      prominentAvatar={
-        Boolean(session.speakers?.length) && session.format?.en !== "Panel"
-      }
-      panelLayout={session.format?.en === "Panel"}
+      // A single speaker gets the large avatar; a panel or a co-hosted
+      // workshop lists its people instead, so two names don't fight over one
+      // avatar slot.
+      stacked={isMultiSpeaker(session)}
+      prominentAvatar={session.speakers?.length === 1}
+      panelLayout={isMultiSpeaker(session)}
     />
   </article>
 );
 
 const ScheduleRow = ({
-  row,
-  nextRow,
+  rows,
+  index,
   locale,
   copy,
+  hasWorkshopColumn,
 }: {
-  row: AgendaRow;
-  nextRow?: AgendaRow;
+  rows: AgendaRow[];
+  index: number;
   locale: Locale;
   copy: AgendaCopy;
+  /** True for a day that schedules a third stage, widening every row. */
+  hasWorkshopColumn: boolean;
 }) => {
+  const row = rows[index];
   const isTransition = Boolean(
     row.transition || row.mainTransition || row.forumTransition,
   );
   const durationMinutes = getSlotDurationMinutes(row.time, locale);
-  const spanLabel = row.forumContinues
-    ? getSpanLabel(row.time, nextRow?.time, locale)
+  const forumSpanLabel = row.forumContinues
+    ? getSpanLabel(rows, index, "forumContinuation", locale)
     : undefined;
+  const workshopSpanLabel = row.workshopContinues
+    ? getSpanLabel(rows, index, "workshopContinuation", locale)
+    : undefined;
+  // A span over more than two rows has intermediate continuation cells, and
+  // each one would otherwise draw its own bottom border and cut the block into
+  // slices. Only the last cell of a run keeps its border.
+  const forumSpanRunsOn = Boolean(rows[index + 1]?.forumContinuation);
+  const workshopSpanRunsOn = Boolean(rows[index + 1]?.workshopContinuation);
 
   return (
     <tr
       className={`${styles.agendaRow} ${
-        isTransition ? styles.transitionRow : ""
-      }`}
+        hasWorkshopColumn ? styles.threeStage : ""
+      } ${isTransition ? styles.transitionRow : ""}`}
     >
       <th className={styles.time} scope="row">
         <time dateTime={row.dateTime}>
@@ -1129,17 +1206,47 @@ const ScheduleRow = ({
             stage="forum"
             locale={locale}
             copy={copy}
-            spanLabel={spanLabel}
+            spanLabel={forumSpanLabel}
           />
         </td>
       )}
       {row.forumContinuation && (
         <td
-          className={`${styles.sessionCell} ${styles.forumCell} ${styles.continuationCell}`}
+          className={`${styles.sessionCell} ${styles.forumCell} ${
+            styles.continuationCell
+          } ${forumSpanRunsOn ? styles.continuesBelow : ""}`}
           aria-hidden="true"
         >
           <div
             className={`${styles.session} ${styles.forumSession} ${styles.continuationSession}`}
+          />
+        </td>
+      )}
+      {row.workshop && (
+        <td
+          className={`${styles.sessionCell} ${styles.workshopCell} ${
+            row.workshopContinues ? styles.continuesBelow : ""
+          }`}
+          data-stage-label={copy.workshopStage}
+        >
+          <SessionCard
+            session={row.workshop}
+            stage="workshop"
+            locale={locale}
+            copy={copy}
+            spanLabel={workshopSpanLabel}
+          />
+        </td>
+      )}
+      {row.workshopContinuation && (
+        <td
+          className={`${styles.sessionCell} ${styles.workshopCell} ${
+            styles.continuationCell
+          } ${workshopSpanRunsOn ? styles.continuesBelow : ""}`}
+          aria-hidden="true"
+        >
+          <div
+            className={`${styles.session} ${styles.workshopSession} ${styles.continuationSession}`}
           />
         </td>
       )}
@@ -1169,6 +1276,9 @@ const AgendaPage2026 = ({
   };
   const agendaRows =
     activeDay === "day1" ? DAY_1_AGENDA_ROWS : DAY_2_AGENDA_ROWS;
+  // Derived from the rows rather than configured per day: a day gets the third
+  // column exactly when something is scheduled in it.
+  const hasWorkshopColumn = agendaRows.some((row) => Boolean(row.workshop));
 
   return (
     <div
@@ -1254,7 +1364,11 @@ const AgendaPage2026 = ({
             <table className={styles.agendaTable}>
               <caption className={styles.visuallyHidden}>{copy.caption}</caption>
               <thead className={styles.agendaHead}>
-                <tr className={styles.agendaHeadRow}>
+                <tr
+                  className={`${styles.agendaHeadRow} ${
+                    hasWorkshopColumn ? styles.threeStage : ""
+                  }`}
+                >
                   <th className={styles.headCell} scope="col">
                     {copy.timeHeader}
                   </th>
@@ -1264,6 +1378,11 @@ const AgendaPage2026 = ({
                   <th className={styles.headCell} scope="col">
                     {copy.forumStage}
                   </th>
+                  {hasWorkshopColumn && (
+                    <th className={styles.headCell} scope="col">
+                      {copy.workshopStage}
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody
@@ -1272,10 +1391,11 @@ const AgendaPage2026 = ({
               >
                 {agendaRows.map((row, index) => (
                   <ScheduleRow
-                    row={row}
-                    nextRow={agendaRows[index + 1]}
+                    rows={agendaRows}
+                    index={index}
                     locale={agendaContentLocale}
                     copy={agendaContentCopy}
+                    hasWorkshopColumn={hasWorkshopColumn}
                     key={row.dateTime}
                   />
                 ))}
