@@ -436,6 +436,11 @@
   font-weight: 600;
 }
 
+.lightningFormat {
+  gap: 3px;
+  letter-spacing: 0.06em;
+}
+
 .forumSession .sessionMeta span.sessionSpan {
   border-color: rgb(95 124 255 / 0.28);
   color: rgb(174 187 255 / 0.72);

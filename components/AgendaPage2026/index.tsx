@@ -49,27 +49,50 @@ const getSlotDurationMinutes = (
 // The rows it covers are the consecutive ones flagged as continuations of the
 // same column, which is what the renderer uses to leave those cells empty — so
 // the label and the drawn block can't disagree.
+type ContinuationKey = "forumContinuation" | "workshopContinuation";
+
+// The last row a session covers, and its real total length. A session that does
+// not span is just its own row.
+const getSpan = (
+  rows: AgendaRow[],
+  index: number,
+  continuationKey: ContinuationKey | undefined,
+  locale: Locale,
+) => {
+  let last = index;
+  let minutes = getSlotDurationMinutes(rows[index].time, locale) ?? 0;
+  while (continuationKey && rows[last + 1]?.[continuationKey]) {
+    last += 1;
+    minutes += getSlotDurationMinutes(rows[last].time, locale) ?? 0;
+  }
+  return { last, minutes };
+};
+
 const getSpanLabel = (
   rows: AgendaRow[],
   index: number,
-  continuationKey: "forumContinuation" | "workshopContinuation",
+  continuationKey: ContinuationKey,
   locale: Locale,
 ) => {
   const start = localize(rows[index].time, locale).match(TIME_RANGE);
   if (!start) return undefined;
 
-  let last = index;
-  let minutes = getSlotDurationMinutes(rows[index].time, locale) ?? 0;
-  while (rows[last + 1]?.[continuationKey]) {
-    last += 1;
-    minutes += getSlotDurationMinutes(rows[last].time, locale) ?? 0;
-  }
+  const { last, minutes } = getSpan(rows, index, continuationKey, locale);
   if (!minutes) return undefined;
 
   const end = localize(rows[last].time, locale).match(TIME_RANGE)?.[2];
   const unit = locale === "zh-Hant" ? "分鐘" : "mins";
   return `${start[1]}–${end ?? start[2]} · ${minutes} ${unit}`;
 };
+
+// A 15-minute talk is a lightning talk. Derived from how long the session
+// actually runs rather than stored per session, so it stays right when a slot
+// is re-timed — and so a talk that spans two 15-minute rows (30 minutes) is
+// correctly not one.
+const LIGHTNING_TALK_MINUTES = 15;
+
+const isLightningTalk = (session: Session, minutes: number) =>
+  session.format?.en === "Talk" && minutes === LIGHTNING_TALK_MINUTES;
 
 type Speaker = {
   name?: string;
@@ -1010,6 +1033,7 @@ const SessionCard = ({
   locale,
   copy,
   spanLabel,
+  lightning = false,
 }: {
   session: Session;
   stage: "main" | "forum" | "workshop" | "shared";
@@ -1022,6 +1046,8 @@ const SessionCard = ({
    * looks like a 15-minute one.
    */
   spanLabel?: string;
+  /** Marks the format badge as a lightning talk. */
+  lightning?: boolean;
 }) => (
   <article
     className={`${styles.session} ${
@@ -1032,7 +1058,11 @@ const SessionCard = ({
   >
     {(session.format || spanLabel) && (
       <div className={styles.sessionMeta}>
-        {session.format && <span>{localize(session.format, locale)}</span>}
+        {session.format && (
+          <span className={lightning ? styles.lightningFormat : ""}>
+            {lightning ? `⚡ ${localize(session.format, locale)}` : localize(session.format, locale)}
+          </span>
+        )}
         {spanLabel && <span className={styles.sessionSpan}>{spanLabel}</span>}
       </div>
     )}
@@ -1085,6 +1115,12 @@ const ScheduleRow = ({
   // slices. Only the last cell of a run keeps its border.
   const forumSpanRunsOn = Boolean(rows[index + 1]?.forumContinuation);
   const workshopSpanRunsOn = Boolean(rows[index + 1]?.workshopContinuation);
+  // How long each column's session actually runs, which is its own row unless
+  // it spans. Only the forum column can span, so main and shared are the row.
+  const rowMinutes = durationMinutes ?? 0;
+  const forumMinutes = row.forumContinues
+    ? getSpan(rows, index, "forumContinuation", locale).minutes
+    : rowMinutes;
 
   return (
     <tr
@@ -1178,6 +1214,7 @@ const ScheduleRow = ({
             stage="shared"
             locale={locale}
             copy={copy}
+            lightning={isLightningTalk(row.shared, rowMinutes)}
           />
         </td>
       )}
@@ -1194,6 +1231,7 @@ const ScheduleRow = ({
             stage="main"
             locale={locale}
             copy={copy}
+            lightning={isLightningTalk(row.main, rowMinutes)}
           />
         </td>
       )}
@@ -1210,6 +1248,7 @@ const ScheduleRow = ({
             locale={locale}
             copy={copy}
             spanLabel={forumSpanLabel}
+            lightning={isLightningTalk(row.forum, forumMinutes)}
           />
         </td>
       )}
