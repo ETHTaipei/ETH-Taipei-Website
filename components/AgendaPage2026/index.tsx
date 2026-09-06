@@ -1059,8 +1059,10 @@ const SessionCard = ({
     {(session.format || spanLabel) && (
       <div className={styles.sessionMeta}>
         {session.format && (
-          <span className={lightning ? styles.lightningFormat : ""}>
-            {lightning ? `⚡ ${localize(session.format, locale)}` : localize(session.format, locale)}
+          <span>
+            {lightning
+              ? `⚡️ ${localize(session.format, locale)}`
+              : localize(session.format, locale)}
           </span>
         )}
         {spanLabel && <span className={styles.sessionSpan}>{spanLabel}</span>}
