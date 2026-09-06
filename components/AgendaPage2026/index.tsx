@@ -278,6 +278,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Benny_lada": "/images/speakers/benny-lada.png",
   "Denken Chen": "/images/speakers/denken-chen.png",
   "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
+  "Eric Lee": "/images/speakers/eric-lee.jpg",
   "Hao Chen": "/images/speakers/hao-chen.jpg",
   Jatin: "/images/speakers/jatin.jpg",
   Martinet: "/images/speakers/martinet.jpg",

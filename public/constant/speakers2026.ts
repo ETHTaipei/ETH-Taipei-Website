@@ -158,7 +158,12 @@ const cryptonativeDay: Speaker2026[] = [
     avatar: "/images/speakers/pol-lanski.png",
   },
   { name: "Ryan", title: "Developer", company: "Independent" },
-  { name: "Eric Lee", title: "Core Developer", company: "SigMarket" },
+  {
+    name: "Eric Lee",
+    title: "Core Developer",
+    company: "SigMarket",
+    avatar: "/images/speakers/eric-lee.jpg",
+  },
 ];
 
 const institutionDay: Speaker2026[] = [
