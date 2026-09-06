@@ -430,7 +430,18 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "13:00–13:30",
     dateTime: "2026-09-13T13:00:00+08:00",
-    // Runs to 15:00, i.e. through the four rows below — each of which carries
+    mainColSpan: true,
+    main: speakerSession(
+      "Vitalik Buterin",
+      "Ethereum Foundation",
+      undefined,
+      text("Talk", "演講"),
+    ),
+  },
+  {
+    time: "13:30–14:00",
+    dateTime: "2026-09-13T13:30:00+08:00",
+    // Runs to 15:30, i.e. through the five rows below — each of which carries
     // workshopContinuation so this cell reads as one block.
     workshop: {
       format: text("Workshop", "工作坊"),
@@ -444,18 +455,6 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       ],
     },
     workshopContinues: true,
-    mainColSpan: true,
-    main: speakerSession(
-      "Vitalik Buterin",
-      "Ethereum Foundation",
-      undefined,
-      text("Talk", "演講"),
-    ),
-  },
-  {
-    time: "13:30–14:00",
-    dateTime: "2026-09-13T13:30:00+08:00",
-    workshopContinuation: true,
     main: speakerSession(
       "Alan Wu",
       "Uniswap",
@@ -531,18 +530,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "15:00–15:15",
     dateTime: "2026-09-13T15:00:00+08:00",
-    // Runs to 17:00, past the last stage session at 16:00.
-    workshop: {
-      format: text("Workshop", "工作坊"),
-      title: text(
-        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
-        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
-      ),
-      speakers: [
-        { name: "Benny_lada", organization: text("Vyper", "Vyper") },
-      ],
-    },
-    workshopContinues: true,
+    workshopContinuation: true,
     main: speakerSession(
       "Aditya",
       "Polymarket",
@@ -574,7 +562,18 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "15:30–16:00",
     dateTime: "2026-09-13T15:30:00+08:00",
-    workshopContinuation: true,
+    // Runs to 17:00, past the last stage session at 16:00.
+    workshop: {
+      format: text("Workshop", "工作坊"),
+      title: text(
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+        "DeFi Without Hidden Complexity: Building a Secure, Modular, and Auditable Vault with Vyper",
+      ),
+      speakers: [
+        { name: "Benny_lada", organization: text("Vyper", "Vyper") },
+      ],
+    },
+    workshopContinues: true,
     main: speakerSession(
       "Alfred Lu",
       "imToken Labs",
