@@ -821,10 +821,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
         {
           name: "Mason Lee",
-          jobTitle: text(
-            "Regional Head, BitGo Taiwan",
-            "Regional Head, BitGo Taiwan",
-          ),
           organization: text("BitGo", "BitGo"),
         },
         {
