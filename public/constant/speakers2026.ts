@@ -297,7 +297,7 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/neptune-chen.jpg",
   },
   {
-    name: "陳鴻祺 Chris Chen",
+    name: "陳鴻棋 Chris Chen",
     company: "Deloitte",
     avatar: "/images/speakers/chris-chen.jpg",
   },

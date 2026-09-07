@@ -323,7 +323,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   Benji: "/images/speakers/benji.jpg",
   Daniel: "/images/speakers/daniel.jpg",
   "Jason Kuo": "/images/speakers/jason-kuo.jpg",
-  "陳鴻祺 Chris Chen": "/images/speakers/chris-chen.jpg",
+  "陳鴻棋 Chris Chen": "/images/speakers/chris-chen.jpg",
   Oskar: "/images/speakers/oskar.jpg",
   Teagan: "/images/speakers/teagan.jpg",
   Ivan: "/images/speakers/ivan.jpg",
@@ -774,7 +774,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
       ),
       speakers: [
         {
-          name: "陳鴻祺 Chris Chen",
+          name: "陳鴻棋 Chris Chen",
           organization: text("Deloitte", "Deloitte"),
         },
       ],
