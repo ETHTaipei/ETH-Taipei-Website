@@ -770,7 +770,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
       ),
       speakers: [
         {
-          name: "陳鴻祺 Chris Chen",
+          name: "陳鴻棋 Chris Chen",
           organization: text("Deloitte", "Deloitte"),
         },
       ],
