@@ -49,27 +49,50 @@ const getSlotDurationMinutes = (
 // The rows it covers are the consecutive ones flagged as continuations of the
 // same column, which is what the renderer uses to leave those cells empty — so
 // the label and the drawn block can't disagree.
+type ContinuationKey = "forumContinuation" | "workshopContinuation";
+
+// The last row a session covers, and its real total length. A session that does
+// not span is just its own row.
+const getSpan = (
+  rows: AgendaRow[],
+  index: number,
+  continuationKey: ContinuationKey | undefined,
+  locale: Locale,
+) => {
+  let last = index;
+  let minutes = getSlotDurationMinutes(rows[index].time, locale) ?? 0;
+  while (continuationKey && rows[last + 1]?.[continuationKey]) {
+    last += 1;
+    minutes += getSlotDurationMinutes(rows[last].time, locale) ?? 0;
+  }
+  return { last, minutes };
+};
+
 const getSpanLabel = (
   rows: AgendaRow[],
   index: number,
-  continuationKey: "forumContinuation" | "workshopContinuation",
+  continuationKey: ContinuationKey,
   locale: Locale,
 ) => {
   const start = localize(rows[index].time, locale).match(TIME_RANGE);
   if (!start) return undefined;
 
-  let last = index;
-  let minutes = getSlotDurationMinutes(rows[index].time, locale) ?? 0;
-  while (rows[last + 1]?.[continuationKey]) {
-    last += 1;
-    minutes += getSlotDurationMinutes(rows[last].time, locale) ?? 0;
-  }
+  const { last, minutes } = getSpan(rows, index, continuationKey, locale);
   if (!minutes) return undefined;
 
   const end = localize(rows[last].time, locale).match(TIME_RANGE)?.[2];
   const unit = locale === "zh-Hant" ? "分鐘" : "mins";
   return `${start[1]}–${end ?? start[2]} · ${minutes} ${unit}`;
 };
+
+// A 15-minute talk is a lightning talk. Derived from how long the session
+// actually runs rather than stored per session, so it stays right when a slot
+// is re-timed — and so a talk that spans two 15-minute rows (30 minutes) is
+// correctly not one.
+const LIGHTNING_TALK_MINUTES = 15;
+
+const isLightningTalk = (session: Session, minutes: number) =>
+  session.format?.en === "Talk" && minutes === LIGHTNING_TALK_MINUTES;
 
 type Speaker = {
   name?: string;
@@ -284,6 +307,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   Jatin: "/images/speakers/jatin.jpg",
   "Kai Jun Eer": "/images/speakers/kai-jun-eer.png",
   Martinet: "/images/speakers/martinet.jpg",
+  "Mason Lee": "/images/speakers/mason-lee.jpg",
   "Matthew Keil": "/images/speakers/matthew-keil.png",
   Pol: "/images/speakers/pol-lanski.png",
   "Vitalik Buterin": "/images/speakers/vitalik.jpg",
@@ -308,6 +332,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Jason Lai": "/images/speakers/jason-lai.jpg",
   殷玉龍律師: "/images/speakers/alex-yin.jpg",
   "Ernie Ho": "/images/speakers/ernie-ho.jpg",
+  "Hsi-Ho Huang": "/images/speakers/hsi-ho-huang.jpg",
   "Andrew Wu 律師": "/images/speakers/andrew-wu.jpg",
   黃子庭律師: "/images/speakers/huang-tzu-ting.jpg",
 };
@@ -605,6 +630,17 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     mainColSpan: true,
     main: {
       title: text("Opening", "開幕"),
+      speakers: [
+        {
+          name: "Hsi-Ho Huang",
+          localizedName: text("Hsi-Ho Huang", "黃錫和"),
+          jobTitle: text("Secretary-General", "秘書長"),
+          organization: text(
+            "Taiwan Financial Services Roundtable",
+            "台灣金融服務業聯合總會",
+          ),
+        },
+      ],
     },
   },
   {
@@ -784,8 +820,12 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("TAAS", "TAAS"),
         },
         {
-          name: "TBA",
-          organization: text("Bitgo", "Bitgo"),
+          name: "Mason Lee",
+          jobTitle: text(
+            "Regional Head, BitGo Taiwan",
+            "Regional Head, BitGo Taiwan",
+          ),
+          organization: text("BitGo", "BitGo"),
         },
         {
           name: "Jon Lin",
@@ -1009,6 +1049,7 @@ const SessionCard = ({
   locale,
   copy,
   spanLabel,
+  lightning = false,
 }: {
   session: Session;
   stage: "main" | "forum" | "workshop" | "shared";
@@ -1021,6 +1062,8 @@ const SessionCard = ({
    * looks like a 15-minute one.
    */
   spanLabel?: string;
+  /** Marks the format badge as a lightning talk. */
+  lightning?: boolean;
 }) => (
   <article
     className={`${styles.session} ${
@@ -1031,7 +1074,13 @@ const SessionCard = ({
   >
     {(session.format || spanLabel) && (
       <div className={styles.sessionMeta}>
-        {session.format && <span>{localize(session.format, locale)}</span>}
+        {session.format && (
+          <span>
+            {lightning
+              ? `⚡️ ${localize(session.format, locale)}`
+              : localize(session.format, locale)}
+          </span>
+        )}
         {spanLabel && <span className={styles.sessionSpan}>{spanLabel}</span>}
       </div>
     )}
@@ -1084,6 +1133,12 @@ const ScheduleRow = ({
   // slices. Only the last cell of a run keeps its border.
   const forumSpanRunsOn = Boolean(rows[index + 1]?.forumContinuation);
   const workshopSpanRunsOn = Boolean(rows[index + 1]?.workshopContinuation);
+  // How long each column's session actually runs, which is its own row unless
+  // it spans. Only the forum column can span, so main and shared are the row.
+  const rowMinutes = durationMinutes ?? 0;
+  const forumMinutes = row.forumContinues
+    ? getSpan(rows, index, "forumContinuation", locale).minutes
+    : rowMinutes;
 
   return (
     <tr
@@ -1177,6 +1232,7 @@ const ScheduleRow = ({
             stage="shared"
             locale={locale}
             copy={copy}
+            lightning={isLightningTalk(row.shared, rowMinutes)}
           />
         </td>
       )}
@@ -1193,6 +1249,7 @@ const ScheduleRow = ({
             stage="main"
             locale={locale}
             copy={copy}
+            lightning={isLightningTalk(row.main, rowMinutes)}
           />
         </td>
       )}
@@ -1209,6 +1266,7 @@ const ScheduleRow = ({
             locale={locale}
             copy={copy}
             spanLabel={forumSpanLabel}
+            lightning={isLightningTalk(row.forum, forumMinutes)}
           />
         </td>
       )}

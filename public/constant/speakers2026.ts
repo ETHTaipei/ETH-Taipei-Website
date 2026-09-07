@@ -199,6 +199,14 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/ernie-ho.jpg",
   },
   {
+    name: "Hsi-Ho Huang",
+    nameZhHant: "黃錫和",
+    title: "Secretary-General",
+    company: "Taiwan Financial Services Roundtable",
+    companyZhHant: "台灣金融服務業聯合總會",
+    avatar: "/images/speakers/hsi-ho-huang.jpg",
+  },
+  {
     name: "Ivan",
     company: "TAAS",
     avatar: "/images/speakers/ivan.jpg",
@@ -234,6 +242,12 @@ const institutionDay: Speaker2026[] = [
     name: "Martinet",
     company: "Quantstamp",
     avatar: "/images/speakers/martinet.jpg",
+  },
+  {
+    name: "Mason Lee",
+    title: "Regional Head, BitGo Taiwan",
+    company: "BitGo",
+    avatar: "/images/speakers/mason-lee.jpg",
   },
   {
     name: "Oskar",
