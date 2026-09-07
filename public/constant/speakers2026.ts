@@ -185,8 +185,12 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/ping.jpg",
   },
   {
-    name: "郭博鈞",
-    company: "智根科技",
+    name: "Po-Chun Kuo",
+    nameZhHant: "郭博鈞",
+    title: "Founder",
+    company: "WisRoot Tech",
+    companyZhHant: "智根科技",
+    avatar: "/images/speakers/po-chun-kuo.webp",
   },
   {
     name: "Andrew Wu",

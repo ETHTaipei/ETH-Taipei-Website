@@ -860,8 +860,9 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("BSOS", "BSOS"),
         },
         {
-          name: "郭博鈞",
-          organization: text("智根科技", "智根科技"),
+          name: "Po-Chun Kuo",
+          localizedName: text("Po-Chun Kuo", "郭博鈞"),
+          organization: text("WisRoot Tech", "智根科技"),
         },
       ],
     },
