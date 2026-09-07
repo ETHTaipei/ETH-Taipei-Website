@@ -56,12 +56,6 @@ const cryptonativeDay: Speaker2026[] = [
     avatar: "/images/speakers/matthew-keil.png",
   },
   {
-    name: "Benji",
-    title: "Head of Asset Strategy / Head of Partnerships",
-    company: "LINE NEXT",
-    avatar: "/images/speakers/benji.jpg",
-  },
-  {
     name: "Hao Chen",
     title: "Staff Scientist",
     company: "CertiK",
@@ -75,15 +69,21 @@ const cryptonativeDay: Speaker2026[] = [
   },
   {
     name: "Devansh Mehta",
-    title: "Governance at Funding Coordination",
-    company: "Ethereum Foundation",
+    title: "Researcher",
+    company: "Independent",
     avatar: "/images/speakers/devansh-mehta.jpg",
   },
   {
-    name: "Martinet",
-    title: "Head of Developer Relations",
-    company: "Quantstamp",
-    avatar: "/images/speakers/martinet.jpg",
+    name: "Alex Murashkin",
+    title: "Founding Engineer",
+    company: "Common Defense AI",
+    avatar: "/images/speakers/alex-murashkin.jpg",
+  },
+  {
+    name: "Kai Jun Eer",
+    title: "Engineer",
+    company: "Category Labs",
+    avatar: "/images/speakers/kai-jun-eer.png",
   },
   {
     name: "Antonio Seveso",
@@ -103,10 +103,10 @@ const cryptonativeDay: Speaker2026[] = [
     company: "Ethereum Foundation",
     avatar: "/images/speakers/alex-kuzmin.jpg",
   },
-  // Vivi Jeng — no company/org in Boost (independent); title only.
   {
     name: "Vivi Jeng",
     title: "Developer",
+    company: "Independent",
     avatar: "/images/speakers/vivi-jeng.jpg",
   },
   {
@@ -134,14 +134,12 @@ const cryptonativeDay: Speaker2026[] = [
     company: "Independent",
     avatar: "/images/speakers/cc-liang.png",
   },
-  { name: "Miles NG", title: "Founder", company: "Laplace lab" },
   {
-    name: "Koss & Alaska",
-    title: "Founder (Alaska @ Subcult) & Community Architect (Koss @ Swarm)",
-    company: "Swarm Protocol & Subcult",
+    name: "Denken Chen",
+    title: "Researcher",
+    company: "Independent",
+    avatar: "/images/speakers/denken-chen.png",
   },
-  // Denken Chen (ACCEPTED) — company/title are "N/A" in Boost; add once filled in.
-  { name: "Denken Chen", avatar: "/images/speakers/denken-chen.png" },
   {
     name: "Vitalik Buterin",
     company: "Ethereum Foundation",
@@ -149,23 +147,35 @@ const cryptonativeDay: Speaker2026[] = [
   },
   {
     name: "Jatin",
+    title: "Developer Relations Manager",
     company: "Canton",
     avatar: "/images/speakers/jatin.jpg",
   },
-  { name: "Danger", company: "Today in Defi" },
+  {
+    name: "Danger",
+    title: "Founder",
+    company: "Today in Defi",
+    avatar: "/images/speakers/danger.jpg",
+  },
   {
     name: "Pol",
+    title: "CEO",
     company: "Dappnode",
     avatar: "/images/speakers/pol-lanski.png",
   },
-  { name: "Ryan", company: "Independent" },
-  { name: "Eric Lee", company: "SigMarket" },
+  { name: "Ryan", title: "Developer", company: "Independent" },
+  {
+    name: "Eric Lee",
+    title: "Core Developer",
+    company: "SigMarket",
+    avatar: "/images/speakers/eric-lee.jpg",
+  },
 ];
 
 const institutionDay: Speaker2026[] = [
   {
     name: "Andrew Wu",
-    company: "Cathay Financial Holding",
+    company: "Cathay Financial Holdings",
     avatar: "/images/speakers/andrew-wu.jpg",
   },
   {
@@ -207,6 +217,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "Jason Lai",
+    company: "PIF12 | Legal Builder",
     avatar: "/images/speakers/jason-lai.jpg",
   },
   {
@@ -258,7 +269,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "殷玉龍",
-    company: "Formosan Brothers Attorneys-at-Law",
+    company: "Tsar & Tsai Law Firm",
     avatar: "/images/speakers/alex-yin.jpg",
   },
   {
