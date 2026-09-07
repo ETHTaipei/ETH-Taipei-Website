@@ -818,7 +818,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
         {
           name: "Mason Lee",
-          organization: text("BitGo Taiwan", "BitGo Taiwan"),
+          organization: text("BitGo", "BitGo"),
         },
         {
           name: "Jon Lin",
