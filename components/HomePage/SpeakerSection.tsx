@@ -30,6 +30,16 @@ const SpeakerSection = () => {
   const t = useT();
   const { locale } = useLanguage();
   const allSpeakers = speakers2026ByDay.flatMap((day) => day.speakers);
+  const institutionSpeakers =
+    speakers2026ByDay.find((day) => day.id === "institution")?.speakers ?? [];
+  const localizeTitle = (speaker: Speaker2026) =>
+    locale === "zh-Hant"
+      ? (speaker.titleZhHant ?? speaker.title)
+      : speaker.title;
+  const localizeCompany = (speaker: Speaker2026) =>
+    (locale === "zh-Hant" ? speaker.companyZhHant?.trim() : undefined) ||
+    speaker.company?.trim() ||
+    "Independent";
   const featuredSpeakers = FEATURED_SPEAKER_NAMES.map((name) =>
     allSpeakers.find((speaker) => speaker.name === name),
   ).filter((speaker): speaker is Speaker2026 => Boolean(speaker));
@@ -55,16 +65,17 @@ const SpeakerSection = () => {
             <FeaturedSpeakerCard
               key={speaker.name}
               speaker={speaker}
+              displayTitle={
+                institutionSpeakers.some((entry) => entry.name === speaker.name)
+                  ? localizeTitle(speaker)
+                  : undefined
+              }
               displayName={
                 locale === "zh-Hant"
                   ? (speaker.nameZhHant ?? speaker.name)
                   : speaker.name
               }
-              displayCompany={
-                locale === "zh-Hant"
-                  ? (speaker.companyZhHant ?? speaker.company)
-                  : speaker.company
-              }
+              displayCompany={localizeCompany(speaker)}
             />
           ))}
         </FeaturedSpeakerRow>
@@ -81,16 +92,17 @@ const SpeakerSection = () => {
               <SpeakerCard
                 key={speaker.name}
                 speaker={speaker}
+                displayTitle={
+                  day.id === "institution"
+                    ? localizeTitle(speaker)
+                    : speaker.title
+                }
                 displayName={
                   locale === "zh-Hant"
                     ? (speaker.nameZhHant ?? speaker.name)
                     : speaker.name
                 }
-                displayCompany={
-                  locale === "zh-Hant"
-                    ? (speaker.companyZhHant ?? speaker.company)
-                    : speaker.company
-                }
+                displayCompany={localizeCompany(speaker)}
               />
             ))
           ) : (
@@ -105,10 +117,12 @@ const SpeakerSection = () => {
 const FeaturedSpeakerCard = ({
   speaker,
   displayName,
+  displayTitle,
   displayCompany,
 }: {
   speaker: Speaker2026;
   displayName: string;
+  displayTitle?: string;
   displayCompany?: string;
 }) => (
   <FeaturedCard>
@@ -128,6 +142,7 @@ const FeaturedSpeakerCard = ({
       )}
     </FeaturedAvatar>
     <FeaturedName>{displayName}</FeaturedName>
+    {displayTitle && <Title>{displayTitle}</Title>}
     {displayCompany && <FeaturedCompany>{displayCompany}</FeaturedCompany>}
   </FeaturedCard>
 );
@@ -135,10 +150,12 @@ const FeaturedSpeakerCard = ({
 const SpeakerCard = ({
   speaker,
   displayName,
+  displayTitle,
   displayCompany,
 }: {
   speaker: Speaker2026;
   displayName: string;
+  displayTitle?: string;
   displayCompany?: string;
 }) => (
   <Card>
@@ -158,7 +175,7 @@ const SpeakerCard = ({
       )}
     </Avatar>
     <Name>{displayName}</Name>
-    {speaker.title && <Title>{speaker.title}</Title>}
+    {displayTitle && <Title>{displayTitle}</Title>}
     {displayCompany && (
       <CompanyRow>
         {speaker.companyLogo && (

@@ -20,6 +20,7 @@ export type Speaker2026 = {
   name: string;
   nameZhHant?: string;
   title?: string;
+  titleZhHant?: string;
   company?: string;
   companyZhHant?: string;
   /** Optional local avatar path, e.g. "/images/speakers/aditya.png". */
@@ -53,7 +54,7 @@ const cryptonativeDay: Speaker2026[] = [
     name: "Matthew Keil",
     title: "Engineering Manager / Protocol Engineer",
     company: "ChainSafe",
-    avatar: "/images/speakers/matthew-keil.png",
+    avatar: "/images/speakers/matthew-keil.webp",
   },
   {
     name: "Hao Chen",
@@ -83,7 +84,7 @@ const cryptonativeDay: Speaker2026[] = [
     name: "Kai Jun Eer",
     title: "Engineer",
     company: "Category Labs",
-    avatar: "/images/speakers/kai-jun-eer.png",
+    avatar: "/images/speakers/kai-jun-eer.webp",
   },
   {
     name: "Antonio Seveso",
@@ -113,7 +114,7 @@ const cryptonativeDay: Speaker2026[] = [
     name: "Alfred Lu",
     title: "Blockchain Developer",
     company: "imToken Labs",
-    avatar: "/images/speakers/alfred-lu.png",
+    avatar: "/images/speakers/alfred-lu.webp",
   },
   {
     name: "Clément Lesaege",
@@ -132,7 +133,7 @@ const cryptonativeDay: Speaker2026[] = [
     name: "CC Liang",
     title: "Researcher",
     company: "Independent",
-    avatar: "/images/speakers/cc-liang.png",
+    avatar: "/images/speakers/cc-liang.webp",
   },
   {
     name: "Denken Chen",
@@ -174,6 +175,20 @@ const cryptonativeDay: Speaker2026[] = [
 
 const institutionDay: Speaker2026[] = [
   {
+    name: "王筱維",
+    company: "Ethereum Foundation",
+    companyZhHant: "以太坊基金會",
+  },
+  {
+    name: "陳品",
+    company: "BSOS",
+    avatar: "/images/speakers/ping.jpg",
+  },
+  {
+    name: "郭博鈞",
+    company: "智根科技",
+  },
+  {
     name: "Andrew Wu",
     company: "Cathay Financial Holdings",
     avatar: "/images/speakers/andrew-wu.jpg",
@@ -185,6 +200,7 @@ const institutionDay: Speaker2026[] = [
   },
   {
     name: "Changwu",
+    nameZhHant: "陳昶吾",
     company: "imToken",
     avatar: "/images/speakers/changwu.jpg",
   },
@@ -196,12 +212,15 @@ const institutionDay: Speaker2026[] = [
   {
     name: "Ernie Ho",
     title: "Former Senior Legal Advisor at MaiCoin",
+    titleZhHant: "前 MaiCoin 資深法務",
+    company: "Independent",
     avatar: "/images/speakers/ernie-ho.jpg",
   },
   {
     name: "Hsi-Ho Huang",
     nameZhHant: "黃錫和",
     title: "Secretary-General",
+    titleZhHant: "秘書長",
     company: "Taiwan Financial Services Roundtable",
     companyZhHant: "台灣金融服務業聯合總會",
     avatar: "/images/speakers/hsi-ho-huang.jpg",
