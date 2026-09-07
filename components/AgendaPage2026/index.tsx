@@ -331,6 +331,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   "Jason Lai": "/images/speakers/jason-lai.jpg",
   殷玉龍律師: "/images/speakers/alex-yin.jpg",
   "Ernie Ho": "/images/speakers/ernie-ho.jpg",
+  "Hsi-Ho Huang": "/images/speakers/hsi-ho-huang.jpg",
   "Andrew Wu 律師": "/images/speakers/andrew-wu.jpg",
   黃子庭律師: "/images/speakers/huang-tzu-ting.jpg",
 };
@@ -628,6 +629,17 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     mainColSpan: true,
     main: {
       title: text("Opening", "開幕"),
+      speakers: [
+        {
+          name: "Hsi-Ho Huang",
+          localizedName: text("Hsi-Ho Huang", "黃錫和"),
+          jobTitle: text("Secretary-General", "秘書長"),
+          organization: text(
+            "Taiwan Financial Services Roundtable",
+            "台灣金融服務業聯合總會",
+          ),
+        },
+      ],
     },
   },
   {

@@ -199,6 +199,14 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/ernie-ho.jpg",
   },
   {
+    name: "Hsi-Ho Huang",
+    nameZhHant: "黃錫和",
+    title: "Secretary-General",
+    company: "Taiwan Financial Services Roundtable",
+    companyZhHant: "台灣金融服務業聯合總會",
+    avatar: "/images/speakers/hsi-ho-huang.jpg",
+  },
+  {
     name: "Ivan",
     company: "TAAS",
     avatar: "/images/speakers/ivan.jpg",
