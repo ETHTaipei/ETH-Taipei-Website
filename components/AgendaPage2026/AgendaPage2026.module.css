@@ -596,7 +596,7 @@
 }
 
 .moderatorName {
-  color: var(--institution-amber);
+  color: inherit;
 }
 
 .pendingSpeaker {

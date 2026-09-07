@@ -2,6 +2,7 @@ import Header2026 from "@/components/Layout/Header2026";
 import type { CfpPhase } from "@/components/hooks/useCfpPhase";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Locale } from "@/public/constant/content";
+import { speakers2026ByDay } from "@/public/constant/speakers2026";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -104,6 +105,18 @@ type Speaker = {
   role?: AgendaText;
   isModerator?: boolean;
   status?: "confirmed" | "pending";
+};
+
+const getSpeakerOrganization = (speaker: Speaker, locale: Locale) => {
+  const organization = speaker.organization &&
+    (localize(speaker.organization, locale).trim() || speaker.organization.en.trim());
+  if (organization) return organization;
+
+  const name = (speaker.name ||
+    (speaker.localizedName ? localize(speaker.localizedName, locale) : "")).trim();
+  return name && speaker.status !== "pending" && !/^(TBA|TBD)$/i.test(name)
+    ? "Independent"
+    : undefined;
 };
 
 type Session = {
@@ -288,53 +301,24 @@ const DAY_COPY: Record<
 type AgendaCopy = (typeof UI_COPY)[Locale] &
   (typeof DAY_COPY)[DayId][Locale];
 
+// Share the homepage headshots across both days, including localized names.
+const SPEAKER_AVATARS: Record<string, string> = Object.fromEntries(
+  speakers2026ByDay.flatMap((day) =>
+    day.speakers.flatMap(({ name, nameZhHant, avatar }) =>
+      avatar
+        ? [name, nameZhHant].flatMap((speakerName) =>
+            speakerName ? [[speakerName, avatar]] : [],
+          )
+        : [],
+    ),
+  ),
+);
+
 const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
-  Aditya: "/images/speakers/aditya.jpg",
-  "Alan Wu": "/images/speakers/alan-wu.jpg",
-  "Alex Kuzmin": "/images/speakers/alex-kuzmin.jpg",
-  "Alex Murashkin": "/images/speakers/alex-murashkin.jpg",
-  "Alfred Lu": "/images/speakers/alfred-lu.png",
-  Alice: "/images/speakers/alice.jpg",
-  "Anton Cheng": "/images/speakers/anton-cheng.jpg",
-  "Antonio Seveso": "/images/speakers/antonio-seveso.png",
-  "CC Liang": "/images/speakers/cc-liang.png",
-  "Clément Lesaege": "/images/speakers/clement-lesaege.jpg",
-  "Benny_lada": "/images/speakers/benny-lada.png",
-  "Denken Chen": "/images/speakers/denken-chen.png",
-  "Devansh Mehta": "/images/speakers/devansh-mehta.jpg",
-  "Eric Lee": "/images/speakers/eric-lee.jpg",
-  "Hao Chen": "/images/speakers/hao-chen.jpg",
-  Jatin: "/images/speakers/jatin.jpg",
-  "Kai Jun Eer": "/images/speakers/kai-jun-eer.png",
-  Martinet: "/images/speakers/martinet.jpg",
-  "Mason Lee": "/images/speakers/mason-lee.jpg",
-  "Matthew Keil": "/images/speakers/matthew-keil.png",
-  Pol: "/images/speakers/pol-lanski.png",
-  "Vitalik Buterin": "/images/speakers/vitalik.jpg",
-  "Vivi Jeng": "/images/speakers/vivi-jeng.jpg",
-  "Jamie Lin": "/images/speakers/jamie-lin.jpg",
-  "陳念平 Neptune Chen": "/images/speakers/neptune-chen.jpg",
-  Changwu: "/images/speakers/changwu.jpg",
-  "Jeff Wen": "/images/speakers/jeff.jpg",
-  Wayne: "/images/speakers/wayne.jpg",
-  Taka: "/images/speakers/taka.jpg",
-  "Reyer Chu": "/images/speakers/reyer-chu.jpg",
-  "Ko-Wei (IOTA)": "/images/speakers/ko-wei.jpg",
-  Benji: "/images/speakers/benji.jpg",
-  Daniel: "/images/speakers/daniel.jpg",
-  "Jason Kuo": "/images/speakers/jason-kuo.jpg",
-  "陳鴻棋 Chris Chen": "/images/speakers/chris-chen.jpg",
-  Oskar: "/images/speakers/oskar.jpg",
-  Teagan: "/images/speakers/teagan.jpg",
-  Ivan: "/images/speakers/ivan.jpg",
-  "Jon Lin": "/images/speakers/jon-lin.jpg",
-  Stamford: "/images/speakers/stamford.jpg",
-  "Jason Lai": "/images/speakers/jason-lai.jpg",
-  殷玉龍律師: "/images/speakers/alex-yin.jpg",
-  "Ernie Ho": "/images/speakers/ernie-ho.jpg",
-  "Hsi-Ho Huang": "/images/speakers/hsi-ho-huang.jpg",
-  "Andrew Wu 律師": "/images/speakers/andrew-wu.jpg",
-  黃子庭律師: "/images/speakers/huang-tzu-ting.jpg",
+  ...SPEAKER_AVATARS,
+  "殷玉龍律師": SPEAKER_AVATARS["殷玉龍"],
+  "Andrew Wu 律師": SPEAKER_AVATARS["Andrew Wu"],
+  "黃子庭律師": SPEAKER_AVATARS["黃子庭"],
 };
 
 const speakerSession = (
@@ -627,9 +611,9 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "10:00–10:05",
     dateTime: "2026-09-14T10:00:00+08:00",
-    mainColSpan: true,
     main: {
-      title: text("Opening", "開幕"),
+      format: text("Opening", "開幕"),
+      title: text("Guest Remarks", "貴賓致詞"),
       speakers: [
         {
           name: "Hsi-Ho Huang",
@@ -642,13 +626,17 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
       ],
     },
+    forum: {
+      title: text("Live from Genesis Stage", "同步轉播 Genesis Stage"),
+    },
+    forumContinues: true,
   },
   {
     time: "10:05–10:30",
     dateTime: "2026-09-14T10:05:00+08:00",
     main: {
       format: text("Talk", "演講"),
-      title: text("Taiwan's Crypto Adoption Vision", "台灣的 crypto adoption 願景"),
+      title: text("Taiwan's Crypto Adoption Vision", "台灣的 Crypto Adoption 願景"),
       speakers: [
         {
           name: "Jamie Lin",
@@ -657,9 +645,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         },
       ],
     },
-    forum: {
-      title: text("Live from Genesis Stage", "同步轉播 Genesis Stage"),
-    },
+    forumContinuation: true,
   },
   {
     time: "10:30–11:00",
@@ -676,12 +662,13 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
     forum: {
       format: text("Talk", "演講"),
-      title: text(
-        "What Ethereum Must Build for Global Finance",
-        "以太坊要如何支撐全球金融？",
-      ),
+      title: text("TBD", "TBD"),
+      titleStatus: "pending",
       speakers: [
-        { name: "Changwu", organization: text("imToken", "imToken") },
+        {
+          name: "王筱維",
+          organization: text("Ethereum Foundation", "以太坊基金會"),
+        },
       ],
     },
   },
@@ -723,10 +710,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("TABEI", "TABEI"),
         },
         {
-          name: "Changwu",
-          organization: text("imToken", "imToken"),
-        },
-        {
           name: "Jason Kuo",
           organization: text("Zodia", "Zodia"),
         },
@@ -744,7 +727,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
   {
     time: "13:00–13:30",
     dateTime: "2026-09-14T13:00:00+08:00",
-    mainColSpan: true,
     main: {
       format: text("Talk", "演講"),
       title: text(
@@ -753,6 +735,20 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
       ),
       speakers: [
         { name: "Martinet", organization: text("Quantstamp", "Quantstamp") },
+      ],
+    },
+    forum: {
+      format: text("Talk", "演講"),
+      title: text(
+        "What Ethereum Must Build for Global Finance",
+        "以太坊要如何支撐全球金融？",
+      ),
+      speakers: [
+        {
+          name: "Changwu",
+          localizedName: text("Changwu", "陳昶吾"),
+          organization: text("imToken", "imToken"),
+        },
       ],
     },
   },
@@ -797,7 +793,8 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("Quantstamp", "Quantstamp"),
         },
         {
-          name: "Ko-Wei (IOTA)",
+          name: "Ko-Wei",
+          organization: text("IOTA", "IOTA"),
         },
         {
           name: "Benji",
@@ -843,8 +840,8 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     main: {
       format: text("Panel", "座談"),
       title: text(
-        "Privacy and Security: Key Issues Before Financial Institutions Adopt Blockchain",
-        "隱私與安全：金融機構導入區塊鏈前的關鍵議題",
+        "Trust, Privacy, and Security: Critical Questions Before Financial Institutions Adopt Blockchain",
+        "信任、隱私與安全：金融機構導入區塊鏈前的關鍵拷問",
       ),
       speakers: [
         {
@@ -854,14 +851,18 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("BSOS", "BSOS"),
         },
         {
-          name: "Oskar",
-          organization: text("ETHSystem", "ETHSystem"),
-        },
-        {
           name: "Changwu",
+          localizedName: text("Changwu", "陳昶吾"),
           organization: text("imToken", "imToken"),
         },
-        { status: "pending" },
+        {
+          name: "陳品",
+          organization: text("BSOS", "BSOS"),
+        },
+        {
+          name: "郭博鈞",
+          organization: text("智根科技", "智根科技"),
+        },
       ],
     },
     forum: {
@@ -887,6 +888,7 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
         {
           name: "Ernie Ho",
           jobTitle: text("Former Senior Legal Advisor at MaiCoin", "前 MaiCoin 資深法務"),
+          organization: text("Independent", "Independent"),
         },
         {
           name: "Andrew Wu 律師",
@@ -931,7 +933,7 @@ const SpeakerList = ({
           {speaker.role && (
             <span className={styles.speakerRole}>
               {localize(speaker.role, locale)}
-              {copy.labelSeparator}
+              {" "}
             </span>
           )}
           <span className={speaker.isModerator ? styles.moderatorName : ""}>
@@ -941,12 +943,12 @@ const SpeakerList = ({
             {speaker.alias &&
               `${copy.openParen}${speaker.alias}${copy.closeParen}`}
           </span>
-          {(speaker.jobTitle || speaker.organization) && (
+          {(speaker.jobTitle || getSpeakerOrganization(speaker, locale)) && (
             <span className={styles.organization}>
               {copy.openParen}
               {[
                 speaker.jobTitle && localize(speaker.jobTitle, locale),
-                speaker.organization && localize(speaker.organization, locale),
+                getSpeakerOrganization(speaker, locale),
               ]
                 .filter(Boolean)
                 .join(copy.detailSeparator)}
