@@ -307,6 +307,7 @@ const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   Jatin: "/images/speakers/jatin.jpg",
   "Kai Jun Eer": "/images/speakers/kai-jun-eer.png",
   Martinet: "/images/speakers/martinet.jpg",
+  "Mason Lee": "/images/speakers/mason-lee.jpg",
   "Matthew Keil": "/images/speakers/matthew-keil.png",
   Pol: "/images/speakers/pol-lanski.png",
   "Vitalik Buterin": "/images/speakers/vitalik.jpg",
@@ -819,8 +820,12 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("TAAS", "TAAS"),
         },
         {
-          name: "TBA",
-          organization: text("Bitgo", "Bitgo"),
+          name: "Mason Lee",
+          jobTitle: text(
+            "Regional Head, BitGo Taiwan",
+            "Regional Head, BitGo Taiwan",
+          ),
+          organization: text("BitGo", "BitGo"),
         },
         {
           name: "Jon Lin",

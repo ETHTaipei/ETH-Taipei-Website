@@ -244,6 +244,12 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/martinet.jpg",
   },
   {
+    name: "Mason Lee",
+    title: "Regional Head, BitGo Taiwan",
+    company: "BitGo",
+    avatar: "/images/speakers/mason-lee.jpg",
+  },
+  {
     name: "Oskar",
     company: "ETHSystem",
     avatar: "/images/speakers/oskar.jpg",
