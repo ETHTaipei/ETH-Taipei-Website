@@ -455,8 +455,8 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
     workshop: {
       format: text("Workshop", "工作坊"),
       title: text(
-        "How TWDIW and Bhutan NDI adopt Ethereum? / What role should Ethereum play in decentralized identity?",
-        "How TWDIW and Bhutan NDI adopt Ethereum? / What role should Ethereum play in decentralized identity?",
+        "Privacy-Preserving Citizenship Verification Using Zero-Knowledge Proofs / National Identity Systems Using Ethereum",
+        "Privacy-Preserving Citizenship Verification Using Zero-Knowledge Proofs / National Identity Systems Using Ethereum",
       ),
       speakers: [
         { name: "Vivi Jeng", organization: text("Independent", "獨立") },
