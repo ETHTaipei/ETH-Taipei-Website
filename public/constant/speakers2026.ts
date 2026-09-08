@@ -175,9 +175,9 @@ const cryptonativeDay: Speaker2026[] = [
 
 const institutionDay: Speaker2026[] = [
   {
-    name: "王筱維",
+    name: "Hsiao-Wei Wang",
     company: "Ethereum Foundation",
-    companyZhHant: "以太坊基金會",
+    avatar: "/images/speakers/hsiao-wei-wang.jpg",
   },
   {
     name: "陳品",
