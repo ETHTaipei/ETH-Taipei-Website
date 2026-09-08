@@ -662,12 +662,11 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
     forum: {
       format: text("Talk", "演講"),
-      title: text("TBD", "TBD"),
-      titleStatus: "pending",
+      title: text("Why Ethereum, Why Now", "Why Ethereum, Why Now"),
       speakers: [
         {
-          name: "王筱維",
-          organization: text("Ethereum Foundation", "以太坊基金會"),
+          name: "Hsiao-Wei Wang",
+          organization: text("Ethereum Foundation", "Ethereum Foundation"),
         },
       ],
     },
