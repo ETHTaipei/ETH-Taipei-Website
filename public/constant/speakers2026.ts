@@ -180,6 +180,14 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/hsiao-wei-wang.jpg",
   },
   {
+    name: "洪敏超",
+    title: "Executive Vice President",
+    titleZhHant: "執行副總",
+    company: "EY",
+    companyZhHant: "安永企業諮詢服務股份有限公司",
+    avatar: "/images/speakers/hong-min-chao.png",
+  },
+  {
     name: "陳品",
     company: "BSOS",
     avatar: "/images/speakers/ping.jpg",
