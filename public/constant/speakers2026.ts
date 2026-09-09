@@ -185,7 +185,7 @@ const institutionDay: Speaker2026[] = [
     titleZhHant: "執行副總",
     company: "EY",
     companyZhHant: "安永企業諮詢服務股份有限公司",
-    avatar: "/images/speakers/hong-min-chao.png",
+    avatar: "/images/speakers/hong-min-chao.webp",
   },
   {
     name: "陳品",
