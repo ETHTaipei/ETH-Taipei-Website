@@ -712,6 +712,11 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           name: "Jason Kuo",
           organization: text("Zodia", "Zodia"),
         },
+        {
+          name: "洪敏超",
+          jobTitle: text("Executive Vice President", "執行副總"),
+          organization: text("EY", "安永企業諮詢服務股份有限公司"),
+        },
       ],
     },
   },
