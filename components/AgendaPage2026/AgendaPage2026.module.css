@@ -629,6 +629,10 @@
   grid-column: 2 / 5;
 }
 
+.threeStage .intermissionWithWorkshop {
+  grid-column: 2 / 4;
+}
+
 .transitionRow {
   background: rgb(231 175 69 / 0.035);
 }
@@ -739,6 +743,13 @@
   margin: 0;
   color: var(--ink);
   font-size: 18px;
+}
+
+.intermissionLocation {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .intermissionCommunity {
