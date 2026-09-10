@@ -206,11 +206,6 @@ const institutionDay: Speaker2026[] = [
     avatar: "/images/speakers/andrew-wu.jpg",
   },
   {
-    name: "Benji",
-    company: "LINE",
-    avatar: "/images/speakers/benji.jpg",
-  },
-  {
     name: "Changwu",
     nameZhHant: "陳昶吾",
     company: "imToken",

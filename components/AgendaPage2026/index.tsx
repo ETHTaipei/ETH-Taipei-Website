@@ -141,6 +141,7 @@ type AgendaRow = {
   intermission?: {
     icon: string;
     title: AgendaText;
+    location?: AgendaText;
     activity?: {
       label: AgendaText;
       title: AgendaText;
@@ -346,6 +347,14 @@ const speakerSession = (
 });
 
 const DAY_1_AGENDA_ROWS: AgendaRow[] = [
+  {
+    time: "09:30–10:00",
+    dateTime: "2026-09-13T09:30:00+08:00",
+    intermission: {
+      icon: "🎟️",
+      title: text("Registration / Entry", "報到 / 進場"),
+    },
+  },
   {
     time: "10:00–10:20",
     dateTime: "2026-09-13T10:00:00+08:00",
@@ -598,16 +607,28 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       "Evaluating LLM Tools for Smart Contract Vulnerability Identification in Web3",
     ),
   },
-  // The stages finish at 16:00; this row exists so workshop #2 can run to its
-  // real 17:00 end rather than being clipped at the table's edge.
+  // Happy Hour runs alongside workshop #2, which continues until 17:00.
   {
     time: "16:00–17:00",
     dateTime: "2026-09-13T16:00:00+08:00",
+    intermission: {
+      icon: "🥂",
+      title: text("Happy Hour", "Happy Hour"),
+      location: text("The Commons (Building F)", "The Commons（F 棟）"),
+    },
     workshopContinuation: true,
   },
 ];
 
 const DAY_2_AGENDA_ROWS: AgendaRow[] = [
+  {
+    time: "09:30–10:00",
+    dateTime: "2026-09-14T09:30:00+08:00",
+    intermission: {
+      icon: "🎟️",
+      title: text("Registration / Entry", "報到 / 進場"),
+    },
+  },
   {
     time: "10:00–10:05",
     dateTime: "2026-09-14T10:00:00+08:00",
@@ -801,10 +822,6 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("IOTA", "IOTA"),
         },
         {
-          name: "Benji",
-          organization: text("LINE", "LINE"),
-        },
-        {
           name: "Teagan",
           organization: text("Canton", "Canton"),
         },
@@ -904,6 +921,15 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
           organization: text("Guoju Law Firm", "國巨律師事務所"),
         },
       ],
+    },
+  },
+  {
+    time: "16:00–17:00",
+    dateTime: "2026-09-14T16:00:00+08:00",
+    intermission: {
+      icon: "🎉",
+      title: text("Closing Party", "Closing Party"),
+      location: text("The Commons (Building F)", "The Commons（F 棟）"),
     },
   },
 ];
@@ -1191,13 +1217,25 @@ const ScheduleRow = ({
       )}
 
       {row.intermission && (
-        <td className={styles.intermission} colSpan={2}>
+        <td
+          className={`${styles.intermission} ${
+            row.workshop || row.workshopContinuation
+              ? styles.intermissionWithWorkshop
+              : ""
+          }`}
+          colSpan={hasWorkshopColumn && !row.workshop && !row.workshopContinuation ? 3 : 2}
+        >
           <div className={styles.intermissionCopy}>
             <span className={styles.intermissionIcon} aria-hidden="true">
               {row.intermission.icon}
             </span>
             <div>
               <h3>{localize(row.intermission.title, locale)}</h3>
+              {row.intermission.location && (
+                <p className={styles.intermissionLocation}>
+                  {localize(row.intermission.location, locale)}
+                </p>
+              )}
             </div>
           </div>
           {row.intermission.activity && (
