@@ -556,7 +556,13 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       undefined,
       "Derive, don't store: rebuilding Polymarket's protocol from the conditional tokens up",
     ),
-    forum: speakerSession("Ryan", "Independent"),
+    forum: speakerSession(
+      "Ryan",
+      "Independent",
+      undefined,
+      undefined,
+      "Bridging Regulation and Decentralization: Tech Stacks for Compliant Adoption",
+    ),
   },
   {
     time: "15:15–15:30",
