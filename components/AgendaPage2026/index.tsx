@@ -348,8 +348,8 @@ const speakerSession = (
 
 const DAY_1_AGENDA_ROWS: AgendaRow[] = [
   {
-    time: "09:30–10:00",
-    dateTime: "2026-09-13T09:30:00+08:00",
+    time: "09:00–10:00",
+    dateTime: "2026-09-13T09:00:00+08:00",
     intermission: {
       icon: "🎟️",
       title: text("Registration / Entry", "報到 / 進場"),
@@ -622,8 +622,8 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
 
 const DAY_2_AGENDA_ROWS: AgendaRow[] = [
   {
-    time: "09:30–10:00",
-    dateTime: "2026-09-14T09:30:00+08:00",
+    time: "09:00–10:00",
+    dateTime: "2026-09-14T09:00:00+08:00",
     intermission: {
       icon: "🎟️",
       title: text("Registration / Entry", "報到 / 進場"),
