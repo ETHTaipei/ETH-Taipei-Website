@@ -164,7 +164,12 @@ const cryptonativeDay: Speaker2026[] = [
     company: "Dappnode",
     avatar: "/images/speakers/pol-lanski.png",
   },
-  { name: "Ryan", title: "Developer", company: "Independent" },
+  {
+    name: "Ryan",
+    title: "Developer",
+    company: "Independent",
+    avatar: "/images/speakers/ryan.png",
+  },
   {
     name: "Eric Lee",
     title: "Core Developer",
