@@ -377,6 +377,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       "Ethereum Foundation",
       undefined,
       text("Talk", "演講"),
+      "Blockchain is one tool, CROPS is the objective",
     ),
   },
   {
@@ -454,6 +455,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       "Ethereum Foundation",
       undefined,
       text("Talk", "演講"),
+      "EIP-8288: In-mempool recursive STARK aggregation",
     ),
   },
   {
