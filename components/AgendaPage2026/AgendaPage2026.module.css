@@ -880,6 +880,7 @@
   }
 
   .session {
+    height: auto;
     border-left: 0;
   }
 }
