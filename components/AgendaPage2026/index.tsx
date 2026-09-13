@@ -499,7 +499,7 @@ const DAY_1_AGENDA_ROWS: AgendaRow[] = [
       "Morpho",
       undefined,
       undefined,
-      "How to design contracts that institutions want",
+      "Most Underrated Contract Features for Institutions",
     ),
     forum: speakerSession(
       "Jatin",
