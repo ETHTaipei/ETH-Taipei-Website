@@ -317,6 +317,7 @@ const SPEAKER_AVATARS: Record<string, string> = Object.fromEntries(
 
 const AGENDA_SPEAKER_AVATARS: Record<string, string> = {
   ...SPEAKER_AVATARS,
+  "Ian Lin": "/images/speakers/ian-lin.webp",
   "殷玉龍律師": SPEAKER_AVATARS["殷玉龍"],
   "Andrew Wu 律師": SPEAKER_AVATARS["Andrew Wu"],
   "黃子庭律師": SPEAKER_AVATARS["黃子庭"],
@@ -750,8 +751,20 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     },
   },
   {
-    time: "11:45–13:00",
+    time: "11:45–12:00",
     dateTime: "2026-09-14T11:45:00+08:00",
+    main: speakerSession(
+      "Ian Lin",
+      "Circle",
+      undefined,
+      text("Talk", "演講"),
+      "Arc Overview: Real World Finance On Chain",
+    ),
+    forumTransition: text("Lunch break", "午餐時間"),
+  },
+  {
+    time: "12:00–13:00",
+    dateTime: "2026-09-14T12:00:00+08:00",
     intermission: {
       icon: "🍽️",
       title: text("Lunch", "午餐時間"),
