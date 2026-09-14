@@ -803,7 +803,10 @@ const DAY_2_AGENDA_ROWS: AgendaRow[] = [
     dateTime: "2026-09-14T13:30:00+08:00",
     main: {
       format: text("Talk", "演講"),
-      title: text("Introduction to ETHSystem", "ETHSystem 介紹"),
+      title: text(
+        "Confidential Systems for Institutional Ethereum",
+        "機構級以太坊隱私系統",
+      ),
       speakers: [
         { name: "Oskar", organization: text("ETHSystem", "ETHSystem") },
       ],
