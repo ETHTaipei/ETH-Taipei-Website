@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useT } from "@/contexts/LanguageContext";
@@ -40,7 +39,6 @@ import {
   gccUrl,
   grenadeUrl,
   hackersInTunghaiUrl,
-  kpmgUrl,
   likeCoinDaoUrl,
   miraUrl,
   monsterBlockUrl,
@@ -89,10 +87,6 @@ type LogoEntry = {
   tier?: number;
 };
 
-const PROFESSIONAL_SERVICES_HIDE_FROM = new Date(
-  "2026-09-14T18:00:00+08:00",
-).getTime();
-
 // Student clubs, DAOs and regional Ethereum communities all sit here rather
 // than under Community Support — that's how Hygraph classified them for 2025,
 // where isCommunitySupport was reserved for Taipei Ethereum Meetup, the
@@ -102,16 +96,6 @@ const PROFESSIONAL_SERVICES_HIDE_FROM = new Date(
 // rather than equal width, so a 10:1 wordmark (TechFlow) and a square badge
 // (Zombit) carry the same weight in the grid: height = sqrt(6400 / aspect),
 // clamped to 30..78. TABEI and Mira are hand-sized — they lead the section.
-const PROFESSIONAL_SERVICES: LogoEntry[] = [
-  {
-    name: "KPMG",
-    url: kpmgUrl,
-    img: "/images/partners/kpmg.svg",
-    width: 128,
-    height: 50,
-  },
-];
-
 const PARTNERS: LogoEntry[] = [
   {
     name: "TABEI",
@@ -639,35 +623,9 @@ const byTier = (list: LogoEntry[]) =>
 
 const PartnerSection = () => {
   const t = useT();
-  const [showProfessionalServices, setShowProfessionalServices] =
-    useState(true);
-
-  const professionalServices = byTier(PROFESSIONAL_SERVICES);
   const partners = byTier(PARTNERS);
   const schoolClubs = byTier(SCHOOL_CLUBS);
   const mediaPartners = byTier(MEDIA_PARTNERS);
-
-  useEffect(() => {
-    let timer: number | undefined;
-
-    const updateVisibility = () => {
-      const remaining = PROFESSIONAL_SERVICES_HIDE_FROM - Date.now();
-      setShowProfessionalServices(remaining > 0);
-
-      if (remaining > 0) {
-        timer = window.setTimeout(
-          updateVisibility,
-          Math.min(remaining, 60 * 60 * 1000),
-        );
-      }
-    };
-
-    updateVisibility();
-
-    return () => {
-      if (timer !== undefined) window.clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <Container>
@@ -695,18 +653,6 @@ const PartnerSection = () => {
             <PartnersGrid>
               {schoolClubs.map((club) => (
                 <Logo logo={club} key={club.name} />
-              ))}
-            </PartnersGrid>
-          </SectionContainer>
-        )}
-        {showProfessionalServices && (
-          <SectionContainer>
-            <Title>{t.homepage.professionalServices}</Title>
-            <PartnersGrid>
-              {professionalServices.map((service) => (
-                <BrandClearSpace key={service.name}>
-                  <Logo logo={service} />
-                </BrandClearSpace>
               ))}
             </PartnersGrid>
           </SectionContainer>
@@ -747,13 +693,6 @@ const MainContent = styled(BaseMainContent)`
 
 const SectionContainer = styled.div`
   width: 100%;
-`;
-
-// KPMG's usage rules require clear space around the logo (one logo height,
-// or half a height in cramped layouts). The logo renders at 50px high; we use
-// 24px (~ half a height) so the section doesn't get an oversized empty gap.
-const BrandClearSpace = styled.div`
-  padding: 24px;
 `;
 
 const logoStyles = `
