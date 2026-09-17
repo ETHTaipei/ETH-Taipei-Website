@@ -798,55 +798,12 @@
   transform-style: preserve-3d;
 }
 
-.countdown {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  width: 100%;
-}
-
-.timebox,
 .venueCard,
 .signalCard {
   border: 1px solid var(--panel-line);
   background: var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
-}
-
-.timebox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  padding: 13px 8px 12px;
-  border-radius: 14px;
-  text-align: center;
-}
-
-.timebox strong {
-  display: block;
-  width: 100%;
-  color: var(--acid);
-  font-size: clamp(34px, 4.6vw, 52px);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em;
-  line-height: 0.9;
-  text-align: center;
-  text-shadow: 0 0 18px rgb(203 241 1 / 0.45);
-}
-
-.timebox span {
-  display: block;
-  width: 100%;
-  margin-top: 7px;
-  color: oklch(70% 0.02 255);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .venueCard {
@@ -1465,25 +1422,6 @@
     padding: 10.8px 14.4px;
     border-radius: 12px;
     font-size: 15.6px;
-  }
-
-  .countdown {
-    gap: 6px;
-  }
-
-  .timebox {
-    padding-right: 4px;
-    padding-left: 4px;
-    border-radius: 10px;
-  }
-
-  .timebox strong {
-    font-size: clamp(25px, 10vw, 36px);
-  }
-
-  .timebox span {
-    font-size: 9px;
-    letter-spacing: 0.12em;
   }
 
   .signalCard {
