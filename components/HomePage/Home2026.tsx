@@ -34,41 +34,6 @@ const getVenueMapsUrl = (address: string) =>
     address
   )}`;
 
-type Countdown = {
-  days: string;
-  hours: string;
-  mins: string;
-  secs: string;
-};
-
-const emptyCountdown: Countdown = {
-  days: "--",
-  hours: "--",
-  mins: "--",
-  secs: "--",
-};
-
-const pad = (value: number) => String(value).padStart(2, "0");
-
-const getCountdown = (): Countdown => {
-  const target = new Date("2026-09-13T09:00:00+08:00").getTime();
-  let diff = Math.max(0, target - Date.now());
-  const days = Math.floor(diff / 864e5);
-  diff -= days * 864e5;
-  const hours = Math.floor(diff / 36e5);
-  diff -= hours * 36e5;
-  const mins = Math.floor(diff / 6e4);
-  diff -= mins * 6e4;
-  const secs = Math.floor(diff / 1e3);
-
-  return {
-    days: pad(days),
-    hours: pad(hours),
-    mins: pad(mins),
-    secs: pad(secs),
-  };
-};
-
 const Star = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
     <path
@@ -125,7 +90,6 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
   const cfpPhase = useCfpPhase(initialCfpPhase);
   const isCfpOpen = cfpPhase === "open";
   const [menuOpen, setMenuOpen] = useState(false);
-  const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
   const [activeHref, setActiveHref] = useState("#home");
   const [shouldPlayHeroVideo, setShouldPlayHeroVideo] = useState(false);
 
@@ -138,13 +102,6 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
     syncVideo();
     videoQuery.addEventListener("change", syncVideo);
     return () => videoQuery.removeEventListener("change", syncVideo);
-  }, []);
-
-  useEffect(() => {
-    const tick = () => setCountdown(getCountdown());
-    tick();
-    const timer = window.setInterval(tick, 1000);
-    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -417,21 +374,6 @@ const Hero2026 = ({ initialCfpPhase }: { initialCfpPhase: CfpPhase }) => {
         </div>
 
         <aside className={styles.dataStack} data-depth="42" aria-label="Event details">
-          <div className={styles.countdown} aria-label={`Countdown to ETHTaipei ${year}`}>
-            {(
-              [
-                [countdown.days, t.hero.countdownDays],
-                [countdown.hours, t.hero.countdownHours],
-                [countdown.mins, t.hero.countdownMins],
-                [countdown.secs, t.hero.countdownSecs],
-              ] as const
-            ).map(([value, label]) => (
-              <div className={styles.timebox} key={label}>
-                <strong>{value}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
           <article className={styles.venueCard}>
             <div className={styles.venueMeta}>
               <time className={styles.venueDate} dateTime="2026-09-13/2026-09-15">
