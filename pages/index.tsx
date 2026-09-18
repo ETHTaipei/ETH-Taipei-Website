@@ -37,6 +37,9 @@ const DynamicCallToAction = dynamic(
 const DynamicCommunitySupport = dynamic(
   () => import("@/components/HomePage/CommunitySupport")
 );
+const DynamicContributors = dynamic(
+  () => import("@/components/HomePage/Contributors")
+);
 const DynamicPartnerSection = dynamic(
   () => import("@/components/HomePage/PartnerSection")
 );
@@ -58,6 +61,7 @@ const Home = ({ initialApolloState, initialCfpPhase }: HomeProps) => {
         <DynamicPartners />
         <DynamicPartnerSection />
         <DynamicCommunitySupport />
+        <DynamicContributors />
         <DynamicCallToAction />
       </div>
     </ApolloWrapper>
